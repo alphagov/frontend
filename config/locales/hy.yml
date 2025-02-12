@@ -394,6 +394,11 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+    fatality_notice:
+      alt_text: Պաշտպանության նախարարության զինանշան
+      field_of_operation: Գործունեության ոլորտ
+      none_added: 'Գործունեության այս ոլորտի համար դժբախտ պատահարի ծանուցումներ դեռևս չեն ավելացվել:'
+      operations_in: Գործունեություն % {location}-ում
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

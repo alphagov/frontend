@@ -544,6 +544,11 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    fatality_notice:
+      alt_text: Il-Ministeru tad-Difiża
+      field_of_operation: Qasam tal-operazzjoni
+      none_added: Ma kien hemm l-ebda avviżi ta' fatalitajiet miżjuda għal din l-operazzjoni.
+      operations_in: Operazzjonijiet fil- %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

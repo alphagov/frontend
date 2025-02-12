@@ -396,6 +396,11 @@ en:
     case_study:
       one: Case study
       other: Case studies
+    fatality_notice:
+      alt_text: Ministry of Defence crest
+      field_of_operation: Field of operation
+      none_added: There have been no fatality notices added for this field of operation yet.
+      operations_in: Operations in %{location}
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:

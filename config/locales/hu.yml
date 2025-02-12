@@ -394,6 +394,11 @@ hu:
     case_study:
       one: Esettanulmány
       other: Esettanulmányok
+    fatality_notice:
+      alt_text: A Védelmi Minisztérium címere
+      field_of_operation: Működési terület
+      none_added: Ehhez a működési területhez még nem lettek hozzáadva halálesetekkel kapcsolatos értesítések.
+      operations_in: 'Tevékenységek itt: %{location}'
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

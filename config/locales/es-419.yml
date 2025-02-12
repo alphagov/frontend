@@ -394,6 +394,11 @@ es-419:
     case_study:
       one: Estudio de caso
       other: Estudios de caso
+    fatality_notice:
+      alt_text: Escudo del Ministerio de Defensa
+      field_of_operation: Campo de operación
+      none_added: Todavía no se han añadido avisos de víctimas fatales para esta área de operaciones.
+      operations_in: Operaciones en %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

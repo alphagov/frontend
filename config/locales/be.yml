@@ -544,6 +544,11 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+    fatality_notice:
+      alt_text: Герб Міністэрства абароны
+      field_of_operation: Сфера дзейнасці
+      none_added: Для гэтага аперацыйнага поля яшчэ не было дададзена ніякіх паведамленняў аб смерцi.
+      operations_in: Дзейнасць у %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,11 @@ pa-pk:
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
+    fatality_notice:
+      alt_text: وزارتِ دفاع کریسٹ
+      field_of_operation: عمل کرن دا حلقہ
+      none_added: موت دی کوئی وی اطلاع شامل نئیں کیتی گئی ایس تھاں تے کم کرن لئی
+      operations_in: ایندے بارے عمل %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

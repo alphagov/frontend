@@ -394,6 +394,11 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+    fatality_notice:
+      alt_text: Goranmak ministrliginiň nyşany
+      field_of_operation: Iş meýdany
+      none_added: Bu ugurda entek ölüm howpy barada duýduryş habary ýok.
+      operations_in: "%{location} ýerindäki işler"
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

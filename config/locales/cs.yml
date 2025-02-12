@@ -469,6 +469,11 @@ cs:
       few:
       one: Případová studie
       other: Případové studie
+    fatality_notice:
+      alt_text: Ministerstvo obrany
+      field_of_operation: Oblast provozu
+      none_added: Pro tuto oblast činnosti zatím nebyla přidána žádná oznámení o úmrtí.
+      operations_in: Operace v %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

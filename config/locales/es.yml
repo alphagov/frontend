@@ -394,6 +394,11 @@ es:
     case_study:
       one: Caso de estudio práctico
       other: Casos de estudio práctico
+    fatality_notice:
+      alt_text: Escudo del Ministerio de Defensa
+      field_of_operation: Campo de operación
+      none_added: Aún no se han agregado los avisos de defunción para este campo de operación.
+      operations_in: Operaciones en %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

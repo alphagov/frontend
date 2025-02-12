@@ -394,6 +394,11 @@
     case_study:
       one: Casestudie
       other: Casestudier
+    fatality_notice:
+      alt_text: Forsvarsdepartementets crest
+      field_of_operation: Operasjonsfelt
+      none_added: Det har ikke blitt lagt til noen meldinger om dødsfall for dette operasjonsfeltet ennå.
+      operations_in: Operasjoner i %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,11 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+    fatality_notice:
+      alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
+      field_of_operation: Tegevusvaldkond
+      none_added: Selle tegevusvaldkonna kohta ei ole surmajuhtumeid veel lisatud.
+      operations_in: Toimingud asukohas %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

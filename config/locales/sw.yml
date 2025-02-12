@@ -394,6 +394,11 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+    fatality_notice:
+      alt_text: Eneo la Wizara ya Ulinzi
+      field_of_operation: Sehemu ya kazi
+      none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
+      operations_in: Shughuli zinazofanywa katika %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

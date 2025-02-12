@@ -394,6 +394,11 @@ fa:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+    fatality_notice:
+      alt_text: تاج وزارت دفاع
+      field_of_operation: زمینه فعالیت
+      none_added: هنوز هیچ اعلامیه مرگ‌و‌میری برای این زمینه فعالیت اضافه نشده است.
+      operations_in: فعالیت در %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

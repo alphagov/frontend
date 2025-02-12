@@ -544,6 +544,11 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+    fatality_notice:
+      alt_text: Grb Ministrstva za obrambo
+      field_of_operation: Področje delovanja
+      none_added: Za to področje delovanja še ni bilo dodanih obvestil o smrtnih žrtvah.
+      operations_in: Dejavni v %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

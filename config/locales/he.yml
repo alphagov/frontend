@@ -394,6 +394,11 @@ he:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן
+    fatality_notice:
+      alt_text: סמל משרד הביטחון
+      field_of_operation: תחום הפעולה
+      none_added: עדיין לא נוספו הודעות פטירה על תחום פעולה זה.
+      operations_in: פעולות ב- %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

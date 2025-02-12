@@ -394,6 +394,11 @@ sv:
     case_study:
       one: Fallstudie
       other: Fallstudier
+    fatality_notice:
+      alt_text: Försvarsministeriets vapensköld
+      field_of_operation: Verksamhetsområde
+      none_added: Det har ännu inte lagts till några meddelanden om dödsfall för detta verksamhetsområde.
+      operations_in: Verksamhet på %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

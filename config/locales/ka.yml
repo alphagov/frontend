@@ -394,6 +394,11 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+    fatality_notice:
+      alt_text: თავდაცვის სამინისტრო
+      field_of_operation: ოპერაციის სფერო
+      none_added: ფატალურობის შეტყობინება ჯერ არ დამატებულა ოპერაციის ამ სფეროში.
+      operations_in: ოპერაციები %{location}-ში
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

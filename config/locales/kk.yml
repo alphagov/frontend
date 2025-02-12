@@ -394,6 +394,11 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+    fatality_notice:
+      alt_text: Қорғаныс министрлігінің елтаңбасы
+      field_of_operation: Жұмыс аймағы
+      none_added: Бұл жұмыс саласы үшін өлім туралы хабарламалар әлі қосылмады.
+      operations_in: "%{location} орнындағы жұмыстар"
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -319,6 +319,11 @@ ms:
       other: Artikel ditulis penulis
     case_study:
       other: Kajian kes
+    fatality_notice:
+      alt_text: Lambang Kementerian Pertahanan
+      field_of_operation: Medan operasi
+      none_added: Belum ada notis kematian yang ditambahkan untuk medan operasi ini.
+      operations_in: Operasi di %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

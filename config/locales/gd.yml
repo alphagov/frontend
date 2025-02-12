@@ -544,6 +544,11 @@ gd:
       one: Cás-staidéir
       other: Tuarascálacha staidéir
       two:
+    fatality_notice:
+      alt_text: Suaitheantas rialtais Chónaidhme
+      field_of_operation: Réimse oibríochta
+      none_added: Níor cuireadh aon fhógra báis leis an réimse gníomhaíochta seo.
+      operations_in: Idirbhearta I %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

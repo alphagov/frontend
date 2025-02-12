@@ -394,6 +394,11 @@ da:
     case_study:
       one: Casestudie
       other: Casestudie
+    fatality_notice:
+      alt_text: Forsvarsministeriets kam
+      field_of_operation: Operationsområde
+      none_added: Der er ikke tilføjet nogen dødsfald for dette operationsområde endnu.
+      operations_in: Handlinger i %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

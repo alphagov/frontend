@@ -394,6 +394,11 @@ el:
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων
+    fatality_notice:
+      alt_text: Οικόσημο Υπουργείου Άμυνας
+      field_of_operation: Πεδίο λειτουργίας
+      none_added: Δεν έχουν προστεθεί ακόμη ανακοινώσεις θανάτου για αυτό το πεδίο λειτουργίας.
+      operations_in: Λειτουργίες στην τοποθεσία %{location}
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -80,6 +80,8 @@ Rails.application.routes.draw do
 
     get "/case-studies/:slug(.:locale)", to: "case_study#show", as: :case_study
 
+    get "/fatalities/:slug", to: "fatality_notice#show", as: :fatality_notice
+
     scope "/get-involved" do
       get "/", to: "get_involved#show"
       get "/take-part/:slug", to: "take_part#show"

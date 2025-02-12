@@ -1,0 +1,78 @@
+<% content_for :title do %>
+  <%= @presenter.page_title %> - <%= t("formats.fatality_notice", count: 1) %> - GOV.UK
+<% end %>
+
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+      context: t("formats.fatality_notice.operations_in", location: content_item.field_of_operation.try(:title)),
+    } %>
+  </div>
+  <%= render "shared/translations" %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+  </div>
+</div>
+
+<%= render "shared/publisher_metadata", locals: {
+  from: govuk_styled_links_list(@presenter.contributor_links),
+  first_published: display_date(content_item.initial_publication_date),
+  last_updated: display_date(content_item.updated),
+  } %>
+
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+  <%= render "govuk_publishing_components/components/notice", {
+    title: t("withdrawn_notice.title", schema_name: t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation.html_safe,
+    time: withdrawn_time_tag,
+    lang: I18n.locale.to_s == "en" ? false : "en",
+  } %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="content-bottom-margin">
+      <div class="responsive-bottom-margin">
+        <% if content_item.field_of_operation.present? %>
+          <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
+            <%= render "govuk_publishing_components/components/metadata", {
+              inverse: true,
+              other: {
+                t("formats.fatality_notice.field_of_operation") => govuk_styled_link(content_item.field_of_operation.title, path: content_item.field_of_operation.base_path, inverse: true),
+              },
+              margin_bottom: 0,
+            } %>
+          <% end %>
+        <% end %>
+
+        <%= render "components/figure", {
+          src: image_url("ministry-of-defence-crest.png"),
+          alt: t("formats.fatality_notice.alt_text"),
+        } %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
+        } do %>
+          <%= raw(content_item.body) %>
+        <% end %>
+      </div>
+      <%= render "components/published_dates", {
+        published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        history: content_item.history,
+      } %>
+    </div>
+  </div>
+  <%= render "shared/sidebar_navigation" %>
+</div>
+
+<%= render "shared/footer_navigation" %>

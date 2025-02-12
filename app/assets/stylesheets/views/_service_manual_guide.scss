@@ -1,0 +1,12 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.govuk-frontend-supported {
+  .app-change-history__past {
+    &.govuk-list {
+      // stylelint-disable-next-line max-nesting-depth
+      &.js-hidden {
+        display: none;
+      }
+    }
+  }
+}

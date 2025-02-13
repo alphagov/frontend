@@ -14,10 +14,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds responsive-top-margin">
-    <%= render "govuk_publishing_components/components/title", {
-        title: content_item.title,
-        average_title_length: "long",
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      average_title_length: "long",
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
   </div>
   <%= render "shared/translations" %>
   <div class="govuk-grid-column-two-thirds">

@@ -388,6 +388,9 @@ so:
   error:
   find:
   formats:
+    authored_article:
+      one: Qodob laqoray
+      other: Qodobada laqoray
     case_study:
       one: Daraasad
       other: Daraasado

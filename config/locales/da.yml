@@ -388,6 +388,9 @@ da:
   error:
   find:
   formats:
+    authored_article:
+      one: Forfattet artikel
+      other: Forfatterartikler
     case_study:
       one: Casestudie
       other: Casestudie

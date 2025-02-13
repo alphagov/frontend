@@ -315,6 +315,8 @@ ms:
   error:
   find:
   formats:
+    authored_article:
+      other: Artikel ditulis penulis
     case_study:
       other: Kajian kes
     find_my_nearest:

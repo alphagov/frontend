@@ -315,6 +315,8 @@ th:
   error:
   find:
   formats:
+    authored_article:
+      other: บทความที่มีผู้เขียน
     case_study:
       other: กรณีศึกษา
     find_my_nearest:

@@ -534,6 +534,11 @@ sl:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Avtorski članek
+      other: Avtorski članki
+      two:
     case_study:
       few:
       one: Študija primera

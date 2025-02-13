@@ -388,6 +388,9 @@ ne:
   error:
   find:
   formats:
+    authored_article:
+      one: लेखिएको लेख
+      other: लेखिएको लेखहरू
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू

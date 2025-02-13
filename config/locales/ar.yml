@@ -680,6 +680,13 @@ ar:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: مقال مؤلَّف
+      other: مقالات مؤلَّفة
+      two:
+      zero:
     case_study:
       few:
       many:

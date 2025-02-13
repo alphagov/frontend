@@ -388,6 +388,9 @@ ps:
   error:
   find:
   formats:
+    authored_article:
+      one: لیکل شوې مقاله
+      other: لیکل شوي مقالې
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات

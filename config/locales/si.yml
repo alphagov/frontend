@@ -388,6 +388,9 @@ si:
   error:
   find:
   formats:
+    authored_article:
+      one: රචනා කළ ලිපිය
+      other: රචනා කළ ලිපි
     case_study:
       one: සිද්ධි අධ්යයනය
       other: සිද්ධි අධ්යයන

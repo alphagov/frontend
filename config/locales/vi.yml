@@ -315,6 +315,8 @@ vi:
   error:
   find:
   formats:
+    authored_article:
+      other: Bài viết có tác giả
     case_study:
       other: Nghiên cứu điển hình
     find_my_nearest:

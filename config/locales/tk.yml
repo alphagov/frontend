@@ -388,6 +388,9 @@ tk:
   error:
   find:
   formats:
+    authored_article:
+      one: Ygtyýarlandyrylan statýa
+      other: Ygtyýarlandyrylan statýalar
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri

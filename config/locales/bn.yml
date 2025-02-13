@@ -388,6 +388,9 @@ bn:
   error:
   find:
   formats:
+    authored_article:
+      one: লেখকের উৎস সহ নিবন্ধ
+      other: লেখকের উৎস সহ নিবন্ধসমূহ
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ

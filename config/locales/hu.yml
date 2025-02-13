@@ -388,6 +388,9 @@ hu:
   error:
   find:
   formats:
+    authored_article:
+      one: Publicisztika
+      other: Publicisztikák
     case_study:
       one: Esettanulmány
       other: Esettanulmányok

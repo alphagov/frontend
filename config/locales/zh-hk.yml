@@ -315,6 +315,8 @@ zh-hk:
   error:
   find:
   formats:
+    authored_article:
+      other: 撰寫文章
     case_study:
       other: 案例研究
     find_my_nearest:

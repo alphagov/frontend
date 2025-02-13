@@ -388,6 +388,9 @@ pt:
   error:
   find:
   formats:
+    authored_article:
+      one: Artigo de autor
+      other: Artigos de autor
     case_study:
       one: Estudo de caso
       other: Estudos de caso

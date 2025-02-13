@@ -315,6 +315,8 @@ id:
   error:
   find:
   formats:
+    authored_article:
+      other: Artikel bersumber
     case_study:
       other: Studi kasus
     find_my_nearest:

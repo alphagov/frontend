@@ -388,6 +388,9 @@ de:
   error:
   find:
   formats:
+    authored_article:
+      one: Namensartikel
+      other: Namensartikel
     case_study:
       one: Fallstudie
       other: Fallstudien

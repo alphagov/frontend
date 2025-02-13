@@ -388,6 +388,9 @@ fa:
   error:
   find:
   formats:
+    authored_article:
+      one: مقاله تألیف شده
+      other: مقالات تألیف شده
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی

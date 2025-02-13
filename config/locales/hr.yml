@@ -461,6 +461,10 @@ hr:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autorski članak
+      other: Autorski članci
     case_study:
       few:
       one: Studija slučaja

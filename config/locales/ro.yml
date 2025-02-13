@@ -461,6 +461,10 @@ ro:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Articol publicat
+      other: Articole publicate
     case_study:
       few:
       one: Studiu de caz

@@ -388,6 +388,9 @@ fi:
   error:
   find:
   formats:
+    authored_article:
+      one: Kirjoitettu artikkeli
+      other: Kirjoitettuja artikkeleita
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia

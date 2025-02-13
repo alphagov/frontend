@@ -388,6 +388,9 @@ hy:
   error:
   find:
   formats:
+    authored_article:
+      one: Հեղինակային հոդված
+      other: Հեղինակային հոդվածներ
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ

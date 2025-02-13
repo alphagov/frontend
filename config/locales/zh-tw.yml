@@ -315,6 +315,8 @@ zh-tw:
   error:
   find:
   formats:
+    authored_article:
+      other: 授權文章
     case_study:
       other: 案例分析
     find_my_nearest:

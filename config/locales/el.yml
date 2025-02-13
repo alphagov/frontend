@@ -388,6 +388,9 @@ el:
   error:
   find:
   formats:
+    authored_article:
+      one: Σύνταξη άρθρου
+      other: Σύνταξη άρθρων
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων

@@ -315,6 +315,8 @@ ko:
   error:
   find:
   formats:
+    authored_article:
+      other: 저작물
     case_study:
       other: 사례 연구
     find_my_nearest:

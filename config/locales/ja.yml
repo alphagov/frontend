@@ -315,6 +315,8 @@ ja:
   error:
   find:
   formats:
+    authored_article:
+      other: 執筆記事
     case_study:
       other: ケーススタディ
     find_my_nearest:

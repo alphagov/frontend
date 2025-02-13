@@ -388,6 +388,9 @@ uz:
   error:
   find:
   formats:
+    authored_article:
+      one: Муаллифлик мақоласи
+      other: Муаллифлик мақолалари
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари

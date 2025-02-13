@@ -388,6 +388,9 @@ gu:
   error:
   find:
   formats:
+    authored_article:
+      one: લેખિત લેખ
+      other: લેખિત લેખો
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ

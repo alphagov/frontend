@@ -388,6 +388,9 @@ es-419:
   error:
   find:
   formats:
+    authored_article:
+      one: Artículo de autoría
+      other: Artículos de autoría
     case_study:
       one: Estudio de caso
       other: Estudios de caso

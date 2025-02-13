@@ -388,6 +388,9 @@ tr:
   error:
   find:
   formats:
+    authored_article:
+      one: Yazılı makale
+      other: Yazılı makaleler
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri

@@ -388,6 +388,9 @@ is:
   error:
   find:
   formats:
+    authored_article:
+      one: Samin grein
+      other: Samdar greinar
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir

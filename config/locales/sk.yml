@@ -461,6 +461,10 @@ sk:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autor článku
+      other: Autorské články
     case_study:
       few:
       one: Prípadová štúdia

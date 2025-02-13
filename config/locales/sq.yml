@@ -388,6 +388,9 @@ sq:
   error:
   find:
   formats:
+    authored_article:
+      one: Artikull me autor
+      other: Artikuj me autor
     case_study:
       one: Rast studimi
       other: Raste studimi

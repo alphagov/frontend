@@ -388,6 +388,9 @@ et:
   error:
   find:
   formats:
+    authored_article:
+      one: Kirjutatud artikkel
+      other: Kirjutatud artiklid
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud

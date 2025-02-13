@@ -388,6 +388,9 @@ pa:
   error:
   find:
   formats:
+    authored_article:
+      one: ਲੇਖਕ ਲੇਖ
+      other: ਲੇਖਕ ਲੇਖ
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ

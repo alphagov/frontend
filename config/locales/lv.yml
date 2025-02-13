@@ -388,6 +388,9 @@ lv:
   error:
   find:
   formats:
+    authored_article:
+      one: Autora raksts
+      other: Autora raksti
     case_study:
       one: Piemērs
       other: Piemēri

@@ -534,6 +534,11 @@ gd:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Ailt scríofa
+      other: Téacsanna scríofa
+      two:
     case_study:
       few:
       one: Cás-staidéir

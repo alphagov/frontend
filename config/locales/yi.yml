@@ -388,6 +388,9 @@ yi:
   error:
   find:
   formats:
+    authored_article:
+      one:
+      other:
     case_study:
       one:
       other:

@@ -388,6 +388,9 @@ he:
   error:
   find:
   formats:
+    authored_article:
+      one: מאמר מאושר
+      other: מאמרים מאושרים
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן

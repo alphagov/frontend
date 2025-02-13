@@ -388,6 +388,9 @@ az:
   error:
   find:
   formats:
+    authored_article:
+      one: Müəlliflik edilmiş məqalə
+      other: Müəlliflik edilmiş məqalələr
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar

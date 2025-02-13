@@ -388,6 +388,9 @@ bg:
   error:
   find:
   formats:
+    authored_article:
+      one: Авторска статия
+      other: Авторска статии
     case_study:
       one: Казус
       other: Казуси

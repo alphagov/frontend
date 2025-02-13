@@ -388,6 +388,9 @@ kk:
   error:
   find:
   formats:
+    authored_article:
+      one: Мақала авторы
+      other: Мақала авторлары
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер

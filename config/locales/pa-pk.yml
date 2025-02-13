@@ -388,6 +388,9 @@ pa-pk:
   error:
   find:
   formats:
+    authored_article:
+      one: لکھاری دا مضمون
+      other: لکھاری دے مضمون
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی

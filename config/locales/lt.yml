@@ -461,6 +461,10 @@ lt:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autoriaus straipsnis
+      other: Autorių straipsniai
     case_study:
       few:
       one: Atvejo analizė

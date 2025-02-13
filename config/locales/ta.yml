@@ -388,6 +388,9 @@ ta:
   error:
   find:
   formats:
+    authored_article:
+      one: எழுதிய கட்டுரை
+      other: எழுதிய கட்டுரைகள்
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்

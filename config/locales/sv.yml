@@ -388,6 +388,9 @@ sv:
   error:
   find:
   formats:
+    authored_article:
+      one: Författad artikel
+      other: Författade artiklar
     case_study:
       one: Fallstudie
       other: Fallstudier

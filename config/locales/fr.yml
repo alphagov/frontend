@@ -388,6 +388,9 @@ fr:
   error:
   find:
   formats:
+    authored_article:
+      one: Article signé
+      other: Articles signés
     case_study:
       one: Etude de cas
       other: Etudes de cas

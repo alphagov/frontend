@@ -388,6 +388,9 @@ nl:
   error:
   find:
   formats:
+    authored_article:
+      one: Geschreven artikel
+      other: Geschreven artikelen
     case_study:
       one: Casestudy
       other: Casestudies

@@ -682,6 +682,13 @@ cy:
   error:
   find: Ffeindio
   formats:
+    authored_article:
+      few:
+      many:
+      one: Erthygl ag awdur wedi'i enwi
+      other: Erthyglau ag awdur wedi'i enwi
+      two:
+      zero:
     case_study:
       few:
       many:

@@ -388,6 +388,9 @@ nl:
   error:
   find:
   formats:
+    authored_article:
+      one: Geschreven artikel
+      other: Geschreven artikelen
     case_study:
       one: Casestudy
       other: Casestudies
@@ -485,6 +488,9 @@ nl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mondelinge verklaring voor het Parlement
+      other: Mondelinge verklaringen aan het Parlement
     place:
       change:
       find_results:
@@ -496,6 +502,12 @@ nl:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Geleverd op
+      location: Plaats
+      one: Toespraak
+      other: Toespraken
+      written_on: Geschreven op
     start_now:
     take_part:
       one: Neem deel
@@ -518,6 +530,9 @@ nl:
       still_current_at: Nog steeds actueel op
       summary: Samenvatting
       updated: Bijgewerkt op
+    written_statement:
+      one: Schriftelijke verklaring aan het Parlement
+      other: Schriftelijke verklaringen aan het Parlement
   help:
     index:
       about:
@@ -703,6 +718,8 @@ nl:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Dit werd gepubliceerd onder de %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

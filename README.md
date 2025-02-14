@@ -31,6 +31,9 @@ some hard-coded routes.
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap
 |Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
 |                       ||https://www.gov.uk/contact-the-dvla|
+|Specialist Document    |https://www.gov.uk/cma-cases/veterinary-services-market-for-pets-review|
+|                       |https://www.gov.uk/aaib-reports/aaib-investigation-to-aw189-g-fsar|
+|                       |https://www.gov.uk/protected-food-drink-names/pitahaya-amazonica-de-palora|
 |Take part              |[take_part](https://docs.publishing.service.gov.uk/content-schemas/take_part.html)|https://www.gov.uk/government/get-involved/take-part/improve-your-social-housing|
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|

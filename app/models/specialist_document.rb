@@ -51,6 +51,16 @@ class SpecialistDocument < ContentItem
 
 private
 
+  # specialist document change history can have a modified date that is
+  # slightly different to the public_updated_at, eg milliseconds different
+  # this means the direct comparison in updatable gives a false positive
+  # Use change_history as specialist-frontend did
+  #
+  # Can be removed when first_published_at is reliable
+  def any_updates?
+    change_history.size > 1
+  end
+
   def headers_list(headers)
     return if headers.blank?
 

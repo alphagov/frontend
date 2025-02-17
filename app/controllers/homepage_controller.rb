@@ -1,9 +1,7 @@
 class HomepageController < ContentItemsController
   include Cacheable
 
-  slimmer_template "gem_layout_homepage"
+  layout "homepage"
 
-  def index
-    set_slimmer_headers(template: "gem_layout_homepage_new")
-  end
+  def index;  end
 end

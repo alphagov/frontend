@@ -1,0 +1,29 @@
+C4Context
+  title System Context diagram for Frontend Pages
+  Person(user, "User", "A member of the public")
+  System_Boundary(b0, "GOV.UK") {
+    System_Boundary(b1, "GOV.UK Web Frontend") {
+      System(frontend, "Frontend", "Renders pages for public")
+    }
+    System_Boundary(b2, "GOV.UK Web APIs") {
+      System(local_links_manager, "Local Links Manager", "Stores information about Local Authorities")
+      System(places_manager, "Places Manager", "Stores information about nearby services")
+      System(locations_api, "Locations API", "Postcode lookup service")
+    }
+    System_Boundary(b3, "GOV.UK Publishing") {
+      System(content_store, "Content Store", "The store for denormalised GOV.UK content.")
+    }
+    System_Boundary(b4, "Licensify Namespace") {
+      System(licensify_frontend, "Licensify Frontend", "The API side of Licensify.")
+    }
+  }
+  System(electoral_commission_api, "Electoral Commission API", "API run by the electoral commission.")
+
+  BiRel(user, frontend, "Uses")
+  Rel(frontend, content_store, "Retrieves content items")
+  Rel(frontend, local_links_manager, "Retrieves links for a local authority")
+  Rel(frontend, places_manager, "Retrieves places near a point")
+  Rel(frontend, locations_api, "Converts postcode to place/local authority")
+  Rel(frontend, licensify_frontend, "Retrieves licence information")
+  Rel(frontend, electoral_commission_api, "Retrieves electoral contacts for a local authority")
+

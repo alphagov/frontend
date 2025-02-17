@@ -34,20 +34,25 @@ private
         link: {
           text: item["title"],
           path: item["link"],
-          description: "#{close_status} #{item['end_date'].to_date.strftime('%d %B %Y')}",
+          description: closing_date_text(item, close_status),
         },
-        metadata: {
-          public_updated_at: Time.zone.parse(org_time(item)),
-          document_type: org_acronym(item),
-        },
+        subtext: updated_date_text(item),
       }
     end
   end
 
-  def org_time(item)
-    item["organisations"].map { |org|
-      org["public_timestamp"]
-    }.join(", ")
+  def date_format
+    "%e %B %Y"
+  end
+
+  def closing_date_text(item, close_status)
+    "#{close_status}: #{item['end_date'].to_date.strftime(date_format)}"
+  end
+
+  def updated_date_text(item)
+    "#{I18n.t('formats.get_involved.updated')}: "\
+    "#{item['public_timestamp'].to_date.strftime(date_format)} "\
+    "(#{org_acronym(item)})"
   end
 
   def org_acronym(item)

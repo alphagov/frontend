@@ -5,12 +5,12 @@ C4Context
     System_Boundary(b1, "GOV.UK Web Frontend") {
       System(frontend, "Frontend", "Renders pages for public")
     }
-    System_Boundary(b1, "GOV.UK Web APIs") {
+    System_Boundary(b2, "GOV.UK Web APIs") {
       System(local_links_manager, "Local Links Manager", "Stores information about Local Authorities")
       System(places_manager, "Places Manager", "Stores information about nearby services")
       System(locations_api, "Locations API", "Postcode lookup service")
     }
-    System_Boundary(b2, "GOV.UK Publishing") {
+    System_Boundary(b3, "GOV.UK Publishing") {
       System(content_store, "Content Store", "The store for denormalised GOV.UK content.")
     }
   }

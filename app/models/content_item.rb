@@ -1,8 +1,9 @@
 require "ostruct"
 
 class ContentItem
-  include Withdrawable
+  include Links
   include Organisations
+  include Withdrawable
 
   attr_reader :attachments, :base_path, :body, :content_store_hash,
               :content_store_response, :description, :document_type, :first_public_at,
@@ -49,12 +50,6 @@ class ContentItem
     else
       super
     end
-  end
-
-  def available_translations
-    translations = content_store_response["links"]["available_translations"] || []
-
-    translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
   end
 
   def meta_section

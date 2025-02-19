@@ -39,6 +39,10 @@ class ContentItem
 
   REGEX_IS_A = /is_an?_(.*)\?/
 
+  def organisations
+    linked("organisations")
+  end
+
   def respond_to_missing?(method_name, _include_private = false)
     method_name.to_s =~ REGEX_IS_A ? true : super
   end
@@ -68,6 +72,10 @@ class ContentItem
   end
 
 private
+
+  def linked(type)
+    content_store_hash.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
+  end
 
   def get_attachments(attachment_hash)
     return [] unless attachment_hash

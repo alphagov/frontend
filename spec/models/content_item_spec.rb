@@ -163,4 +163,36 @@ RSpec.describe ContentItem do
       expect(content_item.meta_section).to eq("title of the parent's parent link")
     end
   end
+
+  describe "#organisations" do
+    subject(:content_item) do
+      described_class.new(
+        {
+          "links" => {
+            "organisations" => organisations,
+          },
+        },
+      )
+    end
+
+    let(:organisations) do
+      [
+        {
+          "analytics_identifier" => "8888",
+          "content_id" => "11234500",
+          "api_path" => "/api/content/government/organisations/uk-health-security-agency",
+          "api_url" => "https://www.gov.uk/api/content/government/organisations/uk-health-security-agency",
+          "base_path" => "/government/organisations/uk-health-security-agency",
+          "document_type" => "organisation",
+          "title" => "UK Health Security Agency",
+          "web_url" => "https://www.gov.uk/government/organisations/uk-health-security-agency",
+        },
+      ]
+    end
+
+    it "gets all organisations linked to the content item" do
+      expect(content_item.organisations.count).to eq(organisations.count)
+      expect(content_item.organisations.first.title).to eq(organisations.first["title"])
+    end
+  end
 end

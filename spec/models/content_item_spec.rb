@@ -165,34 +165,16 @@ RSpec.describe ContentItem do
   end
 
   describe "#organisations" do
-    subject(:content_item) do
-      described_class.new(
-        {
-          "links" => {
-            "organisations" => organisations,
-          },
-        },
-      )
-    end
+    subject(:content_item) { described_class.new(content_store_response) }
 
-    let(:organisations) do
-      [
-        {
-          "analytics_identifier" => "8888",
-          "content_id" => "11234500",
-          "api_path" => "/api/content/government/organisations/uk-health-security-agency",
-          "api_url" => "https://www.gov.uk/api/content/government/organisations/uk-health-security-agency",
-          "base_path" => "/government/organisations/uk-health-security-agency",
-          "document_type" => "organisation",
-          "title" => "UK Health Security Agency",
-          "web_url" => "https://www.gov.uk/government/organisations/uk-health-security-agency",
-        },
-      ]
+    let(:content_store_response) do
+      GovukSchemas::Example.find("answer", example_name: "answer")
     end
 
     it "gets all organisations linked to the content item" do
-      expect(content_item.organisations.count).to eq(organisations.count)
-      expect(content_item.organisations.first.title).to eq(organisations.first["title"])
+      expect(content_item.organisations.count).to eq(content_store_response.dig("links", "organisations").count)
+      expect(content_item.organisations.first.title)
+       .to eq(content_store_response.dig("links", "organisations", 0, "title"))
     end
   end
 end

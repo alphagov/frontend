@@ -68,7 +68,7 @@ class ContentItem
   end
 
   def contributors
-    organisations
+    organisations.map { |org| { "title" => org.title, "base_path" => org.base_path } }
   end
 
 private

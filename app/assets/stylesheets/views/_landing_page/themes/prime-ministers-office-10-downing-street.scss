@@ -1,4 +1,7 @@
+@import "govuk_publishing_components/individual_component_support";
+
 .landing-page-header {
   // I've used the hex value for the background colour as it doesn't exist in the colour palette
   background-color: #231F20;
+  padding: govuk-spacing(2) 0 0;
 }

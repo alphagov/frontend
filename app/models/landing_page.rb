@@ -4,7 +4,7 @@ class LandingPage < ContentItem
   ADDITIONAL_CONTENT_PATH = "lib/data/landing_page_content_items".freeze
 
   def initialize(content_store_response)
-    super(content_store_response)
+    super
 
     @breadcrumbs = content_store_hash.dig("details", "breadcrumbs")&.map { { title: _1["title"], url: _1["href"] } }
     @navigation_groups = (content_store_hash.dig("details", "navigation_groups") || []).map { [_1["id"], _1] }.to_h

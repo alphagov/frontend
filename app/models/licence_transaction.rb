@@ -5,7 +5,7 @@ class LicenceTransaction < ContentItem
               :licence_transaction_will_continue_on
 
   def initialize(content_store_response)
-    super(content_store_response)
+    super
 
     @body = content_store_response.dig("details", "body")
     @licence_transaction_continuation_link = content_store_response.dig("details", "metadata", "licence_transaction_continuation_link")

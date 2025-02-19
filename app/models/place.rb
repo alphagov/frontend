@@ -2,7 +2,7 @@ class Place < ContentItem
   attr_reader :introduction, :more_information, :need_to_know, :place_type
 
   def initialize(content_store_response)
-    super(content_store_response)
+    super
 
     @introduction = content_store_response.dig("details", "introduction")
     @more_information = content_store_response.dig("details", "more_information")

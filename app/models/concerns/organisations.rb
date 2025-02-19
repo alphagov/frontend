@@ -7,9 +7,7 @@ module Organisations
     end
 
     def organisations
-      (content_store_hash.dig("links", "organisations") || []).map do |organisation|
-        { "title" => organisation["title"], "base_path" => organisation["base_path"], "content_id" => organisation["content_id"] }
-      end
+      content_store_hash.dig("links", "organisations") || []
     end
   end
 

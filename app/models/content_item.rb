@@ -2,7 +2,7 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  attr_reader :attachments, :base_path, :body, :content_store_hash,
+  attr_reader :attachments, :base_path, :body, :content_id, :content_store_hash,
               :content_store_response, :description, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
               :schema_name, :title
@@ -14,6 +14,7 @@ class ContentItem
     @content_store_hash = override_content_store_hash || content_store_response.to_hash
 
     @body = content_store_hash.dig("details", "body")
+    @content_id = content_store_hash["content_id"]
     @image = content_store_hash.dig("details", "image")
     @description = content_store_hash["description"]
     @document_type = content_store_hash["document_type"]

@@ -16,9 +16,9 @@ RSpec.describe CaseStudy do
       organisations = content_store_response.dig("links", "organisations")
 
       expected_contributors = [
-        { "title" => organisations[1]["title"], "base_path" => organisations[1]["base_path"], "content_id" => organisations[1]["content_id"] },
-        { "title" => organisations[0]["title"], "base_path" => organisations[0]["base_path"], "content_id" => organisations[0]["content_id"] },
-        { "title" => worldwide_organisations[0]["title"], "base_path" => worldwide_organisations[0]["base_path"], "content_id" => worldwide_organisations[0]["content_id"] },
+        { "title" => organisations[1]["title"], "base_path" => organisations[1]["base_path"] },
+        { "title" => organisations[0]["title"], "base_path" => organisations[0]["base_path"] },
+        { "title" => worldwide_organisations[0]["title"], "base_path" => worldwide_organisations[0]["base_path"] },
       ]
 
       expect(content_item.contributors).to eq(expected_contributors)

@@ -212,4 +212,18 @@ RSpec.describe ContentItem do
       expect(content_item.meta_section).to eq("title of the parent's parent link")
     end
   end
+
+  describe "#organisations" do
+    subject(:content_item) { described_class.new(content_store_response) }
+
+    let(:content_store_response) do
+      GovukSchemas::Example.find("answer", example_name: "answer")
+    end
+
+    it "gets all organisations linked to the content item" do
+      expect(content_item.organisations.count).to eq(content_store_response.dig("links", "organisations").count)
+      expect(content_item.organisations.first.title)
+       .to eq(content_store_response.dig("links", "organisations", 0, "title"))
+    end
+  end
 end

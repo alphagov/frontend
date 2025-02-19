@@ -2,8 +2,6 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  include Organisations
-
   attr_reader :attachments, :base_path, :body, :content_store_hash,
               :content_store_response, :description, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,

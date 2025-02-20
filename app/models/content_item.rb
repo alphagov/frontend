@@ -66,8 +66,10 @@ class ContentItem
     )&.downcase
   end
 
-  def contributors
-    organisations.map { |org| { "title" => org.title, "base_path" => org.base_path } }
+  def contributors(content_items = organisations)
+    content_items.map do |content_item|
+      { "title" => content_item.title, "base_path" => content_item.base_path }
+    end
   end
 
 private

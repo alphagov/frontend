@@ -3,9 +3,7 @@ module WorldwideOrganisations
 
   included do
     def worldwide_organisations
-      (content_store_hash.dig("links", "worldwide_organisations") || []).map do |organisation|
-        { "title" => organisation["title"], "base_path" => organisation["base_path"], "content_id" => organisation["content_id"] }
-      end
+      linked("worldwide_organisations")
     end
   end
 end

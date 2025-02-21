@@ -497,6 +497,11 @@ tr:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Şema logosu Designated Origin UK Protected sözcüklerini içeren siyah bir damgadır
+        pgi_alt_text: Şema logosu Geographic Origin UK Protected sözcüklerini içeren siyah bir damgadır
+        tsg_alt_text: Şema logosu Traditional Specialty UK Protected sözcüklerini içeren siyah bir damgadır
     start_now:
     take_part:
       one: Katıl

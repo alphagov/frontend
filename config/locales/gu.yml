@@ -497,6 +497,11 @@ gu:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ડેઝીગ્નેટેડ ઓરિજિન UK પ્રોટેક્ટેડ શબ્દો છે
+        pgi_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં જ્યોગ્રાફિક ઓરિજિન UK પ્રોટેક્ટેડ શબ્દો છે
+        tsg_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ટ્રેડિશનલ સ્પેશિયાલિટી UK પ્રોટેક્ટેડ શબ્દો છે
     start_now:
     take_part:
       one: ભાગ લો

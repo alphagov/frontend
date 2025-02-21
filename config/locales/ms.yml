@@ -423,6 +423,11 @@ ms:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Logo skema adalah cap hitam dengan perkataan Designated Origin UK Protected
+        pgi_alt_text: Logo skema adalah cap hitam dengan perkataan Geographic Origin UK Protected
+        tsg_alt_text: Logo skema adalah cap hitam dengan perkataan Traditional Speciality UK Protected
     start_now:
     take_part:
       other: Ambil bahagian

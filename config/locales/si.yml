@@ -497,6 +497,11 @@ si:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Designated Origin UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
+        pgi_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Geographic Origin UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
+        tsg_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Traditional Speciality UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
     start_now:
     take_part:
       one: සහභාගී වන්න

@@ -497,6 +497,11 @@ sv:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Systemets logotyp är en svart stämpel med orden Designated Origin UK Protected.
+        pgi_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
+        tsg_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
     start_now:
     take_part:
       one: Delta

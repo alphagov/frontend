@@ -502,6 +502,11 @@ en:
       please_answer: Please answer this question
       start_again: Start again
       your_answers: Your answers
+    specialist_document:
+      protection_image:
+        pdo_alt_text: The scheme logo is a black stamp with the words Designated Origin UK Protected
+        pgi_alt_text: The scheme logo is a black stamp with the words Geographic Origin UK Protected
+        tsg_alt_text: The scheme logo is a black stamp with the words Traditional Speciality UK Protected
     start_now: Start now
     take_part:
       one: Take part

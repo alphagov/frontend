@@ -98,4 +98,111 @@ RSpec.describe SpecialistDocument do
       end
     end
   end
+
+  describe "#facet_values" do
+    context "when facets are only mapped to one value" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
+
+      it "returns the details of the facets the content item is mapped to" do
+        expected_facet_values = [
+          {
+            key: "aircraft_category",
+            name: "Aircraft category",
+            type: "link",
+            value: [{
+              label: "Sport aviation and balloons",
+              value: "sport-aviation-and-balloons",
+            }],
+          },
+          {
+            key: "report_type",
+            name: "Report type",
+            type: "link",
+            value: [{
+              label: "Bulletin - Correspondence investigation",
+              value: "correspondence-investigation",
+            }],
+          },
+          {
+            key: "date_of_occurrence",
+            name: "Date of occurrence",
+            type: "date",
+            value: "2015-08-08",
+          },
+          {
+            key: "aircraft_type",
+            name: "Aircraft type",
+            type: "text",
+            value: "Rotorsport UK Calidus",
+          },
+          {
+            key: "location",
+            name: "Location",
+            type: "text",
+            value: "Damyns Hall Aerodrome, Essex",
+          },
+          {
+            key: "registration",
+            name: "Registration",
+            type: "text",
+            value: "G-PCPC",
+          },
+        ]
+
+        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+      end
+    end
+
+    context "when a facet is mapped to multiple values" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns the details of all the facets the content item is mapped to" do
+        expected_facet_values = [
+          {
+            key: "alert_type",
+            name: "Alert type",
+            type: "link",
+            value: [{
+              label: "Medical device alert",
+              value: "devices",
+            }],
+          },
+          {
+            key: "medical_specialism",
+            name: "Medical specialty",
+            type: "link",
+            value: [
+              {
+                label: "Critical care",
+                value: "critical-care",
+              },
+              {
+                label: "General practice",
+                value: "general-practice",
+              },
+              {
+                label: "Obstetrics and gynaecology",
+                value: "obstetrics-gynaecology",
+              },
+              {
+                label: "Paediatrics",
+                value: "paediatrics",
+              },
+              {
+                label: "Theatre practitioners",
+                value: "theatre-practitioners",
+              },
+            ],
+          },
+          {
+            key: "issued_date",
+            name: "Issued",
+            type: "date",
+            value: "2015-07-06",
+          },
+        ]
+        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+      end
+    end
+  end
 end

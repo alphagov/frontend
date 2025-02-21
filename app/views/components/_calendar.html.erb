@@ -6,6 +6,8 @@
   events ||= []
   headings ||= []
 
+  local_assigns[:margin_bottom] ||= 6
+
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.add_class("app-c-calendar")
 %>
@@ -28,5 +30,6 @@
         { :text => event[:title] + (event[:notes].blank? ? "" : " (#{event[:notes].downcase})") },
       ]
     end,
+    margin_bottom: 0,
   } %>
 <% end %>

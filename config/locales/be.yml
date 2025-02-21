@@ -534,6 +534,11 @@ be:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: Аўтарскі артыкул
+      other: Аўтарскія артыкулы
     case_study:
       few:
       many:
@@ -634,6 +639,11 @@ be:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Вусная заява ў парламенце
+      other: Вусныя даклады ў парламенце
     place:
       change:
       find_results:
@@ -645,6 +655,14 @@ be:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: Дастаўлена
+      few:
+      location: Месцазнаходжанне
+      many:
+      one: Выступ
+      other: Выступы
+      written_on: Напісана
     start_now:
     take_part:
       few:
@@ -669,6 +687,11 @@ be:
       still_current_at: Усё яшчэ актуальна
       summary: Рэзюмэ
       updated: Адноўлена
+    written_statement:
+      few:
+      many:
+      one: Пісьмовая заява ў парламенце
+      other: Пісьмовыя заявы ў парламенце
   help:
     index:
       about:
@@ -854,6 +877,8 @@ be:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Гэта было апублікавана пад%{government}
   sign_up:
   website:
   when_do_the_clocks_change:

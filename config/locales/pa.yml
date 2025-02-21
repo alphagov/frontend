@@ -388,6 +388,9 @@ pa:
   error:
   find:
   formats:
+    authored_article:
+      one: ਲੇਖਕ ਲੇਖ
+      other: ਲੇਖਕ ਲੇਖ
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
@@ -486,6 +489,9 @@ pa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
+      other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
     place:
       change:
       find_results:
@@ -497,6 +503,12 @@ pa:
       please_answer:
       start_again:
       your_answers:
+    speech:
+      delivered_on: "'ਤੇ ਦਿੱਤਾ ਗਿਆ"
+      location: ਟਿਕਾਣਾ
+      one: ਭਾਸ਼ਣ
+      other: ਭਾਸ਼ਣ
+      written_on: "'ਤੇ ਲਿਖਿਆ ਗਿਆ"
     start_now:
     take_part:
       one: ਹਿੱਸਾ ਲੈਣਾ
@@ -519,6 +531,9 @@ pa:
       still_current_at: "'ਤੇ ਅਜੇ ਵੀ ਮੌਜੂਦਾ"
       summary: ਸੰਖੇਪ
       updated: ਅੱਪਡੇਟ ਕੀਤਾ
+    written_statement:
+      one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
+      other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ
   help:
     index:
       about:
@@ -704,6 +719,8 @@ pa:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: ਇਹ %{government} ਦੇ ਅਧੀਨ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਗਿਆ ਸੀ
   sign_up:
   website:
   when_do_the_clocks_change:

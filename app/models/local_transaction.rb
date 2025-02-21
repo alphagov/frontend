@@ -4,7 +4,7 @@ class LocalTransaction < ContentItem
               :more_information, :need_to_know
 
   def initialize(content_store_response)
-    super(content_store_response)
+    super
 
     @introduction = content_store_response.dig("details", "introduction")
     @lgil_code = content_store_response.dig("details", "lgil_code")

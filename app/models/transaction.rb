@@ -2,7 +2,7 @@ class Transaction < ContentItem
   attr_reader :start_button_text, :variant_slug, :variants
 
   def initialize(content_store_response)
-    super(content_store_response)
+    super
 
     @start_button_text = content_store_response.dig("details", "start_button_text")
     @variants = content_store_response.dig("details", "variants")

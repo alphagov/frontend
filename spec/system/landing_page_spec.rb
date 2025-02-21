@@ -2,36 +2,10 @@ RSpec.describe "LandingPage" do
   include SearchHelpers
 
   describe "GET <landing-page>" do
-    let(:content_item) do
-      {
-        "base_path" => "/landing-page",
-        "title" => "Landing Page",
-        "description" => "A landing page example",
-        "locale" => "en",
-        "document_type" => "landing_page",
-        "schema_name" => "landing_page",
-        "details" => {
-          "attachments" => [
-            {
-              "accessible" => false,
-              "attachment_type" => "document",
-              "content_type" => "text/csv",
-              "file_size" => 123,
-              "filename" => "data_one.csv",
-              "id" => 12_345,
-              "preview_url" => "https://ignored-asset-domain/media/000000000000000000000001/data_one.csv/preview",
-              "title" => "Data One",
-              "url" => "https://ignored-asset-domain/media/000000000000000000000001/data_one.csv",
-            },
-          ],
-        },
-      }
-    end
-
+    let(:content_item) { GovukSchemas::Example.find("landing_page", example_name: "landing_page") }
     let(:base_path) { content_item["base_path"] }
 
     before do
-      stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
       stub_content_store_has_item(base_path, content_item)
       stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
       stub_taxon_search_results
@@ -46,7 +20,7 @@ RSpec.describe "LandingPage" do
     it "has a meta description tag" do
       visit base_path
 
-      expect(page).to have_css('meta[name="description"][content="A landing page example"]', visible: :hidden)
+      expect(page).to have_css('meta[name="description"][content="some description"]', visible: :hidden)
     end
 
     it "renders a hero" do

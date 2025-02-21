@@ -14,7 +14,7 @@ export default class NycTestCoverageReporter {
     const rootDirname = path.dirname(
       new URL(import.meta.resolve('#root/package.json')).pathname
     );
-    const nycCoverageFile = path.join(rootDirname, '.nyc_output', 'out.json');
+    const nycCoverageFile = path.join(rootDirname, 'tmp', 'nyc_output', 'out.json');
     return fsPromises.writeFile(nycCoverageFile, JSON.stringify(this.coverage));
   }
 }

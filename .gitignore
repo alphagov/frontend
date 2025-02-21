@@ -17,7 +17,6 @@ spec/reports/pacts
 .env
 .yarn/cache/
 .yarn/install-state.gz
-.nyc_output
 
 # vim swap files and tags
 *.sw[a-z]

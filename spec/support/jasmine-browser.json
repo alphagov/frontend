@@ -3,7 +3,7 @@
   "srcFiles": [
     "public/assets/frontend/test-dependencies-*.js",
     "public/assets/frontend/dependencies-*.js",
-    ".nyc_output/assets/**/*.js"
+    "tmp/nyc_output/assets/**/*.js"
   ],
   "specDir": "spec/javascripts",
   "specFiles": [

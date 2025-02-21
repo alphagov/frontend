@@ -17,5 +17,6 @@
   "reporter": [
     "text"
   ],
-  "source-map": false
+  "source-map": false,
+  "temp-dir": "tmp/nyc_output"
 }

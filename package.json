@@ -9,7 +9,7 @@
     "lint:js": "standardx 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
     "lint:scss": "stylelint app/assets/stylesheets/",
     "rails:precompile-assets": "RAILS_ENV=test bundle exec rails assets:clobber assets:precompile",
-    "nyc:instrument": "yarn run nyc instrument --delete public/assets/frontend .nyc_output/assets",
+    "nyc:instrument": "yarn run nyc instrument --delete public/assets/frontend tmp/nyc_output/assets",
     "jasmine:prepare": "yarn run rails:precompile-assets && yarn run nyc:instrument",
     "nyc:text-report": "yarn run nyc report",
     "nyc:html-report": "yarn run nyc report --reporter html",
@@ -41,7 +41,7 @@
     "extends": "stylelint-config-gds/scss"
   },
   "devDependencies": {
-    "jasmine-browser-runner": "^2.5.0",
+    "jasmine-browser-runner": "^3.0.0",
     "jasmine-core": "^5.6.0",
     "nyc": "^17.1.0",
     "standardx": "^7.0.0",

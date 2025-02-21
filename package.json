@@ -9,7 +9,7 @@
     "lint:js": "standardx 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
     "lint:scss": "stylelint app/assets/stylesheets/",
     "rails:precompile-assets": "RAILS_ENV=test bundle exec rails assets:clobber assets:precompile",
-    "nyc:instrument": "yarn run nyc instrument --delete public/assets/frontend .nyc_output/assets",
+    "nyc:instrument": "yarn run nyc instrument --delete public/assets/frontend tmp/nyc_output/assets",
     "jasmine:prepare": "yarn run rails:precompile-assets && yarn run nyc:instrument",
     "nyc:text-report": "yarn run nyc report",
     "nyc:html-report": "yarn run nyc report --reporter html",

@@ -1,6 +1,6 @@
 class LandingPageController < ContentItemsController
   slimmer_template "gem_layout_full_width"
-  skip_before_action :set_content_item
+  skip_before_action :set_content_item_and_cache_control
 
 private
 

@@ -34,7 +34,6 @@ class ContentItem
   end
 
   alias_method :to_h, :content_store_hash
-  delegate :cache_control, to: :content_store_response
 
   REGEX_IS_A = /is_an?_(.*)\?/
 

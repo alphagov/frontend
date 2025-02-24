@@ -1,13 +1,16 @@
 class ContentItemsController < ApplicationController
+  before_action :set_content_item
   before_action :set_locale, if: -> { request.format.html? }
+
+  attr_reader :content_item
 
 private
 
-  def content_item
+  def set_content_item
     loader_response = ContentItemLoader.for_request(request).load(content_item_path)
     raise loader_response if loader_response.is_a?(StandardError)
 
-    @content_item ||= ContentItemFactory.build(loader_response)
+    @content_item = ContentItemFactory.build(loader_response)
   end
 
   def content_item_path

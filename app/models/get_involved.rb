@@ -3,7 +3,7 @@ class GetInvolved < ContentItem
 
   def initialize(content_store_response)
     super
-    @take_part_pages = content_store_hash.dig("links", "take_part_pages")
+    @take_part_pages = content_store_response.dig("links", "take_part_pages")
   end
 
   def open_consultation_count

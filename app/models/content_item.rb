@@ -7,11 +7,9 @@ class ContentItem
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
               :schema_name, :title
 
-  # SCAFFOLDING: remove the override_content_store_hash parameter when full landing page
-  # content items including block details are available from content-store
-  def initialize(content_store_response, override_content_store_hash: nil)
+  def initialize(content_store_response)
     @content_store_response = content_store_response
-    @content_store_hash = override_content_store_hash || content_store_response.to_hash
+    @content_store_hash = content_store_response.to_hash
 
     @body = content_store_hash.dig("details", "body")
     @content_id = content_store_hash["content_id"]

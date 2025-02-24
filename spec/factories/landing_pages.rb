@@ -10,9 +10,6 @@ FactoryBot.define do
       details { { blocks: [{ type: "govspeak", content: "Hi There!" }] } }
     end
 
-    factory :landing_page_with_data_attachments, traits: [:attachments]
-    factory :landing_page_with_unparseable_data_attachments, traits: [:unparsable_attachments]
-
     factory :landing_page_with_navigation_groups do
       details do
         {

@@ -2,7 +2,7 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  attr_reader :attachments, :base_path, :body, :content_id, :content_store_hash,
+  attr_reader :base_path, :body, :content_id, :content_store_hash,
               :content_store_response, :description, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
               :schema_name, :title
@@ -25,8 +25,6 @@ class ContentItem
     @phase = content_store_hash["phase"]
     @first_published_at = content_store_hash["first_published_at"]
     @first_public_at = content_store_hash.dig("details", "first_public_at")
-
-    @attachments = get_attachments(content_store_hash.dig("details", "attachments"))
 
     content_store_hash["links"]["ordered_related_items"] = ordered_related_items(content_store_hash["links"]) if content_store_hash["links"]
   end
@@ -74,12 +72,6 @@ private
     return [] if content_store_hash.dig("links", type).blank?
 
     content_store_hash.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
-  end
-
-  def get_attachments(attachment_hash)
-    return [] unless attachment_hash
-
-    attachment_hash.map { OpenStruct.new(_1) }
   end
 
   def ordered_related_items(links)

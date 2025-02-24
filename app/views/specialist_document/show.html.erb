@@ -69,9 +69,10 @@
           } %>
       </div>
 
-      <% if @content_item.finder_link %>
+      <% if @specialist_document_presenter.show_finder_link? %>
         <div class="responsive-bottom-margin">
-          <%= @content_item.finder_link %>
+          <%= govuk_styled_link("See all #{content_item.finder.title}",
+                                path: content_item.finder.base_path) %>
         </div>
       <% end %>
     <% end %>

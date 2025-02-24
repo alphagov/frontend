@@ -6,10 +6,6 @@ FactoryBot.define do
 
     initialize_with { new(attributes.deep_stringify_keys) }
 
-    factory :landing_page_with_one_block do
-      details { { blocks: [{ type: "govspeak", content: "Hi There!" }] } }
-    end
-
     factory :landing_page_with_navigation_groups do
       details do
         {

@@ -2,34 +2,33 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  attr_reader :base_path, :body, :content_id, :content_store_hash,
+  attr_reader :base_path, :body, :content_id,
               :content_store_response, :description, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
               :schema_name, :title
 
   def initialize(content_store_response)
     @content_store_response = content_store_response
-    @content_store_hash = content_store_response.to_hash
 
-    @body = content_store_hash.dig("details", "body")
-    @content_id = content_store_hash["content_id"]
-    @image = content_store_hash.dig("details", "image")
-    @description = content_store_hash["description"]
-    @document_type = content_store_hash["document_type"]
-    @schema_name = content_store_hash["schema_name"]
-    @title = content_store_hash["title"]
-    @base_path = content_store_hash["base_path"]
-    @locale = content_store_hash["locale"]
-    @public_updated_at = content_store_hash["public_updated_at"]
-    @links = content_store_hash["links"]
-    @phase = content_store_hash["phase"]
-    @first_published_at = content_store_hash["first_published_at"]
-    @first_public_at = content_store_hash.dig("details", "first_public_at")
+    @body = content_store_response.dig("details", "body")
+    @content_id = content_store_response["content_id"]
+    @image = content_store_response.dig("details", "image")
+    @description = content_store_response["description"]
+    @document_type = content_store_response["document_type"]
+    @schema_name = content_store_response["schema_name"]
+    @title = content_store_response["title"]
+    @base_path = content_store_response["base_path"]
+    @locale = content_store_response["locale"]
+    @public_updated_at = content_store_response["public_updated_at"]
+    @links = content_store_response["links"]
+    @phase = content_store_response["phase"]
+    @first_published_at = content_store_response["first_published_at"]
+    @first_public_at = content_store_response.dig("details", "first_public_at")
 
-    content_store_hash["links"]["ordered_related_items"] = ordered_related_items(content_store_hash["links"]) if content_store_hash["links"]
+    content_store_response["links"]["ordered_related_items"] = ordered_related_items(content_store_response["links"]) if content_store_response["links"]
   end
 
-  alias_method :to_h, :content_store_hash
+  alias_method :to_h, :content_store_response
 
   REGEX_IS_A = /is_an?_(.*)\?/
 
@@ -61,7 +60,7 @@ class ContentItem
   end
 
   def meta_section
-    @meta_section ||= content_store_hash.dig(
+    @meta_section ||= content_store_response.dig(
       "links", "parent", 0, "links", "parent", 0, "title"
     )&.downcase
   end
@@ -69,9 +68,9 @@ class ContentItem
 private
 
   def linked(type)
-    return [] if content_store_hash.dig("links", type).blank?
+    return [] if content_store_response.dig("links", type).blank?
 
-    content_store_hash.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
+    content_store_response.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
   end
 
   def ordered_related_items(links)

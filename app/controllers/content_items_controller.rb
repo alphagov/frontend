@@ -10,7 +10,7 @@ private
     loader_response = ContentItemLoader.for_request(request).load(content_item_path)
     raise loader_response if loader_response.is_a?(StandardError)
 
-    @content_item = ContentItemFactory.build(loader_response)
+    @content_item = ContentItemFactory.build(loader_response.to_hash)
     @cache_control = loader_response.cache_control
   end
 

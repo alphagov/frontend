@@ -96,4 +96,49 @@ RSpec.describe SpecialistDocumentPresenter do
       expect(described_class.new(content_item).protection_image_alt_text).to eq(expected_alt_text)
     end
   end
+
+  describe "#important_metadata" do
+    subject(:presenter) { described_class.new(content_item, view_context) }
+
+    let(:content_item) { SpecialistDocument.new(content_store_response) }
+    let(:view_context) { ApplicationController.new.view_context }
+
+    context "when the metadata contains text" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
+
+      it "returns the value of the metadata" do
+        expected_metadata = {
+          "Aircraft type" => "Rotorsport UK Calidus",
+        }
+
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metadata contains dates" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns facet metadata with formatted dates" do
+        expected_metadata = { "Issued" => "6 July 2015" }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metadata contains an array of values" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "formats the links for all values" do
+        expected_metadata = {
+          "Medical specialty" => [
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=critical-care' class='govuk-link govuk-link--inverse'>Critical care</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=general-practice' class='govuk-link govuk-link--inverse'>General practice</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=obstetrics-gynaecology' class='govuk-link govuk-link--inverse'>Obstetrics and gynaecology</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
+          ],
+        }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
+  end
 end

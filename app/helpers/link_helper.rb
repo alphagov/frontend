@@ -16,7 +16,7 @@ module LinkHelper
     "<a href='#{path}' class='#{classes}'>".html_safe + text + "</a>".html_safe
   end
 
-  def govuk_styled_links_list(links)
-    links.map { |link| govuk_styled_link(link["title"], path: link["base_path"]) }
+  def govuk_styled_links_list(links, inverse: false)
+    links.map { |link| govuk_styled_link(link["title"], path: link["base_path"], inverse:) }
   end
 end

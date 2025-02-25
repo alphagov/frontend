@@ -2,12 +2,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
   include LinkHelper
 
-  def initialize(content_item, view_context = nil)
-    super(content_item)
-
-    @view_context = view_context
-  end
-
   def contents
     return [] unless show_contents_list?
 
@@ -45,8 +39,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
 private
-
-  attr_reader :view_context
 
   def show_contents_list?
     content_item.headers.present? && level_two_headings?

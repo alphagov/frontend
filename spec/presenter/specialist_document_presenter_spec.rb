@@ -98,8 +98,6 @@ RSpec.describe SpecialistDocumentPresenter do
   end
 
   describe "#important_metadata" do
-    subject(:presenter) { described_class.new(content_item, view_context) }
-
     let(:content_item) { SpecialistDocument.new(content_store_response) }
     let(:view_context) { ApplicationController.new.view_context }
 
@@ -108,36 +106,39 @@ RSpec.describe SpecialistDocumentPresenter do
 
       it "returns the value of the metadata" do
         expected_metadata = {
-          "Aircraft type" => "Rotorsport UK Calidus",
+          "Aircraft type" => { type: "text", value: "Rotorsport UK Calidus" },
         }
 
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(described_class.new(content_item).important_metadata).to include(expected_metadata)
       end
     end
 
     context "when the metadata contains dates" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
-      it "returns facet metadata with formatted dates" do
-        expected_metadata = { "Issued" => "6 July 2015" }
-        expect(presenter.important_metadata).to include(expected_metadata)
+      it "returns facet metadata with unformatted dates" do
+        expected_metadata = { "Issued" => { type: "date", value: "2015-07-06" } }
+        expect(described_class.new(content_item).important_metadata).to include(expected_metadata)
       end
     end
 
     context "when the metadata contains an array of values" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
-      it "formats the links for all values" do
+      it "returns link information for all values" do
         expected_metadata = {
-          "Medical specialty" => [
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=critical-care' class='govuk-link govuk-link--inverse'>Critical care</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=general-practice' class='govuk-link govuk-link--inverse'>General practice</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=obstetrics-gynaecology' class='govuk-link govuk-link--inverse'>Obstetrics and gynaecology</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
-          ],
+          "Medical specialty" => {
+            type: "link",
+            value: [
+              { "title" => "Critical care", "base_path" => "/drug-device-alerts?medical_specialism%5B%5D=critical-care" },
+              { "title" => "General practice", "base_path" => "/drug-device-alerts?medical_specialism%5B%5D=general-practice" },
+              { "title" => "Obstetrics and gynaecology", "base_path" => "/drug-device-alerts?medical_specialism%5B%5D=obstetrics-gynaecology" },
+              { "title" => "Paediatrics", "base_path" => "/drug-device-alerts?medical_specialism%5B%5D=paediatrics" },
+              { "title" => "Theatre practitioners", "base_path" => "/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners" },
+            ],
+          },
         }
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(described_class.new(content_item).important_metadata).to include(expected_metadata)
       end
     end
   end

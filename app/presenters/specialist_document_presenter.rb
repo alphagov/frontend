@@ -25,10 +25,12 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   def important_metadata
     metadata = {}
     content_item.facet_values.each do |facet_value|
-      metadata[facet_value[:name]] = format_facet_value(facet_value[:type],
-                                                        facet_value[:value],
-                                                        facet_value[:key],
-                                                        facet_value[:filterable])
+      metadata[facet_value[:name]] = {
+        type: facet_value[:type],
+        value: format_facet_value(facet_value[:type],
+                                  facet_value[:value],
+                                  facet_value[:key]),
+      }
     end
 
     metadata
@@ -62,19 +64,10 @@ private
     content_item.document_type == "statutory_instrument"
   end
 
-  def format_facet_value(type, value, key, filterable)
-    if type == "date"
-      view_context.display_date(value)
-    elsif type == "text" && value.is_a?(Array) && filterable == true
-      value.map { |v| format_filterable_link(key, v[:value], v[:label]) }
-    else
-      value
-    end
-  end
+  def format_facet_value(type, value, key)
+    return value unless type == "link"
 
-  def format_filterable_link(key, value, label)
-    path = filtered_finder_path(key, value)
-    view_context.govuk_styled_link(label, path:, inverse: true)
+    value.map { |v| { "title" => v[:label], "base_path" => filtered_finder_path(key, v[:value]) } }
   end
 
   def filtered_finder_path(key, value)

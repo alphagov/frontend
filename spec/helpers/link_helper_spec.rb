@@ -65,5 +65,17 @@ RSpec.describe LinkHelper do
 
       expect(govuk_styled_links_list(links)).to eq(expected)
     end
+
+    context "when inverse is true" do
+      it "returns an array of styled links with the inverse class applied" do
+        expected = [
+          "<a href='/' class='govuk-link govuk-link--inverse'>Home</a>",
+          "<a href='/uk-trade-investment' class='govuk-link govuk-link--inverse'>UK Trade &amp; Investment</a>",
+          "<a href='/foreign-commonwealth-office' class='govuk-link govuk-link--inverse'>Foreign &amp; Commonwealth Office</a>",
+        ]
+
+        expect(govuk_styled_links_list(links, inverse: true)).to eq(expected)
+      end
+    end
   end
 end

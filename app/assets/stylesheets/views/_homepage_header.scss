@@ -1,7 +1,5 @@
 @import "govuk_publishing_components/individual_component_support";
 
-$pale-blue-colour: #d2e2f1;
-
 .homepage-header {
   background-color: $govuk-brand-colour;
   padding-bottom: 28px;
@@ -60,7 +58,6 @@ $pale-blue-colour: #d2e2f1;
 .homepage-header__intro {
   @include govuk-typography-weight-bold;
 
-  color: $pale-blue-colour;
   font-size: 40px;
   font-size: govuk-px-to-rem(40);
   margin: 0;

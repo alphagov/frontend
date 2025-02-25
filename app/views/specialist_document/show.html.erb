@@ -36,7 +36,7 @@
       <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
         <%= render "govuk_publishing_components/components/metadata", {
           inverse: true,
-          other: @specialist_document_presenter.important_metadata,
+          other: format_for_metadata_component(@specialist_document_presenter.important_metadata),
           margin_bottom: 0,
         } %>
       <% end %>

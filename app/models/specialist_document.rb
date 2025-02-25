@@ -20,7 +20,6 @@ class SpecialistDocument < ContentItem
       f = {
         key: selected_facet["key"],
         name: selected_facet["name"],
-        type: selected_facet["type"],
         filterable: selected_facet["filterable"],
       }
 
@@ -35,6 +34,12 @@ class SpecialistDocument < ContentItem
                   else
                     metadata_facet_value
                   end
+
+      f[:type] = if selected_facet["type"] == "text" && f[:value].is_a?(Array) && f[:filterable] == true
+                   "link"
+                 else
+                   selected_facet["type"]
+                 end
       f
     end
   end

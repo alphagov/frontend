@@ -111,7 +111,7 @@ RSpec.describe SpecialistDocument do
           {
             key: "aircraft_category",
             name: "Aircraft category",
-            type: "text",
+            type: "link",
             filterable: true,
             value: [{
               label: "Sport aviation and balloons",
@@ -121,7 +121,7 @@ RSpec.describe SpecialistDocument do
           {
             key: "report_type",
             name: "Report type",
-            type: "text",
+            type: "link",
             filterable: true,
             value: [{
               label: "Bulletin - Correspondence investigation",
@@ -170,7 +170,7 @@ RSpec.describe SpecialistDocument do
           {
             key: "alert_type",
             name: "Alert type",
-            type: "text",
+            type: "link",
             filterable: true,
             value: [{
               label: "Medical device alert",
@@ -180,7 +180,7 @@ RSpec.describe SpecialistDocument do
           {
             key: "medical_specialism",
             name: "Medical specialty",
-            type: "text",
+            type: "link",
             filterable: true,
             value: [
               {

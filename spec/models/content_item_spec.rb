@@ -82,6 +82,55 @@ RSpec.describe ContentItem do
     end
   end
 
+  describe "#available_translations?" do
+    subject(:content_item) { described_class.new(links) }
+
+    context "when there are multiple translations" do
+      let(:links) do
+        {
+          "links" => {
+            "available_translations" => [
+              { "locale" => "cy" },
+              { "locale" => "en" },
+            ],
+          },
+        }
+      end
+
+      it "returns true" do
+        expect(content_item.available_translations?).to be true
+      end
+    end
+
+    context "when there are only English translations" do
+      let(:links) do
+        {
+          "links" => {
+            "available_translations" => [
+              { "locale" => "en" },
+            ],
+          },
+        }
+      end
+
+      it "returns false" do
+        expect(content_item.available_translations?).to be false
+      end
+    end
+
+    context "when there are no translations" do
+      let(:links) do
+        {
+          "links" => {},
+        }
+      end
+
+      it "returns false" do
+        expect(content_item.available_translations?).to be false
+      end
+    end
+  end
+
   describe "#available_translations" do
     subject(:content_item) do
       described_class.new(

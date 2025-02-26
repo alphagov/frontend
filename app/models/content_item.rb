@@ -51,6 +51,10 @@ class ContentItem
     end
   end
 
+  def available_translations?
+    available_translations.length > 1
+  end
+
   def available_translations
     translations = content_store_response["links"]["available_translations"] || []
 

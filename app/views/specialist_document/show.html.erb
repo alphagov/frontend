@@ -40,11 +40,11 @@
 
     <%= render "components/contents_list_with_body", contents: @presenter.contents do %>
 
-      <% if @content_item.protected_food_drink_name? %>
+      <% if @presenter.show_protection_type_image? %>
         <img
           class="app-c-figure__image protected-food-drink-name-logo"
-          src="<%= @content_item.images.dig(@content_item.protection_type, "url") %>"
-          alt="<%= @content_item.images.dig(@content_item.protection_type, "alt_text") %>">
+          src="<%= @presenter.protection_image_path %>"
+          alt="<%= @presenter.protection_image_alt_text %>">
       <% end %>
 
       <div class="responsive-bottom-margin">

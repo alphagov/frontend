@@ -1,8 +1,7 @@
 class Organisation < ContentItem
-  def logo
-    OpenStruct.new(
-      crest: content_store_hash.dig("details", "logo", "crest"),
-      formatted_title: content_store_hash.dig("details", "logo", "formatted_title"),
-    )
+  attr_reader :logo
+
+  def initialize(organisation_data)
+    @logo = Logo.new(organisation_data.dig("details", "logo"))
   end
 end

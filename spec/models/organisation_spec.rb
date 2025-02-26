@@ -3,7 +3,14 @@ RSpec.describe Organisation do
     GovukSchemas::Example.find("organisation", example_name: "organisation")
   end
 
-  describe "logo" do
+  describe "#brand" do
+    it "gets the brand" do
+      expect(described_class.new(content_store_response).brand).not_to be_nil
+      expect(described_class.new(content_store_response).brand).to eq(content_store_response.dig("details", "brand"))
+    end
+  end
+
+  describe "#logo" do
     it "gets the crest" do
       expect(described_class.new(content_store_response).logo.crest)
         .to eq(content_store_response.dig("details", "logo", "crest"))

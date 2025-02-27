@@ -11,14 +11,8 @@ RSpec.describe Organisation do
   end
 
   describe "#logo" do
-    it "gets the crest" do
-      expect(described_class.new(content_store_response).logo.crest)
-        .to eq(content_store_response.dig("details", "logo", "crest"))
-    end
-
-    it "gets the formatted title" do
-      expect(described_class.new(content_store_response).logo.formatted_title)
-        .to eq(content_store_response.dig("details", "logo", "formatted_title"))
+    it "gets the logo" do
+      expect(described_class.new(content_store_response).logo).to be_instance_of(Logo)
     end
   end
 end

@@ -2,6 +2,7 @@ class Organisation < ContentItem
   attr_reader :logo
 
   def initialize(organisation_data)
+    super(organisation_data)
     @logo = Logo.new(organisation_data.dig("details", "logo"))
     @organisation_data = organisation_data
   end

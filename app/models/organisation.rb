@@ -11,5 +11,6 @@ class Organisation < ContentItem
   end
 
 private
+
   attr_reader :organisation_data
 end

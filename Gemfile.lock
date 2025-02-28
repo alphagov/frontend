@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 3566d1b351c6b138999d9ca6fbe5c1d13301ce4a
+  branch: navigation_team_feature_branch
+  specs:
+    govuk_publishing_components (56.2.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,7 +126,7 @@ GEM
     climate_control (1.2.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.2)
+    connection_pool (2.5.0)
     crack (1.0.0)
       bigdecimal
       rexml
@@ -126,9 +142,9 @@ GEM
     dig_rb (1.0.1)
     docile (1.4.1)
     domain_name (0.6.20240107)
-    dotenv (3.1.8)
-    dotenv-rails (3.1.8)
-      dotenv (= 3.1.8)
+    dotenv (3.1.7)
+    dotenv-rails (3.1.7)
+      dotenv (= 3.1.7)
       railties (>= 6.1)
     drb (2.2.1)
     erb_lint (0.9.0)
@@ -166,10 +182,10 @@ GEM
     googleapis-common-protos-types (1.19.0)
       google-protobuf (>= 3.18, < 5.a)
     govuk_ab_testing (3.0.0)
-    govuk_app_config (9.17.1)
+    govuk_app_config (9.16.9)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.31)
-      opentelemetry-instrumentation-all (>= 0.39.1, < 0.76.0)
+      opentelemetry-instrumentation-all (>= 0.39.1, < 0.75.0)
       opentelemetry-sdk (~> 1.2)
       plek (>= 4, < 6)
       prometheus_exporter (~> 2.0)
@@ -181,16 +197,6 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (56.2.2)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_schemas (6.0.0)
       faker (>= 3.4.1, < 3.6.0)
       json-schema (>= 2.8, < 5.2)
@@ -284,7 +290,7 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.18.8)
+    nokogiri (1.18.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     null_logger (0.0.1)
@@ -301,8 +307,6 @@ GEM
     opentelemetry-helpers-mysql (0.2.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-common (~> 0.21)
-    opentelemetry-helpers-sql (0.1.1)
-      opentelemetry-api (~> 1.0)
     opentelemetry-helpers-sql-obfuscation (0.3.0)
       opentelemetry-common (~> 0.21)
     opentelemetry-instrumentation-action_mailer (0.4.0)
@@ -334,20 +338,19 @@ GEM
     opentelemetry-instrumentation-active_support (0.8.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
-    opentelemetry-instrumentation-all (0.75.1)
+    opentelemetry-instrumentation-all (0.74.0)
       opentelemetry-instrumentation-active_model_serializers (~> 0.22.0)
       opentelemetry-instrumentation-aws_lambda (~> 0.3.0)
       opentelemetry-instrumentation-aws_sdk (~> 0.8.0)
       opentelemetry-instrumentation-bunny (~> 0.22.0)
       opentelemetry-instrumentation-concurrent_ruby (~> 0.22.0)
-      opentelemetry-instrumentation-dalli (~> 0.27.0)
+      opentelemetry-instrumentation-dalli (~> 0.26.0)
       opentelemetry-instrumentation-delayed_job (~> 0.23.0)
       opentelemetry-instrumentation-ethon (~> 0.22.0)
       opentelemetry-instrumentation-excon (~> 0.23.0)
       opentelemetry-instrumentation-faraday (~> 0.26.0)
       opentelemetry-instrumentation-grape (~> 0.3.0)
       opentelemetry-instrumentation-graphql (~> 0.29.0)
-      opentelemetry-instrumentation-grpc (~> 0.2.0)
       opentelemetry-instrumentation-gruf (~> 0.3.0)
       opentelemetry-instrumentation-http (~> 0.24.0)
       opentelemetry-instrumentation-http_client (~> 0.23.0)
@@ -386,7 +389,7 @@ GEM
     opentelemetry-instrumentation-concurrent_ruby (0.22.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
-    opentelemetry-instrumentation-dalli (0.27.1)
+    opentelemetry-instrumentation-dalli (0.26.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
     opentelemetry-instrumentation-delayed_job (0.23.0)
@@ -408,9 +411,6 @@ GEM
     opentelemetry-instrumentation-graphql (0.29.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
-    opentelemetry-instrumentation-grpc (0.2.1)
-      opentelemetry-api (~> 1.0)
-      opentelemetry-instrumentation-base (~> 0.23.0)
     opentelemetry-instrumentation-gruf (0.3.0)
       opentelemetry-api (>= 1.0.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
@@ -429,18 +429,16 @@ GEM
     opentelemetry-instrumentation-mongo (0.23.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
-    opentelemetry-instrumentation-mysql2 (0.29.1)
+    opentelemetry-instrumentation-mysql2 (0.29.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-helpers-mysql
-      opentelemetry-helpers-sql
       opentelemetry-helpers-sql-obfuscation
       opentelemetry-instrumentation-base (~> 0.23.0)
     opentelemetry-instrumentation-net_http (0.23.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
-    opentelemetry-instrumentation-pg (0.30.1)
+    opentelemetry-instrumentation-pg (0.30.0)
       opentelemetry-api (~> 1.0)
-      opentelemetry-helpers-sql
       opentelemetry-helpers-sql-obfuscation
       opentelemetry-instrumentation-base (~> 0.23.0)
     opentelemetry-instrumentation-que (0.9.0)
@@ -488,10 +486,9 @@ GEM
       opentelemetry-api (~> 1.0)
       opentelemetry-instrumentation-base (~> 0.23.0)
       opentelemetry-instrumentation-rack (~> 0.21)
-    opentelemetry-instrumentation-trilogy (0.61.1)
+    opentelemetry-instrumentation-trilogy (0.61.0)
       opentelemetry-api (~> 1.0)
       opentelemetry-helpers-mysql
-      opentelemetry-helpers-sql
       opentelemetry-helpers-sql-obfuscation
       opentelemetry-instrumentation-base (~> 0.23.0)
       opentelemetry-semantic_conventions (>= 1.8.0)
@@ -564,7 +561,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.13)
+    rack (3.1.12)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.0)
@@ -661,7 +658,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
-    rubocop (1.75.2)
+    rubocop (1.75.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -669,7 +666,7 @@ GEM
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.44.0, < 2.0)
+      rubocop-ast (>= 1.43.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.44.0)
@@ -678,8 +675,8 @@ GEM
     rubocop-capybara (2.22.1)
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
-    rubocop-govuk (5.1.4)
-      rubocop (= 1.75.2)
+    rubocop-govuk (5.1.3)
+      rubocop (= 1.75.1)
       rubocop-ast (= 1.44.0)
       rubocop-capybara (= 2.22.1)
       rubocop-rails (= 2.31.0)
@@ -739,7 +736,7 @@ GEM
     statsd-ruby (1.5.0)
     string_pattern (2.3.0)
       regexp_parser (~> 2.5, >= 2.5.0)
-    stringio (3.1.7)
+    stringio (3.1.6)
     sync (0.5.0)
     table_print (1.5.7)
     term-ansicolor (1.11.2)
@@ -795,7 +792,7 @@ DEPENDENCIES
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   govuk_web_banners

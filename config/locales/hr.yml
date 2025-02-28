@@ -571,6 +571,11 @@ hr:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Logo sheme je crni pečat s riječima Označeno Podrijetlo UK Zaštićeno
+        pgi_alt_text: Logo sheme je crni pečat s riječima Geografsko Podrijetlo UK Zaštićeno
+        tsg_alt_text: Logo sheme je crni pečat s riječima Tradicionalni Specijalitet UK Zaštićeno
     start_now:
     take_part:
       few:

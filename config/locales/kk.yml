@@ -497,6 +497,11 @@ kk:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Схема логотипі - Ұлыбританияда тағайындалған шығу тегі жазылған қара мөр
+        pgi_alt_text: Схема логотипі - Ұлыбританияда географиялық шығу тегі жазылған қара мөр
+        tsg_alt_text: Схема логотипі - Ұлыбританияда дәстүрлі ерекшелігі жазылған қара мөр
     start_now:
     take_part:
       one: Қатысу

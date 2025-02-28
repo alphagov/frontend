@@ -1,0 +1,9 @@
+protected-designation-of-origin-pdo:
+  file_name: protected-designation-of-origin-pdo.png
+  alt_text_tag: pdo_alt_text
+protected-geographical-indication-pgi:
+  file_name: protected-geographical-indication-pgi.png
+  alt_text_tag: pgi_alt_text
+traditional-speciality-guaranteed-tsg:
+  file_name: traditional-speciality-guaranteed-tsg.png
+  alt_text_tag: tsg_alt_text

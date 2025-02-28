@@ -497,6 +497,11 @@ hi:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है, जिस पर Designated Origin UK Protected शब्द हैं
+        pgi_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Geographic Origin UK Protected शब्द हैं
+        tsg_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Traditional Speciality UK Protected शब्द हैं
     start_now:
     take_part:
       one: हिस्सा लें

@@ -497,6 +497,11 @@ fr:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Le logo du système est un cachet noir portant la mention "Origine désignée protégée par le Royaume-Uni"
+        pgi_alt_text: Le logo du système est un tampon noir portant la mention "Origine géographique protégée par le Royaume-Uni"
+        tsg_alt_text: Le logo du système est un cachet noir portant la mention "Spécialité traditionnelle protégée par le Royaume-Uni"
     start_now:
     take_part:
       one: Participer

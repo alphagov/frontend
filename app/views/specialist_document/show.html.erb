@@ -1,0 +1,91 @@
+<% add_view_stylesheet("specialist-document") %>
+
+<% content_for :extra_headers do %>
+    <meta name="description" content="<%= content_item.description %>">
+    <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :article,
+    content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :simple_header, true %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds responsive-top-margin">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
+  </div>
+  <%= render "shared/translations" %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+  </div>
+</div>
+
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(content_item.contributors),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% if @presenter.important_metadata.any? %>
+      <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
+        <%= render "govuk_publishing_components/components/metadata", {
+          inverse: true,
+          other: @presenter.important_metadata,
+          margin_bottom: 0,
+        } %>
+      <% end %>
+    <% end %>
+
+    <%= render "components/contents_list_with_body", contents: @presenter.contents do %>
+
+      <% if @presenter.show_protection_type_image? %>
+        <img
+          class="app-c-figure__image protected-food-drink-name-logo"
+          src="<%= @presenter.protection_image_path %>"
+          alt="<%= @presenter.protection_image_alt_text %>">
+      <% end %>
+
+      <div class="responsive-bottom-margin">
+        <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
+        } do %>
+          <%= raw(content_item.body.html_safe) %>
+        <% end %>
+
+        <% if content_item.continuation_link %>
+          <%= render "govuk_publishing_components/components/button", {
+            href: content_item.continuation_link.strip.html_safe,
+            info_text: content_item.will_continue_on.strip.html_safe,
+            start: true,
+            text: "Find out more",
+          } %>
+        <% end %>
+      </div>
+
+      <div class="responsive-bottom-margin">
+        <%= render "components/published_dates", {
+            published: display_date(content_item.initial_publication_date),
+            last_updated: display_date(content_item.updated),
+            history: content_item.history,
+          } %>
+      </div>
+
+      <% if @presenter.show_finder_link? %>
+        <div class="responsive-bottom-margin">
+          <%= govuk_styled_link("See all #{content_item.finder.title}",
+                                path: content_item.finder.base_path) %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render "shared/sidebar_navigation" %>
+</div>
+
+<%= render "shared/footer_navigation" %>

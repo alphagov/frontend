@@ -497,6 +497,11 @@ yi:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text:
+        pgi_alt_text:
+        tsg_alt_text:
     start_now:
     take_part:
       one:

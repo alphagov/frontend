@@ -423,6 +423,11 @@ ko:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: 정책 로고는 Designated Origin UK Protected라는 글자가 담긴 검정색 도장입니다
+        pgi_alt_text: 계획 로고는 Geographic Origin UK Protected라는 글자가 담긴 검정색 도장입니다
+        tsg_alt_text: 정책 로고는 Traditional Speciality UK Protected라는 글자가 담긴 검정색 도장입니다
     start_now:
     take_part:
       other: 참여하기

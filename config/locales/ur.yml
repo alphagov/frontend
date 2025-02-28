@@ -497,6 +497,11 @@ ur:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: سکیم کا لوگو متعین کردہ اصل UK سے محفوظ شدہ (Designated Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
+        pgi_alt_text: سکیم کا لوگو جغرافیائی اصل UK سے محفوظ شدہ (Geographic Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
+        tsg_alt_text: سکیم کا لوگو روایتی خصوصیت UK سے محفوظ شدہ (Traditional Speciality UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
     start_now:
     take_part:
       one: شرکت کریں

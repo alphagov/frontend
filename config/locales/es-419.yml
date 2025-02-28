@@ -497,6 +497,11 @@ es-419:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: El logotipo del programa es un sello negro con las palabras "Designated Origin UK Protected"
+        pgi_alt_text: El logotipo del programa es un sello negro con las palabras "Geographic Origin UK Protected"
+        tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
     start_now:
     take_part:
       one: Participe

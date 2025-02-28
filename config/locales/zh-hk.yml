@@ -423,6 +423,11 @@ zh-hk:
       please_answer:
       start_again:
       your_answers:
+    specialist_document:
+      protection_image:
+        pdo_alt_text: 該計劃之標誌為一黑色印章，帶有「英國指定原產地保護」之字樣
+        pgi_alt_text: 該計劃之標誌為一黑色印章，帶有「英國地理原產地保護」之字樣
+        tsg_alt_text: 該計劃之標誌為一黑色印章，帶有「英國傳統特產保護」之字樣
     start_now:
     take_part:
       other: 參加活動

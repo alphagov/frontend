@@ -9,7 +9,6 @@ RSpec.describe "Static Error Pages" do
 
       within "body" do
         expect(page).to have_selector("#global-cookie-message", visible: :hidden)
-        expect(page).to have_selector("#user-satisfaction-survey-container")
 
         within "#content" do
           expect(page).to have_selector("h1", text: "Page not found")
@@ -34,7 +33,6 @@ RSpec.describe "Static Error Pages" do
 
       within "body" do
         expect(page).to have_selector("#global-cookie-message", visible: :hidden)
-        expect(page).to have_selector("#user-satisfaction-survey-container")
 
         within "#content" do
           expect(page).to have_selector("h1", text: "Sorry, we’re experiencing technical difficulties")

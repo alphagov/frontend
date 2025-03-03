@@ -17,25 +17,16 @@ class SpecialistDocument < ContentItem
 
   def facet_values
     @facet_values ||= selected_facets.map do |selected_facet|
-      f = {
+      metadata_facet_value = metadata[selected_facet["key"]]
+      label_and_values = facet_label_and_values(metadata_facet_value, selected_facet)
+      type = link?(selected_facet, label_and_values) ? "link" : selected_facet["type"]
+
+      {
         key: selected_facet["key"],
         name: selected_facet["name"],
+        value: label_and_values,
+        type:,
       }
-
-      metadata_facet_value = metadata[selected_facet["key"]]
-      f[:value] = if selected_facet["allowed_values"].present?
-                    allowed_value(selected_facet["allowed_values"], metadata_facet_value)
-                  else
-                    metadata_facet_value
-                  end
-
-      f[:type] = if link?(selected_facet, f[:value])
-                   "link"
-                 else
-                   selected_facet["type"]
-                 end
-
-      f
     end
   end
 
@@ -50,6 +41,12 @@ class SpecialistDocument < ContentItem
   end
 
 private
+
+  def facet_label_and_values(metadata_facet_value, selected_facet)
+    return metadata_facet_value if selected_facet["allowed_values"].blank?
+
+    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)
+  end
 
   # specialist document change history can have a modified date that is
   # slightly different to the public_updated_at, eg milliseconds different
@@ -85,11 +82,9 @@ private
       facet["filterable"] == true
   end
 
-  def allowed_value(allowed_values, metadata_facet_value)
+  def selected_allowed_values(allowed_values, metadata_facet_value)
     allowed_values.select do |allowed_value|
-      next unless allowed_value["value"] == metadata_facet_value ||
-        metadata_facet_value.is_a?(Array) &&
-          allowed_value["value"].in?(metadata_facet_value)
+      next unless allowed_value["value"].in?([metadata_facet_value].flatten)
 
       allowed_value.deep_symbolize_keys!
     end

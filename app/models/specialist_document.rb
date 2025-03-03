@@ -1,5 +1,7 @@
 class SpecialistDocument < ContentItem
   include Updatable
+  include DateHelper
+  include LinkHelper
 
   attr_reader :continuation_link, :headers, :metadata,
               :protection_type, :will_continue_on
@@ -15,18 +17,13 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_response.dig("details", "headers"))
   end
 
-  def facet_values
-    @facet_values ||= selected_facets.map do |selected_facet|
+  def display_metadata
+    @display_metadata = selected_facets.inject({}) do |display_metadata, selected_facet|
       metadata_facet_value = metadata[selected_facet["key"]]
       label_and_values = facet_label_and_values(metadata_facet_value, selected_facet)
       type = link?(selected_facet, label_and_values) ? "link" : selected_facet["type"]
 
-      {
-        key: selected_facet["key"],
-        name: selected_facet["name"],
-        value: label_and_values,
-        type:,
-      }
+      display_metadata.merge(selected_facet["name"] => format_facet_value(type, label_and_values, selected_facet["key"]))
     end
   end
 
@@ -84,10 +81,30 @@ private
 
   def selected_allowed_values(allowed_values, metadata_facet_value)
     allowed_values.select do |allowed_value|
-      next unless allowed_value["value"].in?([metadata_facet_value].flatten)
-
-      allowed_value.deep_symbolize_keys!
+      allowed_value["value"].in? [metadata_facet_value].flatten
     end
+  end
+
+  def format_facet_value(type, value, key)
+    return display_date(value) if type == "date"
+    return facet_value_link(key, value) if type == "link"
+
+    value
+  end
+
+  def facet_value_link(key, value)
+    links = value.map do |facet_value|
+      {
+        text: facet_value["label"],
+        path: filtered_finder_path(key, facet_value["value"]),
+      }
+    end
+
+    govuk_styled_links_list(links, inverse: true)
+  end
+
+  def filtered_finder_path(key, value)
+    "#{finder.base_path}?#{key}%5B%5D=#{value}"
   end
 
   def selected_facets

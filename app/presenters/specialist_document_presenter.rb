@@ -1,7 +1,4 @@
 class SpecialistDocumentPresenter < ContentItemPresenter
-  include DateHelper
-  include LinkHelper
-
   def initialize(content_item)
     super(content_item)
   end
@@ -21,13 +18,7 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
   def important_metadata
-    content_item.facet_values.inject({}) do |metadata, facet_value|
-      metadata.merge(
-        facet_value[:name] => format_facet_value(facet_value[:type],
-                                                 facet_value[:value],
-                                                 facet_value[:key]),
-      )
-    end
+    content_item.display_metadata
   end
 
   def protection_image_path

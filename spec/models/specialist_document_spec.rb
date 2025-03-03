@@ -102,57 +102,21 @@ RSpec.describe SpecialistDocument do
     end
   end
 
-  describe "#facet_values" do
+  describe "#display_metadata" do
     context "when facets are only mapped to one value" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
       it "returns the details of the facets the content item is mapped to" do
-        expected_facet_values = [
-          {
-            key: "aircraft_category",
-            name: "Aircraft category",
-            type: "link",
-            value: [{
-              label: "Sport aviation and balloons",
-              value: "sport-aviation-and-balloons",
-            }],
-          },
-          {
-            key: "report_type",
-            name: "Report type",
-            type: "link",
-            value: [{
-              label: "Bulletin - Correspondence investigation",
-              value: "correspondence-investigation",
-            }],
-          },
-          {
-            key: "date_of_occurrence",
-            name: "Date of occurrence",
-            type: "date",
-            value: "2015-08-08",
-          },
-          {
-            key: "aircraft_type",
-            name: "Aircraft type",
-            type: "text",
-            value: "Rotorsport UK Calidus",
-          },
-          {
-            key: "location",
-            name: "Location",
-            type: "text",
-            value: "Damyns Hall Aerodrome, Essex",
-          },
-          {
-            key: "registration",
-            name: "Registration",
-            type: "text",
-            value: "G-PCPC",
-          },
-        ]
+        expected_display_metadata = {
+          "Aircraft category" => ["<a href='/aaib-reports?aircraft_category%5B%5D=sport-aviation-and-balloons' class='govuk-link govuk-link--inverse'>Sport aviation and balloons</a>"],
+          "Report type" => ["<a href='/aaib-reports?report_type%5B%5D=correspondence-investigation' class='govuk-link govuk-link--inverse'>Bulletin - Correspondence investigation</a>"],
+          "Date of occurrence" => "8 August 2015",
+          "Aircraft type" => "Rotorsport UK Calidus",
+          "Location" => "Damyns Hall Aerodrome, Essex",
+          "Registration" => "G-PCPC",
+        }
 
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).display_metadata).to eq(expected_display_metadata)
       end
     end
 
@@ -160,51 +124,21 @@ RSpec.describe SpecialistDocument do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
       it "returns the details of all the facets the content item is mapped to" do
-        expected_facet_values = [
-          {
-            key: "alert_type",
-            name: "Alert type",
-            type: "link",
-            value: [{
-              label: "Medical device alert",
-              value: "devices",
-            }],
-          },
-          {
-            key: "medical_specialism",
-            name: "Medical specialty",
-            type: "link",
-            value: [
-              {
-                label: "Critical care",
-                value: "critical-care",
-              },
-              {
-                label: "General practice",
-                value: "general-practice",
-              },
-              {
-                label: "Obstetrics and gynaecology",
-                value: "obstetrics-gynaecology",
-              },
-              {
-                label: "Paediatrics",
-                value: "paediatrics",
-              },
-              {
-                label: "Theatre practitioners",
-                value: "theatre-practitioners",
-              },
-            ],
-          },
-          {
-            key: "issued_date",
-            name: "Issued",
-            type: "date",
-            value: "2015-07-06",
-          },
-        ]
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expected_display_metadata = {
+          "Alert type" => [
+            "<a href='/drug-device-alerts?alert_type%5B%5D=devices' class='govuk-link govuk-link--inverse'>Medical device alert</a>",
+          ],
+          "Medical specialty" => [
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=critical-care' class='govuk-link govuk-link--inverse'>Critical care</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=general-practice' class='govuk-link govuk-link--inverse'>General practice</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=obstetrics-gynaecology' class='govuk-link govuk-link--inverse'>Obstetrics and gynaecology</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
+            "<a href='/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
+          ],
+          "Issued" => "6 July 2015",
+        }
+
+        expect(described_class.new(content_store_response).display_metadata).to eq(expected_display_metadata)
       end
     end
   end

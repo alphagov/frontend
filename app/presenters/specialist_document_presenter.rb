@@ -67,8 +67,8 @@ private
     elsif type == "link"
       links = value.map do |v|
         {
-          "title" => v[:label],
-          "base_path" => filtered_finder_path(key, v[:value]),
+          text: v[:label],
+          path: filtered_finder_path(key, v[:value]),
         }
       end
 

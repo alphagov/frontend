@@ -17,6 +17,6 @@ module LinkHelper
   end
 
   def govuk_styled_links_list(links, inverse: false)
-    links.map { |link| govuk_styled_link(link["title"], path: link["base_path"], inverse:) }
+    links.map { |link| govuk_styled_link(link[:text], path: link[:path], inverse:) }
   end
 end

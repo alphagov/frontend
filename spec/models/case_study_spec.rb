@@ -15,13 +15,10 @@ RSpec.describe CaseStudy do
       worldwide_organisations = content_store_response.dig("links", "worldwide_organisations")
       organisations = content_store_response.dig("links", "organisations")
 
-      expected_contributors = [
-        { "title" => organisations[1]["title"], "base_path" => organisations[1]["base_path"] },
-        { "title" => organisations[0]["title"], "base_path" => organisations[0]["base_path"] },
-        { "title" => worldwide_organisations[0]["title"], "base_path" => worldwide_organisations[0]["base_path"] },
-      ]
-
-      expect(case_study.contributors).to eq(expected_contributors)
+      expect(case_study.contributors.count).to eq(3)
+      expect(case_study.contributors[0].title).to eq(organisations[1]["title"])
+      expect(case_study.contributors[1].title).to eq(organisations[0]["title"])
+      expect(case_study.contributors[2].title).to eq(worldwide_organisations[0]["title"])
     end
 
     context "with no worldwide organisations" do
@@ -34,12 +31,9 @@ RSpec.describe CaseStudy do
       it "returns just the organisations ordered by emphasis" do
         organisations = content_store_response.dig("links", "organisations")
 
-        expected_contributors = [
-          { "title" => organisations[1]["title"], "base_path" => organisations[1]["base_path"] },
-          { "title" => organisations[0]["title"], "base_path" => organisations[0]["base_path"] },
-        ]
-
-        expect(case_study.contributors).to eq(expected_contributors)
+        expect(case_study.contributors.count).to eq(2)
+        expect(case_study.contributors[0].title).to eq(organisations[1]["title"])
+        expect(case_study.contributors[1].title).to eq(organisations[0]["title"])
       end
     end
   end

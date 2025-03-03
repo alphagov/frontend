@@ -41,6 +41,7 @@ class ContentItem
   def organisations
     linked("organisations")
   end
+  alias_method :contributors, :organisations
 
   def respond_to_missing?(method_name, _include_private = false)
     method_name.to_s =~ REGEX_IS_A ? true : super
@@ -68,12 +69,6 @@ class ContentItem
     @meta_section ||= content_store_hash.dig(
       "links", "parent", 0, "links", "parent", 0, "title"
     )&.downcase
-  end
-
-  def contributors(content_items = organisations)
-    content_items.map do |content_item|
-      { "title" => content_item.title, "base_path" => content_item.base_path }
-    end
   end
 
 private

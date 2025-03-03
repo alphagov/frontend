@@ -159,12 +159,9 @@ RSpec.describe ContentItem do
     let(:content_store_response) { GovukSchemas::Example.find("answer", example_name: "answer") }
 
     it "returns the organisations base_path and title" do
-      expect(content_item.contributors).to eq([
-        {
-          "base_path" => content_store_response.dig("links", "organisations", 0, "base_path"),
-          "title" => content_store_response.dig("links", "organisations", 0, "title"),
-        },
-      ])
+      expect(content_item.contributors.count).to eq(1)
+      expect(content_item.contributors.first.title).to eq(content_store_response.dig("links", "organisations", 0, "title"))
+      expect(content_item.contributors.first.base_path).to eq(content_store_response.dig("links", "organisations", 0, "base_path"))
     end
   end
 

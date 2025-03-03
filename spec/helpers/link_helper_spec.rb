@@ -50,9 +50,9 @@ RSpec.describe LinkHelper do
   describe "#govuk_styled_links_list" do
     let(:links) do
       [
-        { "title" => "Home", "base_path" => "/" },
-        { "title" => "UK Trade & Investment", "base_path" => "/uk-trade-investment" },
-        { "title" => "Foreign & Commonwealth Office", "base_path" => "/foreign-commonwealth-office" },
+        { text: "Home", path: "/" },
+        { text: "UK Trade & Investment", path: "/uk-trade-investment" },
+        { text: "Foreign & Commonwealth Office", path: "/foreign-commonwealth-office" },
       ]
     end
 

@@ -2,9 +2,7 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  include Organisations
-
-  attr_reader :attachments, :base_path, :body, :content_store_hash,
+  attr_reader :attachments, :base_path, :body, :content_id, :content_store_hash,
               :content_store_response, :description, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
               :schema_name, :title
@@ -16,6 +14,7 @@ class ContentItem
     @content_store_hash = override_content_store_hash || content_store_response.to_hash
 
     @body = content_store_hash.dig("details", "body")
+    @content_id = content_store_hash["content_id"]
     @image = content_store_hash.dig("details", "image")
     @description = content_store_hash["description"]
     @document_type = content_store_hash["document_type"]
@@ -38,6 +37,10 @@ class ContentItem
   delegate :cache_control, to: :content_store_response
 
   REGEX_IS_A = /is_an?_(.*)\?/
+
+  def organisations
+    linked("organisations")
+  end
 
   def respond_to_missing?(method_name, _include_private = false)
     method_name.to_s =~ REGEX_IS_A ? true : super
@@ -67,11 +70,19 @@ class ContentItem
     )&.downcase
   end
 
-  def contributors
-    organisations
+  def contributors(content_items = organisations)
+    content_items.map do |content_item|
+      { "title" => content_item.title, "base_path" => content_item.base_path }
+    end
   end
 
 private
+
+  def linked(type)
+    return [] if content_store_hash.dig("links", type).blank?
+
+    content_store_hash.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
+  end
 
   def get_attachments(attachment_hash)
     return [] unless attachment_hash

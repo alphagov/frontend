@@ -154,33 +154,15 @@ RSpec.describe ContentItem do
   end
 
   describe "#contributors" do
-    subject(:content_item) do
-      described_class.new(
-        {
-          "links" => {
-            "organisations" => [
-              {
-                "analytics_identifier" => "8888",
-                "content_id" => "11234500",
-                "api_path" => "/api/content/government/organisations/uk-health-security-agency",
-                "api_url" => "https://www.gov.uk/api/content/government/organisations/uk-health-security-agency",
-                "base_path" => "/government/organisations/uk-health-security-agency",
-                "document_type" => "organisation",
-                "title" => "UK Health Security Agency",
-                "web_url" => "https://www.gov.uk/government/organisations/uk-health-security-agency",
-              },
-            ],
-          },
-        },
-      )
-    end
+    subject(:content_item) { described_class.new(content_store_response) }
 
-    it "returns the organisations content_id, base_path and title" do
+    let(:content_store_response) { GovukSchemas::Example.find("answer", example_name: "answer") }
+
+    it "returns the organisations base_path and title" do
       expect(content_item.contributors).to eq([
         {
-          "content_id" => "11234500",
-          "base_path" => "/government/organisations/uk-health-security-agency",
-          "title" => "UK Health Security Agency",
+          "base_path" => content_store_response.dig("links", "organisations", 0, "base_path"),
+          "title" => content_store_response.dig("links", "organisations", 0, "title"),
         },
       ])
     end
@@ -210,6 +192,20 @@ RSpec.describe ContentItem do
 
     it "returns the title of the top parent link in lowercase" do
       expect(content_item.meta_section).to eq("title of the parent's parent link")
+    end
+  end
+
+  describe "#organisations" do
+    subject(:content_item) { described_class.new(content_store_response) }
+
+    let(:content_store_response) do
+      GovukSchemas::Example.find("answer", example_name: "answer")
+    end
+
+    it "gets all organisations linked to the content item" do
+      expect(content_item.organisations.count).to eq(content_store_response.dig("links", "organisations").count)
+      expect(content_item.organisations.first.title)
+       .to eq(content_store_response.dig("links", "organisations", 0, "title"))
     end
   end
 end

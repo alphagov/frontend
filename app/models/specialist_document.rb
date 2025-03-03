@@ -19,11 +19,11 @@ class SpecialistDocument < ContentItem
 
   def display_metadata
     @display_metadata = selected_facets.inject({}) do |display_metadata, selected_facet|
-      metadata_facet_value = metadata[selected_facet["key"]]
-      label_and_values = facet_label_and_values(metadata_facet_value, selected_facet)
+      metadata_facet_values = [metadata[selected_facet["key"]]].flatten
+      label_and_values = facet_label_and_values(metadata_facet_values, selected_facet)
       type = link?(selected_facet, label_and_values) ? "link" : selected_facet["type"]
 
-      display_metadata.merge(selected_facet["name"] => format_facet_value(type, label_and_values, selected_facet["key"]))
+      display_metadata.merge(selected_facet["name"] => format_facet_values(type, label_and_values, selected_facet["key"]))
     end
   end
 
@@ -39,10 +39,10 @@ class SpecialistDocument < ContentItem
 
 private
 
-  def facet_label_and_values(metadata_facet_value, selected_facet)
-    return metadata_facet_value if selected_facet["allowed_values"].blank?
+  def facet_label_and_values(metadata_facet_values, selected_facet)
+    return metadata_facet_values if selected_facet["allowed_values"].blank?
 
-    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)
+    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_values)
   end
 
   # specialist document change history can have a modified date that is
@@ -79,21 +79,21 @@ private
       facet["filterable"] == true
   end
 
-  def selected_allowed_values(allowed_values, metadata_facet_value)
+  def selected_allowed_values(allowed_values, metadata_facet_values)
     allowed_values.select do |allowed_value|
-      allowed_value["value"].in? [metadata_facet_value].flatten
+      allowed_value["value"].in? metadata_facet_values
     end
   end
 
-  def format_facet_value(type, value, key)
-    return display_date(value) if type == "date"
-    return facet_value_link(key, value) if type == "link"
+  def format_facet_values(type, values, key)
+    return values.map { |value| display_date(value) } if type == "date"
+    return facet_value_links(key, values) if type == "link"
 
-    value
+    values
   end
 
-  def facet_value_link(key, value)
-    links = value.map do |facet_value|
+  def facet_value_links(key, values)
+    links = values.map do |facet_value|
       {
         text: facet_value["label"],
         path: filtered_finder_path(key, facet_value["value"]),

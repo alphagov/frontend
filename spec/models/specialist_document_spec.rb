@@ -110,10 +110,10 @@ RSpec.describe SpecialistDocument do
         expected_display_metadata = {
           "Aircraft category" => ["<a href='/aaib-reports?aircraft_category%5B%5D=sport-aviation-and-balloons' class='govuk-link govuk-link--inverse'>Sport aviation and balloons</a>"],
           "Report type" => ["<a href='/aaib-reports?report_type%5B%5D=correspondence-investigation' class='govuk-link govuk-link--inverse'>Bulletin - Correspondence investigation</a>"],
-          "Date of occurrence" => "8 August 2015",
-          "Aircraft type" => "Rotorsport UK Calidus",
-          "Location" => "Damyns Hall Aerodrome, Essex",
-          "Registration" => "G-PCPC",
+          "Date of occurrence" => ["8 August 2015"],
+          "Aircraft type" => ["Rotorsport UK Calidus"],
+          "Location" => ["Damyns Hall Aerodrome, Essex"],
+          "Registration" => %w[G-PCPC],
         }
 
         expect(described_class.new(content_store_response).display_metadata).to eq(expected_display_metadata)
@@ -135,7 +135,7 @@ RSpec.describe SpecialistDocument do
             "<a href='/drug-device-alerts?medical_specialism%5B%5D=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
             "<a href='/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
           ],
-          "Issued" => "6 July 2015",
+          "Issued" => ["6 July 2015"],
         }
 
         expect(described_class.new(content_store_response).display_metadata).to eq(expected_display_metadata)

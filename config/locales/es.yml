@@ -509,8 +509,11 @@ es:
         pgi_alt_text: El logotipo del esquema es un sello negro con las palabras Geographic Origin UK protected
         tsg_alt_text: El logotipo del esquema es un sello negro con las palabras Traditional Speciality UK Protected
     speech:
+      delivered_on: Entregado el
+      location: Ubicación
       one: Discurso
       other: Discursos
+      written_on: Escrito en
     start_now:
     take_part:
       one: Participar

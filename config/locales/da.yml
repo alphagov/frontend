@@ -509,8 +509,11 @@ da:
         pgi_alt_text: Ordningen logo er et sort stempel med ordene geografisk oprindelse UK beskyttet
         tsg_alt_text: Ordningen logo er et sort stempel med ordene traditionelle specialitet UK beskyttet
     speech:
+      delivered_on: Leveret den
+      location: Placering
       one: tale
       other: taler
+      written_on: Skrevet på
     start_now:
     take_part:
       one: Deltage

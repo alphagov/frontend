@@ -509,8 +509,11 @@ hy:
         pgi_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Geographic Origin UK Protected
         tsg_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Traditional Speciality UK Protected
     speech:
+      delivered_on: Ուղարկվել է
+      location: Տեղանք
       one: Հրապարակային խոսք
       other: Հրապարակային խոսքեր
+      written_on: Գրվել է
     start_now:
     take_part:
       one: Մասնակցություն

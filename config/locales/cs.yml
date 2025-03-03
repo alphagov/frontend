@@ -585,9 +585,12 @@ cs:
         pgi_alt_text: Logo programu je černé razítko s nápisem Geographic Origin UK Protected (Chráněný zeměpisný původ UK)
         tsg_alt_text: Logo programu je černé razítko s nápisem Tradiční specialita chráněná ve Spojeném království
     speech:
+      delivered_on: Doručeno dne
       few:
+      location: Sídlo
       one: Projev
       other: Projevy
+      written_on: Odepsané
     start_now:
     take_part:
       few:

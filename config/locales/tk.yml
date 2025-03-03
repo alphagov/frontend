@@ -509,8 +509,11 @@ tk:
         pgi_alt_text: Shemanyň nyşany Geographic Origin UK Protected sözlerini özünde saklaýan gara ştampdyr.
         tsg_alt_text: Shemanyň nyşany Traditional Speciality UK Protected sözlerini özünde saklaýan gara ştampdyr.
     speech:
+      delivered_on: 'Gowşuryldy:'
+      location: Ýerleşýän ýeri
       one: Çykyş
       other: Çykyşlar
+      written_on: 'Ýazylan:'
     start_now:
     take_part:
       one: Gatnaşmak

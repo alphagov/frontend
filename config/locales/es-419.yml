@@ -509,8 +509,11 @@ es-419:
         pgi_alt_text: El logotipo del programa es un sello negro con las palabras "Geographic Origin UK Protected"
         tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
     speech:
+      delivered_on: Entregado en
+      location: Ubicación
       one: Discurso
       other: Discursos
+      written_on: Escrito en
     start_now:
     take_part:
       one: Participe

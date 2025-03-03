@@ -433,7 +433,10 @@ zh:
         pgi_alt_text: 该计划的标志是一个黑色的印章，上面写着“受地理来源国英国保护”
         tsg_alt_text: 该计划的标志是一个黑色的印章，上面写着“受传统专业英国保护”
     speech:
+      delivered_on: 提交日期
+      location: 位置
       other: 演讲
+      written_on: 书写日期
     start_now:
     take_part:
       other: 参加

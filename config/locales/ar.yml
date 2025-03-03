@@ -813,11 +813,14 @@ ar:
         pgi_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Geographic Origin UK Protected
         tsg_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Traditional Speciality UK Protected
     speech:
+      delivered_on: تاريخ التسليم
       few:
+      location: الموقع
       many:
       one: خطاب
       other: خطابات
       two:
+      written_on: تاريخ الكتابة
       zero:
     start_now:
     take_part:

@@ -509,8 +509,11 @@ it:
         pgi_alt_text: Il logo dello schema è un timbro nero con le parole Geographic Origin UK Protected
         tsg_alt_text: Il logo dello schema è un timbro nero con le parole Traditional Speciality UK Protected
     speech:
+      delivered_on: Consegnato il
+      location: Posizione
       one: Discorso
       other: Discorsi
+      written_on: Scritto il
     start_now:
     take_part:
       one: Prendere parte

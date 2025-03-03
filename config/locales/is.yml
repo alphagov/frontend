@@ -509,8 +509,11 @@ is:
         pgi_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Geographic Origin UK Protected
         tsg_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Traditional Speciality UK Protected
     speech:
+      delivered_on: Afhent þann
+      location: Staðsetning
       one: Ræða
       other: Ræður
+      written_on: Skrifað þann
     start_now:
     take_part:
       one: Taka þátt

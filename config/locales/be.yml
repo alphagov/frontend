@@ -661,10 +661,13 @@ be:
         pgi_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Geographic Origin UK Protected
         tsg_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Traditional Speciality UK Protected
     speech:
+      delivered_on: Дастаўлена
       few:
+      location: Месцазнаходжанне
       many:
       one: Выступ
       other: Выступы
+      written_on: Напісана
     start_now:
     take_part:
       few:

@@ -509,8 +509,11 @@ az:
         pgi_alt_text: Qrafik loqo üzərində "Coğrafi mənbə BK qorunur" sözləri olan qara möhürdür
         tsg_alt_text: Qrafik loqo üzərində "Ənənəvi məhsul BK qorunur" sözləri olan qara möhürdür
     speech:
+      delivered_on: Çatdırılıb
+      location: Yer
       one: Nitq
       other: Nitqlər
+      written_on: Yazılma tarixi
     start_now:
     take_part:
       one: İştirak edin

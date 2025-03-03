@@ -661,10 +661,13 @@ gd:
         pgi_alt_text: Séala dubh é lógó an chláir ar a bhfuil na focail Geographic Origin UK Protected
         tsg_alt_text: Tá stampa dubh ar lógó an chláir leis na focail Traditional Specialty UK Protected
     speech:
+      delivered_on: Seachadadh ar
       few:
+      location: Suíomh
       one: Óráid
       other: Óráid
       two:
+      written_on: Scríobh an
     start_now:
     take_part:
       few:

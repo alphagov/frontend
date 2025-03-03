@@ -433,7 +433,10 @@ ko:
         pgi_alt_text: 계획 로고는 Geographic Origin UK Protected라는 글자가 담긴 검정색 도장입니다
         tsg_alt_text: 정책 로고는 Traditional Speciality UK Protected라는 글자가 담긴 검정색 도장입니다
     speech:
+      delivered_on: 행사 일시
+      location: 위치
       other: 연설문
+      written_on: 작성 날짜
     start_now:
     take_part:
       other: 참여하기

@@ -509,8 +509,11 @@ hi:
         pgi_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Geographic Origin UK Protected शब्द हैं
         tsg_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Traditional Speciality UK Protected शब्द हैं
     speech:
+      delivered_on: इस पर डिलीवरी किया गया
+      location: स्थान
       one: भाषण
       other: भाषण
+      written_on: पर लिखा
     start_now:
     take_part:
       one: हिस्सा लें

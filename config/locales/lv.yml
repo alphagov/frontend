@@ -509,8 +509,11 @@ lv:
         pgi_alt_text: Shēmas logotips ir melns zīmogs ar vārdiem Geographic Origin UK Protected
         tsg_alt_text: Shēmas logotips ir melns zīmogs ar vārdiem Traditional Speciality UK Protected
     speech:
+      delivered_on: Piegādāts
+      location: Atrašanās vieta
       one: Runa
       other: Runas
+      written_on: Uzrakstīts uz
     start_now:
     take_part:
       one: Piedalīties

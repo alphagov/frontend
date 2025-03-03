@@ -509,8 +509,11 @@ et:
         pgi_alt_text: Skeemi logo on must tempel kirjaga Geographic Origin UK Protected
         tsg_alt_text: Skeemi logo on must tempel kirjaga Traditional Specialty UK Protected
     speech:
+      delivered_on: Edastati
+      location: Asukoht
       one: Kõne
       other: Kõned
+      written_on: Kirjutatud
     start_now:
     take_part:
       one: Osa võtma

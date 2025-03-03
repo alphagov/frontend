@@ -509,8 +509,11 @@ bg:
         pgi_alt_text: Логото на схемата представлява черен печат с надпис Geographic Origin UK Protected
         tsg_alt_text: Логото на схемата представлява черен печат с надпис Traditional Speciality UK Protected
     speech:
+      delivered_on: Доставено на
+      location: Местоположение
       one: Реч
       other: Речи
+      written_on: Написано на
     start_now:
     take_part:
       one: Вземете участие

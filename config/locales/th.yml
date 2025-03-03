@@ -433,7 +433,10 @@ th:
         pgi_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Geographic Origin UK Protected
         tsg_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Traditional Speciality UK Protected
     speech:
+      delivered_on: ส่งมอบเมื่อ
+      location: ตำแหน่งที่ตั้ง
       other: สุนทรพจน์
+      written_on: เขียนเมื่อ
     start_now:
     take_part:
       other: มีส่วนร่วม

@@ -661,10 +661,13 @@ mt:
         pgi_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem  Oriġini Ġeografika Protetta mir-RU
         tsg_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Speċjalità Tradizzjonali Protetta mir-RU
     speech:
+      delivered_on: Kunsinnat f'
       few:
+      location: Post
       many:
       one: Diskors
       other: Diskorsi
+      written_on: Miktub nhar
     start_now:
     take_part:
       few:

@@ -585,9 +585,12 @@ sk:
         pgi_alt_text: Logo schémy je čierna pečiatka s nápisom Geographic Origin UK Protected
         tsg_alt_text: Logo schémy je čierna pečiatka s nápisom Traditional Speciality UK Protected
     speech:
+      delivered_on: Doručené dňa
       few:
+      location: Umiestnenie
       one: Prejav
       other: Prejay
+      written_on: Napísané dňa
     start_now:
     take_part:
       few:

@@ -433,7 +433,10 @@ ms:
         pgi_alt_text: Logo skema adalah cap hitam dengan perkataan Geographic Origin UK Protected
         tsg_alt_text: Logo skema adalah cap hitam dengan perkataan Traditional Speciality UK Protected
     speech:
+      delivered_on: Dihantar pada
+      location: Lokasi
       other: Ucapan
+      written_on: Ditulis pada
     start_now:
     take_part:
       other: Ambil bahagian

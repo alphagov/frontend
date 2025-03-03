@@ -509,8 +509,11 @@ yi:
         pgi_alt_text:
         tsg_alt_text:
     speech:
+      delivered_on:
+      location:
       one:
       other:
+      written_on:
     start_now:
     take_part:
       one:

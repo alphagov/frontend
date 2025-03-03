@@ -818,11 +818,14 @@ cy:
         pgi_alt_text: Stamp du gyda'r geiriau Geographic Origin UK Protected yw logo'r cynllun
         tsg_alt_text: Stamp du gyda'r geiriau Traditional Speciality UK Protected yw logo'r cynllun
     speech:
+      delivered_on: Cyflawnwyd ar
       few:
+      location: Lleoliad
       many:
       one: Anerchiad
       other: Anerchiadau
       two:
+      written_on: Ysgrifennwyd ar
       zero:
     start_now: Dechrau nawr
     take_part:

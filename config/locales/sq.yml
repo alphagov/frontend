@@ -509,8 +509,11 @@ sq:
         pgi_alt_text: Logoja e skemës është një pullë e zezë me fjalët Geographic Origin UK Protected
         tsg_alt_text: Logoja e skemës është një pullë e zezë me fjalët Traditional Specialty UK Protected
     speech:
+      delivered_on: Dorëzuar më
+      location: Vendndodhja
       one: Fjalim
       other: Fjalime
+      written_on: Shkruar në
     start_now:
     take_part:
       one: Merr pjesë

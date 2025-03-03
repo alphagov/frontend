@@ -509,8 +509,11 @@ bn:
         pgi_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Geographic Origin UK Protected শব্দগুলো রয়েছে
         tsg_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Traditional Speciality UK Protected শব্দগুলো রয়েছে
     speech:
+      delivered_on: পাঠানো হয়েছে
+      location: অবস্থান
       one: বক্তব্য
       other: বক্তব্যসমূহ
+      written_on: যখন লেখা হয়েছে
     start_now:
     take_part:
       one: অংশ নিন

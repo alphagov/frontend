@@ -509,8 +509,11 @@ fr:
         pgi_alt_text: Le logo du système est un tampon noir portant la mention "Origine géographique protégée par le Royaume-Uni"
         tsg_alt_text: Le logo du système est un cachet noir portant la mention "Spécialité traditionnelle protégée par le Royaume-Uni"
     speech:
+      delivered_on: Livré le
+      location: Emplacement
       one: Discours
       other: Discours
+      written_on: Rédigé le
     start_now:
     take_part:
       one: Participer

@@ -509,8 +509,11 @@ fa:
         pgi_alt_text: آرم طرح یک مهر سیاه با این کلمات است Geographic Origin UK Protected
         tsg_alt_text: آرم طرح یک مهر سیاه با این کلمات است Traditional Speciality UK Protected
     speech:
+      delivered_on: تخویل شده در
+      location: موقعیت مکانی
       one: سخنرانی
       other: سخنرانی‌ها
+      written_on: نوشته شده در
     start_now:
     take_part:
       one: مشارکت

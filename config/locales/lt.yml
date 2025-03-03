@@ -585,9 +585,12 @@ lt:
         pgi_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma geografinė kilmės vieta“ '
         tsg_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugomas tradicinis gaminys“ '
     speech:
+      delivered_on: Pateikta
       few:
+      location: Vieta
       one: Kalba
       other: Kalbos
+      written_on: Parašymo data
     start_now:
     take_part:
       few:

@@ -585,9 +585,12 @@ hr:
         pgi_alt_text: Logo sheme je crni pečat s riječima Geografsko Podrijetlo UK Zaštićeno
         tsg_alt_text: Logo sheme je crni pečat s riječima Tradicionalni Specijalitet UK Zaštićeno
     speech:
+      delivered_on: Dostavljeno
       few:
+      location: Mjesto
       one: Govor
       other: Govori
+      written_on: Napisano
     start_now:
     take_part:
       few:

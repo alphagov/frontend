@@ -509,8 +509,11 @@ dr:
         pgi_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتeographic Origin UK Protected است
         tsg_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتTraditional Specialty UK Protected است
     speech:
+      delivered_on: تحویل داده شد به
+      location: موقعیت
       one: سخنرانی
       other: سخنرانی ها
+      written_on: نوشته شده است د
     start_now:
     take_part:
       one: سهم بگیرید

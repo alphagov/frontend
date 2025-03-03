@@ -509,8 +509,11 @@ fi:
         pgi_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Maantieteellinen alkuperä Yhdistynyt kuningaskunta Suojattu
         tsg_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Perinteinen erikoisuus Yhdistynyt kuningaskunta Suojattu
     speech:
+      delivered_on: Toimitettu
+      location: Sijainti
       one: Puhe
       other: Puheet
+      written_on: Kirjoitettu
     start_now:
     take_part:
       one: Osallistu

@@ -509,8 +509,11 @@ hu:
         pgi_alt_text: 'A tervezet logója egy fekete pecsét a következő szavakkal: Geographic Origin UK Protected'
         tsg_alt_text: 'A tervezet logója egy fekete pecsét a következő szavakkal: Traditional Speciality UK Protected'
     speech:
+      delivered_on: 'Kézbesítve ekkor:'
+      location: Helyszín
       one: Beszéd
       other: Beszédek
+      written_on: 'Írás időpontja:'
     start_now:
     take_part:
       one: Részvétel

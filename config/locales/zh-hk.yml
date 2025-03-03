@@ -433,7 +433,10 @@ zh-hk:
         pgi_alt_text: 該計劃之標誌為一黑色印章，帶有「英國地理原產地保護」之字樣
         tsg_alt_text: 該計劃之標誌為一黑色印章，帶有「英國傳統特產保護」之字樣
     speech:
+      delivered_on: 交付時間
+      location: 地點
       other: 演講
+      written_on: 記載於
     start_now:
     take_part:
       other: 參加活動

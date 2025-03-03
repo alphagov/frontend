@@ -661,10 +661,13 @@ pl:
         pgi_alt_text: Logo programu to czarna pieczęć z napisem „Geographic Origin UK Protected”
         tsg_alt_text: Logo programu to czarna pieczęć z napisem „Traditional Specialty UK Protected”
     speech:
+      delivered_on: Dostarczono o
       few:
+      location: Lokalizacja
       many:
       one: Przemówienie
       other: Przemówienia
+      written_on: Napisano o
     start_now:
     take_part:
       few:

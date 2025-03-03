@@ -509,8 +509,11 @@ sv:
         pgi_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
         tsg_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
     speech:
+      delivered_on: Levererad den
+      location: Plats
       one: Tal
       other: Tal
+      written_on: Skrivet på
     start_now:
     take_part:
       one: Delta

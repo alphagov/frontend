@@ -585,9 +585,12 @@ ro:
         pgi_alt_text: Logoul schemei este un timbru negru cu cuvintele Geographic Origin UK Protected
         tsg_alt_text: Logoul schemei este un timbru negru cu cuvintele Traditional Speciality UK Protected
     speech:
+      delivered_on: Livrat pe
       few:
+      location: Locație
       one: Discurs
       other: Discursuri
+      written_on: Scris pe
     start_now:
     take_part:
       few:

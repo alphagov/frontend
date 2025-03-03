@@ -661,10 +661,13 @@ sl:
         pgi_alt_text: Logotip sheme je črni žig z besedami Geographic Origin UK Protected
         tsg_alt_text: Logotip sheme je črni žig z besedami Traditional Speciality UK Protected
     speech:
+      delivered_on: 'Podano dne:'
       few:
+      location: Lokacija
       one: Govor
       other: Govori
       two:
+      written_on: Napisano dne
     start_now:
     take_part:
       few:

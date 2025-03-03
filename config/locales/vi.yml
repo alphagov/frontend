@@ -433,7 +433,10 @@ vi:
         pgi_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Geographic Origin UK Protected”
         tsg_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Traditional Speciality UK Protected”
     speech:
+      delivered_on: Ngày giao
+      location: Vị trí
       other: Bài phát biểu
+      written_on: Ngày viết
     start_now:
     take_part:
       other: Tham gia

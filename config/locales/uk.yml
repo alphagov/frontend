@@ -661,10 +661,13 @@ uk:
         pgi_alt_text: Логотип схеми –– це чорний штамп зі словами Designated Origin UK Protected
         tsg_alt_text: Логотип схеми –– це чорний штамп зі словами Traditional Speciality UK Protected
     speech:
+      delivered_on: Доставлено
       few:
+      location: Розташування
       many:
       one: Виступ
       other: Виступи
+      written_on: Написано
     start_now:
     take_part:
       few:

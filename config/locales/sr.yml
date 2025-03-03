@@ -585,9 +585,12 @@ sr:
         pgi_alt_text: Shematski logotip je odštampan crno sa rečima Geographic Origin UK Protected
         tsg_alt_text: Shematski logotip je odštampan crno sa rečima Traditional Speciality UK Protected
     speech:
+      delivered_on: Isporučeno
       few:
+      location: Lokacija
       one: Govor
       other: Govori
+      written_on: Napisano
     start_now:
     take_part:
       few:

@@ -509,8 +509,11 @@ de:
         pgi_alt_text: Das Logo ist ein schwarzer Stempel mit der Aufschrift "Geographic Origin UK Protected"
         tsg_alt_text: Das Logo ist ein schwarzer Stempel mit der Aufschrift "Traditional Speciality UK Protected"
     speech:
+      delivered_on: Geliefert am
+      location: Standort
       one: Rede
       other: Reden
+      written_on: Geschrieben am
     start_now:
     take_part:
       one: Teilnehmen

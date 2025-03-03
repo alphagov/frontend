@@ -104,7 +104,7 @@ private
   end
 
   def selected_facets
-    @selected_facets ||= finder.facets.select { |facet| metadata[facet["key"]] && metadata[facet["key"]].present? }
+    @selected_facets ||= finder.facets.select { |facet| metadata[facet["key"]].present? }
   end
 
   def all_protection_type_images

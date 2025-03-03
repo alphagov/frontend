@@ -4,7 +4,6 @@ class CaseStudy < ContentItem
   include WorldwideOrganisations
 
   def contributors
-    contributors_list = (organisations_ordered_by_emphasis + worldwide_organisations).uniq
-    super(contributors_list)
+    (organisations_ordered_by_emphasis + worldwide_organisations).uniq(&:content_id)
   end
 end

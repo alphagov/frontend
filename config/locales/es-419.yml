@@ -508,6 +508,9 @@ es-419:
         pdo_alt_text: El logotipo del programa es un sello negro con las palabras "Designated Origin UK Protected"
         pgi_alt_text: El logotipo del programa es un sello negro con las palabras "Geographic Origin UK Protected"
         tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
+    speech:
+      one: Discurso
+      other: Discursos
     start_now:
     take_part:
       one: Participe

@@ -508,6 +508,9 @@ fa:
         pdo_alt_text: آرم طرح یک مهر سیاه با این کلمات است Designated Origin UK Protected
         pgi_alt_text: آرم طرح یک مهر سیاه با این کلمات است Geographic Origin UK Protected
         tsg_alt_text: آرم طرح یک مهر سیاه با این کلمات است Traditional Speciality UK Protected
+    speech:
+      one: سخنرانی
+      other: سخنرانی‌ها
     start_now:
     take_part:
       one: مشارکت

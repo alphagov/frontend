@@ -508,6 +508,9 @@ sw:
         pdo_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Designated Origin UK Protected
         pgi_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Geographic Origin UK Protected
         tsg_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Traditional Speciality UK Protected
+    speech:
+      one: Hotuba
+      other: Hotuba
     start_now:
     take_part:
       one: Shiriki

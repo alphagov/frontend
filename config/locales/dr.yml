@@ -508,6 +508,9 @@ dr:
         pdo_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتDesignated Origin UK Protected است
         pgi_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتeographic Origin UK Protected است
         tsg_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتTraditional Specialty UK Protected است
+    speech:
+      one: سخنرانی
+      other: سخنرانی ها
     start_now:
     take_part:
       one: سهم بگیرید

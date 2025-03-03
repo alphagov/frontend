@@ -432,6 +432,8 @@ id:
         pdo_alt_text: Logo skema adalah cap hitam dengan kata-kata Designated Origin UK Protected
         pgi_alt_text: Logo skema adalah cap hitam dengan kata-kata Geographic Origin UK Protected
         tsg_alt_text: Logo skema adalah cap hitam dengan kata-kata Traditional Speciality UK Protected
+    speech:
+      other: Pidato
     start_now:
     take_part:
       other: Ikut serta

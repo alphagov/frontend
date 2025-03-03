@@ -508,6 +508,9 @@ et:
         pdo_alt_text: Skeemi logo on must tempel kirjaga Designated Origin UK Protected
         pgi_alt_text: Skeemi logo on must tempel kirjaga Geographic Origin UK Protected
         tsg_alt_text: Skeemi logo on must tempel kirjaga Traditional Specialty UK Protected
+    speech:
+      one: Kõne
+      other: Kõned
     start_now:
     take_part:
       one: Osa võtma

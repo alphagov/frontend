@@ -432,6 +432,8 @@ vi:
         pdo_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Designated Origin UK Protected”
         pgi_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Geographic Origin UK Protected”
         tsg_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Traditional Speciality UK Protected”
+    speech:
+      other: Bài phát biểu
     start_now:
     take_part:
       other: Tham gia

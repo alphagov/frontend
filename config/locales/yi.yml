@@ -508,6 +508,9 @@ yi:
         pdo_alt_text:
         pgi_alt_text:
         tsg_alt_text:
+    speech:
+      one:
+      other:
     start_now:
     take_part:
       one:

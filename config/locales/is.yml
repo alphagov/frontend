@@ -508,6 +508,9 @@ is:
         pdo_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Designated Origin UK Protected
         pgi_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Geographic Origin UK Protected
         tsg_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Traditional Speciality UK Protected
+    speech:
+      one: Ræða
+      other: Ræður
     start_now:
     take_part:
       one: Taka þátt

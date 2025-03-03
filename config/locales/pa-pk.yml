@@ -508,6 +508,9 @@ pa-pk:
         pdo_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Designated Origin UK Protected
         pgi_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Geographic Origin UK Protected
         tsg_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Traditional Speciality UK Protected
+    speech:
+      one: تقریر
+      other: تقریراں
     start_now:
     take_part:
       one: حصہ لوؤ

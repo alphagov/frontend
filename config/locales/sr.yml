@@ -584,6 +584,10 @@ sr:
         pdo_alt_text: Shematski logotip je odštampan crno sa rečima Designated Origin UK Protected
         pgi_alt_text: Shematski logotip je odštampan crno sa rečima Geographic Origin UK Protected
         tsg_alt_text: Shematski logotip je odštampan crno sa rečima Traditional Speciality UK Protected
+    speech:
+      few:
+      one: Govor
+      other: Govori
     start_now:
     take_part:
       few:

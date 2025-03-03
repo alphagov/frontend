@@ -508,6 +508,9 @@
         pdo_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
         pgi_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
         tsg_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
+    speech:
+      one: Tale
+      other: Taler
     start_now:
     take_part:
       one: Delta

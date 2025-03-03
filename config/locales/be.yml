@@ -660,6 +660,11 @@ be:
         pdo_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Designated Origin UK Protected
         pgi_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Geographic Origin UK Protected
         tsg_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Traditional Speciality UK Protected
+    speech:
+      few:
+      many:
+      one: Выступ
+      other: Выступы
     start_now:
     take_part:
       few:

@@ -584,6 +584,10 @@ ro:
         pdo_alt_text: Logoul schemei este un timbru negru cu cuvintele Designated Origin UK Protected
         pgi_alt_text: Logoul schemei este un timbru negru cu cuvintele Geographic Origin UK Protected
         tsg_alt_text: Logoul schemei este un timbru negru cu cuvintele Traditional Speciality UK Protected
+    speech:
+      few:
+      one: Discurs
+      other: Discursuri
     start_now:
     take_part:
       few:

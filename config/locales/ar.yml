@@ -812,6 +812,13 @@ ar:
         pdo_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Designated Origin UK Protected
         pgi_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Geographic Origin UK Protected
         tsg_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Traditional Speciality UK Protected
+    speech:
+      few:
+      many:
+      one: خطاب
+      other: خطابات
+      two:
+      zero:
     start_now:
     take_part:
       few:

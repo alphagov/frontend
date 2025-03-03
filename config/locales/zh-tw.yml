@@ -432,6 +432,8 @@ zh-tw:
         pdo_alt_text: 項目標識為黑色印章，上面寫著「指定的原產地受英國保護」
         pgi_alt_text: 項目標識為黑色印章，上面寫著「地理上原產地受英國保護」
         tsg_alt_text: 項目標識為黑色印章，上面寫著「傳統特產受英國保護」
+    speech:
+      other: 演說
     start_now:
     take_part:
       other: 參與

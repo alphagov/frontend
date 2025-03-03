@@ -513,6 +513,9 @@ en:
         pdo_alt_text: The scheme logo is a black stamp with the words Designated Origin UK Protected
         pgi_alt_text: The scheme logo is a black stamp with the words Geographic Origin UK Protected
         tsg_alt_text: The scheme logo is a black stamp with the words Traditional Speciality UK Protected
+    speech:
+      one: Speech
+      other: Speeches
     start_now: Start now
     take_part:
       one: Take part

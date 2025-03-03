@@ -7,7 +7,14 @@
 
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/heading", @content_item.heading_and_context %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      context: I18n.t("formats.#{content_item.document_type}", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
   </div>
   <%= render "shared/translations" %>
   <div class="govuk-grid-column-two-thirds">

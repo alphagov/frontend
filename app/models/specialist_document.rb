@@ -20,10 +20,8 @@ class SpecialistDocument < ContentItem
   def display_metadata
     @display_metadata = selected_facets.inject({}) do |display_metadata, selected_facet|
       metadata_facet_values = [metadata[selected_facet["key"]]].flatten
-      label_and_values = facet_label_and_values(metadata_facet_values, selected_facet)
-      type = link?(selected_facet, label_and_values) ? "link" : selected_facet["type"]
-
-      display_metadata.merge(selected_facet["name"] => format_facet_values(type, label_and_values, selected_facet["key"]))
+      metadata_display_value = format_facet_values(metadata_facet_values, selected_facet)
+      display_metadata.merge(selected_facet["name"] => metadata_display_value)
     end
   end
 
@@ -38,12 +36,6 @@ class SpecialistDocument < ContentItem
   end
 
 private
-
-  def facet_label_and_values(metadata_facet_values, selected_facet)
-    return metadata_facet_values if selected_facet["allowed_values"].blank?
-
-    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_values)
-  end
 
   # specialist document change history can have a modified date that is
   # slightly different to the public_updated_at, eg milliseconds different
@@ -73,38 +65,40 @@ private
     end
   end
 
-  def link?(facet, permitted_value)
-    facet["type"] == "text" &&
-      permitted_value.is_a?(Array) &&
-      facet["filterable"] == true
+  def format_facet_values(metadata_facet_values, selected_facet)
+    return metadata_facet_values.map { |value| display_date(value) } if selected_facet["type"] == "date"
+    return format_facet_text(metadata_facet_values, selected_facet) if selected_facet["type"] == "text"
+
+    metadata_facet_values
   end
 
-  def selected_allowed_values(allowed_values, metadata_facet_values)
-    allowed_values.select do |allowed_value|
-      allowed_value["value"].in? metadata_facet_values
+  def format_facet_text(metadata_facet_values, selected_facet)
+    return metadata_facet_values if selected_facet["allowed_values"].blank?
+
+    metadata_facet_values.map do |metadata_facet_value|
+      friendly_facet_text_with_link(metadata_facet_value, selected_facet)
     end
   end
 
-  def format_facet_values(type, values, key)
-    return values.map { |value| display_date(value) } if type == "date"
-    return facet_value_links(key, values) if type == "link"
-
-    values
-  end
-
-  def facet_value_links(key, values)
-    links = values.map do |facet_value|
-      {
-        text: facet_value["label"],
-        path: filtered_finder_path(key, facet_value["value"]),
-      }
+  def friendly_facet_text_with_link(metadata_facet_value, selected_facet)
+    selected_allowed_value = selected_facet["allowed_values"].detect do |av|
+      av["value"] == metadata_facet_value
     end
 
-    govuk_styled_links_list(links, inverse: true)
+    return metadata_facet_value unless selected_allowed_value
+    return selected_allowed_value["label"] unless selected_facet["filterable"]
+
+    govuk_styled_link(
+      selected_allowed_value["label"],
+      path: facet_link_path(selected_facet["key"], selected_allowed_value),
+      inverse: true,
+    )
   end
 
-  def filtered_finder_path(key, value)
-    "#{finder.base_path}?#{key}%5B%5D=#{value}"
+  def facet_link_path(key, allowed_value)
+    query_params = { "#{key}[]" => allowed_value["value"] }
+
+    "#{finder.base_path}?#{query_params.to_query}"
   end
 
   def selected_facets

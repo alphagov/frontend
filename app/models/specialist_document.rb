@@ -7,12 +7,12 @@ class SpecialistDocument < ContentItem
   def initialize(content_store_response)
     super(content_store_response)
 
-    @continuation_link = content_store_hash.dig("details", "metadata", "continuation_link")
-    @metadata = content_store_hash["details"]["metadata"]
-    @protection_type = content_store_hash.dig("details", "metadata", "protection_type")
-    @will_continue_on = content_store_hash.dig("details", "metadata", "will_continue_on")
+    @continuation_link = content_store_response.dig("details", "metadata", "continuation_link")
+    @metadata = content_store_response["details"]["metadata"]
+    @protection_type = content_store_response.dig("details", "metadata", "protection_type")
+    @will_continue_on = content_store_response.dig("details", "metadata", "will_continue_on")
 
-    @headers = headers_list(content_store_hash.dig("details", "headers"))
+    @headers = headers_list(content_store_response.dig("details", "headers"))
   end
 
   def facet_values
@@ -40,7 +40,7 @@ class SpecialistDocument < ContentItem
   end
 
   def finder
-    @finder ||= Finder.new(content_store_hash.dig("links", "finder", 0))
+    @finder ||= Finder.new(content_store_response.dig("links", "finder", 0))
   end
 
   def protection_type_image

@@ -112,6 +112,8 @@ ps:
       published: خپور شوی%{date}
       see_all_updates: ټول تازه معلومات وګورئ
       show_all_updates: ټول تازه معلومات وښایاست
+    share_links:
+      share_this_page: دا پاه شریکه کړئ
   continue:
   cookies:
     always_on:

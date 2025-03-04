@@ -112,6 +112,8 @@ el:
       published: Δημοσιεύτηκε %{date}
       see_all_updates: δείτε όλες τις ενημερώσεις
       show_all_updates: εμφάνιση όλων των ενημερώσεων
+    share_links:
+      share_this_page: Κοινοποιήστε αυτή τη σελίδα
   continue:
   cookies:
     always_on:

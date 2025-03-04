@@ -112,6 +112,8 @@ so:
       published: La daabacay %{date}
       see_all_updates: eeg dhamaan cusboonaysiinaha
       show_all_updates: muuji dhamaan cusboonaysiinaha
+    share_links:
+      share_this_page: Lawadaag bogan
   continue:
   cookies:
     always_on:

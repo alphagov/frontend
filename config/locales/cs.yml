@@ -112,6 +112,8 @@ cs:
       published: Zveřejněno %{date}
       see_all_updates: vidět všechny aktualizace
       show_all_updates: zobrazit všechny aktualizace
+    share_links:
+      share_this_page: Sdílet tuto stránku
   continue:
   cookies:
     always_on:

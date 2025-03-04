@@ -112,6 +112,8 @@ ur:
       published: شائع کردہ %{date}
       see_all_updates: تمام اپ ڈیٹس دیکھیں
       show_all_updates: تمام اپ ڈیٹس دکھائیں
+    share_links:
+      share_this_page: اس صفحے کو شیئر کریں
   continue:
   cookies:
     always_on:

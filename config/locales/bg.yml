@@ -112,6 +112,8 @@ bg:
       published: Публикувано на %{date}
       see_all_updates: вижте всички актуализации
       show_all_updates: показване на всички актуализации
+    share_links:
+      share_this_page: Споделяне на тази страница
   continue:
   cookies:
     always_on:

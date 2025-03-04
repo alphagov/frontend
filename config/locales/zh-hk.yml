@@ -112,6 +112,8 @@ zh-hk:
       published: 已發佈 %{date}
       see_all_updates: 查看所有更新
       show_all_updates: 顯示所有更新
+    share_links:
+      share_this_page: 轉載此一頁面
   continue:
   cookies:
     always_on:

@@ -112,6 +112,8 @@ be:
       published: Апублікавана %{date}
       see_all_updates: паглядзець усе абнаўленні
       show_all_updates: паказаць усе абнаўленні
+    share_links:
+      share_this_page: Падзяліцца гэтай старонкай
   continue:
   cookies:
     always_on:

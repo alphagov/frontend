@@ -112,6 +112,8 @@ ta:
       published: வெளியிடப்பட்ட தேதி %{date}
       see_all_updates: அனைத்து புதுப்பித்தல்களையும் பார்க்க
       show_all_updates: அனைத்து புதுப்பித்தல்களையும் காட்டு
+    share_links:
+      share_this_page: இந்தப் பக்கத்தைப் பகிர்க
   continue:
   cookies:
     always_on:

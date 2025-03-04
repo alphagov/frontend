@@ -112,6 +112,8 @@ pa:
       published: ਪ੍ਰਕਾਸ਼ਿਤ %{date}
       see_all_updates: ਸਾਰੇ ਅਪਡੇਟਸ ਵੇਖੋ
       show_all_updates: ਸਾਰੇ ਅਪਡੇਟ ਦਿਖਾਉ
+    share_links:
+      share_this_page: ਇਸ ਪੇਜ ਨੂੰ ਸ਼ੇਅਰ ਕਰੋ
   continue:
   cookies:
     always_on:

@@ -112,6 +112,8 @@ sq:
       published: Publikuar %{date}
       see_all_updates: shih të gjitha përditësimet
       show_all_updates: shfaq të gjitha përditësimet
+    share_links:
+      share_this_page: Shpërdaj këtë faqe
   continue:
   cookies:
     always_on:

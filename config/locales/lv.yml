@@ -112,6 +112,8 @@ lv:
       published: Publicēts %{date}
       see_all_updates: skatīt visus atjauninājumus
       show_all_updates: rādīt visus atjauninājumus
+    share_links:
+      share_this_page: Kopīgot šo lapu
   continue:
   cookies:
     always_on:

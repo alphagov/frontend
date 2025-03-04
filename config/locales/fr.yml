@@ -112,6 +112,8 @@ fr:
       published: Publié le %{date}
       see_all_updates: afficher toutes les mises à jour
       show_all_updates: afficher toutes les mises à jour
+    share_links:
+      share_this_page: Partagez cette page
   continue:
   cookies:
     always_on:

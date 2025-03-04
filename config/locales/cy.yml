@@ -112,6 +112,8 @@ cy:
       published: Cyhoeddwyd ar %{date}
       see_all_updates: gweld pob diweddariad
       show_all_updates: dangos pob diweddariad
+    share_links:
+      share_this_page: Rhannu'r dudalen hon
   continue: Parhau
   cookies:
     always_on: Mae angen iddynt fod ymlaen bob amser.

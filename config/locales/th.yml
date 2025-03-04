@@ -112,6 +112,8 @@ th:
       published: เผยแพร่เมื่อ %{date}
       see_all_updates: ดูอัปเดตทั้งหมด
       show_all_updates: แสดงอัปเดตทั้งหมด
+    share_links:
+      share_this_page: แชร์หน้านี้
   continue:
   cookies:
     always_on:

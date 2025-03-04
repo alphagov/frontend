@@ -112,6 +112,8 @@ pa-pk:
       published: شائع ہویا %{date}
       see_all_updates: ساری تازہ ترین صورتِ حال
       show_all_updates: ساری تازہ ترین صورتِ حال وکھاؤ
+    share_links:
+      share_this_page: ایہ ورقہ تقسیم کرو
   continue:
   cookies:
     always_on:

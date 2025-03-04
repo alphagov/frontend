@@ -112,6 +112,8 @@ tr:
       published: Yayınlama %{date}
       see_all_updates: tüm güncellemeleri görün
       show_all_updates: tüm güncellemeleri göster
+    share_links:
+      share_this_page: Bu sayfayı paylaş
   continue:
   cookies:
     always_on:

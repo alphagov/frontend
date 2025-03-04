@@ -112,6 +112,8 @@ ar:
       published: تاريخ النشر %{date}
       see_all_updates: اطلع على كل التحديثات
       show_all_updates: إظهار كل التحديثات
+    share_links:
+      share_this_page: شارك هذه الصفحة
   continue:
   cookies:
     always_on:

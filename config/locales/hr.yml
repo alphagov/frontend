@@ -112,6 +112,8 @@ hr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+    share_links:
+      share_this_page: Podijelite ovu stranicu
   continue:
   cookies:
     always_on:

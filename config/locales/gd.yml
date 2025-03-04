@@ -112,6 +112,8 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+    share_links:
+      share_this_page: Comhroinn an leathanach seo
   continue:
   cookies:
     always_on:

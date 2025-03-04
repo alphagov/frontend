@@ -112,6 +112,8 @@ zh:
       published: 发布 %{date}
       see_all_updates: 查看全部更新
       show_all_updates: 显示全部更新
+    share_links:
+      share_this_page: 分享本页面
   continue:
   cookies:
     always_on:

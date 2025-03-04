@@ -112,6 +112,8 @@ ka:
       published: გამოქვეყნდა %{date}
       see_all_updates: ყველა ცვლილების ნახვა
       show_all_updates: ყველა ცვლილების ჩვენება
+    share_links:
+      share_this_page: ამ გვერდის გაზიარება
   continue:
   cookies:
     always_on:

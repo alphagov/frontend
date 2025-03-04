@@ -112,6 +112,8 @@ ru:
       published: Опубликовано %{date}
       see_all_updates: Посмотреть всю поледнюю информацию
       show_all_updates: Показать всю поледнюю информацию
+    share_links:
+      share_this_page: 'Поделиться данной страницей '
   continue:
   cookies:
     always_on:

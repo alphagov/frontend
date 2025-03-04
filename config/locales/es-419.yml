@@ -112,6 +112,8 @@ es-419:
       published: Publicado %{date}
       see_all_updates: ver todas las novedades
       show_all_updates: mostrar todas las actualizaciones
+    share_links:
+      share_this_page: Compartir esta página
   continue:
   cookies:
     always_on:

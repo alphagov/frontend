@@ -112,6 +112,8 @@ hy:
       published: Հրապարակվել է՝ %{date}
       see_all_updates: դիտել բոլոր թարմացումները
       show_all_updates: ցույց տալ բոլոր թարմացումները
+    share_links:
+      share_this_page: Կիսվել այս էջով
   continue:
   cookies:
     always_on:

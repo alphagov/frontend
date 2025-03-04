@@ -112,6 +112,8 @@ is:
       published: Birt %{date}
       see_all_updates: sjá allar uppfærslur
       show_all_updates: sýna allar uppfærslur
+    share_links:
+      share_this_page: Deila þessari síðu
   continue:
   cookies:
     always_on:

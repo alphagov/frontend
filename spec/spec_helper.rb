@@ -8,7 +8,6 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "capybara/rails"
-require "slimmer/rspec"
 require "timecop"
 require "webmock/rspec"
 WebMock.disable_net_connect!(allow_localhost: true)

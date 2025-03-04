@@ -1,8 +1,4 @@
 class StaticErrorPagesController < ApplicationController
-  after_action do
-    response.headers[Slimmer::Headers::SKIP_HEADER] = "true"
-  end
-
   ERROR_CODES = %w[
     400
     401

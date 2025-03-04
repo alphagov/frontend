@@ -1,6 +1,7 @@
 class NewsArticle < ContentItem
   include EmphasisedOrganisations
   include People
+  include Withdrawable
   include WorldwideOrganisations
 
   def contributors

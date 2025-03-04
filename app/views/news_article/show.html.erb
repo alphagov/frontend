@@ -30,8 +30,16 @@
   } %>
 
 <%= render "shared/history_notice", content_item: @content_item %>
-<% if @content_item.withdrawn? %>
-  <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>
+
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+  <%= render "govuk_publishing_components/components/notice", {
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation&.html_safe,
+    time: withdrawn_time_tag,
+    lang: "en",
+  } %>
 <% end %>
 
 <div class="govuk-grid-row gem-print-columns-none">

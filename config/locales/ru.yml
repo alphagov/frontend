@@ -583,6 +583,11 @@ ru:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Ответ правительства
+      other: Ответы правительства
     licence:
       change:
     local_transaction:
@@ -634,11 +639,21 @@ ru:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: Новостной сюжет
+      other: Новостные сюжеты
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: Пресс-релиз
+      other: Пресс-релизы
     simple_smart_answer:
       change:
       next_step:
@@ -674,6 +689,11 @@ ru:
       still_current_at: Все еще на
       summary: Резюме
       updated: Обновлено
+    world_news_story:
+      few:
+      many:
+      one: Международные новости
+      other: Международные новости
   help:
     index:
       about:

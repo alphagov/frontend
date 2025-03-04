@@ -435,6 +435,9 @@ et:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Valitsuse vastus
+      other: Valitsuse vastused
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ et:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Uudislugu
+      other: Uudislood
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressiteade
+      other: Pressiteated
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ et:
       still_current_at: Ikka praegune
       summary: Kokkuvõte
       updated: Uuendatud
+    world_news_story:
+      one: Maailma uudislugu
+      other: Maailma uudislood
   help:
     index:
       about:

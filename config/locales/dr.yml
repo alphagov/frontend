@@ -435,6 +435,9 @@ dr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: پاسخ حکومت
+      other: پاسخ هایی حکومت
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ dr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: گزارش خبری
+      other: گزارشات خبری
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: بیانیه مطبوعاتی
+      other: بیانیه هایی مطبوعاتی
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ dr:
       still_current_at: هنور هم در
       summary: خلاصه
       updated: آپدیت شده
+    world_news_story:
+      one: گزارش خبری جهان
+      other: گزارشات خبری جهان
   help:
     index:
       about:

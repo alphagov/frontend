@@ -509,6 +509,10 @@ sr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Odgovor vlade
+      other: Odgovori vlade
     licence:
       change:
     local_transaction:
@@ -560,11 +564,19 @@ sr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Vest
+      other: Vesti
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Saopštenje za medije
+      other: Saopštenja za štampu
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +611,10 @@ sr:
       still_current_at: Još važi za
       summary: Rezime
       updated: Ažurirano
+    world_news_story:
+      few:
+      one: Vest iz sveta
+      other: Vesti iz sveta
   help:
     index:
       about:

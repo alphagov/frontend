@@ -435,6 +435,9 @@ pa-pk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: حکومت دا جواب
+      other: حکومت دے جوابات
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ pa-pk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: خبراں دی کہانی
+      other: خبراں دیاں کہانیاں
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: خبراں دینا
+      other: خبراں دینا
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ pa-pk:
       still_current_at: ہون ایس ویلے وی اوتھے ای اے
       summary: خلاصہ
       updated: تازہ ترین حال
+    world_news_story:
+      one: دُنیا دیاں خبراں دی کہانی
+      other: دُنیا دیاں خبراں دیاں کہانیاں
   help:
     index:
       about:

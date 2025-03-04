@@ -435,6 +435,9 @@ uz:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Ҳукумат жавоби
+      other: Ҳукумат жавоблари
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ uz:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Янгилик сюжети
+      other: Янгилик сюжетлари
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Матбуот-релизи
+      other: Матбуот-релизлари
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ uz:
       still_current_at: Ҳанузгача кучда
       summary: Жамланма маълумот
       updated: Янгиланган
+    world_news_story:
+      one: Янгилик сюжетлари
+      other: Халқаро янги тарихлар
   help:
     index:
       about:

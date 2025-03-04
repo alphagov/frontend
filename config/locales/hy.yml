@@ -435,6 +435,9 @@ hy:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Կառավարության արձագանք
+      other: Կառավարության արձագանքներ
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ hy:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Տեղեկատվական նյութ
+      other: Տեղեկատվական նյութեր
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Կոմյունիկե
+      other: Կոմյունիկեներ
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ hy:
       still_current_at: Դեռևս ընթացիկ
       summary: Ամփոփ
       updated: Թարմացված
+    world_news_story:
+      one: Համաշխարհային տեղեկատվական նյութ
+      other: Համաշխարհային տեղեկատվական նյութեր
   help:
     index:
       about:

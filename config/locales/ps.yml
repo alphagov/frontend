@@ -435,6 +435,9 @@ ps:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: د حکومت غبرګون
+      other: د حکومت غبرګون
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ ps:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: د خبر کیسه
+      other: د خبرونو کیسې
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: مطبوعاتي اعلامیه
+      other: مطبوعاتي اعلامیې
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ ps:
       still_current_at: په اوسني وخت کې
       summary: لنډيز
       updated: تازه شوی
+    world_news_story:
+      one: د نړۍ خبرونه
+      other: د نړۍ خبرونه
   help:
     index:
       about:

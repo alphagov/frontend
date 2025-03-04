@@ -361,6 +361,8 @@ th:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: คำตอบของรัฐบาล
     licence:
       change:
     local_transaction:
@@ -412,11 +414,15 @@ th:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: เนื้อหาข่าว
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: ข่าวประชาสัมพันธ์
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +455,8 @@ th:
       still_current_at: ยังคงเป็นปัจจุบันเมื่อ
       summary: สรุป
       updated: ปรับปรุงแล้ว
+    world_news_story:
+      other: ข่าวสารรอบโลก
   help:
     index:
       about:

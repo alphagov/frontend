@@ -361,6 +361,8 @@ vi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: Phản hồi của chính phủ
     licence:
       change:
     local_transaction:
@@ -412,11 +414,15 @@ vi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: Bài phóng sự
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: Thông cáo báo chí
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +455,8 @@ vi:
       still_current_at: Vẫn đang ở
       summary: Tóm tắt
       updated: Đã cập nhật
+    world_news_story:
+      other: Bài phóng sự thế giới
   help:
     index:
       about:

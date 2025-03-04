@@ -435,6 +435,9 @@
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Myndighetenes svar
+      other: Myndighetenes svar
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nyhetssak
+      other: Nyheter
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressemelding
+      other: Pressemeldinger
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@
       still_current_at: Fortsatt aktuell
       summary: Sammendrag
       updated: Oppdatert
+    world_news_story:
+      one: Verdensnyhet
+      other: Verdensnyheter
   help:
     index:
       about:

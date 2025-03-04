@@ -435,6 +435,9 @@ kk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Мемлекет жауабы
+      other: Мемлекет жауаптары
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ kk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Жаңалықтар оқиғасы
+      other: Жаңалықтар оқиғалары
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Пресс-релиз
+      other: Пресс-релиздер
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ kk:
       still_current_at: Әлі де ағымдағы
       summary: Қысқаша мазмұны
       updated: Жаңартылды
+    world_news_story:
+      one: Әлемдегі жаңалықтар оқиғасы
+      other: Әлемдегі жаңалықтар оқиғалары
   help:
     index:
       about:

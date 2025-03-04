@@ -361,6 +361,8 @@ zh-hk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: 政府回應
     licence:
       change:
     local_transaction:
@@ -412,11 +414,15 @@ zh-hk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: 新聞
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: 新聞稿
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +455,8 @@ zh-hk:
       still_current_at: 目前仍在
       summary: 摘要
       updated: 已更新
+    world_news_story:
+      other: 世界新聞故事
   help:
     index:
       about:

@@ -509,6 +509,10 @@ cs:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Reakce vlády
+      other: Reakce vlády
     licence:
       change:
     local_transaction:
@@ -560,11 +564,19 @@ cs:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Zpravodajský příběh
+      other: Zpravodajské příběhy
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Tisková zpráva
+      other: Tiskové zprávy
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +611,10 @@ cs:
       still_current_at: Stále aktuální na
       summary: Shrnutí
       updated: Aktualizováno
+    world_news_story:
+      few:
+      one: Zprávy ze světa
+      other: Zprávy ze světa
   help:
     index:
       about:

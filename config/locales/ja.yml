@@ -361,6 +361,8 @@ ja:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: 政府の対応
     licence:
       change:
     local_transaction:
@@ -412,11 +414,15 @@ ja:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: ニュースストーリー
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: プレスリリース
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +455,8 @@ ja:
       still_current_at: 現状：
       summary: 概要
       updated: 更新済み
+    world_news_story:
+      other: 世界のニュース記事
   help:
     index:
       about:

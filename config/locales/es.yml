@@ -435,6 +435,9 @@ es:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Respuesta gubernamental
+      other: Respuestas gubernamentales
     licence:
       change:
     local_transaction:
@@ -486,11 +489,17 @@ es:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Noticia
+      other: Noticias
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Nota de prensa
+      other: Notas de prensa
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +533,9 @@ es:
       still_current_at: Sigue siendo actual en
       summary: Resumen
       updated: Actualizado
+    world_news_story:
+      one: Noticia internacional
+      other: Noticias internacionales
   help:
     index:
       about:

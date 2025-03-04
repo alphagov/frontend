@@ -509,6 +509,10 @@ sk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Odpoveď vlády
+      other: Odpovede vlády
     licence:
       change:
     local_transaction:
@@ -560,11 +564,19 @@ sk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Spravodajský príbeh
+      other: Spravodajské príbehy
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Tlačová správa
+      other: Tlačové správy
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +611,10 @@ sk:
       still_current_at: Stále aktuálne na
       summary: Zhrnutie
       updated: Aktualizované
+    world_news_story:
+      few:
+      one: Svetové spravodajstvo
+      other: Svetové spravodajstvá
   help:
     index:
       about:

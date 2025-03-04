@@ -68,7 +68,7 @@ private
       links = value.map do |v|
         {
           "title" => v[:label],
-          "base_path" => filtered_finder_path(key, v[:value]),
+          "base_path" => filtered_finder_path(key => v[:value]),
         }
       end
 
@@ -78,7 +78,7 @@ private
     end
   end
 
-  def filtered_finder_path(key, value)
-    "#{content_item.finder.base_path}?#{key}%5B%5D=#{value}"
+  def filtered_finder_path(filters)
+    "#{content_item.finder.base_path}?#{filters.to_query}"
   end
 end

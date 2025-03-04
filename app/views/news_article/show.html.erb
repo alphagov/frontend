@@ -22,7 +22,13 @@
   </div>
 </div>
 
-<%= render "shared/publisher_metadata_with_logo" %>
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(content_item.contributors),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
+
 <%= render "shared/history_notice", content_item: @content_item %>
 <% if @content_item.withdrawn? %>
   <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>

@@ -31,3 +31,25 @@
     outline: 3px solid govuk-colour("yellow");
   }
 }
+
+.organisation-logos {
+  list-style-type: none;
+  padding: 0;
+}
+
+.organisation-logos__logo {
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: govuk-spacing(3);
+  margin-right: govuk-spacing(6);
+
+  & img {
+    @include govuk-media-query($until: desktop) {
+      width: 140px;
+    }
+
+    @include govuk-media-query($from: desktop) {
+      max-width: 240px;
+    }
+  }
+}

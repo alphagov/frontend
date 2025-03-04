@@ -65,10 +65,10 @@
           title: t("components.share_links.share_this_page") %>
       </div>
 
-      <%= render "components/published_dates", {
-        published: @content_item.published,
-        last_updated: @content_item.updated,
-        history: @content_item.history,
+      <%= render "govuk_publishing_components/components/published_dates", {
+        published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        history: formatted_history(content_item.history),
       } %>
     </div>
   </div>

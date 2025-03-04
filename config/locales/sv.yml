@@ -723,6 +723,8 @@ sv:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Det här publicerades under %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

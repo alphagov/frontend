@@ -1,4 +1,5 @@
 class SpeechController < ContentItemsController
-    def show
-    end
+  def show
+    @presenter = SpeechPresenter.new(content_item)
+  end
 end

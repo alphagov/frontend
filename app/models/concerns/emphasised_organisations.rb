@@ -14,6 +14,6 @@ private
   end
 
   def emphasised_organisations
-    content_store_hash.dig("details", "emphasised_organisations") || []
+    content_store_response.dig("details", "emphasised_organisations") || []
   end
 end

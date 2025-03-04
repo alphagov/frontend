@@ -1,38 +1,12 @@
 RSpec.describe "LandingPage" do
   include SearchHelpers
 
+  let(:landing_page_example) { GovukSchemas::Example.find(:landing_page, example_name: :landing_page) }
+  let(:base_path) { landing_page_example["base_path"] }
+
   describe "GET <landing-page>" do
-    let(:content_item) do
-      {
-        "base_path" => "/landing-page",
-        "title" => "Landing Page",
-        "description" => "A landing page example",
-        "locale" => "en",
-        "document_type" => "landing_page",
-        "schema_name" => "landing_page",
-        "details" => {
-          "attachments" => [
-            {
-              "accessible" => false,
-              "attachment_type" => "document",
-              "content_type" => "text/csv",
-              "file_size" => 123,
-              "filename" => "data_one.csv",
-              "id" => 12_345,
-              "preview_url" => "https://ignored-asset-domain/media/000000000000000000000001/data_one.csv/preview",
-              "title" => "Data One",
-              "url" => "https://ignored-asset-domain/media/000000000000000000000001/data_one.csv",
-            },
-          ],
-        },
-      }
-    end
-
-    let(:base_path) { content_item["base_path"] }
-
     before do
-      stub_const("LandingPage::ADDITIONAL_CONTENT_PATH", "spec/fixtures")
-      stub_content_store_has_item(base_path, content_item)
+      stub_content_store_has_item(base_path, landing_page_example)
       stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
       stub_taxon_search_results
     end
@@ -46,7 +20,7 @@ RSpec.describe "LandingPage" do
     it "has a meta description tag" do
       visit base_path
 
-      expect(page).to have_css('meta[name="description"][content="A landing page example"]', visible: :hidden)
+      expect(page).to have_css('meta[name="description"][content="some description"]', visible: :hidden)
     end
 
     it "renders a hero" do
@@ -106,7 +80,7 @@ RSpec.describe "LandingPage" do
 
     context "with the prime-ministers-office-10-downing-street theme" do
       before do
-        stub_content_store_has_item(base_path, content_item.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
+        stub_content_store_has_item(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
       end
 
       it "renders the number 10 header" do
@@ -127,7 +101,7 @@ RSpec.describe "LandingPage" do
 
       context "and is being viewed on the draft server" do
         before do
-          stub_content_store_has_item(base_path, content_item, draft: true)
+          stub_content_store_has_item(base_path, landing_page_example, draft: true)
           stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)
           stub_taxon_search_results(draft: true)
         end
@@ -144,11 +118,12 @@ RSpec.describe "LandingPage" do
 
     describe "organisation logo" do
       before do
-        stub_content_store_has_item(base_path, content_item.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
+        stub_content_store_has_item(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
       end
 
       it "has ga4 tracking on the organisation logo" do
         visit base_path
+
         expect(page).to have_selector(".gem-c-organisation-logo[data-module=ga4-link-tracker]")
         expect(page).to have_selector(".gem-c-organisation-logo[data-ga4-track-links-only]")
         expect(page).to have_selector(".gem-c-organisation-logo[data-ga4-link='{\"event_name\":\"navigation\",\"section\":\"Header\",\"type\":\"organisation logo\"}']")
@@ -158,6 +133,7 @@ RSpec.describe "LandingPage" do
     describe "columns layout" do
       it "has ga4 tracking on the columns layout" do
         visit base_path
+
         expect(page).to have_selector(".columns-layout[data-module=ga4-link-tracker]")
         expect(page).to have_selector(".columns-layout[data-ga4-track-links-only]")
         expect(page).to have_selector(".columns-layout[data-ga4-set-indexes]")
@@ -168,6 +144,7 @@ RSpec.describe "LandingPage" do
     describe "main navigation" do
       it "has ga4 tracking on the main navigation" do
         visit base_path
+
         expect(page).to have_selector(".main-nav__nav-container nav[data-module=ga4-link-tracker]")
         expect(page).to have_selector(".main-nav__list-item a[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"secondary header\",\"index_link\":1,\"index_total\":2,\"index_section\":1,\"index_section_count\":2,\"section\":\"Heading\"}']")
         expect(page).to have_selector(".main-nav__list-item a[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"secondary header\",\"index_link\":2,\"index_total\":2,\"index_section\":2,\"index_section_count\":2,\"section\":\"Heading 2\"}']")

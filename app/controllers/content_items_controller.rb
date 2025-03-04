@@ -1,13 +1,17 @@
 class ContentItemsController < ApplicationController
+  before_action :set_content_item_and_cache_control
   before_action :set_locale, if: -> { request.format.html? }
+
+  attr_reader :content_item
 
 private
 
-  def content_item
+  def set_content_item_and_cache_control
     loader_response = ContentItemLoader.for_request(request).load(content_item_path)
     raise loader_response if loader_response.is_a?(StandardError)
 
-    @content_item ||= ContentItemFactory.build(loader_response)
+    @content_item = ContentItemFactory.build(loader_response.to_hash)
+    @cache_control = loader_response.cache_control
   end
 
   def content_item_path
@@ -23,8 +27,8 @@ private
     end
     unless Rails.env.development?
       expires_in(
-        content_item.cache_control.max_age,
-        public: !content_item.cache_control.private?,
+        @cache_control.max_age,
+        public: !@cache_control.private?,
       )
     end
   end

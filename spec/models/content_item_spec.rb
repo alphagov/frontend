@@ -1,5 +1,5 @@
 RSpec.describe ContentItem do
-  subject(:content_item) { build(:content_item_with_data_attachments, schema_name: "fancy_page_type") }
+  subject(:content_item) { build(:content_item, schema_name: "fancy_page_type") }
 
   describe "ordered_related_items attribute" do
     it "leaves ordered_related_items if set" do
@@ -72,13 +72,6 @@ RSpec.describe ContentItem do
       expect(content_item.respond_to?(:is_a_fancy_page_type?)).to be true
       expect(content_item.respond_to?(:is_an_organisation?)).to be true
       expect(content_item.respond_to?(:was_a_landing_page?)).to be false
-    end
-  end
-
-  describe "#attachments" do
-    it "loads the attachment data from the content item" do
-      expect(content_item.attachments.count).to eq(4)
-      expect(content_item.attachments[0].title).to eq("Data One")
     end
   end
 

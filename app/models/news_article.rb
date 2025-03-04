@@ -2,6 +2,7 @@ class NewsArticle < ContentItem
   include EmphasisedOrganisations
   include People
   include Updatable
+  include Shareable
   include Withdrawable
   include WorldwideOrganisations
 

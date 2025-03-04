@@ -1,0 +1,28 @@
+module Political
+  def historically_political?
+    political? && historical?
+  end
+
+  def publishing_government
+    content_store_response.dig(
+      "links", "government", 0, "title"
+    )
+  end
+
+private
+
+  def political?
+    content_store_response["details"].include?("political") && content_store_response["details"]["political"]
+  end
+
+  def historical?
+    government_current = content_store_response.dig(
+      "links", "government", 0, "details", "current"
+    )
+
+    # Treat no government as not historical
+    return false if government_current.nil?
+
+    !government_current
+  end
+end

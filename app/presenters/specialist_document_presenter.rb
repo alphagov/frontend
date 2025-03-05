@@ -57,19 +57,23 @@ private
     when "date"
       display_date(value)
     when "link"
-      links = value.map do |v|
-        {
-          text: v[:label],
-          path: filtered_finder_path(key, v[:value]),
-        }
-      end
-
-      govuk_styled_links_list(links, inverse: true)
+      facet_value_links(key, value)
     when "preset_text"
       value.map { |v| v[:label] }.join(", ")
     else
       value
     end
+  end
+
+  def facet_value_links(key, value)
+    links = value.map do |facet_value|
+      {
+        text: facet_value[:label],
+        path: filtered_finder_path(key, facet_value[:value]),
+      }
+    end
+
+    govuk_styled_links_list(links, inverse: true)
   end
 
   def filtered_finder_path(key, value)

@@ -53,20 +53,21 @@ private
   end
 
   def format_facet_value(type, value, key)
-    if type == "date"
-      display_date(value)
-    elsif type == "link"
-      links = value.map do |v|
-        {
-          text: v[:label],
-          path: filtered_finder_path(key, v[:value]),
-        }
-      end
+    return display_date(value) if type == "date"
+    return facet_value_link(key, value) if type == "link"
 
-      govuk_styled_links_list(links, inverse: true)
-    else
-      value
+    value
+  end
+
+  def facet_value_link(key, value)
+    links = value.map do |facet_value|
+      {
+        text: facet_value[:label],
+        path: filtered_finder_path(key, facet_value[:value]),
+      }
     end
+
+    govuk_styled_links_list(links, inverse: true)
   end
 
   def filtered_finder_path(key, value)

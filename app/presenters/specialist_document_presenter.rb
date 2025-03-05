@@ -2,12 +2,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
   include LinkHelper
 
-  def initialize(content_item, view_context = nil)
-    super(content_item)
-
-    @view_context = view_context
-  end
-
   def contents
     return [] unless show_contents_list?
 
@@ -43,8 +37,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
 
 private
 
-  attr_reader :view_context
-
   def show_contents_list?
     content_item.headers.present? && level_two_headings?
   end
@@ -64,7 +56,7 @@ private
   def format_facet_value(type, value, key)
     case type
     when "date"
-      view_context.display_date(value)
+      display_date(value)
     when "link"
       links = value.map do |v|
         {
@@ -73,7 +65,7 @@ private
         }
       end
 
-      view_context.govuk_styled_links_list(links, inverse: true)
+      govuk_styled_links_list(links, inverse: true)
     when "preset_text"
       value.map { |v| v[:label] }.join(", ")
     else

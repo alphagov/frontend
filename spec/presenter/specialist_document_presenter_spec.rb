@@ -98,10 +98,9 @@ RSpec.describe SpecialistDocumentPresenter do
   end
 
   describe "#important_metadata" do
-    subject(:presenter) { described_class.new(content_item, view_context) }
+    subject(:presenter) { described_class.new(content_item) }
 
     let(:content_item) { SpecialistDocument.new(content_store_response) }
-    let(:view_context) { ApplicationController.new.view_context }
 
     context "when the metadata contains text" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }

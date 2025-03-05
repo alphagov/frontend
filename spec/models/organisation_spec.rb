@@ -12,7 +12,7 @@ RSpec.describe Organisation do
 
   describe "#logo" do
     it "gets the logo" do
-      expect(described_class.new(content_store_response).logo).to be_instance_of(OrganisationLogo)
+      expect(described_class.new(content_store_response).logo).to be_instance_of(Logo)
     end
   end
 end

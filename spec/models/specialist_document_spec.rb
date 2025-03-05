@@ -207,5 +207,115 @@ RSpec.describe SpecialistDocument do
         expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
       end
     end
+
+    context "when there are nested facets" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "trademark-decision-with-nested-facets") }
+
+      it "returns the details of all the sub-facets the content item is mapped to" do
+        expected_facet_values = [
+          {
+            key: "trademark_decision_british_library_number",
+            name: "British Library number",
+            value: "BL2345678",
+            type: "text",
+          },
+          {
+            key: "trademark_decision_type_of_hearing",
+            name: "Type of hearing",
+            value: [
+              {
+                label: "Registrar – Ex parte hearings",
+                value: "registrar-ex-parte-hearings",
+              },
+            ],
+            type: "link",
+          },
+          {
+            key: "trademark_decision_class",
+            name: "Class",
+            value: [
+              {
+                label: "3",
+                value: "3",
+              },
+            ],
+            type: "link",
+          },
+          {
+            key: "trademark_decision_date",
+            name: "Decision date",
+            value: "2020-01-01",
+            type: "date",
+          },
+          {
+            key: "trademark_decision_appointed_person_hearing_officer",
+            name: "Appointed person/hearing officer",
+            value: [
+              {
+                label: "Ms L Adams",
+                value: "ms-l-adams",
+              },
+            ],
+            type: "link",
+          },
+          {
+            key: "trademark_decision_grounds_section",
+            name: "Grounds Section",
+            value: [
+              {
+                label: "Section 3(1) Graphical Representation",
+                value: "section-3-1-graphical-representation",
+              },
+              {
+                label: "Section 3(1) Descriptiveness/Distinctiveness",
+                value: "section-3-1-descriptiveness-distinctiveness",
+              },
+              {
+                label: "Section 3(6) Bad Faith",
+                value: "section-3-6-bad-faith",
+              },
+              {
+                label: "Section 5(1), 5(2) and 5(3) Earlier Trade Marks",
+                value: "section-5-1-5-2-and-5-3-earlier-trade-marks",
+              },
+            ],
+            type: "link",
+          },
+          {
+            key: "trademark_decision_grounds_sub_section",
+            name: "Grounds Sub Section",
+            value: [
+              {
+                label: "Not Applicable",
+                value: "section-3-1-graphical-representation-not-applicable",
+                main_facet_label: "Section 3(1) Graphical Representation",
+                main_facet_value: "section-3-1-graphical-representation",
+              },
+              {
+                label: "Customary in the language etc. - trade name for goods or services",
+                value: "section-3-1-descriptiveness-distinctiveness-customary-in-the-language-etc-trade-name-for-goods-or-services",
+                main_facet_label: "Section 3(1) Descriptiveness/Distinctiveness",
+                main_facet_value: "section-3-1-descriptiveness-distinctiveness",
+              },
+              {
+                label: "Breakdown of former business relationship",
+                value: "section-3-6-bad-faith-breakdown-of-former-business-relationship",
+                main_facet_label: "Section 3(6) Bad Faith",
+                main_facet_value: "section-3-6-bad-faith",
+              },
+              {
+                label: "Composite word and device marks",
+                value: "section-5-1-5-2-and-5-3-earlier-trade-marks-composite-word-and-device-marks",
+                main_facet_label: "Section 5(1), 5(2) and 5(3) Earlier Trade Marks",
+                main_facet_value: "section-5-1-5-2-and-5-3-earlier-trade-marks",
+              },
+            ],
+            type: "link",
+          },
+        ]
+
+        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+      end
+    end
   end
 end

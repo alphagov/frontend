@@ -534,6 +534,11 @@ mt:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: Artiklu miktub
+      other: Artikli miktuba
     case_study:
       few:
       many:
@@ -634,6 +639,11 @@ mt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Dikjarazzjoni verbali lill-Parlament
+      other: Dikjarazzjonijiet verbali lill-Parlament
     place:
       change:
       find_results:
@@ -650,6 +660,14 @@ mt:
         pdo_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Oriġini Magħżula Protetta mir-RU
         pgi_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem  Oriġini Ġeografika Protetta mir-RU
         tsg_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Speċjalità Tradizzjonali Protetta mir-RU
+    speech:
+      delivered_on: Kunsinnat f'
+      few:
+      location: Post
+      many:
+      one: Diskors
+      other: Diskorsi
+      written_on: Miktub nhar
     start_now:
     take_part:
       few:
@@ -674,6 +692,11 @@ mt:
       still_current_at: Għadu jeżisti fuq
       summary: Sommarju
       updated: Aġġornat
+    written_statement:
+      few:
+      many:
+      one: Dikjarazzjoni bil-miktub lill-Parlament
+      other: Dikjarazzjonijiet bil-miktub lill-Parlament
   help:
     index:
       about:
@@ -859,6 +882,8 @@ mt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Din ma ġietx ippubblikata taħt il- %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

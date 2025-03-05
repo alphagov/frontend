@@ -388,6 +388,9 @@ hi:
   error:
   find:
   formats:
+    authored_article:
+      one: मूल आलेख
+      other: मूल आलेख
     case_study:
       one: विषय अध्ययन
       other: विषय अध्ययन
@@ -486,6 +489,9 @@ hi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: संसद में मौखिक बयान
+      other: संसद में मौखिक बयान
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ hi:
         pdo_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है, जिस पर Designated Origin UK Protected शब्द हैं
         pgi_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Geographic Origin UK Protected शब्द हैं
         tsg_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Traditional Speciality UK Protected शब्द हैं
+    speech:
+      delivered_on: इस पर डिलीवरी किया गया
+      location: स्थान
+      one: भाषण
+      other: भाषण
+      written_on: पर लिखा
     start_now:
     take_part:
       one: हिस्सा लें
@@ -524,6 +536,9 @@ hi:
       still_current_at: अभी भी चालू है
       summary: सारांश
       updated: अपडेट किया गया
+    written_statement:
+      one: संसद में लिखित बयान
+      other: संसद में लिखित बयान
   help:
     index:
       about:
@@ -709,6 +724,8 @@ hi:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: यह %{government} के तहत प्रकाशित किया गया था
   sign_up:
   website:
   when_do_the_clocks_change:

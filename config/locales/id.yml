@@ -315,6 +315,8 @@ id:
   error:
   find:
   formats:
+    authored_article:
+      other: Artikel bersumber
     case_study:
       other: Studi kasus
     find_my_nearest:
@@ -412,6 +414,8 @@ id:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: Pernyataan lisan kepada Parlemen
     place:
       change:
       find_results:
@@ -428,6 +432,11 @@ id:
         pdo_alt_text: Logo skema adalah cap hitam dengan kata-kata Designated Origin UK Protected
         pgi_alt_text: Logo skema adalah cap hitam dengan kata-kata Geographic Origin UK Protected
         tsg_alt_text: Logo skema adalah cap hitam dengan kata-kata Traditional Speciality UK Protected
+    speech:
+      delivered_on: Dikirim pada
+      location: Lokasi
+      other: Pidato
+      written_on: Ditulis pada
     start_now:
     take_part:
       other: Ikut serta
@@ -449,6 +458,8 @@ id:
       still_current_at: Masih berlaku di
       summary: Rangkuman
       updated: Diperbarui
+    written_statement:
+      other: Pernyataan tertulis kepada Parlemen
   help:
     index:
       about:
@@ -634,6 +645,8 @@ id:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ini diterbitkan di bawah %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

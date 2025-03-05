@@ -388,6 +388,9 @@ bn:
   error:
   find:
   formats:
+    authored_article:
+      one: লেখকের উৎস সহ নিবন্ধ
+      other: লেখকের উৎস সহ নিবন্ধসমূহ
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
@@ -486,6 +489,9 @@ bn:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: সংসদে মৌখিক বিবৃতি
+      other: সংসদে মৌখিক বিবৃতিসমূহ
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ bn:
         pdo_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Designated Origin UK Protected শব্দগুলো রয়েছে
         pgi_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Geographic Origin UK Protected শব্দগুলো রয়েছে
         tsg_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Traditional Speciality UK Protected শব্দগুলো রয়েছে
+    speech:
+      delivered_on: পাঠানো হয়েছে
+      location: অবস্থান
+      one: বক্তব্য
+      other: বক্তব্যসমূহ
+      written_on: যখন লেখা হয়েছে
     start_now:
     take_part:
       one: অংশ নিন
@@ -524,6 +536,9 @@ bn:
       still_current_at: এখানে এখনও চলমান
       summary: সারসংক্ষেপ
       updated: হালনাগাদ করা হয়েছে
+    written_statement:
+      one: সংসদে লিখিত বিবৃতি
+      other: সংসদে লিখিত বিবৃতিসমূহ
   help:
     index:
       about:
@@ -709,6 +724,8 @@ bn:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: এটি %{government}-এর অধীনে প্রকাশিত হয়েছে
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -388,6 +388,9 @@ hy:
   error:
   find:
   formats:
+    authored_article:
+      one: Հեղինակային հոդված
+      other: Հեղինակային հոդվածներ
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
@@ -486,6 +489,9 @@ hy:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Խորհրդարանին ուղղված բանավոր հայտարարություն
+      other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ hy:
         pdo_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Designated Origin UK Protected
         pgi_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Geographic Origin UK Protected
         tsg_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Traditional Speciality UK Protected
+    speech:
+      delivered_on: Ուղարկվել է
+      location: Տեղանք
+      one: Հրապարակային խոսք
+      other: Հրապարակային խոսքեր
+      written_on: Գրվել է
     start_now:
     take_part:
       one: Մասնակցություն
@@ -524,6 +536,9 @@ hy:
       still_current_at: Դեռևս ընթացիկ
       summary: Ամփոփ
       updated: Թարմացված
+    written_statement:
+      one: Խորհրդարանին ուղղված գրավոր հայտարարություն
+      other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
   help:
     index:
       about:
@@ -709,6 +724,8 @@ hy:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Սույնը հրապարակվել է %{government} բաժնում
   sign_up:
   website:
   when_do_the_clocks_change:

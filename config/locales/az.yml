@@ -388,6 +388,9 @@ az:
   error:
   find:
   formats:
+    authored_article:
+      one: Müəlliflik edilmiş məqalə
+      other: Müəlliflik edilmiş məqalələr
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
@@ -486,6 +489,9 @@ az:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Parlamentə şifahi müraciət
+      other: Parlamentə şifahi müraciətlər
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ az:
         pdo_alt_text: Qrafik loqo üzərində "Səlahiyyətli mənbə BK qorunur" sözləri olan qara möhürdür
         pgi_alt_text: Qrafik loqo üzərində "Coğrafi mənbə BK qorunur" sözləri olan qara möhürdür
         tsg_alt_text: Qrafik loqo üzərində "Ənənəvi məhsul BK qorunur" sözləri olan qara möhürdür
+    speech:
+      delivered_on: Çatdırılıb
+      location: Yer
+      one: Nitq
+      other: Nitqlər
+      written_on: Yazılma tarixi
     start_now:
     take_part:
       one: İştirak edin
@@ -524,6 +536,9 @@ az:
       still_current_at: Hələ də qüvvədədir
       summary: İcmal
       updated: Yenilənib
+    written_statement:
+      one: Parlamentə yazılı müraciət
+      other: Parlamentə yazılı müraciətlər
   help:
     index:
       about:
@@ -709,6 +724,8 @@ az:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} əsasən dərc edilmişdir
   sign_up:
   website:
   when_do_the_clocks_change:

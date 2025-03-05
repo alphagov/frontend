@@ -534,6 +534,11 @@ pl:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: Dokument utworzony przez
+      other: Dokumenty utworzone przez
     case_study:
       few:
       many:
@@ -634,6 +639,11 @@ pl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Ustne oświadczenie przed parlamentem
+      other: Ustne oświadczenia przed parlamentem
     place:
       change:
       find_results:
@@ -650,6 +660,14 @@ pl:
         pdo_alt_text: Logo programu to czarna pieczęć z napisem „Designated Origin UK Protected”
         pgi_alt_text: Logo programu to czarna pieczęć z napisem „Geographic Origin UK Protected”
         tsg_alt_text: Logo programu to czarna pieczęć z napisem „Traditional Specialty UK Protected”
+    speech:
+      delivered_on: Dostarczono o
+      few:
+      location: Lokalizacja
+      many:
+      one: Przemówienie
+      other: Przemówienia
+      written_on: Napisano o
     start_now:
     take_part:
       few:
@@ -674,6 +692,11 @@ pl:
       still_current_at: Aktualne na dzień
       summary: Podsumowanie
       updated: Zaktualizowano
+    written_statement:
+      few:
+      many:
+      one: Pisemne oświadczenie przed parlamentem
+      other: Pisemne oświadczenia przed parlamentem
   help:
     index:
       about:
@@ -859,6 +882,8 @@ pl:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Zostało to opublikowane w ramach %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

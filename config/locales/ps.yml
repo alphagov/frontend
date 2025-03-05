@@ -388,6 +388,9 @@ ps:
   error:
   find:
   formats:
+    authored_article:
+      one: لیکل شوې مقاله
+      other: لیکل شوي مقالې
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات
@@ -486,6 +489,9 @@ ps:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: پارلماني غونډې ته وینا
+      other: پارلمان ته شفاهي څرګندونې
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ ps:
         pdo_alt_text: د سکیم لوگو یو تور ټاپه ده چې د ډیزاین شوي اصلي انګلستان محافظت کلمو سره دی
         pgi_alt_text: د سکیم لوګو یو تور ټاپه ده چې د جغرافیائی اصل انګلستان محافظت کلمو سره دی
         tsg_alt_text: د سکیم لوگو یو تور ټاپه ده چې د دودیز تخصص انګلستان محافظت کلمو سره دی
+    speech:
+      delivered_on: ته وسپارل شو
+      location: ځای
+      one: وینا
+      other: ويناوې
+      written_on: باندې لیکل شوی
     start_now:
     take_part:
       one: برخه واخلئ
@@ -524,6 +536,9 @@ ps:
       still_current_at: په اوسني وخت کې
       summary: لنډيز
       updated: تازه شوی
+    written_statement:
+      one: پارلمان ته لیکلې وینا
+      other: پارلمان ته لیکلي بیانونه
   help:
     index:
       about:
@@ -709,6 +724,8 @@ ps:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: دا د%{government} لاندې خپور شوی
   sign_up:
   website:
   when_do_the_clocks_change:

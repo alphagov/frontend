@@ -534,6 +534,11 @@ uk:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: Авторська стаття
+      other: Авторські статті
     case_study:
       few:
       many:
@@ -634,6 +639,11 @@ uk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Усна заява до Парламенту
+      other: Усні заяви до Парламенту
     place:
       change:
       find_results:
@@ -650,6 +660,14 @@ uk:
         pdo_alt_text: Логотип схеми –– це чорний штамп зі словами Designated Origin UK Protected
         pgi_alt_text: Логотип схеми –– це чорний штамп зі словами Designated Origin UK Protected
         tsg_alt_text: Логотип схеми –– це чорний штамп зі словами Traditional Speciality UK Protected
+    speech:
+      delivered_on: Доставлено
+      few:
+      location: Розташування
+      many:
+      one: Виступ
+      other: Виступи
+      written_on: Написано
     start_now:
     take_part:
       few:
@@ -674,6 +692,11 @@ uk:
       still_current_at: Досі актуально на
       summary: Резюме
       updated: Оновлено
+    written_statement:
+      few:
+      many:
+      one: Письмова заява до Парламенту
+      other: Письмові заяви до Парламенту
   help:
     index:
       about:
@@ -859,6 +882,8 @@ uk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Це було опубліковано при %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

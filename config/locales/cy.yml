@@ -682,6 +682,13 @@ cy:
   error:
   find: Ffeindio
   formats:
+    authored_article:
+      few:
+      many:
+      one: Erthygl ag awdur wedi'i enwi
+      other: Erthyglau ag awdur wedi'i enwi
+      two:
+      zero:
     case_study:
       few:
       many:
@@ -787,6 +794,13 @@ cy:
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
+    oral_statement:
+      few:
+      many:
+      one: Datganiad llafar i'r Senedd
+      other: Datganiadau llafar i'r Senedd
+      two:
+      zero:
     place:
       change: Newid
       find_results: Darganfod canlyniadau yn agos i chi
@@ -803,6 +817,16 @@ cy:
         pdo_alt_text: Stamp du gyda'r geiriau Designated Origin UK Protected yw logo'r cynllun
         pgi_alt_text: Stamp du gyda'r geiriau Geographic Origin UK Protected yw logo'r cynllun
         tsg_alt_text: Stamp du gyda'r geiriau Traditional Speciality UK Protected yw logo'r cynllun
+    speech:
+      delivered_on: Cyflawnwyd ar
+      few:
+      location: Lleoliad
+      many:
+      one: Anerchiad
+      other: Anerchiadau
+      two:
+      written_on: Ysgrifennwyd ar
+      zero:
     start_now: Dechrau nawr
     take_part:
       few:
@@ -829,6 +853,13 @@ cy:
       still_current_at: Yn gyfredol o hyd ar
       summary: Crynodeb
       updated: Diweddarwyd
+    written_statement:
+      few:
+      many:
+      one: Datganiad ysgrifenedig i'r Senedd
+      other: Datganiadau ysgrifenedig i'r Senedd
+      two:
+      zero:
   help:
     index:
       about: Ynghylch GOV.UK
@@ -1023,6 +1054,8 @@ cy:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Cyhoeddwyd hwn o dan y %{government}
   sign_up: Cofrestru
   website: Gwefan
   when_do_the_clocks_change:

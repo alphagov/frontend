@@ -388,6 +388,9 @@ is:
   error:
   find:
   formats:
+    authored_article:
+      one: Samin grein
+      other: Samdar greinar
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir
@@ -486,6 +489,9 @@ is:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Munnleg yfirlýsing til Þingsins
+      other: Munnlegar yfirlýsingar til Þingsins
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ is:
         pdo_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Designated Origin UK Protected
         pgi_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Geographic Origin UK Protected
         tsg_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Traditional Speciality UK Protected
+    speech:
+      delivered_on: Afhent þann
+      location: Staðsetning
+      one: Ræða
+      other: Ræður
+      written_on: Skrifað þann
     start_now:
     take_part:
       one: Taka þátt
@@ -524,6 +536,9 @@ is:
       still_current_at: Enn uppfært þann
       summary: Samantekt
       updated: Uppfært
+    written_statement:
+      one: Skrifleg yfirlýsing til Þingsins
+      other: Skriflegar yfirlýsingar til Þingsins
   help:
     index:
       about:
@@ -709,6 +724,8 @@ is:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Þetta var gefið út undir %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

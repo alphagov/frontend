@@ -388,6 +388,9 @@ si:
   error:
   find:
   formats:
+    authored_article:
+      one: රචනා කළ ලිපිය
+      other: රචනා කළ ලිපි
     case_study:
       one: සිද්ධි අධ්යයනය
       other: සිද්ධි අධ්යයන
@@ -486,6 +489,9 @@ si:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+      other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ si:
         pdo_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Designated Origin UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
         pgi_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Geographic Origin UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
         tsg_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Traditional Speciality UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
+    speech:
+      delivered_on: බෙදාහරින ලද දිනය
+      location: ස්ථානය
+      one: කථාව
+      other: කථා
+      written_on: ලියන ලද දිනය
     start_now:
     take_part:
       one: සහභාගී වන්න
@@ -524,6 +536,9 @@ si:
       still_current_at: තවමත් වත්මන්
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
+    written_statement:
+      one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+      other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   help:
     index:
       about:
@@ -709,6 +724,8 @@ si:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: මෙය %{government} යටතේ ප්‍රකාශණය කරණ ලදී
   sign_up:
   website:
   when_do_the_clocks_change:

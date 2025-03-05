@@ -534,6 +534,11 @@ gd:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Ailt scríofa
+      other: Téacsanna scríofa
+      two:
     case_study:
       few:
       one: Cás-staidéir
@@ -634,6 +639,11 @@ gd:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Ráiteas ó bhéal don Pharlaimint
+      other: Ráitis ó bhéal sa Pharlaimint
+      two:
     place:
       change:
       find_results:
@@ -650,6 +660,14 @@ gd:
         pdo_alt_text: Is é atá i lógó an chláir ná lógó dubh marcáilte Bunús Ainmnithe atá faoi chosaint na RA
         pgi_alt_text: Séala dubh é lógó an chláir ar a bhfuil na focail Geographic Origin UK Protected
         tsg_alt_text: Tá stampa dubh ar lógó an chláir leis na focail Traditional Specialty UK Protected
+    speech:
+      delivered_on: Seachadadh ar
+      few:
+      location: Suíomh
+      one: Óráid
+      other: Óráid
+      two:
+      written_on: Scríobh an
     start_now:
     take_part:
       few:
@@ -674,6 +692,11 @@ gd:
       still_current_at: Bailí i gcónaí ar
       summary: Coimriú
       updated: Athnuachan
+    written_statement:
+      few:
+      one: Dearbhú i scríbhinn don Pharlaimint
+      other: Ráitis i scríbhinn don Pharlaimint
+      two:
   help:
     index:
       about:
@@ -859,6 +882,8 @@ gd:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Foilsíodh an doiciméad seo go deimhin faoi chuimsiú an %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

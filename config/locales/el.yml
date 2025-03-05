@@ -388,6 +388,9 @@ el:
   error:
   find:
   formats:
+    authored_article:
+      one: Σύνταξη άρθρου
+      other: Σύνταξη άρθρων
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων
@@ -486,6 +489,9 @@ el:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Προφορική δήλωση στη Βουλή
+      other: Προφορικές δηλώσεις στη Βουλή
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ el:
         pdo_alt_text: Το λογότυπο του σχεδίου είναι μια μαύρη σφραγίδα με τις λέξεις Designated Origin UK Protected
         pgi_alt_text: Το λογότυπο του σχεδίου είναι μια μαύρη σφραγίδα με τις λέξεις Geographic Origin UK Protected
         tsg_alt_text: Το λογότυπο του σχεδίου είναι μια μαύρη σφραγίδα με τις λέξεις Traditional Specialty UK Protected
+    speech:
+      delivered_on: Παραδόθηκε στις
+      location: Τοποθεσία
+      one: Ομιλία
+      other: Ομιλίες
+      written_on: Γράφτηκε στις
     start_now:
     take_part:
       one: Συμμετοχή
@@ -524,6 +536,9 @@ el:
       still_current_at: Ακόμα επίκαιρο στο
       summary: Περίληψη
       updated: Ενημερωμένο
+    written_statement:
+      one: Γραπτή δήλωση στη Βουλή
+      other: Γραπτές δηλώσεις στη Βουλή
   help:
     index:
       about:
@@ -709,6 +724,8 @@ el:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Αυτό δημοσιεύτηκε στο %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

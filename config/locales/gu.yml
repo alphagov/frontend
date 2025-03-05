@@ -388,6 +388,9 @@ gu:
   error:
   find:
   formats:
+    authored_article:
+      one: લેખિત લેખ
+      other: લેખિત લેખો
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
@@ -486,6 +489,9 @@ gu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: સંસદમાં મૌખિક નિવેદન
+      other: સંસદમાં મૌખિક નિવેદનો
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ gu:
         pdo_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ડેઝીગ્નેટેડ ઓરિજિન UK પ્રોટેક્ટેડ શબ્દો છે
         pgi_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં જ્યોગ્રાફિક ઓરિજિન UK પ્રોટેક્ટેડ શબ્દો છે
         tsg_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ટ્રેડિશનલ સ્પેશિયાલિટી UK પ્રોટેક્ટેડ શબ્દો છે
+    speech:
+      delivered_on: ના રોજ ડિલિવર થયું
+      location: સ્થાન
+      one: ભાષણ
+      other: ભાષણો
+      written_on: પર લખેલ
     start_now:
     take_part:
       one: ભાગ લો
@@ -524,6 +536,9 @@ gu:
       still_current_at: પર હજુ પણ ચાલુ
       summary: સારાંશ
       updated: અપડેટ કરેલ
+    written_statement:
+      one: સંસદમાં લેખિત નિવેદન
+      other: સંસદમાં લેખિત નિવેદનો
   help:
     index:
       about:
@@ -709,6 +724,8 @@ gu:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: આ %{government} હેઠળ પ્રકાશિત કરવામાં આવ્યું હતું.
   sign_up:
   website:
   when_do_the_clocks_change:

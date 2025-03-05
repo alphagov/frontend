@@ -315,6 +315,8 @@ zh-hk:
   error:
   find:
   formats:
+    authored_article:
+      other: 撰寫文章
     case_study:
       other: 案例研究
     find_my_nearest:
@@ -412,6 +414,8 @@ zh-hk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: 提交國會的口頭聲明
     place:
       change:
       find_results:
@@ -428,6 +432,11 @@ zh-hk:
         pdo_alt_text: 該計劃之標誌為一黑色印章，帶有「英國指定原產地保護」之字樣
         pgi_alt_text: 該計劃之標誌為一黑色印章，帶有「英國地理原產地保護」之字樣
         tsg_alt_text: 該計劃之標誌為一黑色印章，帶有「英國傳統特產保護」之字樣
+    speech:
+      delivered_on: 交付時間
+      location: 地點
+      other: 演講
+      written_on: 記載於
     start_now:
     take_part:
       other: 參加活動
@@ -449,6 +458,8 @@ zh-hk:
       still_current_at: 目前仍在
       summary: 摘要
       updated: 已更新
+    written_statement:
+      other: 提交國會的書面聲明
   help:
     index:
       about:
@@ -634,6 +645,8 @@ zh-hk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 此項乃依據 %{government} 發佈
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -20,11 +20,9 @@ module Updatable
 private
 
   def any_updates?
-    if public_updated_at && initial_publication_date
-      Time.zone.parse(public_updated_at) != Time.zone.parse(initial_publication_date)
-    else
-      false
-    end
+    return false unless public_updated_at && initial_publication_date
+
+    Time.zone.parse(public_updated_at) != Time.zone.parse(initial_publication_date)
   end
 
   def reverse_chronological_change_history

@@ -388,6 +388,9 @@ et:
   error:
   find:
   formats:
+    authored_article:
+      one: Kirjutatud artikkel
+      other: Kirjutatud artiklid
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
@@ -486,6 +489,9 @@ et:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Suuline avaldus parlamendile
+      other: Suulised avaldused parlamendile
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ et:
         pdo_alt_text: Skeemi logo on must tempel kirjaga Designated Origin UK Protected
         pgi_alt_text: Skeemi logo on must tempel kirjaga Geographic Origin UK Protected
         tsg_alt_text: Skeemi logo on must tempel kirjaga Traditional Specialty UK Protected
+    speech:
+      delivered_on: Edastati
+      location: Asukoht
+      one: Kõne
+      other: Kõned
+      written_on: Kirjutatud
     start_now:
     take_part:
       one: Osa võtma
@@ -524,6 +536,9 @@ et:
       still_current_at: Ikka praegune
       summary: Kokkuvõte
       updated: Uuendatud
+    written_statement:
+      one: Kirjalik avaldus parlamendile
+      other: Kirjalikud avaldused parlamendile
   help:
     index:
       about:
@@ -709,6 +724,8 @@ et:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: See avaldati %{government} all
   sign_up:
   website:
   when_do_the_clocks_change:

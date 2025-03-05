@@ -388,6 +388,9 @@ fi:
   error:
   find:
   formats:
+    authored_article:
+      one: Kirjoitettu artikkeli
+      other: Kirjoitettuja artikkeleita
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
@@ -486,6 +489,9 @@ fi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Suullinen lausuma parlamentille
+      other: Suulliset lausumat parlamentille
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ fi:
         pdo_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Nimetty alkuperä Yhdistynyt kuningaskunta Suojattu
         pgi_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Maantieteellinen alkuperä Yhdistynyt kuningaskunta Suojattu
         tsg_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Perinteinen erikoisuus Yhdistynyt kuningaskunta Suojattu
+    speech:
+      delivered_on: Toimitettu
+      location: Sijainti
+      one: Puhe
+      other: Puheet
+      written_on: Kirjoitettu
     start_now:
     take_part:
       one: Osallistu
@@ -524,6 +536,9 @@ fi:
       still_current_at: Vielä ajankohtainen klo
       summary: Yhteenveto
       updated: Päivitetty
+    written_statement:
+      one: Kirjallinen lausuma parlamentille
+      other: Kirjallinen lausumat parlamentille
   help:
     index:
       about:
@@ -709,6 +724,8 @@ fi:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tämä julkaistiin osoitteessa %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

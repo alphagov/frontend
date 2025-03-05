@@ -388,6 +388,9 @@ uz:
   error:
   find:
   formats:
+    authored_article:
+      one: Муаллифлик мақоласи
+      other: Муаллифлик мақолалари
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари
@@ -486,6 +489,9 @@ uz:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Парламентга оғзаки баёнот
+      other: Парламентга оғзаки баёнотлар
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ uz:
         pdo_alt_text: Схема логотипи ўзи билан “Махсус мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
         pgi_alt_text: Схема логотипи ўзи билан “Географик мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
         tsg_alt_text: Схема логотипи ўзи билан “Анъанавий мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
+    speech:
+      delivered_on: Етказиб берилди
+      location: Жойлашиш жойи
+      one: Нутқ
+      other: Нутқлар
+      written_on: Ёзилган
     start_now:
     take_part:
       one: Иштирок этиш
@@ -524,6 +536,9 @@ uz:
       still_current_at: Ҳанузгача кучда
       summary: Жамланма маълумот
       updated: Янгиланган
+    written_statement:
+      one: Парламентга ёзма баёнот
+      other: Парламентга ёзма баёнотлар
   help:
     index:
       about:
@@ -709,6 +724,8 @@ uz:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Бу %{government} номидан бўлган
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -390,6 +390,9 @@ en:
   error: Error
   find: Find
   formats:
+    authored_article:
+      one: Authored article
+      other: Authored articles
     case_study:
       one: Case study
       other: Case studies
@@ -491,6 +494,9 @@ en:
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
       website: You can get information on their website.
       what_you_need_to_know: What you need to know
+    oral_statement:
+      one: Oral statement to Parliament
+      other: Oral statements to Parliament
     place:
       change: Change
       find_results: Find results near you
@@ -507,6 +513,12 @@ en:
         pdo_alt_text: The scheme logo is a black stamp with the words Designated Origin UK Protected
         pgi_alt_text: The scheme logo is a black stamp with the words Geographic Origin UK Protected
         tsg_alt_text: The scheme logo is a black stamp with the words Traditional Speciality UK Protected
+    speech:
+      delivered_on: Delivered on
+      location: Location
+      one: Speech
+      other: Speeches
+      written_on: Written on
     start_now: Start now
     take_part:
       one: Take part
@@ -529,6 +541,9 @@ en:
       still_current_at: Still current at
       summary: Summary
       updated: Updated
+    written_statement:
+      one: Written statement to Parliament
+      other: Written statements to Parliament
   help:
     index:
       about: About GOV.UK
@@ -947,6 +962,8 @@ en:
         heading: Feedback about your GOV.UK account
       invalid: There was a problem
       title: Control how we use information about you
+  shared:
+    historically_political: This was published under the %{government}
   sign_up: Sign up
   website: Website
   when_do_the_clocks_change:

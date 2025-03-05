@@ -315,6 +315,8 @@ ko:
   error:
   find:
   formats:
+    authored_article:
+      other: 저작물
     case_study:
       other: 사례 연구
     find_my_nearest:
@@ -412,6 +414,8 @@ ko:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: 의회로 구두 성명
     place:
       change:
       find_results:
@@ -428,6 +432,11 @@ ko:
         pdo_alt_text: 정책 로고는 Designated Origin UK Protected라는 글자가 담긴 검정색 도장입니다
         pgi_alt_text: 계획 로고는 Geographic Origin UK Protected라는 글자가 담긴 검정색 도장입니다
         tsg_alt_text: 정책 로고는 Traditional Speciality UK Protected라는 글자가 담긴 검정색 도장입니다
+    speech:
+      delivered_on: 행사 일시
+      location: 위치
+      other: 연설문
+      written_on: 작성 날짜
     start_now:
     take_part:
       other: 참여하기
@@ -449,6 +458,8 @@ ko:
       still_current_at: 최신 상태
       summary: 요약
       updated: 업데이트
+    written_statement:
+      other: 의회로 서면 성명
   help:
     index:
       about:
@@ -634,6 +645,8 @@ ko:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 이 문서는 %{government} 산하에 출판되었습니다
   sign_up:
   website:
   when_do_the_clocks_change:

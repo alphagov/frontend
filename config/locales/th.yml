@@ -315,6 +315,8 @@ th:
   error:
   find:
   formats:
+    authored_article:
+      other: บทความที่มีผู้เขียน
     case_study:
       other: กรณีศึกษา
     find_my_nearest:
@@ -412,6 +414,8 @@ th:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
     place:
       change:
       find_results:
@@ -428,6 +432,11 @@ th:
         pdo_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Designated Origin UK Protected
         pgi_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Geographic Origin UK Protected
         tsg_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Traditional Speciality UK Protected
+    speech:
+      delivered_on: ส่งมอบเมื่อ
+      location: ตำแหน่งที่ตั้ง
+      other: สุนทรพจน์
+      written_on: เขียนเมื่อ
     start_now:
     take_part:
       other: มีส่วนร่วม
@@ -449,6 +458,8 @@ th:
       still_current_at: ยังคงเป็นปัจจุบันเมื่อ
       summary: สรุป
       updated: ปรับปรุงแล้ว
+    written_statement:
+      other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
   help:
     index:
       about:
@@ -634,6 +645,8 @@ th:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: เผยแพร่ภายใต้ %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

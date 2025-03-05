@@ -194,7 +194,7 @@ GEM
     govuk_schemas (5.0.4)
       faker (~> 3.4.1)
       json-schema (>= 2.8, < 4.4)
-    govuk_test (4.1.0)
+    govuk_test (4.1.1)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
       puma

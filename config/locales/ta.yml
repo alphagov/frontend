@@ -112,6 +112,8 @@ ta:
       published: வெளியிடப்பட்ட தேதி %{date}
       see_all_updates: அனைத்து புதுப்பித்தல்களையும் பார்க்க
       show_all_updates: அனைத்து புதுப்பித்தல்களையும் காட்டு
+    share_links:
+      share_this_page: இந்தப் பக்கத்தைப் பகிர்க
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ ta:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: அரசாங்க பதில்
+      other: அரசாங்க பதில்கள்
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ ta:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: செய்தி
+      other: செய்திகள்
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: செய்திக் குறிப்பு
+      other: செய்திக் குறிப்புகள்
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ ta:
       still_current_at: தற்போதும் உள்ளது
       summary: சுருக்கம்
       updated: புதுப்பிக்கப்பட்டது
+    world_news_story:
+      one: உலகச் செய்தி
+      other: உலகச் செய்திகள்
   help:
     index:
       about:
@@ -709,6 +723,8 @@ ta:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: "%{government}-ன்கீழ் இது வெளியிடப்பட்டது"
   sign_up:
   website:
   when_do_the_clocks_change:

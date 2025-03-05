@@ -112,6 +112,8 @@ fi:
       published: Julkaistu %{date}
       see_all_updates: katso kaikki palvelut
       show_all_updates: näytä kaikki päivitykset
+    share_links:
+      share_this_page: Jaa tämä sivu
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ fi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hallituksen vastaus
+      other: Hallituksen vastaukset
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ fi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Uutistarina
+      other: Uutisia
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Lehdistötiedote
+      other: Lehdistötiedotteet
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ fi:
       still_current_at: Vielä ajankohtainen klo
       summary: Yhteenveto
       updated: Päivitetty
+    world_news_story:
+      one: Maailman uutinen
+      other: Maailman uutisia
   help:
     index:
       about:
@@ -709,6 +723,8 @@ fi:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tämä julkaistiin osoitteessa %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

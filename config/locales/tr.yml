@@ -112,6 +112,8 @@ tr:
       published: Yayınlama %{date}
       see_all_updates: tüm güncellemeleri görün
       show_all_updates: tüm güncellemeleri göster
+    share_links:
+      share_this_page: Bu sayfayı paylaş
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ tr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Devletin yanıtı
+      other: Devletin yanıtları
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ tr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Haber makalesi
+      other: Haber hikayeleri
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Basın duyurusu
+      other: Basın duyuruları
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ tr:
       still_current_at: Halen şurada
       summary: Özet
       updated: Güncelleme
+    world_news_story:
+      one: Dünya geneli haber makalesi
+      other: Dünya geneli haber makaleleri
   help:
     index:
       about:
@@ -709,6 +723,8 @@ tr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: "%{government} kapsamında yayınlandı"
   sign_up:
   website:
   when_do_the_clocks_change:

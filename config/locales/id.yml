@@ -112,6 +112,8 @@ id:
       published: Diterbitkan %{date}
       see_all_updates: lihat semua pembaruan
       show_all_updates: Tampilkan semua pembaruan
+    share_links:
+      share_this_page: Bagikan halaman ini
   continue:
   cookies:
     always_on:
@@ -361,6 +363,8 @@ id:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: Respons pemerintah
     licence:
       change:
     local_transaction:
@@ -412,11 +416,15 @@ id:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: Cerita berita
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: Siaran pers
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +457,8 @@ id:
       still_current_at: Masih berlaku di
       summary: Rangkuman
       updated: Diperbarui
+    world_news_story:
+      other: Cerita berita dunia
   help:
     index:
       about:
@@ -634,6 +644,8 @@ id:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ini diterbitkan di bawah %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

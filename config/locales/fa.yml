@@ -112,6 +112,8 @@ fa:
       published: منشتر شده %{date}
       see_all_updates: مشاهده تمام بروزرسانی‌ها
       show_all_updates: نمایش تمام بروزرسانی‌ها
+    share_links:
+      share_this_page: اشتراک‌گذاری این صفحه
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ fa:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: پاسخ دولتی
+      other: پاسخ‌های دولتی
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ fa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: گزارش خبری
+      other: گزارشات خبری
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: بیانیه مطبوعاتی
+      other: بیانیه‌های مطبوعاتی
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ fa:
       still_current_at: همچنان جاری است در
       summary: خلاصه
       updated: بروز شده
+    world_news_story:
+      one: گزارش خبری جهانی
+      other: گزارشات خبری جهانی
   help:
     index:
       about:
@@ -709,6 +723,8 @@ fa:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: این مورد تحت %{government} منتشر شده است
   sign_up:
   website:
   when_do_the_clocks_change:

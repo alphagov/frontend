@@ -112,6 +112,8 @@ so:
       published: La daabacay %{date}
       see_all_updates: eeg dhamaan cusboonaysiinaha
       show_all_updates: muuji dhamaan cusboonaysiinaha
+    share_links:
+      share_this_page: Lawadaag bogan
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ so:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Jawaabta dawlada
+      other: Jawaabaha dawlada
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ so:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: War
+      other: Warar
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: War-saxaafadeed
+      other: War-saxaafadeedyo
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ so:
       still_current_at: Ilaa hadadan
       summary: Soo koobitaanka
       updated: La cusboonaysiiyay
+    world_news_story:
+      one: Warka caalamka
+      other: Wararka caalamka
   help:
     index:
       about:
@@ -709,6 +723,8 @@ so:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tani waxa la daabacayaa iyadoo kujirta %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

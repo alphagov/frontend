@@ -112,6 +112,8 @@ hr:
       published: Objavljeno %{date}
       see_all_updates: pogledajte sva ažuriranja
       show_all_updates: prikaži sva ažuriranja
+    share_links:
+      share_this_page: Podijelite ovu stranicu
   continue:
   cookies:
     always_on:
@@ -509,6 +511,10 @@ hr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Odgovor vlade
+      other: Odgovori vlade
     licence:
       change:
     local_transaction:
@@ -560,11 +566,19 @@ hr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Novosti
+      other: Novosti
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Saopćenje za javnost
+      other: Saopćenja za javnost
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +613,10 @@ hr:
       still_current_at: Još uvijek aktualno u
       summary: Sažetak
       updated: Ažurirano
+    world_news_story:
+      few:
+      one: Vijest iz svijeta
+      other: Vijesti iz svijeta
   help:
     index:
       about:
@@ -784,6 +802,8 @@ hr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ovo je objavljeno pod %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

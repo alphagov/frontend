@@ -112,6 +112,8 @@ th:
       published: เผยแพร่เมื่อ %{date}
       see_all_updates: ดูอัปเดตทั้งหมด
       show_all_updates: แสดงอัปเดตทั้งหมด
+    share_links:
+      share_this_page: แชร์หน้านี้
   continue:
   cookies:
     always_on:
@@ -361,6 +363,8 @@ th:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: คำตอบของรัฐบาล
     licence:
       change:
     local_transaction:
@@ -412,11 +416,15 @@ th:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: เนื้อหาข่าว
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: ข่าวประชาสัมพันธ์
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +457,8 @@ th:
       still_current_at: ยังคงเป็นปัจจุบันเมื่อ
       summary: สรุป
       updated: ปรับปรุงแล้ว
+    world_news_story:
+      other: ข่าวสารรอบโลก
   help:
     index:
       about:
@@ -634,6 +644,8 @@ th:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: เผยแพร่ภายใต้ %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

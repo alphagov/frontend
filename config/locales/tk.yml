@@ -112,6 +112,8 @@ tk:
       published: Çap edilen %{date}
       see_all_updates: ähli täzelenmelere serediň
       show_all_updates: ähli täzelenmeleri görkez
+    share_links:
+      share_this_page: Bu sahypany paýlaşyň
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ tk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hökümetiň jogaby
+      other: Hökümetiň jogaplary
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ tk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Habar
+      other: Habarlar
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Goýberiliş neşiri
+      other: Goýberiliş neşirleri
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ tk:
       still_current_at: Häzir hem bar
       summary: Gysgaça
       updated: Täzelenen
+    world_news_story:
+      one: Dünýä habary
+      other: Dünýä habarlary
   help:
     index:
       about:
@@ -709,6 +723,8 @@ tk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} garamagynda neşir edildi
   sign_up:
   website:
   when_do_the_clocks_change:

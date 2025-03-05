@@ -112,6 +112,8 @@
       published: Publisert %{date}
       see_all_updates: se alle oppdateringer
       show_all_updates: vis alle oppdateringer
+    share_links:
+      share_this_page: Del denne siden
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Myndighetenes svar
+      other: Myndighetenes svar
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nyhetssak
+      other: Nyheter
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressemelding
+      other: Pressemeldinger
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@
       still_current_at: Fortsatt aktuell
       summary: Sammendrag
       updated: Oppdatert
+    world_news_story:
+      one: Verdensnyhet
+      other: Verdensnyheter
   help:
     index:
       about:
@@ -709,6 +723,8 @@
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Dette ble publisert under %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

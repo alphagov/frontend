@@ -112,6 +112,8 @@ gd:
       published: Arna chur suas ar %{date}
       see_all_updates: féach gach nuashonrú
       show_all_updates: Taispeáin gach nuashonrú
+    share_links:
+      share_this_page: Comhroinn an leathanach seo
   continue:
   cookies:
     always_on:
@@ -583,6 +585,11 @@ gd:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Freagra an Rialtais
+      other: Freagraí an Rialtais
+      two:
     licence:
       change:
     local_transaction:
@@ -634,11 +641,21 @@ gd:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Airteagal Nuachta
+      other: Nua
+      two:
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Preaseisiúint
+      other: Preaseisiúintí
+      two:
     simple_smart_answer:
       change:
       next_step:
@@ -674,6 +691,11 @@ gd:
       still_current_at: Bailí i gcónaí ar
       summary: Coimriú
       updated: Athnuachan
+    world_news_story:
+      few:
+      one: Alt nuachta domhanda
+      other: Nuacht domhanda
+      two:
   help:
     index:
       about:
@@ -859,6 +881,8 @@ gd:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Foilsíodh an doiciméad seo go deimhin faoi chuimsiú an %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

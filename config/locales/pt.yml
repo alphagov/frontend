@@ -112,6 +112,8 @@ pt:
       published: Publicado a %{date}
       see_all_updates: ver todas as atualizações
       show_all_updates: mostrar todas as atualizações
+    share_links:
+      share_this_page: Partilhar esta página
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ pt:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Resposta do governo
+      other: Respostas do governo
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ pt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Reportagem
+      other: Reportagens
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Comunicado de imprensa
+      other: Comunicados de imprensa
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ pt:
       still_current_at: Continua atual às
       summary: Resumo
       updated: Atualizado em
+    world_news_story:
+      one: Reportagem do mundo
+      other: Reportagens do mundo
   help:
     index:
       about:
@@ -709,6 +723,8 @@ pt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Isto foi publicado no âmbito do %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

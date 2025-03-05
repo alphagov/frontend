@@ -112,6 +112,8 @@ vi:
       published: Ngày xuất bản %{date}
       see_all_updates: xem tất cả nội dung cập nhật
       show_all_updates: hiển thị tất cả nội dung cập nhật
+    share_links:
+      share_this_page: Chia sẻ trang này
   continue:
   cookies:
     always_on:
@@ -361,6 +363,8 @@ vi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: Phản hồi của chính phủ
     licence:
       change:
     local_transaction:
@@ -412,11 +416,15 @@ vi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: Bài phóng sự
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: Thông cáo báo chí
     simple_smart_answer:
       change:
       next_step:
@@ -449,6 +457,8 @@ vi:
       still_current_at: Vẫn đang ở
       summary: Tóm tắt
       updated: Đã cập nhật
+    world_news_story:
+      other: Bài phóng sự thế giới
   help:
     index:
       about:
@@ -634,6 +644,8 @@ vi:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Điều này đã được xuất bản trong %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

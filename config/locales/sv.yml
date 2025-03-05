@@ -112,6 +112,8 @@ sv:
       published: Publicerad %{date}
       see_all_updates: se alla uppdateringar
       show_all_updates: Visa alla uppdateringar
+    share_links:
+      share_this_page: Dela den här sidan
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ sv:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Regeringens svar
+      other: Regeringens svar
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ sv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nyhet
+      other: Nyheter
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressmeddelande
+      other: Pressmeddelanden
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ sv:
       still_current_at: Fortfarande aktuell på
       summary: Sammanfattning
       updated: Uppdaterad
+    world_news_story:
+      one: Världsnyheter
+      other: Världsnyheter
   help:
     index:
       about:
@@ -709,6 +723,8 @@ sv:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Det här publicerades under %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

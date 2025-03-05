@@ -112,6 +112,8 @@ yi:
       published:
       see_all_updates:
       show_all_updates:
+    share_links:
+      share_this_page:
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ yi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one:
+      other:
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ yi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one:
+      other:
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one:
+      other:
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ yi:
       still_current_at:
       summary:
       updated:
+    world_news_story:
+      one:
+      other:
   help:
     index:
       about:
@@ -709,6 +723,8 @@ yi:
         heading:
       invalid:
       title:
+  shared:
+    historically_political:
   sign_up:
   website:
   when_do_the_clocks_change:

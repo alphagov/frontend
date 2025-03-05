@@ -112,6 +112,8 @@ bg:
       published: Публикувано на %{date}
       see_all_updates: вижте всички актуализации
       show_all_updates: показване на всички актуализации
+    share_links:
+      share_this_page: Споделяне на тази страница
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ bg:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Отговор на правителството
+      other: Отговори на правителството
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ bg:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Репортаж
+      other: Репортажи
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Съобщение за пресата
+      other: Съобщения за пресата
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ bg:
       still_current_at: Все още актуален в
       summary: Обобщение
       updated: Актуализиран
+    world_news_story:
+      one: Световна новина
+      other: Световни новини
   help:
     index:
       about:
@@ -709,6 +723,8 @@ bg:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Това е публикувано под %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

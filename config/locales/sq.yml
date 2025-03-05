@@ -112,6 +112,8 @@ sq:
       published: Publikuar %{date}
       see_all_updates: shih të gjitha përditësimet
       show_all_updates: shfaq të gjitha përditësimet
+    share_links:
+      share_this_page: Shpërdaj këtë faqe
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ sq:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Reagim qeveritar
+      other: Reagime qeveritare
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ sq:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Ngjarje
+      other: Ngjarje
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Njoftimi shtypi
+      other: Njoftime shtypi
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ sq:
       still_current_at: Ende aktuale në
       summary: Përmbajtja
       updated: Përditësuar
+    world_news_story:
+      one: Historia e lajmeve botërore
+      other: Histori të lajmeve botërore
   help:
     index:
       about:
@@ -709,6 +723,8 @@ sq:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Kjo u botua nën %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

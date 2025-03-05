@@ -112,6 +112,8 @@ lt:
       published: Publikuota %{date}
       see_all_updates: matyti visą naują informaciją
       show_all_updates: rodyti visą naują informaciją
+    share_links:
+      share_this_page: Bendrinti šį puslapį
   continue:
   cookies:
     always_on:
@@ -509,6 +511,10 @@ lt:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Vyriausybės atsakas
+      other: Vyriausybės atsakai
     licence:
       change:
     local_transaction:
@@ -560,11 +566,19 @@ lt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Naujiena
+      other: Naujienos
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Pranešimas spaudai
+      other: Pranešimai spaudai
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +613,10 @@ lt:
       still_current_at: Vis dar
       summary: Santrauka
       updated: Atnaujinta
+    world_news_story:
+      few:
+      one: Pasaulio naujienos
+      other: Pasaulio naujienos
   help:
     index:
       about:
@@ -784,6 +802,8 @@ lt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tai buvo publikuota pagal %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

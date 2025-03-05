@@ -112,6 +112,8 @@ cs:
       published: Zveřejněno %{date}
       see_all_updates: vidět všechny aktualizace
       show_all_updates: zobrazit všechny aktualizace
+    share_links:
+      share_this_page: Sdílet tuto stránku
   continue:
   cookies:
     always_on:
@@ -509,6 +511,10 @@ cs:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Reakce vlády
+      other: Reakce vlády
     licence:
       change:
     local_transaction:
@@ -560,11 +566,19 @@ cs:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Zpravodajský příběh
+      other: Zpravodajské příběhy
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Tisková zpráva
+      other: Tiskové zprávy
     simple_smart_answer:
       change:
       next_step:
@@ -599,6 +613,10 @@ cs:
       still_current_at: Stále aktuální na
       summary: Shrnutí
       updated: Aktualizováno
+    world_news_story:
+      few:
+      one: Zprávy ze světa
+      other: Zprávy ze světa
   help:
     index:
       about:
@@ -784,6 +802,8 @@ cs:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

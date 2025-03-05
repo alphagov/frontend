@@ -112,6 +112,8 @@ az:
       published: 'Dərc edilib: %{date}'
       see_all_updates: bütün yeniləmələrə baxın
       show_all_updates: bütün yeniləmələri göstər
+    share_links:
+      share_this_page: Bu səhifəni paylaşın
   continue:
   cookies:
     always_on:
@@ -435,6 +437,9 @@ az:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hökumətin reaksiyası
+      other: Hökumətin reaksiyaları
     licence:
       change:
     local_transaction:
@@ -486,11 +491,17 @@ az:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Xəbərləri əks etdirən material
+      other: Xəbərləri əks etdirən materiallar
     place:
       change:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Press-reliz
+      other: Press-relizlər
     simple_smart_answer:
       change:
       next_step:
@@ -524,6 +535,9 @@ az:
       still_current_at: Hələ də qüvvədədir
       summary: İcmal
       updated: Yenilənib
+    world_news_story:
+      one: Dünya üzrə xəbərləri əks etdirən material
+      other: Dünya üzrə xəbərləri əks etdirən materiallar
   help:
     index:
       about:
@@ -709,6 +723,8 @@ az:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} əsasən dərc edilmişdir
   sign_up:
   website:
   when_do_the_clocks_change:

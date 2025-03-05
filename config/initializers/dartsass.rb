@@ -6,6 +6,7 @@ APP_STYLESHEETS = {
   "components/_contents-list-with-body.scss" => "components/_contents-list-with-body.css",
   "components/_download-link.scss" => "components/_download-link.css",
   "components/_figure.scss" => "components/_figure.css",
+  "components/_hero.scss" => "components/_hero.css",
   "components/_published-dates.scss" => "components/_published-dates.css",
   "views/_calendars.scss" => "views/_calendars.css",
   "views/_cookie-settings.scss" => "views/_cookie-settings.css",

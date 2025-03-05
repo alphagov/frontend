@@ -73,6 +73,11 @@ Rails.application.routes.draw do
   # Media previews
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
 
+  # Service manuals
+  scope "/service-manual" do
+    get "/", to: "manual#show", as: :service_manual
+  end
+
   scope "/government" do
     # Placeholder for attachments being virus-scanned
     get "/placeholder", to: "placeholder#show"

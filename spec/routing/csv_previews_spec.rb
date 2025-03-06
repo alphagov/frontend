@@ -14,6 +14,7 @@ RSpec.describe "CSV previews" do
       action: "show",
       id: "000000000000000000000000",
       filename: "some-file.csv",
+      format: "html",
     )
   end
 end

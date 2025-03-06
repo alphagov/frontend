@@ -16,7 +16,7 @@ RSpec.describe Logo do
   describe "#formatted_title" do
     it "gets the formatted title" do
       expect(described_class.new(logo).formatted_title)
-        .to eq(logo["formatted_title"])
+        .to eq(logo["formatted_title"].html_safe)
     end
   end
 

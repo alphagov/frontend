@@ -1,3 +1,5 @@
+<% content_for :title, "#{@presenter.page_title} - #{content_item.default_organisation.title} - GOV.UK" %>
+
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>

@@ -422,9 +422,8 @@ en:
       gds_blog: Government Digital Service
       gov_past: History of Government
       intro_paragraph:
-        body_html: Find out how you can %{engage_with_government} directly, and %{take_part} locally, nationally or internationally.
+        body_html: Find out how you can %{engage_with_government} directly.
         engage_with_government: engage with government
-        take_part: take part
       join_ics: Join the International Citizen Service (18- to 25-year-olds)
       make_donation: Make a donation to charity
       more_ways: More ways to take part

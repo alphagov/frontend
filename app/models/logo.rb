@@ -4,7 +4,7 @@ class Logo
   def initialize(logo)
     @image = get_image(logo["image"])
     @crest = logo["crest"]
-    @formatted_title = logo["formatted_title"]
+    @formatted_title = logo["formatted_title"].html_safe
   end
 
   def get_image(logo_image)

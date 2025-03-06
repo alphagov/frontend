@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   # Old style media previews (compatible with preview_url)
   get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
   # New style CSV previews (using a different path to avoid the special routing for preview_url)
-  get "/csv-preview/:id/:filename", to: "csv_preview#show", filename: /[^\/]+/
+  get "/csv-preview/:id/:filename", to: "csv_preview#show", filename: /[^\/]+/, defaults: { format: "html" }
 
   scope "/government" do
     # Placeholder for attachments being virus-scanned

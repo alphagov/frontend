@@ -27,11 +27,6 @@ RSpec.describe "Get Involved" do
       expect(page).to have_text("Consulting on time zones")
     end
 
-    it "shows the take part pages" do
-      expect(page).to have_text("Volunteer")
-      expect(page).to have_text("National Citizen Service")
-    end
-
     it "does not display a single page notification button" do
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end

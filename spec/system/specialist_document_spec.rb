@@ -82,6 +82,28 @@ RSpec.describe "Specialist Document" do
           expect(page).to have_css(".gem-c-metadata__definition", text: "10 July 2015")
         end
       end
+
+      context "when there are nested facets" do
+        let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "trademark-decision-with-nested-facets") }
+
+        it "displays the parent facet" do
+          content_store_response["details"]["metadata"] = {
+            "trademark_decision_grounds_section" => ["section-3-1-graphical-representation"],
+          }
+
+          stub_content_store_has_item(base_path, content_store_response)
+
+          visit base_path
+
+          within(".important-metadata .gem-c-metadata") do
+            expect(page).to have_css(".gem-c-metadata__term", text: "Grounds Section")
+
+            within(".gem-c-metadata__definition") do
+              expect(page).to have_link("Section 3(1) Graphical Representation", href: "/trademark-decisions?trademark_decision_grounds_section=section-3-1-graphical-representation")
+            end
+          end
+        end
+      end
     end
 
     it "displays contents list" do

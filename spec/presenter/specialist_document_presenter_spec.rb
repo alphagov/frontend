@@ -140,5 +140,22 @@ RSpec.describe SpecialistDocumentPresenter do
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end
+
+    context "when the metadata contains nested facets" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "trademark-decision-with-nested-facets") }
+
+      it "displays the metadata for the parent facet" do
+        expected_metadata = {
+          "Grounds Section" => [
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-1-graphical-representation' class='govuk-link govuk-link--inverse'>Section 3(1) Graphical Representation</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-1-descriptiveness-distinctiveness' class='govuk-link govuk-link--inverse'>Section 3(1) Descriptiveness/Distinctiveness</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-6-bad-faith' class='govuk-link govuk-link--inverse'>Section 3(6) Bad Faith</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-5-1-5-2-and-5-3-earlier-trade-marks' class='govuk-link govuk-link--inverse'>Section 5(1), 5(2) and 5(3) Earlier Trade Marks</a>",
+          ],
+        }
+
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
   end
 end

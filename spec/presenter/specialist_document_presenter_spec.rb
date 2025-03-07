@@ -156,6 +156,19 @@ RSpec.describe SpecialistDocumentPresenter do
 
         expect(presenter.important_metadata).to include(expected_metadata)
       end
+
+      it "displays the metadata for the child facet" do
+        expected_metadata = {
+          "Grounds Sub Section" => [
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-1-graphical-representation&trademark_decision_grounds_sub_section=section-3-1-graphical-representation-not-applicable' class='govuk-link govuk-link--inverse'>Section 3(1) Graphical Representation - Not Applicable</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-1-descriptiveness-distinctiveness&trademark_decision_grounds_sub_section=section-3-1-descriptiveness-distinctiveness-customary-in-the-language-etc-trade-name-for-goods-or-services' class='govuk-link govuk-link--inverse'>Section 3(1) Descriptiveness/Distinctiveness - Customary in the language etc. - trade name for goods or services</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-3-6-bad-faith&trademark_decision_grounds_sub_section=section-3-6-bad-faith-breakdown-of-former-business-relationship' class='govuk-link govuk-link--inverse'>Section 3(6) Bad Faith - Breakdown of former business relationship</a>",
+            "<a href='/trademark-decisions?trademark_decision_grounds_section=section-5-1-5-2-and-5-3-earlier-trade-marks&trademark_decision_grounds_sub_section=section-5-1-5-2-and-5-3-earlier-trade-marks-composite-word-and-device-marks' class='govuk-link govuk-link--inverse'>Section 5(1), 5(2) and 5(3) Earlier Trade Marks - Composite word and device marks</a>",
+          ],
+        }
+
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
     end
   end
 end

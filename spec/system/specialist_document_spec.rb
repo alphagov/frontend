@@ -103,6 +103,24 @@ RSpec.describe "Specialist Document" do
             end
           end
         end
+
+        it "displays the child facet" do
+          content_store_response["details"]["metadata"] = {
+            "trademark_decision_grounds_sub_section" => ["section-3-1-graphical-representation-not-applicable"],
+          }
+
+          stub_content_store_has_item(base_path, content_store_response)
+
+          visit base_path
+
+          within(".important-metadata .gem-c-metadata") do
+            expect(page).to have_css(".gem-c-metadata__term", text: "Grounds Sub Section")
+
+            within(".gem-c-metadata__definition") do
+              expect(page).to have_link("Section 3(1) Graphical Representation - Not Applicable", href: "/trademark-decisions?trademark_decision_grounds_section=section-3-1-graphical-representation&trademark_decision_grounds_sub_section=section-3-1-graphical-representation-not-applicable")
+            end
+          end
+        end
       end
     end
 

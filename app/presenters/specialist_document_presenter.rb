@@ -66,10 +66,21 @@ private
       view_context.display_date(value)
     elsif type == "link"
       links = value.map do |v|
-        {
-          text: v[:label],
-          path: filtered_finder_path(key => v[:value]),
-        }
+        if sub_facet?(v)
+          main_facet_key = "trademark_decision_grounds_section"
+          {
+            text: "#{v[:main_facet_label]} - #{v[:label]}",
+            path: filtered_finder_path({
+              main_facet_key => v[:main_facet_value],
+              key => v[:value],
+            }),
+          }
+        else
+          {
+            text: v[:label],
+            path: filtered_finder_path(key => v[:value]),
+          }
+        end
       end
 
       view_context.govuk_styled_links_list(links, inverse: true)
@@ -80,5 +91,9 @@ private
 
   def filtered_finder_path(filters)
     "#{content_item.finder.base_path}?#{filters.to_query}"
+  end
+
+  def sub_facet?(value)
+    value[:main_facet_label].present? && value[:main_facet_value].present?
   end
 end

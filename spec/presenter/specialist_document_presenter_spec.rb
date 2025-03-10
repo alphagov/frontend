@@ -162,7 +162,7 @@ RSpec.describe SpecialistDocumentPresenter do
         ]
 
         expected_metadata = {
-          "Alert type" => "Medical device alert",
+          "Alert type" => ["Medical device alert"],
         }
 
         expect(presenter.important_metadata).to include(expected_metadata)

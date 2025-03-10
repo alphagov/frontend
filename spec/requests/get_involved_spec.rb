@@ -9,7 +9,7 @@ RSpec.describe "Get Involved" do
       get "/government/get-involved"
 
       expect(response).to have_http_status(:ok)
-      expect(response.body).to include("Get Involved")
+      expect(response.body).to include("Get involved")
     end
   end
 end

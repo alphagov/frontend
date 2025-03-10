@@ -17,27 +17,21 @@ class SpecialistDocument < ContentItem
 
   def facet_values
     @facet_values ||= selected_facets.map do |selected_facet|
-      f = {
+      metadata_facet_value = metadata[selected_facet["key"]]
+      if selected_facet["allowed_values"].present?
+        value = selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)
+        type = allowed_value_facet_type(selected_facet)
+      else
+        value = metadata_facet_value
+        type = selected_facet["type"]
+      end
+
+      {
         key: selected_facet["key"],
         name: selected_facet["name"],
+        value:,
+        type:,
       }
-
-      metadata_facet_value = metadata[selected_facet["key"]]
-      f[:value] = if selected_facet["allowed_values"].present?
-                    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)
-                  else
-                    metadata_facet_value
-                  end
-
-      f[:type] = if link?(selected_facet, f[:value])
-                   "link"
-                 elsif preset_text?(selected_facet, f[:value])
-                   "preset_text"
-                 else
-                   selected_facet["type"]
-                 end
-
-      f
     end
   end
 
@@ -81,24 +75,20 @@ private
     end
   end
 
-  def link?(facet, permitted_value)
-    facet["type"] == "text" &&
-      permitted_value.is_a?(Array) &&
-      facet["filterable"] == true
-  end
-
-  def preset_text?(facet, permitted_value)
-    facet["type"] == "text" &&
-      permitted_value.is_a?(Array) &&
-      facet["filterable"] == false
+  def allowed_value_facet_type(facet)
+    if facet["type"] == "text" && facet["filterable"]
+      "link"
+    elsif facet["type"] == "text"
+      "preset_text"
+    else
+      facet["type"]
+    end
   end
 
   def selected_allowed_values(allowed_values, metadata_facet_values)
-    metadata_facet_values = [metadata_facet_values].flatten
-    allowed_values.select do |allowed_value|
-      next unless allowed_value["value"].in?(metadata_facet_values)
-
-      allowed_value.deep_symbolize_keys!
+    [metadata_facet_values].flatten.map do |metadata_facet_value|
+      selected_allowed_value = allowed_values.detect { |allowed_value| allowed_value["value"] == metadata_facet_value }
+      selected_allowed_value&.deep_symbolize_keys
     end
   end
 

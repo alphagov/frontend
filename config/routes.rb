@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   # Service manuals
   scope "/service-manual" do
-    get "/", to: "manual#show", as: :service_manual
+    get "/", to: "service_manual#show", as: :service_manual
   end
 
   scope "/government" do

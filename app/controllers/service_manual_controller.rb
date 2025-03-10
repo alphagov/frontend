@@ -1,4 +1,4 @@
-class ManualController < ContentItemsController
+class ServiceManualController < ContentItemsController
   slimmer_template "gem_layout_full_width"
 
   def show

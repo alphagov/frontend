@@ -65,5 +65,13 @@ RSpec.describe ApplicationHelper do
         expect(show_breadcrumbs?(content_item)).to be(true)
       end
     end
+
+    describe "when is_service_manual_homepage? is true" do
+      let(:content_item) { ContentItem.new({ "schema_name" => "service_manual_homepage" }) }
+
+      it "does not remove breadcrumbs" do
+        expect(show_breadcrumbs?(content_item)).to be(false)
+      end
+    end
   end
 end

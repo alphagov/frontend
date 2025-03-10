@@ -315,6 +315,8 @@ zh-tw:
   error:
   find:
   formats:
+    authored_article:
+      other: 授權文章
     case_study:
       other: 案例分析
     find_my_nearest:
@@ -412,6 +414,8 @@ zh-tw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      other: 對議會的口頭聲明
     place:
       change:
       find_results:
@@ -428,6 +432,11 @@ zh-tw:
         pdo_alt_text: 項目標識為黑色印章，上面寫著「指定的原產地受英國保護」
         pgi_alt_text: 項目標識為黑色印章，上面寫著「地理上原產地受英國保護」
         tsg_alt_text: 項目標識為黑色印章，上面寫著「傳統特產受英國保護」
+    speech:
+      delivered_on: 運送
+      location: 地點
+      other: 演說
+      written_on: 寫在
     start_now:
     take_part:
       other: 參與
@@ -449,6 +458,8 @@ zh-tw:
       still_current_at: 目前仍
       summary: 概括
       updated: 更新
+    written_statement:
+      other: 對議會的書面聲明
   help:
     index:
       about:
@@ -634,6 +645,8 @@ zh-tw:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: 此由 %{government} 發佈
   sign_up:
   website:
   when_do_the_clocks_change:

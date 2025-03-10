@@ -461,6 +461,10 @@ sr:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autorski članak
+      other: Autorski članci
     case_study:
       few:
       one: Studija slučaja
@@ -560,6 +564,10 @@ sr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Usmeno obraćanje Parlamentu
+      other: Usmena obraćanja Parlamentu
     place:
       change:
       find_results:
@@ -576,6 +584,13 @@ sr:
         pdo_alt_text: Shematski logotip je odštampan crno sa rečima Designated Origin UK Protected
         pgi_alt_text: Shematski logotip je odštampan crno sa rečima Geographic Origin UK Protected
         tsg_alt_text: Shematski logotip je odštampan crno sa rečima Traditional Speciality UK Protected
+    speech:
+      delivered_on: Isporučeno
+      few:
+      location: Lokacija
+      one: Govor
+      other: Govori
+      written_on: Napisano
     start_now:
     take_part:
       few:
@@ -599,6 +614,10 @@ sr:
       still_current_at: Još važi za
       summary: Rezime
       updated: Ažurirano
+    written_statement:
+      few:
+      one: Pismena predstavka Parlamentu
+      other: Pismene predstavke Parlamentu
   help:
     index:
       about:
@@ -784,6 +803,8 @@ sr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Ovo je objavljeno u okviru %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

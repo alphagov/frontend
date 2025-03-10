@@ -388,6 +388,9 @@ so:
   error:
   find:
   formats:
+    authored_article:
+      one: Qodob laqoray
+      other: Qodobada laqoray
     case_study:
       one: Daraasad
       other: Daraasado
@@ -486,6 +489,9 @@ so:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Bayaanka loogu talogalay Baarlamaanka
+      other: Bayaanada loogu talogalay Baarlamaanka
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ so:
         pdo_alt_text: Jaantuska loogadu waa shaabad madaw taasoo erayada Lagu Nashqadeeyay asal ahaana UK Ilaashan ah
         pgi_alt_text: Jaantuska loogadu waa shaabad madaw taasoo erayada Lagu Nashqadeeyay Goob ahaana UK Ilaashan ah
         tsg_alt_text: Jaantuska loogadu waa shaabad madaw taasoo erayo lagu nashqadeeyay Dhaqaan u gaar ah UK Ilaashan ah
+    speech:
+      delivered_on: Loo diray
+      location: Goobta
+      one: Khudbad
+      other: Khudbado
+      written_on: Lagu qoray
     start_now:
     take_part:
       one: Ka qeybgal
@@ -524,6 +536,9 @@ so:
       still_current_at: Ilaa hadadan
       summary: Soo koobitaanka
       updated: La cusboonaysiiyay
+    written_statement:
+      one: Bayaan qoran oo loogu talogalay Baarlamaanka
+      other: Bayaanada qoran ee loogu talogalay Baarlamaanka
   help:
     index:
       about:
@@ -709,6 +724,8 @@ so:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tani waxa la daabacayaa iyadoo kujirta %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

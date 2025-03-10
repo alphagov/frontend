@@ -388,6 +388,9 @@ ur:
   error:
   find:
   formats:
+    authored_article:
+      one: مصنف کے نام کے ساتھ لکھا مضمون
+      other: مصنف کے نام کے ساتھ لکھے مضامین
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
@@ -486,6 +489,9 @@ ur:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: پارلیمان کے لیے زبانی بیان
+      other: پارلیمان کے لیے زبانی بیانات
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ ur:
         pdo_alt_text: سکیم کا لوگو متعین کردہ اصل UK سے محفوظ شدہ (Designated Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
         pgi_alt_text: سکیم کا لوگو جغرافیائی اصل UK سے محفوظ شدہ (Geographic Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
         tsg_alt_text: سکیم کا لوگو روایتی خصوصیت UK سے محفوظ شدہ (Traditional Speciality UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
+    speech:
+      delivered_on: ترسیل کردہ بتاریخ
+      location: مقام
+      one: تقریر
+      other: تقاریر
+      written_on: تحریر کردہ بتاریخ
     start_now:
     take_part:
       one: شرکت کریں
@@ -524,6 +536,9 @@ ur:
       still_current_at: ابھی تک حالیہ ہے از
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
+    written_statement:
+      one: پالیمان کے لیے تحریری بیان
+      other: پالیمان کے لیے تحریری بیانات
   help:
     index:
       about:
@@ -709,6 +724,8 @@ ur:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: اسے %{government} کے تحت شائع کیا گیا تھا
   sign_up:
   website:
   when_do_the_clocks_change:

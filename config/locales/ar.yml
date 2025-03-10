@@ -680,6 +680,13 @@ ar:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: مقال مؤلَّف
+      other: مقالات مؤلَّفة
+      two:
+      zero:
     case_study:
       few:
       many:
@@ -782,6 +789,13 @@ ar:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: بيان شفوي للبرلمان
+      other: بيانات شفوية للبرلمان
+      two:
+      zero:
     place:
       change:
       find_results:
@@ -798,6 +812,16 @@ ar:
         pdo_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Designated Origin UK Protected
         pgi_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Geographic Origin UK Protected
         tsg_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Traditional Speciality UK Protected
+    speech:
+      delivered_on: تاريخ التسليم
+      few:
+      location: الموقع
+      many:
+      one: خطاب
+      other: خطابات
+      two:
+      written_on: تاريخ الكتابة
+      zero:
     start_now:
     take_part:
       few:
@@ -824,6 +848,13 @@ ar:
       still_current_at: لا يزال ساريًا في
       summary: ملخص
       updated: تاريخ التحديث
+    written_statement:
+      few:
+      many:
+      one: بيان خطي للبرلمان
+      other: بيانات خطية للبرلمان
+      two:
+      zero:
   help:
     index:
       about:
@@ -1009,6 +1040,8 @@ ar:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: تم نشره بموجب %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

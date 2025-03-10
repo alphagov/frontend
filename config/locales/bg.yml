@@ -388,6 +388,9 @@ bg:
   error:
   find:
   formats:
+    authored_article:
+      one: Авторска статия
+      other: Авторска статии
     case_study:
       one: Казус
       other: Казуси
@@ -486,6 +489,9 @@ bg:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Устно изявление в Парламента
+      other: Устни изявления в Парламента
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ bg:
         pdo_alt_text: Логото на схемата представлява черен печат с надпис Designated Origin UK Protected
         pgi_alt_text: Логото на схемата представлява черен печат с надпис Geographic Origin UK Protected
         tsg_alt_text: Логото на схемата представлява черен печат с надпис Traditional Speciality UK Protected
+    speech:
+      delivered_on: Доставено на
+      location: Местоположение
+      one: Реч
+      other: Речи
+      written_on: Написано на
     start_now:
     take_part:
       one: Вземете участие
@@ -524,6 +536,9 @@ bg:
       still_current_at: Все още актуален в
       summary: Обобщение
       updated: Актуализиран
+    written_statement:
+      one: Писмено изявление в Парламента
+      other: Писмени изявления в Парламента
   help:
     index:
       about:
@@ -709,6 +724,8 @@ bg:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Това е публикувано под %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

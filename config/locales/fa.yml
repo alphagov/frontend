@@ -388,6 +388,9 @@ fa:
   error:
   find:
   formats:
+    authored_article:
+      one: مقاله تألیف شده
+      other: مقالات تألیف شده
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
@@ -486,6 +489,9 @@ fa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: بیانیه شفاهی به پارلمان
+      other: بیانیه‌های شفاهی به پارلمان
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ fa:
         pdo_alt_text: آرم طرح یک مهر سیاه با این کلمات است Designated Origin UK Protected
         pgi_alt_text: آرم طرح یک مهر سیاه با این کلمات است Geographic Origin UK Protected
         tsg_alt_text: آرم طرح یک مهر سیاه با این کلمات است Traditional Speciality UK Protected
+    speech:
+      delivered_on: تخویل شده در
+      location: موقعیت مکانی
+      one: سخنرانی
+      other: سخنرانی‌ها
+      written_on: نوشته شده در
     start_now:
     take_part:
       one: مشارکت
@@ -524,6 +536,9 @@ fa:
       still_current_at: همچنان جاری است در
       summary: خلاصه
       updated: بروز شده
+    written_statement:
+      one: بیانیه کتبی به پارلمان
+      other: بیانیه‌های کتبی به پارلمان
   help:
     index:
       about:
@@ -709,6 +724,8 @@ fa:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: این مورد تحت %{government} منتشر شده است
   sign_up:
   website:
   when_do_the_clocks_change:

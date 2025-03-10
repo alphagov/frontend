@@ -461,6 +461,10 @@ cs:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autorský článek
+      other: Autorské články
     case_study:
       few:
       one: Případová studie
@@ -560,6 +564,10 @@ cs:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Ústní prohlášení pro Parlament
+      other: Ústní prohlášení pro Parlament
     place:
       change:
       find_results:
@@ -576,6 +584,13 @@ cs:
         pdo_alt_text: Logo programu je černé razítko s nápisem "Designated Origin UK Protected" (Chráněný původ určení UK)
         pgi_alt_text: Logo programu je černé razítko s nápisem Geographic Origin UK Protected (Chráněný zeměpisný původ UK)
         tsg_alt_text: Logo programu je černé razítko s nápisem Tradiční specialita chráněná ve Spojeném království
+    speech:
+      delivered_on: Doručeno dne
+      few:
+      location: Sídlo
+      one: Projev
+      other: Projevy
+      written_on: Odepsané
     start_now:
     take_part:
       few:
@@ -599,6 +614,10 @@ cs:
       still_current_at: Stále aktuální na
       summary: Shrnutí
       updated: Aktualizováno
+    written_statement:
+      few:
+      one: Písemné prohlášení pro Parlament
+      other: Písemná prohlášení pro Parlament
   help:
     index:
       about:
@@ -784,6 +803,8 @@ cs:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

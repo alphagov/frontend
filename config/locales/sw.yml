@@ -388,6 +388,9 @@ sw:
   error:
   find:
   formats:
+    authored_article:
+      one: Makala ya maelezo ya mwandishi
+      other: Makala ya maelezo ya mwandishi
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
@@ -486,6 +489,9 @@ sw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Taarifa ya Matamshi kwa Bunge
+      other: Taarifa za Matamshi kwa Bunge
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ sw:
         pdo_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Designated Origin UK Protected
         pgi_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Geographic Origin UK Protected
         tsg_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Traditional Speciality UK Protected
+    speech:
+      delivered_on: Iliwasilishwa mnamo
+      location: Mahali
+      one: Hotuba
+      other: Hotuba
+      written_on: Iliandikwa mnamo
     start_now:
     take_part:
       one: Shiriki
@@ -524,6 +536,9 @@ sw:
       still_current_at: Bado unapatikana katika
       summary: Muhtasari
       updated: Ulisasishwa
+    written_statement:
+      one: Taarifa ya Maandishi kwa Bunge
+      other: Taarifa za Maandishi kwa Bunge
   help:
     index:
       about:
@@ -709,6 +724,8 @@ sw:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Hii ilichapishwa chini ya %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

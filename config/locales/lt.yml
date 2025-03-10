@@ -461,6 +461,10 @@ lt:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      one: Autoriaus straipsnis
+      other: Autorių straipsniai
     case_study:
       few:
       one: Atvejo analizė
@@ -560,6 +564,10 @@ lt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      one: Žodinis kreipimasis į parlamentą
+      other: Žodiniai kreipimaisi į parlamentą
     place:
       change:
       find_results:
@@ -576,6 +584,13 @@ lt:
         pdo_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma kilmės vietos nuoroda“ '
         pgi_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma geografinė kilmės vieta“ '
         tsg_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugomas tradicinis gaminys“ '
+    speech:
+      delivered_on: Pateikta
+      few:
+      location: Vieta
+      one: Kalba
+      other: Kalbos
+      written_on: Parašymo data
     start_now:
     take_part:
       few:
@@ -599,6 +614,10 @@ lt:
       still_current_at: Vis dar
       summary: Santrauka
       updated: Atnaujinta
+    written_statement:
+      few:
+      one: Rašytinis kreipimasis į parlamentą
+      other: Rašytiniai kreipimaisi į parlamentą
   help:
     index:
       about:
@@ -784,6 +803,8 @@ lt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Tai buvo publikuota pagal %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

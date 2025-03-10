@@ -388,6 +388,9 @@ es:
   error:
   find:
   formats:
+    authored_article:
+      one: Artículo de autor
+      other: Artículos de autor
     case_study:
       one: Caso de estudio práctico
       other: Casos de estudio práctico
@@ -486,6 +489,9 @@ es:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Declaración formulada oralmente
+      other: Declaraciones formuladas oralmente
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ es:
         pdo_alt_text: El logotipo del esquema es un sello negro con las palabras Designated Origin UK Protected
         pgi_alt_text: El logotipo del esquema es un sello negro con las palabras Geographic Origin UK protected
         tsg_alt_text: El logotipo del esquema es un sello negro con las palabras Traditional Speciality UK Protected
+    speech:
+      delivered_on: Entregado el
+      location: Ubicación
+      one: Discurso
+      other: Discursos
+      written_on: Escrito en
     start_now:
     take_part:
       one: Participar
@@ -524,6 +536,9 @@ es:
       still_current_at: Sigue siendo actual en
       summary: Resumen
       updated: Actualizado
+    written_statement:
+      one: Declaración escrita
+      other: Declaraciones escritas
   help:
     index:
       about:
@@ -709,6 +724,8 @@ es:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Esto se publicó en %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

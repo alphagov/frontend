@@ -534,6 +534,11 @@ ru:
   error:
   find:
   formats:
+    authored_article:
+      few:
+      many:
+      one: Авторская статья
+      other: Авторские статьи
     case_study:
       few:
       many:
@@ -634,6 +639,11 @@ ru:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      few:
+      many:
+      one: Устное заявление парламенту
+      other: Устные заявления парламенту
     place:
       change:
       find_results:
@@ -650,6 +660,14 @@ ru:
         pdo_alt_text: Схема логотипа это черная печать со словами - Защищённое Соединённым Королевством Обозначение Происхождения
         pgi_alt_text: Схема логотипа это черная печать со словами - Защищённое Соединённым Королевством Обозначение Географического Происхождения
         tsg_alt_text: Схема логотипа это черная печать со словами - Защищённая Соединённым Королевством Традиционная особенность
+    speech:
+      delivered_on: Доставлено на
+      few:
+      location: Место
+      many:
+      one: Текст выступления
+      other: Тексты выступлений
+      written_on: Написано на
     start_now:
     take_part:
       few:
@@ -674,6 +692,11 @@ ru:
       still_current_at: Все еще на
       summary: Резюме
       updated: Обновлено
+    written_statement:
+      few:
+      many:
+      one: Письменное заявление парламенту
+      other: Письменные заявления парламенту
   help:
     index:
       about:
@@ -859,6 +882,8 @@ ru:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Данный документ был опубликован в соответствии %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

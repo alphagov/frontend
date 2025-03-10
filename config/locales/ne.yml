@@ -388,6 +388,9 @@ ne:
   error:
   find:
   formats:
+    authored_article:
+      one: लेखिएको लेख
+      other: लेखिएको लेखहरू
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
@@ -486,6 +489,9 @@ ne:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: संसदमा मौखिक वक्तव्य
+      other: 'संसदमा मौखिक वक्तव्यहरू '
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ ne:
         pdo_alt_text: योजनाको चिन्ह निम्न शब्दहरु सहितको कालो मोहर हो, निर्दिष्ट मूल संयक्त अधिराज्य संरक्षित
         pgi_alt_text: योजनाको चिन्ह निम्न शब्दहरु सहितको कालो मोहर हो, ग्राफिक मूल संयक्त अधिराज्य संरक्षित
         tsg_alt_text: योजनाको चिन्ह निम्न शब्दहरु सहितको कालो मोहर हो, पारम्परिक विशेषता संयक्त अधिराज्य संरक्षित
+    speech:
+      delivered_on: मा वितरण गरियो
+      location: स्थान
+      one: भाषण
+      other: भाषणहरु
+      written_on: मा लेखिएको छ
     start_now:
     take_part:
       one: सहभागी हुनु
@@ -524,6 +536,9 @@ ne:
       still_current_at: अहिले सम्म वर्तमानमा
       summary: सारांश
       updated: अद्यावधिक गरियो
+    written_statement:
+      one: संसदमा लिखित वक्तव्य
+      other: संसदमा लिखित वक्तव्यहरू
   help:
     index:
       about:
@@ -709,6 +724,8 @@ ne:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: यो %{government} अन्तर्गत प्रकाशित भएको थियो
   sign_up:
   website:
   when_do_the_clocks_change:

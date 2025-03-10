@@ -388,6 +388,9 @@ de:
   error:
   find:
   formats:
+    authored_article:
+      one: Namensartikel
+      other: Namensartikel
     case_study:
       one: Fallstudie
       other: Fallstudien
@@ -486,6 +489,9 @@ de:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mündliche Erklärung vor dem Parlament
+      other: Mündliche Erklärungen vor dem Parlament
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ de:
         pdo_alt_text: Das Logo ist ein schwarzer Stempel mit der Aufschrift "Designated Origin UK Protected"
         pgi_alt_text: Das Logo ist ein schwarzer Stempel mit der Aufschrift "Geographic Origin UK Protected"
         tsg_alt_text: Das Logo ist ein schwarzer Stempel mit der Aufschrift "Traditional Speciality UK Protected"
+    speech:
+      delivered_on: Geliefert am
+      location: Standort
+      one: Rede
+      other: Reden
+      written_on: Geschrieben am
     start_now:
     take_part:
       one: Teilnehmen
@@ -524,6 +536,9 @@ de:
       still_current_at: Aktuell noch bei
       summary: Zusammenfassung
       updated: Aktualisiert
+    written_statement:
+      one: Schriftliche Erklärung vor dem Parlament
+      other: Schriftliche Erklärungen vor dem Parlament
   help:
     index:
       about:
@@ -709,6 +724,8 @@ de:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Veröffentlicht wurde dies unter der %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

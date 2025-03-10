@@ -388,6 +388,9 @@ pt:
   error:
   find:
   formats:
+    authored_article:
+      one: Artigo de autor
+      other: Artigos de autor
     case_study:
       one: Estudo de caso
       other: Estudos de caso
@@ -486,6 +489,9 @@ pt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Declaração oral ao Parlamento
+      other: Declarações orais ao Parlamento
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ pt:
         pdo_alt_text: O logotipo do sistema é um carimbo preto com as palavras "Designated Origin UK Protected" (Origem Designada Reino Unido Protegida)
         pgi_alt_text: O logotipo do sistema é um carimbo preto com as palavras "Geographic Origin UK Protected" (Origem Geográfica Reino Unido Protegida)
         tsg_alt_text: O logotipo do sistema é um carimbo preto com as palavras "Traditional Speciality UK Protected" (Especialidade Tradicional Reino Unido Protegida)
+    speech:
+      delivered_on: Entregue em
+      location: Local
+      one: Discurso
+      other: Discursos
+      written_on: Escrito em
     start_now:
     take_part:
       one: Participar
@@ -524,6 +536,9 @@ pt:
       still_current_at: Continua atual às
       summary: Resumo
       updated: Atualizado em
+    written_statement:
+      one: Declaração escrita ao Parlamento
+      other: Declarações escritas ao Parlamento
   help:
     index:
       about:
@@ -709,6 +724,8 @@ pt:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Isto foi publicado no âmbito do %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

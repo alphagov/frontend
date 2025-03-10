@@ -388,6 +388,9 @@ pa-pk:
   error:
   find:
   formats:
+    authored_article:
+      one: لکھاری دا مضمون
+      other: لکھاری دے مضمون
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
@@ -486,6 +489,9 @@ pa-pk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: قومی مجلس دے سامنے زبانی بیان
+      other: قومی مجلس دے سامنے زبانی بیانات
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ pa-pk:
         pdo_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Designated Origin UK Protected
         pgi_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Geographic Origin UK Protected
         tsg_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Traditional Speciality UK Protected
+    speech:
+      delivered_on: حوالے کیتا گیا
+      location: تھاں
+      one: تقریر
+      other: تقریراں
+      written_on: ایس  تے لکھیا گیا
     start_now:
     take_part:
       one: حصہ لوؤ
@@ -524,6 +536,9 @@ pa-pk:
       still_current_at: ہون ایس ویلے وی اوتھے ای اے
       summary: خلاصہ
       updated: تازہ ترین حال
+    written_statement:
+      one: قومی مجلس دے سامنے تحریری بیان
+      other: قومی مجلس دے سامنے تحریری بیانات
   help:
     index:
       about:
@@ -709,6 +724,8 @@ pa-pk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: اینوں ایس دے تحت شائع کیتا گیا %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

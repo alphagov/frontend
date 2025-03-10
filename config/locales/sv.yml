@@ -388,6 +388,9 @@ sv:
   error:
   find:
   formats:
+    authored_article:
+      one: Författad artikel
+      other: Författade artiklar
     case_study:
       one: Fallstudie
       other: Fallstudier
@@ -486,6 +489,9 @@ sv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Muntligt uttalande till parlamentet
+      other: Muntliga uttalanden till parlamentet
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ sv:
         pdo_alt_text: Systemets logotyp är en svart stämpel med orden Designated Origin UK Protected.
         pgi_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
         tsg_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
+    speech:
+      delivered_on: Levererad den
+      location: Plats
+      one: Tal
+      other: Tal
+      written_on: Skrivet på
     start_now:
     take_part:
       one: Delta
@@ -524,6 +536,9 @@ sv:
       still_current_at: Fortfarande aktuell på
       summary: Sammanfattning
       updated: Uppdaterad
+    written_statement:
+      one: Skriftligt uttalande till parlamentet
+      other: Skriftliga uttalanden till parlamentet
   help:
     index:
       about:
@@ -709,6 +724,8 @@ sv:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Det här publicerades under %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

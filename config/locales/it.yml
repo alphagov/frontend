@@ -388,6 +388,9 @@ it:
   error:
   find:
   formats:
+    authored_article:
+      one: Articolo d’autore
+      other: Articoli d’autore
     case_study:
       one: Caso di studio
       other: Casi di studio
@@ -486,6 +489,9 @@ it:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Dichiarazione orale al Parlamento
+      other: Dichiarazioni orali al Parlamento
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ it:
         pdo_alt_text: Il logo dello schema è un timbro nero con le parole Designated Origin UK Protected
         pgi_alt_text: Il logo dello schema è un timbro nero con le parole Geographic Origin UK Protected
         tsg_alt_text: Il logo dello schema è un timbro nero con le parole Traditional Speciality UK Protected
+    speech:
+      delivered_on: Consegnato il
+      location: Posizione
+      one: Discorso
+      other: Discorsi
+      written_on: Scritto il
     start_now:
     take_part:
       one: Prendere parte
@@ -524,6 +536,9 @@ it:
       still_current_at: Ancora in corso il
       summary: Riepilogo
       updated: Aggiornato
+    written_statement:
+      one: Dichiarazione scritta al Parlamento
+      other: Dichiarazioni scritte al Parlamento
   help:
     index:
       about:
@@ -709,6 +724,8 @@ it:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Questo è stato pubblicato sotto %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

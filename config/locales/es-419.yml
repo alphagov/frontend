@@ -388,6 +388,9 @@ es-419:
   error:
   find:
   formats:
+    authored_article:
+      one: Artículo de autoría
+      other: Artículos de autoría
     case_study:
       one: Estudio de caso
       other: Estudios de caso
@@ -486,6 +489,9 @@ es-419:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Declaracion oral ante el Parlamento
+      other: Declaraciones orales ante el Parlamento
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ es-419:
         pdo_alt_text: El logotipo del programa es un sello negro con las palabras "Designated Origin UK Protected"
         pgi_alt_text: El logotipo del programa es un sello negro con las palabras "Geographic Origin UK Protected"
         tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
+    speech:
+      delivered_on: Entregado en
+      location: Ubicación
+      one: Discurso
+      other: Discursos
+      written_on: Escrito en
     start_now:
     take_part:
       one: Participe
@@ -524,6 +536,9 @@ es-419:
       still_current_at: Todavía vigente en
       summary: Resumen
       updated: Actualizado
+    written_statement:
+      one: Declaración escrita ante el Parlamento
+      other: Declaraciones escritas ante el Parlamento
   help:
     index:
       about:
@@ -709,6 +724,8 @@ es-419:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Esto fue publicado bajo el %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

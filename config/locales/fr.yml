@@ -388,6 +388,9 @@ fr:
   error:
   find:
   formats:
+    authored_article:
+      one: Article signé
+      other: Articles signés
     case_study:
       one: Etude de cas
       other: Etudes de cas
@@ -486,6 +489,9 @@ fr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Déclaration orale au Parlement
+      other: Déclarations orales au Parlement
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ fr:
         pdo_alt_text: Le logo du système est un cachet noir portant la mention "Origine désignée protégée par le Royaume-Uni"
         pgi_alt_text: Le logo du système est un tampon noir portant la mention "Origine géographique protégée par le Royaume-Uni"
         tsg_alt_text: Le logo du système est un cachet noir portant la mention "Spécialité traditionnelle protégée par le Royaume-Uni"
+    speech:
+      delivered_on: Livré le
+      location: Emplacement
+      one: Discours
+      other: Discours
+      written_on: Rédigé le
     start_now:
     take_part:
       one: Participer
@@ -524,6 +536,9 @@ fr:
       still_current_at: Toujours d'actualité à
       summary: Sommaire
       updated: Mis à jour
+    written_statement:
+      one: Déclaration écrite au Parlement
+      other: Déclarations écrites au Parlement
   help:
     index:
       about:
@@ -709,6 +724,8 @@ fr:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Cela a été publié dans le cadre du %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

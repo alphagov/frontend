@@ -388,6 +388,9 @@ ka:
   error:
   find:
   formats:
+    authored_article:
+      one: ავტორიზებული სტატია
+      other: ავტორიზებული სტატიები
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
@@ -486,6 +489,9 @@ ka:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: ზეპირი განცხადება პარლამენტში
+      other: ზეპირი განცხადებები პარლამენტში
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ ka:
         pdo_alt_text: 'სქემის ლოგო არის შავი შტამპი სიტყვებით: გაერთიანებული სამეფოს დაცული დანიშნულების ადგილი'
         pgi_alt_text: 'სქემის ლოგო არის შავი შტამპი სიტყვებით: გაერთიანებული სამეფოს დაცული დანიშნულების ადგილი'
         tsg_alt_text: სქემის ლოგო არის შავი ბეჭედი, რომელზეც წერია ტრადიციული სპეციალობა დაცულია გაერთიანებული სამეფოს მიერ
+    speech:
+      delivered_on: გადაეცა
+      location: მდებარეობა
+      one: სიტყვით გამოსვლის შენიშვნა
+      other: სიტყვით გამოსვლის შენიშვნები
+      written_on: დაწერილი
     start_now:
     take_part:
       one: მონაწილეობის მიღება
@@ -524,6 +536,9 @@ ka:
       still_current_at: ჯერ კიდევ აქტუალურია
       summary: შეჯამება
       updated: განახლებული
+    written_statement:
+      one: წერილობითი განცხადება პარლამენტში
+      other: წერილობითი განცხადებები პარლამენტში
   help:
     index:
       about:
@@ -709,6 +724,8 @@ ka:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: ეს გამოქვეყნდა %{government}
   sign_up:
   website:
   when_do_the_clocks_change:

@@ -388,6 +388,9 @@ tk:
   error:
   find:
   formats:
+    authored_article:
+      one: Ygtyýarlandyrylan statýa
+      other: Ygtyýarlandyrylan statýalar
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
@@ -486,6 +489,9 @@ tk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    oral_statement:
+      one: Mejlise dilden beýan
+      other: Mejlise dilden beýanlar
     place:
       change:
       find_results:
@@ -502,6 +508,12 @@ tk:
         pdo_alt_text: Shemanyň nyşany Designated Origin UK Protected sözlerini özünde saklaýan gara ştampdyr.
         pgi_alt_text: Shemanyň nyşany Geographic Origin UK Protected sözlerini özünde saklaýan gara ştampdyr.
         tsg_alt_text: Shemanyň nyşany Traditional Speciality UK Protected sözlerini özünde saklaýan gara ştampdyr.
+    speech:
+      delivered_on: 'Gowşuryldy:'
+      location: Ýerleşýän ýeri
+      one: Çykyş
+      other: Çykyşlar
+      written_on: 'Ýazylan:'
     start_now:
     take_part:
       one: Gatnaşmak
@@ -524,6 +536,9 @@ tk:
       still_current_at: Häzir hem bar
       summary: Gysgaça
       updated: Täzelenen
+    written_statement:
+      one: Mejlise ýazmaça beýan
+      other: Mejlise ýazmaça beýanlar
   help:
     index:
       about:
@@ -709,6 +724,8 @@ tk:
         heading:
       invalid:
       title:
+  shared:
+    historically_political: Bu %{government} garamagynda neşir edildi
   sign_up:
   website:
   when_do_the_clocks_change:

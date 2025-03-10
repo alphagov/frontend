@@ -3,7 +3,7 @@ class Organisation < ContentItem
 
   def initialize(organisation_data)
     super(organisation_data)
-    @logo = OrganisationLogo.new(organisation_data.dig("details", "logo"), base_path)
+    @logo = Logo.new(organisation_data.dig("details", "logo"))
     @organisation_data = organisation_data
   end
 

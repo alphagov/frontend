@@ -22,18 +22,14 @@ class SpecialistDocument < ContentItem
         name: selected_facet["name"],
       }
 
-      metadata_facet_value = metadata[selected_facet["key"]]
+      metadata_facet_values = [metadata[selected_facet["key"]]].flatten
       f[:value] = if selected_facet["allowed_values"].present?
-                    allowed_value(selected_facet["allowed_values"], metadata_facet_value)
+                    allowed_value(selected_facet["allowed_values"], metadata_facet_values)
                   else
-                    metadata_facet_value
+                    metadata_facet_values
                   end
 
-      f[:type] = if link?(selected_facet, f[:value])
-                   "link"
-                 else
-                   selected_facet["type"]
-                 end
+      f[:type] = link?(selected_facet) ? "link" : selected_facet["type"]
 
       f
     end
@@ -79,17 +75,13 @@ private
     end
   end
 
-  def link?(facet, permitted_value)
-    facet["type"] == "text" &&
-      permitted_value.is_a?(Array) &&
-      facet["filterable"] == true
+  def link?(facet)
+    facet["type"] == "text" && facet["filterable"] == true
   end
 
-  def allowed_value(allowed_values, metadata_facet_value)
+  def allowed_value(allowed_values, metadata_facet_values)
     allowed_values.select do |allowed_value|
-      next unless allowed_value["value"] == metadata_facet_value ||
-        metadata_facet_value.is_a?(Array) &&
-          allowed_value["value"].in?(metadata_facet_value)
+      next unless allowed_value["value"].in?(metadata_facet_values)
 
       allowed_value.deep_symbolize_keys!
     end

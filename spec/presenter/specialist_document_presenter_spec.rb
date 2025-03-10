@@ -107,7 +107,7 @@ RSpec.describe SpecialistDocumentPresenter do
 
       it "returns the value of the metadata" do
         expected_metadata = {
-          "Aircraft type" => "Rotorsport UK Calidus",
+          "Aircraft type" => ["Rotorsport UK Calidus"],
         }
 
         expect(presenter.important_metadata).to include(expected_metadata)
@@ -118,7 +118,7 @@ RSpec.describe SpecialistDocumentPresenter do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
       it "returns facet metadata with formatted dates" do
-        expected_metadata = { "Issued" => "6 July 2015" }
+        expected_metadata = { "Issued" => ["6 July 2015"] }
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end

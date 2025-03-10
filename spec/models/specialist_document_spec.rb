@@ -130,25 +130,25 @@ RSpec.describe SpecialistDocument do
             key: "date_of_occurrence",
             name: "Date of occurrence",
             type: "date",
-            value: "2015-08-08",
+            value: %w[2015-08-08],
           },
           {
             key: "aircraft_type",
             name: "Aircraft type",
             type: "text",
-            value: "Rotorsport UK Calidus",
+            value: ["Rotorsport UK Calidus"],
           },
           {
             key: "location",
             name: "Location",
             type: "text",
-            value: "Damyns Hall Aerodrome, Essex",
+            value: ["Damyns Hall Aerodrome, Essex"],
           },
           {
             key: "registration",
             name: "Registration",
             type: "text",
-            value: "G-PCPC",
+            value: %w[G-PCPC],
           },
         ]
 
@@ -201,7 +201,7 @@ RSpec.describe SpecialistDocument do
             key: "issued_date",
             name: "Issued",
             type: "date",
-            value: "2015-07-06",
+            value: %w[2015-07-06],
           },
         ]
         expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)

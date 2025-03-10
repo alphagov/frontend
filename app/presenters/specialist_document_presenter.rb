@@ -53,7 +53,7 @@ private
   end
 
   def format_facet_value(type, value, key)
-    return display_date(value) if type == "date"
+    return value.map { |date| display_date(date) } if type == "date"
     return facet_value_link(key, value) if type == "link"
 
     value

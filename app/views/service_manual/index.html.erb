@@ -56,42 +56,40 @@
 <% end %>
 
 <div class="govuk-width-container">
-  <div class="govuk-main-wrapper">
-    <% @content_item.topics.each_slice(3) do |row_of_topics| %>
-      <div class="govuk-grid-row">
-        <% row_of_topics.each do |topic| %>
-          <div class="govuk-grid-column-one-third">
-            <%= render "govuk_publishing_components/components/heading", {
-              text: sanitize(link_to topic.title, topic.base_path, class: "govuk-link"),
-              heading_level: 2,
-              font_size: "s",
-              margin_bottom: 1,
-            } %>
-            <p class="govuk-body-s"><%= topic.description %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-
+  <% @content_item.topics.each_slice(3) do |row_of_topics| %>
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
+      <% row_of_topics.each do |topic| %>
+        <div class="govuk-grid-column-one-third">
           <%= render "govuk_publishing_components/components/heading", {
-            text: "The Service Standard",
-            font_size: "m",
+            text: sanitize(link_to topic.title, topic.base_path, class: "govuk-link"),
+            heading_level: 2,
+            font_size: "s",
+            margin_bottom: 1,
           } %>
-          <p class="govuk-body app-body">The <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link" %> provides the principles of building a good service. This manual explains what teams can do to build great services that will meet the standard.</p>
+          <p class="govuk-body-s"><%= topic.description %></p>
         </div>
-      </div>
+      <% end %>
+    </div>
+  <% end %>
 
-      <div class="govuk-grid-column-one-half">
-        <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
-          <%= render "govuk_publishing_components/components/heading", {
-            text: "Communities of practice",
-            font_size: "m",
-          } %>
-          <p class="govuk-body app-body">You can view the <%= link_to "communities of practice", "/service-manual/communities", class: "govuk-link" %> to find more learning resources, see who has written the guidance in the manual and connect with digital people like you from across government.</p>
-        </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "The Service Standard",
+          font_size: "m",
+        } %>
+        <p class="govuk-body app-body">The <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link" %> provides the principles of building a good service. This manual explains what teams can do to build great services that will meet the standard.</p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+      <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Communities of practice",
+          font_size: "m",
+        } %>
+        <p class="govuk-body app-body">You can view the <%= link_to "communities of practice", "/service-manual/communities", class: "govuk-link" %> to find more learning resources, see who has written the guidance in the manual and connect with digital people like you from across government.</p>
       </div>
     </div>
   </div>

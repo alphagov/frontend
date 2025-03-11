@@ -56,21 +56,11 @@
 <% end %>
 
 <div class="govuk-width-container">
-  <% @content_item.topics.each_slice(3) do |row_of_topics| %>
-    <div class="govuk-grid-row">
-      <% row_of_topics.each do |topic| %>
-        <div class="govuk-grid-column-one-third">
-          <%= render "govuk_publishing_components/components/heading", {
-            text: sanitize(link_to topic.title, topic.base_path, class: "govuk-link"),
-            heading_level: 2,
-            font_size: "s",
-            margin_bottom: 1,
-          } %>
-          <p class="govuk-body-s"><%= topic.description %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render "govuk_publishing_components/components/cards", {
+    columns: 3,
+    sub_heading_level: 2,
+    items: @presenter.sorted_topics,
+  } %>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">

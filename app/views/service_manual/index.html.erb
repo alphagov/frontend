@@ -64,23 +64,21 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
-      <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "The Service Standard",
-          font_size: "m",
-        } %>
-        <p class="govuk-body app-body">The <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link" %> provides the principles of building a good service. This manual explains what teams can do to build great services that will meet the standard.</p>
-      </div>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "The Service Standard",
+        font_size: "s",
+        margin_bottom: 4,
+      } %>
+      <p class="govuk-body app-body">The <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link" %> provides the principles of building a good service. This manual explains what teams can do to build great services that will meet the standard.</p>
     </div>
 
     <div class="govuk-grid-column-one-half">
-      <div class="panel govuk-!-padding-top-3 govuk-!-margin-top-5">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "Communities of practice",
-          font_size: "m",
-        } %>
-        <p class="govuk-body app-body">You can view the <%= link_to "communities of practice", "/service-manual/communities", class: "govuk-link" %> to find more learning resources, see who has written the guidance in the manual and connect with digital people like you from across government.</p>
-      </div>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Communities of practice",
+        font_size: "s",
+        margin_bottom: 4,
+      } %>
+      <p class="govuk-body app-body">You can view the <%= link_to "communities of practice", "/service-manual/communities", class: "govuk-link" %> to find more learning resources, see who has written the guidance in the manual and connect with digital people like you from across government.</p>
     </div>
   </div>
 </div>

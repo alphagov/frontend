@@ -88,6 +88,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # Service manuals
+  scope "/service-manual" do
+    get "/", to: "service_manual#index"
+  end
+
   # Static error page routes - in practice used only during deploy, these don't have a
   # published route so can't be accessed from outside
   get "/static-error-pages/:error_code.html", to: "static_error_pages#show"

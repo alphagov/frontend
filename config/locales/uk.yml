@@ -597,6 +597,11 @@ uk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Відповідь уряду
+      other: Відповіді уряду
     licence:
       change:
     local_transaction:
@@ -648,6 +653,11 @@ uk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: Сюжет новин
+      other: Сюжети новин
     oral_statement:
       few:
       many:
@@ -658,6 +668,11 @@ uk:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: Пресреліз
+      other: Пресрелізи
     simple_smart_answer:
       change:
       next_step:
@@ -701,6 +716,11 @@ uk:
       still_current_at: Досі актуально на
       summary: Резюме
       updated: Оновлено
+    world_news_story:
+      few:
+      many:
+      one: Сюжет міжнародних новин
+      other: Сюжети міжнародних новин
     written_statement:
       few:
       many:

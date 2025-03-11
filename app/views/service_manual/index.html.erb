@@ -1,47 +1,55 @@
-<% content_for :title, "Service Manual" %>
-
-<header class="app-hero">
-  <div class="app-hero__content govuk-width-container">
-    <div class="govuk-main-wrapper">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/heading", {
-            text: "Service Manual",
-            font_size: "xl",
-            heading_level: 1,
-            inverse: true,
-            margin_bottom: 6,
+<%
+  content_for :title, "Service Manual"
+  content_for :main_classes, "govuk-!-padding-top-0"
+%>
+<%= render "govuk_publishing_components/components/inverse_header", {
+  full_width: true,
+  padding_top: 8,
+  padding_bottom: 6,
+} do %>
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Service Manual",
+          font_size: "xl",
+          heading_level: 1,
+          inverse: true,
+          margin_bottom: 6,
+        } %>
+        <% lead_para = capture do %>
+          Helping teams to create and run great public services that meet the <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link govuk-link--inverse" %>.
+        <% end %>
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: lead_para,
+          inverse: true,
+        } %>
+        <form
+          action="/search"
+          method="get"
+          role="search"
+          data-module="ga4-form-tracker"
+          data-ga4-form-include-text
+          data-ga4-form-no-answer-undefined
+          data-ga4-form='{"event_name": "search", "type": "content", "url": "/search/all", "section": "Service Manual", "action": "search"}'>
+          <input type="hidden" name="filter_manual" value="/service-manual">
+          <%= render "govuk_publishing_components/components/search", {
+            label_text: "Search the service manual",
+            name: "q",
+            on_govuk_blue: true,
+            type: "search",
           } %>
-          <p class="govuk-body-lead app-hero-lead app-hero__body--inverse govuk-!-padding-bottom-1">
-            Helping teams to create and run great public services that meet the <%= link_to "Service Standard", "/service-manual/service-standard", class: "govuk-link govuk-link--inverse" %>.
-          </p>
-          <form
-            action="/search"
-            method="get"
-            role="search"
-            data-module="ga4-form-tracker"
-            data-ga4-form-include-text
-            data-ga4-form-no-answer-undefined
-            data-ga4-form='{"event_name": "search", "type": "content", "url": "/search/all", "section": "Service Manual", "action": "search"}'>
-            <input type="hidden" name="filter_manual" value="/service-manual">
-            <%= render "govuk_publishing_components/components/search", {
-              label_text: "Search the service manual",
-              name: "q",
-              on_govuk_blue: true,
-              type: "search",
-            } %>
-          </form>
-        </div>
-        <div class="govuk-grid-column-one-third">
-          <p class="govuk-body-s app-hero__body--inverse">
-            <%= link_to "Contact the Service Manual team", "/contact/govuk", class: "govuk-link govuk-link--inverse" %>
-            with any comments or questions.
-          </p>
-        </div>
+        </form>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p>
+          <%= link_to "Contact the Service Manual team", "/service-manual/communities/contact-the-service-manual-and-service-standard-team", class: "govuk-link govuk-link--inverse" %>
+          with any comments or questions.
+        </p>
       </div>
     </div>
   </div>
-</header>
+<% end %>
 
 <div class="govuk-width-container">
   <div class="govuk-main-wrapper">

@@ -544,6 +544,15 @@ pl:
       many:
       one: Studium przypadku
       other: Studia przypadku
+    fatality_notice:
+      alt_text: Herb Ministerstwa Obrony
+      few:
+      field_of_operation: Zakres działania
+      many:
+      none_added: Dla tego obszaru nie podano jeszcze żadnych informacji o ofiarach śmiertelnych.
+      one: Informacja o śmierci
+      operations_in: Działania w %{location}
+      other: Informacje o śmierci
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

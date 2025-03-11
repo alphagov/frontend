@@ -394,6 +394,13 @@ ne:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    fatality_notice:
+      alt_text: रक्षा मन्त्रालय क्रेस्ट
+      field_of_operation: सञ्चालन क्षेत्र
+      none_added: त्यहाँ सञ्चालन क्षेत्रको लागी अझै सम्म कुनै मृत्यु सूचनाहरु थपिएका छैनन्।
+      one: मृत्युको सूचना
+      operations_in: "%{location} मा सञ्चालन"
+      other: मृत्युका सूचनाहरू
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

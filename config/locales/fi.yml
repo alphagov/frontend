@@ -394,6 +394,13 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+    fatality_notice:
+      alt_text: Puolustusministeriön vaakuna
+      field_of_operation: Toiminta -alue
+      none_added: Kuolemantapauksia ei ole ilmoitettu lisätty tälle toiminta-alueelle.
+      one: Kuolemantapauksia koskeva ilmoitus
+      operations_in: Toiminnot paikassa %{location}
+      other: Kuolemantapauksia koskevat ilmoitukset
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

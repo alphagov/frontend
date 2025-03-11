@@ -319,6 +319,12 @@ th:
       other: บทความที่มีผู้เขียน
     case_study:
       other: กรณีศึกษา
+    fatality_notice:
+      alt_text: ตรากระทรวงกลาโหม
+      field_of_operation: พื้นที่ปฏิบัติการ
+      none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
+      operations_in: การดำเนินงานใน %{location}
+      other: การแจ้งตาย
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

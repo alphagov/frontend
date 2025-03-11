@@ -319,6 +319,12 @@ zh-tw:
       other: 授權文章
     case_study:
       other: 案例分析
+    fatality_notice:
+      alt_text: 國防部紋章
+      field_of_operation: 經營領域
+      none_added: 尚未為該操作領域新增死亡通知。
+      operations_in: 在 %{location} 的領域
+      other: 死亡通知
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -544,6 +544,15 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+    fatality_notice:
+      alt_text: Герб Министерства Обороны
+      few:
+      field_of_operation: Сфера деятельности
+      many:
+      none_added: Уведомления о летальных исходах для этой области операций еще не добавлены.
+      one: Уведомление о несчастном случае
+      operations_in: Деятельность в  %{location}
+      other: Уведомления о несчастных случаях
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

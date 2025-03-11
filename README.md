@@ -13,6 +13,7 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/when-do-the-clocks-change|
 |Case studies           |[case_study](https://docs.publishing.service.gov.uk/content-schemas/case_study.html)|https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy|
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
+|Fatality notice        |[fatality_notice](https://docs.publishing.service.gov.uk/content-schemas/fatality_notice.html)|https://www.gov.uk/government/fatalities/corporal-lee-churcher-dies-in-iraq|
 |Find electoral office  |hardcoded|https://www.gov.uk/contact-electoral-registration-office|
 |Find local council     |hardcoded|https://www.gov.uk/find-local-council|
 |Foreign travel advice index |[travel_advice_index](https://docs.publishing.service.gov.uk/content-schemas/travel_advice_index.html)|https://www.gov.uk/foreign-travel-advice|

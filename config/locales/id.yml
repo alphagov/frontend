@@ -319,6 +319,12 @@ id:
       other: Artikel bersumber
     case_study:
       other: Studi kasus
+    fatality_notice:
+      alt_text: Lambang Kementerian Pertahanan
+      field_of_operation: Bidang operasi
+      none_added: Belum ada pemberitahuan fatalitas yang ditambahkan untuk bidang operasi ini.
+      operations_in: Operasi di %{location}
+      other: Pemberitahuan fatalitas
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

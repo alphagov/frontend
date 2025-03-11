@@ -394,6 +394,13 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    fatality_notice:
+      alt_text: Savunma Bakanlığı arması
+      field_of_operation: Faaliyet alanı
+      none_added: Henüz bu faaliyet alanına eklenen hiçbir ölüm oranı bildirimi yok.
+      one: Hata bildirimi
+      operations_in: "%{location} konumundaki faaliyetler"
+      other: Hata bildirimleri
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

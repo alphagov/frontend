@@ -7,21 +7,22 @@
 
 <% @additional_body = capture do %>
   <% if content_item.corporate_information? %>
-    <%= content_item.corporate_information_heading_tag %>
+    <%= content_tag(:h2, @presenter.corporate_information_heading, id: @presenter.corporate_information_heading_id) %>
+
     <% content_item.corporate_information.each do |group| %>
-      <%= group[:heading] %>
+      <%= content_tag(:h3, group[:title], id: group[:id]) %>
       <ul>
         <% group[:links].each do |link| %>
           <li>
-            <%= link %>
+            <%= govuk_styled_link(link[:title], path: link[:path]) %>
           </li>
         <% end %>
       </ul>
     <% end %>
 
-    <% if content_item.further_information.present? %>
+    <% if @presenter.further_information.present? %>
       <p>
-        <%= content_item.further_information %>
+        <%= @presenter.further_information %>
       </p>
     <% end %>
   <% end %>

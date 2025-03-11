@@ -30,6 +30,7 @@ some hard-coded routes.
 |Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|http://www.gov.uk/register-offices|
 |                       ||http://www.gov.uk/register-offices|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap
+|Service Manual homepage|[service_manual_homepage](https://docs.publishing.service.gov.uk/content-schemas/service_manual_homepage.html)|https://www.gov.uk/service-manual|
 |Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
 |                       ||https://www.gov.uk/contact-the-dvla|
 |Specialist Document    |https://www.gov.uk/cma-cases/veterinary-services-market-for-pets-review|

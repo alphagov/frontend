@@ -21,13 +21,13 @@ module ApplicationHelper
     request.original_fullpath.split("?", 2).first
   end
 
-  def remove_breadcrumbs(content_item)
-    remove_breadcrumbs = false
+  def show_breadcrumbs?(content_item)
+    return false if content_item.nil?
 
-    if content_item.respond_to?(:is_a_landing_page?) && content_item.is_a_landing_page?
-      remove_breadcrumbs = true
-    end
+    no_breadcrumbs_for = %w[homepage landing_page]
 
-    remove_breadcrumbs
+    return false if no_breadcrumbs_for.include?(content_item.schema_name)
+
+    true
   end
 end

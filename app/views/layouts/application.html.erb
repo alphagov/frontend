@@ -25,7 +25,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%=
+    <title <%= lang_attribute %>><%=
       page_title = yield :title
       if page_title.present?
         page_title
@@ -34,7 +34,7 @@
       else
         "GOV.UK"
       end
-           %></title>
+                                 %></title>
     <%= yield :extra_stylesheets %>
 
     <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">

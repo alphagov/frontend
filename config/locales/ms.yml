@@ -360,6 +360,8 @@ ms:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: Respons kerajaan
     licence:
       change:
     local_transaction:
@@ -411,6 +413,8 @@ ms:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: Berita
     oral_statement:
       other: Kenyataan lisan kepada Parlimen
     place:
@@ -418,6 +422,8 @@ ms:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: Siaran akhbar
     simple_smart_answer:
       change:
       next_step:
@@ -455,6 +461,8 @@ ms:
       still_current_at: Masih semasa di
       summary: Ringkasan
       updated: Dikemas kini
+    world_news_story:
+      other: Berita dunia
     written_statement:
       other: Kenyataan bertulis kepada Parlimen
   help:

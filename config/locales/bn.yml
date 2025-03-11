@@ -436,6 +436,9 @@ bn:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: সরকারের সাড়া
+      other: সরকারের সাড়া
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ bn:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: সংবাদের বিষয়
+      other: সংবাদের বিষয়াবলী
     oral_statement:
       one: সংসদে মৌখিক বিবৃতি
       other: সংসদে মৌখিক বিবৃতিসমূহ
@@ -495,6 +501,9 @@ bn:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: প্রেস বিজ্ঞপ্তি
+      other: প্রেস বিজ্ঞপ্তিসমূহ
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ bn:
       still_current_at: এখানে এখনও চলমান
       summary: সারসংক্ষেপ
       updated: হালনাগাদ করা হয়েছে
+    world_news_story:
+      one: বিশ্ব সংবাদের বিষয়বস্তু
+      other: বিশ্ব সংবাদের বিষয়বস্তুসমূহ
     written_statement:
       one: সংসদে লিখিত বিবৃতি
       other: সংসদে লিখিত বিবৃতিসমূহ

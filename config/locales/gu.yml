@@ -436,6 +436,9 @@ gu:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: સરકારનો પ્રતિભાવ
+      other: સરકારના પ્રતિભાવો
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ gu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: ન્યૂઝ સ્ટોરી
+      other: ન્યૂઝ સ્ટોરીઝ
     oral_statement:
       one: સંસદમાં મૌખિક નિવેદન
       other: સંસદમાં મૌખિક નિવેદનો
@@ -495,6 +501,9 @@ gu:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: પ્રેસ રીલીઝ
+      other: પ્રેસ રીલીઝ
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ gu:
       still_current_at: પર હજુ પણ ચાલુ
       summary: સારાંશ
       updated: અપડેટ કરેલ
+    world_news_story:
+      one: વૈશ્વિક ન્યૂઝ સ્ટોરી
+      other: વૈશ્વિક ન્યૂઝ સ્ટોરીઝ
     written_statement:
       one: સંસદમાં લેખિત નિવેદન
       other: સંસદમાં લેખિત નિવેદનો

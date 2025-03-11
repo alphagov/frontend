@@ -512,6 +512,10 @@ ro:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Răspunsul guvernului
+      other: Răspunsurile guvernului
     licence:
       change:
     local_transaction:
@@ -563,6 +567,10 @@ ro:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Reportaj de știri
+      other: Reportaje de știri
     oral_statement:
       few:
       one: Expunere orală către Parlament
@@ -572,6 +580,10 @@ ro:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Comunicat de presă
+      other: Comunicate de presă
     simple_smart_answer:
       change:
       next_step:
@@ -613,6 +625,10 @@ ro:
       still_current_at: În acest moment la
       summary: Rezumat
       updated: Actualizat
+    world_news_story:
+      few:
+      one: Reportaj de știri global
+      other: Reportaje de știri globale
     written_statement:
       few:
       one: Declarație scrisă către Parlament

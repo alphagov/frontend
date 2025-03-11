@@ -436,6 +436,9 @@ de:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Antwort der Regierung
+      other: Antworten der Regierung
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ de:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Meldung
+      other: Meldungen
     oral_statement:
       one: Mündliche Erklärung vor dem Parlament
       other: Mündliche Erklärungen vor dem Parlament
@@ -495,6 +501,9 @@ de:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressemitteilung
+      other: Pressemitteilungen
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ de:
       still_current_at: Aktuell noch bei
       summary: Zusammenfassung
       updated: Aktualisiert
+    world_news_story:
+      one: Weltnachrichten Geschichte
+      other: Weltnachrichten Geschichten
     written_statement:
       one: Schriftliche Erklärung vor dem Parlament
       other: Schriftliche Erklärungen vor dem Parlament

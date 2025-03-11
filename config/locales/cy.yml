@@ -742,6 +742,13 @@ cy:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Ymateb y llywodraeth
+      other: Ymatebion y llywodraeth
+      two:
+      zero:
     licence:
       change: Newid
     local_transaction:
@@ -796,6 +803,13 @@ cy:
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
+    news_story:
+      few:
+      many:
+      one: Stori newyddion
+      other: Straeon newyddion
+      two:
+      zero:
     oral_statement:
       few:
       many:
@@ -808,6 +822,13 @@ cy:
       find_results: Darganfod canlyniadau yn agos i chi
       postcode: Cod post
       select_address: Dewiswch gyfeiriad
+    press_release:
+      few:
+      many:
+      one: Datganiad i'r wasg
+      other: Datganiadau i'r wasg
+      two:
+      zero:
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
@@ -855,6 +876,13 @@ cy:
       still_current_at: Yn gyfredol o hyd ar
       summary: Crynodeb
       updated: Diweddarwyd
+    world_news_story:
+      few:
+      many:
+      one: Stori newyddion byd-eang
+      other: Straeon newyddion byd-eang
+      two:
+      zero:
     written_statement:
       few:
       many:

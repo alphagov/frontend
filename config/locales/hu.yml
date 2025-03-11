@@ -436,6 +436,9 @@ hu:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Kormányválasz
+      other: Kormányválaszok
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ hu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Hír
+      other: Hírek
     oral_statement:
       one: Parlamenti felszólalás
       other: Parlamenti felszólalások
@@ -495,6 +501,9 @@ hu:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Sajtóközlemény
+      other: Sajtóközlemények
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ hu:
       still_current_at: 'Még érvényben itt:'
       summary: Összefoglalás
       updated: Frissítve
+    world_news_story:
+      one: Nemzetközi hír
+      other: Nemzetközi hírek
     written_statement:
       one: Írásbeli parlamenti nyilatkozat
       other: Írásbeli parlamenti nyilatkozatok

@@ -436,6 +436,9 @@ bg:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Отговор на правителството
+      other: Отговори на правителството
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ bg:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Репортаж
+      other: Репортажи
     oral_statement:
       one: Устно изявление в Парламента
       other: Устни изявления в Парламента
@@ -495,6 +501,9 @@ bg:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Съобщение за пресата
+      other: Съобщения за пресата
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ bg:
       still_current_at: Все още актуален в
       summary: Обобщение
       updated: Актуализиран
+    world_news_story:
+      one: Световна новина
+      other: Световни новини
     written_statement:
       one: Писмено изявление в Парламента
       other: Писмени изявления в Парламента

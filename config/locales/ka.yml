@@ -436,6 +436,9 @@ ka:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: მთავრობის პასუხი
+      other: მთავრობის პასუხები
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ ka:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: ახალი ამბავი
+      other: ახალი ამბები
     oral_statement:
       one: ზეპირი განცხადება პარლამენტში
       other: ზეპირი განცხადებები პარლამენტში
@@ -495,6 +501,9 @@ ka:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: პრეს რელიზი
+      other: პრეს რელიზები
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ ka:
       still_current_at: ჯერ კიდევ აქტუალურია
       summary: შეჯამება
       updated: განახლებული
+    world_news_story:
+      one: მსოფლიო ამბავი
+      other: მსოფლიო ამბები
     written_statement:
       one: წერილობითი განცხადება პარლამენტში
       other: წერილობითი განცხადებები პარლამენტში

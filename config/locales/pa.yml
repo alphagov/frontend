@@ -436,6 +436,9 @@ pa:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: ਸਰਕਾਰ ਦਾ ਜਵਾਬ
+      other: ਸਰਕਾਰ ਦੇ ਜਵਾਬ
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ pa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
+      other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ
     oral_statement:
       one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
       other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
@@ -495,6 +501,9 @@ pa:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: ਪੱਤਰਕਾਰਾਂ ਨੂੰ ਦਿੱਤੀ ਗਈ ਅਧਕਾਰਿਤ ਰਿਪੋਰਟ
+      other: ਪ੍ਰੈਸ ਰਿਲੀਜ਼
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ pa:
       still_current_at: "'ਤੇ ਅਜੇ ਵੀ ਮੌਜੂਦਾ"
       summary: ਸੰਖੇਪ
       updated: ਅੱਪਡੇਟ ਕੀਤਾ
+    world_news_story:
+      one: ਵਿਸ਼ਵ ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
+      other: ਵਿਸ਼ਵ ਖ਼ਬਰਾਂ
     written_statement:
       one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
       other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ

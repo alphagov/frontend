@@ -512,6 +512,10 @@ hr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Odgovor vlade
+      other: Odgovori vlade
     licence:
       change:
     local_transaction:
@@ -563,6 +567,10 @@ hr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Novosti
+      other: Novosti
     oral_statement:
       few:
       one: Usmena izjava Parlamentu
@@ -572,6 +580,10 @@ hr:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Saopćenje za javnost
+      other: Saopćenja za javnost
     simple_smart_answer:
       change:
       next_step:
@@ -613,6 +625,10 @@ hr:
       still_current_at: Još uvijek aktualno u
       summary: Sažetak
       updated: Ažurirano
+    world_news_story:
+      few:
+      one: Vijest iz svijeta
+      other: Vijesti iz svijeta
     written_statement:
       few:
       one: Pismena izjava Parlamentu

@@ -360,6 +360,8 @@ th:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: คำตอบของรัฐบาล
     licence:
       change:
     local_transaction:
@@ -411,6 +413,8 @@ th:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: เนื้อหาข่าว
     oral_statement:
       other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
     place:
@@ -418,6 +422,8 @@ th:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: ข่าวประชาสัมพันธ์
     simple_smart_answer:
       change:
       next_step:
@@ -455,6 +461,8 @@ th:
       still_current_at: ยังคงเป็นปัจจุบันเมื่อ
       summary: สรุป
       updated: ปรับปรุงแล้ว
+    world_news_story:
+      other: ข่าวสารรอบโลก
     written_statement:
       other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
   help:

@@ -436,6 +436,9 @@ da:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Regeringens reaktion
+      other: Regeringens reaktioner
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ da:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nyhedshistorie
+      other: Nyhedshistorier
     oral_statement:
       one: Mundtlig erklæring til Parlamentet
       other: Mundtlige erklæring til Parlamentet
@@ -495,6 +501,9 @@ da:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressemeddelelse
+      other: Pressemeddelelser
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ da:
       still_current_at: Stadig aktuel på
       summary: Resumé
       updated: Opdateret
+    world_news_story:
+      one: Verdensomspændende nyhedshistorie
+      other: Verdensomspændende nyhedshistorier
     written_statement:
       one: Mundtlig erklæring til Parlamentet
       other: Mundtlige erklæring til Parlamentet

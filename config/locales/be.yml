@@ -588,6 +588,11 @@ be:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Адказ ўрада
+      other: Адказы ўрада
     licence:
       change:
     local_transaction:
@@ -639,6 +644,11 @@ be:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: Навіна
+      other: Навіны
     oral_statement:
       few:
       many:
@@ -649,6 +659,11 @@ be:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: Прэс-рэліз
+      other: Прэс-рэлізы
     simple_smart_answer:
       change:
       next_step:
@@ -692,6 +707,11 @@ be:
       still_current_at: Усё яшчэ актуальна
       summary: Рэзюмэ
       updated: Адноўлена
+    world_news_story:
+      few:
+      many:
+      one: Сусветная навіна
+      other: Сусветныя навіны
     written_statement:
       few:
       many:

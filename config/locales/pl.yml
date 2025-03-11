@@ -588,6 +588,11 @@ pl:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Odpowiedź rządu
+      other: Odpowiedzi rządu
     licence:
       change:
     local_transaction:
@@ -639,6 +644,11 @@ pl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: Aktualności
+      other: Aktualności
     oral_statement:
       few:
       many:
@@ -649,6 +659,11 @@ pl:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: Informacja prasowa
+      other: Informacje prasowe
     simple_smart_answer:
       change:
       next_step:
@@ -692,6 +707,11 @@ pl:
       still_current_at: Aktualne na dzień
       summary: Podsumowanie
       updated: Zaktualizowano
+    world_news_story:
+      few:
+      many:
+      one: Artykuł prasowy ze świata
+      other: Artykuły prasowe ze świata
     written_statement:
       few:
       many:

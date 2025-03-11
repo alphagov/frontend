@@ -436,6 +436,9 @@ az:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hökumətin reaksiyası
+      other: Hökumətin reaksiyaları
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ az:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Xəbərləri əks etdirən material
+      other: Xəbərləri əks etdirən materiallar
     oral_statement:
       one: Parlamentə şifahi müraciət
       other: Parlamentə şifahi müraciətlər
@@ -495,6 +501,9 @@ az:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Press-reliz
+      other: Press-relizlər
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ az:
       still_current_at: Hələ də qüvvədədir
       summary: İcmal
       updated: Yenilənib
+    world_news_story:
+      one: Dünya üzrə xəbərləri əks etdirən material
+      other: Dünya üzrə xəbərləri əks etdirən materiallar
     written_statement:
       one: Parlamentə yazılı müraciət
       other: Parlamentə yazılı müraciətlər

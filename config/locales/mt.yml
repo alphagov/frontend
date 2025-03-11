@@ -588,6 +588,11 @@ mt:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: Risposta tal-Gvern
+      other: Risposti tal-Gvern
     licence:
       change:
     local_transaction:
@@ -639,6 +644,11 @@ mt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: Storja aħbar
+      other: Stejjer aħbar
     oral_statement:
       few:
       many:
@@ -649,6 +659,11 @@ mt:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: Stqarrija għall-istampa
+      other: Stqarrijiet għall-istampa
     simple_smart_answer:
       change:
       next_step:
@@ -692,6 +707,11 @@ mt:
       still_current_at: Għadu jeżisti fuq
       summary: Sommarju
       updated: Aġġornat
+    world_news_story:
+      few:
+      many:
+      one: Storja b'aħbarijiet mid-dinja
+      other: Stejjer b'aħbarijiet mid-dinja
     written_statement:
       few:
       many:

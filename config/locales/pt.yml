@@ -436,6 +436,9 @@ pt:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Resposta do governo
+      other: Respostas do governo
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ pt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Reportagem
+      other: Reportagens
     oral_statement:
       one: Declaração oral ao Parlamento
       other: Declarações orais ao Parlamento
@@ -495,6 +501,9 @@ pt:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Comunicado de imprensa
+      other: Comunicados de imprensa
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ pt:
       still_current_at: Continua atual às
       summary: Resumo
       updated: Atualizado em
+    world_news_story:
+      one: Reportagem do mundo
+      other: Reportagens do mundo
     written_statement:
       one: Declaração escrita ao Parlamento
       other: Declarações escritas ao Parlamento

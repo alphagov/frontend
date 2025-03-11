@@ -436,6 +436,9 @@ it:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Risposta del governo
+      other: Risposte del governo
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ it:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Storia di notizie
+      other: Storie di notizie
     oral_statement:
       one: Dichiarazione orale al Parlamento
       other: Dichiarazioni orali al Parlamento
@@ -495,6 +501,9 @@ it:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Comunicato stampa
+      other: Comunicati stampa
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ it:
       still_current_at: Ancora in corso il
       summary: Riepilogo
       updated: Aggiornato
+    world_news_story:
+      one: Storia di notizie dal mondo
+      other: Storie di notizie dal mondo
     written_statement:
       one: Dichiarazione scritta al Parlamento
       other: Dichiarazioni scritte al Parlamento

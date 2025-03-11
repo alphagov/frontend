@@ -436,6 +436,9 @@ ne:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: सरकारको प्रतिक्रिया
+      other: सरकारको प्रतिक्रियाहरू
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ ne:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: समाचार कथा
+      other: समाचार कथाहरु
     oral_statement:
       one: संसदमा मौखिक वक्तव्य
       other: 'संसदमा मौखिक वक्तव्यहरू '
@@ -495,6 +501,9 @@ ne:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: प्रेस विज्ञप्ति
+      other: प्रेस विज्ञप्तिहरू
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ ne:
       still_current_at: अहिले सम्म वर्तमानमा
       summary: सारांश
       updated: अद्यावधिक गरियो
+    world_news_story:
+      one: विश्व समाचार कथा
+      other: विश्व समाचार कथाहरु
     written_statement:
       one: संसदमा लिखित वक्तव्य
       other: संसदमा लिखित वक्तव्यहरू

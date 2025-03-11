@@ -436,6 +436,9 @@ sv:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Regeringens svar
+      other: Regeringens svar
     licence:
       change:
     local_transaction:
@@ -487,6 +490,9 @@ sv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nyhet
+      other: Nyheter
     oral_statement:
       one: Muntligt uttalande till parlamentet
       other: Muntliga uttalanden till parlamentet
@@ -495,6 +501,9 @@ sv:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Pressmeddelande
+      other: Pressmeddelanden
     simple_smart_answer:
       change:
       next_step:
@@ -534,6 +543,9 @@ sv:
       still_current_at: Fortfarande aktuell på
       summary: Sammanfattning
       updated: Uppdaterad
+    world_news_story:
+      one: Världsnyheter
+      other: Världsnyheter
     written_statement:
       one: Skriftligt uttalande till parlamentet
       other: Skriftliga uttalanden till parlamentet

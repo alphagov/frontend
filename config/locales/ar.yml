@@ -740,6 +740,13 @@ ar:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      many:
+      one: استجابة الحكومة
+      other: استجابات الحكومة
+      two:
+      zero:
     licence:
       change:
     local_transaction:
@@ -791,6 +798,13 @@ ar:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      many:
+      one: قصة إخبارية
+      other: قصص إخبارية
+      two:
+      zero:
     oral_statement:
       few:
       many:
@@ -803,6 +817,13 @@ ar:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      many:
+      one: بيان صحفي
+      other: بيانات صحفية
+      two:
+      zero:
     simple_smart_answer:
       change:
       next_step:
@@ -850,6 +871,13 @@ ar:
       still_current_at: لا يزال ساريًا في
       summary: ملخص
       updated: تاريخ التحديث
+    world_news_story:
+      few:
+      many:
+      one: قصة إخبارية عالمية
+      other: قصص إخبارية عالمية
+      two:
+      zero:
     written_statement:
       few:
       many:

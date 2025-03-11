@@ -29,7 +29,7 @@
     see_updates_link: true,
   } %>
 
-<%= render "shared/history_notice", content_item: @content_item %>
+<%= render "shared/history_notice", content_item: %>
 
 <% if content_item.withdrawn? %>
   <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>

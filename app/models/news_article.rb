@@ -1,6 +1,7 @@
 class NewsArticle < ContentItem
   include EmphasisedOrganisations
   include People
+  include Political
   include Updatable
   include Withdrawable
   include WorldwideOrganisations

@@ -90,6 +90,11 @@ Rails.application.routes.draw do
     get "/news/:slug(.:locale)", to: "news_article#show"
   end
 
+  # Service manuals
+  scope "/service-manual" do
+    get "/", to: "service_manual#index"
+  end
+
   # Service toolkit page
   get "/service-toolkit", to: "service_toolkit#index"
 

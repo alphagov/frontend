@@ -3,7 +3,7 @@ RSpec.describe ApiErrorRoutingConstraint do
 
   subject(:api_error_routing_constraint) { described_class.new }
 
-  let(:request) { instance_double(ActionDispatch::Request, path: "/slug", env: {}) }
+  let(:request) { instance_double(ActionDispatch::Request, path: "/slug", env: {}, params: {}) }
 
   it "returns true if there's a cached error" do
     stub_content_store_does_not_have_item("/slug")

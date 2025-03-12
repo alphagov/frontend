@@ -19,10 +19,7 @@
 
     <%= render "govuk_publishing_components/components/lead_paragraph", {
       text: t("formats.get_involved.intro_paragraph.body_html",
-      engage_with_government: link_to(t("formats.get_involved.intro_paragraph.engage_with_government"), "#engage-with-government",
-      class: "govuk-link"),
-      take_part: link_to(t("formats.get_involved.intro_paragraph.take_part"), "#take-part",
-      class: "govuk-link")),
+      ),
       margin_bottom: 9,
     } %>
   </div>
@@ -162,62 +159,5 @@
         sanitize("<a href=\"https://civilservice.blog.gov.uk/\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.civil_service')}</a>"),
       ],
     } %>
-  </div>
-</div>
-
-<%# Take part image grid %>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full govuk-!-padding-bottom-8">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("formats.get_involved.take_part"),
-      padding: true,
-      border_top: 2,
-      margin_bottom: 4,
-      font_size: "l",
-      id: "take-part",
-    } %>
-    <div role="list">
-    <% @content_item.take_part_pages.each_with_index do |take_part_page, index| %>
-      <% if index % 3 == 0 && index != 0 %> </div> <% end %>
-      <% if index % 3 == 0 %>
-        <div class="govuk-grid-row">
-      <% end %>
-          <div class="govuk-grid-column-one-third" role="listitem">
-            <%= render "govuk_publishing_components/components/image_card", {
-              href: take_part_page["base_path"],
-              image_src: take_part_page["details"]["image"]["url"],
-              image_alt: take_part_page["details"]["image"]["alt_text"],
-              heading_text: take_part_page["title"],
-              description: take_part_page["description"],
-              heading_level: 3,
-              image_loading: "lazy",
-            } %>
-          </div>
-        <% if index == @content_item.take_part_pages.size-1 %>
-        </div>
-      <% end %>
-    <% end %>
-    </div>
-  </div>
-</div>
-<%# More ways to take part section %>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/heading", {
-      text:t("formats.get_involved.more_ways"),
-      padding: true,
-      border_top: 2,
-    } %>
-    <p class="govuk-body">
-    <%= t("formats.get_involved.take_part_suggestions") %>
-    </p>
-
-  <%= render "govuk_publishing_components/components/list", {
-    items: [
-      sanitize("<a href=\"http://www.ourwatch.org.uk/knowledge-base-category/how-to-get-involved/\" class=\"govuk-link\">#{t('formats.get_involved.neighbourhood_watch')}</a>"),
-      sanitize("<a href=\"/donating-to-charity\" class=\"govuk-link\">#{t('formats.get_involved.make_donation')}</a>"),
-      sanitize("<a href=\"https://schoolsonline.britishcouncil.org/about-schools-online/about-programmes/connecting-classrooms\" rel=\"noopener\" class=\"govuk-link\">#{t('formats.get_involved.school_overseas')}</a>"),
-    ],
-  } %>
   </div>
 </div>

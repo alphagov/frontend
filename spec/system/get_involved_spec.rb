@@ -12,7 +12,7 @@ RSpec.describe "Get Involved" do
   context "when visiting get involved page" do
     it "displays the get involved page with the correct title" do
       expect(page).to have_title("Get involved - GOV.UK")
-      expect(page).to have_css("h1", text: "Get Involved")
+      expect(page).to have_css("h1", text: "Get involved")
     end
 
     it "includes the correct number of open consultations" do
@@ -25,11 +25,6 @@ RSpec.describe "Get Involved" do
 
     it "includes the next closing consultation" do
       expect(page).to have_text("Consulting on time zones")
-    end
-
-    it "shows the take part pages" do
-      expect(page).to have_text("Volunteer")
-      expect(page).to have_text("National Citizen Service")
     end
 
     it "does not display a single page notification button" do

@@ -1,11 +1,4 @@
 class GetInvolved < ContentItem
-  attr_reader :take_part_pages
-
-  def initialize(content_store_response)
-    super
-    @take_part_pages = content_store_response.dig("links", "take_part_pages")
-  end
-
   def open_consultation_count
     GdsApi.search.search({ filter_content_store_document_type: "open_consultation", count: 0 })["total"]
   end

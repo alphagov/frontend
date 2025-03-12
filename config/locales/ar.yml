@@ -101,17 +101,8 @@ ar:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'حقوق ملكية الصورة: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: إخفاء كافة التحديثات
-      last_updated: تاريخ آخر تحديث %{date}
-      published: تاريخ النشر %{date}
-      see_all_updates: اطلع على كل التحديثات
-      show_all_updates: إظهار كل التحديثات
   continue:
   cookies:
     always_on:

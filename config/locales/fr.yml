@@ -101,17 +101,8 @@ fr:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: Crédit d'image : %{credit}
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: masquer toutes les mises à jour
-      last_updated: Dernière mise à jour le %{date}
-      published: Publié le %{date}
-      see_all_updates: afficher toutes les mises à jour
-      show_all_updates: afficher toutes les mises à jour
   continue:
   cookies:
     always_on:

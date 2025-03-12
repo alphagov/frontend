@@ -101,17 +101,8 @@ sq:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Kreditet e imazhit: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: fshih të gjitha përditësimet
-      last_updated: Përditësuar së fundi %{date}
-      published: Publikuar %{date}
-      see_all_updates: shih të gjitha përditësimet
-      show_all_updates: shfaq të gjitha përditësimet
   continue:
   cookies:
     always_on:

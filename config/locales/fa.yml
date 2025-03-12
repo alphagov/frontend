@@ -101,17 +101,8 @@ fa:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'اعتبار تصویر: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: مخفی کردن تمام بروزرسانی‌ها
-      last_updated: آخرین بروزرسانی %{date}
-      published: منشتر شده %{date}
-      see_all_updates: مشاهده تمام بروزرسانی‌ها
-      show_all_updates: نمایش تمام بروزرسانی‌ها
   continue:
   cookies:
     always_on:

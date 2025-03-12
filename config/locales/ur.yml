@@ -101,17 +101,8 @@ ur:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'تصویری کریڈٹ: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: تمام اپ ڈیٹس کو پوشیدہ کریں
-      last_updated: آخری اپ ڈیٹ کردہ %{date}
-      published: شائع کردہ %{date}
-      see_all_updates: تمام اپ ڈیٹس دیکھیں
-      show_all_updates: تمام اپ ڈیٹس دکھائیں
   continue:
   cookies:
     always_on:

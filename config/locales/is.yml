@@ -101,17 +101,8 @@ is:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: Uppruni myndar %{credit}
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: fela allar uppfærslur
-      last_updated: Síðast uppfært %{date}
-      published: Birt %{date}
-      see_all_updates: sjá allar uppfærslur
-      show_all_updates: sýna allar uppfærslur
   continue:
   cookies:
     always_on:

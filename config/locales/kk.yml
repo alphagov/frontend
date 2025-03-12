@@ -101,17 +101,8 @@ kk:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Суретті түсірген: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: барлық жаңартуларды жасыру
-      last_updated: Соңғы рет %{date} жаңартылды
-      published: "%{date} күні жарияланды"
-      see_all_updates: барлық жаңартуларды қарау
-      show_all_updates: барлық жаңартуларды көрсету
   continue:
   cookies:
     always_on:

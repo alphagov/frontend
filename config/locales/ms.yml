@@ -101,17 +101,8 @@ ms:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Imej kredit: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: sorok semua kemas kini
-      last_updated: Kali terakhir dikemas kini %{date}
-      published: Diterbitkan %{date}
-      see_all_updates: lihat semua kemas kini
-      show_all_updates: tunjuk semua kemas kini
   continue:
   cookies:
     always_on:

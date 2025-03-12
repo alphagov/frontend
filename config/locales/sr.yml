@@ -101,17 +101,8 @@ sr:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Vlasnik slike: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: sakrij sva ažuriranja
-      last_updated: Poslednje ažuriranje %{date}
-      published: Objavljeno %{date}
-      see_all_updates: pogledajte sva ažuriranja
-      show_all_updates: prikaži sva ažuriranja
   continue:
   cookies:
     always_on:

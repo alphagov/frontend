@@ -151,7 +151,7 @@ GEM
       i18n (>= 1.8.11, < 2)
     ffi (1.17.1)
     find_a_port (1.0.1)
-    gds-api-adapters (98.2.0)
+    gds-api-adapters (98.3.0)
       addressable
       link_header
       null_logger

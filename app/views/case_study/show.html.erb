@@ -59,7 +59,7 @@
         <% end %>
       </div>
 
-      <%= render "components/published_dates", {
+      <%= render "govuk_publishing_components/components/published_dates", {
         published: display_date(content_item.first_public_at),
         last_updated: display_date(content_item.updated),
         history: content_item.history,

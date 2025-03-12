@@ -120,14 +120,14 @@ RSpec.describe "Specialist Document" do
       it "displays change history" do
         visit base_path
 
-        within(".app-c-published-dates__change-history") do
-          expect(page.find(".app-c-published-dates__change-item:first-child").text)
+        within(".gem-c-published-dates__change-history") do
+          expect(page.find(".gem-c-published-dates__change-item:first-child").text)
             .to match(content_store_response["details"]["change_history"].last["note"])
 
-          expect(page.find(".app-c-published-dates__change-item:last-child").text)
+          expect(page.find(".gem-c-published-dates__change-item:last-child").text)
             .to match(content_store_response["details"]["change_history"].first["note"])
 
-          expect(all(".app-c-published-dates__change-item").size)
+          expect(all(".gem-c-published-dates__change-item").size)
             .to eq(content_store_response["details"]["change_history"].size)
         end
       end
@@ -151,7 +151,7 @@ RSpec.describe "Specialist Document" do
       it "does not display change history" do
         visit base_path
 
-        expect(page).not_to have_css(".app-c-published-dates__change-history")
+        expect(page).not_to have_css(".gem-c-published-dates__change-history")
       end
     end
 

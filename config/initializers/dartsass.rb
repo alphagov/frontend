@@ -3,7 +3,6 @@ APP_STYLESHEETS = {
   "static-error-pages.scss" => "static-error-pages.css",
   "components/_calendar.scss" => "components/_calendar.css",
   "components/_download-link.scss" => "components/_download-link.css",
-  "components/_published-dates.scss" => "components/_published-dates.css",
   "views/_calendars.scss" => "views/_calendars.css",
   "views/_cookie-settings.scss" => "views/_cookie-settings.css",
   "views/_csv_preview.scss" => "views/_csv_preview.css",

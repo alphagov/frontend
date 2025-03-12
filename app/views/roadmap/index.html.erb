@@ -75,9 +75,14 @@
       </div>
     </div>
     <% if item[:steps] %>
+      <%
+        items = item[:steps].length()
+        column_class = "govuk-grid-column-one-third" if items == 3
+        column_class = "govuk-grid-column-one-half" if items == 2
+      %>
       <div class="govuk-grid-row">
         <% item[:steps].each do |step| %>
-          <div class="govuk-grid-column-one-third">
+          <div class="<%= column_class %>">
             <%= render "govuk_publishing_components/components/heading", {
               text: step[:heading],
               font_size: "s",

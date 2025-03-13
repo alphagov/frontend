@@ -4,13 +4,14 @@ class ContentItemLoader
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
 
   def self.for_request(request)
-    request.env[:loader] ||= ContentItemLoader.new
+    request.env[:loader] ||= ContentItemLoader.new(request:)
   end
 
-  attr_reader :cache
+  attr_reader :cache, :request
 
-  def initialize
+  def initialize(request: nil)
     @cache = {}
+    @request = request
   end
 
   def load(base_path)

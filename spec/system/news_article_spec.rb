@@ -3,11 +3,24 @@ RSpec.describe "Fatality Notice" do
 
   it_behaves_like "it has meta tags", "news_article", "news_article"
 
-  test "news article renders title, description and body" do
-    setup_and_visit_content_item("news_article")
-    assert_has_component_title(@content_item["title"])
-    assert page.has_text?(@content_item["description"])
-    assert page.has_text?("This year, the United Kingdom has had much to celebrate. Her Majesty The Queen celebrated her 90th birthday")
+  context "when visiting a page" do
+    before { visit "/government/news/christmas-2016-prime-ministers-message" }
+
+    it "has a title" do
+      expect(page).to have_title("#{content_item['title']} - GOV.UK")
+    end
+
+    it "has a heading" do
+      expect(page).to have_css("h1", text: content_item["title"])
+    end
+
+    it "has a description" do
+      expect(page).to have_text(content_item["description"])
+    end
+
+    it "has body text" do
+      expect(page).to have_text("Her Majesty The Queen celebrated her 90th birthday")
+    end
   end
 
   test "renders translation links when there is more than one translation" do

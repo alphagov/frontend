@@ -27,11 +27,25 @@ private
     elsif use_local_file? && File.exist?(json_filename(base_path))
       Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
       load_json_file(base_path)
+    elsif use_graphql?
+      graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
+      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema"])
+        graphql_response
+      else
+        GdsApi.content_store.content_item(base_path)
+      end
     else
       GdsApi.content_store.content_item(base_path)
     end
   rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
     e
+  end
+
+  def use_graphql?
+    return true if request && request.params["graphql"] == "true"
+    return false if request && request.params["graphql"] == "false"
+
+    ENV["GRAPHQL_FEATURE_FLAG"] == "true"
   end
 
   def use_local_file?

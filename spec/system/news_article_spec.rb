@@ -1,25 +1,13 @@
 RSpec.describe "Fatality Notice" do
   let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
+  it_behaves_like "it has meta tags", "news_article", "news_article"
 
   test "news article renders title, description and body" do
     setup_and_visit_content_item("news_article")
     assert_has_component_title(@content_item["title"])
     assert page.has_text?(@content_item["description"])
     assert page.has_text?("This year, the United Kingdom has had much to celebrate. Her Majesty The Queen celebrated her 90th birthday")
-  end
-
-  test "renders first published and from in metadata and document footer" do
-    setup_and_visit_content_item("news_article")
-
-    assert_has_metadata({
-      published: "25 December 2016",
-      from: {
-        "Prime Minister's Office, 10 Downing Street":
-        "/government/organisations/prime-ministers-office-10-downing-street",
-      },
-    })
-    assert_footer_has_published_dates("Published 25 December 2016")
   end
 
   test "renders translation links when there is more than one translation" do

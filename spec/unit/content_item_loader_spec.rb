@@ -73,7 +73,7 @@ RSpec.describe ContentItemLoader do
           ENV["GRAPHQL_FEATURE_FLAG"] = nil
         end
 
-        it "calls the graphql endpoint instead of the content store" do
+        it "calls the graphql endpoint with the default query instead of the content store" do
           content_item_loader.load("/my-random-item")
 
           expect(graphql_request).to have_been_made
@@ -90,6 +90,18 @@ RSpec.describe ContentItemLoader do
 
             expect(graphql_request).not_to have_been_made
             expect(item_request).to have_been_made
+          end
+        end
+
+        context "with a specified query class" do
+          let(:graphql_query) { Graphql::FatalityNoticeQuery.new("/my-random-item").query }
+          let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "fatality_notice" } } }) }
+
+          it "calls the graphql endpoint with the custom query type" do
+            content_item_loader.load("/my-random-item", graphql_query_class: Graphql::FatalityNoticeQuery)
+
+            expect(graphql_request).to have_been_made
+            expect(item_request).not_to have_been_made
           end
         end
       end

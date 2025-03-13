@@ -14,22 +14,24 @@ class ContentItemLoader
   end
 
   def load(base_path)
-    cache[base_path] ||= if use_local_file? && File.exist?(yaml_filename(base_path))
-                           Rails.logger.debug("Loading content item #{base_path} from #{yaml_filename(base_path)}")
-                           load_yaml_file(base_path)
-                         elsif use_local_file? && File.exist?(json_filename(base_path))
-                           Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
-                           load_json_file(base_path)
-                         else
-                           begin
-                             GdsApi.content_store.content_item(base_path)
-                           rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
-                             e
-                           end
-                         end
+    cache[base_path] ||= load_from_sources(base_path)
   end
 
 private
+
+  def load_from_sources(base_path)
+    if use_local_file? && File.exist?(yaml_filename(base_path))
+      Rails.logger.debug("Loading content item #{base_path} from #{yaml_filename(base_path)}")
+      load_yaml_file(base_path)
+    elsif use_local_file? && File.exist?(json_filename(base_path))
+      Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
+      load_json_file(base_path)
+    else
+      GdsApi.content_store.content_item(base_path)
+    end
+  rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
+    e
+  end
 
   def use_local_file?
     ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] == "true"

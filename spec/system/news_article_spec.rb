@@ -25,11 +25,10 @@ RSpec.describe "Fatality Notice" do
     it "has a link to translations of the message" do
       expect(page).to have_link("ردو", href: "/government/news/christmas-2016-prime-ministers-message.ur")
     end
-  end
 
-  test "renders the lead image" do
-    setup_and_visit_content_item("news_article")
-    assert page.has_css?("img[src*='s465_Christmas'][alt='Christmas']")
+    it "renders the lead image" do
+      expect(page).to have_css("img[src*='s465_Christmas'][alt='Christmas']")
+    end
   end
 
   test "renders history notice" do

@@ -21,7 +21,7 @@ $govuk-include-default-font-face: false;
   }
 }
 
-.direction-rtl .main {
+.direction-rtl #content {
   direction: rtl;
   text-align: start;
 

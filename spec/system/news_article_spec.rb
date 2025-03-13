@@ -1,6 +1,7 @@
-require "test_helper"
+RSpec.describe "Fatality Notice" do
+  let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
-class NewsArticleTest < ActionDispatch::IntegrationTest
+
   test "news article renders title, description and body" do
     setup_and_visit_content_item("news_article")
     assert_has_component_title(@content_item["title"])

@@ -192,6 +192,11 @@ RSpec.describe ContentItem do
       GovukSchemas::Example.find("answer", example_name: "answer")
     end
 
+    it "returns an array of Organisations" do
+      expect(content_item.organisations).to be_instance_of(Array)
+      expect(content_item.organisations.first).to be_instance_of(Organisation)
+    end
+
     it "gets all organisations linked to the content item" do
       expect(content_item.organisations.count).to eq(content_store_response.dig("links", "organisations").count)
       expect(content_item.organisations.first.title)

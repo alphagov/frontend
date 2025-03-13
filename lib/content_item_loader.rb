@@ -2,7 +2,7 @@ require "ostruct"
 
 class ContentItemLoader
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
-  GRAPHQL_ALLOWED_SCHEMAS = %w[news_article].freeze
+  GRAPHQL_ALLOWED_SCHEMAS = %w[fatality_notice news_article].freeze
 
   def self.for_request(request)
     request.env[:loader] ||= ContentItemLoader.new(request:)

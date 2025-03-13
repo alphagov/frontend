@@ -41,11 +41,13 @@ RSpec.describe "Fatality Notice" do
     end
   end
 
-  test "marks up government name correctly" do
-    setup_and_visit_content_item("news_article_history_mode_translated_arabic")
+  context "when visiting an RTL page in history mode" do
+    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
 
-    within ".govuk-notification-banner__content" do
-      assert page.has_css?("span[lang='en'][dir='ltr']", text: "2022 to 2024 Sunak Conservative government")
+    before { visit "/government/news/final-care-act-guidance-published.ar" }
+
+    it "marks up the government name correctly" do
+      expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
     end
   end
 

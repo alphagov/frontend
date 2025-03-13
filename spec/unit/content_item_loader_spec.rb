@@ -1,13 +1,17 @@
+require "gds_api/test_helpers/publishing_api"
+
 RSpec.describe ContentItemLoader do
+  include GdsApi::TestHelpers::PublishingApi
   include ContentStoreHelpers
 
   subject(:content_item_loader) { described_class.new }
 
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
+  let(:graphql_query) { Graphql::EditionQuery.new("/my-random-item").query }
 
   describe ".for_request" do
     it "returns a new object per request" do
-      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
       request_2 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
 
       loader_1 = described_class.for_request(request_1)
@@ -17,7 +21,7 @@ RSpec.describe ContentItemLoader do
     end
 
     it "returns the same object for the same request" do
-      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
 
       loader_1 = described_class.for_request(request_1)
       loader_2 = described_class.for_request(request_1)
@@ -35,8 +39,8 @@ RSpec.describe ContentItemLoader do
     end
 
     it "restricts cache to the specific instance of the class, so does not cache across requests" do
-      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
-      request_2 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {})
+      request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
+      request_2 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
 
       loader_1 = described_class.for_request(request_1)
       loader_2 = described_class.for_request(request_2)
@@ -54,6 +58,75 @@ RSpec.describe ContentItemLoader do
 
       it "returns (but does not raise) the original exception" do
         expect(content_item_loader.load("/my-missing-item")).to be_a(GdsApi::HTTPErrorResponse)
+      end
+    end
+
+    context "when the content item schema is in GRAPHQL_ALLOWED_SCHEMAS" do
+      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "news_article" } } }) }
+
+      context "when GRAPHQL_FEATURE_FLAG=true" do
+        before do
+          ENV["GRAPHQL_FEATURE_FLAG"] = "true"
+        end
+
+        after do
+          ENV["GRAPHQL_FEATURE_FLAG"] = nil
+        end
+
+        it "calls the graphql endpoint instead of the content store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(graphql_request).to have_been_made
+          expect(item_request).not_to have_been_made
+        end
+
+        context "and with graphql param=false" do
+          subject(:content_item_loader) { described_class.for_request(request) }
+
+          let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "false" }) }
+
+          it "calls the content store instead of the graphql endpoint" do
+            content_item_loader.load("/my-random-item")
+
+            expect(graphql_request).not_to have_been_made
+            expect(item_request).to have_been_made
+          end
+        end
+      end
+
+      context "with graphql param=true" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
+        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "news_article" } } }) }
+        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
+
+        it "calls the graphql endpoint instead of the content store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(graphql_request).to have_been_made
+          expect(item_request).not_to have_been_made
+        end
+      end
+    end
+
+    context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do
+      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "some_other_schema" } } }) }
+
+      context "when GRAPHQL_FEATURE_FLAG=true" do
+        before do
+          ENV["GRAPHQL_FEATURE_FLAG"] = "true"
+        end
+
+        after do
+          ENV["GRAPHQL_FEATURE_FLAG"] = nil
+        end
+
+        it "calls the graphql endpoint initially, but then loads from the content store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(graphql_request).to have_been_made
+          expect(item_request).to have_been_made
+        end
       end
     end
 

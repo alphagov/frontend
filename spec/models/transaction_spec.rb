@@ -274,4 +274,33 @@ RSpec.describe Transaction do
       expect(content_item.multiple_more_information_sections?).to be true
     end
   end
+
+  describe "#hide_from_search_engines?" do
+    it "is true if base_path is '/sign-up-test-govuk-app'" do
+      content_store_response["base_path"] = "/sign-up-test-govuk-app"
+      content_item = described_class.new(content_store_response)
+
+      expect(content_item.hide_from_search_engines?).to be true
+    end
+
+    it "is false if base_path is not '/sign-up-test-govuk-app'" do
+      content_store_response["base_path"] = "/something-else"
+      content_item = described_class.new(content_store_response)
+
+      expect(content_item.hide_from_search_engines?).to be false
+    end
+
+    it "is true if variant present" do
+      content_item = described_class.new(content_store_response)
+      content_item.set_variant("council-tax-bands-2-staging")
+
+      expect(content_item.hide_from_search_engines?).to be true
+    end
+
+    it "is false if no variant present" do
+      content_item = described_class.new(content_store_response)
+
+      expect(content_item.hide_from_search_engines?).to be false
+    end
+  end
 end

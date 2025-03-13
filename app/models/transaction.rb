@@ -52,6 +52,11 @@ class Transaction < ContentItem
     section_count > 1
   end
 
+  def hide_from_search_engines?
+    # can remove /sign-up-test-govuk-app from 01/03/2026
+    base_path == "/sign-up-test-govuk-app" || variant_slug.present?
+  end
+
 private
 
   def section_count

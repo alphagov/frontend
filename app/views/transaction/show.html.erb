@@ -7,7 +7,7 @@
     schema: :government_service,
     content_item: content_item.to_h %>
 
-  <% if content_item.variant_slug.present? %>
+  <% if content_item.hide_from_search_engines? %>
     <meta name="robots" content="noindex, nofollow">
   <% end %>
 <% end %>

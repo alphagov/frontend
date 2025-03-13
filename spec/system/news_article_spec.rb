@@ -31,11 +31,13 @@ RSpec.describe "Fatality Notice" do
     end
   end
 
-  test "renders history notice" do
-    setup_and_visit_content_item("news_article_history_mode")
+  context "when visiting a page in history mode" do
+    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published", schema: :news_article, example: :news_article_history_mode) }
 
-    within ".govuk-notification-banner__content" do
-      assert page.has_text?("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+    before { visit "/government/news/final-care-act-guidance-published" }
+
+    it "displays the history notice text" do
+      expect(page).to have_text("This was published under the #{content_item['links']['government'][0]['title']}")
     end
   end
 

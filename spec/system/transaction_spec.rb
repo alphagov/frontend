@@ -168,4 +168,17 @@ RSpec.describe "Transaction" do
       end
     end
   end
+
+  context "when a transaction path is '/sign-up-test-govuk-app'" do
+    it "renders correct content including robots meta tag" do
+      content_store_has_example_item("/sign-up-test-govuk-app", schema: "transaction")
+      visit "/sign-up-test-govuk-app"
+
+      expect(page.status_code).to eq(200)
+
+      within("head", visible: :all) do
+        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
+      end
+    end
+  end
 end

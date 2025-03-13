@@ -112,6 +112,8 @@ si:
       published: පළ කළේ %{date}
       see_all_updates: සියලුම යාවත්කාලීනයන් බලන්න
       show_all_updates: සියලු යාවත්කාලීනයන් පෙන්වන්න
+    share_links:
+      share_this_page: මෙම පිටුව බෙදාගන්න
   continue:
   cookies:
     always_on:
@@ -443,6 +445,9 @@ si:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: රජයේ ප්රතිචාරය
+      other: රජයේ ප්රතිචාර
     licence:
       change:
     local_transaction:
@@ -494,6 +499,9 @@ si:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: පුවත් කතාව
+      other: පුවත් කතා
     oral_statement:
       one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
       other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
@@ -502,6 +510,9 @@ si:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: මාධ්ය නිවේදනය
+      other: මාධ්ය නිවේදන
     simple_smart_answer:
       change:
       next_step:
@@ -541,6 +552,9 @@ si:
       still_current_at: තවමත් වත්මන්
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
+    world_news_story:
+      one: ලෝක පුවත් කතාව
+      other: ලෝක පුවත් කතා
     written_statement:
       one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
       other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ

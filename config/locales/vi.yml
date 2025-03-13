@@ -112,6 +112,8 @@ vi:
       published: Ngày xuất bản %{date}
       see_all_updates: xem tất cả nội dung cập nhật
       show_all_updates: hiển thị tất cả nội dung cập nhật
+    share_links:
+      share_this_page: Chia sẻ trang này
   continue:
   cookies:
     always_on:
@@ -367,6 +369,8 @@ vi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: Phản hồi của chính phủ
     licence:
       change:
     local_transaction:
@@ -418,6 +422,8 @@ vi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: Bài phóng sự
     oral_statement:
       other: Tuyên bố bằng lời trước Quốc hội
     place:
@@ -425,6 +431,8 @@ vi:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: Thông cáo báo chí
     simple_smart_answer:
       change:
       next_step:
@@ -462,6 +470,8 @@ vi:
       still_current_at: Vẫn đang ở
       summary: Tóm tắt
       updated: Đã cập nhật
+    world_news_story:
+      other: Bài phóng sự thế giới
     written_statement:
       other: Tuyên bố bằng văn bản trước Quốc hội
   help:

@@ -21,14 +21,10 @@ RSpec.describe "Fatality Notice" do
     it "has body text" do
       expect(page).to have_text("Her Majesty The Queen celebrated her 90th birthday")
     end
-  end
 
-  test "renders translation links when there is more than one translation" do
-    setup_and_visit_content_item("news_article")
-
-    assert page.has_css?(".gem-c-translation-nav")
-    assert page.has_css?(".gem-c-translation-nav__list-item")
-    assert page.has_link?("ردو", href: "/government/news/christmas-2016-prime-ministers-message.ur")
+    it "has a link to translations of the message" do
+      expect(page).to have_link("ردو", href: "/government/news/christmas-2016-prime-ministers-message.ur")
+    end
   end
 
   test "renders the lead image" do

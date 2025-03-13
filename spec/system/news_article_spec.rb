@@ -29,6 +29,10 @@ RSpec.describe "Fatality Notice" do
     it "renders the lead image" do
       expect(page).to have_css("img[src*='s465_Christmas'][alt='Christmas']")
     end
+
+    it "does not render with the single page notification button" do
+      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+    end
   end
 
   context "when visiting a page in history mode" do
@@ -49,10 +53,5 @@ RSpec.describe "Fatality Notice" do
     it "marks up the government name correctly" do
       expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
     end
-  end
-
-  test "does not render with the single page notification button" do
-    setup_and_visit_content_item("news_article")
-    assert_not page.has_css?(".gem-c-single-page-notification-button")
   end
 end

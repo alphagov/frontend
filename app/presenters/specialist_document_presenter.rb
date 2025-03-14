@@ -18,9 +18,7 @@ class SpecialistDocumentPresenter < ContentItemPresenter
 
   def important_metadata
     content_item.assigned_facets.inject({}) do |metadata, assigned_facet|
-      metadata.merge(
-        assigned_facet[:name] => format_facet_value(assigned_facet),
-      )
+      metadata.merge(assigned_facet[:name] => format_facet_value(assigned_facet))
     end
   end
 
@@ -52,27 +50,40 @@ private
 
   def format_facet_value(assigned_facet)
     return assigned_facet[:values].map { |date| display_date(date) } if assigned_facet[:type] == "date"
-    return facet_value_link(assigned_facet[:key], assigned_facet[:values]) if assigned_facet[:link?]
+    return assigned_facet[:values].map { |facet_value| format_nested_sub_facet(assigned_facet, facet_value) } if assigned_facet[:type] == "nested_sub_facet"
 
-    assigned_facet[:values].map { |facet_value| facet_label(facet_value) }
+    assigned_facet[:values].map { |facet_value| format_facet(assigned_facet, facet_value) }
+  end
+
+  def format_facet(assigned_facet, facet_value)
+    label = facet_label(facet_value)
+    return label unless assigned_facet[:link?]
+
+    query_params = { "#{assigned_facet[:key]}[]" => facet_value[:value] }
+    facet_value_link(label, query_params)
+  end
+
+  def format_nested_sub_facet(assigned_facet, facet_value)
+    label = sub_facet_label(facet_value)
+    return label unless assigned_facet[:link?]
+
+    query_params = {
+      "#{assigned_facet[:key]}[]" => facet_value[:value],
+      "#{assigned_facet[:main_facet_key]}[]" => facet_value[:main_facet_value],
+    }
+    facet_value_link(label, query_params)
   end
 
   def facet_label(facet_value)
     facet_value.is_a?(Hash) ? facet_value[:label] : facet_value
   end
 
-  def facet_value_link(key, facet_values)
-    links = facet_values.map do |facet_value|
-      {
-        text: facet_value[:label],
-        path: filtered_finder_path(key, facet_value[:value]),
-      }
-    end
-
-    govuk_styled_links_list(links, inverse: true)
+  def sub_facet_label(facet_value)
+    "#{facet_value[:main_facet_label]} - #{facet_value[:label]}"
   end
 
-  def filtered_finder_path(key, value)
-    "#{content_item.finder.base_path}?#{key}%5B%5D=#{value}"
+  def facet_value_link(label, query_params)
+    path = "#{content_item.finder.base_path}?#{query_params.to_query}"
+    govuk_styled_link(label, path:, inverse: true)
   end
 end

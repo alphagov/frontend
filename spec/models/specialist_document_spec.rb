@@ -111,7 +111,8 @@ RSpec.describe SpecialistDocument do
           {
             key: "aircraft_category",
             name: "Aircraft category",
-            type: "link",
+            type: "text",
+            link?: true,
             value: [{
               label: "Sport aviation and balloons",
               value: "sport-aviation-and-balloons",
@@ -120,7 +121,8 @@ RSpec.describe SpecialistDocument do
           {
             key: "report_type",
             name: "Report type",
-            type: "link",
+            type: "text",
+            link?: true,
             value: [{
               label: "Bulletin - Correspondence investigation",
               value: "correspondence-investigation",
@@ -130,24 +132,28 @@ RSpec.describe SpecialistDocument do
             key: "date_of_occurrence",
             name: "Date of occurrence",
             type: "date",
+            link?: false,
             value: %w[2015-08-08],
           },
           {
             key: "aircraft_type",
             name: "Aircraft type",
             type: "text",
+            link?: false,
             value: ["Rotorsport UK Calidus"],
           },
           {
             key: "location",
             name: "Location",
             type: "text",
+            link?: false,
             value: ["Damyns Hall Aerodrome, Essex"],
           },
           {
             key: "registration",
             name: "Registration",
             type: "text",
+            link?: false,
             value: %w[G-PCPC],
           },
         ]
@@ -164,7 +170,8 @@ RSpec.describe SpecialistDocument do
           {
             key: "alert_type",
             name: "Alert type",
-            type: "link",
+            type: "text",
+            link?: true,
             value: [{
               label: "Medical device alert",
               value: "devices",
@@ -173,7 +180,8 @@ RSpec.describe SpecialistDocument do
           {
             key: "medical_specialism",
             name: "Medical specialty",
-            type: "link",
+            type: "text",
+            link?: true,
             value: [
               {
                 label: "Critical care",
@@ -201,6 +209,7 @@ RSpec.describe SpecialistDocument do
             key: "issued_date",
             name: "Issued",
             type: "date",
+            link?: false,
             value: %w[2015-07-06],
           },
         ]

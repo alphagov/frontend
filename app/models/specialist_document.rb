@@ -29,7 +29,8 @@ class SpecialistDocument < ContentItem
                     metadata_facet_values
                   end
 
-      f[:type] = link?(selected_facet) ? "link" : selected_facet["type"]
+      f[:type] = selected_facet["type"]
+      f[:link?] = link?(selected_facet)
 
       f
     end

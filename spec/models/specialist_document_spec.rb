@@ -113,7 +113,7 @@ RSpec.describe SpecialistDocument do
             name: "Aircraft category",
             type: "text",
             link?: true,
-            value: [{
+            values: [{
               label: "Sport aviation and balloons",
               value: "sport-aviation-and-balloons",
             }],
@@ -123,7 +123,7 @@ RSpec.describe SpecialistDocument do
             name: "Report type",
             type: "text",
             link?: true,
-            value: [{
+            values: [{
               label: "Bulletin - Correspondence investigation",
               value: "correspondence-investigation",
             }],
@@ -133,28 +133,28 @@ RSpec.describe SpecialistDocument do
             name: "Date of occurrence",
             type: "date",
             link?: false,
-            value: %w[2015-08-08],
+            values: %w[2015-08-08],
           },
           {
             key: "aircraft_type",
             name: "Aircraft type",
             type: "text",
             link?: false,
-            value: ["Rotorsport UK Calidus"],
+            values: ["Rotorsport UK Calidus"],
           },
           {
             key: "location",
             name: "Location",
             type: "text",
             link?: false,
-            value: ["Damyns Hall Aerodrome, Essex"],
+            values: ["Damyns Hall Aerodrome, Essex"],
           },
           {
             key: "registration",
             name: "Registration",
             type: "text",
             link?: false,
-            value: %w[G-PCPC],
+            values: %w[G-PCPC],
           },
         ]
 
@@ -172,7 +172,7 @@ RSpec.describe SpecialistDocument do
             name: "Alert type",
             type: "text",
             link?: true,
-            value: [{
+            values: [{
               label: "Medical device alert",
               value: "devices",
             }],
@@ -182,7 +182,7 @@ RSpec.describe SpecialistDocument do
             name: "Medical specialty",
             type: "text",
             link?: true,
-            value: [
+            values: [
               {
                 label: "Critical care",
                 value: "critical-care",
@@ -210,7 +210,7 @@ RSpec.describe SpecialistDocument do
             name: "Issued",
             type: "date",
             link?: false,
-            value: %w[2015-07-06],
+            values: %w[2015-07-06],
           },
         ]
         expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)

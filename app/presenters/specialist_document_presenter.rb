@@ -51,10 +51,10 @@ private
   end
 
   def format_facet_value(facet_value)
-    return facet_value[:value].map { |date| display_date(date) } if facet_value[:type] == "date"
-    return facet_value_link(facet_value[:key], facet_value[:value]) if facet_value[:link?]
+    return facet_value[:values].map { |date| display_date(date) } if facet_value[:type] == "date"
+    return facet_value_link(facet_value[:key], facet_value[:values]) if facet_value[:link?]
 
-    facet_value[:value].map { |value| facet_label(value) }
+    facet_value[:values].map { |value| facet_label(value) }
   end
 
   def facet_label(value)

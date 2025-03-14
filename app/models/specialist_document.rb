@@ -23,11 +23,11 @@ class SpecialistDocument < ContentItem
       }
 
       metadata_facet_values = [metadata[selected_facet["key"]]].flatten
-      f[:value] = if selected_facet["allowed_values"].present?
-                    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_values)
-                  else
-                    metadata_facet_values
-                  end
+      f[:values] = if selected_facet["allowed_values"].present?
+                     selected_allowed_values(selected_facet["allowed_values"], metadata_facet_values)
+                   else
+                     metadata_facet_values
+                   end
 
       f[:type] = selected_facet["type"]
       f[:link?] = link?(selected_facet)

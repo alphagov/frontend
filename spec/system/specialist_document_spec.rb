@@ -64,7 +64,7 @@ RSpec.describe "Specialist Document" do
           expect(page).to have_css(".gem-c-metadata__term", text: "Case type")
 
           within(".gem-c-metadata__definition") do
-            expect(page).to have_link("Mergers", href: "/cma-cases?case_type%5B%5D=mergers")
+            expect(page).to have_link("Mergers", href: "/cma-cases?case_type=mergers")
           end
         end
       end

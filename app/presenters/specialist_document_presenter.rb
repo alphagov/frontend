@@ -59,7 +59,7 @@ private
     label = facet_label(facet_value)
     return label unless assigned_facet[:link?]
 
-    query_params = { "#{assigned_facet[:key]}[]" => facet_value[:value] }
+    query_params = { assigned_facet[:key] => facet_value[:value] }
     facet_value_link(label, query_params)
   end
 
@@ -68,8 +68,8 @@ private
     return label unless assigned_facet[:link?]
 
     query_params = {
-      "#{assigned_facet[:key]}[]" => facet_value[:value],
-      "#{assigned_facet[:main_facet_key]}[]" => facet_value[:main_facet_value],
+      assigned_facet[:key] => facet_value[:value],
+      assigned_facet[:main_facet_key] => facet_value[:main_facet_value],
     }
     facet_value_link(label, query_params)
   end

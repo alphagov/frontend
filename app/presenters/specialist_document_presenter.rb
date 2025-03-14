@@ -17,12 +17,8 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
   def important_metadata
-    content_item.facet_values.inject({}) do |metadata, facet_value|
-      metadata.merge(
-        facet_value[:name] => format_facet_value(facet_value[:type],
-                                                 facet_value[:value],
-                                                 facet_value[:key]),
-      )
+    content_item.assigned_facets.inject({}) do |metadata, assigned_facet|
+      metadata.merge(assigned_facet[:name] => format_facet_value(assigned_facet))
     end
   end
 
@@ -52,21 +48,21 @@ private
     content_item.document_type == "statutory_instrument"
   end
 
-  def format_facet_value(type, value, key)
-    case type
+  def format_facet_value(assigned_facet)
+    case assigned_facet[:type]
     when "date"
-      display_date(value)
+      display_date(assigned_facet[:value])
     when "link"
-      facet_value_link(key, value)
+      facet_value_link(assigned_facet[:key], assigned_facet[:value])
     when "preset_text"
-      value.map { |v| v[:label] }
+      assigned_facet[:value].map { |facet_value| facet_value[:label] }
     else
-      value
+      assigned_facet[:value]
     end
   end
 
-  def facet_value_link(key, value)
-    links = value.map do |facet_value|
+  def facet_value_link(key, facet_values)
+    links = facet_values.map do |facet_value|
       {
         text: facet_value[:label],
         path: filtered_finder_path(key, facet_value[:value]),

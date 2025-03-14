@@ -69,6 +69,39 @@ RSpec.describe "Specialist Document" do
         end
       end
 
+      it "displays a list of text facets that do not link to the finder" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts")
+        content_store_response["links"]["finder"][0]["details"]["facets"] = [
+          {
+            "key" => "alert_type",
+            "name" => "Alert type",
+            "type" => "text",
+            "preposition" => "for",
+            "display_as_result_metadata" => true,
+            "filterable" => false,
+            "allowed_values" => [
+              {
+                "label" => "Medical device alert",
+                "value" => "devices",
+              },
+            ],
+          },
+        ]
+
+        stub_content_store_has_item(base_path, content_store_response)
+
+        visit base_path
+
+        within(".important-metadata .gem-c-metadata") do
+          expect(page).to have_css(".gem-c-metadata__term", text: "Alert type")
+
+          within(".gem-c-metadata__definition") do
+            expect(page).to have_text("Medical device alert")
+            expect(page).not_to have_link("Medical device alert", href: "/drug-device-alerts%5B%5D=devices")
+          end
+        end
+      end
+
       it "displays date facets" do
         content_store_response["details"]["metadata"] = {
           "opened_date": "2015-07-10",

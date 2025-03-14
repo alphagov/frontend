@@ -24,7 +24,7 @@ class SpecialistDocument < ContentItem
 
       metadata_facet_value = metadata[selected_facet["key"]]
       f[:value] = if selected_facet["allowed_values"].present?
-                    allowed_value(selected_facet["allowed_values"], metadata_facet_value)
+                    selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)
                   else
                     metadata_facet_value
                   end
@@ -93,7 +93,7 @@ private
       facet["filterable"] == false
   end
 
-  def allowed_value(allowed_values, metadata_facet_values)
+  def selected_allowed_values(allowed_values, metadata_facet_values)
     metadata_facet_values = [metadata_facet_values].flatten
     allowed_values.select do |allowed_value|
       next unless allowed_value["value"].in?(metadata_facet_values)

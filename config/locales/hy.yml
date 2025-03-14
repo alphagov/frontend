@@ -101,17 +101,8 @@ hy:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: Նկարը՝ %{credit}
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: թաքցնել բոլոր թարմացումները
-      last_updated: Վերջին թարմացումը՝ %{date}
-      published: Հրապարակվել է՝ %{date}
-      see_all_updates: դիտել բոլոր թարմացումները
-      show_all_updates: ցույց տալ բոլոր թարմացումները
   continue:
   cookies:
     always_on:

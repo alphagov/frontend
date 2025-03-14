@@ -101,17 +101,8 @@ zh-hk:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 圖片來源： %{credit}
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: 隱藏所有更新
-      last_updated: 最近更新 %{date}
-      published: 已發佈 %{date}
-      see_all_updates: 查看所有更新
-      show_all_updates: 顯示所有更新
   continue:
   cookies:
     always_on:

@@ -43,11 +43,11 @@
       <% end %>
     <% end %>
 
-    <%= render "components/contents_list_with_body", contents: @presenter.contents do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.contents do %>
 
       <% if @presenter.show_protection_type_image? %>
         <img
-          class="app-c-figure__image protected-food-drink-name-logo"
+          class="gem-c-figure__image protected-food-drink-name-logo"
           src="<%= @presenter.protection_image_path %>"
           alt="<%= @presenter.protection_image_alt_text %>">
       <% end %>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="responsive-bottom-margin">
-        <%= render "components/published_dates", {
+        <%= render "govuk_publishing_components/components/published_dates", {
             published: display_date(content_item.initial_publication_date),
             last_updated: display_date(content_item.updated),
             history: content_item.history,

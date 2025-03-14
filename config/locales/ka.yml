@@ -101,17 +101,8 @@ ka:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'სურათ: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: ყველა ცვლილების დაფარვა
-      last_updated: ბოლოს განახლდა %{date}
-      published: გამოქვეყნდა %{date}
-      see_all_updates: ყველა ცვლილების ნახვა
-      show_all_updates: ყველა ცვლილების ჩვენება
   continue:
   cookies:
     always_on:

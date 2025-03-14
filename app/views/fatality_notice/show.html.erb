@@ -55,7 +55,7 @@
           <% end %>
         <% end %>
 
-        <%= render "components/figure", {
+        <%= render "govuk_publishing_components/components/figure", {
           src: image_url("ministry-of-defence-crest.png"),
           alt: t("formats.fatality_notice.alt_text"),
         } %>
@@ -65,7 +65,7 @@
           <%= raw(content_item.body) %>
         <% end %>
       </div>
-      <%= render "components/published_dates", {
+      <%= render "govuk_publishing_components/components/published_dates", {
         published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),
         history: content_item.history,

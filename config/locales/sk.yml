@@ -101,17 +101,8 @@ sk:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Obrázok: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: skryť všetky aktualizácie
-      last_updated: Posledná aktualizácia %{date}
-      published: Zverejnené %{date}
-      see_all_updates: pozrite si všetky aktualizácie
-      show_all_updates: zobraziť všetky aktualizácie
   continue:
   cookies:
     always_on:

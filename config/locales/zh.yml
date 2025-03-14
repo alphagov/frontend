@@ -101,17 +101,8 @@ zh:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 图片提供：%{credit}
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: 隐藏全部更新
-      last_updated: 上次更新 %{date}
-      published: 发布 %{date}
-      see_all_updates: 查看全部更新
-      show_all_updates: 显示全部更新
   continue:
   cookies:
     always_on:

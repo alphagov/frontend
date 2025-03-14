@@ -101,17 +101,8 @@ hu:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Képaláírás: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: minden frissítés elrejtése
-      last_updated: 'Utolsó frissítés: %{date}'
-      published: 'közzététel dátuma: %{date}'
-      see_all_updates: minden frissítés megtekintése
-      show_all_updates: minden frissítés megjelenítése
   continue:
   cookies:
     always_on:

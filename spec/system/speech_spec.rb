@@ -31,7 +31,7 @@ RSpec.describe "Speech" do
         expect(page).to have_text("Delivered on: 2 February 2016 (Original script, may differ from delivered version)")
         expect(page).to have_text("Location: Women in Nuclear UK Conference, Church House Conference Centre, Dean's Yard, Westminster, London")
       end
-      expect(page).to have_selector(".app-c-published-dates", text: "Published 8 March 2016")
+      expect(page).to have_selector(".gem-c-published-dates", text: "Published 8 March 2016")
     end
 
     it "does not display a single page notification button" do

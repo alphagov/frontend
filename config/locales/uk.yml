@@ -101,17 +101,8 @@ uk:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Зображення: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: приховати всі оновлення
-      last_updated: Останнє оновлення %{date}
-      published: Опубліковано %{date}
-      see_all_updates: переглянути всі оновлення
-      show_all_updates: показати всі оновлення
   continue:
   cookies:
     always_on:

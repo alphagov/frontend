@@ -101,17 +101,8 @@ he:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'קרדיט תמונה: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: להסתיר כל עדכונים
-      last_updated: עדכון אחרון %{date}
-      published: פורסם %{date}
-      see_all_updates: ראה כל העדכונים
-      show_all_updates: הצג כל עדכונים
   continue:
   cookies:
     always_on:

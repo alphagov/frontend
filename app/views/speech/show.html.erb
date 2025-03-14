@@ -57,7 +57,7 @@
             } %>
         <% end %>
 
-        <%= render "components/figure",
+        <%= render "govuk_publishing_components/components/figure",
           src: content_item.image["url"],
           alt: content_item.image["alt_text"],
           credit: content_item.image["credit"],
@@ -70,7 +70,7 @@
         <% end %>
       </div>
 
-      <%= render "components/published_dates", {
+      <%= render "govuk_publishing_components/components/published_dates", {
           published: display_date(content_item.initial_publication_date),
           last_updated: display_date(content_item.updated),
           history: content_item.history,

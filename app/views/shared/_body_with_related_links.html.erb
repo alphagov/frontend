@@ -21,7 +21,7 @@
       <% end %>
 
       <% if @content_item.public_updated_at && @content_item.schema_name == "help_page" %>
-      <%= render "components/published_dates", {
+      <%= render "govuk_publishing_components/components/published_dates", {
         last_updated: display_date(@content_item.public_updated_at),
       } %>
       <% end %>

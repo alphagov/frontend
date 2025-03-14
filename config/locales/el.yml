@@ -101,17 +101,8 @@ el:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    figure:
-      image_credit: 'Εικόνα από: %{credit}'
     print_link:
       text:
-    published_dates:
-      hidden_heading:
-      hide_all_updates: απόκρυψη όλων των ενημερώσεων
-      last_updated: Τελευταία ενημέρωση %{date}
-      published: Δημοσιεύτηκε %{date}
-      see_all_updates: δείτε όλες τις ενημερώσεις
-      show_all_updates: εμφάνιση όλων των ενημερώσεων
   continue:
   cookies:
     always_on:

@@ -67,14 +67,14 @@ private
   end
 
   def facet_value_link(assigned_facet, facet_value)
-    query_params = { "#{assigned_facet[:key]}[]" => facet_value[:value] }
+    query_params = { assigned_facet[:key] => facet_value[:value] }
     finder_link(facet_value[:label], query_params)
   end
 
   def sub_facet_value_link(assigned_facet, facet_value)
     query_params = {
-      "#{assigned_facet[:key]}[]" => facet_value[:value],
-      "#{assigned_facet[:main_facet_key]}[]" => facet_value[:main_facet_value],
+      assigned_facet[:key] => facet_value[:value],
+      assigned_facet[:main_facet_key] => facet_value[:main_facet_value],
     }
     finder_link(sub_facet_label(facet_value), query_params)
   end

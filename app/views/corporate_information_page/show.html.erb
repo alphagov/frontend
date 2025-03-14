@@ -7,7 +7,7 @@
 
 <% @additional_body = capture do %>
   <% if content_item.corporate_information? %>
-    <%= content_tag(:h2, @presenter.corporate_information_heading, id: @presenter.corporate_information_heading_id) %>
+    <%= content_tag(:h2, @presenter.corporate_information_heading[:text], id: @presenter.corporate_information_heading[:id]) %>
 
     <% content_item.corporate_information.each do |group| %>
       <%= content_tag(:h3, group[:title], id: group[:id]) %>
@@ -62,7 +62,7 @@
         } %>
       </div>
 
-      <%= render "components/contents_list_with_body", contents: content_item.contents do %>
+      <%= render "components/contents_list_with_body", contents: @presenter.contents_list_headings do %>
         <div class="responsive-bottom-margin">
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
             <%= raw(content_item.body) %>

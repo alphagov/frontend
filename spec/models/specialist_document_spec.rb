@@ -102,7 +102,7 @@ RSpec.describe SpecialistDocument do
     end
   end
 
-  describe "#facet_values" do
+  describe "#facets_with_values_from_metadata" do
     context "when facets are only mapped to one value" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
@@ -152,7 +152,7 @@ RSpec.describe SpecialistDocument do
           },
         ]
 
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facet_values)
       end
     end
 
@@ -204,7 +204,7 @@ RSpec.describe SpecialistDocument do
             value: "2015-07-06",
           },
         ]
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facet_values)
       end
     end
 
@@ -229,7 +229,7 @@ RSpec.describe SpecialistDocument do
           },
         ]
 
-        expected_facet_value = {
+        expected_facet_values = {
           key: "alert_type",
           name: "Alert type",
           type: "preset_text",
@@ -239,7 +239,7 @@ RSpec.describe SpecialistDocument do
           }],
         }
 
-        expect(described_class.new(content_store_response).facet_values).to include(expected_facet_value)
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to include(expected_facet_values)
       end
     end
   end

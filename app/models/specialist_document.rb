@@ -15,8 +15,8 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_response.dig("details", "headers"))
   end
 
-  def facet_values
-    @facet_values ||= selected_facets.map do |selected_facet|
+  def facets_with_values_from_metadata
+    @facets_with_values_from_metadata ||= selected_facets.map do |selected_facet|
       metadata_facet_value = metadata[selected_facet["key"]]
       if selected_facet["allowed_values"].present?
         value = selected_allowed_values(selected_facet["allowed_values"], metadata_facet_value)

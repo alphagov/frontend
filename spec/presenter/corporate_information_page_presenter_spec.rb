@@ -4,15 +4,25 @@ RSpec.describe CorporateInformationPagePresenter do
   let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page") }
   let(:content_item) { CorporateInformationPage.new(content_store_response) }
 
-  describe "#corporate_information_heading" do
-    it "returns the heading title" do
-      expect(presenter.corporate_information_heading).to eq("Corporate information")
+  describe "#contents_list_headings" do
+    it "includes the corporate information H2 if there are corporate information groups available" do
+      corporate_information_heading = { text: "Corporate information", id: "corporate-information", href: "#corporate-information" }
+
+      expect(presenter.contents_list_headings.last).to eq(corporate_information_heading)
     end
   end
 
-  describe "#corporate_information_heading_id" do
-    it "returns the title id" do
-      expect(presenter.corporate_information_heading_id).to eq("corporate-information")
+  describe "#corporate_information_heading" do
+    it "returns the heading title" do
+      expect(presenter.corporate_information_heading[:text]).to eq("Corporate information")
+    end
+
+    it "returns the heading id" do
+      expect(presenter.corporate_information_heading[:id]).to eq("corporate-information")
+    end
+
+    it "returns the heading as an anchor link" do
+      expect(presenter.corporate_information_heading[:href]).to eq("#corporate-information")
     end
   end
 

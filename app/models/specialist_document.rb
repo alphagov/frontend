@@ -15,27 +15,13 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_response.dig("details", "headers"))
   end
 
-  def facet_values
-    @facet_values ||= selected_facets.map do |selected_facet|
-      f = {
-        key: selected_facet["key"],
-        name: selected_facet["name"],
-      }
+  def assigned_facets
+    @assigned_facets ||= selected_facets.each_with_object([]) do |selected_facet, assigned_facets|
+      assigned_facets << main_facet_metadata(selected_facet)
 
-      metadata_facet_value = metadata[selected_facet["key"]]
-      f[:value] = if selected_facet["allowed_values"].present?
-                    allowed_value(selected_facet["allowed_values"], metadata_facet_value)
-                  else
-                    metadata_facet_value
-                  end
-
-      f[:type] = if link?(selected_facet, f[:value])
-                   "link"
-                 else
-                   selected_facet["type"]
-                 end
-
-      f
+      if selected_facet["type"] == "nested" && metadata[selected_facet["sub_facet_key"]].present?
+        assigned_facets << sub_facet_metadata(selected_facet)
+      end
     end
   end
 
@@ -50,6 +36,38 @@ class SpecialistDocument < ContentItem
   end
 
 private
+
+  def main_facet_metadata(selected_facet)
+    metadata_facet_values = [metadata[selected_facet["key"]]].flatten
+    values = if selected_facet["allowed_values"].present?
+               selected_allowed_values(selected_facet["allowed_values"], metadata_facet_values)
+             else
+               metadata_facet_values
+             end
+
+    {
+      key: selected_facet["key"],
+      name: selected_facet["name"],
+      type: selected_facet["type"],
+      link?: link?(selected_facet),
+      values:,
+    }
+  end
+
+  def sub_facet_metadata(selected_facet)
+    metadata_facet_values = [metadata[selected_facet["sub_facet_key"]]].flatten
+    sub_facet_allowed_values = selected_facet["allowed_values"].pluck("sub_facets").flatten
+    sub_facet_values = selected_allowed_values(sub_facet_allowed_values, metadata_facet_values)
+
+    {
+      key: selected_facet["sub_facet_key"],
+      name: selected_facet["sub_facet_name"],
+      type: "nested_sub_facet",
+      link?: link?(selected_facet),
+      main_facet_key: selected_facet["key"],
+      values: sub_facet_values,
+    }
+  end
 
   # specialist document change history can have a modified date that is
   # slightly different to the public_updated_at, eg milliseconds different
@@ -79,24 +97,23 @@ private
     end
   end
 
-  def link?(facet, permitted_value)
-    facet["type"] == "text" &&
-      permitted_value.is_a?(Array) &&
-      facet["filterable"] == true
+  def link?(facet)
+    %(text nested).include?(facet["type"]) && facet["filterable"] == true
   end
 
-  def allowed_value(allowed_values, metadata_facet_value)
-    allowed_values.select do |allowed_value|
-      next unless allowed_value["value"] == metadata_facet_value ||
-        metadata_facet_value.is_a?(Array) &&
-          allowed_value["value"].in?(metadata_facet_value)
+  def selected_allowed_values(allowed_values, metadata_facet_values)
+    metadata_facet_values.map { |metadata_facet_value|
+      selected_allowed_value = allowed_values.detect { |allowed_value|
+        allowed_value["value"] == metadata_facet_value
+      }&.deep_symbolize_keys
 
-      allowed_value.deep_symbolize_keys!
-    end
+      selected_allowed_value&.delete(:sub_facets)
+      selected_allowed_value
+    }.compact
   end
 
   def selected_facets
-    @selected_facets ||= finder.facets.select { |facet| metadata[facet["key"]] && metadata[facet["key"]].present? }
+    @selected_facets ||= finder.facets.select { |facet| metadata[facet["key"]].present? }
   end
 
   def all_protection_type_images

@@ -98,17 +98,16 @@ RSpec.describe SpecialistDocumentPresenter do
   end
 
   describe "#important_metadata" do
-    subject(:presenter) { described_class.new(content_item, view_context) }
+    subject(:presenter) { described_class.new(content_item) }
 
     let(:content_item) { SpecialistDocument.new(content_store_response) }
-    let(:view_context) { ApplicationController.new.view_context }
 
     context "when the metadata contains text" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
       it "returns the value of the metadata" do
         expected_metadata = {
-          "Aircraft type" => "Rotorsport UK Calidus",
+          "Aircraft type" => ["Rotorsport UK Calidus"],
         }
 
         expect(presenter.important_metadata).to include(expected_metadata)
@@ -119,7 +118,7 @@ RSpec.describe SpecialistDocumentPresenter do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
       it "returns facet metadata with formatted dates" do
-        expected_metadata = { "Issued" => "6 July 2015" }
+        expected_metadata = { "Issued" => ["6 July 2015"] }
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end
@@ -130,14 +129,131 @@ RSpec.describe SpecialistDocumentPresenter do
       it "formats the links for all values" do
         expected_metadata = {
           "Medical specialty" => [
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=critical-care' class='govuk-link govuk-link--inverse'>Critical care</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=general-practice' class='govuk-link govuk-link--inverse'>General practice</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=obstetrics-gynaecology' class='govuk-link govuk-link--inverse'>Obstetrics and gynaecology</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
-            "<a href='/drug-device-alerts?medical_specialism%5B%5D=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
+            "<a href='/drug-device-alerts?medical_specialism=critical-care' class='govuk-link govuk-link--inverse'>Critical care</a>",
+            "<a href='/drug-device-alerts?medical_specialism=general-practice' class='govuk-link govuk-link--inverse'>General practice</a>",
+            "<a href='/drug-device-alerts?medical_specialism=obstetrics-gynaecology' class='govuk-link govuk-link--inverse'>Obstetrics and gynaecology</a>",
+            "<a href='/drug-device-alerts?medical_specialism=paediatrics' class='govuk-link govuk-link--inverse'>Paediatrics</a>",
+            "<a href='/drug-device-alerts?medical_specialism=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
           ],
         }
         expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metadata contains an array of non-filterable text" do
+      let(:filterable) { false }
+      let(:content_item) { SpecialistDocument.new(content_store_response) }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = { "facet-key" => %w[value1 value2 value3] }
+          payload["links"]["finder"] = [{
+            "details" => {
+              "facets" => [
+                {
+                  "allowed_values" => [
+                    {
+                      "label" => "Value 1",
+                      "value" => "value1",
+                    },
+                    {
+                      "label" => "Value 2",
+                      "value" => "value2",
+                    },
+                    {
+                      "label" => "Value 3",
+                      "value" => "value3",
+                    },
+                  ],
+                  "display_as_result_metadata" => false,
+                  "filterable" => filterable,
+                  "key" => "facet-key",
+                  "name" => "Example Facet",
+                  "type" => "text",
+                },
+              ],
+            },
+          }]
+        end
+      end
+
+      it "returns labels of the facet" do
+        expected_metadata = {
+          "Example Facet" => ["Value 1", "Value 2", "Value 3"],
+        }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
+
+    context "when the metadata contains subfacets" do
+      let(:filterable) { false }
+      let(:finder_base_path) { "/example-finder" }
+      let(:content_item) { SpecialistDocument.new(content_store_response) }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "nutrient-group" => "sugar",
+            "sub-nutrient" => "refined-sugar",
+          }
+          payload["links"]["finder"] = [{
+            "base_path" => finder_base_path,
+            "details" => {
+              "facets" => [
+                {
+                  "allowed_values" => [
+                    {
+                      "label" => "Sugar",
+                      "value" => "sugar",
+                      "sub_facets" => {
+                        "label" => "Refined sugar",
+                        "main_facet_label" => "Sugar",
+                        "main_facet_value" => "sugar",
+                        "value" => "refined-sugar",
+                      },
+                    },
+                    {
+                      "label" => "Carbohydrates",
+                      "value" => "carbohydrates",
+                    },
+                  ],
+                  "display_as_result_metadata" => true,
+                  "filterable" => filterable,
+                  "key" => "nutrient-group",
+                  "name" => "Nutrient",
+                  "preposition" => "Nutrient",
+                  "short_name" => "Nutrient",
+                  "sub_facet_key" => "sub-nutrient",
+                  "sub_facet_name" => "Sub Nutrient",
+                  "type" => "nested",
+                },
+              ],
+            },
+          }]
+        end
+      end
+
+      it "returns the sub facet label with main facet label prefixed" do
+        expected_metadata = {
+          "Nutrient" => %w[Sugar],
+          "Sub Nutrient" => ["Sugar - Refined sugar"],
+        }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+
+      context "and sub facets are filterable" do
+        let(:filterable) { true }
+
+        it "returns the sub facet link with both main facet and sub facet query params" do
+          expected_metadata = {
+            "Nutrient" => [
+              "<a href='#{finder_base_path}?nutrient-group=sugar' class='govuk-link govuk-link--inverse'>Sugar</a>",
+            ],
+            "Sub Nutrient" => [
+              "<a href='#{finder_base_path}?nutrient-group=sugar&sub-nutrient=refined-sugar' class='govuk-link govuk-link--inverse'>Sugar - Refined sugar</a>",
+            ],
+          }
+
+          expect(presenter.important_metadata).to include(expected_metadata)
+        end
       end
     end
   end

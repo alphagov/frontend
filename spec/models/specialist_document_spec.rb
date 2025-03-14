@@ -102,17 +102,18 @@ RSpec.describe SpecialistDocument do
     end
   end
 
-  describe "#facet_values" do
+  describe "#facets" do
     context "when facets are only mapped to one value" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
       it "returns the details of the facets the content item is mapped to" do
-        expected_facet_values = [
+        expected_facets = [
           {
             key: "aircraft_category",
             name: "Aircraft category",
-            type: "link",
-            value: [{
+            type: "text",
+            link?: true,
+            values: [{
               label: "Sport aviation and balloons",
               value: "sport-aviation-and-balloons",
             }],
@@ -120,8 +121,9 @@ RSpec.describe SpecialistDocument do
           {
             key: "report_type",
             name: "Report type",
-            type: "link",
-            value: [{
+            type: "text",
+            link?: true,
+            values: [{
               label: "Bulletin - Correspondence investigation",
               value: "correspondence-investigation",
             }],
@@ -130,29 +132,33 @@ RSpec.describe SpecialistDocument do
             key: "date_of_occurrence",
             name: "Date of occurrence",
             type: "date",
-            value: "2015-08-08",
+            link?: false,
+            values: %w[2015-08-08],
           },
           {
             key: "aircraft_type",
             name: "Aircraft type",
             type: "text",
-            value: "Rotorsport UK Calidus",
+            link?: false,
+            values: ["Rotorsport UK Calidus"],
           },
           {
             key: "location",
             name: "Location",
             type: "text",
-            value: "Damyns Hall Aerodrome, Essex",
+            link?: false,
+            values: ["Damyns Hall Aerodrome, Essex"],
           },
           {
             key: "registration",
             name: "Registration",
             type: "text",
-            value: "G-PCPC",
+            link?: false,
+            values: %w[G-PCPC],
           },
         ]
 
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).assigned_facets).to eq(expected_facets)
       end
     end
 
@@ -160,12 +166,13 @@ RSpec.describe SpecialistDocument do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
       it "returns the details of all the facets the content item is mapped to" do
-        expected_facet_values = [
+        expected_facets = [
           {
             key: "alert_type",
             name: "Alert type",
-            type: "link",
-            value: [{
+            type: "text",
+            link?: true,
+            values: [{
               label: "Medical device alert",
               value: "devices",
             }],
@@ -173,8 +180,9 @@ RSpec.describe SpecialistDocument do
           {
             key: "medical_specialism",
             name: "Medical specialty",
-            type: "link",
-            value: [
+            type: "text",
+            link?: true,
+            values: [
               {
                 label: "Critical care",
                 value: "critical-care",
@@ -201,10 +209,85 @@ RSpec.describe SpecialistDocument do
             key: "issued_date",
             name: "Issued",
             type: "date",
-            value: "2015-07-06",
+            link?: false,
+            values: %w[2015-07-06],
           },
         ]
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).assigned_facets).to eq(expected_facets)
+      end
+    end
+
+    context "when there are sub facets" do
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "nutrient-group" => "sugar",
+            "sub-nutrient" => "refined-sugar",
+          }
+          payload["links"]["finder"] = [{ "details" => {
+            "facets" => [{
+              "allowed_values" => [
+                {
+                  "label" => "Sugar",
+                  "value" => "sugar",
+                  "sub_facets" => [
+                    {
+                      "label" => "Refined sugar",
+                      "main_facet_label" => "Sugar",
+                      "main_facet_value" => "sugar",
+                      "value" => "refined-sugar",
+                    },
+                  ],
+                },
+                {
+                  "label" => "Carbohydrates",
+                  "value" => "carbohydrates",
+                },
+              ],
+              "display_as_result_metadata" => true,
+              "filterable" => true,
+              "key" => "nutrient-group",
+              "name" => "Nutrient",
+              "preposition" => "Nutrient",
+              "short_name" => "Nutrient",
+              "sub_facet_key" => "sub-nutrient",
+              "sub_facet_name" => "Sub Nutrient",
+              "type" => "nested",
+            }],
+          } }]
+        end
+      end
+
+      it "returns sub facet details as well as main facet label, value, and key" do
+        expected_facets = [
+          {
+            key: "nutrient-group",
+            name: "Nutrient",
+            type: "nested",
+            link?: true,
+            values: [{
+              label: "Sugar",
+              value: "sugar",
+            }],
+          },
+          {
+            key: "sub-nutrient",
+            name: "Sub Nutrient",
+            main_facet_key: "nutrient-group",
+            type: "nested_sub_facet",
+            link?: true,
+            values: [
+              {
+                label: "Refined sugar",
+                value: "refined-sugar",
+                main_facet_label: "Sugar",
+                main_facet_value: "sugar",
+              },
+            ],
+          },
+        ]
+
+        expect(described_class.new(content_store_response).facets).to eq(expected_facets)
       end
     end
   end

@@ -1,12 +1,19 @@
 class CorporateInformationPagePresenter < ContentItemPresenter
   include LinkHelper
 
-  def corporate_information_heading
-    I18n.t("formats.corporate_information_page.corporate_information")
+  def contents_list_headings
+    content_item.contents << corporate_information_heading if content_item.corporate_information?
   end
 
-  def corporate_information_heading_id
-    corporate_information_heading.tr(" ", "-").downcase
+  def corporate_information_heading
+    heading_text = I18n.t("formats.corporate_information_page.corporate_information")
+    heading_id = heading_text.tr(" ", "-").downcase
+
+    {
+      text: heading_text,
+      id: heading_id,
+      href: "##{heading_id}",
+    }
   end
 
   def further_information

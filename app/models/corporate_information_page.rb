@@ -1,4 +1,6 @@
 class CorporateInformationPage < ContentItem
+  include ContentsList
+
   def default_organisation
     return if organisations.blank?
 

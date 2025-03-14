@@ -139,5 +139,49 @@ RSpec.describe SpecialistDocumentPresenter do
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end
+
+    context "when the metadata contains an array of non-filterable text" do
+      let(:filterable) { false }
+      let(:content_item) { SpecialistDocument.new(content_store_response) }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = { "facet-key" => %w[value1 value2 value3] }
+          payload["links"]["finder"] = [{
+            "details" => {
+              "facets" => [
+                {
+                  "allowed_values" => [
+                    {
+                      "label" => "Value 1",
+                      "value" => "value1",
+                    },
+                    {
+                      "label" => "Value 2",
+                      "value" => "value2",
+                    },
+                    {
+                      "label" => "Value 3",
+                      "value" => "value3",
+                    },
+                  ],
+                  "display_as_result_metadata" => false,
+                  "filterable" => filterable,
+                  "key" => "facet-key",
+                  "name" => "Example Facet",
+                  "type" => "text",
+                },
+              ],
+            },
+          }]
+        end
+      end
+
+      it "returns labels of the facet" do
+        expected_metadata = {
+          "Example Facet" => ["Value 1", "Value 2", "Value 3"],
+        }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
   end
 end

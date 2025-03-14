@@ -54,7 +54,11 @@ private
     return facet_value[:value].map { |date| display_date(date) } if facet_value[:type] == "date"
     return facet_value_link(facet_value[:key], facet_value[:value]) if facet_value[:link?]
 
-    facet_value[:value]
+    facet_value[:value].map { |value| facet_label(value) }
+  end
+
+  def facet_label(value)
+    value.is_a?(Hash) ? value[:label] : value
   end
 
   def facet_value_link(key, value)

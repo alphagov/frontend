@@ -1,6 +1,11 @@
 RSpec.describe CorporateInformationPage do
   let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page_with_groups") }
 
+  let(:corporate_information_page) { described_class.new(GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page")) }
+
+  it_behaves_like "it can be withdrawn", "corporate_information_page", "best-practice-welsh-language-scheme-withdrawn"
+  it_behaves_like "it can have a contents list", "corporate_information_page", "corporate_information_page_without_description"
+
   describe "#default_organisation" do
     it "returns the organisation that is also present in the organisations list" do
       expected_organisation_id = content_store_response["details"]["organisation"]

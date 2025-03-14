@@ -1,4 +1,6 @@
 class CorporateInformationPage < ContentItem
+  include ContentsList
+
   def default_organisation
     organisation_content_id = content_store_response.dig("details", "organisation")
 

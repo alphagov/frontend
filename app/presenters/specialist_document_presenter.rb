@@ -17,9 +17,9 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
   def important_metadata
-    content_item.facet_values.inject({}) do |metadata, facet_value|
+    content_item.assigned_facets.inject({}) do |metadata, assigned_facet|
       metadata.merge(
-        facet_value[:name] => format_facet_value(facet_value),
+        assigned_facet[:name] => format_facet_value(assigned_facet),
       )
     end
   end
@@ -50,19 +50,19 @@ private
     content_item.document_type == "statutory_instrument"
   end
 
-  def format_facet_value(facet_value)
-    return facet_value[:values].map { |date| display_date(date) } if facet_value[:type] == "date"
-    return facet_value_link(facet_value[:key], facet_value[:values]) if facet_value[:link?]
+  def format_facet_value(assigned_facet)
+    return assigned_facet[:values].map { |date| display_date(date) } if assigned_facet[:type] == "date"
+    return facet_value_link(assigned_facet[:key], assigned_facet[:values]) if assigned_facet[:link?]
 
-    facet_value[:values].map { |value| facet_label(value) }
+    assigned_facet[:values].map { |facet_value| facet_label(facet_value) }
   end
 
-  def facet_label(value)
-    value.is_a?(Hash) ? value[:label] : value
+  def facet_label(facet_value)
+    facet_value.is_a?(Hash) ? facet_value[:label] : facet_value
   end
 
-  def facet_value_link(key, value)
-    links = value.map do |facet_value|
+  def facet_value_link(key, facet_values)
+    links = facet_values.map do |facet_value|
       {
         text: facet_value[:label],
         path: filtered_finder_path(key, facet_value[:value]),

@@ -15,8 +15,8 @@ class SpecialistDocument < ContentItem
     @headers = headers_list(content_store_response.dig("details", "headers"))
   end
 
-  def facet_values
-    @facet_values ||= selected_facets.map do |selected_facet|
+  def assigned_facets
+    @assigned_facets ||= selected_facets.map do |selected_facet|
       f = {
         key: selected_facet["key"],
         name: selected_facet["name"],

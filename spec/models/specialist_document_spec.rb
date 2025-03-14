@@ -102,12 +102,12 @@ RSpec.describe SpecialistDocument do
     end
   end
 
-  describe "#facet_values" do
+  describe "#facets" do
     context "when facets are only mapped to one value" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
       it "returns the details of the facets the content item is mapped to" do
-        expected_facet_values = [
+        expected_facets = [
           {
             key: "aircraft_category",
             name: "Aircraft category",
@@ -158,7 +158,7 @@ RSpec.describe SpecialistDocument do
           },
         ]
 
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).assigned_facets).to eq(expected_facets)
       end
     end
 
@@ -166,7 +166,7 @@ RSpec.describe SpecialistDocument do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
       it "returns the details of all the facets the content item is mapped to" do
-        expected_facet_values = [
+        expected_facets = [
           {
             key: "alert_type",
             name: "Alert type",
@@ -213,7 +213,7 @@ RSpec.describe SpecialistDocument do
             values: %w[2015-07-06],
           },
         ]
-        expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
+        expect(described_class.new(content_store_response).assigned_facets).to eq(expected_facets)
       end
     end
   end

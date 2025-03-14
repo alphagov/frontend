@@ -31,6 +31,8 @@ class SpecialistDocument < ContentItem
 
       f[:type] = if link?(selected_facet, f[:value])
                    "link"
+                 elsif preset_text?(selected_facet, f[:value])
+                   "preset_text"
                  else
                    selected_facet["type"]
                  end
@@ -83,6 +85,12 @@ private
     facet["type"] == "text" &&
       permitted_value.is_a?(Array) &&
       facet["filterable"] == true
+  end
+
+  def preset_text?(facet, permitted_value)
+    facet["type"] == "text" &&
+      permitted_value.is_a?(Array) &&
+      facet["filterable"] == false
   end
 
   def allowed_value(allowed_values, metadata_facet_value)

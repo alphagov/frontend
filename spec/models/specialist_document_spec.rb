@@ -207,5 +207,40 @@ RSpec.describe SpecialistDocument do
         expect(described_class.new(content_store_response).facet_values).to eq(expected_facet_values)
       end
     end
+
+    context "when a facet can be mapped to one of many non-filterable values" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns the details of all the facets the content item is mapped to" do
+        content_store_response["links"]["finder"][0]["details"]["facets"] = [
+          {
+            "key" => "alert_type",
+            "name" => "Alert type",
+            "type" => "text",
+            "preposition" => "for",
+            "display_as_result_metadata" => true,
+            "filterable" => false,
+            "allowed_values" => [
+              {
+                "label" => "Medical device alert",
+                "value" => "devices",
+              },
+            ],
+          },
+        ]
+
+        expected_facet_value = {
+          key: "alert_type",
+          name: "Alert type",
+          type: "preset_text",
+          value: [{
+            label: "Medical device alert",
+            value: "devices",
+          }],
+        }
+
+        expect(described_class.new(content_store_response).facet_values).to include(expected_facet_value)
+      end
+    end
   end
 end

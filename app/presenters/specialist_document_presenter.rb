@@ -62,9 +62,10 @@ private
   end
 
   def format_facet_value(type, value, key)
-    if type == "date"
+    case type
+    when "date"
       view_context.display_date(value)
-    elsif type == "link"
+    when "link"
       links = value.map do |v|
         {
           text: v[:label],
@@ -73,6 +74,8 @@ private
       end
 
       view_context.govuk_styled_links_list(links, inverse: true)
+    when "preset_text"
+      value.map { |v| v[:label] }.join(", ")
     else
       value
     end

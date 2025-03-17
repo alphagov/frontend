@@ -69,7 +69,7 @@
         } %>
       </div>
 
-      <%= render "components/contents_list_with_body", contents: @presenter.contents_list_headings do %>
+      <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.contents_list_headings do %>
         <div class="responsive-bottom-margin">
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
             <%= raw(content_item.body) %>

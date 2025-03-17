@@ -12,18 +12,22 @@ class FindLocalCouncilController < ContentItemsController
   def index; end
 
   def find
-    @location_error = location_error
-    if @location_error
-      @postcode = params[:postcode]
-      render :index
-      return
+    # get location info, raising a LocationError if there's a problem
+    postcode_lookup = PostcodeLookup.new(postcode)
+
+    if postcode_lookup.local_custodian_codes.count == 1
+      # if location simple, look up authority details and redirect there.
+      local_authority = LocalAuthority.from_local_custodian_code(postcode_lookup.local_custodian_codes.first)
+      redirect_to "#{BASE_PATH}/#{local_authority.slug}"
+    else
+      # if location ambiguous, point to multiple authorities
+      @addresses = address_list
+      @options = options
+      render :multiple_authorities
     end
-
-    return redirect_to "#{BASE_PATH}/#{authority_slug_from_lcc(locations_api_response.local_custodian_codes.first)}" if locations_api_response.single_authority?
-
-    @addresses = address_list
-    @options = options
-    render :multiple_authorities
+  rescue LocationError => e
+    @location_error = e
+    render :index
   end
 
   def multiple_authorities
@@ -56,30 +60,7 @@ private
     BASE_PATH
   end
 
-  def location_error
-    return LocationError.new("invalidPostcodeFormat") if locations_api_response.invalid_postcode? || locations_api_response.blank_postcode?
-
-    LocationError.new("noLaMatch") if locations_api_response.location_not_found?
-  end
-
-  def locations_api_response
-    @locations_api_response ||= fetch_location(postcode)
-  end
-
   def postcode
     @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
-  end
-
-  def fetch_location(postcode)
-    if postcode.present?
-      begin
-        local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
-      rescue GdsApi::HTTPNotFound
-        local_custodian_codes = []
-      rescue GdsApi::HTTPClientError => e
-        error = e
-      end
-    end
-    LocationsApiPostcodeResponse.new(postcode, local_custodian_codes, error)
   end
 end

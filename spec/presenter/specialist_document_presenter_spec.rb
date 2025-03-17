@@ -140,5 +140,34 @@ RSpec.describe SpecialistDocumentPresenter do
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end
+
+    context "when the metadata contains an array of values that aren't filterable" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns the text for all values" do
+        content_store_response["links"]["finder"][0]["details"]["facets"] = [
+          {
+            "key" => "alert_type",
+            "name" => "Alert type",
+            "type" => "text",
+            "preposition" => "for",
+            "display_as_result_metadata" => true,
+            "filterable" => false,
+            "allowed_values" => [
+              {
+                "label" => "Medical device alert",
+                "value" => "devices",
+              },
+            ],
+          },
+        ]
+
+        expected_metadata = {
+          "Alert type" => "Medical device alert",
+        }
+
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+    end
   end
 end

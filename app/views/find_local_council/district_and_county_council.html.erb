@@ -22,13 +22,13 @@
          event_name: "form_complete",
          action: "complete",
          type: ga4_type,
-         text: "#{@county["name"]},#{@district["name"]}",
+         text: "#{@county.name},#{@district.name}",
          tool_name: t("formats.local_transaction.find_council", locale: :en),
       }.to_json %>">
 
     <div class="county-result group govuk-!-margin-bottom-8">
       <%= render "govuk_publishing_components/components/heading", {
-        text: @county["name"],
+        text: @county.name,
         heading_level: 3,
         font_size: "m",
       } %>
@@ -44,11 +44,11 @@
       </ul>
 
       <p class="govuk-body">
-        <% if @county["homepage_url"].blank? %>
+        <% if @county.homepage_url.blank? %>
           <%= t("formats.local_transaction.county_district_council") %>
         <% else %>
-          <%= link_to t("formats.local_transaction.local_authority_website",
-            local_authority_name: @county["name"]), @county["homepage_url"],
+          <%= link_to t("formats.local_transaction.local_authority_website", local_authority_name: @county.name),
+            @county.homepage_url,
             class: "govuk-link",
             data: {
               module: "ga4-link-tracker",
@@ -67,7 +67,7 @@
 
     <div class="district-result group">
       <%= render "govuk_publishing_components/components/heading", {
-        text: @district["name"],
+        text: @district.name,
         heading_level: 3,
         font_size: "m",
       } %>
@@ -83,11 +83,11 @@
       </ul>
 
       <p class="govuk-body">
-        <% if @district["homepage_url"].blank? %>
+        <% if @district.homepage_url.blank? %>
           <%= t("formats.local_transaction.no_website") %>
         <% else %>
-          <%= link_to t("formats.local_transaction.local_authority_website",
-            local_authority_name: @district["name"]), @district["homepage_url"],
+          <%= link_to t("formats.local_transaction.local_authority_website", local_authority_name: @district.name),
+            @district.homepage_url,
             class: "govuk-link",
             data: {
               module: "ga4-link-tracker",

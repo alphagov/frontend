@@ -33,20 +33,13 @@ class FindLocalCouncilController < ContentItemsController
   end
 
   def result
-    authority_slug = params[:authority_slug]
-    authority_results = Frontend.local_links_manager_api.local_authority(authority_slug)
+    @local_authority = LocalAuthority.from_slug(params[:authority_slug])
 
-    if authority_results["local_authorities"].count == 1
-      @authority = authority_results["local_authorities"].first
-
+    if @local_authority.parent.blank?
       render :one_council
     else
-      # NOTE: Technically we should only get county/district pairs here, but during local authority
-      # merge periods, like the 1st April 2023 it is sometimes necessary to have a brief period where
-      # a district is still temporarily active but belongs to a unitary authority. If the system
-      # gets reengineered this might not be necessary, but for the moment we should allow it.
-      @county = authority_results["local_authorities"].detect { |auth| %w[county unitary].include?(auth["tier"]) }
-      @district = authority_results["local_authorities"].detect { |auth| auth["tier"] == "district" }
+      @county = @local_authority.parent
+      @district = @local_authority
 
       render :district_and_county_council
     end

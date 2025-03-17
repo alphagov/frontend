@@ -103,6 +103,8 @@ kk:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Осы бетпен бөлісу
   continue:
   cookies:
     always_on:

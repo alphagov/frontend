@@ -103,6 +103,8 @@ hy:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Կիսվել այս էջով
   continue:
   cookies:
     always_on:

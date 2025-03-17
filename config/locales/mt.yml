@@ -103,6 +103,8 @@ mt:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Aqsam din il-paġna ma'
   continue:
   cookies:
     always_on:

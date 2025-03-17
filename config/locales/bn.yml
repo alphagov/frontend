@@ -103,6 +103,8 @@ bn:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: এই পেজটি শেয়ার করুন
   continue:
   cookies:
     always_on:

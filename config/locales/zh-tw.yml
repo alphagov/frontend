@@ -103,6 +103,8 @@ zh-tw:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 分享此頁面
   continue:
   cookies:
     always_on:

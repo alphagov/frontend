@@ -103,6 +103,8 @@ gu:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: આ પેજ શેર કરો
   continue:
   cookies:
     always_on:

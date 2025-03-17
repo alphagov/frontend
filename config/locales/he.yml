@@ -103,6 +103,8 @@ he:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: שתף דף זה
   continue:
   cookies:
     always_on:

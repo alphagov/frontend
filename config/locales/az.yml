@@ -103,6 +103,8 @@ az:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Bu səhifəni paylaşın
   continue:
   cookies:
     always_on:

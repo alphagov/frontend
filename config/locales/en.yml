@@ -103,6 +103,8 @@ en:
   components:
     print_link:
       text: Print this page
+    share_links:
+      share_this_page: Share this page
   continue: Continue
   cookies:
     always_on: They always need to be on.

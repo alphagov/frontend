@@ -103,6 +103,8 @@ ar:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: شارك هذه الصفحة
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ so:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Lawadaag bogan
   continue:
   cookies:
     always_on:

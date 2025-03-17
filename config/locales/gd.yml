@@ -103,6 +103,8 @@ gd:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Comhroinn an leathanach seo
   continue:
   cookies:
     always_on:

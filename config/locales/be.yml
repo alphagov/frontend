@@ -103,6 +103,8 @@ be:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Падзяліцца гэтай старонкай
   continue:
   cookies:
     always_on:

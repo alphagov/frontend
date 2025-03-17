@@ -103,6 +103,8 @@ si:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: මෙම පිටුව බෙදාගන්න
   continue:
   cookies:
     always_on:

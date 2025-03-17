@@ -103,6 +103,8 @@ tk:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Bu sahypany paýlaşyň
   continue:
   cookies:
     always_on:

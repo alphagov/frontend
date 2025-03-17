@@ -103,6 +103,8 @@ ta:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: இந்தப் பக்கத்தைப் பகிர்க
   continue:
   cookies:
     always_on:

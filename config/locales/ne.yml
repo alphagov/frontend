@@ -103,6 +103,8 @@ ne:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: यो पृष्ठ साझा गर्नुहोस्
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ uz:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Саҳифа билан бўлишиш
   continue:
   cookies:
     always_on:

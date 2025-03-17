@@ -103,6 +103,8 @@ sl:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Deli to stran
   continue:
   cookies:
     always_on:

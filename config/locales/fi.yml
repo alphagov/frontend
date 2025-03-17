@@ -103,6 +103,8 @@ fi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Jaa tämä sivu
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ ru:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 'Поделиться данной страницей '
   continue:
   cookies:
     always_on:

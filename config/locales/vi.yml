@@ -103,6 +103,8 @@ vi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Chia sẻ trang này
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ ko:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 이 페이지 공유하기
   continue:
   cookies:
     always_on:

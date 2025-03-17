@@ -103,6 +103,8 @@ et:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Jaga seda lehte
   continue:
   cookies:
     always_on:

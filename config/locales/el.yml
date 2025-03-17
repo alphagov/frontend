@@ -103,6 +103,8 @@ el:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Κοινοποιήστε αυτή τη σελίδα
   continue:
   cookies:
     always_on:

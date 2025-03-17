@@ -103,6 +103,8 @@ ur:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: اس صفحے کو شیئر کریں
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ hr:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Podijelite ovu stranicu
   continue:
   cookies:
     always_on:

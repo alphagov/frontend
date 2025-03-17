@@ -103,6 +103,8 @@ cs:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Sdílet tuto stránku
   continue:
   cookies:
     always_on:

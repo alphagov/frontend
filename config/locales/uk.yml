@@ -103,6 +103,8 @@ uk:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Поділіться цією сторінкою
   continue:
   cookies:
     always_on:

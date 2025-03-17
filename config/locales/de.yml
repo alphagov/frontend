@@ -103,6 +103,8 @@ de:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Diese Seite teilen
   continue:
   cookies:
     always_on:

@@ -103,6 +103,8 @@ dr:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: این صفحه را به اشتراک بگذارید
   continue:
   cookies:
     always_on:

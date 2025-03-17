@@ -103,6 +103,8 @@ pa-pk:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: ایہ ورقہ تقسیم کرو
   continue:
   cookies:
     always_on:

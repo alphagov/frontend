@@ -103,6 +103,8 @@ hi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: यह पेज शेयर करें
   continue:
   cookies:
     always_on:

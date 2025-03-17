@@ -103,6 +103,8 @@ sq:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Shpërdaj këtë faqe
   continue:
   cookies:
     always_on:

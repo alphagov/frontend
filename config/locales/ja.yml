@@ -103,6 +103,8 @@ ja:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: このページを共有
   continue:
   cookies:
     always_on:

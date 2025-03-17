@@ -103,6 +103,8 @@ ka:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: ამ გვერდის გაზიარება
   continue:
   cookies:
     always_on:

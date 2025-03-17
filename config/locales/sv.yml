@@ -103,6 +103,8 @@ sv:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Dela den här sidan
   continue:
   cookies:
     always_on:

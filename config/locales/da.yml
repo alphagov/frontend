@@ -103,6 +103,8 @@ da:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Del denne side
   continue:
   cookies:
     always_on:

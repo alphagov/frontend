@@ -7,6 +7,11 @@ class LocalAuthority
       make_from_api_response(api_response)
     end
   end
+
+  def self.from_slug(slug)
+    Rails.cache.fetch("LocalAuthority:slug:#{slug}", expires_in: 5.minutes) do
+      api_response = Frontend.local_links_manager_api.local_authority(slug)
+      make_from_api_response(api_response)
     end
   end
 

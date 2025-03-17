@@ -2,7 +2,6 @@ require "postcode_sanitizer"
 
 class FindLocalCouncilController < ContentItemsController
   include Cacheable
-  include SplitPostcodeSupport
 
   skip_before_action :set_locale
   skip_before_action :verify_authenticity_token, only: [:find]
@@ -21,8 +20,7 @@ class FindLocalCouncilController < ContentItemsController
       redirect_to "#{BASE_PATH}/#{local_authority.slug}"
     else
       # if location ambiguous, point to multiple authorities
-      @addresses = address_list
-      @options = options
+      @address_list_presenter = AddressListPresenter.new(postcode_lookup.addresses)
       render :multiple_authorities
     end
   rescue LocationError => e

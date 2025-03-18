@@ -33,7 +33,6 @@ private
     changes = content_store_response.dig("details", "change_history") || []
     changes.map do |item|
       {
-        display_time: item["public_timestamp"],
         note: item["note"],
         timestamp: item["public_timestamp"],
       }

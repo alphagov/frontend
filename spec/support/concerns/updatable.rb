@@ -9,7 +9,6 @@ RSpec.shared_examples "it has updates" do |document_type, example_name|
     it "knows its history" do
       change_history = content_store_response["details"]["change_history"].map do |change|
         {
-          display_time: change["public_timestamp"],
           note: change["note"],
           timestamp: change["public_timestamp"],
         }

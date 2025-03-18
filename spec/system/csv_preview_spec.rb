@@ -135,11 +135,24 @@ RSpec.describe "CsvPreview" do
     before do
       asset_manager_response = { id: "https://asset-manager.dev.gov.uk/assets/foo", parent_document_url:, draft: true }
       stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, "/#{filename}.csv")
-      visit "/#{asset_media_url_path}/preview"
+      visit "http://assets.dev.gov.uk//#{asset_media_url_path}/preview"
     end
 
     it "redirects to the draft assets host" do
       expect(current_url).to eq("http://draft-assets.dev.gov.uk/#{asset_media_url_path}/preview")
+    end
+  end
+
+  context "when the asset is draft and has the new url" do
+    before do
+      asset_manager_response = { id: "https://asset-manager.dev.gov.uk/assets/foo", parent_document_url:, draft: true }
+      stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, "/#{filename}.csv")
+      setup_content_item("/csv-preview/#{asset_manager_id}/#{filename}/", parent_document_base_path)
+      visit "/csv-preview/#{asset_manager_id}/#{filename}/"
+    end
+
+    it "redirects to the draft assets host" do
+      expect(current_url).to eq("http://www.example.com/csv-preview/4321/filename/")
     end
   end
 

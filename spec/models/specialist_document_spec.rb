@@ -242,5 +242,112 @@ RSpec.describe SpecialistDocument do
         expect(described_class.new(content_store_response).facets_with_values_from_metadata).to include(expected_facet_values)
       end
     end
+
+    context "when there are sub facets" do
+      let(:filterable) { true }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "nutrient-group" => "sugar",
+            "sub-nutrient" => "refined-sugar",
+          }
+          payload["links"]["finder"] = [{ "details" => {
+            "facets" => [{
+              "allowed_values" => [
+                {
+                  "label" => "Sugar",
+                  "value" => "sugar",
+                  "sub_facets" => [
+                    {
+                      "label" => "Refined sugar",
+                      "main_facet_label" => "Sugar",
+                      "main_facet_value" => "sugar",
+                      "value" => "refined-sugar",
+                    },
+                  ],
+                },
+                {
+                  "label" => "Carbohydrates",
+                  "value" => "carbohydrates",
+                },
+              ],
+              "display_as_result_metadata" => true,
+              "filterable" => filterable,
+              "key" => "nutrient-group",
+              "name" => "Nutrient",
+              "preposition" => "Nutrient",
+              "short_name" => "Nutrient",
+              "sub_facet_key" => "sub-nutrient",
+              "sub_facet_name" => "Sub Nutrient",
+              "type" => "nested",
+            }],
+          } }]
+        end
+      end
+
+      it "returns link sub facet details as well as main facet label, value, and key" do
+        expected_facets = [
+          {
+            key: "nutrient-group",
+            name: "Nutrient",
+            type: "link",
+            value: [{
+              label: "Sugar",
+              value: "sugar",
+            }],
+          },
+          {
+            key: "sub-nutrient",
+            name: "Sub Nutrient",
+            main_facet_key: "nutrient-group",
+            type: "sub_facet_link",
+            value: [
+              {
+                label: "Refined sugar",
+                value: "refined-sugar",
+                main_facet_label: "Sugar",
+                main_facet_value: "sugar",
+              },
+            ],
+          },
+        ]
+
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facets)
+      end
+
+      context "and is not filterable" do
+        let(:filterable) { false }
+
+        it "returns text sub facet details as well as main facet label, value, and key" do
+          expected_facets = [
+            {
+              key: "nutrient-group",
+              name: "Nutrient",
+              type: "preset_text",
+              value: [{
+                label: "Sugar",
+                value: "sugar",
+              }],
+            },
+            {
+              key: "sub-nutrient",
+              name: "Sub Nutrient",
+              main_facet_key: "nutrient-group",
+              type: "sub_facet_text",
+              value: [
+                {
+                  label: "Refined sugar",
+                  value: "refined-sugar",
+                  main_facet_label: "Sugar",
+                  main_facet_value: "sugar",
+                },
+              ],
+            },
+          ]
+
+          expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facets)
+        end
+      end
+    end
   end
 end

@@ -7,7 +7,7 @@ class LandingPage < ContentItem
     super
 
     @breadcrumbs = content_store_response.dig("details", "breadcrumbs")&.map { { title: _1["title"], url: _1["href"] } }
-    @navigation_groups = (content_store_response.dig("details", "navigation_groups") || []).map { [_1["id"], _1] }.to_h
+    @navigation_groups = (content_store_response.dig("details", "navigation_groups") || []).index_by { _1["id"] }
     @blocks = (content_store_response.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash, self) }
     @theme = safe_theme(content_store_response.dig("details", "theme"))
   end

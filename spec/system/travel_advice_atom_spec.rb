@@ -58,11 +58,11 @@ RSpec.describe "TravelAdviceAtom" do
       expect(page).to have_xpath(".//feed/author/name", text: "GOV.UK")
       expect(page).to have_xpath(".//feed/entry", count: 1)
       expect(page).to have_xpath(".//feed/entry[1]/id", text: "http://www.dev.gov.uk#{base_path}##{Time.zone.parse(content_store_response['public_updated_at'])}")
-      expect(page).to have_xpath(".//feed/entry[1]/title", text: (content_store_response["title"]).to_s)
+      expect(page).to have_xpath(".//feed/entry[1]/title", text: content_store_response["title"].to_s)
       expect(page).to have_xpath(".//feed/entry[1]/updated", text: "2017-02-14T15:42:21+00:00")
       expect(page).to have_xpath(".//feed/entry[1]/link[@type='text/html' and @href='http://www.dev.gov.uk#{base_path}']")
       expect(page).to have_xpath(".//feed/entry[1]/link[@type='application/atom+xml' and @href='http://www.dev.gov.uk#{base_path}.atom']")
-      expect(page).to have_xpath(".//feed/entry[1]/summary[@type='xhtml']/div/p", text: (content_store_response["change_description"]).to_s)
+      expect(page).to have_xpath(".//feed/entry[1]/summary[@type='xhtml']/div/p", text: content_store_response["change_description"].to_s)
     end
   end
 end

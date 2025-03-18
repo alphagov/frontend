@@ -49,30 +49,42 @@ private
   end
 
   def format_facet_value(facet_with_values_from_metadata)
+    facet_values = facet_with_values_from_metadata[:value]
     case facet_with_values_from_metadata[:type]
     when "date"
-      display_date(facet_with_values_from_metadata[:value])
+      display_date(facet_values)
     when "link"
-      facet_value_links(facet_with_values_from_metadata[:key], facet_with_values_from_metadata[:value])
+      facet_values.map { |facet_value| facet_value_link(facet_with_values_from_metadata, facet_value) }
+    when "sub_facet_link"
+      facet_values.map { |facet_value| sub_facet_value_link(facet_with_values_from_metadata, facet_value) }
     when "preset_text"
-      facet_with_values_from_metadata[:value].map { |facet_value| facet_value[:label] }
+      facet_values.map { |facet_value| facet_value[:label] }
+    when "sub_facet_text"
+      facet_values.map { |facet_value| sub_facet_label(facet_value) }
     else
-      facet_with_values_from_metadata[:value]
+      facet_values
     end
   end
 
-  def facet_value_links(key, facet_values)
-    links = facet_values.map do |facet_value|
-      {
-        text: facet_value[:label],
-        path: filtered_finder_path(key, facet_value[:value]),
-      }
-    end
-
-    govuk_styled_links_list(links, inverse: true)
+  def facet_value_link(assigned_facet, facet_value)
+    query_params = { "#{assigned_facet[:key]}[]" => facet_value[:value] }
+    finder_link(facet_value[:label], query_params)
   end
 
-  def filtered_finder_path(key, value)
-    "#{content_item.finder.base_path}?#{key}%5B%5D=#{value}"
+  def sub_facet_value_link(assigned_facet, facet_value)
+    query_params = {
+      "#{assigned_facet[:key]}[]" => facet_value[:value],
+      "#{assigned_facet[:main_facet_key]}[]" => facet_value[:main_facet_value],
+    }
+    finder_link(sub_facet_label(facet_value), query_params)
+  end
+
+  def sub_facet_label(facet_value)
+    "#{facet_value[:main_facet_label]} - #{facet_value[:label]}"
+  end
+
+  def finder_link(label, query_params)
+    path = "#{content_item.finder.base_path}?#{query_params.to_query}"
+    govuk_styled_link(label, path:, inverse: true)
   end
 end

@@ -168,5 +168,78 @@ RSpec.describe SpecialistDocumentPresenter do
         expect(presenter.important_metadata).to include(expected_metadata)
       end
     end
+
+    context "when the metadata contains subfacets" do
+      let(:filterable) { false }
+      let(:finder_base_path) { "/example-finder" }
+      let(:content_item) { SpecialistDocument.new(content_store_response) }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "nutrient-group" => "sugar",
+            "sub-nutrient" => "refined-sugar",
+          }
+          payload["links"]["finder"] = [{
+            "base_path" => finder_base_path,
+            "details" => {
+              "facets" => [
+                {
+                  "allowed_values" => [
+                    {
+                      "label" => "Sugar",
+                      "value" => "sugar",
+                      "sub_facets" => {
+                        "label" => "Refined sugar",
+                        "main_facet_label" => "Sugar",
+                        "main_facet_value" => "sugar",
+                        "value" => "refined-sugar",
+                      },
+                    },
+                    {
+                      "label" => "Carbohydrates",
+                      "value" => "carbohydrates",
+                    },
+                  ],
+                  "display_as_result_metadata" => true,
+                  "filterable" => filterable,
+                  "key" => "nutrient-group",
+                  "name" => "Nutrient",
+                  "preposition" => "Nutrient",
+                  "short_name" => "Nutrient",
+                  "sub_facet_key" => "sub-nutrient",
+                  "sub_facet_name" => "Sub Nutrient",
+                  "type" => "nested",
+                },
+              ],
+            },
+          }]
+        end
+      end
+
+      it "returns the sub facet label with main facet label prefixed" do
+        expected_metadata = {
+          "Nutrient" => %w[Sugar],
+          "Sub Nutrient" => ["Sugar - Refined sugar"],
+        }
+        expect(presenter.important_metadata).to include(expected_metadata)
+      end
+
+      context "and sub facets are filterable" do
+        let(:filterable) { true }
+
+        it "returns the sub facet link with both main facet and sub facet query params" do
+          expected_metadata = {
+            "Nutrient" => [
+              "<a href='#{finder_base_path}?nutrient-group%5B%5D=sugar' class='govuk-link govuk-link--inverse'>Sugar</a>",
+            ],
+            "Sub Nutrient" => [
+              "<a href='#{finder_base_path}?nutrient-group%5B%5D=sugar&sub-nutrient%5B%5D=refined-sugar' class='govuk-link govuk-link--inverse'>Sugar - Refined sugar</a>",
+            ],
+          }
+
+          expect(presenter.important_metadata).to include(expected_metadata)
+        end
+      end
+    end
   end
 end

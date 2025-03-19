@@ -33,14 +33,14 @@ RSpec.describe "Find Local Council" do
     it "returns local authority JSON" do
       get "/find-local-council/westminster.json"
       expected_json =
-      {
-        "local_authority" => {
-          "name" => "Westminster",
-          "homepage_url" => "http://westminster.example.com",
-          "tier" => "unitary",
-          "slug" => "westminster",
+        {
+          "local_authority" => {
+            "name" => "Westminster",
+            "homepage_url" => "http://westminster.example.com",
+            "tier" => "unitary",
+            "slug" => "westminster",
+          },
         }
-      }
       expect(response.parsed_body).to eq(expected_json)
     end
   end

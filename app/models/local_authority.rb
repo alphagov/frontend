@@ -27,7 +27,7 @@ class LocalAuthority
   end
 
   def to_h
-    map
+    @map.except("country_name", "snac", "gss")
   end
 
   private_class_method def self.make_from_api_response(response)

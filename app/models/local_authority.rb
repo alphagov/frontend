@@ -16,7 +16,6 @@ class LocalAuthority
   end
 
   def initialize(map, parent: nil)
-    @map = map
     @name = map["name"]
     @homepage_url = map["homepage_url"]
     @country_name = map["country_name"]
@@ -27,7 +26,13 @@ class LocalAuthority
   end
 
   def to_h
-    @map.except("country_name", "snac", "gss")
+    {
+      name:,
+      homepage_url:,
+      tier:,
+      slug:,
+      parent: parent.to_h,
+    }
   end
 
   private_class_method def self.make_from_api_response(response)

@@ -12,11 +12,11 @@
   </p>
 
   <%= form_tag("/find-local-council/multiple_authorities", method: :get) do -%>
-    <% if @addresses.count > 6 %>
+    <% if @address_list_presenter.options.count > 6 %>
       <%= render "govuk_publishing_components/components/select", {
         id: "authority_slug",
         label: t("formats.local_transaction.select_address"),
-        options: @options,
+        options: @address_list_presenter.options,
       } %>
     <% else %>
       <%= render "govuk_publishing_components/components/radio", {
@@ -24,7 +24,7 @@
         name: "authority_slug",
         heading: t("formats.local_transaction.select_address"),
         heading_size: "s",
-        items: @options,
+        items: @address_list_presenter.options,
       } %>
     <% end %>
 

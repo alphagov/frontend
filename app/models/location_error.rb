@@ -1,4 +1,4 @@
-class LocationError
+class LocationError < StandardError
   MESSAGES = {
     "noLaMatch" => "formats.local_transaction.no_local_authority",
     "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match",
@@ -41,6 +41,8 @@ class LocationError
       @message = "formats.local_transaction.invalid_postcode"
       @sub_message = "formats.local_transaction.invalid_postcode_sub"
     end
+
+    super(@message)
   end
 
   def data_related?

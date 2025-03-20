@@ -103,6 +103,8 @@ is:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Deila þessari síðu
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ is:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Viðbrögð stjórnvalda
+      other: Viðbrögð stjórnvalda
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ is:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Frétt
+      other: Fréttir
     oral_statement:
       one: Munnleg yfirlýsing til Þingsins
       other: Munnlegar yfirlýsingar til Þingsins
@@ -493,6 +501,9 @@ is:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Fréttatilkynning
+      other: Fréttatilkynningar
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ is:
       still_current_at: Enn uppfært þann
       summary: Samantekt
       updated: Uppfært
+    world_news_story:
+      one: Heimsfrétt
+      other: Heimsfréttir
     written_statement:
       one: Skrifleg yfirlýsing til Þingsins
       other: Skriflegar yfirlýsingar til Þingsins

@@ -103,6 +103,8 @@ en:
   components:
     print_link:
       text: Print this page
+    share_links:
+      share_this_page: Share this page
   continue: Continue
   cookies:
     always_on: They always need to be on.
@@ -436,6 +438,9 @@ en:
       take_part_suggestions: Many people are already volunteering, donating and contributing, both in the UK and abroad. If you'd like to join them, but dont know where to start, here's a list of suggestions
       updated: Updated
       your_views: You can give your views on new or changing government policies by responding to consultations. Government departments take these responses into consideration before making decisions.
+    government_response:
+      one: Government response
+      other: Government responses
     licence:
       change: Change
     local_transaction:
@@ -490,6 +495,9 @@ en:
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
       website: You can get information on their website.
       what_you_need_to_know: What you need to know
+    news_story:
+      one: News story
+      other: News stories
     oral_statement:
       one: Oral statement to Parliament
       other: Oral statements to Parliament
@@ -498,6 +506,9 @@ en:
       find_results: Find results near you
       postcode: Postcode
       select_address: Select an address
+    press_release:
+      one: Press release
+      other: Press releases
     simple_smart_answer:
       change: Change
       next_step: Next step
@@ -537,6 +548,9 @@ en:
       still_current_at: Still current at
       summary: Summary
       updated: Updated
+    world_news_story:
+      one: World news story
+      other: World news stories
     written_statement:
       one: Written statement to Parliament
       other: Written statements to Parliament

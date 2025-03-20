@@ -103,6 +103,8 @@ tk:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Bu sahypany paýlaşyň
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ tk:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hökümetiň jogaby
+      other: Hökümetiň jogaplary
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ tk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Habar
+      other: Habarlar
     oral_statement:
       one: Mejlise dilden beýan
       other: Mejlise dilden beýanlar
@@ -493,6 +501,9 @@ tk:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Goýberiliş neşiri
+      other: Goýberiliş neşirleri
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ tk:
       still_current_at: Häzir hem bar
       summary: Gysgaça
       updated: Täzelenen
+    world_news_story:
+      one: Dünýä habary
+      other: Dünýä habarlary
     written_statement:
       one: Mejlise ýazmaça beýan
       other: Mejlise ýazmaça beýanlar

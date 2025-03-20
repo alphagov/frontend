@@ -103,6 +103,8 @@ zh-tw:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 分享此頁面
   continue:
   cookies:
     always_on:
@@ -358,6 +360,8 @@ zh-tw:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: 政府回應
     licence:
       change:
     local_transaction:
@@ -409,6 +413,8 @@ zh-tw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: 新聞報導
     oral_statement:
       other: 對議會的口頭聲明
     place:
@@ -416,6 +422,8 @@ zh-tw:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: 新聞稿
     simple_smart_answer:
       change:
       next_step:
@@ -453,6 +461,8 @@ zh-tw:
       still_current_at: 目前仍
       summary: 概括
       updated: 更新
+    world_news_story:
+      other: 世界新聞報導
     written_statement:
       other: 對議會的書面聲明
   help:

@@ -103,6 +103,8 @@ sl:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Deli to stran
   continue:
   cookies:
     always_on:
@@ -586,6 +588,11 @@ sl:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      few:
+      one: Odziv vlade
+      other: Odzivi vlade
+      two:
     licence:
       change:
     local_transaction:
@@ -637,6 +644,11 @@ sl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      few:
+      one: Časopisna zgodba
+      other: Časopisne zgodbe
+      two:
     oral_statement:
       few:
       one: Ustna izjava za parlament
@@ -647,6 +659,11 @@ sl:
       find_results:
       postcode:
       select_address:
+    press_release:
+      few:
+      one: Sporočilo za javnost
+      other: Sporočila za javnost
+      two:
     simple_smart_answer:
       change:
       next_step:
@@ -690,6 +707,11 @@ sl:
       still_current_at: Še vedno aktualno ob
       summary: Povzetek
       updated: Posodobljeno
+    world_news_story:
+      few:
+      one: Novica s sveta
+      other: Novice s celega sveta
+      two:
     written_statement:
       few:
       one: Pisna izjava za parlament

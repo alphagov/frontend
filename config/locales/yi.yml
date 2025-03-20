@@ -103,6 +103,8 @@ yi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page:
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ yi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one:
+      other:
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ yi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one:
+      other:
     oral_statement:
       one:
       other:
@@ -493,6 +501,9 @@ yi:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one:
+      other:
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ yi:
       still_current_at:
       summary:
       updated:
+    world_news_story:
+      one:
+      other:
     written_statement:
       one:
       other:

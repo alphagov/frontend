@@ -103,6 +103,8 @@ fi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Jaa tämä sivu
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ fi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hallituksen vastaus
+      other: Hallituksen vastaukset
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ fi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Uutistarina
+      other: Uutisia
     oral_statement:
       one: Suullinen lausuma parlamentille
       other: Suulliset lausumat parlamentille
@@ -493,6 +501,9 @@ fi:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Lehdistötiedote
+      other: Lehdistötiedotteet
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ fi:
       still_current_at: Vielä ajankohtainen klo
       summary: Yhteenveto
       updated: Päivitetty
+    world_news_story:
+      one: Maailman uutinen
+      other: Maailman uutisia
     written_statement:
       one: Kirjallinen lausuma parlamentille
       other: Kirjallinen lausumat parlamentille

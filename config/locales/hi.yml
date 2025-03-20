@@ -103,6 +103,8 @@ hi:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: यह पेज शेयर करें
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ hi:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: सरकारी जवाब
+      other: सरकारी जवाब
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ hi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: समाचार कथा
+      other: समाचार कथाएं
     oral_statement:
       one: संसद में मौखिक बयान
       other: संसद में मौखिक बयान
@@ -493,6 +501,9 @@ hi:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: प्रेस विज्ञप्ति
+      other: प्रेस विज्ञप्तियां
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ hi:
       still_current_at: अभी भी चालू है
       summary: सारांश
       updated: अपडेट किया गया
+    world_news_story:
+      one: विश्व की समाचार कथा
+      other: विश्व की समाचार कथाएं
     written_statement:
       one: संसद में लिखित बयान
       other: संसद में लिखित बयान

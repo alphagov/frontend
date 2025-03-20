@@ -103,6 +103,8 @@ ko:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 이 페이지 공유하기
   continue:
   cookies:
     always_on:
@@ -358,6 +360,8 @@ ko:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: 정부 대응
     licence:
       change:
     local_transaction:
@@ -409,6 +413,8 @@ ko:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: 뉴스 스토리
     oral_statement:
       other: 의회로 구두 성명
     place:
@@ -416,6 +422,8 @@ ko:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: 보도자료
     simple_smart_answer:
       change:
       next_step:
@@ -453,6 +461,8 @@ ko:
       still_current_at: 최신 상태
       summary: 요약
       updated: 업데이트
+    world_news_story:
+      other: 세계 뉴스 스토리
     written_statement:
       other: 의회로 서면 성명
   help:

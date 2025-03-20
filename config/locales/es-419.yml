@@ -103,6 +103,8 @@ es-419:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Compartir esta página
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ es-419:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Respuesta gubernamental
+      other: Respuestas gubernamentales
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ es-419:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Reportaje de noticias
+      other: Reportajes de noticias
     oral_statement:
       one: Declaracion oral ante el Parlamento
       other: Declaraciones orales ante el Parlamento
@@ -493,6 +501,9 @@ es-419:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Comunicado de prensa
+      other: Comunicados de prensa
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ es-419:
       still_current_at: Todavía vigente en
       summary: Resumen
       updated: Actualizado
+    world_news_story:
+      one: Noticia del mundo
+      other: Noticias mundiales
     written_statement:
       one: Declaración escrita ante el Parlamento
       other: Declaraciones escritas ante el Parlamento

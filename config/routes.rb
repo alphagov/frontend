@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get "/development", to: "development#index"
   end
 
-  get "/find-local-council", constraints: ->(req) { req.format == :json }, to: "find_local_council#find"
+  get "/find-local-council/query", constraints: ->(req) { req.format == :json }, to: "find_local_council#find"
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"

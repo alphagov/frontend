@@ -25,7 +25,7 @@ RSpec.describe "Find Local Council" do
     end
 
     it "redirects to the authority slug" do
-      get "/find-local-council.json", params: { postcode: "SW1A 1AA" }
+      get "/find-local-council/query.json", params: { postcode: "SW1A 1AA" }
 
       expect(response).to redirect_to("/find-local-council/westminster.json")
     end

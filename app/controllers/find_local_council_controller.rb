@@ -25,7 +25,7 @@ class FindLocalCouncilController < ContentItemsController
       # if location ambiguous, point to multiple authorities
       @address_list_presenter = AddressListPresenter.new(postcode_lookup.addresses)
       respond_to do |format|
-        format.json { render json: @address_list_presenter.addresses_with_authority_data }
+        format.json { render json: { addresses: @address_list_presenter.addresses_with_authority_data } }
         format.html { render :multiple_authorities }
       end
     end

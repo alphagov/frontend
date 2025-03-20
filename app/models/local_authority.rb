@@ -32,7 +32,7 @@ class LocalAuthority
       tier:,
       slug:,
       parent: parent.to_h,
-    }
+    }.compact_blank
   end
 
   private_class_method def self.make_from_api_response(response)

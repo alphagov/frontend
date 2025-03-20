@@ -1,27 +1,31 @@
 <%
   add_view_stylesheet("service-toolkit")
   content_for :title, "Service Toolkit - GOV.UK"
+  content_for :main_classes, "govuk-!-padding-top-0"
 %>
-<header class="app-hero">
-  <div class="app-hero__content govuk-width-container">
-    <div class="govuk-main-wrapper">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/heading", {
-            text: "Design and build government services",
-            font_size: "xl",
-            heading_level: 1,
-            inverse: true,
-            margin_bottom: 6,
-          } %>
-          <p class="app-hero__description govuk-body-l govuk-!-margin-bottom-3 app-hero__body--inverse">
-            All you need to design, build and run services that meet government standards.
-          </p>
-        </div>
+<%= render "govuk_publishing_components/components/inverse_header", {
+  full_width: true,
+  padding_top: 7,
+  margin_bottom: 7,
+} do %>
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Design and build government services",
+          font_size: "xl",
+          heading_level: 1,
+          inverse: true,
+          margin_bottom: 6,
+        } %>
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: "All you need to design, build and run services that meet government standards.",
+          inverse: true,
+        } %>
       </div>
     </div>
   </div>
-</header>
+<% end %>
 
 <div class="govuk-width-container">
   <% content_item.collections.each do |collection| %>

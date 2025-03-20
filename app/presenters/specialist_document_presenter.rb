@@ -2,12 +2,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
   include LinkHelper
 
-  def initialize(content_item, view_context = nil)
-    super(content_item)
-
-    @view_context = view_context
-  end
-
   def contents
     return [] unless show_contents_list?
 
@@ -23,14 +17,9 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
   def important_metadata
-    metadata = {}
-    content_item.facet_values.each do |facet_value|
-      metadata[facet_value[:name]] = format_facet_value(facet_value[:type],
-                                                        facet_value[:value],
-                                                        facet_value[:key])
+    content_item.assigned_facets.inject({}) do |metadata, assigned_facet|
+      metadata.merge(assigned_facet[:name] => format_facet_value(assigned_facet))
     end
-
-    metadata
   end
 
   def protection_image_path
@@ -42,8 +31,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
 private
-
-  attr_reader :view_context
 
   def show_contents_list?
     content_item.headers.present? && level_two_headings?
@@ -61,27 +48,42 @@ private
     content_item.document_type == "statutory_instrument"
   end
 
-  def format_facet_value(type, value, key)
-    case type
+  def format_facet_value(assigned_facet)
+    case assigned_facet[:type]
     when "date"
-      view_context.display_date(value)
+      display_date(assigned_facet[:value])
     when "link"
-      links = value.map do |v|
-        {
-          text: v[:label],
-          path: filtered_finder_path(key, v[:value]),
-        }
-      end
-
-      view_context.govuk_styled_links_list(links, inverse: true)
+      assigned_facet[:value].map { |facet_value| facet_value_link(assigned_facet, facet_value) }
+    when "sub_facet_link"
+      assigned_facet[:value].map { |facet_value| sub_facet_value_link(assigned_facet, facet_value) }
     when "preset_text"
-      value.map { |v| v[:label] }.join(", ")
+      assigned_facet[:value].map { |facet_value| facet_value[:label] }
+    when "sub_facet_text"
+      assigned_facet[:value].map { |facet_value| sub_facet_label(facet_value) }
     else
-      value
+      assigned_facet[:value]
     end
   end
 
-  def filtered_finder_path(key, value)
-    "#{content_item.finder.base_path}?#{key}%5B%5D=#{value}"
+  def facet_value_link(assigned_facet, facet_value)
+    query_params = { assigned_facet[:key] => facet_value[:value] }
+    finder_link(facet_value[:label], query_params)
+  end
+
+  def sub_facet_value_link(assigned_facet, facet_value)
+    query_params = {
+      assigned_facet[:key] => facet_value[:value],
+      assigned_facet[:main_facet_key] => facet_value[:main_facet_value],
+    }
+    finder_link(sub_facet_label(facet_value), query_params)
+  end
+
+  def sub_facet_label(facet_value)
+    "#{facet_value[:main_facet_label]} - #{facet_value[:label]}"
+  end
+
+  def finder_link(label, query_params)
+    path = "#{content_item.finder.base_path}?#{query_params.to_query}"
+    govuk_styled_link(label, path:, inverse: true)
   end
 end

@@ -61,5 +61,15 @@ RSpec.describe "Service Toolkit page" do
         expect(page).to have_link("Digital Marketplace", href: "https://www.gov.uk/digital-marketplace")
       end
     end
+
+    it "has the correct collection link descriptions" do
+      within(".service-toolkit:nth-of-type(1) div.govuk-grid-column-one-half:last-of-type p") do
+        expect(page).to have_text "How to build a service that meets the standard: agile delivery, technology, user research, accessibility, training options and more"
+      end
+
+      within(".service-toolkit:nth-of-type(2) div.govuk-grid-column-one-half:last-of-type p") do
+        expect(page).to have_text "Buy cloud technology and specialist services for digital projects"
+      end
+    end
   end
 end

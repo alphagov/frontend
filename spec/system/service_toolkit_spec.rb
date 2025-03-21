@@ -39,22 +39,22 @@ RSpec.describe "Service Toolkit page" do
         expect(page).to have_text "Buying"
       end
     end
+
+    it "has the correct collection descriptions" do
+      puts page.html
+
+      within(".service-toolkit:nth-of-type(1) p.govuk-body-l") do
+        expect(page).to have_text "Meet the standards for government services"
+      end
+
+      within(".service-toolkit:nth-of-type(2) p.govuk-body-l") do
+        expect(page).to have_text "Extra skills, people and technology to help build your service"
+      end
+    end
   end
 end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-
-#   test "the homepage includes the descriptions for both collections" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     within(the_first_collection) do
-#       assert page.has_content? "Meet the standards for government services"
-#     end
-
-#     within(the_second_collection) do
-#       assert page.has_content? "Extra skills, people and technology to help build your service"
-#     end
-#   end
 
 #   test "the homepage includes the links from all collections" do
 #     setup_and_visit_content_item(

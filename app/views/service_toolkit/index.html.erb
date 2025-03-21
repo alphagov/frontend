@@ -3,6 +3,9 @@
   content_for :title, "Service Toolkit - GOV.UK"
   content_for :main_classes, "govuk-!-padding-top-0"
 %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+<% end %>
 <%= render "govuk_publishing_components/components/inverse_header", {
   full_width: true,
   padding_top: 7,

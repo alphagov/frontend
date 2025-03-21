@@ -29,7 +29,7 @@
 
 <div class="govuk-width-container">
   <% content_item.collections.each do |collection| %>
-    <div class="app-collection govuk-!-margin-top-7">
+    <div class="service-toolkit">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-full">
           <%= render "govuk_publishing_components/components/heading", {
@@ -38,7 +38,7 @@
             margin_bottom: 1,
             id: collection["title"].parameterize,
           } %>
-          <p class="app-collection__description govuk-body-l"><%= collection["description"] %></p>
+          <p class="service-toolkit__description govuk-body-l"><%= collection["description"] %></p>
         </div>
       </div>
       <% collection["links"].each_slice(2) do |row_of_links| %>
@@ -51,7 +51,7 @@
                 font_size: "m",
                 margin_bottom: 2,
               } %>
-              <p class="app-collection__link-description govuk-body"><%= link["description"] %></p>
+              <p class="govuk-body"><%= link["description"] %></p>
             </div>
           <% end %>
         </div>

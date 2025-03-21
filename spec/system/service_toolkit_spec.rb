@@ -51,64 +51,15 @@ RSpec.describe "Service Toolkit page" do
         expect(page).to have_text "Extra skills, people and technology to help build your service"
       end
     end
+
+    it "has the correct collection links" do
+      within(".service-toolkit:nth-of-type(1)") do
+        expect(page).to have_link("Service Standard", href: "https://www.gov.uk/service-manual/service-standard")
+      end
+
+      within(".service-toolkit:nth-of-type(2)") do
+        expect(page).to have_link("Digital Marketplace", href: "https://www.gov.uk/digital-marketplace")
+      end
+    end
   end
 end
-
-# class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-
-#   test "the homepage includes the links from all collections" do
-#     setup_and_visit_content_item(
-#       "service_manual_service_toolkit",
-#       "details" => {
-#         "collections" => [
-#           {
-#             "title" => "Standards",
-#             "description" => "Meet the standards for government services",
-#             "links" => [
-#               {
-#                 "title" => "Service Standard",
-#                 "url" => "https://www.gov.uk/service-manual/service-standard",
-#                 "description" => "",
-#               },
-#             ],
-#           },
-#           {
-#             "title" => "Buying",
-#             "description" => "Skills and technology for building digital services",
-#             "links" => [
-#               {
-#                 "title" => "Digital Marketplace",
-#                 "url" => "https://www.gov.uk/digital-marketplace",
-#                 "description" => "",
-#               },
-#             ],
-#           },
-#         ],
-#       },
-#     )
-
-#     within(the_first_collection) do
-#       assert page.has_link? "Service Standard",
-#                             href: "https://www.gov.uk/service-manual/service-standard"
-#     end
-
-#     within(the_second_collection) do
-#       assert page.has_link? "Digital Marketplace",
-#                             href: "https://www.gov.uk/digital-marketplace"
-#     end
-#   end
-
-# private
-
-#   def collections
-#     find_all(".app-collection")
-#   end
-
-#   def the_first_collection
-#     collections[0]
-#   end
-
-#   def the_second_collection
-#     collections[1]
-#   end
-# end

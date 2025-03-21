@@ -15,19 +15,20 @@ RSpec.describe "Service Toolkit page" do
     it "has the correct title" do
       expect(page.title).to eq("Service Toolkit - GOV.UK")
     end
+
+    it "has the correct heading and description" do
+      within("h1") do
+        expect(page).to have_text("Design and build government services")
+      end
+
+      within(".gem-c-lead-paragraph") do
+        expect(page).to have_text("All you need to design, build and run services that meet government standards.")
+      end
+    end
   end
 end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-
-#   test "the service toolkit displays the introductory hero" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     assert page.has_content? <<~TEXT.chomp
-#       Design and build government services
-#       All you need to design, build and run services that meet government standards.
-#     TEXT
-#   end
 
 #   test "the homepage includes both collections" do
 #     setup_and_visit_content_item("service_manual_service_toolkit")

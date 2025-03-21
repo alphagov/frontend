@@ -11,15 +11,14 @@ RSpec.describe "Service Toolkit page" do
     it "displays the page" do
       expect(page.status_code).to eq(200)
     end
+
+    it "has the correct title" do
+      expect(page.title).to eq("Service Toolkit - GOV.UK")
+    end
   end
 end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-#   test "the service toolkit can be visited" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     assert page.has_title? "Service Toolkit"
-#   end
 
 #   test "the service toolkit does not include the new style feedback form" do
 #     setup_and_visit_content_item("service_manual_service_toolkit")

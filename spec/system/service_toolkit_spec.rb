@@ -20,13 +20,6 @@ end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
 
-#   test "the service toolkit does not include the new style feedback form" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     assert_not page.has_css?(".improve-this-page"),
-#                "Improve this page component should not be present on the page"
-#   end
-
 #   test "the service toolkit displays the introductory hero" do
 #     setup_and_visit_content_item("service_manual_service_toolkit")
 

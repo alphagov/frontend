@@ -25,16 +25,14 @@ RSpec.describe "Service Toolkit page" do
         expect(page).to have_text("All you need to design, build and run services that meet government standards.")
       end
     end
+
+    it "has two collections of links" do
+      expect(content_store_response["details"]["collections"].size).to eq 2
+    end
   end
 end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-
-#   test "the homepage includes both collections" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     assert_equal 2, collections.length, "Expected to find 2 collections"
-#   end
 
 #   test "the homepage includes the titles for both collections" do
 #     setup_and_visit_content_item("service_manual_service_toolkit")

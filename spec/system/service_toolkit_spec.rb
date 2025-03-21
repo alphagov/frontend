@@ -29,22 +29,20 @@ RSpec.describe "Service Toolkit page" do
     it "has two collections of links" do
       expect(content_store_response["details"]["collections"].size).to eq 2
     end
+
+    it "has the correct level 2 headings" do
+      within(".service-toolkit:nth-of-type(1) h2") do
+        expect(page).to have_text "Standards"
+      end
+
+      within(".service-toolkit:nth-of-type(2) h2") do
+        expect(page).to have_text "Buying"
+      end
+    end
   end
 end
 
 # class ServiceManualServiceToolkitTest < ActionDispatch::IntegrationTest
-
-#   test "the homepage includes the titles for both collections" do
-#     setup_and_visit_content_item("service_manual_service_toolkit")
-
-#     within(the_first_collection) do
-#       assert page.has_content? "Standards"
-#     end
-
-#     within(the_second_collection) do
-#       assert page.has_content? "Buying"
-#     end
-#   end
 
 #   test "the homepage includes the descriptions for both collections" do
 #     setup_and_visit_content_item("service_manual_service_toolkit")

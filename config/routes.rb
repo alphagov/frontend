@@ -137,6 +137,10 @@ Rails.application.routes.draw do
     get "*path", to: "landing_page#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("flexible_page") do
+    get "*path", to: "flexible_page#show"
+  end
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

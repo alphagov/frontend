@@ -31,7 +31,10 @@ class FindLocalCouncilController < ContentItemsController
     end
   rescue LocationError => e
     @location_error = e
-    render :index
+    respond_to do |format|
+      format.json { render json: { error: { message: e.message, submessage: e.sub_message } }, status: :not_found }
+      format.html { render :index }
+    end
   end
 
   def multiple_authorities

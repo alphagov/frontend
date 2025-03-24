@@ -1,5 +1,6 @@
 // This file contains the dependencies required by the application.
 //= require govuk_publishing_components/lib
+//= require govuk_publishing_components/components/contents-list-with-body
 //= require govuk_publishing_components/components/error-summary
 //= require govuk_publishing_components/components/govspeak
 //= require govuk_publishing_components/components/image-card

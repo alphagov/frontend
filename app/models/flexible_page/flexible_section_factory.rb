@@ -1,4 +1,4 @@
-module FlexiblePage
+class FlexiblePage
   class FlexibleSectionFactory
     def self.build(flexible_section_hash, flexible_page)
       block_class(flexible_section_hash["type"]).new(flexible_section_hash, flexible_page)

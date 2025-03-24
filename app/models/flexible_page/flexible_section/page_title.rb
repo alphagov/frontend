@@ -1,9 +1,9 @@
-module FlexiblePage
+class FlexiblePage
   module FlexibleSection
-    class PageTitle
+    class PageTitle < Base
       attr_reader :context, :heading_text, :lead_paragraph
 
-      def initialize(flexible_section_hash, landing_page)
+      def initialize(flexible_section_hash, flexible_page)
         super
 
         @context = data["context"]

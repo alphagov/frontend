@@ -1,9 +1,9 @@
-module FlexiblePage
+class FlexiblePage
   module FlexibleSection
-    class RichContent
+    class RichContent < Base
       attr_reader :content_list, :govspeak
 
-      def initialize(flexible_section_hash, landing_page)
+      def initialize(flexible_section_hash, flexible_page)
         super
 
         @content_list = data["content_list"]

@@ -103,6 +103,8 @@ he:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: שתף דף זה
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ he:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: תגובה ממשלתית
+      other: תגובות ממשלתיות
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ he:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: חדשות
+      other: חדשות
     oral_statement:
       one: הצהרה בעל פה לפרלמנט
       other: הצהרות בעל פה לפרלמנט
@@ -493,6 +501,9 @@ he:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: הודעה לעיתונות
+      other: הודעות לעיתונות
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ he:
       still_current_at: עדיין עדכני ב
       summary: סיכום
       updated: מעודכן
+    world_news_story:
+      one: חדשות עולמי
+      other: 'חדשות עולמיים '
     written_statement:
       one: הצהרה בכתב לפרלמנט
       other: הצהרות בכתב לפרלמנט

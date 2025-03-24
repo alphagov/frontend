@@ -103,6 +103,8 @@ sq:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Shpërdaj këtë faqe
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ sq:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Reagim qeveritar
+      other: Reagime qeveritare
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ sq:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Ngjarje
+      other: Ngjarje
     oral_statement:
       one: Deklarata gojore në Parlament
       other: Deklarata gojore në Parlament
@@ -493,6 +501,9 @@ sq:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Njoftimi shtypi
+      other: Njoftime shtypi
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ sq:
       still_current_at: Ende aktuale në
       summary: Përmbajtja
       updated: Përditësuar
+    world_news_story:
+      one: Historia e lajmeve botërore
+      other: Histori të lajmeve botërore
     written_statement:
       one: Deklaratë me shkrim në Parlament
       other: Deklarata me shkrim në Parlament

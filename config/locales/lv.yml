@@ -103,6 +103,8 @@ lv:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Kopīgot šo lapu
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ lv:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Valdības atbilde
+      other: Valdības atbildes
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ lv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Ziņa
+      other: Ziņas
     oral_statement:
       one: Mutisks paziņojums parlamentam
       other: Mutiski paziņojumi parlamentam
@@ -493,6 +501,9 @@ lv:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Paziņojums presei
+      other: Paziņojumi presei
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ lv:
       still_current_at: Joprojām aktuāli
       summary: Kopsavilkums
       updated: Atjaunināts
+    world_news_story:
+      one: Pasaules ziņa
+      other: Pasaules ziņas
     written_statement:
       one: Rakstisks ziņojums parlamentam
       other: Rakstiski ziņojumi parlamentam

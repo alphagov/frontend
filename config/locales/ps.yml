@@ -103,6 +103,8 @@ ps:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: دا پاه شریکه کړئ
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ ps:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: د حکومت غبرګون
+      other: د حکومت غبرګون
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ ps:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: د خبر کیسه
+      other: د خبرونو کیسې
     oral_statement:
       one: پارلماني غونډې ته وینا
       other: پارلمان ته شفاهي څرګندونې
@@ -493,6 +501,9 @@ ps:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: مطبوعاتي اعلامیه
+      other: مطبوعاتي اعلامیې
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ ps:
       still_current_at: په اوسني وخت کې
       summary: لنډيز
       updated: تازه شوی
+    world_news_story:
+      one: د نړۍ خبرونه
+      other: د نړۍ خبرونه
     written_statement:
       one: پارلمان ته لیکلې وینا
       other: پارلمان ته لیکلي بیانونه

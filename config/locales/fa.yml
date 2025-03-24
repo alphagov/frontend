@@ -103,6 +103,8 @@ fa:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: اشتراک‌گذاری این صفحه
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ fa:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: پاسخ دولتی
+      other: پاسخ‌های دولتی
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ fa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: گزارش خبری
+      other: گزارشات خبری
     oral_statement:
       one: بیانیه شفاهی به پارلمان
       other: بیانیه‌های شفاهی به پارلمان
@@ -493,6 +501,9 @@ fa:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: بیانیه مطبوعاتی
+      other: بیانیه‌های مطبوعاتی
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ fa:
       still_current_at: همچنان جاری است در
       summary: خلاصه
       updated: بروز شده
+    world_news_story:
+      one: گزارش خبری جهانی
+      other: گزارشات خبری جهانی
     written_statement:
       one: بیانیه کتبی به پارلمان
       other: بیانیه‌های کتبی به پارلمان

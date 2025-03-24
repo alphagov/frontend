@@ -103,6 +103,8 @@ nl:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Deel deze pagina
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ nl:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Overheidsantwoord
+      other: Overheidsantwoorden
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ nl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Nieuwsbericht
+      other: Nieuwsberichten
     oral_statement:
       one: Mondelinge verklaring voor het Parlement
       other: Mondelinge verklaringen aan het Parlement
@@ -493,6 +501,9 @@ nl:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Persbericht
+      other: Persberichten
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ nl:
       still_current_at: Nog steeds actueel op
       summary: Samenvatting
       updated: Bijgewerkt op
+    world_news_story:
+      one: Wereldnieuwsbericht
+      other: Wereldnieuwsberichten
     written_statement:
       one: Schriftelijke verklaring aan het Parlement
       other: Schriftelijke verklaringen aan het Parlement

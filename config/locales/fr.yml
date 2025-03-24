@@ -103,6 +103,8 @@ fr:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Partagez cette page
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ fr:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Réponse du gouvernement
+      other: Réponses du gouvernement
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ fr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Actualité
+      other: Actualités
     oral_statement:
       one: Déclaration orale au Parlement
       other: Déclarations orales au Parlement
@@ -493,6 +501,9 @@ fr:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Communiqué de presse
+      other: Communiqués de presse
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ fr:
       still_current_at: Toujours d'actualité à
       summary: Sommaire
       updated: Mis à jour
+    world_news_story:
+      one: Actualité du monde
+      other: Actualités du monde
     written_statement:
       one: Déclaration écrite au Parlement
       other: Déclarations écrites au Parlement

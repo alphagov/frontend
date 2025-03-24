@@ -1,0 +1,79 @@
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :news_article,
+    content_item: content_item.to_h %>
+<% end %>
+
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      context: I18n.t("formats.#{content_item.document_type}", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
+  </div>
+  <%= render "shared/translations" %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+  </div>
+</div>
+
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(@presenter.contributor_links),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
+
+<%= render "shared/history_notice", content_item: %>
+
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+  <%= render "govuk_publishing_components/components/notice", {
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation&.html_safe,
+    time: withdrawn_time_tag,
+    lang: "en",
+  } %>
+<% end %>
+
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds ">
+    <div class="content-bottom-margin">
+      <div class="responsive-bottom-margin">
+        <%= render "govuk_publishing_components/components/figure",
+          src: content_item.image["url"],
+          alt: content_item.image["alt_text"],
+          credit: content_item.image["credit"],
+          caption: content_item.image["caption"] if content_item.image %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
+        } do %>
+          <%= raw(content_item.body) %>
+        <% end %>
+      </div>
+
+      <div class="govuk-!-display-none-print responsive-bottom-margin">
+        <%= render "govuk_publishing_components/components/share_links",
+          links: share_links(content_item.base_path, content_item.title),
+          track_as_sharing: true,
+          title: t("components.share_links.share_this_page") %>
+      </div>
+
+      <%= render "govuk_publishing_components/components/published_dates", {
+        published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        history: formatted_history(content_item.history),
+      } %>
+    </div>
+  </div>
+
+  <%= render "shared/sidebar_navigation" %>
+</div>
+
+<%= render "shared/footer_navigation" %>

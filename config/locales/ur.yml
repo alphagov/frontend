@@ -103,6 +103,8 @@ ur:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: اس صفحے کو شیئر کریں
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ ur:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: حکومت کا جواب
+      other: حکومت کے جوابات
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ ur:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: خبروں کی کہانی
+      other: خبروں کی کہانیاں
     oral_statement:
       one: پارلیمان کے لیے زبانی بیان
       other: پارلیمان کے لیے زبانی بیانات
@@ -493,6 +501,9 @@ ur:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: پریس ریلیز
+      other: پریس ریلیزز
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ ur:
       still_current_at: ابھی تک حالیہ ہے از
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
+    world_news_story:
+      one: دنیا کی خبروں کی کہانی
+      other: دنیا کی خبروں کی کہانیاں
     written_statement:
       one: پالیمان کے لیے تحریری بیان
       other: پالیمان کے لیے تحریری بیانات

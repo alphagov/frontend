@@ -103,6 +103,8 @@ sw:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: Shiriki ukurasa huu
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ sw:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: Hatua iliyochukuliwa na serikali
+      other: Hatua zilizochukuliwa na serikali
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ sw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: Taarifa ya habari
+      other: Taarifa za habari
     oral_statement:
       one: Taarifa ya Matamshi kwa Bunge
       other: Taarifa za Matamshi kwa Bunge
@@ -493,6 +501,9 @@ sw:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: Taarifa kwa vyombo vya habari
+      other: Taarifa kwa vyombo vya habari
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ sw:
       still_current_at: Bado unapatikana katika
       summary: Muhtasari
       updated: Ulisasishwa
+    world_news_story:
+      one: Taarifa ya habari za kimataifa
+      other: Taarifa za habari za kimataifa
     written_statement:
       one: Taarifa ya Maandishi kwa Bunge
       other: Taarifa za Maandishi kwa Bunge

@@ -103,6 +103,8 @@ ta:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: இந்தப் பக்கத்தைப் பகிர்க
   continue:
   cookies:
     always_on:
@@ -434,6 +436,9 @@ ta:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      one: அரசாங்க பதில்
+      other: அரசாங்க பதில்கள்
     licence:
       change:
     local_transaction:
@@ -485,6 +490,9 @@ ta:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      one: செய்தி
+      other: செய்திகள்
     oral_statement:
       one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
       other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
@@ -493,6 +501,9 @@ ta:
       find_results:
       postcode:
       select_address:
+    press_release:
+      one: செய்திக் குறிப்பு
+      other: செய்திக் குறிப்புகள்
     simple_smart_answer:
       change:
       next_step:
@@ -532,6 +543,9 @@ ta:
       still_current_at: தற்போதும் உள்ளது
       summary: சுருக்கம்
       updated: புதுப்பிக்கப்பட்டது
+    world_news_story:
+      one: உலகச் செய்தி
+      other: உலகச் செய்திகள்
     written_statement:
       one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
       other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்

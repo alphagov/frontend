@@ -13,6 +13,27 @@ RSpec.describe LinkHelper do
     end
   end
 
+  describe "#share_links" do
+    let(:base_path) { "/base-path" }
+    let(:title) { "My Page" }
+
+    it "returns a facebook link" do
+      link = share_links(base_path, title).select { |l| l[:text] == "Facebook" }.first
+
+      expect(link).not_to be_nil
+      expect(link[:icon]).to eq("facebook")
+      expect(link[:href]).to eq("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path")
+    end
+
+    it "returns a twitter link" do
+      link = share_links(base_path, title).select { |l| l[:text] == "Twitter" }.first
+
+      expect(link).not_to be_nil
+      expect(link[:icon]).to eq("twitter")
+      expect(link[:href]).to eq("https://twitter.com/share?url=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path&text=My%20Page")
+    end
+  end
+
   describe "#govuk_styled_link" do
     let(:text) { "Some text" }
     let(:path) { "/path" }

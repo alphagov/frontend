@@ -103,6 +103,8 @@ zh:
   components:
     print_link:
       text:
+    share_links:
+      share_this_page: 分享本页面
   continue:
   cookies:
     always_on:
@@ -358,6 +360,8 @@ zh:
       take_part_suggestions:
       updated:
       your_views:
+    government_response:
+      other: 政府回应
     licence:
       change:
     local_transaction:
@@ -409,6 +413,8 @@ zh:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_story:
+      other: 新闻故事
     oral_statement:
       other: 议会口头声明
     place:
@@ -416,6 +422,8 @@ zh:
       find_results:
       postcode:
       select_address:
+    press_release:
+      other: 新闻稿
     simple_smart_answer:
       change:
       next_step:
@@ -453,6 +461,8 @@ zh:
       still_current_at: 有效范围
       summary: 总结
       updated: 已更新
+    world_news_story:
+      other: 世界新闻故事
     written_statement:
       other: 议会口头声明
   help:

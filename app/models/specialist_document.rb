@@ -93,11 +93,10 @@ private
       facet["filterable"] == false
   end
 
-  def allowed_value(allowed_values, metadata_facet_value)
+  def allowed_value(allowed_values, metadata_facet_values)
+    metadata_facet_values = [metadata_facet_values].flatten
     allowed_values.select do |allowed_value|
-      next unless allowed_value["value"] == metadata_facet_value ||
-        metadata_facet_value.is_a?(Array) &&
-          allowed_value["value"].in?(metadata_facet_value)
+      next unless allowed_value["value"].in?(metadata_facet_values)
 
       allowed_value.deep_symbolize_keys!
     end

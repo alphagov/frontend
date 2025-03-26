@@ -25,6 +25,16 @@ class LocalAuthority
     @parent = parent
   end
 
+  def to_h
+    {
+      name:,
+      homepage_url:,
+      tier:,
+      slug:,
+      parent: parent.to_h,
+    }.compact_blank
+  end
+
   private_class_method def self.make_from_api_response(response)
     if response["local_authorities"].count == 2
       parent = LocalAuthority.new(response["local_authorities"].reject { |la| la["tier"] == "district" }.first)

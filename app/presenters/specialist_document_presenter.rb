@@ -59,7 +59,7 @@ private
     when "link"
       facet_value_links(key, value)
     when "preset_text"
-      value.map { |v| v[:label] }.join(", ")
+      value.map { |v| v[:label] }
     else
       value
     end

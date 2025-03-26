@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   scope "/api" do
     scope "/local-authority" do
       get "/" => "api/local_authority#index"
+      get "/:authority_slug" => "api/local_authority#show"
     end
   end
 

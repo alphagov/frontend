@@ -15,6 +15,14 @@ module Api
       render json: { errors: { postcode: [I18n.t(e.message)] } }, status:
     end
 
+    def show
+      @local_authority = LocalAuthority.from_slug(params[:authority_slug])
+
+      render json: { local_authority: @local_authority.to_h }
+    rescue GdsApi::HTTPNotFound
+      render json: { errors: { local_authority_slug: ["Not found"] } }, status: :not_found
+    end
+
   private
 
     def postcode

@@ -1,0 +1,15 @@
+<nav class="govuk-grid-column-one-third">
+  <% if flexible_section.image %>
+    <img alt="<%= flexible_section.image['alt'] %>" loading="lazy" class="govuk-!-width-full" src="<%= flexible_section.image['src'] %>">
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/contents_list", {
+    contents: flexible_section.content_list
+  } %>
+</nav>
+
+<div class="govuk-grid-column-two-thirds">
+  <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= flexible_section.govspeak.html_safe %>
+  <% end %>
+</div>

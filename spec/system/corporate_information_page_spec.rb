@@ -1,15 +1,15 @@
 RSpec.describe "CorporateInformationPage" do
   context "when visiting a Corporate Information page" do
-    let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page") }
+    let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page_with_groups") }
 
     before do
-      content_store_has_example_item("/government/organisations/department-of-health/about", schema: :corporate_information_page, example: :corporate_information_page)
+      content_store_has_example_item("/government/organisations/department-of-health/about", schema: :corporate_information_page, example: :corporate_information_page_with_groups)
       visit "/government/organisations/department-of-health/about"
     end
 
     it "displays the title" do
       within(".gem-c-heading") do
-        expect(page).to have_title("About us - Department of Health - GOV.UK")
+        expect(page).to have_title("About us - Department of Health and Social Care - GOV.UK")
         expect(page).to have_css("h1", text: content_store_response["title"])
       end
     end
@@ -54,8 +54,8 @@ RSpec.describe "CorporateInformationPage" do
 
         it "displays group links" do
           within(".gem-c-govspeak") do
-            expect(page).to have_link("Transparency data", href: "/government/publications?departments%5B%5D=department-of-health&publication_type=transparency-data")
-            expect(page).to have_link("Jobs", href: "https://www.civilservicejobs.service.gov.uk/csr")
+            expect(page).to have_link("Our organisation chart", href: "https://data.gov.uk/dataset/04427362-663e-49e0-9103-8bc01dcaa2c7/organogram-of-staff-roles-and-salaries")
+            expect(page).to have_link("Procurement at DHSC", href: "/government/organisations/department-of-health-and-social-care/about/procurement")
           end
         end
       end

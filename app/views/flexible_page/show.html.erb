@@ -7,6 +7,20 @@
   } %>
 <% end %>
 
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs", {
+      collapse_on_mobile: true,
+      breadcrumbs: [
+        {
+          title: "Home",
+          url: "/"
+        },
+      ]
+    } %>
+  </div>
+<% end %>
+
 <% @content_item.flexible_sections.each do |flexible_section| %>
   <%= render_flexible_section(flexible_section) %>
 <% end %>

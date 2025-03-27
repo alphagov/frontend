@@ -21,6 +21,10 @@
   </div>
 <% end %>
 
-<% @content_item.flexible_sections.each do |flexible_section| %>
-  <%= render_flexible_section(flexible_section) %>
-<% end %>
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <% @content_item.flexible_sections.each do |flexible_section| %>
+      <%= render_flexible_section(flexible_section) %>
+    <% end %>
+  </div>
+</div>

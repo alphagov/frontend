@@ -1,0 +1,2 @@
+class FlexiblePage < ContentItem
+end

@@ -1,0 +1,12 @@
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= @content_item.description %>">
+
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", {
+    content_item: @content_item.to_h,
+    schema: :article,
+  } %>
+<% end %>
+
+<% @content_item.flexible_sections.each do |flexible_section| %>
+  <%= render_flexible_section(flexible_section) %>
+<% end %>

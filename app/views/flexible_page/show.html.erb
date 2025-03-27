@@ -7,3 +7,6 @@
   } %>
 <% end %>
 
+<% @content_item.flexible_sections.each do |flexible_section| %>
+  <%= render_flexible_section(flexible_section) %>
+<% end %>

@@ -15,5 +15,22 @@ RSpec.describe "Fields of operation page" do
     it "has the correct title" do
       expect(page.title).to eq("Fields of operation - GOV.UK")
     end
+
+    it "has the correct heading and context" do
+      within("h1") do
+        expect(page).to have_text("Fields of operation")
+      end
+      within(".gem-c-heading__context") do
+        expect(page).to have_text("British fatalities")
+      end
+    end
+
+    it "has the correct links" do
+      within(".govuk-list") do
+        puts page.html
+        expect(page).to have_link("A field of operation", href: "/government/fields-of-operation/field-of-operation-one")
+        expect(page).to have_link("Another field of operation", href: "/government/fields-of-operation/field-of-operation-two")
+      end
+    end
   end
 end

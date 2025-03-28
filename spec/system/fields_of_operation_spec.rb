@@ -11,5 +11,9 @@ RSpec.describe "Fields of operation page" do
     it "displays the page" do
       expect(page.status_code).to eq(200)
     end
+
+    it "has the correct title" do
+      expect(page.title).to eq("Fields of operation - GOV.UK")
+    end
   end
 end

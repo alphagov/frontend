@@ -151,7 +151,7 @@ GEM
       i18n (>= 1.8.11, < 2)
     ffi (1.17.1)
     find_a_port (1.0.1)
-    gds-api-adapters (98.4.0)
+    gds-api-adapters (99.0.0)
       addressable
       link_header
       null_logger
@@ -261,10 +261,10 @@ GEM
     marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.1.0)
-    mime-types (3.6.1)
+    mime-types (3.6.2)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0318)
+    mime-types-data (3.2025.0325)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
     minitest (5.25.5)

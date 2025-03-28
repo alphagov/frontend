@@ -88,6 +88,9 @@ Rails.application.routes.draw do
     end
 
     get "/news/:slug(.:locale)", to: "news_article#show"
+
+    get "/organisations/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"
+    get "/organisations/:organisation_slug/about/:slug(.:locale)", to: "corporate_information_page#show"
   end
 
   # Static error page routes - in practice used only during deploy, these don't have a

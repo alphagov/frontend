@@ -379,6 +379,8 @@ yi:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ yi:
       other:
     fatality_notice:
       alt_text:
+      few:
       field_of_operation:
+      many:
       none_added:
       one:
       operations_in:
       other:
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ yi:
         tsg_alt_text:
     speech:
       delivered_on:
+      few:
       location:
+      many:
       one:
       other:
+      two:
       written_on:
+      zero:
     start_now:
     take_part:
       one:

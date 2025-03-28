@@ -306,6 +306,8 @@ ja:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ ja:
       other: ケーススタディ
     fatality_notice:
       alt_text: 国防省の紋章
+      few:
       field_of_operation: 運用分野
+      many:
       none_added: この活動分野での死亡通知はまだ追加されていません。
+      one:
       operations_in: "%{location} での操作"
       other: 死亡通知
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ ja:
         tsg_alt_text: デザインロゴは、Designated Origin UK Protectedという文字の入った黒のスタンプです
     speech:
       delivered_on: 配信日：
+      few:
       location: 場所
+      many:
+      one:
       other: スピーチ
+      two:
       written_on: 記述日：
+      zero:
     start_now:
     take_part:
       other: 参加する

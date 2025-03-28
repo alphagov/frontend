@@ -379,6 +379,8 @@ et:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ et:
       other: Juhtumiuuringud
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
+      few:
       field_of_operation: Tegevusvaldkond
+      many:
       none_added: Selle tegevusvaldkonna kohta ei ole surmajuhtumeid veel lisatud.
       one: Surmateade
       operations_in: Toimingud asukohas %{location}
       other: Surmateated
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ et:
         tsg_alt_text: Skeemi logo on must tempel kirjaga Traditional Specialty UK Protected
     speech:
       delivered_on: Edastati
+      few:
       location: Asukoht
+      many:
       one: Kõne
       other: Kõned
+      two:
       written_on: Kirjutatud
+      zero:
     start_now:
     take_part:
       one: Osa võtma

@@ -306,6 +306,8 @@ vi:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ vi:
       other: Nghiên cứu điển hình
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
+      few:
       field_of_operation: Lĩnh vực hoạt động
+      many:
       none_added: Chưa có thông báo tử vong nào được thêm vào cho lĩnh vực hoạt động này.
+      one:
       operations_in: Hoạt động ở %{location}
       other: Thông báo tử vong
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ vi:
         tsg_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Traditional Speciality UK Protected”
     speech:
       delivered_on: Ngày giao
+      few:
       location: Vị trí
+      many:
+      one:
       other: Bài phát biểu
+      two:
       written_on: Ngày viết
+      zero:
     start_now:
     take_part:
       other: Tham gia

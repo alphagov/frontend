@@ -306,6 +306,8 @@ zh:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ zh:
       other: 案例研究
     fatality_notice:
       alt_text: 国防部徽章
+      few:
       field_of_operation: 经营领域
+      many:
       none_added: 目前还没有关于这一经营领域的死亡通知。
+      one:
       operations_in: 在 %{location} 经营
       other: 死亡通知
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ zh:
         tsg_alt_text: 该计划的标志是一个黑色的印章，上面写着“受传统专业英国保护”
     speech:
       delivered_on: 提交日期
+      few:
       location: 位置
+      many:
+      one:
       other: 演讲
+      two:
       written_on: 书写日期
+      zero:
     start_now:
     take_part:
       other: 参加

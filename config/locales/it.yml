@@ -379,6 +379,8 @@ it:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ it:
       other: Casi di studio
     fatality_notice:
       alt_text: Stemma del Ministero della Difesa
+      few:
       field_of_operation: Campo operativo
+      many:
       none_added: Non sono stati ancora aggiunti avvisi di morte per questo campo di attività.
       one: Avviso di morte
       operations_in: Operazioni in %{location}
       other: Avvisi di morte
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ it:
         tsg_alt_text: Il logo dello schema è un timbro nero con le parole Traditional Speciality UK Protected
     speech:
       delivered_on: Consegnato il
+      few:
       location: Posizione
+      many:
       one: Discorso
       other: Discorsi
+      two:
       written_on: Scritto il
+      zero:
     start_now:
     take_part:
       one: Prendere parte

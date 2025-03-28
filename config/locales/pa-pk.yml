@@ -379,6 +379,8 @@ pa-pk:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ pa-pk:
       other: کیس دی پڑھائی
     fatality_notice:
       alt_text: وزارتِ دفاع کریسٹ
+      few:
       field_of_operation: عمل کرن دا حلقہ
+      many:
       none_added: موت دی کوئی وی اطلاع شامل نئیں کیتی گئی ایس تھاں تے کم کرن لئی
       one: موت بارے نوٹس
       operations_in: ایندے بارے عمل %{location}
       other: موت بارے نوٹسز
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ pa-pk:
         tsg_alt_text: منصوبے دا لوگو اک بلیک سٹیمپ وچ اے تے اوندے تے ایہ لفظ لکھے نیں Traditional Speciality UK Protected
     speech:
       delivered_on: حوالے کیتا گیا
+      few:
       location: تھاں
+      many:
       one: تقریر
       other: تقریراں
+      two:
       written_on: ایس  تے لکھیا گیا
+      zero:
     start_now:
     take_part:
       one: حصہ لوؤ

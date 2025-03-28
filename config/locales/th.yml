@@ -306,6 +306,8 @@ th:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ th:
       other: กรณีศึกษา
     fatality_notice:
       alt_text: ตรากระทรวงกลาโหม
+      few:
       field_of_operation: พื้นที่ปฏิบัติการ
+      many:
       none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
+      one:
       operations_in: การดำเนินงานใน %{location}
       other: การแจ้งตาย
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ th:
         tsg_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Traditional Speciality UK Protected
     speech:
       delivered_on: ส่งมอบเมื่อ
+      few:
       location: ตำแหน่งที่ตั้ง
+      many:
+      one:
       other: สุนทรพจน์
+      two:
       written_on: เขียนเมื่อ
+      zero:
     start_now:
     take_part:
       other: มีส่วนร่วม

@@ -379,6 +379,8 @@ is:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ is:
       other: Ferilsathuganir
     fatality_notice:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
+      few:
       field_of_operation: Starfsvið
+      many:
       none_added: Engum tilkynningum um dauðsföll hefur verið bætt við fyrir þetta starfsvið.
       one: Tilkynning um dauðsfall
       operations_in: Starfsemi á %{location}
       other: Tilkynningar um dauðsfall
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ is:
         tsg_alt_text: Merki ráðagerðarinnar er svartur stimpill með orðunum Traditional Speciality UK Protected
     speech:
       delivered_on: Afhent þann
+      few:
       location: Staðsetning
+      many:
       one: Ræða
       other: Ræður
+      two:
       written_on: Skrifað þann
+      zero:
     start_now:
     take_part:
       one: Taka þátt

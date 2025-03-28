@@ -379,6 +379,8 @@ uz:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ uz:
       other: Ҳолатларнинг таҳлиллари
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
+      few:
       field_of_operation: Фаолият соҳаси
+      many:
       none_added: Ушбу фаолият соҳасида ўлим ҳолатлари ҳақида хабарномалар ҳали қўшилмаган.
       one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
       other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ uz:
         tsg_alt_text: Схема логотипи ўзи билан “Анъанавий мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
     speech:
       delivered_on: Етказиб берилди
+      few:
       location: Жойлашиш жойи
+      many:
       one: Нутқ
       other: Нутқлар
+      two:
       written_on: Ёзилган
+      zero:
     start_now:
     take_part:
       one: Иштирок этиш

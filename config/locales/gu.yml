@@ -379,6 +379,8 @@ gu:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ gu:
       other: કેસ સ્ટડીઝ
     fatality_notice:
       alt_text: સંરક્ષણ મંત્રાલય ક્રેસ્ટ
+      few:
       field_of_operation: કામગીરીનું ક્ષેત્ર
+      many:
       none_added: આ કામગીરીના ક્ષેત્રમાં હજુ સુધી કોઇ જાનહાનિ સૂચનાઓ ઉમેરાઈ નથી.
       one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
       other: મૃત્યુ અંગેની સૂચનાઓ
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ gu:
         tsg_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ટ્રેડિશનલ સ્પેશિયાલિટી UK પ્રોટેક્ટેડ શબ્દો છે
     speech:
       delivered_on: ના રોજ ડિલિવર થયું
+      few:
       location: સ્થાન
+      many:
       one: ભાષણ
       other: ભાષણો
+      two:
       written_on: પર લખેલ
+      zero:
     start_now:
     take_part:
       one: ભાગ લો

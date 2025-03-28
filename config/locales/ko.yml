@@ -306,6 +306,8 @@ ko:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ ko:
       other: 사례 연구
     fatality_notice:
       alt_text: 국방부 문장
+      few:
       field_of_operation: 운영 현장
+      many:
       none_added: 이 운영 분야의 사망 통지는 아직 추가되지 않았습니다.
+      one:
       operations_in: "%{Location} 내 운영"
       other: 사상자 공지
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ ko:
         tsg_alt_text: 정책 로고는 Traditional Speciality UK Protected라는 글자가 담긴 검정색 도장입니다
     speech:
       delivered_on: 행사 일시
+      few:
       location: 위치
+      many:
+      one:
       other: 연설문
+      two:
       written_on: 작성 날짜
+      zero:
     start_now:
     take_part:
       other: 참여하기

@@ -379,6 +379,8 @@ sv:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ sv:
       other: Fallstudier
     fatality_notice:
       alt_text: Försvarsministeriets vapensköld
+      few:
       field_of_operation: Verksamhetsområde
+      many:
       none_added: Det har ännu inte lagts till några meddelanden om dödsfall för detta verksamhetsområde.
       one: Meddelande om dödsfall
       operations_in: Verksamhet på %{location}
       other: Meddelanden om dödsfall
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ sv:
         tsg_alt_text: Systemets logotyp är en svart stämpel med orden Geographic Origin UK Protected.
     speech:
       delivered_on: Levererad den
+      few:
       location: Plats
+      many:
       one: Tal
       other: Tal
+      two:
       written_on: Skrivet på
+      zero:
     start_now:
     take_part:
       one: Delta

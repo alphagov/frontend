@@ -452,6 +452,8 @@ ro:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -466,10 +468,13 @@ ro:
       alt_text: Emblema Ministerului Apărării
       few:
       field_of_operation: Domeniul de activitate
+      many:
       none_added: Încă nu au fost adăugate notificări de accidente mortale în acest domeniu de activitate.
       one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
       other: Notificări accident mortal
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -599,9 +604,12 @@ ro:
       delivered_on: Livrat pe
       few:
       location: Locație
+      many:
       one: Discurs
       other: Discursuri
+      two:
       written_on: Scris pe
+      zero:
     start_now:
     take_part:
       few:

@@ -306,6 +306,8 @@ id:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ id:
       other: Studi kasus
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
+      few:
       field_of_operation: Bidang operasi
+      many:
       none_added: Belum ada pemberitahuan fatalitas yang ditambahkan untuk bidang operasi ini.
+      one:
       operations_in: Operasi di %{location}
       other: Pemberitahuan fatalitas
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ id:
         tsg_alt_text: Logo skema adalah cap hitam dengan kata-kata Traditional Speciality UK Protected
     speech:
       delivered_on: Dikirim pada
+      few:
       location: Lokasi
+      many:
+      one:
       other: Pidato
+      two:
       written_on: Ditulis pada
+      zero:
     start_now:
     take_part:
       other: Ikut serta

@@ -379,6 +379,8 @@ fi:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ fi:
       other: Tapaustutkimuksia
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
+      few:
       field_of_operation: Toiminta -alue
+      many:
       none_added: Kuolemantapauksia ei ole ilmoitettu lisätty tälle toiminta-alueelle.
       one: Kuolemantapauksia koskeva ilmoitus
       operations_in: Toiminnot paikassa %{location}
       other: Kuolemantapauksia koskevat ilmoitukset
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ fi:
         tsg_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Perinteinen erikoisuus Yhdistynyt kuningaskunta Suojattu
     speech:
       delivered_on: Toimitettu
+      few:
       location: Sijainti
+      many:
       one: Puhe
       other: Puheet
+      two:
       written_on: Kirjoitettu
+      zero:
     start_now:
     take_part:
       one: Osallistu

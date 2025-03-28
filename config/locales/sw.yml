@@ -379,6 +379,8 @@ sw:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ sw:
       other: Uchunguzi kifani
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
+      few:
       field_of_operation: Sehemu ya kazi
+      many:
       none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
       one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
       other: Notisi za idadi ya vifo
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ sw:
         tsg_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Traditional Speciality UK Protected
     speech:
       delivered_on: Iliwasilishwa mnamo
+      few:
       location: Mahali
+      many:
       one: Hotuba
       other: Hotuba
+      two:
       written_on: Iliandikwa mnamo
+      zero:
     start_now:
     take_part:
       one: Shiriki

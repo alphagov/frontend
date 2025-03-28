@@ -452,6 +452,8 @@ sk:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -466,10 +468,13 @@ sk:
       alt_text: Erb ministerstva obrany
       few:
       field_of_operation: Oblasť činnosti
+      many:
       none_added: Pre túto oblasť činnosti zatiaľ neboli pridané žiadne oznámenia o úmrtí.
       one: Oznámenie o úmrtí
       operations_in: Operácie v %{location}
       other: Oznámenia o úmrtí
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -599,9 +604,12 @@ sk:
       delivered_on: Doručené dňa
       few:
       location: Umiestnenie
+      many:
       one: Prejav
       other: Prejay
+      two:
       written_on: Napísané dňa
+      zero:
     start_now:
     take_part:
       few:

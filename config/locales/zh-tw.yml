@@ -306,6 +306,8 @@ zh-tw:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ zh-tw:
       other: 案例分析
     fatality_notice:
       alt_text: 國防部紋章
+      few:
       field_of_operation: 經營領域
+      many:
       none_added: 尚未為該操作領域新增死亡通知。
+      one:
       operations_in: 在 %{location} 的領域
       other: 死亡通知
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ zh-tw:
         tsg_alt_text: 項目標識為黑色印章，上面寫著「傳統特產受英國保護」
     speech:
       delivered_on: 運送
+      few:
       location: 地點
+      many:
+      one:
       other: 演說
+      two:
       written_on: 寫在
+      zero:
     start_now:
     take_part:
       other: 參與

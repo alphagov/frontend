@@ -452,6 +452,8 @@ lt:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -466,10 +468,13 @@ lt:
       alt_text: Apsaugos ministerijos herbas
       few:
       field_of_operation: Veiklos sritis
+      many:
       none_added: Šioje srityje kol kas neskelbiamas apie nelaimes.
       one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
       other: Pranešimas apie nelaimes
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -599,9 +604,12 @@ lt:
       delivered_on: Pateikta
       few:
       location: Vieta
+      many:
       one: Kalba
       other: Kalbos
+      two:
       written_on: Parašymo data
+      zero:
     start_now:
     take_part:
       few:

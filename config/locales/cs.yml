@@ -452,6 +452,8 @@ cs:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -466,10 +468,13 @@ cs:
       alt_text: Ministerstvo obrany
       few:
       field_of_operation: Oblast provozu
+      many:
       none_added: Pro tuto oblast činnosti zatím nebyla přidána žádná oznámení o úmrtí.
       one: Oznámení o úmrtí
       operations_in: Operace v %{location}
       other: Oznámení o úmrtí
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -599,9 +604,12 @@ cs:
       delivered_on: Doručeno dne
       few:
       location: Sídlo
+      many:
       one: Projev
       other: Projevy
+      two:
       written_on: Odepsané
+      zero:
     start_now:
     take_part:
       few:

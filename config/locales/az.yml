@@ -379,6 +379,8 @@ az:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ az:
       other: Nümunə üzrə araşdırmalar
     fatality_notice:
       alt_text: Müdafiə nazirliyinin emblemi
+      few:
       field_of_operation: Əməliyyat sahəsi
+      many:
       none_added: Bu iş sahəsi üzrə hələ heç bir ölüm hadisəsi bildirişləri əlavə edilməyib.
       one: Ölüm hadisəsi bildirişi
       operations_in: "%{location}-də olan əməliyyatlar"
       other: Ölüm hadisəsi bildirişləri
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ az:
         tsg_alt_text: Qrafik loqo üzərində "Ənənəvi məhsul BK qorunur" sözləri olan qara möhürdür
     speech:
       delivered_on: Çatdırılıb
+      few:
       location: Yer
+      many:
       one: Nitq
       other: Nitqlər
+      two:
       written_on: Yazılma tarixi
+      zero:
     start_now:
     take_part:
       one: İştirak edin

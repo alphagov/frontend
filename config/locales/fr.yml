@@ -379,6 +379,8 @@ fr:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ fr:
       other: Etudes de cas
     fatality_notice:
       alt_text: Emblème du ministère de la défense
+      few:
       field_of_operation: Champ d'opération
+      many:
       none_added: Aucun avis de décès n'a encore été ajouté pour ce domaine d'activité.
       one: Avis de décès
       operations_in: Opérations à %{location}
       other: Avis de décès
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ fr:
         tsg_alt_text: Le logo du système est un cachet noir portant la mention "Spécialité traditionnelle protégée par le Royaume-Uni"
     speech:
       delivered_on: Livré le
+      few:
       location: Emplacement
+      many:
       one: Discours
       other: Discours
+      two:
       written_on: Rédigé le
+      zero:
     start_now:
     take_part:
       one: Participer

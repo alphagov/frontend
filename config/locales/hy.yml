@@ -379,6 +379,8 @@ hy:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ hy:
       other: Մասնավոր դեպքի ուսումնասիրություններ
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
+      few:
       field_of_operation: Գործունեության ոլորտ
+      many:
       none_added: 'Գործունեության այս ոլորտի համար դժբախտ պատահարի ծանուցումներ դեռևս չեն ավելացվել:'
       one: Դժբախտ պատահարի ծանուցում
       operations_in: Գործունեություն % {location}-ում
       other: Դժբախտ պատահարի ծանուցումներ
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ hy:
         tsg_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Traditional Speciality UK Protected
     speech:
       delivered_on: Ուղարկվել է
+      few:
       location: Տեղանք
+      many:
       one: Հրապարակային խոսք
       other: Հրապարակային խոսքեր
+      two:
       written_on: Գրվել է
+      zero:
     start_now:
     take_part:
       one: Մասնակցություն

@@ -379,6 +379,8 @@ lv:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ lv:
       other: Piemēri
     fatality_notice:
       alt_text: Aizsardzības ministrijas ģerbonis
+      few:
       field_of_operation: Darbības joma
+      many:
       none_added: Šajā darbības jomā vēl nav neviena paziņojuma par bojāgājušajiem.
       one: Nāves paziņojums
       operations_in: 'Darbības šeit: %{location}'
       other: Nāves paziņojumi
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ lv:
         tsg_alt_text: Shēmas logotips ir melns zīmogs ar vārdiem Traditional Speciality UK Protected
     speech:
       delivered_on: Piegādāts
+      few:
       location: Atrašanās vieta
+      many:
       one: Runa
       other: Runas
+      two:
       written_on: Uzrakstīts uz
+      zero:
     start_now:
     take_part:
       one: Piedalīties

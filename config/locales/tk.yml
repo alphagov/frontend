@@ -379,6 +379,8 @@ tk:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ tk:
       other: Ýagdaý seljermeleri
     fatality_notice:
       alt_text: Goranmak ministrliginiň nyşany
+      few:
       field_of_operation: Iş meýdany
+      many:
       none_added: Bu ugurda entek ölüm howpy barada duýduryş habary ýok.
       one: Ölüm howpy barada duýduryş
       operations_in: "%{location} ýerindäki işler"
       other: Ölüm howpy barada duýduryşlar
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ tk:
         tsg_alt_text: Shemanyň nyşany Traditional Speciality UK Protected sözlerini özünde saklaýan gara ştampdyr.
     speech:
       delivered_on: 'Gowşuryldy:'
+      few:
       location: Ýerleşýän ýeri
+      many:
       one: Çykyş
       other: Çykyşlar
+      two:
       written_on: 'Ýazylan:'
+      zero:
     start_now:
     take_part:
       one: Gatnaşmak

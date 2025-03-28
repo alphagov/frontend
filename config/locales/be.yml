@@ -525,6 +525,8 @@ be:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -546,6 +548,8 @@ be:
       one: Паведамлення аб смерці
       operations_in: Дзейнасць у %{location}
       other: Паведамлення аб смерці
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -682,7 +686,9 @@ be:
       many:
       one: Выступ
       other: Выступы
+      two:
       written_on: Напісана
+      zero:
     start_now:
     take_part:
       few:

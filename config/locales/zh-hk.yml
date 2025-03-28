@@ -306,6 +306,8 @@ zh-hk:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -314,10 +316,15 @@ zh-hk:
       other: 案例研究
     fatality_notice:
       alt_text: 國防部徽章
+      few:
       field_of_operation: 行動領域
+      many:
       none_added: 此運作領域仍未加入任何死亡通知。
+      one:
       operations_in: 行動位置 %{location}
       other: 安全事故通知
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -437,9 +444,14 @@ zh-hk:
         tsg_alt_text: 該計劃之標誌為一黑色印章，帶有「英國傳統特產保護」之字樣
     speech:
       delivered_on: 交付時間
+      few:
       location: 地點
+      many:
+      one:
       other: 演講
+      two:
       written_on: 記載於
+      zero:
     start_now:
     take_part:
       other: 參加活動

@@ -379,6 +379,8 @@ dr:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ dr:
       other: مطالعات موردی
     fatality_notice:
       alt_text: وزارت دفاع
+      few:
       field_of_operation: ساحهء عملیات
+      many:
       none_added: هنوز هیچ خبر مرگ و میر در این بخش عملیات اضافه نشده است.
       one: اطلاعیه مرگ و میر
       operations_in: عملیات در%{location}
       other: اطلاعیه هایی مرگ و میر
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ dr:
         tsg_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتTraditional Specialty UK Protected است
     speech:
       delivered_on: تحویل داده شد به
+      few:
       location: موقعیت
+      many:
       one: سخنرانی
       other: سخنرانی ها
+      two:
       written_on: نوشته شده است د
+      zero:
     start_now:
     take_part:
       one: سهم بگیرید

@@ -525,6 +525,8 @@ pl:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -546,6 +548,8 @@ pl:
       one: Informacja o śmierci
       operations_in: Działania w %{location}
       other: Informacje o śmierci
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -682,7 +686,9 @@ pl:
       many:
       one: Przemówienie
       other: Przemówienia
+      two:
       written_on: Napisano o
+      zero:
     start_now:
     take_part:
       few:

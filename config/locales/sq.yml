@@ -379,6 +379,8 @@ sq:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ sq:
       other: Raste studimi
     fatality_notice:
       alt_text: Stema e Ministrisë së Mbrojtjes
+      few:
       field_of_operation: Fusha e operimit
+      many:
       none_added: Ende nuk është shtuar asnjë njoftim për fatalitet për këtë fushë të funksionimit.
       one: Njoftim fataliteti
       operations_in: Operacione në %{location}
       other: Njoftime fataliteti
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ sq:
         tsg_alt_text: Logoja e skemës është një pullë e zezë me fjalët Traditional Specialty UK Protected
     speech:
       delivered_on: Dorëzuar më
+      few:
       location: Vendndodhja
+      many:
       one: Fjalim
       other: Fjalime
+      two:
       written_on: Shkruar në
+      zero:
     start_now:
     take_part:
       one: Merr pjesë

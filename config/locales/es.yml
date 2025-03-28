@@ -379,6 +379,8 @@ es:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ es:
       other: Casos de estudio práctico
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
+      few:
       field_of_operation: Campo de operación
+      many:
       none_added: Aún no se han agregado los avisos de defunción para este campo de operación.
       one: Aviso de defunción
       operations_in: Operaciones en %{location}
       other: Avisos de defunción
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ es:
         tsg_alt_text: El logotipo del esquema es un sello negro con las palabras Traditional Speciality UK Protected
     speech:
       delivered_on: Entregado el
+      few:
       location: Ubicación
+      many:
       one: Discurso
       other: Discursos
+      two:
       written_on: Escrito en
+      zero:
     start_now:
     take_part:
       one: Participar

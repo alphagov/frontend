@@ -379,6 +379,8 @@ hu:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ hu:
       other: Esettanulmányok
     fatality_notice:
       alt_text: A Védelmi Minisztérium címere
+      few:
       field_of_operation: Működési terület
+      many:
       none_added: Ehhez a működési területhez még nem lettek hozzáadva halálesetekkel kapcsolatos értesítések.
       one: Halálesettel kapcsolatos értesítés
       operations_in: 'Tevékenységek itt: %{location}'
       other: Halálesettel kapcsolatos értesítések
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ hu:
         tsg_alt_text: 'A tervezet logója egy fekete pecsét a következő szavakkal: Traditional Speciality UK Protected'
     speech:
       delivered_on: 'Kézbesítve ekkor:'
+      few:
       location: Helyszín
+      many:
       one: Beszéd
       other: Beszédek
+      two:
       written_on: 'Írás időpontja:'
+      zero:
     start_now:
     take_part:
       one: Részvétel

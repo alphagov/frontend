@@ -379,6 +379,8 @@ fa:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ fa:
       other: مطالعات موردی
     fatality_notice:
       alt_text: تاج وزارت دفاع
+      few:
       field_of_operation: زمینه فعالیت
+      many:
       none_added: هنوز هیچ اعلامیه مرگ‌و‌میری برای این زمینه فعالیت اضافه نشده است.
       one: اطلاعیه مرگ‌و‌میر
       operations_in: فعالیت در %{location}
       other: اطلاعیه‌های مرگ‌و‌میر
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ fa:
         tsg_alt_text: آرم طرح یک مهر سیاه با این کلمات است Traditional Speciality UK Protected
     speech:
       delivered_on: تخویل شده در
+      few:
       location: موقعیت مکانی
+      many:
       one: سخنرانی
       other: سخنرانی‌ها
+      two:
       written_on: نوشته شده در
+      zero:
     start_now:
     take_part:
       one: مشارکت

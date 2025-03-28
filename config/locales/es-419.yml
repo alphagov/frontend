@@ -379,6 +379,8 @@ es-419:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ es-419:
       other: Estudios de caso
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
+      few:
       field_of_operation: Campo de operación
+      many:
       none_added: Todavía no se han añadido avisos de víctimas fatales para esta área de operaciones.
       one: Aviso de fallecimiento
       operations_in: Operaciones en %{location}
       other: Avisos de fallecimiento
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ es-419:
         tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
     speech:
       delivered_on: Entregado en
+      few:
       location: Ubicación
+      many:
       one: Discurso
       other: Discursos
+      two:
       written_on: Escrito en
+      zero:
     start_now:
     take_part:
       one: Participe

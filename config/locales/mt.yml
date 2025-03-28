@@ -525,6 +525,8 @@ mt:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -546,6 +548,8 @@ mt:
       one: Avviż dwar fatalità
       operations_in: Operazzjonijiet fil- %{location}
       other: Avviżi dwar fatalitajiet
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -682,7 +686,9 @@ mt:
       many:
       one: Diskors
       other: Diskorsi
+      two:
       written_on: Miktub nhar
+      zero:
     start_now:
     take_part:
       few:

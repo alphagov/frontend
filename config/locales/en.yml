@@ -381,6 +381,8 @@ en:
       search_postcode_html: <a href="/contact-electoral-registration-office" class="govuk-link">Search for a different postcode</a>
       title: Your local council
   error: Error
+  fields_of_operation:
+    context: British fatalities
   find: Find
   formats:
     authored_article:
@@ -391,11 +393,15 @@ en:
       other: Case studies
     fatality_notice:
       alt_text: Ministry of Defence crest
+      few:
       field_of_operation: Field of operation
+      many:
       none_added: There have been no fatality notices added for this field of operation yet.
       one: Fatality notice
       operations_in: Operations in %{location}
       other: Fatality notices
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
     get_involved:
@@ -522,10 +528,14 @@ en:
         tsg_alt_text: The scheme logo is a black stamp with the words Traditional Speciality UK Protected
     speech:
       delivered_on: Delivered on
+      few:
       location: Location
+      many:
       one: Speech
       other: Speeches
+      two:
       written_on: Written on
+      zero:
     start_now: Start now
     take_part:
       one: Take part

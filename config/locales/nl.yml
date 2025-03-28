@@ -379,6 +379,8 @@ nl:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ nl:
       other: Casestudies
     fatality_notice:
       alt_text: Wapen van het ministerie van Defensie
+      few:
       field_of_operation: Gebied van operatie
+      many:
       none_added: Er zijn nog geen meldingen van sterfgevallen toegevoegd voor dit werkgebied.
       one: Kennisgeving van overlijden
       operations_in: Operaties in %{location}
       other: Kennisgevingen van overlijden
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ nl:
         tsg_alt_text: Het logo van de regeling is een zwart stempel met de woorden Traditional Speciality UK Protected
     speech:
       delivered_on: Geleverd op
+      few:
       location: Plaats
+      many:
       one: Toespraak
       other: Toespraken
+      two:
       written_on: Geschreven op
+      zero:
     start_now:
     take_part:
       one: Neem deel

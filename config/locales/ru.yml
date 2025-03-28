@@ -525,6 +525,8 @@ ru:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -546,6 +548,8 @@ ru:
       one: Уведомление о несчастном случае
       operations_in: Деятельность в  %{location}
       other: Уведомления о несчастных случаях
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -682,7 +686,9 @@ ru:
       many:
       one: Текст выступления
       other: Тексты выступлений
+      two:
       written_on: Написано на
+      zero:
     start_now:
     take_part:
       few:

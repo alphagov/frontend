@@ -525,6 +525,8 @@ uk:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -546,6 +548,8 @@ uk:
       one: Повідомлення про нещасний випадок зі смертельним наслідком
       operations_in: Операції в %{location}
       other: Повідомлення про нещасний випадок зі смертельним наслідком
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -682,7 +686,9 @@ uk:
       many:
       one: Виступ
       other: Виступи
+      two:
       written_on: Написано
+      zero:
     start_now:
     take_part:
       few:

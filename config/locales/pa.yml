@@ -379,6 +379,8 @@ pa:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ pa:
       other: ਕੇਸ ਅਧਿਐਨ
     fatality_notice:
       alt_text: ਰੱਖਿਆ ਮੰਤਰਾਲਾ ਸਿਖਰ
+      few:
       field_of_operation: ਕਾਰਜ ਖੇਤਰ
+      many:
       none_added: ਇਸ ਕਾਰਜ ਦੇ ਖੇਤਰ ਵਿੱਚ ਅਜੇ ਤੱਕ ਕੋਈ ਘਾਤਕ ਸੂਚਨਾ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ।
       one: ਘਾਤਕ ਸੂਚਨਾ
       operations_in: "%{location} ਵਿੱਚ ਕਾਰਜ"
       other: ਘਾਤਕ ਸੂਚਨਾ
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ pa:
         tsg_alt_text: ਸਕੀਮ ਦਾ ਲੋਗੋ ਟ੍ਰੈਡੀਸ਼ਨਲ ਸਪੈਸ਼ਲਿਟੀ ਯੂਕੇ ਪ੍ਰੋਟੈਕਟਡ ਸ਼ਬਦਾਂ ਨਾਲ ਇੱਕ ਕਾਲਾ ਮੋਹਰ ਹੈ
     speech:
       delivered_on: "'ਤੇ ਦਿੱਤਾ ਗਿਆ"
+      few:
       location: ਟਿਕਾਣਾ
+      many:
       one: ਭਾਸ਼ਣ
       other: ਭਾਸ਼ਣ
+      two:
       written_on: "'ਤੇ ਲਿਖਿਆ ਗਿਆ"
+      zero:
     start_now:
     take_part:
       one: ਹਿੱਸਾ ਲੈਣਾ

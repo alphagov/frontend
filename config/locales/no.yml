@@ -379,6 +379,8 @@
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@
       other: Casestudier
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
+      few:
       field_of_operation: Operasjonsfelt
+      many:
       none_added: Det har ikke blitt lagt til noen meldinger om dødsfall for dette operasjonsfeltet ennå.
       one: Melding om dødsfall
       operations_in: Operasjoner i %{location}
       other: Meldinger om dødsfall
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@
         tsg_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
     speech:
       delivered_on: Levert på
+      few:
       location: Plassering
+      many:
       one: Tale
       other: Taler
+      two:
       written_on: Skrevet på
+      zero:
     start_now:
     take_part:
       one: Delta

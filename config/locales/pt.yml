@@ -379,6 +379,8 @@ pt:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ pt:
       other: Estudos de caso
     fatality_notice:
       alt_text: Brasão do Ministério da Defesa
+      few:
       field_of_operation: Campo de operação
+      many:
       none_added: Ainda não foram adicionados avisos de fatalidade para este campo de operação.
       one: Aviso de fatalidade
       operations_in: Operações em %{location}
       other: Avisos de fatalidade
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ pt:
         tsg_alt_text: O logotipo do sistema é um carimbo preto com as palavras "Traditional Speciality UK Protected" (Especialidade Tradicional Reino Unido Protegida)
     speech:
       delivered_on: Entregue em
+      few:
       location: Local
+      many:
       one: Discurso
       other: Discursos
+      two:
       written_on: Escrito em
+      zero:
     start_now:
     take_part:
       one: Participar

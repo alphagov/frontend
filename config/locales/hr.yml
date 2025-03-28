@@ -452,6 +452,8 @@ hr:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -466,10 +468,13 @@ hr:
       alt_text: Grb Ministarstva obrane
       few:
       field_of_operation: Područje djelovanja
+      many:
       none_added: Za ovo područje djelovanja još nema dodanih obavijesti o smrtnim slučajevima.
       one: Obavijest o smrtnom slučaju
       operations_in: Operacije u %{location}
       other: Obavijest o smrtnim slučajevima
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -599,9 +604,12 @@ hr:
       delivered_on: Dostavljeno
       few:
       location: Mjesto
+      many:
       one: Govor
       other: Govori
+      two:
       written_on: Napisano
+      zero:
     start_now:
     take_part:
       few:

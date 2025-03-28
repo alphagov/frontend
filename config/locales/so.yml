@@ -379,6 +379,8 @@ so:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ so:
       other: Daraasado
     fatality_notice:
       alt_text: Calaamada Wasaarada Difaaca
+      few:
       field_of_operation: Hawalaha dibadaa
+      many:
       none_added: Ma jiraan wax ogaysiisyada muhiimka ah oo lagu daray goobtan shaqada wali.
       one: Ogeysiiska masiibooyinka
       operations_in: Hawalaha %{location}
       other: Ogeysiisyada masiibooyinka
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ so:
         tsg_alt_text: Jaantuska loogadu waa shaabad madaw taasoo erayo lagu nashqadeeyay Dhaqaan u gaar ah UK Ilaashan ah
     speech:
       delivered_on: Loo diray
+      few:
       location: Goobta
+      many:
       one: Khudbad
       other: Khudbado
+      two:
       written_on: Lagu qoray
+      zero:
     start_now:
     take_part:
       one: Ka qeybgal

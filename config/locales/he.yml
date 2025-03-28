@@ -379,6 +379,8 @@ he:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ he:
       other: מקרי בוחן
     fatality_notice:
       alt_text: סמל משרד הביטחון
+      few:
       field_of_operation: תחום הפעולה
+      many:
       none_added: עדיין לא נוספו הודעות פטירה על תחום פעולה זה.
       one: הודעת פטירה
       operations_in: פעולות ב- %{location}
       other: הודעות פטירה
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ he:
         tsg_alt_text: הלוגו של התוכנית הוא חותמת שחורה שעליה כתוב "המומחיות המסורתית מוגנת בבריטניה"
     speech:
       delivered_on: נמסר ב
+      few:
       location: מיקום
+      many:
       one: נאום
       other: נאומים
+      two:
       written_on: כתוב על
+      zero:
     start_now:
     take_part:
       one: קח חלק

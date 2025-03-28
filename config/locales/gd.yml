@@ -525,6 +525,8 @@ gd:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -541,11 +543,13 @@ gd:
       alt_text: Suaitheantas rialtais Chónaidhme
       few:
       field_of_operation: Réimse oibríochta
+      many:
       none_added: Níor cuireadh aon fhógra báis leis an réimse gníomhaíochta seo.
       one: Obituary
       operations_in: Idirbhearta I %{location}
       other: Obituary
       two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -679,10 +683,12 @@ gd:
       delivered_on: Seachadadh ar
       few:
       location: Suíomh
+      many:
       one: Óráid
       other: Óráid
       two:
       written_on: Scríobh an
+      zero:
     start_now:
     take_part:
       few:

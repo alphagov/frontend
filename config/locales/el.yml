@@ -379,6 +379,8 @@ el:
       search_postcode_html:
       title:
   error:
+  fields_of_operation:
+    context:
   find:
   formats:
     authored_article:
@@ -389,11 +391,15 @@ el:
       other: Μελέτες περιπτώσεων
     fatality_notice:
       alt_text: Οικόσημο Υπουργείου Άμυνας
+      few:
       field_of_operation: Πεδίο λειτουργίας
+      many:
       none_added: Δεν έχουν προστεθεί ακόμη ανακοινώσεις θανάτου για αυτό το πεδίο λειτουργίας.
       one: Ανακοίνωση θανάτου
       operations_in: Λειτουργίες στην τοποθεσία %{location}
       other: Ανακοινώσεις θανάτου
+      two:
+      zero:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:
@@ -517,10 +523,14 @@ el:
         tsg_alt_text: Το λογότυπο του σχεδίου είναι μια μαύρη σφραγίδα με τις λέξεις Traditional Specialty UK Protected
     speech:
       delivered_on: Παραδόθηκε στις
+      few:
       location: Τοποθεσία
+      many:
       one: Ομιλία
       other: Ομιλίες
+      two:
       written_on: Γράφτηκε στις
+      zero:
     start_now:
     take_part:
       one: Συμμετοχή

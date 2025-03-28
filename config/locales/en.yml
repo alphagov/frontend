@@ -697,10 +697,6 @@ en:
       popular: Popular on GOV.UK
       popular_links_heading: Popular on GOV.UK
       promotion_slots:
-      - text: Find out about the changes announced in the Spring Statement.
-        title: Spring Statement 2025
-        href: "/government/topical-events/spring-statement-2025"
-        image_src: homepage/spring-statement.png
       - text: Search and apply for jobs in England, Scotland and Wales.
         title: Find a job
         href: "/find-a-job"
@@ -709,6 +705,10 @@ en:
         title: National Insurance
         href: "/check-national-insurance-record"
         image_src: homepage/national-insurance-featured.png
+      - text: Find out what support is available to help with the cost of living.
+        title: Cost of living support
+        href: "/cost-of-living"
+        image_src: homepage/cost-of-living-featured.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

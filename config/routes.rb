@@ -90,6 +90,9 @@ Rails.application.routes.draw do
     get "/news/:slug(.:locale)", to: "news_article#show"
   end
 
+  # Service toolkit page
+  get "/service-toolkit", to: "service_toolkit#index"
+
   # Static error page routes - in practice used only during deploy, these don't have a
   # published route so can't be accessed from outside
   get "/static-error-pages/:error_code.html", to: "static_error_pages#show"

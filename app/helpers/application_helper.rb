@@ -24,7 +24,7 @@ module ApplicationHelper
   def show_breadcrumbs?(content_item)
     return false if content_item.nil?
 
-    no_breadcrumbs_for = %w[homepage landing_page]
+    no_breadcrumbs_for = %w[homepage landing_page service_manual_service_toolkit]
 
     return false if no_breadcrumbs_for.include?(content_item.schema_name)
 

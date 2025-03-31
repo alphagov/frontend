@@ -1,0 +1,64 @@
+<%
+  add_view_stylesheet("service-toolkit")
+  content_for :title, "Service Toolkit - GOV.UK"
+  content_for :main_classes, "govuk-!-padding-top-0"
+%>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+<% end %>
+<%= render "govuk_publishing_components/components/inverse_header", {
+  full_width: true,
+  padding_top: 7,
+  margin_bottom: 7,
+} do %>
+  <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Design and build government services",
+          font_size: "xl",
+          heading_level: 1,
+          inverse: true,
+          margin_bottom: 6,
+        } %>
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: "All you need to design, build and run services that meet government standards.",
+          inverse: true,
+        } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="govuk-width-container">
+  <% content_item.collections.each do |collection| %>
+    <div class="service-toolkit">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: collection["title"],
+            font_size: "l",
+            margin_bottom: 1,
+            id: collection["title"].parameterize,
+          } %>
+          <p class="govuk-body-l"><%= collection["description"] %></p>
+        </div>
+      </div>
+      <% collection["links"].each_slice(2) do |row_of_links| %>
+        <div class="govuk-grid-row">
+          <% row_of_links.each do | link | %>
+            <div class="govuk-grid-column-one-half">
+              <%= render "govuk_publishing_components/components/heading", {
+                text: sanitize(link_to link["title"], link["url"], class: "govuk-link"),
+                heading_level: 3,
+                font_size: "m",
+                margin_bottom: 2,
+              } %>
+              <p class="govuk-body"><%= link["description"] %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

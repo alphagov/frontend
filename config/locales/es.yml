@@ -490,6 +490,9 @@ es:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Artículo
+      other: Artículos
     news_story:
       one: Noticia
       other: Noticias

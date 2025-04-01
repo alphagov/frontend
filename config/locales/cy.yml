@@ -803,6 +803,13 @@ cy:
       valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
+    news_article:
+      few:
+      many:
+      one: Erthygl newyddion
+      other: Erthyglau newyddion
+      two:
+      zero:
     news_story:
       few:
       many:

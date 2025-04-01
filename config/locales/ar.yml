@@ -798,6 +798,13 @@ ar:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      many:
+      one: مقال إخباري
+      other: مقالات إخبارية
+      two:
+      zero:
     news_story:
       few:
       many:

@@ -490,6 +490,9 @@ he:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: מאמר חדשות
+      other: מאמרי חדשות
     news_story:
       one: חדשות
       other: חדשות

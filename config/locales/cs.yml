@@ -567,6 +567,10 @@ cs:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      one: Zpravodajský článek
+      other: Zpravodajské články
     news_story:
       few:
       one: Zpravodajský příběh

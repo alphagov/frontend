@@ -413,6 +413,8 @@ id:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      other: Artikel berita
     news_story:
       other: Cerita berita
     oral_statement:

@@ -644,6 +644,11 @@ uk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      many:
+      one: Новини
+      other: Новини
     news_story:
       few:
       many:

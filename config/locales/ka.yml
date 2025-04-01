@@ -490,6 +490,9 @@ ka:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: ახალი ამბების სტატია
+      other: ახალი ამბების სტატიები
     news_story:
       one: ახალი ამბავი
       other: ახალი ამბები

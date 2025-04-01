@@ -490,6 +490,9 @@ tr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Haber makalesi
+      other: Haber makaleleri
     news_story:
       one: Haber makalesi
       other: Haber hikayeleri

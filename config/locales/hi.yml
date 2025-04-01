@@ -490,6 +490,9 @@ hi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: समाचार लेख
+      other: समाचार लेख
     news_story:
       one: समाचार कथा
       other: समाचार कथाएं

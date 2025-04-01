@@ -490,6 +490,9 @@ lv:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Raksts
+      other: Raksti
     news_story:
       one: Ziņa
       other: Ziņas

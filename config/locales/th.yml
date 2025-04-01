@@ -318,6 +318,8 @@ th:
       none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
       operations_in: การดำเนินงานใน %{location}
       other: การแจ้งตาย
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,8 @@ bg:
       one: Известие за смъртен случай
       operations_in: Операции в %{location}
       other: Известия за смъртни случаи
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

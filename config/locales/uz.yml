@@ -394,6 +394,8 @@ uz:
       one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
       other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

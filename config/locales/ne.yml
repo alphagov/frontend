@@ -394,6 +394,8 @@ ne:
       one: मृत्युको सूचना
       operations_in: "%{location} मा सञ्चालन"
       other: मृत्युका सूचनाहरू
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

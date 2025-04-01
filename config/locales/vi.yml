@@ -318,6 +318,8 @@ vi:
       none_added: Chưa có thông báo tử vong nào được thêm vào cho lĩnh vực hoạt động này.
       operations_in: Hoạt động ở %{location}
       other: Thông báo tử vong
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

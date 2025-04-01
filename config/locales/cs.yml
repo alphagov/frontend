@@ -470,6 +470,8 @@ cs:
       one: Oznámení o úmrtí
       operations_in: Operace v %{location}
       other: Oznámení o úmrtí
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -41,8 +41,6 @@ RSpec.describe "Service Toolkit page" do
     end
 
     it "has the correct collection descriptions" do
-      puts page.html
-
       within(".service-toolkit:nth-of-type(1) p.govuk-body-l") do
         expect(page).to have_text "Meet the standards for government services"
       end

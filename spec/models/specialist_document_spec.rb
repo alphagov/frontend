@@ -421,6 +421,64 @@ RSpec.describe SpecialistDocument do
           expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facets)
         end
       end
+
+      context "and type is not nested" do
+        let(:content_store_response) do
+          GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+            payload["details"]["metadata"] = {
+              "nutrient-group" => "sugar",
+              "sub-nutrient" => "refined-sugar",
+            }
+            payload["links"]["finder"] = [{ "details" => {
+              "facets" => [{
+                "allowed_values" => [
+                  {
+                    "label" => "Sugar",
+                    "value" => "sugar",
+                    "sub_facets" => [
+                      {
+                        "label" => "Refined sugar",
+                        "main_facet_label" => "Sugar",
+                        "main_facet_value" => "sugar",
+                        "value" => "refined-sugar",
+                      },
+                    ],
+                  },
+                  {
+                    "label" => "Carbohydrates",
+                    "value" => "carbohydrates",
+                  },
+                ],
+                "display_as_result_metadata" => true,
+                "filterable" => filterable,
+                "key" => "nutrient-group",
+                "name" => "Nutrient",
+                "preposition" => "Nutrient",
+                "short_name" => "Nutrient",
+                "sub_facet_key" => "sub-nutrient",
+                "sub_facet_name" => "Sub Nutrient",
+                "type" => "something-else",
+              }],
+            } }]
+          end
+        end
+
+        it "does not return the sub-facet" do
+          expected_facets = [
+            {
+              key: "nutrient-group",
+              name: "Nutrient",
+              type: "something-else",
+              value: [{
+                label: "Sugar",
+                value: "sugar",
+              }],
+            },
+          ]
+
+          expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facets)
+        end
+      end
     end
   end
 end

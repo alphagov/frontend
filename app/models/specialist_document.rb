@@ -108,13 +108,7 @@ private
   end
 
   def sub_facet_type(facet)
-    if %w[text nested].include?(facet["type"]) && facet["filterable"]
-      "sub_facet_link"
-    elsif %w[text nested].include?(facet["type"])
-      "sub_facet_text"
-    else
-      facet["type"]
-    end
+    facet["filterable"] ? "sub_facet_link" : "sub_facet_text"
   end
 
   def selected_allowed_values(allowed_values, metadata_facet_values)

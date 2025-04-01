@@ -490,6 +490,9 @@ pt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Artigo noticioso
+      other: Artigos noticiosos
     news_story:
       one: Reportagem
       other: Reportagens

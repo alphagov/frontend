@@ -490,6 +490,9 @@ gu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: ન્યૂઝ આર્ટિકલ
+      other: ન્યૂઝ આર્ટિકલ્સ
     news_story:
       one: ન્યૂઝ સ્ટોરી
       other: ન્યૂઝ સ્ટોરીઝ

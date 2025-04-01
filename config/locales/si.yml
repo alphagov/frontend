@@ -490,6 +490,9 @@ si:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: පුවත් ලිපිය
+      other: පුවත් ලිපි
     news_story:
       one: පුවත් කතාව
       other: පුවත් කතා

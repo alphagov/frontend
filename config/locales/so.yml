@@ -490,6 +490,9 @@ so:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Maqaal war ah
+      other: Maqaalo war ah
     news_story:
       one: War
       other: Warar

@@ -490,6 +490,9 @@ uz:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Янгилик мақоласи
+      other: Янгилик мақолалари
     news_story:
       one: Янгилик сюжети
       other: Янгилик сюжетлари

@@ -490,6 +490,9 @@ hu:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Cikk
+      other: Cikkek
     news_story:
       one: Hír
       other: Hírek

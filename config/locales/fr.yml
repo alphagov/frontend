@@ -490,6 +490,9 @@ fr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Article d'actualité
+      other: Articles d'actualité
     news_story:
       one: Actualité
       other: Actualités

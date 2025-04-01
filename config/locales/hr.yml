@@ -567,6 +567,10 @@ hr:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      one: Novinski članak
+      other: Novinski članci
     news_story:
       few:
       one: Novosti

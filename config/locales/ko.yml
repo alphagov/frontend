@@ -413,6 +413,8 @@ ko:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      other: 뉴스 기사
     news_story:
       other: 뉴스 스토리
     oral_statement:

@@ -490,6 +490,9 @@ pa:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: ਖਬਰ ਲੇਖ
+      other: ਖਬਰ ਲੇਖ
     news_story:
       one: ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
       other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ

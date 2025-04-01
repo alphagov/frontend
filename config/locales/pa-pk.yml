@@ -490,6 +490,9 @@ pa-pk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: خبراں دا مضمون
+      other: خبراں دے مضمون
     news_story:
       one: خبراں دی کہانی
       other: خبراں دیاں کہانیاں

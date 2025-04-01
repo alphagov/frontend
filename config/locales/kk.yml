@@ -490,6 +490,9 @@ kk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Жаңалықтар мақаласы
+      other: Жаңалықтар мақалалары
     news_story:
       one: Жаңалықтар оқиғасы
       other: Жаңалықтар оқиғалары

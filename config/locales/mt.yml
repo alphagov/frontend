@@ -644,6 +644,11 @@ mt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      many:
+      one: Artiklu bl-aħbarijiet
+      other: Artikli bl-aħbarijiet
     news_story:
       few:
       many:

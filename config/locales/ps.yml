@@ -490,6 +490,9 @@ ps:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: د خبر مقاله
+      other: د خبر مقالې
     news_story:
       one: د خبر کیسه
       other: د خبرونو کیسې

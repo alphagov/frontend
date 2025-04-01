@@ -490,6 +490,9 @@ el:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      one: Άρθρο ειδήσεων
+      other: Άρθρα ειδήσεων
     news_story:
       one: Ιστορία ειδήσεων
       other: Ιστορίες ειδήσεων

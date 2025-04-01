@@ -644,6 +644,11 @@ sl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    news_article:
+      few:
+      one: Časopisni članek
+      other: Časopisni članki
+      two:
     news_story:
       few:
       one: Časopisna zgodba

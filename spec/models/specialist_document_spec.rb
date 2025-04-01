@@ -103,6 +103,79 @@ RSpec.describe SpecialistDocument do
   end
 
   describe "#facets_with_values_from_metadata" do
+    context "when facets are mapped to non-existing value" do
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "game" => "mario",
+          }
+          payload["links"]["finder"] = [{ "details" => {
+            "facets" => [{
+              "allowed_values" => [
+                {
+                  "label" => "Donkey Kong",
+                  "value" => "donkey-kong",
+                },
+                {
+                  "label" => "Zelda",
+                  "value" => "zelda",
+                },
+              ],
+              "display_as_result_metadata" => true,
+              "filterable" => true,
+              "key" => "game",
+              "name" => "Game",
+              "preposition" => "Game",
+              "short_name" => "Game",
+              "type" => "text",
+            }],
+          } }]
+        end
+      end
+
+      it "returns the facet but without the values" do
+        expected_facet_values = [{
+          key: "game",
+          name: "Game",
+          type: "link",
+          value: [],
+        }]
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facet_values)
+      end
+    end
+
+    context "when facets are mapped to non-text value" do
+      let(:filterable) { true }
+      let(:content_store_response) do
+        GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
+          payload["details"]["metadata"] = {
+            "date" => "2020-01-03",
+          }
+          payload["links"]["finder"] = [{ "details" => {
+            "facets" => [{
+              "display_as_result_metadata" => true,
+              "filterable" => filterable,
+              "key" => "date",
+              "name" => "Date",
+              "preposition" => "Date",
+              "short_name" => "Date",
+              "type" => "date",
+            }],
+          } }]
+        end
+      end
+
+      it "returns the facet and type" do
+        expected_facet_values = [{
+          key: "date",
+          name: "Date",
+          type: "date",
+          value: "2020-01-03",
+        }]
+        expect(described_class.new(content_store_response).facets_with_values_from_metadata).to eq(expected_facet_values)
+      end
+    end
+
     context "when facets are only mapped to one value" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 

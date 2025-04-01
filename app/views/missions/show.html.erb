@@ -1,1 +1,8 @@
-placeholder
+<% content_for :extra_headers do %>
+  <%= javascript_include_tag "views/require.js", integrity: false %>
+  <%= javascript_include_tag "views/missions-map.js", integrity: false %>
+<% end %>
+
+scripts
+
+<div id="map"></div>

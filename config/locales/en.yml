@@ -344,6 +344,9 @@ en:
       statistical_data_set:
         one: Statistical data set
         other: Statistical data sets
+      statistics:
+        one: Statistics
+        other: Statistics
       statistics_announcement:
         one: Statistics release announcement
         other: Statistics release announcements

@@ -37,8 +37,25 @@ RSpec.describe "Specialist Document" do
     end
 
     describe "facet metadata" do
+      it "renders metadata block when show_metadata_block is true" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "countryside-stewardship-grants")
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        expect(page).to have_css(".important-metadata")
+      end
+
+      it "does not render metadata block when show_metadata_block is false/nil" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        expect(page).not_to have_css(".important-metadata")
+      end
+
       it "displays text facets" do
         content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports")
+        content_store_response["links"]["finder"][0]["details"]["show_metadata_block"] = true
         content_store_response["details"]["metadata"] = {
           "aircraft_type": "Rotorsport UK Calidus",
         }
@@ -53,6 +70,7 @@ RSpec.describe "Specialist Document" do
       end
 
       it "displays filterable text facets with a link to the finder" do
+        content_store_response["links"]["finder"][0]["details"]["show_metadata_block"] = true
         content_store_response["details"]["metadata"] = {
           "case_type": "mergers",
         }
@@ -103,6 +121,7 @@ RSpec.describe "Specialist Document" do
       end
 
       it "displays date facets" do
+        content_store_response["links"]["finder"][0]["details"]["show_metadata_block"] = true
         content_store_response["details"]["metadata"] = {
           "opened_date": "2015-07-10",
         }

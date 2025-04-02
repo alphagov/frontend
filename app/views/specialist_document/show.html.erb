@@ -33,7 +33,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <% if @presenter.important_metadata.any? %>
+    <% if @presenter.important_metadata.any? && @presenter.show_metadata_block? %>
       <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
         <%= render "govuk_publishing_components/components/metadata", {
           inverse: true,

@@ -43,10 +43,7 @@ private
   end
 
   def use_graphql?
-    return true if request && request.params["graphql"] == "true"
-    return false if request && request.params["graphql"] == "false"
-
-    ENV["GRAPHQL_FEATURE_FLAG"] == "true"
+    request&.params&.[]("graphql") == "true"
   end
 
   def use_local_file?

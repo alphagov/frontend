@@ -7,3 +7,10 @@
   } %>
 <% end %>
 
+<div class="govuk-width-container">
+  <% @content_item.flexible_sections.each do |flexible_section| %>
+    <div class="govuk-grid-row">
+      <%= render_flexible_section(flexible_section) %>
+    </div>
+  <% end %>
+</div>

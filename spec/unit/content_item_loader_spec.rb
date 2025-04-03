@@ -64,36 +64,6 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is in GRAPHQL_ALLOWED_SCHEMAS" do
       let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "news_article" } } }) }
 
-      context "when GRAPHQL_FEATURE_FLAG=true" do
-        before do
-          ENV["GRAPHQL_FEATURE_FLAG"] = "true"
-        end
-
-        after do
-          ENV["GRAPHQL_FEATURE_FLAG"] = nil
-        end
-
-        it "calls the graphql endpoint instead of the content store" do
-          content_item_loader.load("/my-random-item")
-
-          expect(graphql_request).to have_been_made
-          expect(item_request).not_to have_been_made
-        end
-
-        context "and with graphql param=false" do
-          subject(:content_item_loader) { described_class.for_request(request) }
-
-          let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "false" }) }
-
-          it "calls the content store instead of the graphql endpoint" do
-            content_item_loader.load("/my-random-item")
-
-            expect(graphql_request).not_to have_been_made
-            expect(item_request).to have_been_made
-          end
-        end
-      end
-
       context "with graphql param=true" do
         subject(:content_item_loader) { described_class.for_request(request) }
 
@@ -110,65 +80,46 @@ RSpec.describe ContentItemLoader do
     end
 
     context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do
-      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "some_other_schema" } } }) }
-
-      context "when GRAPHQL_FEATURE_FLAG=true" do
+      context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
         before do
-          ENV["GRAPHQL_FEATURE_FLAG"] = "true"
+          ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
+          stub_const("ContentItemLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
         end
 
         after do
-          ENV["GRAPHQL_FEATURE_FLAG"] = nil
+          ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = nil
         end
 
-        it "calls the graphql endpoint initially, but then loads from the content store" do
-          content_item_loader.load("/my-random-item")
+        context "with a local JSON file" do
+          let!(:item_request) { stub_content_store_has_item("/my-json-item") }
 
-          expect(graphql_request).to have_been_made
-          expect(item_request).to have_been_made
+          it "loads content from the JSON file instead of the content store" do
+            response = content_item_loader.load("/my-json-item")
+
+            expect(item_request).not_to have_been_made
+            expect(ContentItemFactory.build(response).schema_name).to eq("json_page")
+          end
         end
-      end
-    end
 
-    context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
-      before do
-        ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
-        stub_const("ContentItemLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
-      end
+        context "with a local YAML file" do
+          let!(:item_request) { stub_content_store_has_item("/my-yaml-item") }
 
-      after do
-        ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = nil
-      end
+          it "loads content from the YAML file instead of the content store" do
+            response = content_item_loader.load("/my-yaml-item")
 
-      context "with a local JSON file" do
-        let!(:item_request) { stub_content_store_has_item("/my-json-item") }
-
-        it "loads content from the JSON file instead of the content store" do
-          response = content_item_loader.load("/my-json-item")
-
-          expect(item_request).not_to have_been_made
-          expect(ContentItemFactory.build(response).schema_name).to eq("json_page")
+            expect(item_request).not_to have_been_made
+            expect(ContentItemFactory.build(response).schema_name).to eq("yaml_page")
+          end
         end
-      end
 
-      context "with a local YAML file" do
-        let!(:item_request) { stub_content_store_has_item("/my-yaml-item") }
+        context "with no local file" do
+          let!(:item_request) { stub_content_store_has_item("/my-remote-item") }
 
-        it "loads content from the YAML file instead of the content store" do
-          response = content_item_loader.load("/my-yaml-item")
+          it "returns to loading from the content store" do
+            content_item_loader.load("/my-remote-item")
 
-          expect(item_request).not_to have_been_made
-          expect(ContentItemFactory.build(response).schema_name).to eq("yaml_page")
-        end
-      end
-
-      context "with no local file" do
-        let!(:item_request) { stub_content_store_has_item("/my-remote-item") }
-
-        it "returns to loading from the content store" do
-          content_item_loader.load("/my-remote-item")
-
-          expect(item_request).to have_been_made.once
+            expect(item_request).to have_been_made.once
+          end
         end
       end
     end

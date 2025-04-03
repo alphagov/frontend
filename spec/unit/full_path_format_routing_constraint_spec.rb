@@ -2,7 +2,7 @@ RSpec.describe FullPathFormatRoutingConstraint do
   include ContentStoreHelpers
 
   describe "#matches?" do
-    let(:request) { instance_double(ActionDispatch::Request, path: "/format/routing/test", env: {}, params: {}) }
+    let(:request) { instance_double(ActionDispatch::Request, path: "/format/routing/test", env: {}, headers: {}, params: {}) }
 
     context "when the content_store returns a document" do
       before do

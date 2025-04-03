@@ -7,6 +7,12 @@
   } %>
 <% end %>
 
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+  </div>
+<% end %>
+
 <div class="govuk-width-container">
   <% content_item.flexible_sections.each do |flexible_section| %>
     <div class="govuk-grid-row">

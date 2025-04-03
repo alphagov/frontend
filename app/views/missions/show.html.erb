@@ -1,1 +1,14 @@
-placeholder
+<% content_for :extra_headers do %>
+  <%= javascript_include_tag "views/missions/os-api-branding.js", integrity: false %>
+  <%= javascript_include_tag "views/missions/leaflet.js", integrity: false %>
+  <%= javascript_include_tag "views/missions/leaflet-omnivore.min.js", integrity: false %>
+  <%= javascript_include_tag "views/missions/main.js", integrity: false %>
+<% end %>
+
+<%
+  add_view_stylesheet("missions/os-api-branding")
+  add_view_stylesheet("missions/leaflet")
+  add_view_stylesheet("missions/main")
+%>
+
+<div id="map"></div>

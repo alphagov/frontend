@@ -43,7 +43,22 @@ private
   end
 
   def use_graphql?
-    request&.params&.[]("graphql") == "true"
+    if request && request.params["graphql"] == "true"
+      return true
+    elsif request && request.params["graphql"] == "false"
+      return false
+    end
+
+    if request && request.headers
+      ab_test = GovukAbTesting::AbTest.new(
+        "GraphQLRoles",
+        allowed_variants: %w[A B Z],
+        control_variant: "Z",
+      )
+      @requested_variant = ab_test.requested_variant(request.headers)
+
+      true if @requested_variant.variant?("B")
+    end
   end
 
   def use_local_file?

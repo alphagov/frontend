@@ -318,6 +318,8 @@ zh-tw:
       none_added: 尚未為該操作領域新增死亡通知。
       operations_in: 在 %{location} 的領域
       other: 死亡通知
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

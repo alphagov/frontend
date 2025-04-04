@@ -394,6 +394,8 @@ yi:
       one:
       operations_in:
       other:
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,8 @@ es-419:
       one: Aviso de fallecimiento
       operations_in: Operaciones en %{location}
       other: Avisos de fallecimiento
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -470,6 +470,8 @@ lt:
       one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
       other: Pranešimas apie nelaimes
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -16,6 +16,12 @@
 <%= render "homepage_header" %>
 <%= render "homepage/popular_links", locals: { index_section: 2, index_section_count: index_section_count } %>
 
+Ash
+<%= javascript_include_tag "map.js", integrity: false %>
+
+<div id="map" style="height: { 200px; }"></div>
+
+
 <div class="govuk-width-container">
   <div class="border-top-blue-from-desktop">
     <div class="govuk-grid-row">

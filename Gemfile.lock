@@ -1,3 +1,19 @@
+PATH
+  remote: ../govuk_app_config
+  specs:
+    govuk_app_config (9.16.8)
+      logstasher (~> 2.1)
+      opentelemetry-exporter-otlp (>= 0.25, < 0.31)
+      opentelemetry-instrumentation-all (>= 0.39.1, < 0.75.0)
+      opentelemetry-sdk (~> 1.2)
+      plek (>= 4, < 6)
+      prometheus_exporter (~> 2.0)
+      puma (>= 5.6, < 7.0)
+      rack-proxy (~> 0.7)
+      sentry-rails (~> 5.3)
+      sentry-ruby (~> 5.3)
+      statsd-ruby (~> 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -166,18 +182,6 @@ GEM
     googleapis-common-protos-types (1.19.0)
       google-protobuf (>= 3.18, < 5.a)
     govuk_ab_testing (3.0.0)
-    govuk_app_config (9.16.8)
-      logstasher (~> 2.1)
-      opentelemetry-exporter-otlp (>= 0.25, < 0.31)
-      opentelemetry-instrumentation-all (>= 0.39.1, < 0.75.0)
-      opentelemetry-sdk (~> 1.2)
-      plek (>= 4, < 6)
-      prometheus_exporter (~> 2.0)
-      puma (>= 5.6, < 7.0)
-      rack-proxy (~> 0.7)
-      sentry-rails (~> 5.3)
-      sentry-ruby (~> 5.3)
-      statsd-ruby (~> 1.5)
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
@@ -784,7 +788,7 @@ DEPENDENCIES
   factory_bot_rails
   gds-api-adapters
   govuk_ab_testing
-  govuk_app_config
+  govuk_app_config!
   govuk_personalisation
   govuk_publishing_components
   govuk_schemas

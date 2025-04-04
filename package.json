@@ -51,5 +51,8 @@
   "resolutions": {
     "selenium-webdriver": "4.17.0"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.5.0",
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  }
 }

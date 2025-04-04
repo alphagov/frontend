@@ -8,3 +8,4 @@
 //= link static-error-pages.js
 
 //= link_tree ../builds
+//= link map.js

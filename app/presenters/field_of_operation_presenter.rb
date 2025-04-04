@@ -1,8 +1,6 @@
 class FieldOfOperationPresenter < ContentItemPresenter
   include ContentItem::HeadingAndContext
 
-  FatalityNotice = Struct.new(:roll_call_introduction, :casualties, :title, :base_path)
-
   def heading_and_context
     super.tap do |t|
       t[:context] = I18n.t("field_of_operation.context")
@@ -27,20 +25,6 @@ class FieldOfOperationPresenter < ContentItemPresenter
     description = @content_item["description"]
 
     description.html_safe if description.present?
-  end
-
-  def fatality_notices
-    notices = @content_item.dig("links", "fatality_notices")
-    return [] unless notices
-
-    notices.map do |notice|
-      FatalityNotice.new(
-        notice.dig("details", "roll_call_introduction"),
-        notice.dig("details", "casualties"),
-        notice["title"],
-        notice["base_path"],
-      )
-    end
   end
 
   def contents

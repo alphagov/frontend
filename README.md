@@ -8,6 +8,7 @@ some hard-coded routes.
 | Format | Schema/Document Type | Live example(s) |
 |---|---|---|
 |AB testing             |hardcoded|https://www.gov.uk/help/ab-testing|
+|Answer                 |[answer](https://docs.publishing.service.gov.uk/content-schemas/answer.html)|https://www.gov.uk/national-minimum-wage-rates|
 |Asset placeholder      |hardcoded|https://assets.publishing.service.gov.uk/government/placeholder|
 |Calendars              |[calendar](https://docs.publishing.service.gov.uk/content-schemas/calendar.html)|https://www.gov.uk/bank-holidays|
 |                       ||https://www.gov.uk/when-do-the-clocks-change|

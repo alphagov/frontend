@@ -16,4 +16,10 @@ RSpec.describe Finder do
       expect(finder.show_metadata_block).to eq(finder_content_item.dig("details", "show_metadata_block"))
     end
   end
+
+  describe "#show_table_of_contents_list" do
+    it "returns the value of show_table_of_contents_list from the content item" do
+      expect(finder.show_table_of_contents_list).to eq(finder_content_item.dig("details", "show_table_of_contents_list"))
+    end
+  end
 end

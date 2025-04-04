@@ -136,6 +136,27 @@ RSpec.describe "Specialist Document" do
       end
     end
 
+    describe "table of contents" do
+      it "does not render the table of contents when hide_contents_list is true" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
+        stub_content_store_has_item(base_path, content_store_response)
+
+        visit base_path
+
+        expect(page).not_to have_css(".gem-c-contents-list")
+      end
+
+      it "renders the table of contents when hide_contents_list is false" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
+        content_store_response["links"]["finder"][0]["details"]["hide_contents_list"] = false
+        stub_content_store_has_item(base_path, content_store_response)
+
+        visit base_path
+
+        expect(page).to have_css(".gem-c-contents-list")
+      end
+    end
+
     it "displays contents list" do
       headers = content_store_response.dig("details", "headers")
       level_two_headers_count = headers.select { |header| header["level"] == 2 }.count

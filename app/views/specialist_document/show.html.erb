@@ -43,7 +43,9 @@
       <% end %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.contents do %>
+      <% unless @presenter.hide_contents_list? %>
+        <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.contents do %>
+      <% end %>
 
       <% if @presenter.show_protection_type_image? %>
         <img

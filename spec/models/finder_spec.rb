@@ -16,4 +16,10 @@ RSpec.describe Finder do
       expect(finder.show_metadata_block).to eq(finder_content_item.dig("details", "show_metadata_block"))
     end
   end
+
+  describe "#hide_contents_list" do
+    it "returns the value of hide_contents_list from the content item" do
+      expect(finder.hide_contents_list).to eq(finder_content_item.dig("details", "hide_contents_list"))
+    end
+  end
 end

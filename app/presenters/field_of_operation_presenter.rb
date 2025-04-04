@@ -1,12 +1,9 @@
-class FieldOfOperationPresenter < ContentItemPresenter
-  include ContentItem::HeadingAndContext
+class FieldOfOperationPresenter
 
-  def heading_and_context
-    super.tap do |t|
-      t[:context] = I18n.t("field_of_operation.context")
-      t[:text] = "#{I18n.t('field_of_operation.title')} #{@content_item['title']}"
-      t[:font_size] = "xl"
-    end
+  attr_reader :content_item
+
+  def initialize(content_item)
+    @content_item = content_item
   end
 
   def organisation

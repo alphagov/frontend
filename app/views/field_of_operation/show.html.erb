@@ -1,7 +1,14 @@
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", @content_item.heading_and_context %>
+      <%= render "govuk_publishing_components/components/heading", {
+        context: I18n.t("formats.field_of_operation.context"),
+        text: "#{I18n.t('formats.field_of_operation.title')} #{content_item.title}",
+        font_size: "xl",
+        heading_level: 1,
+        margin_bottom: 8,
+        lang: content_item.locale,
+      } %>
     </div>
     <div class="govuk-grid-column-one-third govuk-!-margin-bottom-8">
       <%= render "govuk_publishing_components/components/organisation_logo", {

@@ -50,7 +50,37 @@
                   "base_path": "/taxon-2",
                   "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755562",
                   "phase": "live",
-                  "title": "Taxon 2"
+                  "title": "Taxon 2",
+                  "links": {
+                    "parent_taxons": [
+                      {
+                        "base_path": "/taxon-3",
+                        "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755563",
+                        "phase": "live",
+                        "title": "Taxon 3",
+                        "links": {
+                          "parent_taxons": [
+                            {
+                              "base_path": "/taxon-4",
+                              "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755564",
+                              "phase": "live",
+                              "title": "Taxon 4",
+                              "links": {
+                                "parent_taxons": [
+                                  {
+                                    "base_path": "/taxon-5",
+                                    "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755565",
+                                    "phase": "live",
+                                    "title": "Taxon 5"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }

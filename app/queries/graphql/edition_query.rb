@@ -54,18 +54,25 @@ class Graphql::EditionQuery
                   title
                 }
                 taxons {
-                  base_path
-                  content_id
-                  document_type
-                  phase
-                  title
+                  ...Taxon
                   links {
                     parent_taxons {
-                      base_path
-                      content_id
-                      document_type
-                      phase
-                      title
+                      ...Taxon
+                      links {
+                        parent_taxons {
+                          ...Taxon
+                          links {
+                            parent_taxons {
+                              ...Taxon
+                              links {
+                                parent_taxons {
+                                  ...Taxon
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -85,6 +92,14 @@ class Graphql::EditionQuery
               title
             }
           }
+        }
+
+        fragment Taxon on Edition {
+          base_path
+          content_id
+          document_type
+          phase
+          title
         }
     QUERY
   end

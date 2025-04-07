@@ -17,7 +17,7 @@ class FieldOfOperationPresenter
   end
 
   def description
-    description = @content_item["description"]
+    description = @content_item.description
 
     description.html_safe if description.present?
   end
@@ -25,8 +25,16 @@ class FieldOfOperationPresenter
   def contents
     contents = []
     contents << { href: "#field-of-operation", text: "Field of operation" } if description.present?
-    contents << { href: "#fatalities", text: "Fatalities" } if fatality_notices.present?
+    contents << { href: "#fatalities", text: "Fatalities" } if @content_item.fatality_notices.present?
 
     contents
+  end
+
+  def roll_call_introduction(fatality_notice)
+    fatality_notice.content_store_response.dig("details", "roll_call_introduction")
+  end
+
+  def casualties(fatality_notice)
+    fatality_notice.content_store_response.dig("details", "casualties")
   end
 end

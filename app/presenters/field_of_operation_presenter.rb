@@ -1,5 +1,4 @@
 class FieldOfOperationPresenter
-
   attr_reader :content_item
 
   def initialize(content_item)
@@ -7,9 +6,8 @@ class FieldOfOperationPresenter
   end
 
   def organisation
-    org = @content_item.dig("links", "primary_publishing_organisation", 0)
+    org = @content_item.content_store_response.dig("links", "primary_publishing_organisation", 0)
     logo = org.dig("details", "logo")
-
     {
       name: logo["formatted_title"].html_safe,
       url: org["base_path"],

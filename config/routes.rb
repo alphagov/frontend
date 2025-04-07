@@ -102,6 +102,11 @@ Rails.application.routes.draw do
   # published route so can't be accessed from outside
   get "/static-error-pages/:error_code.html", to: "static_error_pages#show"
 
+  # Answer pages
+  constraints FormatRoutingConstraint.new("answer") do
+    get ":slug", to: "answer#show", as: "answer"
+  end
+
   # Simple Smart Answer pages
   constraints FormatRoutingConstraint.new("simple_smart_answer") do
     get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow

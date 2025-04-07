@@ -69,4 +69,32 @@ RSpec.describe FieldOfOperationPresenter do
 
     expect(presented.contents).to eq([])
   end
+
+  it "presents a roll call introduction when passed a fatality notice" do
+    expected = ["A fatality sadly occurred on 1 December", "A fatality sadly occurred on 2 December"]
+
+    content_item.fatality_notices.each_with_index do |fatality_notice, index|
+      expect(subject(content_item).roll_call_introduction(fatality_notice)).to eq(expected[index])
+    end
+  end
+
+  it "presents casualties when passed a fatality notice" do
+    test_data = [
+      "Test data 1",
+      "Test data 2",
+      "Test data 3",
+    ]
+
+    content_store_response["links"]["fatality_notices"].each do |fatality_notice|
+      fatality_notice["details"]["casualties"] = test_data
+    end
+
+    with_casualties = FieldOfOperation.new(content_store_response)
+
+    described_class.new(with_casualties)
+
+    content_item.fatality_notices.each do |fatality_notice|
+      expect(subject(content_item).casualties(fatality_notice)).to eq(test_data)
+    end
+  end
 end

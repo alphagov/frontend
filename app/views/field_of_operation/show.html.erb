@@ -16,24 +16,24 @@
   </div>
 
   <div class="govuk-grid-row">
-    <% if @content_item.contents.present? %>
+    <% if @presenter.contents.present? %>
       <div class="govuk-grid-column-one-third">
         <%= render "govuk_publishing_components/components/contents_list", {
-          contents: @content_item.contents,
+          contents: @presenter.contents,
         } %>
       </div>
     <% end %>
     <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
       <section id="field-of-operation">
-        <% unless @content_item.description.blank? %>
+        <% unless @presenter.description.blank? %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: t("fatality_notice.field_of_operation"),
+            text: t("formats.fatality_notice.field_of_operation"),
             margin_bottom: 4,
           } %>
         <% end %>
-        <%= render 'govuk_publishing_components/components/govspeak', {
+        <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
-          <%= @content_item.description %>
+          <%= @presenter.description %>
         <% end %>
         <div class="govuk-!-margin-top-7 govuk-!-padding-bottom-3">
           <% if @content_item.fatality_notices.any? %>
@@ -45,14 +45,14 @@
             <ul class="govuk-list">
               <% @content_item.fatality_notices.each do |fatality_notice| %>
                 <li class="fatality-notice govuk-!-padding-bottom-3">
-                  <% unless fatality_notice.roll_call_introduction.blank? %>
+                  <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
                   <p class="govuk-body">
-                    <%= fatality_notice.roll_call_introduction %>
+                    <%= @presenter.roll_call_introduction(fatality_notice) %>
                   </p>
                   <% end %>
                   <ul class="govuk-list govuk-list--spaced govuk-!-padding-left-4">
-                    <% if fatality_notice.casualties.present? %>
-                      <% fatality_notice.casualties.each do |casualty| %>
+                    <% if @presenter.casualties(fatality_notice).present? %>
+                      <% @presenter.casualties(fatality_notice).each do |casualty| %>
                         <li class="govuk-list--bullet"><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
                       <% end %>
                     <% else %>
@@ -64,7 +64,7 @@
               <% end %>
             </ul>
           <% else %>
-            <p class="govuk-body"><%= t("fatality_notice.none_added") %></p>
+            <p class="govuk-body"><%= t("formats.fatality_notice.none_added") %></p>
           <% end %>
         </div>
       </section>

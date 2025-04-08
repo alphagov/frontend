@@ -1997,6 +1997,7 @@ __metadata:
   dependencies:
     jasmine-browser-runner: ^3.0.0
     jasmine-core: ^5.6.0
+    leaflet: ^1.9.4
     nyc: ^17.1.0
     standardx: ^7.0.0
     stylelint: ^16.17.0
@@ -2899,6 +2900,13 @@ __metadata:
   version: 0.35.0
   resolution: "known-css-properties@npm:0.35.0"
   checksum: 8ab9550a605f9113cb6dc9059e86f109c1a4a3cb12107bd2a89855bd17472001459180a710b59cb8e097d1d55f36cb08980424a26a59e2b11422934f124ba944
+  languageName: node
+  linkType: hard
+
+"leaflet@npm:^1.9.4":
+  version: 1.9.4
+  resolution: "leaflet@npm:1.9.4"
+  checksum: bfc79f17a247b37b92d84b3c78702501603392d6589fde606de4a825d11f1609d90225388834f2e0709dac327e52dcd4b4b9cc9fd3d590060c5b1e53b84fa6c6
   languageName: node
   linkType: hard
 

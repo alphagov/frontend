@@ -71,7 +71,7 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is in GRAPHQL_ALLOWED_SCHEMAS" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
-      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "news_article" } } }) }
+      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
 
       context "when there are no headers" do
         let(:request) do
@@ -209,7 +209,7 @@ RSpec.describe ContentItemLoader do
       context "with graphql param=true" do
         subject(:content_item_loader) { described_class.for_request(request) }
 
-        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "news_article" } } }) }
+        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
         it "calls the graphql endpoint instead of the content store" do
@@ -224,7 +224,7 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
-      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema: "some_other_schema" } } }) }
+      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "some_other_schema" } } }) }
 
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
         subject(:content_item_loader) { described_class.new }

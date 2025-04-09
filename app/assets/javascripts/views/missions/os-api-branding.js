@@ -1,3 +1,4 @@
+/* global os */
 // os-api-branding.js v0.3.1
 
 var scriptTag = document.currentScript
@@ -18,7 +19,7 @@ os.Branding = {
   /**
   * Add the API logo and copyright statement.
   */
-  init: function(obj) {
+  init: function (obj) {
     this.options.div = scriptTag.getAttribute('data-div') || this.options.div
     this.options.logo = scriptTag.getAttribute('data-logo') || this.options.logo
     this.options.statement = scriptTag.getAttribute('data-statement') || this.options.statement
@@ -30,21 +31,21 @@ os.Branding = {
 
     var elem = document.getElementById(this.options.div)
 
-    if(! elem) return
+    if (!elem) return
 
     var logoClassName = 'os-api-branding logo'
-    if( this.options.logo === 'os-logo-maps-white' ) {
+    if (this.options.logo === 'os-logo-maps-white') {
       logoClassName = 'os-api-branding logo white'
     }
 
     var copyrightStatement = this.options.statement
     copyrightStatement = copyrightStatement.replace('YYYY', new Date().getFullYear())
 
-    if( this.options.prefix !== '' ) {
+    if (this.options.prefix !== '') {
       copyrightStatement = this.options.prefix + '<span>|</span>' + copyrightStatement
     }
 
-    if( this.options.suffix !== '' ) {
+    if (this.options.suffix !== '') {
       copyrightStatement = copyrightStatement + '<span>|</span>' + this.options.suffix
     }
 

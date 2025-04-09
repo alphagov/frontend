@@ -30,7 +30,7 @@ private
       load_json_file(base_path)
     elsif use_graphql?
       graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema"])
+      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
         graphql_response
       else
         GdsApi.content_store.content_item(base_path)

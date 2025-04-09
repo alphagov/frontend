@@ -43,7 +43,7 @@
       <% end %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.contents do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @contents_outline_presenter.for_contents_list_component do %>
 
       <% if @presenter.show_protection_type_image? %>
         <img

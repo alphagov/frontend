@@ -5,6 +5,10 @@
 //= require views/missions/data/lookup.json.js
 
 window.addEventListener("DOMContentLoaded", function () {
+  if(!document.getElementById("map")) {
+    return
+  }
+
   const apiKey = ''
 
   // Initialize the map.
@@ -27,8 +31,9 @@ window.addEventListener("DOMContentLoaded", function () {
     maxZoom: 20
   }).addTo(map)
 
-  let icbLookup = {}
-  let nhsLookup = {}
+  // lookupjson and similar are declared in data files in views/missions/data
+  let icbLookup = window.GOVUK.lookupjson.icb
+  let nhsLookup = window.GOVUK.lookupjson.nhs
 
   const colorLookup = {
     E40000003: "#FF1F5B",
@@ -44,15 +49,11 @@ window.addEventListener("DOMContentLoaded", function () {
   const overlayMaps = {}
   const icbOverlays = {}
 
-  // lookupjson and similar are declared in data files in views/missions/data
-  icbLookup = lookupjson.icb
-  nhsLookup = lookupjson.nhs
-
   //Add the DHSC Community Diagnostic Centre (CDC) locations.
   map.createPane('cdc')
   map.getPane('cdc').style.zIndex = 650
 
-  const cdcCustomOverlay = L.geoJSON(cdcGeojson, {
+  const cdcCustomOverlay = L.geoJSON(window.GOVUK.cdcGeojson, {
     onEachFeature: bindPopup,
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng)
@@ -74,7 +75,7 @@ window.addEventListener("DOMContentLoaded", function () {
   map.createPane('hub')
   map.getPane('hub').style.zIndex = 651
 
-  const hubCustomOverlay = L.geoJSON(hubGeojson, {
+  const hubCustomOverlay = L.geoJSON(window.GOVUK.hubGeojson, {
     onEachFeature: bindPopup,
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng)
@@ -103,14 +104,14 @@ window.addEventListener("DOMContentLoaded", function () {
     return obj
   }, {})
 
-  icbGeojson.features.forEach((element) => {
+  window.GOVUK.icbGeojson.features.forEach((element) => {
     element.properties.CDC_COUNT = icb_cdcCount[element.properties.ICS_ICB] || 0
     element.properties.HUB_COUNT = icb_hubCount[element.properties.ICS_ICB] || 0
   })
 
   // Add the Integrated Care Board (IBC) boundaries.
   for (const [ key, value ] of Object.entries(nhsLookup)) {
-    icbOverlays[key] = L.geoJson(icbGeojson, {
+    icbOverlays[key] = L.geoJson(window.GOVUK.icbGeojson, {
       onEachFeature: bindPopup,
       filter: function(feature) {
         if( feature.properties.REGION === key ) return true

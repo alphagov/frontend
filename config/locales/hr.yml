@@ -470,6 +470,8 @@ hr:
       one: Obavijest o smrtnom slučaju
       operations_in: Operacije u %{location}
       other: Obavijest o smrtnim slučajevima
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -546,6 +546,8 @@ pl:
       one: Informacja o śmierci
       operations_in: Działania w %{location}
       other: Informacje o śmierci
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,8 @@ si:
       one: මරණ දැන්වීම
       operations_in: "%{location} තුළ මෙහෙයුම්"
       other: මරණ දැන්වීම්
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

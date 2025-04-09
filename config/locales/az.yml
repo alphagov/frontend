@@ -394,6 +394,8 @@ az:
       one: Ölüm hadisəsi bildirişi
       operations_in: "%{location}-də olan əməliyyatlar"
       other: Ölüm hadisəsi bildirişləri
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

@@ -394,6 +394,8 @@ sv:
       one: Meddelande om dödsfall
       operations_in: Verksamhet på %{location}
       other: Meddelanden om dödsfall
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

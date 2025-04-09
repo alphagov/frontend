@@ -394,6 +394,8 @@ gu:
       one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
       other: મૃત્યુ અંગેની સૂચનાઓ
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

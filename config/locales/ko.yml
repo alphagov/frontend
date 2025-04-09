@@ -318,6 +318,8 @@ ko:
       none_added: 이 운영 분야의 사망 통지는 아직 추가되지 않았습니다.
       operations_in: "%{Location} 내 운영"
       other: 사상자 공지
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

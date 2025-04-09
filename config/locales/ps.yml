@@ -394,6 +394,8 @@ ps:
       one: د مرګ خبرتیا
       operations_in: په%{location} کې عملیات
       other: د مرګ خبرتیا
+    fields_of_operation:
+      context:
     find_my_nearest:
       valid_postcode_no_locations:
     get_involved:

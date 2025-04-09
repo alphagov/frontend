@@ -1,4 +1,7 @@
 RSpec.describe SpecialistDocument do
+  it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
+  it_behaves_like "it has no updates", "specialist_document", "cma-cases"
+
   describe "#headers" do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
     let(:details_headers) do
@@ -22,9 +25,6 @@ RSpec.describe SpecialistDocument do
         },
       ]
     end
-
-    it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
-    it_behaves_like "it has no updates", "specialist_document", "cma-cases"
 
     it "gets a list of headers" do
       content_store_response["details"]["headers"] = details_headers

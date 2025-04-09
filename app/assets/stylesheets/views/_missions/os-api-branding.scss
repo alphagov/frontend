@@ -1,4 +1,4 @@
-/* os-api-branding.css v0.3.1 */
+// os-api-branding.css v0.3.1
 
 .os-api-branding {
   position: absolute;
@@ -14,13 +14,14 @@
   padding: 8px;
   width: 90px;
   height: 24px;
-  background-image: url(missions/os-logo-maps.svg);
+  background-image: url("missions/os-logo-maps.svg");
   background-position: center;
   background-repeat: no-repeat;
   box-sizing: content-box;
 }
+
 .os-api-branding.logo.white {
-  background-image: url(missions/os-logo-maps-white.svg);
+  background-image: url("missions/os-logo-maps-white.svg");
 }
 
 .os-api-branding.copyright {
@@ -30,9 +31,11 @@
   line-height: 16px;
   background: rgba(255, 255, 255, 0.7);
 }
+
 .os-api-branding.copyright span {
   margin: 0 4px;
 }
+
 .os-api-branding.copyright a:link,
 .os-api-branding.copyright a:visited,
 .os-api-branding.copyright a:hover,
@@ -42,12 +45,13 @@
   pointer-events: all;
   cursor: pointer;
 }
+
 .os-api-branding.copyright a:hover {
   text-decoration: underline;
 }
 
 @media only screen and (max-width: 420px) {
-  /* max-width 420px, mobile-only styles */
+  // max-width 420px, mobile-only styles
   .os-api-branding.copyright {
     display: none;
   }

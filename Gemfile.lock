@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 3566d1b351c6b138999d9ca6fbe5c1d13301ce4a
-  branch: navigation_team_feature_branch
+  revision: 992c2c608de4f41a7d9e7cab5ba6ed992e4dd927
+  branch: replace-the-header-logo
   specs:
     govuk_publishing_components (56.2.0)
       govuk_app_config

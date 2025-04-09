@@ -12,7 +12,7 @@ class SpecialistDocument < ContentItem
     @protection_type = content_store_response.dig("details", "metadata", "protection_type")
     @will_continue_on = content_store_response.dig("details", "metadata", "will_continue_on")
 
-    @headers = headers_list(content_store_response.dig("details", "headers"))
+    @headers = ContentsOutline.new(content_store_response.dig("details", "headers"))
   end
 
   def facets_with_values_from_metadata
@@ -77,24 +77,6 @@ private
   # Can be removed when first_published_at is reliable
   def any_updates?
     change_history.size > 1
-  end
-
-  def headers_list(headers)
-    return if headers.blank?
-
-    headers.map do |header|
-      h = {
-        href: "##{header['id']}",
-        text: header["text"].gsub(/:$/, ""),
-        level: header["level"],
-      }
-
-      if header["headers"]
-        h[:items] = headers_list(header["headers"])
-      end
-
-      h
-    end
   end
 
   def allowed_value_facet_type(facet)

@@ -5,7 +5,13 @@ RSpec.describe ContentsOutline do
         "id" => "item-1",
         "text" => "Item 1",
         "level" => 2,
-        "headers" => [{ "id" => "sub-item-1", "text" => "Sub-Item 1", "level" => 3 }],
+        "headers" => [
+          {
+            "id" => "nested-item-1",
+            "text" => "Nested Item 1",
+            "level" => 3,
+          },
+        ],
       },
       {
         "id" => "item-2",
@@ -21,10 +27,19 @@ RSpec.describe ContentsOutline do
       expect(contents_outline.items.first).to be_instance_of(ContentsOutline::Item)
       expect(contents_outline.items.first.id).to eq("item-1")
       expect(contents_outline.items.first.text).to eq("Item 1")
-      expect(contents_outline.items.first.items.count).to eq(1)
-      expect(contents_outline.items.first.items.first.id).to eq("sub-item-1")
+
       expect(contents_outline.items.last.id).to eq("item-2")
       expect(contents_outline.items.last.text).to eq("Item 2")
+      expect(contents_outline.items.last.items).to eq([])
+    end
+
+    it "has nested items" do
+      nested_items = contents_outline.items.first.items
+
+      expect(nested_items.count).to eq(1)
+      expect(nested_items.first.id).to eq("nested-item-1")
+      expect(nested_items.first.text).to eq("Nested Item 1")
+      expect(nested_items.first.items).to eq([])
     end
   end
 end

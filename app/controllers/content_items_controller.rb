@@ -1,4 +1,5 @@
 class ContentItemsController < ApplicationController
+  include GovukPersonalisation::ControllerConcern
   before_action :set_content_item_and_cache_control
   before_action :set_locale, if: -> { request.format.html? }
 

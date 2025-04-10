@@ -2,12 +2,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
   include LinkHelper
 
-  def contents
-    return [] unless show_contents_list?
-
-    content_item.headers
-  end
-
   def show_protection_type_image?
     protected_food_drink_name? && content_item.protection_type_image.present?
   end
@@ -35,14 +29,6 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   end
 
 private
-
-  def show_contents_list?
-    content_item.headers.present? && level_two_headings?
-  end
-
-  def level_two_headings?
-    content_item.headers.any? { |header| header[:level] == 2 }
-  end
 
   def protected_food_drink_name?
     content_item.document_type == "protected_food_drink_name"

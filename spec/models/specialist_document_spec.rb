@@ -1,4 +1,7 @@
 RSpec.describe SpecialistDocument do
+  it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
+  it_behaves_like "it has no updates", "specialist_document", "cma-cases"
+
   describe "#headers" do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
     let(:details_headers) do
@@ -23,32 +26,12 @@ RSpec.describe SpecialistDocument do
       ]
     end
 
-    it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
-    it_behaves_like "it has no updates", "specialist_document", "cma-cases"
-
-    it "gets a list of headers" do
+    it "gets a ContentsOutline describing the headers" do
       content_store_response["details"]["headers"] = details_headers
-      expected_headers = [
-        {
-          href: "#summary",
-          text: "Summary",
-          level: 2,
-          items: [
-            {
-              href: "#download-report",
-              text: "Download report",
-              level: 3,
-            },
-            {
-              href: "#download-glossary-of-abbreviations",
-              text: "Download glossary of abbreviations",
-              level: 3,
-            },
-          ],
-        },
-      ]
 
-      expect(described_class.new(content_store_response).headers).to eq(expected_headers)
+      expect(described_class.new(content_store_response).headers).to be_instance_of(ContentsOutline)
+      expect(described_class.new(content_store_response).headers.items.count).to eq(1)
+      expect(described_class.new(content_store_response).headers.items.first.items.count).to eq(2)
     end
   end
 

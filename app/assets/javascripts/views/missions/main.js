@@ -139,13 +139,30 @@ window.addEventListener('DOMContentLoaded', function () {
     const properties = layer.feature.properties
     const codeRegex = /E[\d]+/
 
-    let content = '<table id="popup-table">'
-    for (const i in properties) {
-      if (i === 'REGION' && codeRegex.test(properties[i])) { content += `<tr><td>${i}</td><td style="font-weight:600">${nhsLookup[properties[i]]}</td></tr>` } else if (i === 'ICS_ICB' && codeRegex.test(properties[i])) { content += `<tr><td>${i}</td><td style="font-weight:600">${icbLookup[properties[i]]}</td></tr>` } else { content += `<tr><td>${i}</td><td style="font-weight:600">${properties[i]}</td></tr>` }
-    }
-    content += '<table>'
+    const table = document.createElement('table')
+    table.id = 'popup-table'
 
-    const popup = layer.bindPopup(content)
+    for (const i in properties) {
+      const tableRow = document.createElement('tr')
+      const tableDataForIndex = document.createElement('td')
+      const tableDataForValue = document.createElement('td')
+      tableDataForIndex.innerText = i
+      tableDataForValue.style.fontWeight = 600
+
+      if (i === 'REGION' && codeRegex.test(properties[i])) {
+        tableDataForValue.innerText = nhsLookup[properties[i]]
+      } else if (i === 'ICS_ICB' && codeRegex.test(properties[i])) {
+        tableDataForValue.innerText = icbLookup[properties[i]]
+      } else {
+        tableDataForValue.innerText = properties[i]
+      }
+
+      tableRow.appendChild(tableDataForIndex)
+      tableRow.appendChild(tableDataForValue)
+      table.appendChild(tableRow)
+    }
+
+    const popup = layer.bindPopup(table)
     if (layer.feature.geometry.type !== 'Point') {
       popup.on('popupopen', function (e) {
         e.target.setStyle({ fillOpacity: 0.8 })

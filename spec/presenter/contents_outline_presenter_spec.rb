@@ -7,7 +7,7 @@ RSpec.describe ContentsOutlinePresenter do
         "id" => "item-1",
         "text" => "Item 1",
         "level" => 2,
-        "headers" => [{ "id" => "sub-item-1", "text" => "Sub-Item 1", "level" => 3 }],
+        "headers" => [{ "id" => "nested-item-1", "text" => "Nested Item 1", "level" => 3 }],
       },
       {
         "id" => "item-2",
@@ -24,16 +24,32 @@ RSpec.describe ContentsOutlinePresenter do
           href: "#item-1",
           text: "Item 1",
           items: [
-            { href: "#sub-item-1", text: "Sub-Item 1" },
+            { href: "#nested-item-1", text: "Nested Item 1", items: [] },
           ],
         },
         {
           href: "#item-2",
           text: "Item 2",
+          items: [],
         },
       ]
 
       expect(contents_outline_presenter.for_contents_list_component).to eq(expected)
+    end
+
+    context "when an outline text element ends with a colon" do
+      let(:contents_outline) do
+        ContentsOutline.new([
+          {
+            "id" => "item-1",
+            "text" => "Item 1:",
+          },
+        ])
+      end
+
+      it "removes the trailing colon in the rendered text" do
+        expect(contents_outline_presenter.for_contents_list_component.first[:text]).to eq("Item 1")
+      end
     end
   end
 end

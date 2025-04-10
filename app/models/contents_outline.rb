@@ -10,9 +10,16 @@ class ContentsOutline
 private
 
   def headers_array_to_items(headers_array)
-    (headers_array || []).map do |header|
-      subitems = header["headers"] ? headers_array_to_items(header["headers"]) : []
-      Item.new(text: header["text"].gsub(/:$/, ""), id: header["id"], level: header["level"], items: subitems)
+    return [] if headers_array.blank?
+
+    headers_array.map do |header|
+      items = headers_array_to_items(header["headers"])
+      Item.new(
+        text: header["text"],
+        id: header["id"],
+        level: header["level"],
+        items:,
+      )
     end
   end
 end

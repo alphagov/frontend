@@ -9,11 +9,12 @@
 <%= render :partial => "calendar_head" %>
 
 <% if @calendar.show_bunting? %>
+  <% content_for :main_classes, "govuk-!-padding-top-0" %>
   <div class="app-bunting" aria-hidden="true">
     <div class="app-bunting__<%= "#{@calendar.bunting_styles}" %>"></div>
   </div>
 
-  <div class="app-bunting--spacer"></div>
+  <div class="app-bunting--spacer govuk-!-padding-bottom-8"></div>
 <% end %>
 
 <div class="govuk-grid-row">

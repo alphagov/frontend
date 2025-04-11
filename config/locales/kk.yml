@@ -394,6 +394,9 @@ kk:
       one: Өлім туралы хабарлама
       operations_in: "%{location} орнындағы жұмыстар"
       other: Өлім туралы хабарламалар
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

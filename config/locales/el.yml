@@ -399,6 +399,9 @@ el:
       one: Ανακοίνωση θανάτου
       operations_in: Λειτουργίες στην τοποθεσία %{location}
       other: Ανακοινώσεις θανάτου
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

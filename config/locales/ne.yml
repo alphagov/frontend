@@ -399,6 +399,9 @@ ne:
       one: मृत्युको सूचना
       operations_in: "%{location} मा सञ्चालन"
       other: मृत्युका सूचनाहरू
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

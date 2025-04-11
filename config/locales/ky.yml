@@ -411,6 +411,9 @@ ky:
       one: Өлүм тууралуу билдирүү
       operations_in:
       other: Өлүм тууралуу билдирүүлөр
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

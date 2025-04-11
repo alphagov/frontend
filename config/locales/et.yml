@@ -399,6 +399,9 @@ et:
       one: Surmateade
       operations_in: Toimingud asukohas %{location}
       other: Surmateated
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

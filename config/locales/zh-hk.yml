@@ -323,6 +323,9 @@ zh-hk:
       none_added: 此運作領域仍未加入任何死亡通知。
       operations_in: 行動位置 %{location}
       other: 安全事故通知
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

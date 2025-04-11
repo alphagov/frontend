@@ -399,6 +399,9 @@
       one: Melding om dødsfall
       operations_in: Operasjoner i %{location}
       other: Meldinger om dødsfall
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

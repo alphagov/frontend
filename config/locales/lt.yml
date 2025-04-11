@@ -475,6 +475,9 @@ lt:
       one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
       other: Pranešimas apie nelaimes
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

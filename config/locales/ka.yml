@@ -399,6 +399,9 @@ ka:
       one: ფატალურობის შეტყობინება
       operations_in: ოპერაციები %{location}-ში
       other: ფატალურობის შეტყობინებები
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

@@ -323,6 +323,9 @@ th:
       none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
       operations_in: การดำเนินงานใน %{location}
       other: การแจ้งตาย
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

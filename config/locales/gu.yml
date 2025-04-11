@@ -399,6 +399,9 @@ gu:
       one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
       other: મૃત્યુ અંગેની સૂચનાઓ
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

@@ -399,6 +399,9 @@ bg:
       one: Известие за смъртен случай
       operations_in: Операции в %{location}
       other: Известия за смъртни случаи
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

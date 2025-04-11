@@ -323,6 +323,9 @@ id:
       none_added: Belum ada pemberitahuan fatalitas yang ditambahkan untuk bidang operasi ini.
       operations_in: Operasi di %{location}
       other: Pemberitahuan fatalitas
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

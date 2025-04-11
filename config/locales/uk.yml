@@ -551,6 +551,9 @@ uk:
       one: Повідомлення про нещасний випадок зі смертельним наслідком
       operations_in: Операції в %{location}
       other: Повідомлення про нещасний випадок зі смертельним наслідком
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

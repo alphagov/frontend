@@ -399,6 +399,9 @@ bn:
       one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
       operations_in: "%{location}-এ পরিচালনা"
       other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

@@ -399,6 +399,9 @@ tk:
       one: Ölüm howpy barada duýduryş
       operations_in: "%{location} ýerindäki işler"
       other: Ölüm howpy barada duýduryşlar
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

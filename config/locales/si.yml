@@ -399,6 +399,9 @@ si:
       one: මරණ දැන්වීම
       operations_in: "%{location} තුළ මෙහෙයුම්"
       other: මරණ දැන්වීම්
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

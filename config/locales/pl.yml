@@ -551,6 +551,9 @@ pl:
       one: Informacja o śmierci
       operations_in: Działania w %{location}
       other: Informacje o śmierci
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

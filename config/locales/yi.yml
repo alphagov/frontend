@@ -399,6 +399,9 @@ yi:
       one:
       operations_in:
       other:
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

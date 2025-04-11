@@ -401,6 +401,9 @@ en:
       one: Fatality notice
       operations_in: Operations in %{location}
       other: Fatality notices
+    field_of_operation:
+      context: British fatalities
+      title: Operations in
     fields_of_operation:
       context: British fatalities
     find_my_nearest:

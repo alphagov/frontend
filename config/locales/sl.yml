@@ -551,6 +551,9 @@ sl:
       operations_in: Dejavni v %{location}
       other: Obvestila o smrti
       two:
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

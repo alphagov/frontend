@@ -475,6 +475,9 @@ sk:
       one: Oznámenie o úmrtí
       operations_in: Operácie v %{location}
       other: Oznámenia o úmrtí
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

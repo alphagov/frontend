@@ -399,6 +399,9 @@ pa-pk:
       one: موت بارے نوٹس
       operations_in: ایندے بارے عمل %{location}
       other: موت بارے نوٹسز
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

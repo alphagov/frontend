@@ -475,6 +475,9 @@ ro:
       one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
       other: Notificări accident mortal
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

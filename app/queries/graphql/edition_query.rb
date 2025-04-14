@@ -12,6 +12,7 @@ class Graphql::EditionQuery
           ) {
             ... on Edition {
               base_path
+              content_id
               description
               details {
                 body
@@ -44,7 +45,14 @@ class Graphql::EditionQuery
                   }
                   title
                 }
+                ordered_related_items {
+                  ...RelatedItem
+                }
+                ordered_related_items_overrides {
+                  ...RelatedItem
+                }
                 organisations {
+                  analytics_identifier
                   base_path
                   content_id
                   title
@@ -53,6 +61,13 @@ class Graphql::EditionQuery
                   base_path
                   content_id
                   title
+                }
+                primary_publishing_organisation {
+                  base_path
+                  title
+                }
+                suggested_ordered_related_items {
+                  ...RelatedItem
                 }
                 taxons {
                   ...Taxon
@@ -83,16 +98,37 @@ class Graphql::EditionQuery
                   title
                 }
                 world_locations {
+                  analytics_identifier
                   base_path
                   content_id
                   title
                 }
+                worldwide_organisations {
+                  analytics_identifier
+                  base_path
+                  title
+                }
               }
               locale
+              public_updated_at
+              publishing_app
+              rendering_app
               schema_name
               title
+              updated_at
+              withdrawn_notice {
+                explanation
+                withdrawn_at
+              }
             }
           }
+        }
+
+        fragment RelatedItem on Edition {
+          base_path
+          document_type
+          locale
+          title
         }
 
         fragment Taxon on Edition {
@@ -101,6 +137,7 @@ class Graphql::EditionQuery
           document_type
           phase
           title
+          web_url
         }
     QUERY
   end

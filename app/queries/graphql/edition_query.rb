@@ -25,6 +25,7 @@ class Graphql::EditionQuery
                 first_public_at
                 image {
                   alt_text
+                  caption
                   url
                 }
                 political

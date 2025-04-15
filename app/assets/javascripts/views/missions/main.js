@@ -34,9 +34,17 @@ window.addEventListener('DOMContentLoaded', function () {
   }).addTo(map)
 
   // window.GOVUK.icbGeojson and similar are declared in data files in views/missions/data
+
+  // Takes the icbGeoJSON and creates an object that looks like
+  // {E1234567: "A UK Region", E1234568: "Another UK Region"} etc.
+  // E numbers are region codes.
+  // These are the more specific clickable UK 'regions' on the map
   const icbLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.ICB23CD]: v.properties.ICB23NM }), {})
+
+  // Creates an object with large UK regions e.g. { E12345678: "South East", }
   const nhsLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.NHSER22CD]: v.properties.NHSER22NM }), {})
 
+  // Colours for each large UK region
   const colorLookup = {
     E40000003: '#FF1F5B',
     E40000005: '#00CD6C',
@@ -48,6 +56,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   // Add the DHSC Community Diagnostic Centre (CDC) locations.
+  // AKA the clickable black circles on the map
   map.createPane('cdc')
   map.getPane('cdc').style.zIndex = 650
 
@@ -70,6 +79,7 @@ window.addEventListener('DOMContentLoaded', function () {
   const cdcOverlay = cdcCustomOverlay
 
   // Add the DHSC surgical hub locations.
+  // AKA the clickable white circles on the map
   map.createPane('hub')
   map.getPane('hub').style.zIndex = 651
 
@@ -131,7 +141,7 @@ window.addEventListener('DOMContentLoaded', function () {
     element.properties.hubOpen = icbHubIsOpenCount[element.properties.ICB23CD] || 0
   })
 
-  // Add the Integrated Care Board (IBC) boundaries.
+  // Add the Integrated Care Board (IBC) boundaries. (i.e. the UK sub-regions)
   map.createPane('icb')
   map.getPane('icb').style.zIndex = 450
 
@@ -148,11 +158,8 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }).addTo(map)
 
-  // overlayMaps['Community Diagnostic Centres (All)'] = cdcCustomOverlay
-  // overlayMaps['Surgical Hubs (All)'] = hubCustomOverlay
-  // L.control.layers(baseMaps, overlayMaps).addTo(map)
-
   // Binds a popup to the layer with the passed content and sets up the necessary event listeners.
+  // I.e. creates the popups that appear when you click on a circle or click on a region
   function bindPopup (feature, layer) {
     let properties = layer.feature.properties
     properties = (({ ICB23CD, NHSER22CD, ...o }) => o)(properties)

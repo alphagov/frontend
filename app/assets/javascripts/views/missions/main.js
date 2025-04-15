@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', function () {
     minZoom: 7,
     maxZoom: 16,
     center: [51.063, -1.319],
-    zoom: 7,
+    zoom: 8,
     maxBounds: [
       [49.528423, -10.76418],
       [61.331151, 1.9134116]
@@ -29,12 +29,13 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Load and display ZXY tile layer on the map.
   L.tileLayer('https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + apiKey, {
+    attribution: `Contains OS data &copy; Crown copyright and database rights ${new Date().getFullYear()}`,
     maxZoom: 20
   }).addTo(map)
 
-  // lookupjson and similar are declared in data files in views/missions/data
-  const icbLookup = window.GOVUK.lookupjson.icb
-  const nhsLookup = window.GOVUK.lookupjson.nhs
+  // window.GOVUK.icbGeojson and similar are declared in data files in views/missions/data
+  const icbLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.ICB23CD]: v.properties.ICB23NM }), {})
+  const nhsLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.NHSER22CD]: v.properties.NHSER22NM }), {})
 
   const colorLookup = {
     E40000003: '#FF1F5B',
@@ -45,10 +46,6 @@ window.addEventListener('DOMContentLoaded', function () {
     E40000011: '#F28522',
     E40000012: '#A0B1BA'
   }
-
-  const baseMaps = {}
-  const overlayMaps = {}
-  const icbOverlays = {}
 
   // Add the DHSC Community Diagnostic Centre (CDC) locations.
   map.createPane('cdc')
@@ -62,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function () {
     style: function (feature) {
       return {
         color: '#fff',
-        fillColor: colorLookup[feature.properties.REGION],
+        fillColor: '#000',
         fillOpacity: 1,
         radius: 5,
         weight: 2,
@@ -100,76 +97,150 @@ window.addEventListener('DOMContentLoaded', function () {
     return obj
   }, {})
 
+  const icbCdcIsOpenCount = cdcOverlay.toGeoJSON().features
+    .filter((key, index) => key.properties.isOpen === 'Yes')
+    .reduce((obj, v) => {
+      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
+      return obj
+    }, {})
+
+  const icbCdcIsFullOpenCount = cdcOverlay.toGeoJSON().features
+    .filter((key, index) => key.properties.isOpen12_7 === 'Yes')
+    .reduce((obj, v) => {
+      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
+      return obj
+    }, {})
+
   const icbHubCount = hubOverlay.toGeoJSON().features.reduce(function (obj, v) {
     obj[v.properties.ICS_ICB] = (obj[v.properties.ICS_ICB] || 0) + 1
     return obj
   }, {})
 
+  const icbHubIsOpenCount = hubOverlay.toGeoJSON().features
+    .filter((key, index) => key.properties.isOpen === 'Yes')
+    .reduce((obj, v) => {
+      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
+      return obj
+    }, {})
+
   window.GOVUK.icbGeojson.features.forEach((element) => {
-    element.properties.CDC_COUNT = icbCdcCount[element.properties.ICS_ICB] || 0
-    element.properties.HUB_COUNT = icbHubCount[element.properties.ICS_ICB] || 0
+    element.properties.cdcCount = icbCdcCount[element.properties.ICB23CD] || 0
+    element.properties.cdcOpen = icbCdcIsOpenCount[element.properties.ICB23CD] || 0
+    element.properties.cdcFullOpen = icbCdcIsFullOpenCount[element.properties.ICB23CD] || 0
+    element.properties.hubCount = icbHubCount[element.properties.ICB23CD] || 0
+    element.properties.hubOpen = icbHubIsOpenCount[element.properties.ICB23CD] || 0
   })
 
   // Add the Integrated Care Board (IBC) boundaries.
-  for (const [key, value] of Object.entries(nhsLookup)) {
-    icbOverlays[key] = L.geoJson(window.GOVUK.icbGeojson, {
-      onEachFeature: bindPopup,
-      filter: function (feature) {
-        if (feature.properties.REGION === key) return true
-      },
-      style: function (feature) {
-        return {
-          color: '#fff',
-          fillColor: colorLookup[feature.properties.REGION],
-          fillOpacity: 0.5,
-          weight: 0.5
-        }
+  map.createPane('icb')
+  map.getPane('icb').style.zIndex = 450
+
+  L.geoJson(window.GOVUK.icbGeojson, {
+    onEachFeature: bindPopup,
+    style: function (feature) {
+      return {
+        color: '#fff',
+        fillColor: colorLookup[feature.properties.NHSER22CD],
+        fillOpacity: 0.5,
+        weight: 1,
+        pane: 'icb'
       }
-    }).addTo(map)
+    }
+  }).addTo(map)
 
-    overlayMaps[`${value} NHS Region`] = icbOverlays[key]
-  }
-
-  overlayMaps['Community Diagnostic Centres (All)'] = cdcCustomOverlay
-  overlayMaps['Surgical Hubs (All)'] = hubCustomOverlay
-  L.control.layers(baseMaps, overlayMaps).addTo(map)
+  // overlayMaps['Community Diagnostic Centres (All)'] = cdcCustomOverlay
+  // overlayMaps['Surgical Hubs (All)'] = hubCustomOverlay
+  // L.control.layers(baseMaps, overlayMaps).addTo(map)
 
   // Binds a popup to the layer with the passed content and sets up the necessary event listeners.
   function bindPopup (feature, layer) {
-    const properties = layer.feature.properties
-    const codeRegex = /E[\d]+/
+    let properties = layer.feature.properties
+    properties = (({ ICB23CD, NHSER22CD, ...o }) => o)(properties)
+
+    const propLookup = {
+      nhsCode: 'nhsName',
+      icbCode: 'icbName'
+    }
 
     const table = document.createElement('table')
     table.id = 'popup-table'
 
-    for (const i in properties) {
-      const tableRow = document.createElement('tr')
-      const tableDataForIndex = document.createElement('td')
-      const tableDataForValue = document.createElement('td')
-      tableDataForIndex.innerText = i
-      tableDataForValue.style.fontWeight = 600
+    const popupHeading = document.createElement('h1')
+    popupHeading.classList.add('govuk-heading')
+    popupHeading.classList.add('govuk-heading-m')
+    let popupSubheading = ''
 
-      if (i === 'REGION' && codeRegex.test(properties[i])) {
-        tableDataForValue.innerText = nhsLookup[properties[i]]
-      } else if (i === 'ICS_ICB' && codeRegex.test(properties[i])) {
-        tableDataForValue.innerText = icbLookup[properties[i]]
-      } else {
-        tableDataForValue.innerText = properties[i]
+    // When you click on a circle, this popup will show up.
+    if (layer.feature.geometry.type === 'Point') {
+      popupHeading.innerText = properties.name
+      let tableRow
+      for (const i in properties) {
+        if (i !== 'name') {
+          const property = /E[\d]+/.test(properties[i]) ? i === 'nhsCode' ? nhsLookup[properties[i]] : icbLookup[properties[i]] : properties[i]
+          tableRow = document.createElement('tr')
+          const tableDataLabel = document.createElement('td')
+          tableDataLabel.innerText = propLookup[i] || i
+          const tableDataValue = document.createElement('td')
+          tableDataValue.innerText = property
+
+          tableRow.appendChild(tableDataLabel)
+          tableRow.appendChild(tableDataValue)
+          table.appendChild(tableRow)
+        }
+      }
+    } else {
+      // When you click on a region, this popup will show up.
+
+      popupHeading.innerText = `${properties.ICB23NM} Integrated Care Board`
+      popupSubheading = document.createElement('h2')
+      popupSubheading.classList.add('govuk-heading')
+      popupSubheading.classList.add('govuk-heading-s')
+      popupSubheading.innerText = `${properties.NHSER22NM} NHS Region`
+
+      const tableHeadingsRow = document.createElement('tr')
+      const headings = ['&nbsp;', 'Total', 'Open', 'Open 12/7']
+
+      for (const heading of headings) {
+        const tableHeading = document.createElement('th')
+        tableHeading.innerHTML = heading
+        tableHeadingsRow.appendChild(tableHeading)
       }
 
-      tableRow.appendChild(tableDataForIndex)
-      tableRow.appendChild(tableDataForValue)
-      table.appendChild(tableRow)
+      const tableCdcRow = document.createElement('tr')
+      const tableCdcData = ['CDCs', properties.cdcCount, properties.cdcOpen, properties.cdcFullOpen]
+      for (const cdcData of tableCdcData) {
+        const tableData = document.createElement('td')
+        tableData.innerText = cdcData
+        tableCdcRow.appendChild(tableData)
+      }
+
+      const tableHubRow = document.createElement('tr')
+      const tableHubData = ['Surgical Hubs', properties.hubCount, properties.hubOpen, 'n/a']
+      for (const hubData of tableHubData) {
+        const tableData = document.createElement('td')
+        tableData.innerText = hubData
+        tableHubRow.appendChild(tableData)
+      }
+
+      table.appendChild(tableHeadingsRow)
+      table.appendChild(tableCdcRow)
+      table.appendChild(tableHubRow)
     }
 
-    const popup = layer.bindPopup(table)
-    if (layer.feature.geometry.type !== 'Point') {
-      popup.on('popupopen', function (e) {
-        e.target.setStyle({ fillOpacity: 0.8 })
-      })
-      popup.on('popupclose', function (e) {
-        e.target.setStyle({ fillOpacity: 0.5 })
-      })
+    // Add the generated DOM elements above to a container and append it to the popup
+    const tableContainer = document.createElement('div')
+    tableContainer.appendChild(popupHeading)
+
+    if (popupSubheading) {
+      tableContainer.appendChild(popupSubheading)
     }
+
+    tableContainer.appendChild(table)
+
+    const popup = layer.bindPopup(tableContainer)
+    const onStyle = layer.feature.geometry.type === 'Point' ? { radius: Math.ceil(layer.options.radius * 1.2) } : { fillOpacity: layer.options.fillOpacity + 0.3 }
+    const offStyle = layer.feature.geometry.type === 'Point' ? { radius: layer.options.radius } : { fillOpacity: layer.options.fillOpacity }
+    popup.on('popupopen', (e) => { e.target.setStyle(onStyle) })
+    popup.on('popupclose', (e) => { e.target.setStyle(offStyle) })
   }
 })

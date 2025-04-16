@@ -19,7 +19,12 @@ class FieldOfOperationPresenter
   def description
     description = @content_item.description
 
-    description.html_safe if description.present?
+    if description.present?
+      description = description.html_safe
+      if ActionController::Base.helpers.strip_tags(description).present?
+        description
+      end
+    end
   end
 
   def contents

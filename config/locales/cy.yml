@@ -672,6 +672,11 @@ cy:
       matched_postcode_html: Rydyn ni wedi paru'r cod post <strong>%{postcode}</strong> i <strong>%{electoral_service_name}</strong>.
       search_postcode_html: Chwiliwch am god post gwahanol
       title: Eich cyngor lleol
+  email:
+    already_subscribed_title:
+    description:
+    subscribe_title:
+    unsubscribe_title:
   error:
   find: Ffeindio
   formats:

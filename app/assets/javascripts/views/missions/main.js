@@ -3,7 +3,6 @@
 //= require views/missions/data/cdc.geojson.js
 //= require views/missions/data/hub.geojson.js
 //= require views/missions/data/icb.geojson.js
-//= require views/missions/data/lookup.json.js
 
 window.addEventListener('DOMContentLoaded', function () {
   if (!document.getElementById('map')) {

@@ -6,7 +6,6 @@
 //= link views/travel-advice.js
 //= link views/missions/os-api-branding.js
 //= link views/missions/main.js
-//= link views/missions/data/lookup.json.js
 //= link views/missions/data/icb.geojson.js
 //= link views/missions/data/cdc.geojson.js
 //= link views/missions/data/hub.geojson.js

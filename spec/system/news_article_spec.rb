@@ -3,8 +3,8 @@ RSpec.describe "News Article" do
 
   it_behaves_like "it has meta tags", "news_article", "news_article"
 
-  context "when visiting a page" do
-    before { visit "/government/news/christmas-2016-prime-ministers-message" }
+  shared_examples "a news article page" do
+    before { visit path }
 
     it "has a title" do
       expect(page).to have_title("#{content_item['title']} - GOV.UK")
@@ -53,5 +53,19 @@ RSpec.describe "News Article" do
     it "marks up the government name correctly" do
       expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
     end
+  end
+
+  context "when content item is from Content Store" do
+    let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
+    let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
+
+    it_behaves_like "a news article page"
+  end
+
+  context "when content item is from Publishing API's GraphQL" do
+    let(:content_item) { graphql_has_example_item("news_article_christmas_2016") }
+    let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
+
+    it_behaves_like "a news article page"
   end
 end

@@ -1,4 +1,4 @@
-RSpec.describe "Fatality Notice" do
+RSpec.describe "News Article" do
   let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
   it_behaves_like "it has meta tags", "news_article", "news_article"

@@ -27,6 +27,7 @@ RSpec.configure do |config|
 
   config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system
+  config.include PublishingApiGraphqlHelpers, type: :request
 
   config.include ComponentHelpers, type: :view
 

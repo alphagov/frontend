@@ -34,10 +34,10 @@
             text: t("formats.fatality_notice.field_of_operation"),
             margin_bottom: 4,
           } %>
-        <% end %>
-        <%= render "govuk_publishing_components/components/govspeak", {
-        } do %>
-          <%= @presenter.description %>
+          <%= render "govuk_publishing_components/components/govspeak", {
+            } do %>
+              <%= @presenter.description %>
+          <% end %>
         <% end %>
         <div class="govuk-!-margin-top-7 govuk-!-padding-bottom-3">
           <% if @content_item.fatality_notices.any? %>

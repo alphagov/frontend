@@ -29,7 +29,7 @@ RSpec.describe "Field of operation page" do
         expect(locale).to eq content_store_response["locale"]
       end
 
-      it "has the correct subheadings and text" do
+      it "has the correct subheadings and description" do
         within("#field-of-operation > div:first-of-type h2") do
           expect(page).to have_text("Field of operation")
         end
@@ -41,6 +41,22 @@ RSpec.describe "Field of operation page" do
         within("#fatalities h2") do
           expect(page).to have_text("Fatalities")
         end
+      end
+
+      it "doesn't render a subheading / description if the description is blank" do
+        content_store_response["description"] = ""
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+        expect(page).not_to have_css("#field-of-operation > div:first-of-type h2", text: "Field of operation")
+        expect(page).not_to have_css("#field-of-operation div[data-module=govspeak]")
+      end
+
+      it "doesn't render the description if it's an empty HTML element" do
+        content_store_response["description"] = "<div class='govspeak' data-module='govspeak'></div>"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+        expect(page).not_to have_css("#field-of-operation > div:first-of-type h2", text: "Field of operation")
+        expect(page).not_to have_css("#field-of-operation div[data-module=govspeak]")
       end
 
       it "has the correct page text" do

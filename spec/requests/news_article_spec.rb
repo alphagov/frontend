@@ -2,7 +2,6 @@ require "gds_api/test_helpers/publishing_api"
 
 RSpec.describe "News Article" do
   include Capybara::RSpecMatchers
-  include GdsApi::TestHelpers::PublishingApi
 
   describe "GET show" do
     context "when loaded from content store" do
@@ -29,9 +28,7 @@ RSpec.describe "News Article" do
 
     context "when loaded from GraphQL" do
       before do
-        graphql_fixture = fetch_graphql_fixture("news_article")
-        base_path = graphql_fixture.dig("data", "edition", "base_path")
-        stub_publishing_api_graphql_content_item(Graphql::EditionQuery.new(base_path).query, graphql_fixture)
+        base_path = graphql_has_example_item("news_article").fetch("base_path")
 
         get base_path, params: { graphql: true }
       end

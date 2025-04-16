@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function () {
   map.createPane('icb')
   map.getPane('icb').style.zIndex = 450
 
-  L.geoJson(window.GOVUK.icbGeojson, {
+  const icb = L.geoJson(window.GOVUK.icbGeojson, {
     onEachFeature: bindPopup,
     style: function (feature) {
       return {
@@ -156,6 +156,21 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
   }).addTo(map)
+
+  // Rough code to demonstrate filters.
+
+  const layers = [icb, hubOverlay, cdcOverlay]
+  for (let i = 0; i < layers.length; i++) {
+    const checkbox = document.querySelector(`#checkbox${i + 1}`)
+    const mapLayer = layers[i]
+    checkbox.addEventListener('click', function () {
+      if (map.hasLayer(mapLayer)) {
+        map.removeLayer(mapLayer)
+      } else {
+        map.addLayer(mapLayer)
+      }
+    })
+  }
 
   // Binds a popup to the layer with the passed content and sets up the necessary event listeners.
   // I.e. creates the popups that appear when you click on a circle or click on a region

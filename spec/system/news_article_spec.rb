@@ -47,6 +47,15 @@ RSpec.describe "News Article" do
     end
   end
 
+  shared_examples "a news article page with a high resolution image" do
+    before { visit path }
+
+    it "includes the high resolution image in the meta tags" do
+      expect(page).to have_css("meta[property='og:image'][content*='s960']", visible: :hidden)
+      expect(page).to have_css("meta[name='twitter:image'][content*='s960']", visible: :hidden)
+    end
+  end
+
   context "when visiting a page in history mode" do
     let(:path) { "/government/news/final-care-act-guidance-published" }
     let(:example) { :news_article_history_mode }
@@ -72,11 +81,12 @@ RSpec.describe "News Article" do
   context "when content item is from Content Store" do
     it_behaves_like "a news article page"
 
-    context "when content item has an image caption" do
+    context "when content item has an image caption and high resolution URL" do
       let(:path) { news_article_with_image_caption_path }
       let(:example) { :news_article_with_image_caption }
 
       it_behaves_like "a news article page with an image caption"
+      it_behaves_like "a news article page with a high resolution image"
     end
   end
 
@@ -86,11 +96,12 @@ RSpec.describe "News Article" do
 
     it_behaves_like "a news article page"
 
-    context "when content item has an image caption" do
+    context "when content item has an image caption and high resolution URL" do
       let(:path) { "#{news_article_with_image_caption_path}?graphql=true" }
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with an image caption"
+      it_behaves_like "a news article page with a high resolution image"
     end
   end
 end

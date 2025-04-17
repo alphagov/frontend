@@ -11,6 +11,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
   const apiKey = ''
 
+  if(!apiKey) {
+    let warning = document.querySelector("#api-warning")
+    warning.innerText = "Please supply the API Key from the Trello card, otherwise map image tiles will not populate."
+  }
+
   // Initialize the map.
   const mapOptions = {
     minZoom: 7,

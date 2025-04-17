@@ -1,5 +1,9 @@
 RSpec.describe "News Article" do
-  let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
+  let(:news_article_christmas_2016_path) { "/government/news/christmas-2016-prime-ministers-message" }
+  let(:news_article_with_image_caption_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
+  let(:path) { news_article_christmas_2016_path }
+  let(:example) { :news_article }
+  let!(:content_item) { content_store_has_example_item(path, schema: :news_article, example:) }
 
   it_behaves_like "it has meta tags", "news_article", "news_article"
 
@@ -35,10 +39,19 @@ RSpec.describe "News Article" do
     end
   end
 
-  context "when visiting a page in history mode" do
-    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published", schema: :news_article, example: :news_article_history_mode) }
+  shared_examples "a news article page with an image caption" do
+    before { visit path }
 
-    before { visit "/government/news/final-care-act-guidance-published" }
+    it "renders a caption for the lead image" do
+      expect(page).to have_css("figcaption p", text: "British High Commissioner, Jane Marriott CMG OBE with Chief Guest, Ahsan Iqbal at the Islamabad KBP.")
+    end
+  end
+
+  context "when visiting a page in history mode" do
+    let(:path) { "/government/news/final-care-act-guidance-published" }
+    let(:example) { :news_article_history_mode }
+
+    before { visit path }
 
     it "displays the history notice text" do
       expect(page).to have_text("This was published under the #{content_item['links']['government'][0]['title']}")
@@ -46,9 +59,10 @@ RSpec.describe "News Article" do
   end
 
   context "when visiting an RTL page in history mode" do
-    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
+    let(:path) { "/government/news/final-care-act-guidance-published.ar" }
+    let(:example) { :news_article_history_mode_translated_arabic }
 
-    before { visit "/government/news/final-care-act-guidance-published.ar" }
+    before { visit path }
 
     it "marks up the government name correctly" do
       expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
@@ -56,16 +70,27 @@ RSpec.describe "News Article" do
   end
 
   context "when content item is from Content Store" do
-    let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
-    let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
-
     it_behaves_like "a news article page"
+
+    context "when content item has an image caption" do
+      let(:path) { news_article_with_image_caption_path }
+      let(:example) { :news_article_with_image_caption }
+
+      it_behaves_like "a news article page with an image caption"
+    end
   end
 
   context "when content item is from Publishing API's GraphQL" do
+    let(:path) { "#{news_article_christmas_2016_path}?graphql=true" }
     let(:content_item) { graphql_has_example_item("news_article_christmas_2016") }
-    let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
 
     it_behaves_like "a news article page"
+
+    context "when content item has an image caption" do
+      let(:path) { "#{news_article_with_image_caption_path}?graphql=true" }
+      let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
+
+      it_behaves_like "a news article page with an image caption"
+    end
   end
 end

@@ -1,5 +1,6 @@
 RSpec.describe "News Article" do
   let(:news_article_christmas_2016_path) { "/government/news/christmas-2016-prime-ministers-message" }
+  let(:news_article_with_image_caption_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
   let(:path) { news_article_christmas_2016_path }
   let(:example) { :news_article }
   let!(:content_item) { content_store_has_example_item(path, schema: :news_article, example:) }
@@ -38,6 +39,14 @@ RSpec.describe "News Article" do
     end
   end
 
+  shared_examples "a news article page with an image caption" do
+    before { visit path }
+
+    it "renders a caption for the lead image" do
+      expect(page).to have_css("figcaption p", text: "British High Commissioner, Jane Marriott CMG OBE with Chief Guest, Ahsan Iqbal at the Islamabad KBP.")
+    end
+  end
+
   context "when visiting a page in history mode" do
     let(:path) { "/government/news/final-care-act-guidance-published" }
     let(:example) { :news_article_history_mode }
@@ -62,6 +71,13 @@ RSpec.describe "News Article" do
 
   context "when content item is from Content Store" do
     it_behaves_like "a news article page"
+
+    context "when content item has an image caption" do
+      let(:path) { news_article_with_image_caption_path }
+      let(:example) { :news_article_with_image_caption }
+
+      it_behaves_like "a news article page with an image caption"
+    end
   end
 
   context "when content item is from Publishing API's GraphQL" do
@@ -69,5 +85,12 @@ RSpec.describe "News Article" do
     let(:content_item) { graphql_has_example_item("news_article_christmas_2016") }
 
     it_behaves_like "a news article page"
+
+    context "when content item has an image caption" do
+      let(:path) { "#{news_article_with_image_caption_path}?graphql=true" }
+      let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
+
+      it_behaves_like "a news article page with an image caption"
+    end
   end
 end

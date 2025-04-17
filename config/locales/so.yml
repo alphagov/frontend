@@ -392,6 +392,9 @@ so:
     case_study:
       one: Daraasad
       other: Daraasado
+    detailed_guide:
+      one: Tilmaam
+      other: Tilmaam
     fatality_notice:
       alt_text: Calaamada Wasaarada Difaaca
       field_of_operation: Hawalaha dibadaa

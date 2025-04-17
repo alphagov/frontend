@@ -317,6 +317,8 @@ zh-hk:
       other: 撰寫文章
     case_study:
       other: 案例研究
+    detailed_guide:
+      other: 詳細指引
     fatality_notice:
       alt_text: 國防部徽章
       field_of_operation: 行動領域

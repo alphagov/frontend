@@ -392,6 +392,9 @@ ps:
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات
+    detailed_guide:
+      one: لارښود
+      other: لارښود
     fatality_notice:
       alt_text: د دفاع وزارت کریسټ
       field_of_operation: د عملیاتو ساحه

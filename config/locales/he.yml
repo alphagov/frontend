@@ -392,6 +392,9 @@ he:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן
+    detailed_guide:
+      one: הדרכה
+      other: הדרכה
     fatality_notice:
       alt_text: סמל משרד הביטחון
       field_of_operation: תחום הפעולה

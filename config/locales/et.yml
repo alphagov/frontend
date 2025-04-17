@@ -392,6 +392,9 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+    detailed_guide:
+      one: Juhised
+      other: Juhised
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
       field_of_operation: Tegevusvaldkond

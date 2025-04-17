@@ -694,6 +694,13 @@ cy:
       other: Astudiaethau achos
       two:
       zero:
+    detailed_guide:
+      few:
+      many:
+      one: Canllawiau
+      other: Canllawiau
+      two:
+      zero:
     fatality_notice:
       alt_text: Arwyddlun y Weinyddiaeth Amddiffyn
       few:

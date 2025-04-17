@@ -392,6 +392,9 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    detailed_guide:
+      one: Rehberlik
+      other: Rehberlik
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı

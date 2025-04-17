@@ -392,6 +392,9 @@ sq:
     case_study:
       one: Rast studimi
       other: Raste studimi
+    detailed_guide:
+      one: Udhëzim
+      other: Udhëzim
     fatality_notice:
       alt_text: Stema e Ministrisë së Mbrojtjes
       field_of_operation: Fusha e operimit

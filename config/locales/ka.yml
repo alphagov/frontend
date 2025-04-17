@@ -392,6 +392,9 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+    detailed_guide:
+      one: ხელძღვანელობა
+      other: ხელძღვანელობა
     fatality_notice:
       alt_text: თავდაცვის სამინისტრო
       field_of_operation: ოპერაციის სფერო

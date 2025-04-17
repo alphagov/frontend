@@ -394,6 +394,9 @@ en:
     case_study:
       one: Case study
       other: Case studies
+    detailed_guide:
+      one: Guidance
+      other: Guidance
     fatality_notice:
       alt_text: Ministry of Defence crest
       field_of_operation: Field of operation

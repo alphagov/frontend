@@ -392,6 +392,9 @@ es:
     case_study:
       one: Caso de estudio práctico
       other: Casos de estudio práctico
+    detailed_guide:
+      one: Orientación detallada
+      other: Orientación detallada
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación

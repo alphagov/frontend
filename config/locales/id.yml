@@ -317,6 +317,8 @@ id:
       other: Artikel bersumber
     case_study:
       other: Studi kasus
+    detailed_guide:
+      other: Panduan
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Bidang operasi

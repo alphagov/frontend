@@ -392,6 +392,9 @@ pa:
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ
+    detailed_guide:
+      one: ਸੇਧ
+      other: ਸੇਧ
     fatality_notice:
       alt_text: ਰੱਖਿਆ ਮੰਤਰਾਲਾ ਸਿਖਰ
       field_of_operation: ਕਾਰਜ ਖੇਤਰ

@@ -392,6 +392,9 @@ de:
     case_study:
       one: Fallstudie
       other: Fallstudien
+    detailed_guide:
+      one: Detaillierte Hinweise
+      other: Detaillierte Hinweise
     fatality_notice:
       alt_text: Wappen des Verteidigungsministeriums
       field_of_operation: Tätigkeitsbereich

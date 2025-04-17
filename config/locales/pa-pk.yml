@@ -392,6 +392,9 @@ pa-pk:
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
+    detailed_guide:
+      one: 'رہنمائی '
+      other: 'رہنمائی '
     fatality_notice:
       alt_text: وزارتِ دفاع کریسٹ
       field_of_operation: عمل کرن دا حلقہ

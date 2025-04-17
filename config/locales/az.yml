@@ -392,6 +392,9 @@ az:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
+    detailed_guide:
+      one: Göstəriş
+      other: Göstəriş
     fatality_notice:
       alt_text: Müdafiə nazirliyinin emblemi
       field_of_operation: Əməliyyat sahəsi

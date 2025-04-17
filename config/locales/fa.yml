@@ -392,6 +392,9 @@ fa:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+    detailed_guide:
+      one: راهنمایی
+      other: راهنمایی
     fatality_notice:
       alt_text: تاج وزارت دفاع
       field_of_operation: زمینه فعالیت

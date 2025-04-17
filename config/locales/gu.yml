@@ -392,6 +392,9 @@ gu:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
+    detailed_guide:
+      one: માર્ગદર્શન
+      other: માર્ગદર્શન
     fatality_notice:
       alt_text: સંરક્ષણ મંત્રાલય ક્રેસ્ટ
       field_of_operation: કામગીરીનું ક્ષેત્ર

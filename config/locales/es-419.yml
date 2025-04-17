@@ -392,6 +392,9 @@ es-419:
     case_study:
       one: Estudio de caso
       other: Estudios de caso
+    detailed_guide:
+      one: Orientación
+      other: Orientación
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación

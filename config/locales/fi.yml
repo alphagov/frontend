@@ -392,6 +392,9 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+    detailed_guide:
+      one: Ohjaus
+      other: Ohjaus
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
       field_of_operation: Toiminta -alue

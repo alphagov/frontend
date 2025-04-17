@@ -392,6 +392,9 @@ ur:
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
+    detailed_guide:
+      one: رہنمائی
+      other: رہنمائی
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ

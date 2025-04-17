@@ -317,6 +317,8 @@ ko:
       other: 저작물
     case_study:
       other: 사례 연구
+    detailed_guide:
+      other: 지침
     fatality_notice:
       alt_text: 국방부 문장
       field_of_operation: 운영 현장

@@ -542,6 +542,11 @@ uk:
       many:
       one: Аналіз ситуації
       other: Аналізи ситуації
+    detailed_guide:
+      few:
+      many:
+      one: Керівництво
+      other: Керівництво
     fatality_notice:
       alt_text: Герб Міністерства оборони
       few:

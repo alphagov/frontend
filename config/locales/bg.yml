@@ -392,6 +392,9 @@ bg:
     case_study:
       one: Казус
       other: Казуси
+    detailed_guide:
+      one: Насока
+      other: Насока
     fatality_notice:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие

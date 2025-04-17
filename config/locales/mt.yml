@@ -542,6 +542,11 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    detailed_guide:
+      few:
+      many:
+      one: Gwida
+      other: Gwida
     fatality_notice:
       alt_text: Il-Ministeru tad-Difiża
       few:

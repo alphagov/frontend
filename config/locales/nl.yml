@@ -392,6 +392,9 @@ nl:
     case_study:
       one: Casestudy
       other: Casestudies
+    detailed_guide:
+      one: Richtsnoer
+      other: Begeleiding
     fatality_notice:
       alt_text: Wapen van het ministerie van Defensie
       field_of_operation: Gebied van operatie

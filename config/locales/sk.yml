@@ -451,6 +451,11 @@ sk:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    already_subscribed_title:
+    description:
+    subscribe_title:
+    unsubscribe_title:
   error:
   find:
   formats:

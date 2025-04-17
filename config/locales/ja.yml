@@ -79,6 +79,7 @@ ja:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ja:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 訪問：
   components:
     print_link:
       text:
@@ -305,6 +308,8 @@ ja:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -312,6 +317,8 @@ ja:
       other: 執筆記事
     case_study:
       other: ケーススタディ
+    detailed_guide:
+      other: ガイダンス
     fatality_notice:
       alt_text: 国防省の紋章
       field_of_operation: 運用分野

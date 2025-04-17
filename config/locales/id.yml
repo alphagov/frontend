@@ -79,6 +79,7 @@ id:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ id:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Kunjungan:'
   components:
     print_link:
       text:
@@ -305,6 +308,8 @@ id:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -312,6 +317,8 @@ id:
       other: Artikel bersumber
     case_study:
       other: Studi kasus
+    detailed_guide:
+      other: Panduan
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Bidang operasi

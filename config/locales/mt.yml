@@ -79,6 +79,7 @@ mt:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ mt:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Żur:'
   components:
     print_link:
       text:
@@ -524,6 +527,8 @@ mt:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -537,6 +542,11 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    detailed_guide:
+      few:
+      many:
+      one: Gwida
+      other: Gwida
     fatality_notice:
       alt_text: Il-Ministeru tad-Difiża
       few:

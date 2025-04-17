@@ -79,6 +79,7 @@ ne:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ne:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'भ्रमण:'
   components:
     print_link:
       text:
@@ -378,6 +381,8 @@ ne:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -387,6 +392,9 @@ ne:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     fatality_notice:
       alt_text: रक्षा मन्त्रालय क्रेस्ट
       field_of_operation: सञ्चालन क्षेत्र

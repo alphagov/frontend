@@ -79,6 +79,7 @@ so:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ so:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Booqo:'
   components:
     print_link:
       text:
@@ -378,6 +381,8 @@ so:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -387,6 +392,9 @@ so:
     case_study:
       one: Daraasad
       other: Daraasado
+    detailed_guide:
+      one: Tilmaam
+      other: Tilmaam
     fatality_notice:
       alt_text: Calaamada Wasaarada Difaaca
       field_of_operation: Hawalaha dibadaa

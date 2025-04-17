@@ -79,6 +79,7 @@ zh-tw:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ zh-tw:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 探訪：
   components:
     print_link:
       text:
@@ -305,6 +308,8 @@ zh-tw:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -312,6 +317,8 @@ zh-tw:
       other: 授權文章
     case_study:
       other: 案例分析
+    detailed_guide:
+      other: 指導
     fatality_notice:
       alt_text: 國防部紋章
       field_of_operation: 經營領域

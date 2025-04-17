@@ -79,6 +79,7 @@ ur:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ur:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ملاحظہ کریں:'
   components:
     print_link:
       text:
@@ -378,6 +381,8 @@ ur:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -387,6 +392,9 @@ ur:
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
+    detailed_guide:
+      one: رہنمائی
+      other: رہنمائی
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ

@@ -79,6 +79,7 @@ vi:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ vi:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Truy cập:'
   components:
     print_link:
       text:
@@ -305,6 +308,8 @@ vi:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    description:
   error:
   find:
   formats:
@@ -312,6 +317,8 @@ vi:
       other: Bài viết có tác giả
     case_study:
       other: Nghiên cứu điển hình
+    detailed_guide:
+      other: Hướng dẫn
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
       field_of_operation: Lĩnh vực hoạt động

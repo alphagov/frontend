@@ -395,6 +395,9 @@ ta:
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்
+    detailed_guide:
+      one: வழிகாட்டுதல்
+      other: வழிகாட்டுதல்
     fatality_notice:
       alt_text: பாதுகாப்பு காவல்துறை அமைச்சர்
       field_of_operation: இயங்குதளம்

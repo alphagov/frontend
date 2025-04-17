@@ -395,6 +395,9 @@ yi:
     case_study:
       one:
       other:
+    detailed_guide:
+      one:
+      other:
     fatality_notice:
       alt_text:
       field_of_operation:

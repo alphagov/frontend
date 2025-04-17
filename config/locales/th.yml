@@ -320,6 +320,8 @@ th:
       other: บทความที่มีผู้เขียน
     case_study:
       other: กรณีศึกษา
+    detailed_guide:
+      other: คำแนะนำ
     fatality_notice:
       alt_text: ตรากระทรวงกลาโหม
       field_of_operation: พื้นที่ปฏิบัติการ

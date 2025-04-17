@@ -395,6 +395,9 @@ sv:
     case_study:
       one: Fallstudie
       other: Fallstudier
+    detailed_guide:
+      one: Vägledning
+      other: Vägledning
     fatality_notice:
       alt_text: Försvarsministeriets vapensköld
       field_of_operation: Verksamhetsområde

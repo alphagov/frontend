@@ -395,6 +395,9 @@ fr:
     case_study:
       one: Etude de cas
       other: Etudes de cas
+    detailed_guide:
+      one: Orientations
+      other: Orientations
     fatality_notice:
       alt_text: Emblème du ministère de la défense
       field_of_operation: Champ d'opération

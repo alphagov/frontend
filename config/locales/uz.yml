@@ -395,6 +395,9 @@ uz:
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари
+    detailed_guide:
+      one: Қўлланма
+      other: Қўлланма
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
       field_of_operation: Фаолият соҳаси

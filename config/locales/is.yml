@@ -395,6 +395,9 @@ is:
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir
+    detailed_guide:
+      one: Leiðsögn
+      other: Leiðsögn
     fatality_notice:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
       field_of_operation: Starfsvið

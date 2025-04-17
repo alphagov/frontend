@@ -470,6 +470,10 @@ sr:
       few:
       one: Studija slučaja
       other: Studije slučaja
+    detailed_guide:
+      few:
+      one: Detaljno uputstvo
+      other: Detaljno uputstvo
     fatality_notice:
       alt_text: Grb Ministarstva odbrane
       few:

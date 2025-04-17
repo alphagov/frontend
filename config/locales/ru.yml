@@ -545,6 +545,11 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+    detailed_guide:
+      few:
+      many:
+      one: Подробное руководство
+      other: Руководство
     fatality_notice:
       alt_text: Герб Министерства Обороны
       few:

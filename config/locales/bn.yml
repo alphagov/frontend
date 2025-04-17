@@ -395,6 +395,9 @@ bn:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
+    detailed_guide:
+      one: পরিচালনা
+      other: পরিচালনা
     fatality_notice:
       alt_text: প্রতিরক্ষা মন্ত্রণালয়ের ক্রেস্ট
       field_of_operation: কার্যক্রমের ক্ষেত্র

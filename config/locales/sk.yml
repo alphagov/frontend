@@ -470,6 +470,10 @@ sk:
       few:
       one: Prípadová štúdia
       other: Prípadové štúdie
+    detailed_guide:
+      few:
+      one: Poradenstvo
+      other: Poradenstvo
     fatality_notice:
       alt_text: Erb ministerstva obrany
       few:

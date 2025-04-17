@@ -395,6 +395,9 @@ hu:
     case_study:
       one: Esettanulmány
       other: Esettanulmányok
+    detailed_guide:
+      one: Útmutató
+      other: Útmutató
     fatality_notice:
       alt_text: A Védelmi Minisztérium címere
       field_of_operation: Működési terület

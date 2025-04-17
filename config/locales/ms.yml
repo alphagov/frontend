@@ -320,6 +320,8 @@ ms:
       other: Artikel ditulis penulis
     case_study:
       other: Kajian kes
+    detailed_guide:
+      other: Panduan
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Medan operasi

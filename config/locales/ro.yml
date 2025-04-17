@@ -470,6 +470,10 @@ ro:
       few:
       one: Studiu de caz
       other: Studii de caz
+    detailed_guide:
+      few:
+      one: Orientări
+      other: Orientări
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
       few:

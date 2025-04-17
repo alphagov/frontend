@@ -545,6 +545,11 @@ pl:
       many:
       one: Studium przypadku
       other: Studia przypadku
+    detailed_guide:
+      few:
+      many:
+      one: Szczegółowe wskazówki
+      other: Szczegółowe wskazówki
     fatality_notice:
       alt_text: Herb Ministerstwa Obrony
       few:

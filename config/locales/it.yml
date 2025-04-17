@@ -395,6 +395,9 @@ it:
     case_study:
       one: Caso di studio
       other: Casi di studio
+    detailed_guide:
+      one: Guida
+      other: Guida
     fatality_notice:
       alt_text: Stemma del Ministero della Difesa
       field_of_operation: Campo operativo

@@ -320,6 +320,8 @@ vi:
       other: Bài viết có tác giả
     case_study:
       other: Nghiên cứu điển hình
+    detailed_guide:
+      other: Hướng dẫn
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
       field_of_operation: Lĩnh vực hoạt động

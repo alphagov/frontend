@@ -545,6 +545,11 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+    detailed_guide:
+      few:
+      many:
+      one: Кіраўніцтва
+      other: Кіраўніцтва
     fatality_notice:
       alt_text: Герб Міністэрства абароны
       few:

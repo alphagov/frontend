@@ -395,6 +395,9 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+    detailed_guide:
+      one: Ուղեցույց
+      other: Ուղեցույց
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
       field_of_operation: Գործունեության ոլորտ

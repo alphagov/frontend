@@ -395,6 +395,9 @@ hi:
     case_study:
       one: विषय अध्ययन
       other: विषय अध्ययन
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     fatality_notice:
       alt_text: रक्षा मंत्रालय का क्रेस्ट
       field_of_operation: संचालन का क्षेत्र

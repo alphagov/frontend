@@ -470,6 +470,10 @@ cs:
       few:
       one: Případová studie
       other: Případové studie
+    detailed_guide:
+      few:
+      one: Směrnice
+      other: Směrnice
     fatality_notice:
       alt_text: Ministerstvo obrany
       few:

@@ -395,6 +395,9 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+    detailed_guide:
+      one: Нұсқаулық
+      other: Нұсқаулық
     fatality_notice:
       alt_text: Қорғаныс министрлігінің елтаңбасы
       field_of_operation: Жұмыс аймағы

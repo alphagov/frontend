@@ -395,6 +395,9 @@ sw:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani
+    detailed_guide:
+      one: Mwongozo
+      other: Mwongozo
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi

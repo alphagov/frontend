@@ -395,6 +395,9 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+    detailed_guide:
+      one: Gözkezme
+      other: Gözkezme
     fatality_notice:
       alt_text: Goranmak ministrliginiň nyşany
       field_of_operation: Iş meýdany

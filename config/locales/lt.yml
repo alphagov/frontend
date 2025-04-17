@@ -470,6 +470,10 @@ lt:
       few:
       one: Atvejo analizė
       other: Atvejų analizės
+    detailed_guide:
+      few:
+      one: Detalesnė informacija
+      other: Detalesnė informacija
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
       few:

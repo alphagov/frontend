@@ -395,6 +395,9 @@ pt:
     case_study:
       one: Estudo de caso
       other: Estudos de caso
+    detailed_guide:
+      one: Orientação
+      other: Orientação
     fatality_notice:
       alt_text: Brasão do Ministério da Defesa
       field_of_operation: Campo de operação

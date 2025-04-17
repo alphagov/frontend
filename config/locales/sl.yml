@@ -545,6 +545,11 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+    detailed_guide:
+      few:
+      one: Smernice
+      other: Smernice
+      two:
     fatality_notice:
       alt_text: Grb Ministrstva za obrambo
       few:

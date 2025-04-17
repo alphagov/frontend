@@ -17,7 +17,7 @@ spec/reports/pacts
 .env
 .yarn/cache/
 .yarn/install-state.gz
-
+app/assets/javascripts/views/missions/data/
 # vim swap files and tags
 *.sw[a-z]
 /tags

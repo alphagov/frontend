@@ -26,6 +26,7 @@ some hard-coded routes.
 |Homepage               |[homepage](https://docs.publishing.service.gov.uk/content-schemas/homepage.html)|https://www.gov.uk/|
 |Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
 |Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|
+|Field of operation     |[field_of_operation](https://docs.publishing.service.gov.uk/document-types/field_of_operation.html)|https://www.gov.uk/government/fields-of-operation/united-kingdom|
 |                       |document_type: [licence_transaction](https://docs.publishing.service.gov.uk/document-types/licence_transaction.html)|https://www.gov.uk/find-licences/zoo-licence|
 |Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|http://www.gov.uk/school-term-holiday-dates|
 |                       ||http://www.gov.uk/apply-council-tax-reduction|

@@ -20,6 +20,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.finder.show_metadata_block
   end
 
+  def show_table_of_contents_list?
+    content_item.finder.show_table_of_contents_list
+  end
+
   def protection_image_path
     "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
   end

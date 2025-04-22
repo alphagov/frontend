@@ -3,6 +3,8 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include LinkHelper
 
   def headers_for_contents_list_component
+    return [] unless content_item.headers.level_two_headers?
+
     ContentsOutlinePresenter.new(content_item.headers).for_contents_list_component
   end
 

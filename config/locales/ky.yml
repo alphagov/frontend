@@ -101,7 +101,7 @@ ky:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    print_link: 
+    print_link:
       text: Бул баракчаны басып чыгаруу
     share_links:
       share_this_page: Бул баракчаны бөлүшүү
@@ -260,7 +260,7 @@ ky:
         other: Эл аралык келишимдер
       maib_report:
         one: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчету
-        other:  Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
+        other: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
       map:
         one: Карта
         other: Карталар
@@ -390,6 +390,11 @@ ky:
       matched_postcode_html:
       search_postcode_html:
       title:
+  email:
+    already_subscribed_title: Бул баракча тууралуу электрондук каттарды алып жатасыз
+    description: Бардык GOV.UK электрондук почта жазылууларыңызды көрүп
+    subscribe_title: Сиз бул баракча тууралуу электрондук каттарга жазылгансыз
+    unsubscribe_title: Сиз бул баракча тууралуу электрондук каттарга жазылуудан баш тарткансыз
   error:
   find:
   formats:
@@ -400,11 +405,11 @@ ky:
       one: Окуяны изилдөө
       other: Окуяларды изилдөө
     fatality_notice:
-      alt_text: 
-      field_of_operation: 
-      none_added: 
+      alt_text:
+      field_of_operation:
+      none_added:
       one: Өлүм тууралуу билдирүү
-      operations_in: 
+      operations_in:
       other: Өлүм тууралуу билдирүүлөр
     fields_of_operation:
       context:
@@ -540,8 +545,8 @@ ky:
       written_on: Жазылган күн
     start_now:
     take_part:
-      one: 
-      other: 
+      one:
+      other:
     transaction:
       before_you_start:
       more_information:
@@ -551,15 +556,15 @@ ky:
       what_you_need_to_know:
     travel_advice:
       alert_status:
-        avoid_all_but_essential_travel_to_parts_html: 
-        avoid_all_but_essential_travel_to_whole_country_html: 
-        avoid_all_travel_to_parts_html: 
-        avoid_all_travel_to_whole_country_html: 
-      context: 
+        avoid_all_but_essential_travel_to_parts_html:
+        avoid_all_but_essential_travel_to_whole_country_html:
+        avoid_all_travel_to_parts_html:
+        avoid_all_travel_to_whole_country_html:
+      context:
       pages:
-      still_current_at: 
-      summary: 
-      updated: 
+      still_current_at:
+      summary:
+      updated:
     world_news_story:
       one: Дүйнөлүк жаңылыктар тарыхчасы
       other: Дүйнөлүк жаңылыктар тарыхчалары
@@ -664,7 +669,7 @@ ky:
     it:
     ja:
     ka:
-    kk: 
+    kk:
     ko:
     ky: Кыргыз
     lt:

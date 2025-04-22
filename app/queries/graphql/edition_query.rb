@@ -14,7 +14,7 @@ class Graphql::EditionQuery
               base_path
               description
               details {
-              body
+                body
                 change_history
                 default_news_image {
                   alt_text

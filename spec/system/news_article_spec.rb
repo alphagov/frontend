@@ -1,10 +1,10 @@
-RSpec.describe "Fatality Notice" do
+RSpec.describe "News Article" do
   let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
   it_behaves_like "it has meta tags", "news_article", "news_article"
 
-  context "when visiting a page" do
-    before { visit "/government/news/christmas-2016-prime-ministers-message" }
+  shared_examples "a news article page" do
+    before { visit path }
 
     it "has a title" do
       expect(page).to have_title("#{content_item['title']} - GOV.UK")
@@ -33,6 +33,20 @@ RSpec.describe "Fatality Notice" do
     it "does not render with the single page notification button" do
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
+  end
+
+  context "when content item is from Content Store" do
+    let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
+    let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
+
+    it_behaves_like "a news article page"
+  end
+
+  context "when content item is from Publishing API's GraphQL" do
+    let(:content_item) { graphql_has_example_item("news_article_christmas_2016") }
+    let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
+
+    it_behaves_like "a news article page"
   end
 
   context "when visiting a page in history mode" do

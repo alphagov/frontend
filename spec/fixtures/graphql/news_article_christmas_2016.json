@@ -1,0 +1,145 @@
+{
+  "data": {
+    "edition": {
+      "base_path": "/government/news/christmas-2016-prime-ministers-message",
+      "description": "Theresa May sends her best wishes to everyone celebrating Christmas in the UK and around the world.",
+      "details": {
+        "body": "<div class=\"govspeak\"><p>Prime Minister Theresa May said:</p><blockquote>  <p>This year, the United Kingdom has had much to celebrate. Her Majesty The Queen celebrated her 90th birthday, surrounded by the Royal Family and well-wishers from across our four nations, the Commonwealth, and the world.</p>  <p>Four years after the success of London 2012, our Olympic and Paralympic athletes continued to work and train –  and they were rewarded by coming second in the medal table, <a href=\"https://www.gov.uk/government/news/rio-2016-message-from-prime-minister-theresa-may\">becoming the first team ever to increase its medal haul four years after hosting the Games</a>.  Many of us will have more personal memories too, of happy times with family and friends.  These are precious moments when people from many backgrounds, with different beliefs, come together to celebrate in families and communities.</p>  <p>Coming together is also important for us as a country. As <a href=\"https://www.gov.uk/government/topics/europe\">we leave the European Union</a> we must seize an historic opportunity to forge a bold new role for ourselves in the world and to unite our country as we move forward into the future.  And, with our international partners, we must work together to promote trade, increase prosperity and face the challenges to peace and security around the world.</p>  <p>As we gather with our friends and families at this time of year we proudly celebrate the birth of Christ and the message of forgiveness, love and hope that he brings.  We also think of Christians in other parts of the world who face persecution this Christmas and re-affirm our determination to stand up for the freedom of people of all religions to practise their beliefs in peace and safety.</p>  <p>Having grown up in a vicarage, I know how demanding it can be for those who have to work over the Christmas period.  So it’s right for all of us to express our gratitude to those who will have to spend Christmas away from the people they love in looking after others: those in our health and care services, those who work with the vulnerable, as well as those who will be caring for a loved one.</p>  <p>And <a href=\"https://www.gov.uk/government/news/prime-ministers-christmas-2016-message-to-the-armed-forces\">we thank those in our Armed Forces, security agencies, and emergency services who work all year round to keep our country safe</a> – especially those who will be separated by their duty from their families and friends.</p>  <p class=\"last-child\">Wherever you are this Christmas, I wish you joy and peace in this season of celebration, along with health and happiness in the year ahead.</p></blockquote></div>",
+        "change_history": [
+           {
+              "note": "Added translation",
+              "public_timestamp": "2016-12-25T00:15:02.000+00:00"
+           }
+        ],
+        "default_news_image" : null,
+        "display_date" : null,
+        "emphasised_organisations": [
+           "705dbea4-8bd7-422e-ba9c-254557f77f81"
+        ],
+        "first_public_at": "2016-12-25T00:15:02+00:00",
+        "image": {
+           "alt_text": "Christmas",
+           "caption" : null,
+           "url": "https://assets.publishing.service.gov.uk/media/5a61926fed915d0afc4633a6/s465_Christmas.jpg"
+        },
+        "political" : true
+      },
+      "document_type": "news_story",
+      "first_published_at": "2016-12-25T00:15:06.000+00:00",
+      "links": {
+        "available_translations": [
+          {
+            "base_path": "/government/news/christmas-2016-prime-ministers-message",
+            "locale": "en"
+          },
+          {
+            "base_path": "/government/news/christmas-2016-prime-ministers-message.ur",
+            "locale": "ur"
+          }
+        ],
+        "government": [
+          {
+            "title": "2015 Conservative government",
+            "details": {
+              "current": true
+            }
+          }
+        ],
+        "organisations": [
+          {
+            "base_path": "/government/organisations/prime-ministers-office-10-downing-street",
+            "content_id": "",
+            "title": "Prime Minister's Office, 10 Downing Street"
+          }
+        ],
+        "people": [
+          {
+            "base_path": "/government/people/theresa-may",
+            "content_id": "85291e63-c0f1-11e4-8223-005056011aef",
+            "title": "The Rt Hon Theresa May MP"
+          }
+        ],
+        "taxons": [
+           {
+              "base_path": "/defence-and-armed-forces",
+              "content_id": "e491505c-77ae-45b2-84be-8c94b94f6a2b",
+              "document_type": "taxon",
+              "links": {
+                 "parent_taxons": []
+              },
+              "phase": "live",
+              "title": "Defence and armed forces"
+           },
+           {
+              "base_path": "/society-and-culture/community-and-society",
+              "content_id": "668cd623-c7a8-4159-9575-90caac36d4b4",
+              "document_type": "taxon",
+              "links": {
+                 "parent_taxons": [
+                    {
+                       "base_path": "/society-and-culture",
+                       "content_id": "e2ca2f1a-0ff3-43ce-b813-16645ff27904",
+                       "document_type": "taxon",
+                       "links": {
+                          "parent_taxons": []
+                       },
+                       "phase": "live",
+                       "title": "Society and culture"
+                    }
+                 ]
+              },
+              "phase": "live",
+              "title": "Community and society"
+           },
+           {
+              "base_path": "/government/europe",
+              "content_id": "3afd1d79-597d-4f97-bc7a-83766dcab2f4",
+              "document_type": "taxon",
+              "links": {
+                 "parent_taxons": [
+                    {
+                       "base_path": "/government/all",
+                       "content_id": "e48ab80a-de80-4e83-bf59-26316856a5f9",
+                       "document_type": "taxon",
+                       "links": {
+                          "parent_taxons": []
+                       },
+                       "phase": "live",
+                       "title": "Government"
+                    }
+                 ]
+              },
+              "phase": "live",
+              "title": "Europe"
+           },
+           {
+              "base_path": "/society-and-culture/sports-and-leisure",
+              "content_id": "f9e476ef-654d-41ec-97d9-2b6842d4361d",
+              "document_type": "taxon",
+              "links": {
+                 "parent_taxons": [
+                    {
+                       "base_path": "/society-and-culture",
+                       "content_id": "e2ca2f1a-0ff3-43ce-b813-16645ff27904",
+                       "document_type": "taxon",
+                       "links": {
+                          "parent_taxons": []
+                       },
+                       "phase": "live",
+                       "title": "Society and culture"
+                    }
+                 ]
+              },
+              "phase": "live",
+              "title": "Sports and leisure"
+           }
+        ],
+        "topical_events": [],
+        "world_locations": []
+      },
+      "locale": "en",
+      "schema_name": "news_article",
+      "title": "Christmas 2016: Prime Minister's message"
+    }
+  }
+}

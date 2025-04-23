@@ -1,0 +1,61 @@
+{
+  "data": {
+    "edition": {
+      "base_path": "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations",
+      "description": "British High Commissioner, Jane Marriott CMG OBE, welcomed guests to celebrate His Majesty King Charles III’s 76th birthday in Islamabad and Karachi.  ",
+      "details": {
+        "change_history": [
+          {
+            "note": "First published.",
+            "public_timestamp": "2024-11-16T00:00:00.000+00:00"
+          }
+        ],
+        "emphasised_organisations": [],
+        "first_public_at": "2024-11-16T00:00:00.000+00:00",
+        "image": {
+          "alt_text": "",
+          "caption": "British High Commissioner, Jane Marriott CMG OBE with Chief Guest, Ahsan Iqbal at the Islamabad KBP.",
+          "url": "https://assets.publishing.service.gov.uk/media/67389ceeabe1d74ea7dade4e/s300_British_High_Commissioner__Jane_Marriott_CMG_OBE_with_Chief_Guest_at_the_Islamabad_KBP_Federal_Minister_Ahsan_Iqbal.jpg"
+        },
+        "political": true
+      },
+      "document_type": "world_news_story",
+      "first_published_at": "2024-11-16T00:00:00+00:00",
+      "links": {
+        "available_translations": [
+          {
+            "base_path": "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations",
+            "locale": "en"
+          }
+        ],
+        "government": [
+          {
+            "details": {
+              "current": true
+            },
+            "title": "2024 Starmer Labour government"
+          }
+        ],
+        "taxons": [
+          {
+            "base_path": "/international",
+            "content_id": "37d0fa26-abed-4c74-8835-b3b51ae1c8b2",
+            "document_type": "taxon",
+            "links": {},
+            "phase": "live",
+            "title": "International"
+          }
+        ],
+        "world_locations": [
+          {
+            "content_id": "5e9f134e-7706-11e4-a3cb-005056011aef",
+            "title": "Pakistan"
+          }
+        ]
+      },
+      "locale": "en",
+      "schema_name": "news_article",
+      "title": "British High Commission marks His Majesty King Charles III’s birthday with “Brilliantly British” celebrations"
+    }
+  }
+}

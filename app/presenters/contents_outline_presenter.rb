@@ -6,16 +6,18 @@ class ContentsOutlinePresenter
   end
 
   def for_contents_list_component
-    contents_outline.items.map { |item| item_to_component_h(item) }
+    items_to_component_h(contents_outline.items)
   end
 
 private
 
-  def item_to_component_h(item)
-    {
-      href: "##{item.id}",
-      text: item.text,
-      items: item.items.empty? ? nil : item.items.map { |subitem| item_to_component_h(subitem) },
-    }.compact
+  def items_to_component_h(items)
+    items.map do |item|
+      {
+        href: "##{item.id}",
+        text: item.text.gsub(/:$/, ""),
+        items: items_to_component_h(item.items),
+      }
+    end
   end
 end

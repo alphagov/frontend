@@ -2,6 +2,12 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include DateHelper
   include LinkHelper
 
+  def headers_for_contents_list_component
+    return [] unless content_item.headers.level_two_headers?
+
+    ContentsOutlinePresenter.new(content_item.headers).for_contents_list_component
+  end
+
   def show_protection_type_image?
     protected_food_drink_name? && content_item.protection_type_image.present?
   end

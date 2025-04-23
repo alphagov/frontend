@@ -1,17 +1,41 @@
 RSpec.describe SpecialistDocumentPresenter do
-  describe "#show_finder_link?" do
-    it "returns true when document type is statutory instrument" do
-      content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "eu-withdrawal-act-2018-statutory-instruments")
-      content_item = SpecialistDocument.new(content_store_response)
+  subject(:specialist_document_presenter) { described_class.new(content_item) }
 
-      expect(described_class.new(content_item).show_finder_link?).to be true
+  let(:content_item) { SpecialistDocument.new(content_store_response) }
+
+  describe "#headers_for_contents_list_component" do
+    context "when there are no headers" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
+
+      it "returns an empty array" do
+        expect(specialist_document_presenter.headers_for_contents_list_component).to eq([])
+      end
     end
 
-    it "returns false when document type is not a statutory instrument" do
-      content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports")
-      content_item = SpecialistDocument.new(content_store_response)
+    context "when valid headers exist" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
 
-      expect(described_class.new(content_item).show_finder_link?).to be false
+      it "returns an array of headers" do
+        expect(specialist_document_presenter.headers_for_contents_list_component.count).to eq(content_store_response["details"]["headers"].count)
+      end
+    end
+  end
+
+  describe "#show_finder_link?" do
+    context "when document type is statutory instrument" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "eu-withdrawal-act-2018-statutory-instruments") }
+
+      it "returns true" do
+        expect(specialist_document_presenter.show_finder_link?).to be true
+      end
+    end
+
+    context "when document type is not a statutory instrument" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
+
+      it "returns false" do
+        expect(specialist_document_presenter.show_finder_link?).to be false
+      end
     end
   end
 
@@ -19,23 +43,19 @@ RSpec.describe SpecialistDocumentPresenter do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
 
     it "returns true if the document type is protected_food_drink_name and there is a protection type" do
-      content_item = SpecialistDocument.new(content_store_response)
-
-      expect(described_class.new(content_item).show_protection_type_image?).to be true
+      expect(specialist_document_presenter.show_protection_type_image?).to be true
     end
 
     it "returns false if the document type is not protected_food_drink_name" do
       content_store_response["document_type"] = "transaction"
-      content_item = SpecialistDocument.new(content_store_response)
 
-      expect(described_class.new(content_item).show_protection_type_image?).to be false
+      expect(specialist_document_presenter.show_protection_type_image?).to be false
     end
 
     it "returns false when there is no protection type" do
       content_store_response["details"]["metadata"]["protection_type"] = nil
-      content_item = SpecialistDocument.new(content_store_response)
 
-      expect(described_class.new(content_item).show_protection_type_image?).to be false
+      expect(specialist_document_presenter.show_protection_type_image?).to be false
     end
   end
 
@@ -43,10 +63,9 @@ RSpec.describe SpecialistDocumentPresenter do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
 
     it "returns the full path to the protection image" do
-      content_item = SpecialistDocument.new(content_store_response)
       expected_path = "specialist-documents/protected-food-drink-names/protected-designation-of-origin-pdo.png"
 
-      expect(described_class.new(content_item).protection_image_path).to eq(expected_path)
+      expect(specialist_document_presenter.protection_image_path).to eq(expected_path)
     end
   end
 
@@ -54,18 +73,13 @@ RSpec.describe SpecialistDocumentPresenter do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names") }
 
     it "returns the alt text for the protection image" do
-      content_item = SpecialistDocument.new(content_store_response)
       expected_alt_text = I18n.t("formats.specialist_document.protection_image.pdo_alt_text")
 
-      expect(described_class.new(content_item).protection_image_alt_text).to eq(expected_alt_text)
+      expect(specialist_document_presenter.protection_image_alt_text).to eq(expected_alt_text)
     end
   end
 
   describe "#important_metadata" do
-    subject(:presenter) { described_class.new(content_item) }
-
-    let(:content_item) { SpecialistDocument.new(content_store_response) }
-
     context "when the metadata contains text" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
 
@@ -74,7 +88,7 @@ RSpec.describe SpecialistDocumentPresenter do
           "Aircraft type" => "Rotorsport UK Calidus",
         }
 
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
       end
     end
 
@@ -83,7 +97,7 @@ RSpec.describe SpecialistDocumentPresenter do
 
       it "returns facet metadata with formatted dates" do
         expected_metadata = { "Issued" => "6 July 2015" }
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
       end
     end
 
@@ -100,7 +114,7 @@ RSpec.describe SpecialistDocumentPresenter do
             "<a href='/drug-device-alerts?medical_specialism=theatre-practitioners' class='govuk-link govuk-link--inverse'>Theatre practitioners</a>",
           ],
         }
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
       end
     end
 
@@ -129,14 +143,13 @@ RSpec.describe SpecialistDocumentPresenter do
           "Alert type" => ["Medical device alert"],
         }
 
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
       end
     end
 
     context "when the metadata contains subfacets" do
       let(:filterable) { false }
       let(:finder_base_path) { "/example-finder" }
-      let(:content_item) { SpecialistDocument.new(content_store_response) }
       let(:content_store_response) do
         GovukSchemas::RandomExample.for_schema(frontend_schema: "specialist_document").tap do |payload|
           payload["details"]["metadata"] = {
@@ -185,7 +198,7 @@ RSpec.describe SpecialistDocumentPresenter do
           "Nutrient" => %w[Sugar],
           "Sub Nutrient" => ["Sugar - Refined sugar"],
         }
-        expect(presenter.important_metadata).to include(expected_metadata)
+        expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
       end
 
       context "and sub facets are filterable" do
@@ -201,7 +214,7 @@ RSpec.describe SpecialistDocumentPresenter do
             ],
           }
 
-          expect(presenter.important_metadata).to include(expected_metadata)
+          expect(specialist_document_presenter.important_metadata).to include(expected_metadata)
         end
       end
     end

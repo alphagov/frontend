@@ -3,6 +3,24 @@ RSpec.describe SpecialistDocumentPresenter do
 
   let(:content_item) { SpecialistDocument.new(content_store_response) }
 
+  describe "#headers_for_contents_list_component" do
+    context "when there are no headers" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
+
+      it "returns an empty array" do
+        expect(specialist_document_presenter.headers_for_contents_list_component).to eq([])
+      end
+    end
+
+    context "when valid headers exist" do
+      let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
+
+      it "returns an array of headers" do
+        expect(specialist_document_presenter.headers_for_contents_list_component.count).to eq(content_store_response["details"]["headers"].count)
+      end
+    end
+  end
+
   describe "#show_finder_link?" do
     context "when document type is statutory instrument" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "eu-withdrawal-act-2018-statutory-instruments") }

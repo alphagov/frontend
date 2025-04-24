@@ -31,6 +31,7 @@ APP_STYLESHEETS = {
   "views/_landing_page/logo.scss" => "views/_landing_page/logo.css",
   "views/_landing_page/featured.scss" => "views/_landing_page/featured.css",
   "views/_landing_page/main-navigation.scss" => "views/_landing_page/main-navigation.css",
+  "views/_landing_page/map.scss" => "views/_landing_page/map.css",
   "views/_landing_page/quote.scss" => "views/_landing_page/quote.css",
   "views/_landing_page/side-navigation.scss" => "views/_landing_page/side-navigation.css",
   "views/_landing_page/themes/prime-ministers-office-10-downing-street.scss" => "views/_landing_page/themes/prime-ministers-office-10-downing-street.css",

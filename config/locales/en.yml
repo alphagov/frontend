@@ -486,6 +486,7 @@ en:
       invalid_uprn_sub: Enter the postcode again.
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
+      titled_link: Go to %{title}
       matched_postcode_html: We’ve matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.

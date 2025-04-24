@@ -47,8 +47,15 @@
           "tool_name": content_item.title,
           "action": "information click",
         }.to_json %>">
+        <%
+          link_text = if @interaction_details["local_interaction"]["title"].present?
+                        t("formats.local_transaction.titled_link", title: @interaction_details["local_interaction"]["title"])
+                      else
+                        t("formats.local_transaction.local_authority_website", local_authority_name: @local_authority.name)
+                      end
+        %>
         <%= render "govuk_publishing_components/components/button", {
-          text: t("formats.local_transaction.local_authority_website", local_authority_name: @local_authority.name),
+          text: link_text,
           rel: "external",
           margin_bottom: true,
           href: @interaction_details["local_interaction"]["url"],

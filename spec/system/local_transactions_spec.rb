@@ -141,6 +141,32 @@ RSpec.describe "LocalTransactions" do
         )
       end
 
+      context "when the link has a specified title" do
+        before do
+          stub_local_links_manager_has_a_link(
+            authority_slug: "westminster",
+            lgsl: 461,
+            lgil: 8,
+            url: "http://grizzly.example.com/owners",
+            country_name: "England",
+            status: "ok",
+            local_custodian_code: 5990,
+            title: "Grizzly Ownership Hub",
+          )
+          visit "/pay-bear-tax"
+          fill_in("postcode", with: "SW1A 1AA")
+          click_on("Find your local council")
+        end
+
+        it "shows the link title prefixed with Go to" do
+          expect(page).to have_button_as_link(
+            "Go to Grizzly Ownership Hub",
+            href: "http://grizzly.example.com/owners",
+            rel: "external",
+          )
+        end
+      end
+
       it "adds the GA4 auto tracker around the result body (form_complete)" do
         data_module = page.find(".interaction p:first-child")["data-module"]
         expected_data_module = "ga4-auto-tracker"

@@ -1,5 +1,13 @@
 <%
   add_view_stylesheet("landing_page/map")
+  add_view_stylesheet("landing_page/map/leaflet")
+  add_view_stylesheet("landing_page/map/os-api-branding")
 %>
+<% content_for :extra_javascript do %>
+  <%= javascript_include_tag "views/landing_page/map/os-api-branding.js", integrity: false %>
+  <%= javascript_include_tag "views/landing_page/map/main.js", integrity: false, type: "module" %>
+<% end %>
 
-map
+<div id="api-warning"></div>
+
+<div class="map" id="map" data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>"></div>

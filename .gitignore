@@ -11,6 +11,7 @@ coverage
 public/assets
 /app/assets/builds/*
 !/app/assets/builds/.keep
+/app/assets/javascripts/views/landing_page/map/data
 node_modules
 yarn-error.log
 spec/reports/pacts

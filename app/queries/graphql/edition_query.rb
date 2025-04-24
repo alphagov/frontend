@@ -26,6 +26,7 @@ class Graphql::EditionQuery
                 image {
                   alt_text
                   caption
+                  high_resolution_url
                   url
                 }
                 political

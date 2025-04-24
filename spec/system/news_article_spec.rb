@@ -43,6 +43,15 @@ RSpec.describe "News Article" do
     end
   end
 
+  shared_examples "a news article page with a high resolution image" do
+    before { visit path }
+
+    it "includes the high resolution image in the meta tags" do
+      expect(page).to have_css("meta[property='og:image'][content*='s960']", visible: :hidden)
+      expect(page).to have_css("meta[name='twitter:image'][content*='s960']", visible: :hidden)
+    end
+  end
+
   context "when content item is from Content Store" do
     let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
     let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
@@ -54,6 +63,13 @@ RSpec.describe "News Article" do
       let(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_with_image_caption) }
 
       it_behaves_like "a news article page with an image caption"
+    end
+
+    context "when content item has a high resolution image" do
+      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
+      let(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_with_image_caption) }
+
+      it_behaves_like "a news article page with a high resolution image"
     end
   end
 
@@ -68,6 +84,13 @@ RSpec.describe "News Article" do
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with an image caption"
+    end
+
+    context "when content item has a high resolution image" do
+      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations?graphql=true" }
+      let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
+
+      it_behaves_like "a news article page with a high resolution image"
     end
   end
 

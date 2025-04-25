@@ -1,0 +1,17 @@
+<% content_for :extra_headers do %>
+  <%= javascript_include_tag "views/missions/os-api-branding.js", integrity: false %>
+  <%= javascript_include_tag "views/missions/main.js", integrity: false %>
+<% end %>
+
+<%
+  add_view_stylesheet("missions/os-api-branding")
+  add_view_stylesheet("missions/leaflet")
+  add_view_stylesheet("missions/main")
+%>
+<div id="api-warning"></div>
+
+<input type="checkbox" name="checkbox1" id="checkbox1" checked> Filter One<br/>
+<input type="checkbox" name="checkbox1" id="checkbox2" checked> Filter Two<br/>
+<input type="checkbox" name="checkbox1" id="checkbox3" checked> Filter Three <br/>
+
+<div class="map" id="map"></div>

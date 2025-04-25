@@ -59,6 +59,11 @@ Rails.application.routes.draw do
   # GOVUK Public Roadmap
   get "/roadmap", to: "roadmap#index"
 
+  unless Rails.env.production?
+    # NHS Mission map page
+    get "/missions/nhs/progress", to: "missions#show"
+  end
+
   # Electoral Registration Lookup Service
   # comment out this line to return to using a local transaction
   get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services

@@ -4,7 +4,25 @@ RSpec.describe CorporateInformationPage do
   let(:corporate_information_page) { described_class.new(GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page")) }
 
   it_behaves_like "it can be withdrawn", "corporate_information_page", "best-practice-welsh-language-scheme-withdrawn"
-  it_behaves_like "it can have a contents list", "corporate_information_page", "corporate_information_page_without_description"
+
+  describe "#headers" do
+    it "gets the headers from the details hash" do
+      details_headers = [
+        { "text" => "Our responsibilities",
+          "level" => 2,
+          "id" => "our-responsibilities" },
+        { "text" => "Who we are",
+          "level" => 2,
+          "id" => "who-we-are" },
+        { "text" => "Agencies and public bodies",
+          "level" => 2,
+          "id" => "agencies-and-public-bodies" },
+      ]
+
+      expect(described_class.new(content_store_response).headers).to eq(details_headers)
+      expect(described_class.new(content_store_response).headers.count).to eq(3)
+    end
+  end
 
   describe "#default_organisation" do
     it "returns the organisation that is also present in the organisations list" do

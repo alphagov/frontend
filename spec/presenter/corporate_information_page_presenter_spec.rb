@@ -5,24 +5,32 @@ RSpec.describe CorporateInformationPagePresenter do
   let(:content_item) { CorporateInformationPage.new(content_store_response) }
 
   describe "#contents_list_headings" do
-    it "includes the corporate information H2 if there are corporate information groups available" do
-      corporate_information_heading = { text: "Corporate information", id: "corporate-information", href: "#corporate-information" }
+    it "returns an instance of ContentsOutline" do
+      expect(presenter.contents_list_headings).to be_instance_of(ContentsOutline)
+    end
 
-      expect(presenter.contents_list_headings.last).to eq(corporate_information_heading)
+    it "includes the corporate information H2 at the end of the contents list if there are corporate information groups available" do
+      contents_list_headings = presenter.contents_list_headings
+      corporate_information_heading = contents_list_headings.items.last
+
+      expect(corporate_information_heading.text).to eq("Corporate information")
+      expect(corporate_information_heading.id).to eq("corporate-information")
+      expect(corporate_information_heading.level).to eq(2)
+      expect(contents_list_headings.items.count).to eq(5)
     end
   end
 
   describe "#corporate_information_heading" do
     it "returns the heading title" do
-      expect(presenter.corporate_information_heading[:text]).to eq("Corporate information")
+      expect(presenter.corporate_information_heading["text"]).to eq("Corporate information")
     end
 
     it "returns the heading id" do
-      expect(presenter.corporate_information_heading[:id]).to eq("corporate-information")
+      expect(presenter.corporate_information_heading["id"]).to eq("corporate-information")
     end
 
-    it "returns the heading as an anchor link" do
-      expect(presenter.corporate_information_heading[:href]).to eq("#corporate-information")
+    it "returns the heading level as H@" do
+      expect(presenter.corporate_information_heading["level"]).to eq(2)
     end
   end
 

@@ -11,9 +11,9 @@ class CorporateInformationPagePresenter < ContentItemPresenter
     heading_id = heading_text.tr(" ", "-").downcase
 
     {
-      text: heading_text,
-      id: heading_id,
-      href: "##{heading_id}",
+      "text" => heading_text,
+      "level" => 2,
+      "id" => heading_id,
     }
   end
 

@@ -2,7 +2,8 @@ class CorporateInformationPagePresenter < ContentItemPresenter
   include LinkHelper
 
   def contents_list_headings
-    content_item.contents << corporate_information_heading if content_item.corporate_information?
+    content_item.headers << corporate_information_heading if content_item.corporate_information?
+    ContentsOutline.new(content_item.headers)
   end
 
   def corporate_information_heading

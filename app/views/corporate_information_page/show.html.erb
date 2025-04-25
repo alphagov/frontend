@@ -7,7 +7,7 @@
 
 <% @additional_body = capture do %>
   <% if content_item.corporate_information? %>
-    <%= content_tag(:h2, @presenter.corporate_information_heading[:text], id: @presenter.corporate_information_heading[:id]) %>
+    <%= content_tag(:h2, @presenter.corporate_information_heading["text"], id: @presenter.corporate_information_heading["id"]) %>
 
     <% content_item.corporate_information.each do |group| %>
       <%= content_tag(:h3, group[:title], id: group[:id]) %>

@@ -7,6 +7,7 @@
   margin_top ||= nil
   publication_format ||= nil
   publication_title ||= nil
+  go_button_text ||= button_text(publication_format, publication_title)
 
   css_classes = %w[postcode-search-form]
   css_classes << "govuk-!-margin-top-#{margin_top}" if margin_top
@@ -74,7 +75,7 @@
     } %>
 
     <%= render "govuk_publishing_components/components/button",
-      text: button_text(publication_format, publication_title),
+      text: go_button_text,
       margin_bottom: true %>
 
     <%= tag.p link_to(t("formats.local_transaction.find_postcode_royal_mail"),

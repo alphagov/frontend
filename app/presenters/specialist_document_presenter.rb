@@ -3,7 +3,7 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include LinkHelper
 
   def headers_for_contents_list_component
-    return [] unless content_item.headers.level_two_headers?
+    return [] unless show_table_of_contents?
 
     ContentsOutlinePresenter.new(content_item.headers).for_contents_list_component
   end
@@ -24,6 +24,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
 
   def show_metadata_block?
     content_item.finder.show_metadata_block
+  end
+
+  def show_table_of_contents?
+    content_item.headers.level_two_headers? && content_item.finder.show_table_of_contents
   end
 
   def protection_image_path

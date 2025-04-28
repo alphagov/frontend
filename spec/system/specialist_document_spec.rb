@@ -136,23 +136,38 @@ RSpec.describe "Specialist Document" do
       end
     end
 
-    it "displays contents list" do
-      headers = content_store_response.dig("details", "headers")
-      level_two_headers_count = headers.select { |header| header["level"] == 2 }.count
-      level_three_headers_count = 0
-      headers.each do |header|
-        next if header["headers"].blank?
+    describe "contents list" do
+      it "does not render the contents list when show_table_of_contents is false" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
+        stub_content_store_has_item(base_path, content_store_response)
 
-        header["headers"].each do |h|
-          level_three_headers_count += 1 if h["level"] == 3
-        end
+        visit base_path
+
+        expect(page).not_to have_css(".gem-c-contents-list")
       end
 
-      visit base_path
+      it "renders the contents list when show_table_of_contents is true" do
+        content_store_response["links"]["finder"][0]["details"]["show_table_of_contents"] = true
 
-      within ".gem-c-contents-list" do
-        expect(all(".gem-c-contents-list__list-item--parent").size).to eq(level_two_headers_count)
-        expect(all(".gem-c-contents-list__nested-list .gem-c-contents-list__list-item").size).to eq(level_three_headers_count)
+        stub_content_store_has_item(base_path, content_store_response)
+
+        headers = content_store_response.dig("details", "headers")
+        level_two_headers_count = headers.select { |header| header["level"] == 2 }.count
+        level_three_headers_count = 0
+        headers.each do |header|
+          next if header["headers"].blank?
+
+          header["headers"].each do |h|
+            level_three_headers_count += 1 if h["level"] == 3
+          end
+        end
+
+        visit base_path
+
+        within ".gem-c-contents-list" do
+          expect(all(".gem-c-contents-list__list-item--parent").size).to eq(level_two_headers_count)
+          expect(all(".gem-c-contents-list__nested-list .gem-c-contents-list__list-item").size).to eq(level_three_headers_count)
+        end
       end
     end
 

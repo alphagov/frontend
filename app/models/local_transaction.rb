@@ -36,6 +36,12 @@ class LocalTransaction < ContentItem
     URI.parse(base_path).path.sub(%r{\A/}, "")
   end
 
+  # the apply to foster page has a few hard-coded exceptions to its
+  # layout, so add a method to detect it.
+  def apply_foster_child_council?
+    slug == "apply-foster-child-council"
+  end
+
 private
 
   def country_name_availability_for(key)

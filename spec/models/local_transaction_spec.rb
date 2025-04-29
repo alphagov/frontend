@@ -110,4 +110,20 @@ RSpec.describe LocalTransaction do
       expect(local_transaction.slug).to eq("foo/bar")
     end
   end
+
+  describe "#apply_foster_child_council?" do
+    it "returns false" do
+      expect(local_transaction.apply_foster_child_council?).to be(false)
+    end
+
+    context "when the slug matches apply-foster-child-council" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("local_transaction", example_name: "local_transaction").merge("base_path" => "/apply-foster-child-council")
+      end
+
+      it "returns true" do
+        expect(local_transaction.apply_foster_child_council?).to be(true)
+      end
+    end
+  end
 end

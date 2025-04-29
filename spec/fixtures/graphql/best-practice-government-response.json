@@ -1,0 +1,174 @@
+{
+  "data": {
+    "edition": {
+      "base_path": "/government/news/improving-food-in-hospitals-and-schools",
+      "content_id": "5f5649ac-7631-11e4-a3cb-005056011aef",
+      "description": "Government publishes a response to Sustain’s school and hospital food campaign.",
+      "details": {
+        "body": "<div class=\"govspeak\"><p>The government fully recognises the importance of providing sustainable, high quality, nutritious food across every area of the public sector. It is a priority for each of the 3 main Departments of State involved in procuring food. However, the government does not agree with Sustain’s view that legislation is necessary for improvement. There are other legally binding ways to introduce standards and some of these are set out below.</p>\n\n<p>Each department has developed a course of action tailored to suit their part of the public sector, which aims to provide the best value for the taxpayer and the best outcome for their relevant consumers. The approach each department takes will vary but where appropriate, the departments will work together to provide solutions.</p>\n\n<p>Defra’s British Food Plan, which is led by Dr Peter Bonfield, will involve developing the Government Buying Standards for Food and Catering Services to support a healthier future for people, farmers and food processors by simplifying public procurement processes and purchasing criteria and making them more consistent. The Department of Health and the Department for Education are closely engaged with this work.</p>\n\n<p>The Department of Health has set up a Hospital Food Standards Panel (HFSP), chaired by Dianne Jeffrey, the National Chairman of Age UK. The HFSP will report directly to Dr Dan Poulter, the Parliamentary Under-Secretary of State for Health. The panel will advise on standards covering the nutritional content of patient meals, healthy eating for staff and visitors (and patients as appropriate), and sustainability, including local and sustainable procurement, food waste and animal welfare.</p>\n\n<p>Once the HFSP has made its recommendations, the Department of Health will work with NHS England to ensure that they are appropriately highlighted in the NHS Standard Contract, which is used by NHS commissioners to contract with hospitals and other providers. If hospitals fail to meet the terms of the contract, commissioners can require remedial action to be taken. This means that any food standard in the NHS Standard Contract will be legally binding.</p>\n\n<p>The Department of Health believes it is more appropriate to develop change this way than by introducing legislation, which could place an unacceptable burden on the NHS and prevent the future flexibility required for food standards. Hospitals care for people of all ages, with a wide variety of health conditions and nutritional needs, along with huge numbers of visitors at all hours of day and night. One size will not fit all. Decisions about the provision of hospital food are therefore rightly made by local NHS organisations.</p>\n\n<p>The monitoring of hospital food is carried out in a number of ways. The Care Quality Commission has responsibility for inspection against registration standards, which include a high-level standard relating to food and drink, and also collects annual inpatient survey data from all acute hospitals. In addition, annual Patient-Led Assessments of the Care Environment (PLACE) assess the quality of food in every NHS hospital. In future, PLACE will also monitor compliance with the standards recommended by the HFSP.</p>\n\n<p>With regard to school food standards, school leaders are best placed to make decisions about the day-to-day running of their schools. Whilst there is no requirement for schools to serve food from British farmers and fish from sustainable sources, a number of schools already do so. For example, holders of the Food for Life Partnership gold and silver awards are required to demonstrate how they source ethical and environmentally-friendly food and support local food producers. The proposed revised school food standards state that wherever possible, foods should be prepared in the school’s own kitchen from fresh, locally sourced ingredients.</p>\n\n<p>The Department for Education encourages academies and free schools to recognise the benefits of promoting healthy eating and good nutrition by providing food and drink in a way that is broadly consistent with the established standards. In July 2012, the Department for Education published a review of school food, the <a rel=\"external\" href=\"http://www.schoolfoodplan.com/\" class=\"govuk-link\">School Food Plan</a>. In undertaking their review, the authors found that academies are largely meeting or even exceeding the food standards, but that there is still room for improvement in some, which mirrors the situation in maintained schools.</p>\n\n<p>Academies signing their funding agreements from spring 2014 will have a clause in the funding agreement requiring them to comply with school food standards regulations. Rather than introduce cumbersome new legislation for academies founded between 2010 and the introduction of the revised funding agreement, the plan’s authors are approaching those academies asking them to sign up to the new standards voluntarily.</p>\n\n<p>There are no plans to introduce additional enforcement measures for the school food standards. However, Ofsted has amended its supplementary guidance so that inspectors consider behaviour and culture in the dining hall and the way a school promotes healthy lifestyles.</p>\n</div>",
+        "change_history": [
+          {
+            "note": "First published.",
+            "public_timestamp": "2014-05-08T15:38:28.000+01:00"
+          }
+        ],
+        "default_news_image": null,
+        "display_date": null,
+        "emphasised_organisations": [
+          "7cd6bf12-bbe9-4118-8523-f927b0442156",
+          "de4e9dc6-cca4-43af-a594-682023b84d6c",
+          "ebd15ade-73b2-4eaf-b1c3-43034a42eb37"
+        ],
+        "first_public_at": "2014-05-08T15:38:28+01:00",
+        "image": {
+          "alt_text": "",
+          "caption": null,
+          "high_resolution_url": "https://assets.publishing.service.gov.uk/media/627508178fa8f520738d5474/s960_DHSC_plaque.jpg",
+          "url": "https://assets.publishing.service.gov.uk/media/62750817e90e070dbf5acad5/s300_DHSC_plaque.jpg"
+        },
+        "political": true
+      },
+      "document_type": "government_response",
+      "first_published_at": "2014-05-08T15:38:28+01:00",
+      "links": {
+        "available_translations": [
+          {
+            "base_path": "/government/news/improving-food-in-hospitals-and-schools",
+            "locale": "en"
+          }
+        ],
+        "government": [
+          {
+            "details": {
+              "current": false
+            },
+            "title": "2010 to 2015 Conservative and Liberal Democrat coalition government"
+          }
+        ],
+        "ordered_related_items": [],
+        "ordered_related_items_overrides": [],
+        "organisations": [
+          {
+            "analytics_identifier": "D12",
+            "base_path": "/government/organisations/department-of-health-and-social-care",
+            "content_id": "7cd6bf12-bbe9-4118-8523-f927b0442156",
+            "title": "Department of Health and Social Care"
+          },
+          {
+            "analytics_identifier": "D7",
+            "base_path": "/government/organisations/department-for-environment-food-rural-affairs",
+            "content_id": "de4e9dc6-cca4-43af-a594-682023b84d6c",
+            "title": "Department for Environment, Food & Rural Affairs"
+          },
+          {
+            "analytics_identifier": "D6",
+            "base_path": "/government/organisations/department-for-education",
+            "content_id": "ebd15ade-73b2-4eaf-b1c3-43034a42eb37",
+            "title": "Department for Education"
+          }
+        ],
+        "people": [],
+        "primary_publishing_organisation": [
+          {
+            "base_path": "/government/organisations/department-of-health-and-social-care",
+            "title": "Department of Health and Social Care"
+          }
+        ],
+        "suggested_ordered_related_items": [],
+        "taxons": [
+          {
+            "base_path": "/education/school-food-accommodation-transport-and-uniform",
+            "content_id": "ef3248d2-2145-4f87-b99a-589433c9b101",
+            "document_type": "taxon",
+            "links": {
+              "parent_taxons": [
+                {
+                  "base_path": "/education/running-and-managing-a-school",
+                  "content_id": "42e6e5c3-3a06-4a6f-abd4-a4b85d9c6b16",
+                  "document_type": "taxon",
+                  "links": {
+                    "parent_taxons": [
+                      {
+                        "base_path": "/education",
+                        "content_id": "c58fdadd-7743-46d6-9629-90bb3ccc4ef0",
+                        "document_type": "taxon",
+                        "links": {
+                          "parent_taxons": []
+                        },
+                        "phase": "live",
+                        "title": "Education, training and skills",
+                        "web_url": "https://www.gov.uk/education"
+                      }
+                    ]
+                  },
+                  "phase": "live",
+                  "title": "Running and managing a school",
+                  "web_url": "https://www.gov.uk/education/running-and-managing-a-school"
+                }
+              ]
+            },
+            "phase": "live",
+            "title": "School food, accommodation, transport and uniform",
+            "web_url": "https://www.gov.uk/education/school-food-accommodation-transport-and-uniform"
+          },
+          {
+            "base_path": "/health-and-social-care/national-health-service",
+            "content_id": "f3dcc290-752f-4bbe-b379-9155d919a58d",
+            "document_type": "taxon",
+            "links": {
+              "parent_taxons": [
+                {
+                  "base_path": "/health-and-social-care",
+                  "content_id": "8124ead8-8ebc-4faf-88ad-dd5cbcc92ba8",
+                  "document_type": "taxon",
+                  "links": {
+                    "parent_taxons": []
+                  },
+                  "phase": "live",
+                  "title": "Health and social care",
+                  "web_url": "https://www.gov.uk/health-and-social-care"
+                }
+              ]
+            },
+            "phase": "live",
+            "title": "National Health Service",
+            "web_url": "https://www.gov.uk/health-and-social-care/national-health-service"
+          },
+          {
+            "base_path": "/health-and-social-care/public-health",
+            "content_id": "d6a4884e-769d-4b81-8ba5-b64394362d92",
+            "document_type": "taxon",
+            "links": {
+              "parent_taxons": [
+                {
+                  "base_path": "/health-and-social-care",
+                  "content_id": "8124ead8-8ebc-4faf-88ad-dd5cbcc92ba8",
+                  "document_type": "taxon",
+                  "links": {
+                    "parent_taxons": []
+                  },
+                  "phase": "live",
+                  "title": "Health and social care",
+                  "web_url": "https://www.gov.uk/health-and-social-care"
+                }
+              ]
+            },
+            "phase": "live",
+            "title": "Public health",
+            "web_url": "https://www.gov.uk/health-and-social-care/public-health"
+          }
+        ],
+        "topical_events": [],
+        "world_locations": [],
+        "worldwide_organisations": []
+      },
+      "locale": "en",
+      "public_updated_at": "2014-05-08T15:38:28+01:00",
+      "publishing_app": "whitehall",
+      "rendering_app": "frontend",
+      "schema_name": "news_article",
+      "title": "Improving food in hospitals and schools",
+      "updated_at": "2025-04-07T16:45:59+01:00"
+    }
+  }
+}

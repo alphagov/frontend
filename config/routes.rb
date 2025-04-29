@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     get "/development", to: "development#index"
   end
 
+  scope "/api" do
+    scope "/local-authority" do
+      get "/:authority_slug" => "api/local_authority#show"
+    end
+  end
+
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"

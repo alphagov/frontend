@@ -79,6 +79,7 @@ et:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ et:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Külastus:'
   components:
     print_link:
       text:
@@ -392,6 +395,9 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+    detailed_guide:
+      one: Juhised
+      other: Juhised
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
       field_of_operation: Tegevusvaldkond

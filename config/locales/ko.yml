@@ -79,6 +79,7 @@ ko:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ko:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: '방문:'
   components:
     print_link:
       text:
@@ -317,6 +320,8 @@ ko:
       other: 저작물
     case_study:
       other: 사례 연구
+    detailed_guide:
+      other: 지침
     fatality_notice:
       alt_text: 국방부 문장
       field_of_operation: 운영 현장

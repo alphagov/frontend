@@ -79,6 +79,7 @@ lv:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ lv:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Apmeklējiet:'
   components:
     print_link:
       text:
@@ -392,6 +395,9 @@ lv:
     case_study:
       one: Piemērs
       other: Piemēri
+    detailed_guide:
+      one: Detalizētas norādes
+      other: Detalizētas norādes
     fatality_notice:
       alt_text: Aizsardzības ministrijas ģerbonis
       field_of_operation: Darbības joma

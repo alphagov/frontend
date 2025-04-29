@@ -79,6 +79,7 @@ ta:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ta:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'வருகை:'
   components:
     print_link:
       text:
@@ -392,6 +395,9 @@ ta:
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்
+    detailed_guide:
+      one: வழிகாட்டுதல்
+      other: வழிகாட்டுதல்
     fatality_notice:
       alt_text: பாதுகாப்பு காவல்துறை அமைச்சர்
       field_of_operation: இயங்குதளம்

@@ -79,6 +79,7 @@ zh:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ zh:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 访问：
   components:
     print_link:
       text:
@@ -317,6 +320,8 @@ zh:
       other: 撰写文章
     case_study:
       other: 案例研究
+    detailed_guide:
+      other: 指南
     fatality_notice:
       alt_text: 国防部徽章
       field_of_operation: 经营领域

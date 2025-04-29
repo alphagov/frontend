@@ -24,6 +24,7 @@ RSpec.describe "LocalTransactions" do
         wales_availability: {
           "type" => "unavailable",
         },
+        more_information: "More information about bears",
       },
       document_type: "local_transaction",
       external_related_links: [],
@@ -140,6 +141,32 @@ RSpec.describe "LocalTransactions" do
         ga4_expected_object = "{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Pay your bear tax\",\"action\":\"information click\"}"
         expect(data_module).to eq(expected_data_module)
         expect(ga4_link_attribute).to eq(ga4_expected_object)
+      end
+
+      it "includes more information after the get-started control" do
+        elements = all(".more, #get-started")
+
+        expect(page).to have_text("More information about bears")
+        expect(elements[0]["id"]).to eq("get-started")
+        expect(elements[1]["class"]).to eq("more")
+      end
+
+      context "when the slug matches apply-foster-child-council" do
+        before do
+          payload[:base_path] = "/apply-foster-child-council"
+          stub_content_store_has_item("/apply-foster-child-council", payload)
+          visit "/apply-foster-child-council"
+          fill_in("postcode", with: "SW1A 1AA")
+          click_on("Find your local council")
+        end
+
+        it "includes more information before the get-started control" do
+          elements = all(".more, #get-started")
+
+          expect(page).to have_text("More information about bears")
+          expect(elements[0]["class"]).to eq("more")
+          expect(elements[1]["id"]).to eq("get-started")
+        end
       end
 
       it "does not show the transaction information" do

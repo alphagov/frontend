@@ -1,0 +1,22 @@
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= content_item.description %>">
+
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", {
+    content_item: content_item.to_h,
+    schema: :article,
+  } %>
+<% end %>
+
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+  </div>
+<% end %>
+
+<div class="govuk-width-container">
+  <% content_item.flexible_sections.each do |flexible_section| %>
+    <div class="govuk-grid-row">
+      <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
+    </div>
+  <% end %>
+</div>

@@ -20,6 +20,16 @@
        }.to_json %>">
       <%= t("formats.local_transaction.matched_postcode_html", local_authority: @local_authority.name) %>
     </p>
+
+    <%# for /apply-foster-child-council we want the more information up here to highlight it, otherwise it's at the end %>
+    <% if content_item.more_information.present? && content_item.apply_foster_child_council? %>
+      <section class="more">
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw content_item.more_information %>
+        <% end %>
+      </section>
+    <% end %>
+
     <p class="govuk-body">
       <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
     </p>
@@ -65,13 +75,11 @@
     <% end %>
   </div>
 
-  <% if content_item.more_information.present? %>
+  <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>
     <section class="more">
-      <div class="more">
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw content_item.more_information %>
-        <% end %>
-      </div>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.more_information %>
+      <% end %>
     </section>
   <% end %>
 <% end %>

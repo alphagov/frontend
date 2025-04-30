@@ -6,15 +6,31 @@ RSpec.describe "LocalTransactions" do
   include GdsApi::TestHelpers::LocalLinksManager
   include LocationHelpers
 
-  before do
-    configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
-    @payload = {
+  let(:payload) do
+    {
       analytics_identifier: nil,
       base_path: "/pay-bear-tax",
       content_id: "d6d6caaf-77db-47e1-8206-30cd4f3d0e3f",
+      description: "Descriptive bear text.",
+      details: {
+        introduction: "Information about paying local tax on owning or looking after a bear.",
+        lgil_override: 8,
+        lgsl_code: 461,
+        scotland_availability: {
+          "alternative_url" => "https://scot.gov/service",
+          "type" => "devolved_administration_service",
+        },
+        service_tiers: %w[county unitary],
+        wales_availability: {
+          "type" => "unavailable",
+        },
+        more_information: "More information about bears",
+      },
       document_type: "local_transaction",
+      external_related_links: [],
       first_published_at: "2016-02-29T09:24:10.000+00:00",
       format: "local_transaction",
+      links: {},
       locale: "en",
       phase: "beta",
       public_updated_at: "2014-12-16T12:49:50.000+00:00",
@@ -24,24 +40,12 @@ RSpec.describe "LocalTransactions" do
       title: "Pay your bear tax",
       updated_at: "2017-01-30T12:30:33.483Z",
       withdrawn_notice: {},
-      links: {},
-      description: "Descriptive bear text.",
-      details: {
-        lgsl_code: 461,
-        lgil_override: 8,
-        service_tiers: %w[county unitary],
-        introduction: "Information about paying local tax on owning or looking after a bear.",
-        scotland_availability: {
-          "type" => "devolved_administration_service",
-          "alternative_url" => "https://scot.gov/service",
-        },
-        wales_availability: {
-          "type" => "unavailable",
-        },
-      },
-      external_related_links: [],
     }
-    stub_content_store_has_item("/pay-bear-tax", @payload)
+  end
+
+  before do
+    configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
+    stub_content_store_has_item("/pay-bear-tax", payload)
   end
 
   context "with a local transaction with an interaction present" do
@@ -137,6 +141,32 @@ RSpec.describe "LocalTransactions" do
         ga4_expected_object = "{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Pay your bear tax\",\"action\":\"information click\"}"
         expect(data_module).to eq(expected_data_module)
         expect(ga4_link_attribute).to eq(ga4_expected_object)
+      end
+
+      it "includes more information after the get-started control" do
+        elements = all(".more, #get-started")
+
+        expect(page).to have_text("More information about bears")
+        expect(elements[0]["id"]).to eq("get-started")
+        expect(elements[1]["class"]).to eq("more")
+      end
+
+      context "when the slug matches apply-foster-child-council" do
+        before do
+          payload[:base_path] = "/apply-foster-child-council"
+          stub_content_store_has_item("/apply-foster-child-council", payload)
+          visit "/apply-foster-child-council"
+          fill_in("postcode", with: "SW1A 1AA")
+          click_on("Find your local council")
+        end
+
+        it "includes more information before the get-started control" do
+          elements = all(".more, #get-started")
+
+          expect(page).to have_text("More information about bears")
+          expect(elements[0]["class"]).to eq("more")
+          expect(elements[1]["id"]).to eq("get-started")
+        end
       end
 
       it "does not show the transaction information" do

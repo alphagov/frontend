@@ -1,5 +1,5 @@
-RSpec.shared_examples "it can have emphasised organisations" do |schema|
-  let(:content_store_response) { GovukSchemas::Example.find(schema, example_name: schema) }
+RSpec.shared_examples "it can have emphasised organisations" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name: example_name) }
 
   it "knows it has emphasised organisations" do
     first_organisation = content_store_response["links"]["organisations"].find do |link|

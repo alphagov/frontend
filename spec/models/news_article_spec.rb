@@ -1,8 +1,4 @@
 RSpec.describe NewsArticle do
-  subject(:news_article) { described_class.new(content_store_response) }
-
-  let(:content_store_response) { GovukSchemas::Example.find("news_article", example_name: "best-practice-government-response") }
-
   it_behaves_like "it has news image", "news_article", "news_article"
   it_behaves_like "it has updates", "news_article", "best-practice-event"
   it_behaves_like "it has no updates", "news_article", "news_article"
@@ -13,6 +9,10 @@ RSpec.describe NewsArticle do
   it_behaves_like "it can be withdrawn", "news_article", "news_article_withdrawn"
 
   describe "#contributors" do
+    subject(:news_article) { described_class.new(content_store_response) }
+
+    let(:content_store_response) { GovukSchemas::Example.find("news_article", example_name: "best-practice-government-response") }
+
     it "returns the organisations ordered by emphasis" do
       organisations = content_store_response.dig("links", "organisations")
 

@@ -31,7 +31,7 @@
              publication_title: content_item.title,
            } %>
 
-  <% if content_item.need_to_know.present? || content_item.more_information.present? %>
+  <% if content_item.need_to_know.present? || (content_item.more_information.present? && !content_item.apply_foster_child_council?) %>
     <section class="more">
       <% if content_item.need_to_know.present? %>
         <%= render "govuk_publishing_components/components/heading", {
@@ -43,7 +43,7 @@
         <% end %>
       <% end %>
 
-      <% if content_item.more_information.present? %>
+      <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>
         <div class="more">
           <%= render "govuk_publishing_components/components/govspeak", {} do %>
             <%= raw content_item.more_information %>

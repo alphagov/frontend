@@ -168,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   const layers = [icb, hubOverlay, cdcOverlay]
   for (let i = 0; i < layers.length; i++) {
-    const checkbox = document.querySelector(`#checkbox${i + 1}`)
+    const checkbox = document.querySelector(`#mapfilter-${i}`)
     const mapLayer = layers[i]
     checkbox.addEventListener('click', function () {
       if (map.hasLayer(mapLayer)) {

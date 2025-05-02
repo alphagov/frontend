@@ -399,6 +399,9 @@ hu:
       one: Halálesettel kapcsolatos értesítés
       operations_in: 'Tevékenységek itt: %{location}'
       other: Halálesettel kapcsolatos értesítések
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

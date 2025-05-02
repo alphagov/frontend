@@ -399,6 +399,9 @@ lv:
       one: Nāves paziņojums
       operations_in: 'Darbības šeit: %{location}'
       other: Nāves paziņojumi
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

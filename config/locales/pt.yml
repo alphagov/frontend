@@ -399,6 +399,9 @@ pt:
       one: Aviso de fatalidade
       operations_in: Operações em %{location}
       other: Avisos de fatalidade
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

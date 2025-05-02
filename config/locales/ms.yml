@@ -323,6 +323,9 @@ ms:
       none_added: Belum ada notis kematian yang ditambahkan untuk medan operasi ini.
       operations_in: Operasi di %{location}
       other: Notis kematian
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

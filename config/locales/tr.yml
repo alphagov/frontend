@@ -399,6 +399,9 @@ tr:
       one: Hata bildirimi
       operations_in: "%{location} konumundaki faaliyetler"
       other: Hata bildirimleri
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

@@ -399,6 +399,9 @@ sw:
       one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
       other: Notisi za idadi ya vifo
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

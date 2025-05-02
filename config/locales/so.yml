@@ -399,6 +399,9 @@ so:
       one: Ogeysiiska masiibooyinka
       operations_in: Hawalaha %{location}
       other: Ogeysiisyada masiibooyinka
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

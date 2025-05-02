@@ -399,6 +399,9 @@ es:
       one: Aviso de defunción
       operations_in: Operaciones en %{location}
       other: Avisos de defunción
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

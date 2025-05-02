@@ -399,6 +399,9 @@ ps:
       one: د مرګ خبرتیا
       operations_in: په%{location} کې عملیات
       other: د مرګ خبرتیا
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

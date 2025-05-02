@@ -399,6 +399,9 @@ fi:
       one: Kuolemantapauksia koskeva ilmoitus
       operations_in: Toiminnot paikassa %{location}
       other: Kuolemantapauksia koskevat ilmoitukset
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

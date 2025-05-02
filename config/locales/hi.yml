@@ -399,6 +399,9 @@ hi:
       one: विपत्ति की सूचना
       operations_in: "%{location} में संचालन"
       other: विपत्ति की सूचना
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

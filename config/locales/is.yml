@@ -399,6 +399,9 @@ is:
       one: Tilkynning um dauðsfall
       operations_in: Starfsemi á %{location}
       other: Tilkynningar um dauðsfall
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

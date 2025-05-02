@@ -399,6 +399,9 @@ dr:
       one: اطلاعیه مرگ و میر
       operations_in: عملیات در%{location}
       other: اطلاعیه هایی مرگ و میر
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

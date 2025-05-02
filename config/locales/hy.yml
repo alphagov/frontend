@@ -399,6 +399,9 @@ hy:
       one: Դժբախտ պատահարի ծանուցում
       operations_in: Գործունեություն % {location}-ում
       other: Դժբախտ պատահարի ծանուցումներ
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

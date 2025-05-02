@@ -399,6 +399,9 @@ ta:
       one: இறப்பு அறிவிப்பு
       operations_in: "%{location}-ல் செயல்பாடுகள்"
       other: இறப்பு அறிவிப்புகள்
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

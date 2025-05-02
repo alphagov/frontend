@@ -399,6 +399,9 @@ ur:
       one: موت کا نوٹس
       operations_in: "%{location} میں کارروائیاں"
       other: موت کے نوٹسز
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

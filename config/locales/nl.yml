@@ -399,6 +399,9 @@ nl:
       one: Kennisgeving van overlijden
       operations_in: Operaties in %{location}
       other: Kennisgevingen van overlijden
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

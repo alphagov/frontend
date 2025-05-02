@@ -399,6 +399,9 @@ pa:
       one: ਘਾਤਕ ਸੂਚਨਾ
       operations_in: "%{location} ਵਿੱਚ ਕਾਰਜ"
       other: ਘਾਤਕ ਸੂਚਨਾ
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

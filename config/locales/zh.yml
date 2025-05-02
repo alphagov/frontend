@@ -323,6 +323,9 @@ zh:
       none_added: 目前还没有关于这一经营领域的死亡通知。
       operations_in: 在 %{location} 经营
       other: 死亡通知
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

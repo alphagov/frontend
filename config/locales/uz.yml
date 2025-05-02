@@ -399,6 +399,9 @@ uz:
       one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
       other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

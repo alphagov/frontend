@@ -551,6 +551,9 @@ ru:
       one: Уведомление о несчастном случае
       operations_in: Деятельность в  %{location}
       other: Уведомления о несчастных случаях
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

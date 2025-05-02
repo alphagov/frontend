@@ -399,6 +399,9 @@ sq:
       one: Njoftim fataliteti
       operations_in: Operacione në %{location}
       other: Njoftime fataliteti
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

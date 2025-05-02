@@ -399,6 +399,9 @@ de:
       one: Todesanzeige
       operations_in: Tätigkeiten in %{location}
       other: Todesanzeigen
+    field_of_operation:
+      context:
+      title:
     fields_of_operation:
       context:
     find_my_nearest:

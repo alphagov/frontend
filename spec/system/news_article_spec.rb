@@ -1,7 +1,11 @@
 RSpec.describe "News Article" do
   let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
-  it_behaves_like "it has meta tags", "news_article", "news_article"
+  %i[content_store publishing_api_graphql].each do |data_source|
+    context "when data source is #{data_source}" do
+      it_behaves_like "it has meta tags", "news_article", "news_article", data_source: data_source
+    end
+  end
 
   shared_examples "a news article page" do
     before { visit path }

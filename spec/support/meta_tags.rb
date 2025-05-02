@@ -1,15 +1,15 @@
-RSpec.shared_examples "it has meta tags" do |schema, example|
-  let(:example_doc) { GovukSchemas::Example.find(schema, example_name: example) }
-  let(:path) { example_doc["base_path"] }
+RSpec.shared_examples "it has meta tags" do |schema, example, data_source: :content_store|
+  let(:api_response) { fetch_content_item(schema, example, data_source:) }
+  let(:path) { api_response["base_path"] }
 
   before do
-    example_doc.merge!(
+    api_response.merge!(
       "title" => "Zhe title",
       "withdrawn_notice" => {},
     )
-    example_doc["links"]["available_translations"] = []
+    api_response["links"]["available_translations"] = []
 
-    stub_content_store_has_item(path, example_doc.to_json)
+    stub_request_for_content_item(path, api_response.to_json, data_source:)
   end
 
   it "renders the correct meta tags for the title" do

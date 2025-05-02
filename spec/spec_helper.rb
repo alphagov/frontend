@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   config.include ContentItemHelpers, type: :model
+  config.include ContentItemHelpers, type: :system
   config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system
   config.include PublishingApiGraphqlHelpers, type: :request

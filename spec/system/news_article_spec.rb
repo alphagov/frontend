@@ -126,5 +126,23 @@ RSpec.describe "News Article" do
 
       it_behaves_like "a news article page with a high resolution image"
     end
+
+    context "when visiting a page in history mode" do
+      let(:path) { "/government/news/final-care-act-guidance-published?graphql=true" }
+      # rubocop:disable RSpec/LetSetup
+      let!(:content_item) { graphql_has_example_item("news_article_history_mode") }
+      # rubocop:enable RSpec/LetSetup
+
+      it_behaves_like "a page in history mode"
+    end
+
+    context "when visiting an RTL page in history mode" do
+      let(:path) { "/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar?graphql=true" }
+      # rubocop:disable RSpec/LetSetup
+      let!(:content_item) { graphql_has_example_item("news_article_history_mode_translated_arabic") }
+      # rubocop:enable RSpec/LetSetup
+
+      it_behaves_like "an RTL page in history mode"
+    end
   end
 end

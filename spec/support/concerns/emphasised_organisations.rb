@@ -1,12 +1,13 @@
-RSpec.shared_examples "it can have emphasised organisations" do |document_type, example_name|
+RSpec.shared_examples "it can have emphasised organisations" do |document_type, example_name, data_source: :content_store|
   let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name: example_name) }
+  let(:api_response) { fetch_content_item(document_type, example_name, data_source:) }
 
   it "knows it has emphasised organisations" do
-    first_organisation = content_store_response["links"]["organisations"].find do |link|
-      link["content_id"] == content_store_response["details"]["emphasised_organisations"].first
+    first_organisation = api_response["links"]["organisations"].find do |link|
+      link["content_id"] == api_response["details"]["emphasised_organisations"].first
     end
 
-    expect(described_class.new(content_store_response).organisations_ordered_by_emphasis.first.title).to eq(first_organisation["title"])
+    expect(described_class.new(api_response).organisations_ordered_by_emphasis.first.title).to eq(first_organisation["title"])
   end
 end
 

@@ -10,4 +10,33 @@
 
 <div id="api-warning"></div>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/checkboxes", {
+      name: "favourite_small_synonym[]",
+      heading: "Filter map elements",
+      no_hint_text: true,
+      id: "mapfilter",
+      small: true,
+      items: [
+        {
+          label: "Show one",
+          value: "one",
+          checked: true,
+        },
+        {
+          label: "Show two",
+          value: "two",
+          checked: true,
+        },
+        {
+          label: "Show three",
+          value: "three",
+          checked: true,
+        },
+      ]
+    } %>
+  </div>
+</div>
+
 <div class="map" id="map" data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>"></div>

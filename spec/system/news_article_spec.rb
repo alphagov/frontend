@@ -105,9 +105,9 @@ RSpec.describe "News Article" do
   end
 
   context "when visiting an RTL page in history mode" do
-    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
+    let!(:content_item) { content_store_has_example_item("/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
 
-    before { visit "/government/news/final-care-act-guidance-published.ar" }
+    before { visit "/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar" }
 
     it "marks up the government name correctly" do
       expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])

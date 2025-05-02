@@ -52,6 +52,22 @@ RSpec.describe "News Article" do
     end
   end
 
+  shared_examples "a page in history mode" do
+    before { visit path }
+
+    it "displays the history notice text" do
+      expect(page).to have_text("This was published under the #{content_item['links']['government'][0]['title']}")
+    end
+  end
+
+  shared_examples "an RTL page in history mode" do
+    before { visit path }
+
+    it "marks up the government name correctly" do
+      expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
+    end
+  end
+
   context "when content item is from Content Store" do
     let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
     let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
@@ -70,6 +86,24 @@ RSpec.describe "News Article" do
       let(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_with_image_caption) }
 
       it_behaves_like "a news article page with a high resolution image"
+    end
+
+    context "when visiting a page in history mode" do
+      let(:path) { "/government/news/final-care-act-guidance-published" }
+      # rubocop:disable RSpec/LetSetup
+      let!(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_history_mode) }
+      # rubocop:enable RSpec/LetSetup
+
+      it_behaves_like "a page in history mode"
+    end
+
+    context "when visiting an RTL page in history mode" do
+      let(:path) { "/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar" }
+      # rubocop:disable RSpec/LetSetup
+      let!(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_history_mode_translated_arabic) }
+      # rubocop:enable RSpec/LetSetup
+
+      it_behaves_like "an RTL page in history mode"
     end
   end
 
@@ -91,26 +125,6 @@ RSpec.describe "News Article" do
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with a high resolution image"
-    end
-  end
-
-  context "when visiting a page in history mode" do
-    let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published", schema: :news_article, example: :news_article_history_mode) }
-
-    before { visit "/government/news/final-care-act-guidance-published" }
-
-    it "displays the history notice text" do
-      expect(page).to have_text("This was published under the #{content_item['links']['government'][0]['title']}")
-    end
-  end
-
-  context "when visiting an RTL page in history mode" do
-    let!(:content_item) { content_store_has_example_item("/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
-
-    before { visit "/government/news/uk-and-us-sanction-key-houthi-figures-to-protect-maritime-security-in-the-red-sea.ar" }
-
-    it "marks up the government name correctly" do
-      expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])
     end
   end
 end

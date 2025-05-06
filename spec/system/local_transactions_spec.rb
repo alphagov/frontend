@@ -96,6 +96,22 @@ RSpec.describe "LocalTransactions" do
         expect(data_module).to eq(expected_data_module)
         expect(ga4_form_attribute).to eq(ga4_expected_object)
       end
+
+      it "includes more information" do
+        expect(page).to have_text("More information about bears")
+      end
+
+      context "when the slug matches apply-foster-child-council" do
+        before do
+          payload[:base_path] = "/apply-foster-child-council"
+          stub_content_store_has_item("/apply-foster-child-council", payload)
+          visit "/apply-foster-child-council"
+        end
+
+        it "does not include more information" do
+          expect(page).not_to have_text("More information about bears")
+        end
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do

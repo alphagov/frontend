@@ -162,7 +162,16 @@ zh:
         other:
       business_finance_support_scheme:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        other:
+      closed_call_for_evidence:
+        one:
         other:
       closed_consultation:
         other:
@@ -241,6 +250,9 @@ zh:
       official_statistics:
         other:
       official_statistics_announcement:
+        other:
+      open_call_for_evidence:
+        one:
         other:
       open_consultation:
         other:
@@ -329,10 +341,15 @@ zh:
       welsh_language_scheme_html: 查看我们对 %{link} 的承诺。
     fatality_notice:
       alt_text: 国防部徽章
+      few:
       field_of_operation: 经营领域
+      many:
       none_added: 目前还没有关于这一经营领域的死亡通知。
+      one:
       operations_in: 在 %{location} 经营
       other: 死亡通知
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -461,9 +478,14 @@ zh:
         tsg_alt_text: 该计划的标志是一个黑色的印章，上面写着“受传统专业英国保护”
     speech:
       delivered_on: 提交日期
+      few:
       location: 位置
+      many:
+      one:
       other: 演讲
+      two:
       written_on: 书写日期
+      zero:
     start_now:
     take_part:
       other: 参加

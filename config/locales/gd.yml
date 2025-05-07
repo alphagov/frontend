@@ -177,11 +177,20 @@ gd:
         one:
         other:
         two:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         one:
         other:
         two:
+      closed_call_for_evidence:
+        one:
+        other:
       closed_consultation:
         few:
         one:
@@ -377,6 +386,9 @@ gd:
         one:
         other:
         two:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -559,11 +571,13 @@ gd:
       alt_text: Suaitheantas rialtais Chónaidhme
       few:
       field_of_operation: Réimse oibríochta
+      many:
       none_added: Níor cuireadh aon fhógra báis leis an réimse gníomhaíochta seo.
       one: Obituary
       operations_in: Idirbhearta I %{location}
       other: Obituary
       two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -709,10 +723,12 @@ gd:
       delivered_on: Seachadadh ar
       few:
       location: Suíomh
+      many:
       one: Óráid
       other: Óráid
       two:
       written_on: Scríobh an
+      zero:
     start_now:
     take_part:
       few:

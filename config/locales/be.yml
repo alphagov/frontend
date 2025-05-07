@@ -177,9 +177,18 @@ be:
         many:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -377,6 +386,9 @@ be:
         many:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:
@@ -564,6 +576,8 @@ be:
       one: Паведамлення аб смерці
       operations_in: Дзейнасць у %{location}
       other: Паведамлення аб смерці
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -712,7 +726,9 @@ be:
       many:
       one: Выступ
       other: Выступы
+      two:
       written_on: Напісана
+      zero:
     start_now:
     take_part:
       few:

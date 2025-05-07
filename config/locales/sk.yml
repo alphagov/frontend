@@ -172,8 +172,17 @@ sk:
         few:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -332,6 +341,9 @@ sk:
         few:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -483,10 +495,13 @@ sk:
       alt_text: Erb ministerstva obrany
       few:
       field_of_operation: Oblasť činnosti
+      many:
       none_added: Pre túto oblasť činnosti zatiaľ neboli pridané žiadne oznámenia o úmrtí.
       one: Oznámenie o úmrtí
       operations_in: Operácie v %{location}
       other: Oznámenia o úmrtí
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -627,9 +642,12 @@ sk:
       delivered_on: Doručené dňa
       few:
       location: Umiestnenie
+      many:
       one: Prejav
       other: Prejay
+      two:
       written_on: Napísané dňa
+      zero:
     start_now:
     take_part:
       few:

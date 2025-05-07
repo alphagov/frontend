@@ -167,7 +167,16 @@ si:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ si:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ si:
       welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
     fatality_notice:
       alt_text: ආරක්ෂක අමාත්යාංශ ලාංඡනය
+      few:
       field_of_operation: මෙහෙයුම් ක්ෂේත්රය
+      many:
       none_added: මෙම මෙහෙයුම් ක්ෂේත්රයට තවමත් මරණ දැන්වීම් එකතු කර නොමැත.
       one: මරණ දැන්වීම
       operations_in: "%{location} තුළ මෙහෙයුම්"
       other: මරණ දැන්වීම්
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ si:
         tsg_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Traditional Speciality UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
     speech:
       delivered_on: බෙදාහරින ලද දිනය
+      few:
       location: ස්ථානය
+      many:
       one: කථාව
       other: කථා
+      two:
       written_on: ලියන ලද දිනය
+      zero:
     start_now:
     take_part:
       one: සහභාගී වන්න

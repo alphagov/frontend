@@ -167,7 +167,16 @@ hi:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ hi:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ hi:
       welsh_language_scheme_html: हमारी प्रकाशन के प्रति वचनबद्धता के बारे में जानें %(link)।
     fatality_notice:
       alt_text: रक्षा मंत्रालय का क्रेस्ट
+      few:
       field_of_operation: संचालन का क्षेत्र
+      many:
       none_added: संचालन के इस क्षेत्र में अभी तक कोई घातक नोटिस नहीं जोड़ा गया है।
       one: विपत्ति की सूचना
       operations_in: "%{location} में संचालन"
       other: विपत्ति की सूचना
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ hi:
         tsg_alt_text: स्कीम का लोगो एक ब्लैक स्टैम्प है जिसमें Traditional Speciality UK Protected शब्द हैं
     speech:
       delivered_on: इस पर डिलीवरी किया गया
+      few:
       location: स्थान
+      many:
       one: भाषण
       other: भाषण
+      two:
       written_on: पर लिखा
+      zero:
     start_now:
     take_part:
       one: हिस्सा लें

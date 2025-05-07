@@ -167,7 +167,16 @@ el:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ el:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ el:
       welsh_language_scheme_html: Μάθετε για τη δέσμευσή μας στο %{link}.
     fatality_notice:
       alt_text: Οικόσημο Υπουργείου Άμυνας
+      few:
       field_of_operation: Πεδίο λειτουργίας
+      many:
       none_added: Δεν έχουν προστεθεί ακόμη ανακοινώσεις θανάτου για αυτό το πεδίο λειτουργίας.
       one: Ανακοίνωση θανάτου
       operations_in: Λειτουργίες στην τοποθεσία %{location}
       other: Ανακοινώσεις θανάτου
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ el:
         tsg_alt_text: Το λογότυπο του σχεδίου είναι μια μαύρη σφραγίδα με τις λέξεις Traditional Specialty UK Protected
     speech:
       delivered_on: Παραδόθηκε στις
+      few:
       location: Τοποθεσία
+      many:
       one: Ομιλία
       other: Ομιλίες
+      two:
       written_on: Γράφτηκε στις
+      zero:
     start_now:
     take_part:
       one: Συμμετοχή

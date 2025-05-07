@@ -167,7 +167,16 @@ pa:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ pa:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ pa:
       welsh_language_scheme_html: "%{link} ਪ੍ਰਤੀ ਸਾਡੀ ਵਚਨਬੱਧਤਾ ਬਾਰੇ ਜਾਣੋ।"
     fatality_notice:
       alt_text: ਰੱਖਿਆ ਮੰਤਰਾਲਾ ਸਿਖਰ
+      few:
       field_of_operation: ਕਾਰਜ ਖੇਤਰ
+      many:
       none_added: ਇਸ ਕਾਰਜ ਦੇ ਖੇਤਰ ਵਿੱਚ ਅਜੇ ਤੱਕ ਕੋਈ ਘਾਤਕ ਸੂਚਨਾ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤੀ ਗਈ ਹੈ।
       one: ਘਾਤਕ ਸੂਚਨਾ
       operations_in: "%{location} ਵਿੱਚ ਕਾਰਜ"
       other: ਘਾਤਕ ਸੂਚਨਾ
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ pa:
         tsg_alt_text: ਸਕੀਮ ਦਾ ਲੋਗੋ ਟ੍ਰੈਡੀਸ਼ਨਲ ਸਪੈਸ਼ਲਿਟੀ ਯੂਕੇ ਪ੍ਰੋਟੈਕਟਡ ਸ਼ਬਦਾਂ ਨਾਲ ਇੱਕ ਕਾਲਾ ਮੋਹਰ ਹੈ
     speech:
       delivered_on: "'ਤੇ ਦਿੱਤਾ ਗਿਆ"
+      few:
       location: ਟਿਕਾਣਾ
+      many:
       one: ਭਾਸ਼ਣ
       other: ਭਾਸ਼ਣ
+      two:
       written_on: "'ਤੇ ਲਿਖਿਆ ਗਿਆ"
+      zero:
     start_now:
     take_part:
       one: ਹਿੱਸਾ ਲੈਣਾ

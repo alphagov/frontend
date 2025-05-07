@@ -167,7 +167,16 @@ ps:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ ps:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ ps:
       welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
     fatality_notice:
       alt_text: د دفاع وزارت کریسټ
+      few:
       field_of_operation: د عملیاتو ساحه
+      many:
       none_added: تر دې دمه د عملیاتو ساحې لپاره د مرګ خبرتیاوې ندي اضافه شوي.
       one: د مرګ خبرتیا
       operations_in: په%{location} کې عملیات
       other: د مرګ خبرتیا
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ ps:
         tsg_alt_text: د سکیم لوگو یو تور ټاپه ده چې د دودیز تخصص انګلستان محافظت کلمو سره دی
     speech:
       delivered_on: ته وسپارل شو
+      few:
       location: ځای
+      many:
       one: وینا
       other: ويناوې
+      two:
       written_on: باندې لیکل شوی
+      zero:
     start_now:
     take_part:
       one: برخه واخلئ

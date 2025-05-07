@@ -167,7 +167,16 @@ nl:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ nl:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ nl:
       welsh_language_scheme_html: Lees meer over onze inzet voor %{link}.
     fatality_notice:
       alt_text: Wapen van het ministerie van Defensie
+      few:
       field_of_operation: Gebied van operatie
+      many:
       none_added: Er zijn nog geen meldingen van sterfgevallen toegevoegd voor dit werkgebied.
       one: Kennisgeving van overlijden
       operations_in: Operaties in %{location}
       other: Kennisgevingen van overlijden
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ nl:
         tsg_alt_text: Het logo van de regeling is een zwart stempel met de woorden Traditional Speciality UK Protected
     speech:
       delivered_on: Geleverd op
+      few:
       location: Plaats
+      many:
       one: Toespraak
       other: Toespraken
+      two:
       written_on: Geschreven op
+      zero:
     start_now:
     take_part:
       one: Neem deel

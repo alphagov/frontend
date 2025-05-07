@@ -167,7 +167,16 @@ ka:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ ka:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ ka:
       welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
     fatality_notice:
       alt_text: თავდაცვის სამინისტრო
+      few:
       field_of_operation: ოპერაციის სფერო
+      many:
       none_added: ფატალურობის შეტყობინება ჯერ არ დამატებულა ოპერაციის ამ სფეროში.
       one: ფატალურობის შეტყობინება
       operations_in: ოპერაციები %{location}-ში
       other: ფატალურობის შეტყობინებები
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ ka:
         tsg_alt_text: სქემის ლოგო არის შავი ბეჭედი, რომელზეც წერია ტრადიციული სპეციალობა დაცულია გაერთიანებული სამეფოს მიერ
     speech:
       delivered_on: გადაეცა
+      few:
       location: მდებარეობა
+      many:
       one: სიტყვით გამოსვლის შენიშვნა
       other: სიტყვით გამოსვლის შენიშვნები
+      two:
       written_on: დაწერილი
+      zero:
     start_now:
     take_part:
       one: მონაწილეობის მიღება

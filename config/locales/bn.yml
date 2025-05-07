@@ -167,7 +167,16 @@ bn:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ bn:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ bn:
       welsh_language_scheme_html: "%{link}-এ আপনার আমাদের অঙ্গীকার সম্পর্কে জানুন।"
     fatality_notice:
       alt_text: প্রতিরক্ষা মন্ত্রণালয়ের ক্রেস্ট
+      few:
       field_of_operation: কার্যক্রমের ক্ষেত্র
+      many:
       none_added: এখনও এই পরিচালনার ফিল্ডের জন্য কোনো বিপর্যয়ের বিজ্ঞপ্তি যোগ করা হয়নি।
       one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
       operations_in: "%{location}-এ পরিচালনা"
       other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ bn:
         tsg_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Traditional Speciality UK Protected শব্দগুলো রয়েছে
     speech:
       delivered_on: পাঠানো হয়েছে
+      few:
       location: অবস্থান
+      many:
       one: বক্তব্য
       other: বক্তব্যসমূহ
+      two:
       written_on: যখন লেখা হয়েছে
+      zero:
     start_now:
     take_part:
       one: অংশ নিন

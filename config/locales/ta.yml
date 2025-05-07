@@ -167,7 +167,16 @@ ta:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ ta:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ ta:
       welsh_language_scheme_html: "%{link}-க்கு எங்கள் கடப்பாடு குறித்துக் கண்டறியுங்கள்."
     fatality_notice:
       alt_text: பாதுகாப்பு காவல்துறை அமைச்சர்
+      few:
       field_of_operation: இயங்குதளம்
+      many:
       none_added: இந்த செயல்பாட்டுத் தளத்தில் எந்த உயிரிழப்பு அறிவிப்புகளும் இன்னும் சேர்க்கப்படவில்லை.
       one: இறப்பு அறிவிப்பு
       operations_in: "%{location}-ல் செயல்பாடுகள்"
       other: இறப்பு அறிவிப்புகள்
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ ta:
         tsg_alt_text: திட்ட லோகோ என்பது UK பாதுகாப்புடன் மரபார்ந்த சிறப்பம்சமுள்ள வார்த்தைகளுடன் கூடிய ஒரு கருப்பு முத்திரை
     speech:
       delivered_on: ஒப்படைத்த தேதி
+      few:
       location: இருப்பிடம்
+      many:
       one: பேச்சு
       other: பேச்சுகள்
+      two:
       written_on: எழுதப்பட்ட தேதி
+      zero:
     start_now:
     take_part:
       one: பங்கெடுத்தல்

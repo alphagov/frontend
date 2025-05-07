@@ -172,8 +172,17 @@ cs:
         few:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -332,6 +341,9 @@ cs:
         few:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -483,10 +495,13 @@ cs:
       alt_text: Ministerstvo obrany
       few:
       field_of_operation: Oblast provozu
+      many:
       none_added: Pro tuto oblast činnosti zatím nebyla přidána žádná oznámení o úmrtí.
       one: Oznámení o úmrtí
       operations_in: Operace v %{location}
       other: Oznámení o úmrtí
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -627,9 +642,12 @@ cs:
       delivered_on: Doručeno dne
       few:
       location: Sídlo
+      many:
       one: Projev
       other: Projevy
+      two:
       written_on: Odepsané
+      zero:
     start_now:
     take_part:
       few:

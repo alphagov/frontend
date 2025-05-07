@@ -177,9 +177,18 @@ mt:
         many:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -377,6 +386,9 @@ mt:
         many:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:
@@ -564,6 +576,8 @@ mt:
       one: Avviż dwar fatalità
       operations_in: Operazzjonijiet fil- %{location}
       other: Avviżi dwar fatalitajiet
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -712,7 +726,9 @@ mt:
       many:
       one: Diskors
       other: Diskorsi
+      two:
       written_on: Miktub nhar
+      zero:
     start_now:
     take_part:
       few:

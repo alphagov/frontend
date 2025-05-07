@@ -167,7 +167,16 @@ hy:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ hy:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ hy:
       welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
+      few:
       field_of_operation: Գործունեության ոլորտ
+      many:
       none_added: 'Գործունեության այս ոլորտի համար դժբախտ պատահարի ծանուցումներ դեռևս չեն ավելացվել:'
       one: Դժբախտ պատահարի ծանուցում
       operations_in: Գործունեություն % {location}-ում
       other: Դժբախտ պատահարի ծանուցումներ
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ hy:
         tsg_alt_text: Սխեմատիկ պատկերանշանը սև կնիքի տեսքով հետևյալ գրությամբ՝ Traditional Speciality UK Protected
     speech:
       delivered_on: Ուղարկվել է
+      few:
       location: Տեղանք
+      many:
       one: Հրապարակային խոսք
       other: Հրապարակային խոսքեր
+      two:
       written_on: Գրվել է
+      zero:
     start_now:
     take_part:
       one: Մասնակցություն

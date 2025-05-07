@@ -167,7 +167,16 @@ gu:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ gu:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ gu:
       welsh_language_scheme_html: "%{link} પ્રત્યે અમારી પ્રતિબદ્ધતા અંગે જાણો."
     fatality_notice:
       alt_text: સંરક્ષણ મંત્રાલય ક્રેસ્ટ
+      few:
       field_of_operation: કામગીરીનું ક્ષેત્ર
+      many:
       none_added: આ કામગીરીના ક્ષેત્રમાં હજુ સુધી કોઇ જાનહાનિ સૂચનાઓ ઉમેરાઈ નથી.
       one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
       other: મૃત્યુ અંગેની સૂચનાઓ
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ gu:
         tsg_alt_text: આ યોજનાનો લોગો એક કાળા રંગનો સ્ટેમ્પ છે, જેમાં ટ્રેડિશનલ સ્પેશિયાલિટી UK પ્રોટેક્ટેડ શબ્દો છે
     speech:
       delivered_on: ના રોજ ડિલિવર થયું
+      few:
       location: સ્થાન
+      many:
       one: ભાષણ
       other: ભાષણો
+      two:
       written_on: પર લખેલ
+      zero:
     start_now:
     take_part:
       one: ભાગ લો

@@ -167,7 +167,16 @@ ne:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ ne:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ ne:
       welsh_language_scheme_html: "%{link} को हाम्रो प्रतिबद्धताको बारेमा जानकारी पाउनुहोस्।"
     fatality_notice:
       alt_text: रक्षा मन्त्रालय क्रेस्ट
+      few:
       field_of_operation: सञ्चालन क्षेत्र
+      many:
       none_added: त्यहाँ सञ्चालन क्षेत्रको लागी अझै सम्म कुनै मृत्यु सूचनाहरु थपिएका छैनन्।
       one: मृत्युको सूचना
       operations_in: "%{location} मा सञ्चालन"
       other: मृत्युका सूचनाहरू
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ ne:
         tsg_alt_text: योजनाको चिन्ह निम्न शब्दहरु सहितको कालो मोहर हो, पारम्परिक विशेषता संयक्त अधिराज्य संरक्षित
     speech:
       delivered_on: मा वितरण गरियो
+      few:
       location: स्थान
+      many:
       one: भाषण
       other: भाषणहरु
+      two:
       written_on: मा लेखिएको छ
+      zero:
     start_now:
     take_part:
       one: सहभागी हुनु

@@ -167,7 +167,16 @@ sw:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ sw:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ sw:
       welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
+      few:
       field_of_operation: Sehemu ya kazi
+      many:
       none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
       one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
       other: Notisi za idadi ya vifo
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ sw:
         tsg_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Traditional Speciality UK Protected
     speech:
       delivered_on: Iliwasilishwa mnamo
+      few:
       location: Mahali
+      many:
       one: Hotuba
       other: Hotuba
+      two:
       written_on: Iliandikwa mnamo
+      zero:
     start_now:
     take_part:
       one: Shiriki

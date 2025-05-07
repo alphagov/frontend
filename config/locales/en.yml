@@ -169,9 +169,18 @@ en:
       business_finance_support_scheme:
         one: Business finance support scheme
         other: Business finance support schemes
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         one: Case study
         other: Case studies
+      closed_call_for_evidence:
+        one:
+        other:
       closed_consultation:
         one: Closed consultation
         other: Closed consultations
@@ -289,6 +298,9 @@ en:
       official_statistics_announcement:
         one: Official statistics announcement
         other: Official statistics announcements
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         one: Open consultation
         other: Open consultations
@@ -407,11 +419,15 @@ en:
       welsh_language_scheme_html: Find out about our commitment to %{link}.
     fatality_notice:
       alt_text: Ministry of Defence crest
+      few:
       field_of_operation: Field of operation
+      many:
       none_added: There have been no fatality notices added for this field of operation yet.
       one: Fatality notice
       operations_in: Operations in %{location}
       other: Fatality notices
+      two:
+      zero:
     field_of_operation:
       context: British fatalities
       title: Operations in
@@ -548,10 +564,14 @@ en:
         tsg_alt_text: The scheme logo is a black stamp with the words Traditional Speciality UK Protected
     speech:
       delivered_on: Delivered on
+      few:
       location: Location
+      many:
       one: Speech
       other: Speeches
+      two:
       written_on: Written on
+      zero:
     start_now: Start now
     take_part:
       one: Take part

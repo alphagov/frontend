@@ -167,7 +167,16 @@
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@
       welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
+      few:
       field_of_operation: Operasjonsfelt
+      many:
       none_added: Det har ikke blitt lagt til noen meldinger om dødsfall for dette operasjonsfeltet ennå.
       one: Melding om dødsfall
       operations_in: Operasjoner i %{location}
       other: Meldinger om dødsfall
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@
         tsg_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
     speech:
       delivered_on: Levert på
+      few:
       location: Plassering
+      many:
       one: Tale
       other: Taler
+      two:
       written_on: Skrevet på
+      zero:
     start_now:
     take_part:
       one: Delta

@@ -167,7 +167,16 @@ uz:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ uz:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ uz:
       welsh_language_scheme_html: "%{link} да бизнинг содиқлилигимиз ҳақида билиб олинг ."
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
+      few:
       field_of_operation: Фаолият соҳаси
+      many:
       none_added: Ушбу фаолият соҳасида ўлим ҳолатлари ҳақида хабарномалар ҳали қўшилмаган.
       one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
       other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ uz:
         tsg_alt_text: Схема логотипи ўзи билан “Анъанавий мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
     speech:
       delivered_on: Етказиб берилди
+      few:
       location: Жойлашиш жойи
+      many:
       one: Нутқ
       other: Нутқлар
+      two:
       written_on: Ёзилган
+      zero:
     start_now:
     take_part:
       one: Иштирок этиш

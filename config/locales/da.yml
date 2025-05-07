@@ -167,7 +167,16 @@ da:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ da:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ da:
       welsh_language_scheme_html: Learn more about our commitment to% {link}.
     fatality_notice:
       alt_text: Forsvarsministeriets kam
+      few:
       field_of_operation: Operationsområde
+      many:
       none_added: Der er ikke tilføjet nogen dødsfald for dette operationsområde endnu.
       one: Meddelelse om dødsfald
       operations_in: Handlinger i %{location}
       other: Meddelelser om dødsfald
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ da:
         tsg_alt_text: Ordningen logo er et sort stempel med ordene traditionelle specialitet UK beskyttet
     speech:
       delivered_on: Leveret den
+      few:
       location: Placering
+      many:
       one: tale
       other: taler
+      two:
       written_on: Skrevet på
+      zero:
     start_now:
     take_part:
       one: Deltage

@@ -172,8 +172,17 @@ lt:
         few:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -332,6 +341,9 @@ lt:
         few:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -483,10 +495,13 @@ lt:
       alt_text: Apsaugos ministerijos herbas
       few:
       field_of_operation: Veiklos sritis
+      many:
       none_added: Šioje srityje kol kas neskelbiamas apie nelaimes.
       one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
       other: Pranešimas apie nelaimes
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -627,9 +642,12 @@ lt:
       delivered_on: Pateikta
       few:
       location: Vieta
+      many:
       one: Kalba
       other: Kalbos
+      two:
       written_on: Parašymo data
+      zero:
     start_now:
     take_part:
       few:

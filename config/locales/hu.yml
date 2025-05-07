@@ -167,7 +167,16 @@ hu:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ hu:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ hu:
       welsh_language_scheme_html: 'Tájékozódjon az információk közzétételével kapcsolatos elkötelezettségünkről: %{link}'
     fatality_notice:
       alt_text: A Védelmi Minisztérium címere
+      few:
       field_of_operation: Működési terület
+      many:
       none_added: Ehhez a működési területhez még nem lettek hozzáadva halálesetekkel kapcsolatos értesítések.
       one: Halálesettel kapcsolatos értesítés
       operations_in: 'Tevékenységek itt: %{location}'
       other: Halálesettel kapcsolatos értesítések
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ hu:
         tsg_alt_text: 'A tervezet logója egy fekete pecsét a következő szavakkal: Traditional Speciality UK Protected'
     speech:
       delivered_on: 'Kézbesítve ekkor:'
+      few:
       location: Helyszín
+      many:
       one: Beszéd
       other: Beszédek
+      two:
       written_on: 'Írás időpontja:'
+      zero:
     start_now:
     take_part:
       one: Részvétel

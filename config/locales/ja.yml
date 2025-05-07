@@ -162,7 +162,16 @@ ja:
         other:
       business_finance_support_scheme:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        other:
+      closed_call_for_evidence:
+        one:
         other:
       closed_consultation:
         other:
@@ -241,6 +250,9 @@ ja:
       official_statistics:
         other:
       official_statistics_announcement:
+        other:
+      open_call_for_evidence:
+        one:
         other:
       open_consultation:
         other:
@@ -329,10 +341,15 @@ ja:
       welsh_language_scheme_html: 情報公開の詳細については %{link} をご覧下さい。
     fatality_notice:
       alt_text: 国防省の紋章
+      few:
       field_of_operation: 運用分野
+      many:
       none_added: この活動分野での死亡通知はまだ追加されていません。
+      one:
       operations_in: "%{location} での操作"
       other: 死亡通知
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -461,9 +478,14 @@ ja:
         tsg_alt_text: デザインロゴは、Designated Origin UK Protectedという文字の入った黒のスタンプです
     speech:
       delivered_on: 配信日：
+      few:
       location: 場所
+      many:
+      one:
       other: スピーチ
+      two:
       written_on: 記述日：
+      zero:
     start_now:
     take_part:
       other: 参加する

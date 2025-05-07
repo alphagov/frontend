@@ -177,11 +177,20 @@ sl:
         one:
         other:
         two:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         one:
         other:
         two:
+      closed_call_for_evidence:
+        one:
+        other:
       closed_consultation:
         few:
         one:
@@ -377,6 +386,9 @@ sl:
         one:
         other:
         two:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -559,11 +571,13 @@ sl:
       alt_text: Grb Ministrstva za obrambo
       few:
       field_of_operation: Področje delovanja
+      many:
       none_added: Za to področje delovanja še ni bilo dodanih obvestil o smrtnih žrtvah.
       one: Obvestilo o smrti
       operations_in: Dejavni v %{location}
       other: Obvestila o smrti
       two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -709,10 +723,12 @@ sl:
       delivered_on: 'Podano dne:'
       few:
       location: Lokacija
+      many:
       one: Govor
       other: Govori
       two:
       written_on: Napisano dne
+      zero:
     start_now:
     take_part:
       few:

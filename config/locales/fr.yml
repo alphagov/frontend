@@ -167,7 +167,16 @@ fr:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ fr:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ fr:
       welsh_language_scheme_html: Découvrez comment nous nous engageons sur %{link}.
     fatality_notice:
       alt_text: Emblème du ministère de la défense
+      few:
       field_of_operation: Champ d'opération
+      many:
       none_added: Aucun avis de décès n'a encore été ajouté pour ce domaine d'activité.
       one: Avis de décès
       operations_in: Opérations à %{location}
       other: Avis de décès
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ fr:
         tsg_alt_text: Le logo du système est un cachet noir portant la mention "Spécialité traditionnelle protégée par le Royaume-Uni"
     speech:
       delivered_on: Livré le
+      few:
       location: Emplacement
+      many:
       one: Discours
       other: Discours
+      two:
       written_on: Rédigé le
+      zero:
     start_now:
     take_part:
       one: Participer

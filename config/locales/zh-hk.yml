@@ -162,7 +162,16 @@ zh-hk:
         other:
       business_finance_support_scheme:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        other:
+      closed_call_for_evidence:
+        one:
         other:
       closed_consultation:
         other:
@@ -241,6 +250,9 @@ zh-hk:
       official_statistics:
         other:
       official_statistics_announcement:
+        other:
+      open_call_for_evidence:
+        one:
         other:
       open_consultation:
         other:
@@ -329,10 +341,15 @@ zh-hk:
       welsh_language_scheme_html: 查閱我們在 %{link} 的發佈承諾。
     fatality_notice:
       alt_text: 國防部徽章
+      few:
       field_of_operation: 行動領域
+      many:
       none_added: 此運作領域仍未加入任何死亡通知。
+      one:
       operations_in: 行動位置 %{location}
       other: 安全事故通知
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -461,9 +478,14 @@ zh-hk:
         tsg_alt_text: 該計劃之標誌為一黑色印章，帶有「英國傳統特產保護」之字樣
     speech:
       delivered_on: 交付時間
+      few:
       location: 地點
+      many:
+      one:
       other: 演講
+      two:
       written_on: 記載於
+      zero:
     start_now:
     take_part:
       other: 參加活動

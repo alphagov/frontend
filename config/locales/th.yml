@@ -162,7 +162,16 @@ th:
         other:
       business_finance_support_scheme:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        other:
+      closed_call_for_evidence:
+        one:
         other:
       closed_consultation:
         other:
@@ -241,6 +250,9 @@ th:
       official_statistics:
         other:
       official_statistics_announcement:
+        other:
+      open_call_for_evidence:
+        one:
         other:
       open_consultation:
         other:
@@ -329,10 +341,15 @@ th:
       welsh_language_scheme_html: ดูข้อมูลเพิ่มเติมเกี่ยวกับพันธกิจของเราสำหรับ %{link}
     fatality_notice:
       alt_text: ตรากระทรวงกลาโหม
+      few:
       field_of_operation: พื้นที่ปฏิบัติการ
+      many:
       none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
+      one:
       operations_in: การดำเนินงานใน %{location}
       other: การแจ้งตาย
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -461,9 +478,14 @@ th:
         tsg_alt_text: ตราโครงการเป็นตราประทับสีดำที่มีข้อความว่า Traditional Speciality UK Protected
     speech:
       delivered_on: ส่งมอบเมื่อ
+      few:
       location: ตำแหน่งที่ตั้ง
+      many:
+      one:
       other: สุนทรพจน์
+      two:
       written_on: เขียนเมื่อ
+      zero:
     start_now:
     take_part:
       other: มีส่วนร่วม

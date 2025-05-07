@@ -167,7 +167,16 @@ fa:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ fa:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ fa:
       welsh_language_scheme_html: درباره تعهد ما نسبت به %{link} اطلاعات کسب کنید.
     fatality_notice:
       alt_text: تاج وزارت دفاع
+      few:
       field_of_operation: زمینه فعالیت
+      many:
       none_added: هنوز هیچ اعلامیه مرگ‌و‌میری برای این زمینه فعالیت اضافه نشده است.
       one: اطلاعیه مرگ‌و‌میر
       operations_in: فعالیت در %{location}
       other: اطلاعیه‌های مرگ‌و‌میر
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ fa:
         tsg_alt_text: آرم طرح یک مهر سیاه با این کلمات است Traditional Speciality UK Protected
     speech:
       delivered_on: تخویل شده در
+      few:
       location: موقعیت مکانی
+      many:
       one: سخنرانی
       other: سخنرانی‌ها
+      two:
       written_on: نوشته شده در
+      zero:
     start_now:
     take_part:
       one: مشارکت

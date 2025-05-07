@@ -167,7 +167,16 @@ dr:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ dr:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ dr:
       welsh_language_scheme_html: از تعهد ما به %{link} مطلع شوید.
     fatality_notice:
       alt_text: وزارت دفاع
+      few:
       field_of_operation: ساحهء عملیات
+      many:
       none_added: هنوز هیچ خبر مرگ و میر در این بخش عملیات اضافه نشده است.
       one: اطلاعیه مرگ و میر
       operations_in: عملیات در%{location}
       other: اطلاعیه هایی مرگ و میر
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ dr:
         tsg_alt_text: لوگو این طرح یک مهر سیاه رنگ با کلماتTraditional Specialty UK Protected است
     speech:
       delivered_on: تحویل داده شد به
+      few:
       location: موقعیت
+      many:
       one: سخنرانی
       other: سخنرانی ها
+      two:
       written_on: نوشته شده است د
+      zero:
     start_now:
     take_part:
       one: سهم بگیرید

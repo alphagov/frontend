@@ -167,7 +167,16 @@ tr:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ tr:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ tr:
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
+      few:
       field_of_operation: Faaliyet alanı
+      many:
       none_added: Henüz bu faaliyet alanına eklenen hiçbir ölüm oranı bildirimi yok.
       one: Hata bildirimi
       operations_in: "%{location} konumundaki faaliyetler"
       other: Hata bildirimleri
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ tr:
         tsg_alt_text: Şema logosu Traditional Specialty UK Protected sözcüklerini içeren siyah bir damgadır
     speech:
       delivered_on: 'Teslim tarihi:'
+      few:
       location: Konum
+      many:
       one: Konuşma
       other: Konuşmalar
+      two:
       written_on: 'Yazılma tarihi:'
+      zero:
     start_now:
     take_part:
       one: Katıl

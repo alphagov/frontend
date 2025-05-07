@@ -162,7 +162,16 @@ id:
         other:
       business_finance_support_scheme:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        other:
+      closed_call_for_evidence:
+        one:
         other:
       closed_consultation:
         other:
@@ -241,6 +250,9 @@ id:
       official_statistics:
         other:
       official_statistics_announcement:
+        other:
+      open_call_for_evidence:
+        one:
         other:
       open_consultation:
         other:
@@ -329,10 +341,15 @@ id:
       welsh_language_scheme_html: Cari tahu komitmen kami kepada %{link}.
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
+      few:
       field_of_operation: Bidang operasi
+      many:
       none_added: Belum ada pemberitahuan fatalitas yang ditambahkan untuk bidang operasi ini.
+      one:
       operations_in: Operasi di %{location}
       other: Pemberitahuan fatalitas
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -461,9 +478,14 @@ id:
         tsg_alt_text: Logo skema adalah cap hitam dengan kata-kata Traditional Speciality UK Protected
     speech:
       delivered_on: Dikirim pada
+      few:
       location: Lokasi
+      many:
+      one:
       other: Pidato
+      two:
       written_on: Ditulis pada
+      zero:
     start_now:
     take_part:
       other: Ikut serta

@@ -167,7 +167,16 @@ fi:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ fi:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ fi:
       welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
+      few:
       field_of_operation: Toiminta -alue
+      many:
       none_added: Kuolemantapauksia ei ole ilmoitettu lisätty tälle toiminta-alueelle.
       one: Kuolemantapauksia koskeva ilmoitus
       operations_in: Toiminnot paikassa %{location}
       other: Kuolemantapauksia koskevat ilmoitukset
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ fi:
         tsg_alt_text: Järjestelmän logo on musta leima, jossa on teksti seuraavasti Perinteinen erikoisuus Yhdistynyt kuningaskunta Suojattu
     speech:
       delivered_on: Toimitettu
+      few:
       location: Sijainti
+      many:
       one: Puhe
       other: Puheet
+      two:
       written_on: Kirjoitettu
+      zero:
     start_now:
     take_part:
       one: Osallistu

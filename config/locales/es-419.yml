@@ -167,7 +167,16 @@ es-419:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ es-419:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ es-419:
       welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
+      few:
       field_of_operation: Campo de operación
+      many:
       none_added: Todavía no se han añadido avisos de víctimas fatales para esta área de operaciones.
       one: Aviso de fallecimiento
       operations_in: Operaciones en %{location}
       other: Avisos de fallecimiento
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ es-419:
         tsg_alt_text: El logotipo del programa es un sello negro con las palabras "Traditional Speciality UK Protected"
     speech:
       delivered_on: Entregado en
+      few:
       location: Ubicación
+      many:
       one: Discurso
       other: Discursos
+      two:
       written_on: Escrito en
+      zero:
     start_now:
     take_part:
       one: Participe

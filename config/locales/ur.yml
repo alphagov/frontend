@@ -167,7 +167,16 @@ ur:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ ur:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ ur:
       welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
+      few:
       field_of_operation: کارروائی کی فیلڈ
+      many:
       none_added: اس کارروائی کی فیلڈ کے لیے ابھی تک کوئی موت کے نوٹسز شامل نہیں کیے گئے۔
       one: موت کا نوٹس
       operations_in: "%{location} میں کارروائیاں"
       other: موت کے نوٹسز
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ ur:
         tsg_alt_text: سکیم کا لوگو روایتی خصوصیت UK سے محفوظ شدہ (Traditional Speciality UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
     speech:
       delivered_on: ترسیل کردہ بتاریخ
+      few:
       location: مقام
+      many:
       one: تقریر
       other: تقاریر
+      two:
       written_on: تحریر کردہ بتاریخ
+      zero:
     start_now:
     take_part:
       one: شرکت کریں

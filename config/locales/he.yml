@@ -167,7 +167,16 @@ he:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ he:
         one:
         other:
       official_statistics_announcement:
+        one:
+        other:
+      open_call_for_evidence:
         one:
         other:
       open_consultation:
@@ -405,11 +417,15 @@ he:
       welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}
     fatality_notice:
       alt_text: סמל משרד הביטחון
+      few:
       field_of_operation: תחום הפעולה
+      many:
       none_added: עדיין לא נוספו הודעות פטירה על תחום פעולה זה.
       one: הודעת פטירה
       operations_in: פעולות ב- %{location}
       other: הודעות פטירה
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -543,10 +559,14 @@ he:
         tsg_alt_text: הלוגו של התוכנית הוא חותמת שחורה שעליה כתוב "המומחיות המסורתית מוגנת בבריטניה"
     speech:
       delivered_on: נמסר ב
+      few:
       location: מיקום
+      many:
       one: נאום
       other: נאומים
+      two:
       written_on: כתוב על
+      zero:
     start_now:
     take_part:
       one: קח חלק

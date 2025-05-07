@@ -177,9 +177,18 @@ pl:
         many:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -377,6 +386,9 @@ pl:
         many:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:
@@ -564,6 +576,8 @@ pl:
       one: Informacja o śmierci
       operations_in: Działania w %{location}
       other: Informacje o śmierci
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -712,7 +726,9 @@ pl:
       many:
       one: Przemówienie
       other: Przemówienia
+      two:
       written_on: Napisano o
+      zero:
     start_now:
     take_part:
       few:

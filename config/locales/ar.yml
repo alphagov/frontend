@@ -185,6 +185,12 @@ ar:
         other:
         two:
         zero:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
@@ -192,6 +198,9 @@ ar:
         other:
         two:
         zero:
+      closed_call_for_evidence:
+        one:
+        other:
       closed_consultation:
         few:
         many:
@@ -465,6 +474,9 @@ ar:
         other:
         two:
         zero:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:

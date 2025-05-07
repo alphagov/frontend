@@ -165,7 +165,16 @@ kk:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ kk:
       official_statistics_announcement:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         one:
         other:
@@ -394,11 +406,15 @@ kk:
       other: Тақырыптық зерттеулер
     fatality_notice:
       alt_text: Қорғаныс министрлігінің елтаңбасы
+      few:
       field_of_operation: Жұмыс аймағы
+      many:
       none_added: Бұл жұмыс саласы үшін өлім туралы хабарламалар әлі қосылмады.
       one: Өлім туралы хабарлама
       operations_in: "%{location} орнындағы жұмыстар"
       other: Өлім туралы хабарламалар
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -530,10 +546,14 @@ kk:
         tsg_alt_text: Схема логотипі - Ұлыбританияда дәстүрлі ерекшелігі жазылған қара мөр
     speech:
       delivered_on: Жеткізілген күні
+      few:
       location: Орны
+      many:
       one: Сөйлеу
       other: Сөйлеулер
+      two:
       written_on: Жазылған күні
+      zero:
     start_now:
     take_part:
       one: Қатысу

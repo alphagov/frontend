@@ -165,7 +165,16 @@ lv:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ lv:
       official_statistics_announcement:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         one:
         other:
@@ -394,11 +406,15 @@ lv:
       other: Piemēri
     fatality_notice:
       alt_text: Aizsardzības ministrijas ģerbonis
+      few:
       field_of_operation: Darbības joma
+      many:
       none_added: Šajā darbības jomā vēl nav neviena paziņojuma par bojāgājušajiem.
       one: Nāves paziņojums
       operations_in: 'Darbības šeit: %{location}'
       other: Nāves paziņojumi
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -530,10 +546,14 @@ lv:
         tsg_alt_text: Shēmas logotips ir melns zīmogs ar vārdiem Traditional Speciality UK Protected
     speech:
       delivered_on: Piegādāts
+      few:
       location: Atrašanās vieta
+      many:
       one: Runa
       other: Runas
+      two:
       written_on: Uzrakstīts uz
+      zero:
     start_now:
     take_part:
       one: Piedalīties

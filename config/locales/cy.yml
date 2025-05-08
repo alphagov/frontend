@@ -806,6 +806,7 @@ cy:
       search_result:
       select_address: Dewiswch gyfeiriad
       service_not_available:
+      titled_link:
       unknown_service: Dydyn ni ddim yn gwybod a ydyn nhw'n cynnig y gwasanaeth hwn. Edrychwch ar eu gwefan i weld a ydyn nhw'n gwneud, neu i weld pa wasanaethau eraill maen nhw'n eu cynnig.
       valid_postcode_no_match: Doedden ni ddim yn gallu dod o hyd i'r cod post hwn.
       valid_postcode_no_match_sub_html: Gwiriwch a'i ysgrifennu eto.

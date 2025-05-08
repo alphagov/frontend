@@ -647,6 +647,7 @@ gd:
       search_result:
       select_address:
       service_not_available:
+      titled_link:
       unknown_service:
       valid_postcode_no_match:
       valid_postcode_no_match_sub_html:

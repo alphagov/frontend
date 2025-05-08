@@ -1,5 +1,5 @@
-RSpec.shared_examples "it has news image" do |schema|
-  let(:content_store_response) { GovukSchemas::Example.find(schema, example_name: schema) }
+RSpec.shared_examples "it has news image" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
 
   before do
     content_store_response["details"]["image"] = nil

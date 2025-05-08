@@ -10,8 +10,8 @@ RSpec.shared_examples "it can have emphasised organisations" do |document_type, 
   end
 end
 
-RSpec.shared_examples "it can have organisations" do |schema|
-  let(:content_store_response) { GovukSchemas::Example.find(schema, example_name: schema) }
+RSpec.shared_examples "it can have organisations" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
 
   it "knows it has an organisations base_path, title and content_id" do
     expect(described_class.new(content_store_response).organisations).to eq(

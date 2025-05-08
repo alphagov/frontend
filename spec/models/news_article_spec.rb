@@ -3,6 +3,7 @@ RSpec.describe NewsArticle do
 
   let(:content_store_response) { GovukSchemas::Example.find("news_article", example_name: "best-practice-government-response") }
 
+  it_behaves_like "it has news image", "news_article"
   it_behaves_like "it has updates", "news_article", "best-practice-event"
   it_behaves_like "it has no updates", "news_article", "news_article"
   it_behaves_like "it can have worldwide organisations", "news_article", "world_news_story_news_article"

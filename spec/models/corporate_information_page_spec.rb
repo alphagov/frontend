@@ -3,6 +3,45 @@ RSpec.describe CorporateInformationPage do
 
   let(:corporate_information_page) { described_class.new(content_store_response) }
 
+  it_behaves_like "it can be withdrawn", "corporate_information_page", "best-practice-welsh-language-scheme-withdrawn"
+
+  describe "#headers" do
+    context "when there are headers in the details hash" do
+      let(:details_headers) do
+        [
+          { "text" => "Our responsibilities",
+            "level" => 2,
+            "id" => "our-responsibilities",
+            "headers" => [
+              { "text" => "Audit and risk committee meetings",
+                "level" => 3,
+                "id" => "audit-and-risk-committee-meetings" },
+            ] },
+          { "text" => "Who we are",
+            "level" => 2,
+            "id" => "who-we-are" },
+          { "text" => "Agencies and public bodies",
+            "level" => 2,
+            "id" => "agencies-and-public-bodies" },
+        ]
+      end
+
+      it "returns a list of headings" do
+        content_store_response["details"]["headers"] = details_headers
+
+        expect(corporate_information_page.headers).to eq(details_headers)
+      end
+    end
+
+    context "when there are no headers in the details hash" do
+      it "returns an empty array" do
+        content_store_response["details"].delete("headers")
+
+        expect(corporate_information_page.headers).to eq([])
+      end
+    end
+  end
+
   describe "#default_organisation" do
     it "returns the organisation that is also present in the organisations list" do
       expected_organisation_id = content_store_response["details"]["organisation"]

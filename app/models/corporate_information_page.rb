@@ -1,4 +1,12 @@
 class CorporateInformationPage < ContentItem
+  attr_reader :headers
+
+  def initialize(content_store_response)
+    super(content_store_response)
+
+    @headers = content_store_response.dig("details", "headers") || []
+  end
+
   def default_organisation
     organisation_content_id = content_store_response.dig("details", "organisation")
 

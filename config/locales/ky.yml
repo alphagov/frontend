@@ -404,6 +404,13 @@ ky:
     case_study:
       one: Окуяны изилдөө
       other: Окуяларды изилдөө
+    corporate_information_page:
+      about_our_services_html: Аныктоо %{link}.
+      corporate_information: Корпоративдик маалымат
+      personal_information_charter_html: Биздин %{link} жеке маалыматыңызга кандай мамиле кылганыбызды түшүндүрөт.
+      publication_scheme_html: Биз дайыма жарыялап турган маалыматтын түрлөрү жөнүндө %{link} баракчабыздан окуңуз.
+      social_media_use_html: Саясатыбызды %{link} сайтынан окуп чыгыңыз.
+      welsh_language_scheme_html: "%{link} боюнча милдеттенмебиз жөнүндө билип алыңыз."
     fatality_notice:
       alt_text:
       field_of_operation:

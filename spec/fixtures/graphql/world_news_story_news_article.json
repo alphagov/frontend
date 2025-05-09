@@ -1,6 +1,7 @@
 {
   "data": {
     "edition": {
+      "base_path": "/government/news/christmas-2016-prime-ministers-message-from-azerbaijan",
       "base_path": "/government/news/christmas-2016-prime-ministers-message",
       "content_id": "d0ee80cd-ed7a-4b04-b60f-3be2f03693af",
       "description": "Theresa May sends her best wishes to everyone celebrating Christmas in the UK and around the world.",
@@ -26,7 +27,7 @@
         },
         "political": true
       },
-      "document_type": "news_story",
+      "document_type": "world_news_story",
       "first_published_at": "2016-12-25T00:15:06.000+00:00",
       "links": {
         "available_translations": [
@@ -49,14 +50,7 @@
         ],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
-        "organisations": [
-          {
-            "analytics_identifier": "OT532",
-            "base_path": "/government/organisations/prime-ministers-office-10-downing-street",
-            "content_id": "705dbea4-8bd7-422e-ba9c-254557f77f81",
-            "title": "Prime Minister's Office, 10 Downing Street"
-          }
-        ],
+        "organisations": [],
         "people": [
           {
             "base_path": "/government/people/theresa-may",
@@ -179,8 +173,21 @@
            }
         ],
         "topical_events": [],
-        "world_locations": [],
-        "worldwide_organisations": []
+        "world_locations": [
+          {
+            "analytics_identifier": "WL10",
+            "base_path": null,
+            "content_id": "5e9ed112-7706-11e4-a3cb-005056011aef",
+            "title": "Azerbaijan"
+          }
+        ],
+        "worldwide_organisations": [
+          {
+            "analytics_identifier": "WO88",
+            "base_path": "/government/world/organisations/british-high-commission-singapore",
+            "title": "British High Commission Singapore"
+          }
+        ]
       },
       "locale": "en",
       "public_updated_at": "2016-12-25T00:15:02.000+00:00",
@@ -188,8 +195,7 @@
       "rendering_app": "frontend",
       "schema_name": "news_article",
       "title": "Christmas 2016: Prime Minister's message",
-      "updated_at": "2016-12-25T00:15:07.824+00:00",
-      "withdrawn_notice": {}
+      "updated_at": "2016-12-25T00:15:07.824Z"
     }
   }
 }

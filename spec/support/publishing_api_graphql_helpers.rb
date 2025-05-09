@@ -15,6 +15,10 @@ module PublishingApiGraphqlHelpers
     content_item
   end
 
+  def fetch_graphql_content_item(fixture_filename)
+    fetch_graphql_fixture(fixture_filename).dig("data", "edition")
+  end
+
 private
 
   def fetch_graphql_fixture(filename)

@@ -74,7 +74,7 @@ RSpec.describe "News Article" do
   end
 
   context "when content item is from Publishing API's GraphQL" do
-    let(:content_item) { graphql_has_example_item("news_article_christmas_2016") }
+    let(:content_item) { graphql_has_example_item("news_article") }
     let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
 
     it_behaves_like "a news article page"

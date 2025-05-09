@@ -4,15 +4,81 @@ RSpec.describe CorporateInformationPagePresenter do
   let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page") }
   let(:content_item) { CorporateInformationPage.new(content_store_response) }
 
-  describe "#corporate_information_heading" do
-    it "returns the heading title" do
-      expect(presenter.corporate_information_heading).to eq("Corporate information")
-    end
-  end
+  describe "#headers_for_contents_list_component" do
+    context "when there are headers in the details hash" do
+      it "returns an array of H2 headers" do
+        contents_list_headings = presenter.headers_for_contents_list_component
 
-  describe "#corporate_information_heading_id" do
-    it "returns the title id" do
-      expect(presenter.corporate_information_heading_id).to eq("corporate-information")
+        expect(contents_list_headings).not_to be_empty
+      end
+
+      it "does not include nested h3s in the array" do
+        content_store_response["details"]["headers"] = [
+          { "text" => "Our responsibilities",
+            "level" => 2,
+            "id" => "our-responsibilities",
+            "headers" => [
+              { "text" => "Audit and risk committee meetings",
+                "level" => 3,
+                "id" => "audit-and-risk-committee-meetings" },
+            ] },
+          { "text" => "Who we are",
+            "level" => 2,
+            "id" => "who-we-are" },
+          { "text" => "Agencies and public bodies",
+            "level" => 2,
+            "id" => "agencies-and-public-bodies" },
+        ]
+
+        contents_list_headings = presenter.headers_for_contents_list_component
+
+        contents_list_headings.each do |heading|
+          expect(heading[:items]).to be_empty
+        end
+      end
+
+      context "when there are corporate information groups" do
+        it "includes the corporate information H2 at the end of the headers array" do
+          contents_list_headings = presenter.headers_for_contents_list_component
+          corporate_information_heading = contents_list_headings.last
+
+          expect(corporate_information_heading[:text]).to eq("Corporate information")
+          expect(corporate_information_heading[:href]).to eq("#corporate-information")
+          expect(contents_list_headings.count).to eq(5)
+        end
+      end
+
+      context "when there are no corporate information groups available" do
+        it "does not include the corporate information H2 at the end of the headers array" do
+          content_store_response["details"].delete("corporate_information_groups")
+          contents_list_headings = presenter.headers_for_contents_list_component
+          corporate_information_heading = contents_list_headings.last
+
+          expect(corporate_information_heading[:text]).not_to eq("Corporate information")
+          expect(corporate_information_heading[:href]).not_to eq("#corporate-information")
+          expect(contents_list_headings.count).to eq(4)
+        end
+      end
+    end
+
+    context "when there are no headers in the details hash" do
+      let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "best-practice-welsh-language-scheme") }
+
+      it "returns an empty array" do
+        expect(presenter.headers_for_contents_list_component).to be_empty
+      end
+
+      context "when there are corporate information groups" do
+        let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "best-practice-about-page") }
+
+        it "adds the corporate information H2 to the empty array" do
+          contents_list_headings = presenter.headers_for_contents_list_component
+          corporate_information_heading = contents_list_headings.first
+          expect(corporate_information_heading[:text]).to eq("Corporate information")
+          expect(corporate_information_heading[:href]).to eq("#corporate-information")
+          expect(contents_list_headings.count).to eq(1)
+        end
+      end
     end
   end
 

@@ -469,6 +469,7 @@ en:
       electoral_service_not_available: This service is currently experiencing technical difficulties. Try again later.
       enter_postcode: Enter a postcode
       error_summary_title: There is a problem
+      find_adoption_hub: Find your local council or their regional recruitment hub
       find_council: Find your local council
       find_council_website: Find the website for your local council.
       find_info_for: Find information for %{country_name}

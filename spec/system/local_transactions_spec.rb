@@ -111,6 +111,10 @@ RSpec.describe "LocalTransactions" do
         it "does not include more information" do
           expect(page).not_to have_text("More information about bears")
         end
+
+        it "has the correct postcode finder button text" do
+          expect(page).to have_button("Find your local council or their regional recruitment hub")
+        end
       end
     end
 

@@ -18,6 +18,13 @@ window.addEventListener('DOMContentLoaded', function () {
     return
   }
 
+  // initialise the auto tracker on the main map element
+  // we will use this for all of the tracking, as it requires direct JS calls
+  var tracker = new GOVUK.Modules.Ga4AutoTracker(mapElement)
+  let ga4_attributes = {}
+  ga4_attributes.section = 'Find local CDCs and surgical hubs near you'
+  ga4_attributes.tool_name = 'community diagnostics centres and surgical hubs'
+
   // Initialize the map.
   const mapOptions = {
     minZoom: 7,
@@ -164,18 +171,31 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }).addTo(map)
 
-  // Rough code to demonstrate filters.
-
-  const layers = [icb, hubOverlay, cdcOverlay]
+  const layers = [cdcOverlay, hubOverlay]
   for (let i = 0; i < layers.length; i++) {
     const checkbox = document.querySelector(`#mapfilter-${i}`)
     const mapLayer = layers[i]
+
     checkbox.addEventListener('click', function () {
       if (map.hasLayer(mapLayer)) {
         map.removeLayer(mapLayer)
       } else {
         map.addLayer(mapLayer)
       }
+
+      // track the filter click
+      mapElement.setAttribute('data-ga4-auto', JSON.stringify({
+        event_name: 'select_content',
+        action: 'select',
+        type: 'map',
+        index_link: i + 1,
+        index_total: layers.length,
+        section: ga4_attributes.section,
+        text: checkbox.parentElement.innerText.toLowerCase(),
+        tool_name: ga4_attributes.tool_name
+      }))
+      tracker.sendEvent()
+      mapElement.removeAttribute('data-ga4-auto')
     })
   }
 
@@ -200,6 +220,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // When you click on a circle, this popup will show up.
     if (layer.feature.geometry.type === 'Point') {
+      ga4_attributes.text = properties.name
       popupHeading.innerText = properties.name
       let tableRow
       for (const i in properties) {
@@ -218,6 +239,7 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     } else {
       // When you click on a region, this popup will show up.
+      ga4_attributes.text = `${properties.ICB23NM} Integrated Care Board`
       popupHeading.innerText = `${properties.ICB23NM} Integrated Care Board`
       popupSubheading = document.createElement('h2')
       popupSubheading.classList.add('govuk-heading')
@@ -267,7 +289,22 @@ window.addEventListener('DOMContentLoaded', function () {
     const popup = layer.bindPopup(tableContainer)
     const onStyle = layer.feature.geometry.type === 'Point' ? { radius: Math.ceil(layer.options.radius * 1.2) } : { fillOpacity: layer.options.fillOpacity + 0.3 }
     const offStyle = layer.feature.geometry.type === 'Point' ? { radius: layer.options.radius } : { fillOpacity: layer.options.fillOpacity }
-    popup.on('popupopen', (e) => { e.target.setStyle(onStyle) })
-    popup.on('popupclose', (e) => { e.target.setStyle(offStyle) })
+    popup.on('popupopen', (e) => {
+      mapElement.setAttribute('data-ga4-auto', JSON.stringify({
+        event_name: 'select_content',
+        action: 'opened',
+        type: 'map',
+        text: ga4_attributes.text,
+        section: ga4_attributes.section,
+        tool_name: ga4_attributes.tool_name
+      }))
+      tracker.sendEvent()
+      mapElement.removeAttribute('data-ga4-auto')
+
+      e.target.setStyle(onStyle);
+    })
+    popup.on('popupclose', (e) => {
+      e.target.setStyle(offStyle)
+    })
   }
 })

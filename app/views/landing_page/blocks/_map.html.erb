@@ -20,18 +20,13 @@
       small: true,
       items: [
         {
-          label: "Show one",
-          value: "one",
+          label: "Community Diagnostic Centres",
+          value: "cdc",
           checked: true,
         },
         {
-          label: "Show two",
-          value: "two",
-          checked: true,
-        },
-        {
-          label: "Show three",
-          value: "three",
+          label: "Surgical hubs",
+          value: "sh",
           checked: true,
         },
       ]
@@ -39,4 +34,4 @@
   </div>
 </div>
 
-<div class="map" id="map" data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>"></div>
+<div class="map" id="map" data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>" data-module="ga4-event-tracker"></div>

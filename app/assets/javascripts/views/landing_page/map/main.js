@@ -1,175 +1,147 @@
 /* global L */
 //= require leaflet
+//= require views/landing_page/map/data/lookup.js
 //= require views/landing_page/map/data/cdc.geojson.js
 //= require views/landing_page/map/data/hub.geojson.js
 //= require views/landing_page/map/data/icb.geojson.js
 
 window.addEventListener('DOMContentLoaded', function () {
   const mapElement = document.getElementById('map')
-  if (!mapElement) {
-    return
-  }
-
   const apiKey = mapElement.getAttribute('data-api-key')
 
-  if (!apiKey) {
+  if (!mapElement || !apiKey) {
     const warning = document.querySelector('#api-warning')
-    warning.innerText = 'Error: Map API key not found.'
+    warning.innerText = 'Sorry, but the map failed to load. Please try reloading the page.'
     return
   }
 
   // initialise the auto tracker on the main map element
   // we will use this for all of the tracking, as it requires direct JS calls
   var tracker = new GOVUK.Modules.Ga4AutoTracker(mapElement)
-  let ga4_attributes = {}
-  ga4_attributes.section = 'Find local CDCs and surgical hubs near you'
-  ga4_attributes.tool_name = 'community diagnostics centres and surgical hubs'
+  const ga4Attributes = {}
+  ga4Attributes.section = 'Find local CDCs and surgical hubs near you'
+  ga4Attributes.tool_name = 'community diagnostics centres and surgical hubs'
 
   // Initialize the map.
   const mapOptions = {
     minZoom: 7,
     maxZoom: 16,
-    center: [51.063, -1.319],
-    zoom: 8,
+    zoom: 7,
     maxBounds: [
-      [49.528423, -10.76418],
-      [61.331151, 1.9134116]
+      [49.5, -10.5],
+      [62, 6]
     ],
     attributionControl: false
   }
 
   const map = L.map('map', mapOptions)
 
+  const mask = L.geoJSON([{
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'Polygon',
+        coordinates: [
+          [[-180, 90], [180, 90], [180, -90], [-180, -90], [-180, 90]],
+          [[-11, 49.5], [-11, 62], [3, 62], [3, 51.5], [-3, 49.5], [-11, 49.5]]
+        ]
+      }
+    }]
+  }], {
+    style: {
+      color: '#d7e0e5',
+      fillOpacity: 1,
+      interactive: false
+    }
+  })
+  mask.addTo(map)
+
   // Load and display ZXY tile layer on the map.
-  L.tileLayer('https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + apiKey, {
-    attribution: `Contains OS data &copy; Crown copyright and database rights ${new Date().getFullYear()}`,
-    maxZoom: 20
-  }).addTo(map)
+  const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${apiKey}`)
+  basemap.addTo(map)
 
-  // window.GOVUK.icbGeojson and similar are declared in data files in views/missions/data
-
-  // Takes the icbGeoJSON and creates an object that looks like
-  // {E1234567: "A UK Region", E1234568: "Another UK Region"} etc.
-  // E numbers are region codes.
-  // These are the more specific clickable UK 'regions' on the map
-  const icbLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.ICB23CD]: v.properties.ICB23NM }), {})
-
-  // Creates an object with large UK regions e.g. { E12345678: "South East", }
-  const nhsLookup = window.GOVUK.icbGeojson.features.reduce((obj, v) => ({ ...obj, [v.properties.NHSER22CD]: v.properties.NHSER22NM }), {})
-
-  // Colours for each large UK region
-  const colorLookup = {
-    E40000003: '#FF1F5B',
-    E40000005: '#00CD6C',
-    E40000006: '#009ADE',
-    E40000007: '#AF58BA',
-    E40000010: '#FFC61E',
-    E40000011: '#F28522',
-    E40000012: '#A0B1BA'
+  const iconSize = [24, 24]
+  const icons = {
+    cdc: {
+      default: L.icon({ iconUrl: mapElement.getAttribute('data-icon-cdc-default'), iconSize: iconSize, iconAnchor: [24, 12], popupAnchor: [-12, 0] }),
+      active: L.icon({ iconUrl: mapElement.getAttribute('data-icon-cdc-active'), iconSize: iconSize, iconAnchor: [24, 12], popupAnchor: [-12, 0] })
+    },
+    hub: {
+      default: L.icon({ iconUrl: mapElement.getAttribute('data-icon-sh-default'), iconSize: iconSize, iconAnchor: [0, 12], popupAnchor: [12, 0] }),
+      active: L.icon({ iconUrl: mapElement.getAttribute('data-icon-sh-default'), iconSize: iconSize, iconAnchor: [0, 12], popupAnchor: [12, 0] })
+    }
   }
 
-  // Add the DHSC Community Diagnostic Centre (CDC) locations.
-  // AKA the clickable black circles on the map
+  const customOverlays = {}
+
+  // Add the Community Diagnostic Centre (CDC) locations.
   map.createPane('cdc')
   map.getPane('cdc').style.zIndex = 650
 
-  const cdcCustomOverlay = L.geoJSON(window.GOVUK.cdcGeojson, {
+  customOverlays.cdc = L.geoJson(window.GOVUK.cdcGeojson, {
     onEachFeature: bindPopup,
     pointToLayer: function (feature, latlng) {
-      return L.circleMarker(latlng)
-    },
-    style: function (feature) {
-      return {
-        color: '#fff',
-        fillColor: '#000',
-        fillOpacity: 1,
-        radius: 5,
-        weight: 2,
+      return L.marker(latlng, {
+        icon: icons.cdc.default,
         pane: 'cdc'
-      }
+      })
     }
   }).addTo(map)
-  const cdcOverlay = cdcCustomOverlay
+  const cdcOverlay = customOverlays.cdc
 
-  // Add the DHSC surgical hub locations.
-  // AKA the clickable white circles on the map
+  // Add the Surgical Hub locations.
   map.createPane('hub')
   map.getPane('hub').style.zIndex = 651
 
-  const hubCustomOverlay = L.geoJSON(window.GOVUK.hubGeojson, {
+  customOverlays.hub = L.geoJson(window.GOVUK.hubGeojson, {
     onEachFeature: bindPopup,
     pointToLayer: function (feature, latlng) {
-      return L.circleMarker(latlng)
-    },
-    style: function (feature) {
-      return {
-        color: '#000',
-        fillColor: '#fff',
-        fillOpacity: 1,
-        radius: 4,
-        weight: 1,
+      return L.marker(latlng, {
+        icon: icons.hub.default,
         pane: 'hub'
-      }
+      })
     }
   }).addTo(map)
-  const hubOverlay = hubCustomOverlay
+  const hubOverlay = customOverlays.hub
 
-  // Generate CDC and surgical hub counts per ICB boundaries.
-  const icbCdcCount = cdcOverlay.toGeoJSON().features.reduce(function (obj, v) {
-    obj[v.properties.ICS_ICB] = (obj[v.properties.ICS_ICB] || 0) + 1
+  // Generate CDC and Surgical Hub counts per ICS boundary.
+  const icsCdcCount = cdcOverlay.toGeoJSON().features.reduce(function (obj, v) {
+    obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
     return obj
   }, {})
 
-  const icbCdcIsOpenCount = cdcOverlay.toGeoJSON().features
-    .filter((key, index) => key.properties.isOpen === 'Yes')
-    .reduce((obj, v) => {
-      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
-      return obj
-    }, {})
-
-  const icbCdcIsFullOpenCount = cdcOverlay.toGeoJSON().features
-    .filter((key, index) => key.properties.isOpen12_7 === 'Yes')
-    .reduce((obj, v) => {
-      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
-      return obj
-    }, {})
-
-  const icbHubCount = hubOverlay.toGeoJSON().features.reduce(function (obj, v) {
-    obj[v.properties.ICS_ICB] = (obj[v.properties.ICS_ICB] || 0) + 1
+  const icsHubCount = hubOverlay.toGeoJSON().features.reduce(function (obj, v) {
+    obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
     return obj
   }, {})
-
-  const icbHubIsOpenCount = hubOverlay.toGeoJSON().features
-    .filter((key, index) => key.properties.isOpen === 'Yes')
-    .reduce((obj, v) => {
-      obj[v.properties.icbCode] = (obj[v.properties.icbCode] || 0) + 1
-      return obj
-    }, {})
 
   window.GOVUK.icbGeojson.features.forEach((element) => {
-    element.properties.cdcCount = icbCdcCount[element.properties.ICB23CD] || 0
-    element.properties.cdcOpen = icbCdcIsOpenCount[element.properties.ICB23CD] || 0
-    element.properties.cdcFullOpen = icbCdcIsFullOpenCount[element.properties.ICB23CD] || 0
-    element.properties.hubCount = icbHubCount[element.properties.ICB23CD] || 0
-    element.properties.hubOpen = icbHubIsOpenCount[element.properties.ICB23CD] || 0
+    element.properties.cdcCount = icsCdcCount[element.properties.ICB23CD] || '0'
+    element.properties.hubCount = icsHubCount[element.properties.ICB23CD] || '0'
   })
 
-  // Add the Integrated Care Board (IBC) boundaries. (i.e. the UK sub-regions)
-  map.createPane('icb')
-  map.getPane('icb').style.zIndex = 450
+  // Add the Integrated Care System (ICS) boundaries.
+  map.createPane('ics')
+  map.getPane('ics').style.zIndex = 450
 
-  const icb = L.geoJson(window.GOVUK.icbGeojson, {
+  const icsOverlay = L.geoJson(window.GOVUK.icbGeojson, {
     onEachFeature: bindPopup,
     style: function (feature) {
       return {
-        color: '#fff',
-        fillColor: colorLookup[feature.properties.NHSER22CD],
-        fillOpacity: 0.5,
-        weight: 1,
-        pane: 'icb'
+        color: '#ccc',
+        fillColor: '#ccc',
+        fillOpacity: 0,
+        weight: 2,
+        pane: 'ics'
       }
     }
-  }).addTo(map)
+  })
+  icsOverlay.addTo(map)
+
+  // Fit the map bounds to the extent of the Integrated Care System (ICS) boundaries
+  map.fitBounds(icsOverlay.getBounds())
 
   const layers = [cdcOverlay, hubOverlay]
   for (let i = 0; i < layers.length; i++) {
@@ -177,11 +149,8 @@ window.addEventListener('DOMContentLoaded', function () {
     const mapLayer = layers[i]
 
     checkbox.addEventListener('click', function () {
-      if (map.hasLayer(mapLayer)) {
-        map.removeLayer(mapLayer)
-      } else {
-        map.addLayer(mapLayer)
-      }
+      map.closePopup()
+      checkbox.checked ? map.addLayer(mapLayer) : map.removeLayer(mapLayer)
 
       // track the filter click
       mapElement.setAttribute('data-ga4-auto', JSON.stringify({
@@ -190,121 +159,87 @@ window.addEventListener('DOMContentLoaded', function () {
         type: 'map',
         index_link: i + 1,
         index_total: layers.length,
-        section: ga4_attributes.section,
+        section: ga4Attributes.section,
         text: checkbox.parentElement.innerText.toLowerCase(),
-        tool_name: ga4_attributes.tool_name
+        tool_name: ga4Attributes.tool_name
       }))
       tracker.sendEvent()
       mapElement.removeAttribute('data-ga4-auto')
     })
   }
 
-  // Binds a popup to the layer with the passed content and sets up the necessary event listeners.
-  // I.e. creates the popups that appear when you click on a circle or click on a region
   function bindPopup (feature, layer) {
-    let properties = layer.feature.properties
-    properties = (({ ICB23CD, NHSER22CD, ...o }) => o)(properties)
+    const ftProps = layer.feature.properties
+    const ftGeomType = layer.feature.geometry.type
+    const lyrPane = layer.options.pane
+    let propLookup
 
-    const propLookup = {
-      nhsCode: 'nhsName',
-      icbCode: 'icbName'
-    }
+    const popupContainer = document.createElement('div')
 
-    const table = document.createElement('table')
-    table.id = 'popup-table'
-
-    const popupHeading = document.createElement('h1')
-    popupHeading.classList.add('govuk-heading')
+    const popupHeading = document.createElement('h3')
     popupHeading.classList.add('govuk-heading-m')
-    let popupSubheading = ''
+    const popupBody = document.createElement('div')
 
-    // When you click on a circle, this popup will show up.
-    if (layer.feature.geometry.type === 'Point') {
-      ga4_attributes.text = properties.name
-      popupHeading.innerText = properties.name
-      let tableRow
-      for (const i in properties) {
-        if (i !== 'name') {
-          const property = /E[\d]+/.test(properties[i]) ? i === 'nhsCode' ? nhsLookup[properties[i]] : icbLookup[properties[i]] : properties[i]
-          tableRow = document.createElement('tr')
-          const tableDataLabel = document.createElement('td')
-          tableDataLabel.innerText = propLookup[i] || i
-          const tableDataValue = document.createElement('td')
-          tableDataValue.innerText = property
+    if (ftGeomType === 'Point') {
+      popupHeading.innerText = ftProps.name
 
-          tableRow.appendChild(tableDataLabel)
-          tableRow.appendChild(tableDataValue)
-          table.appendChild(tableRow)
+      if (lyrPane === 'cdc') {
+        propLookup = {
+          services: 'Services offered',
+          isOpen12_7: 'Open 12 hours a day, 7 days a week?',
+          address: 'Address'
+        }
+      } else if (lyrPane === 'hub') {
+        propLookup = {
+          address: 'Address'
         }
       }
     } else {
-      // When you click on a region, this popup will show up.
-      ga4_attributes.text = `${properties.ICB23NM} Integrated Care Board`
-      popupHeading.innerText = `${properties.ICB23NM} Integrated Care Board`
-      popupSubheading = document.createElement('h2')
-      popupSubheading.classList.add('govuk-heading')
-      popupSubheading.classList.add('govuk-heading-s')
-      popupSubheading.innerText = `${properties.NHSER22NM} NHS Region`
+      popupHeading.innerText = window.GOVUK.lookup.ics[ftProps.ICB23CD]
 
-      const tableHeadingsRow = document.createElement('tr')
-      const headings = ['&nbsp;', 'Total', 'Open', 'Open 12/7']
-
-      for (const heading of headings) {
-        const tableHeading = document.createElement('th')
-        tableHeading.innerHTML = heading
-        tableHeadingsRow.appendChild(tableHeading)
+      propLookup = {
+        cdcCount: 'Community Diagnostic Centres',
+        hubCount: 'Surgical Hubs'
       }
-
-      const tableCdcRow = document.createElement('tr')
-      const tableCdcData = ['CDCs', properties.cdcCount, properties.cdcOpen, properties.cdcFullOpen]
-      for (const cdcData of tableCdcData) {
-        const tableData = document.createElement('td')
-        tableData.innerText = cdcData
-        tableCdcRow.appendChild(tableData)
-      }
-
-      const tableHubRow = document.createElement('tr')
-      const tableHubData = ['Surgical Hubs', properties.hubCount, properties.hubOpen, 'n/a']
-      for (const hubData of tableHubData) {
-        const tableData = document.createElement('td')
-        tableData.innerText = hubData
-        tableHubRow.appendChild(tableData)
-      }
-
-      table.appendChild(tableHeadingsRow)
-      table.appendChild(tableCdcRow)
-      table.appendChild(tableHubRow)
     }
 
-    // Add the generated DOM elements above to a container and append it to the popup
-    const tableContainer = document.createElement('div')
-    tableContainer.appendChild(popupHeading)
+    for (const [key, value] of Object.entries(propLookup)) {
+      if (Object.prototype.hasOwnProperty.call(ftProps, key)) {
+        const popupBodyHeading = document.createElement('h4')
+        popupBodyHeading.classList.add('govuk-heading-s')
+        popupBodyHeading.classList.add('govuk-!-margin-0')
+        popupBodyHeading.innerText = value
+        popupBody.appendChild(popupBodyHeading)
 
-    if (popupSubheading) {
-      tableContainer.appendChild(popupSubheading)
+        const popupBodyContent = document.createElement('p')
+        popupBodyContent.classList.add('govuk-body')
+        popupBodyContent.innerText = ftProps[key]
+        popupBody.appendChild(popupBodyContent)
+      }
     }
 
-    tableContainer.appendChild(table)
+    popupContainer.appendChild(popupHeading)
+    popupContainer.appendChild(popupBody)
 
-    const popup = layer.bindPopup(tableContainer)
-    const onStyle = layer.feature.geometry.type === 'Point' ? { radius: Math.ceil(layer.options.radius * 1.2) } : { fillOpacity: layer.options.fillOpacity + 0.3 }
-    const offStyle = layer.feature.geometry.type === 'Point' ? { radius: layer.options.radius } : { fillOpacity: layer.options.fillOpacity }
+    const popup = layer.bindPopup(popupContainer)
     popup.on('popupopen', (e) => {
+      if (ftGeomType === 'Point') e.target.setIcon(icons[lyrPane].active)
+      else e.target.setStyle({ fillOpacity: 0.3 })
+
       mapElement.setAttribute('data-ga4-auto', JSON.stringify({
         event_name: 'select_content',
         action: 'opened',
         type: 'map',
-        text: ga4_attributes.text,
-        section: ga4_attributes.section,
-        tool_name: ga4_attributes.tool_name
+        text: ga4Attributes.text,
+        section: ga4Attributes.section,
+        tool_name: ga4Attributes.tool_name
       }))
       tracker.sendEvent()
       mapElement.removeAttribute('data-ga4-auto')
-
-      e.target.setStyle(onStyle);
     })
     popup.on('popupclose', (e) => {
-      e.target.setStyle(offStyle)
+      if (ftGeomType === 'Point') e.target.setIcon(icons[lyrPane].default)
+      else e.target.setStyle({ fillOpacity: 0.0 })
     })
   }
 })

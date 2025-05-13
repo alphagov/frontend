@@ -1,37 +1,71 @@
 <%
   add_view_stylesheet("landing_page/map")
   add_view_stylesheet("landing_page/map/leaflet")
-  add_view_stylesheet("landing_page/map/os-api-branding")
 %>
 <% content_for :extra_javascript do %>
-  <%= javascript_include_tag "views/landing_page/map/os-api-branding.js", integrity: false %>
   <%= javascript_include_tag "views/landing_page/map/main.js", integrity: false, type: "module" %>
 <% end %>
 
-<div id="api-warning"></div>
+<div class="map">
+  <div id="api-warning"></div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/checkboxes", {
-      name: "favourite_small_synonym[]",
-      heading: "Filter map elements",
-      no_hint_text: true,
-      id: "mapfilter",
-      small: true,
-      items: [
-        {
-          label: "Community Diagnostic Centres",
-          value: "cdc",
-          checked: true,
-        },
-        {
-          label: "Surgical hubs",
-          value: "sh",
-          checked: true,
-        },
-      ]
-    } %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/checkboxes", {
+        name: "favourite_small_synonym[]",
+        heading: "Use our interactive map to help locate your nearest CDC or surgical hub",
+        description: "Our interactive map shows the new, local NHS services this government is delivering to improve access in your area. This will cut waiting lists and build an NHS fit for the future.",
+        hint_text: "Filter by",
+        id: "mapfilter",
+        small: true,
+        items: [
+          {
+            label: "Community Diagnostic Centres",
+            value: "cdc",
+            checked: true,
+          },
+          {
+            label: "Surgical hubs",
+            value: "sh",
+            checked: true,
+          },
+        ],
+      } %>
+    </div>
+  </div>
+
+  <div class="map__canvas"
+    id="map"
+    data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>"
+    data-icon-cdc-default="<%= asset_path("landing_page/map/CDC-symbol-default.svg") %>"
+    data-icon-cdc-active="<%= asset_path("landing_page/map/CDC-symbol-active.svg") %>"
+    data-icon-sh-default="<%= asset_path("landing_page/map/SH-symbol-default.svg") %>"
+    data-icon-sh-active="<%= asset_path("landing_page/map/SH-symbol-active.svg") %>"
+    data-module="ga4-event-tracker">
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body-s">
+        Contains OS data &copy; Crown copyright and database rights 2025<br>
+        Source: Integrated Care Boards (April 2023) from Office for National Statistics licensed under the Open Government Licence v.3.0
+      </p>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h3 class="govuk-heading-m">Key</h3>
+      <ul class="map__key">
+        <li class="map__key-item map__key-item--cdc govuk-heading-s">
+          Community Diagnostic Centres
+        </li>
+        <li class="map__key-item map__key-item--sh govuk-heading-s">
+          Surgical Hubs
+        </li>
+        <li class="map__key-item map__key-item--ics govuk-heading-s">
+          Integrated Care Systems
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
-
-<div class="map" id="map" data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>" data-module="ga4-event-tracker"></div>

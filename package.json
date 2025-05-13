@@ -53,6 +53,7 @@
   },
   "packageManager": "yarn@3.5.0",
   "dependencies": {
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3"
   }
 }

@@ -1,3 +1,52 @@
+@import "govuk_publishing_components/individual_component_support";
+
 .map {
-  height: 500px;
+  display: none;
+}
+
+.js-enabled {
+  .map {
+    display: block;
+  }
+}
+
+.map__canvas {
+  height: 800px;
+  margin-bottom: govuk-spacing(1);
+  border: solid 1px $govuk-border-colour;
+}
+
+.map__key {
+  margin: 0;
+  padding: 0;
+}
+
+.map__key-item {
+  position: relative;
+  padding-left: govuk-spacing(6);
+  margin: 0 0 govuk-spacing(4);
+}
+
+.map__key-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.map__key-item--cdc::before {
+  background-image: url("landing_page/map/CDC-symbol-default.svg");
+}
+
+.map__key-item--sh::before {
+  background-image: url("landing_page/map/SH-symbol-default.svg");
+}
+
+.map__key-item--ics::before {
+  background-image: url("landing_page/map/IC-symbol-key.svg");
 }

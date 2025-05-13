@@ -15,7 +15,7 @@ RSpec.describe "AllComponents" do
         expect(yaml["name"]).not_to be_empty
         expect(yaml["description"]).not_to be_empty
         expect(yaml["examples"]).not_to be_empty
-        expect((yaml["accessibility_criteria"] or yaml["shared_accessibility_criteria"])).to be_truthy
+        expect(yaml["accessibility_criteria"] || yaml["shared_accessibility_criteria"]).to be_truthy
       end
 
       it "has the correct class in the ERB template" do

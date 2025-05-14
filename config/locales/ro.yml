@@ -170,8 +170,17 @@ ro:
         few:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -330,6 +339,9 @@ ro:
         few:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         one:
@@ -471,10 +483,13 @@ ro:
       alt_text: Emblema Ministerului Apărării
       few:
       field_of_operation: Domeniul de activitate
+      many:
       none_added: Încă nu au fost adăugate notificări de accidente mortale în acest domeniu de activitate.
       one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
       other: Notificări accident mortal
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -615,9 +630,12 @@ ro:
       delivered_on: Livrat pe
       few:
       location: Locație
+      many:
       one: Discurs
       other: Discursuri
+      two:
       written_on: Scris pe
+      zero:
     start_now:
     take_part:
       few:

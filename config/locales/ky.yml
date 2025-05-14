@@ -406,11 +406,15 @@ ky:
       other: Окуяларды изилдөө
     fatality_notice:
       alt_text:
+      few:
       field_of_operation:
+      many:
       none_added:
       one: Өлүм тууралуу билдирүү
       operations_in:
       other: Өлүм тууралуу билдирүүлөр
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -544,10 +548,14 @@ ky:
         tsg_alt_text: Схема логотиби Traditional Speciality UK Protected деген жазуусу бар кара мөөр болуп саналат
     speech:
       delivered_on: Жеткирилген күнү
+      few:
       location: Жайгашкан жер
+      many:
       one: Сөз
       other: Сөздөр
+      two:
       written_on: Жазылган күн
+      zero:
     start_now:
     take_part:
       one:

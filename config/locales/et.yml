@@ -165,7 +165,16 @@ et:
       business_finance_support_scheme:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -285,6 +294,9 @@ et:
       official_statistics_announcement:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         one:
         other:
@@ -394,11 +406,15 @@ et:
       other: Juhtumiuuringud
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
+      few:
       field_of_operation: Tegevusvaldkond
+      many:
       none_added: Selle tegevusvaldkonna kohta ei ole surmajuhtumeid veel lisatud.
       one: Surmateade
       operations_in: Toimingud asukohas %{location}
       other: Surmateated
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -532,10 +548,14 @@ et:
         tsg_alt_text: Skeemi logo on must tempel kirjaga Traditional Specialty UK Protected
     speech:
       delivered_on: Edastati
+      few:
       location: Asukoht
+      many:
       one: Kõne
       other: Kõned
+      two:
       written_on: Kirjutatud
+      zero:
     start_now:
     take_part:
       one: Osa võtma

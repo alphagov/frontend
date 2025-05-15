@@ -1,5 +1,7 @@
 class DetailedGuideController < ContentItemsController
+  include Cacheable
+
   def show
-    @detailed_guide_presenter = ContentItemPresenter.new(content_item)
+    @presenter = DetailedGuidePresenter.new(content_item)
   end
 end

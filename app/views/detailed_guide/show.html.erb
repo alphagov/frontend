@@ -28,7 +28,7 @@
 </div>
 
 <%= render "shared/publisher_metadata", locals: {
-  from: govuk_styled_links_list(@detailed_guide_presenter.contributor_links),
+  from: govuk_styled_links_list(@presenter.contributor_links),
   first_published: display_date(content_item.first_public_at || content_item.first_published_at),
   last_updated: display_date(content_item.updated),
   see_updates_link: true,
@@ -47,7 +47,7 @@
       } %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @detailed_guide_presenter.headers_for_contents_list_component do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
       <%= render "govuk_publishing_components/components/print_link", {
         margin_top: 0,
         margin_bottom: 6,

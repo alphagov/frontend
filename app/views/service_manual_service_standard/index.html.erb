@@ -1,4 +1,8 @@
 <% add_view_stylesheet("service-manual-service-standard") %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+<% end %>
 <%= content_for :title, "#{@content_item.title} - Service Manual" %>
 
 <% content_for :header do %>

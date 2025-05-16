@@ -406,6 +406,9 @@ en:
       publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
       social_media_use_html: Read our policy on %{link}.
       welsh_language_scheme_html: Find out about our commitment to %{link}.
+    detailed_guide:
+      one: Guidance
+      other: Guidance
     fatality_notice:
       alt_text: Ministry of Defence crest
       field_of_operation: Field of operation
@@ -499,7 +502,6 @@ en:
       invalid_uprn_sub: Enter the postcode again.
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
-      titled_link: Go to %{title}
       matched_postcode_html: We’ve matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
@@ -512,6 +514,7 @@ en:
       search_result: search result
       select_address: Select an address
       service_not_available: This service is not available in %{country_name}
+      titled_link: Go to %{title}
       unknown_service: We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
       valid_postcode_no_match: We couldn't find this postcode.
       valid_postcode_no_match_sub_html: Check it and enter it again.

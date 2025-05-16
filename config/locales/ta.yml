@@ -79,6 +79,7 @@ ta:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ta:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'வருகை:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ ta:
       publication_scheme_html: எங்கள் %{link}-ல் நாங்கள் வழக்கமாக வெளியிடும் தகவல்களின் வகைகள் குறித்து வாசியுங்கள்.
       social_media_use_html: "%{link}-ல் எங்கள் கொள்கை குறித்து வாசியுங்கள்."
       welsh_language_scheme_html: "%{link}-க்கு எங்கள் கடப்பாடு குறித்துக் கண்டறியுங்கள்."
+    detailed_guide:
+      one: வழிகாட்டுதல்
+      other: வழிகாட்டுதல்
     fatality_notice:
       alt_text: பாதுகாப்பு காவல்துறை அமைச்சர்
       field_of_operation: இயங்குதளம்

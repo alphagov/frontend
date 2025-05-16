@@ -79,6 +79,7 @@ ka:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ka:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ეწვიეთ:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ ka:
       publication_scheme_html: წაიკითხეთ ინფორმაციის ტიპების შესახებ, რომელსაც ჩვენ რეგულარულად ვაქვეყნებთ ჩვენს %{link}-ზე.
       social_media_use_html: წაიკითხეთ ჩვენი პოლიტიკის შესახებ %{link}.
       welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
+    detailed_guide:
+      one: ხელძღვანელობა
+      other: ხელძღვანელობა
     fatality_notice:
       alt_text: თავდაცვის სამინისტრო
       field_of_operation: ოპერაციის სფერო

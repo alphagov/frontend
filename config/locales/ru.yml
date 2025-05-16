@@ -79,6 +79,7 @@ ru:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ru:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Посетите:'
   components:
     print_link:
       text:
@@ -553,6 +556,11 @@ ru:
       publication_scheme_html: Прочитайте о информации, которая обычно публикуется нами на %{link}.
       social_media_use_html: Ознакомьтесь с нашей политикой по %{link}.
       welsh_language_scheme_html: Узнайте о наших обязательствах по %{link}.
+    detailed_guide:
+      few:
+      many:
+      one: Подробное руководство
+      other: Руководство
     fatality_notice:
       alt_text: Герб Министерства Обороны
       few:

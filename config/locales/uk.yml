@@ -79,6 +79,7 @@ uk:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ uk:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Відвідайте:'
   components:
     print_link:
       text:
@@ -553,6 +556,11 @@ uk:
       publication_scheme_html: Про те, які типи інформації ми регулярно публікуємо, читайте у нашому %{link}.
       social_media_use_html: Ознайомтеся із нашою політикою на %{link}.
       welsh_language_scheme_html: Дізнайтесь про дотримання нами %{link}.
+    detailed_guide:
+      few:
+      many:
+      one: Керівництво
+      other: Керівництво
     fatality_notice:
       alt_text: Герб Міністерства оборони
       few:

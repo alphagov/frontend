@@ -79,6 +79,7 @@ tr:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ tr:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Ziyaret et:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ tr:
       publication_scheme_html: "%{link} bağlantımızda düzenli olarak yayınladığımız bilgi türlerini okuyun."
       social_media_use_html: "%{link} bağlantısındaki politikamızı okuyun."
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
+    detailed_guide:
+      one: Rehberlik
+      other: Rehberlik
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı

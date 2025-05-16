@@ -79,6 +79,7 @@ bg:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ bg:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Посетете:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ bg:
       publication_scheme_html: Прочетете за видовете информация, които обичайно публикуваме на нашата %{link}.
       social_media_use_html: Прочетете нашите правила на %{link}.
       welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
+    detailed_guide:
+      one: Насока
+      other: Насока
     fatality_notice:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие

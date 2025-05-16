@@ -79,6 +79,7 @@ tk:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ tk:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Serediň:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ tk:
       publication_scheme_html: Biziň %{link} baglanyşygymyzdan nähili habarlary yzygiderli neşir edýändigimizi okaň.
       social_media_use_html: Biziň syýasatymyz barada %{link} baglanyşygymyzda okaň.
       welsh_language_scheme_html: Niýetimiz barada %{link}-da okaň.
+    detailed_guide:
+      one: Gözkezme
+      other: Gözkezme
     fatality_notice:
       alt_text: Goranmak ministrliginiň nyşany
       field_of_operation: Iş meýdany

@@ -79,6 +79,7 @@ ar:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ar:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'تفضّل بزيارة:'
   components:
     print_link:
       text:
@@ -704,6 +707,13 @@ ar:
       social_media_use_html: اقرأ سياستنا على %{link}.
       two:
       welsh_language_scheme_html: تعرف على التزامنا بشأن %{link}.
+      zero:
+    detailed_guide:
+      few:
+      many:
+      one:
+      other: توجيه
+      two:
       zero:
     fatality_notice:
       alt_text: شعار وزارة الدفاع

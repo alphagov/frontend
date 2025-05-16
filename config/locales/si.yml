@@ -79,6 +79,7 @@ si:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ si:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'පිවිසෙන්න:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ si:
       publication_scheme_html: අපේ %{link} තුල අපි ආකාරික ලෙස ප්රකාශයට පත් කරන තොරතුරු වර්ග ගැන කියවන්න.
       social_media_use_html: අපේ ප්රතිපත්තිය කියවන්න %{link}.
       welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
+    detailed_guide:
+      one: මාර්ගෝපදේශය
+      other: මාර්ගෝපදේශය
     fatality_notice:
       alt_text: ආරක්ෂක අමාත්යාංශ ලාංඡනය
       field_of_operation: මෙහෙයුම් ක්ෂේත්රය

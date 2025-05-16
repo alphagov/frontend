@@ -79,6 +79,7 @@ cs:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ cs:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Navštivte:'
   components:
     print_link:
       text:
@@ -477,6 +480,10 @@ cs:
       publication_scheme_html: Přečtěte si, jaké informace běžně zveřejňujeme v našem %{link}.
       social_media_use_html: Přečtěte si naše zásady na %{link}.
       welsh_language_scheme_html: Přečtěte si o našem závazku k %{link}.
+    detailed_guide:
+      few:
+      one: Směrnice
+      other: Směrnice
     fatality_notice:
       alt_text: Ministerstvo obrany
       few:

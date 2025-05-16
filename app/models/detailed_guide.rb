@@ -1,5 +1,4 @@
 class DetailedGuide < ContentItem
-  include ContentsList
   include EmphasisedOrganisations
   include NationalApplicability
   include Political

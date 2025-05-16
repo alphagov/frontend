@@ -110,6 +110,7 @@ Rails.application.routes.draw do
   # Service manuals
   scope "/service-manual" do
     get "/", to: "service_manual#index"
+    get "/service-standard", to: "service_manual_service_standard#index"
   end
 
   # Service toolkit page

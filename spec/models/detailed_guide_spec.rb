@@ -8,6 +8,26 @@ RSpec.describe DetailedGuide do
   it_behaves_like "it has no updates", "detailed_guide", "national_applicability_detailed_guide"
   it_behaves_like "it can be withdrawn", "detailed_guide", "withdrawn_detailed_guide"
 
+  describe "#headers" do
+    context "when there are headers in the details hash" do
+      it "returns a list of headings" do
+        content_item = described_class.new(content_store_response)
+        details_headers = content_store_response["details"]["headers"]
+
+        expect(content_item.headers).to eq(details_headers)
+      end
+    end
+
+    context "when there are no headers in the details hash" do
+      it "returns an empty array" do
+        content_store_response["details"].delete("headers")
+        content_item = described_class.new(content_store_response)
+
+        expect(content_item.headers).to eq([])
+      end
+    end
+  end
+
   describe "#contributors" do
     context "when emphasised organisation is present" do
       it "returns the emphasised organisation first" do

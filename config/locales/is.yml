@@ -403,6 +403,9 @@ is:
       publication_scheme_html: Lestu um hvaða upplýsingar við birtum reglulega í %{link} okkar.
       social_media_use_html: Lestu stefnuna okkar varðandi %{link}.
       welsh_language_scheme_html: Kynntu þér skuldbindingu okkar við %{link}.
+    detailed_guide:
+      one: Leiðsögn
+      other: Leiðsögn
     fatality_notice:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
       field_of_operation: Starfsvið

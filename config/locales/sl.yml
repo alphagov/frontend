@@ -555,6 +555,11 @@ sl:
       social_media_use_html: Preberite si našo politiko na %{link}.
       two:
       welsh_language_scheme_html: Izvedite več o naši zavezanosti %{link}.
+    detailed_guide:
+      few:
+      one: Smernice
+      other: Smernice
+      two:
     fatality_notice:
       alt_text: Grb Ministrstva za obrambo
       few:

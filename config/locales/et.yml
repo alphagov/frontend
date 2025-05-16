@@ -403,6 +403,9 @@ et:
       publication_scheme_html: Lisateavet selle kohta, millist teavet me regulaarselt avaldame oma saidil %{link}.
       social_media_use_html: Lugege meie eeskirju saidil %{link}.
       welsh_language_scheme_html: Lisateave meie pühendumuse kohta %{link}.
+    detailed_guide:
+      one: Juhised
+      other: Juhised
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
       field_of_operation: Tegevusvaldkond

@@ -327,6 +327,8 @@ ja:
       publication_scheme_html: 情報公開の種類については %{link} をご覧下さい。
       social_media_use_html: "%{link} に関する政策をご覧下さい。"
       welsh_language_scheme_html: 情報公開の詳細については %{link} をご覧下さい。
+    detailed_guide:
+      other: ガイダンス
     fatality_notice:
       alt_text: 国防省の紋章
       field_of_operation: 運用分野

@@ -327,6 +327,8 @@ zh:
       publication_scheme_html: 阅读我们在 %{link} 中例行发布的信息类型。
       social_media_use_html: 阅读我们在 %{link} 的政策。
       welsh_language_scheme_html: 查看我们对 %{link} 的承诺。
+    detailed_guide:
+      other: 指南
     fatality_notice:
       alt_text: 国防部徽章
       field_of_operation: 经营领域

@@ -479,6 +479,10 @@ lt:
       publication_scheme_html: Sužinokite, kokią informaciją mes pastoviai pateikiame puslapyje %{link}.
       social_media_use_html: Perskaitykite mūsų strategiją %{link}.
       welsh_language_scheme_html: Sužinokite apie mūsų įsipareigojimą skelbti %{link}.
+    detailed_guide:
+      few:
+      one: Detalesnė informacija
+      other: Detalesnė informacija
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
       few:

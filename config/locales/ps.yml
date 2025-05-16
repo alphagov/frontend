@@ -403,6 +403,9 @@ ps:
       publication_scheme_html: د هغه معلوماتو ډولونو په اړه ولولئ چې موږ یې په منظم ډول زموږ په %{link} کې خپروو.
       social_media_use_html: زموږ پالیسي په%{link} ولولئ.
       welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
+    detailed_guide:
+      one: لارښود
+      other: لارښود
     fatality_notice:
       alt_text: د دفاع وزارت کریسټ
       field_of_operation: د عملیاتو ساحه

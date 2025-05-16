@@ -403,6 +403,9 @@ pa-pk:
       publication_scheme_html: ایس تے ایہ پڑھو کہ اسی رضاکارانہ طور تے کیس طراں دی معلومات شائع کرنے آں %{link}.
       social_media_use_html: ایندے تے ساڈی حکمتِ عملی بارے پڑھو %{link}.
       welsh_language_scheme_html: ساڈی وابستگی دے بارے جانو %{link}.
+    detailed_guide:
+      one: 'رہنمائی '
+      other: 'رہنمائی '
     fatality_notice:
       alt_text: وزارتِ دفاع کریسٹ
       field_of_operation: عمل کرن دا حلقہ

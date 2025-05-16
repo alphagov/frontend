@@ -707,6 +707,13 @@ ar:
       two:
       welsh_language_scheme_html: تعرف على التزامنا بشأن %{link}.
       zero:
+    detailed_guide:
+      few:
+      many:
+      one:
+      other: توجيه
+      two:
+      zero:
     fatality_notice:
       alt_text: شعار وزارة الدفاع
       few:

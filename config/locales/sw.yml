@@ -403,6 +403,9 @@ sw:
       publication_scheme_html: Soma maelezo kuhusu aina za maelezo tunayochapisha kila wakati kwenye %{link} yetu.
       social_media_use_html: Soma sera yetu kwenye %{link}.
       welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
+    detailed_guide:
+      one: Mwongozo
+      other: Mwongozo
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi

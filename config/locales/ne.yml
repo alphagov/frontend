@@ -403,6 +403,9 @@ ne:
       publication_scheme_html: हामी नियमित रूपमा हाम्रो %{link} मा प्रकाशित जानकारीको प्रकारको बारेमा पढ्नुहोस्।
       social_media_use_html: "%{link} मा हाम्रो नीति पढ्नुहोस्।"
       welsh_language_scheme_html: "%{link} को हाम्रो प्रतिबद्धताको बारेमा जानकारी पाउनुहोस्।"
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     fatality_notice:
       alt_text: रक्षा मन्त्रालय क्रेस्ट
       field_of_operation: सञ्चालन क्षेत्र

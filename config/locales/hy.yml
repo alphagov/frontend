@@ -403,6 +403,9 @@ hy:
       publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
       social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'
       welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
+    detailed_guide:
+      one: Ուղեցույց
+      other: Ուղեցույց
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
       field_of_operation: Գործունեության ոլորտ

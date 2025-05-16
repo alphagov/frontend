@@ -327,6 +327,8 @@ ko:
       publication_scheme_html: 정기적으로 공개되는 %{link} 정보에 대한 안내.
       social_media_use_html: "%{link} 에서 정책 정보 확인"
       welsh_language_scheme_html: "%{link} 에서 정보 공개에 대한 내용."
+    detailed_guide:
+      other: 지침
     fatality_notice:
       alt_text: 국방부 문장
       field_of_operation: 운영 현장

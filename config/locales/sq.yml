@@ -403,6 +403,9 @@ sq:
       publication_scheme_html: Lexoni për llojet e informacionit që botojmë në mënyrë rutinore në %{link} tonë.
       social_media_use_html: Lexoni politikën tonë në %{link}.
       welsh_language_scheme_html: Mësoni rreth angazhimit tonë ndaj %{link}.
+    detailed_guide:
+      one: Udhëzim
+      other: Udhëzim
     fatality_notice:
       alt_text: Stema e Ministrisë së Mbrojtjes
       field_of_operation: Fusha e operimit

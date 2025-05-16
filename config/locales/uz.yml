@@ -403,6 +403,9 @@ uz:
       publication_scheme_html: Биз мунтазам нашр қилаётган маълумотларнинг турлари ҳақида, бизнинг %{link} да ўқинг.
       social_media_use_html: "%{link} да бизнинг сиёсатимиз билан танишинг."
       welsh_language_scheme_html: "%{link} да бизнинг содиқлилигимиз ҳақида билиб олинг ."
+    detailed_guide:
+      one: Қўлланма
+      other: Қўлланма
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
       field_of_operation: Фаолият соҳаси

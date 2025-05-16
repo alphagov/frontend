@@ -555,6 +555,11 @@ ru:
       publication_scheme_html: Прочитайте о информации, которая обычно публикуется нами на %{link}.
       social_media_use_html: Ознакомьтесь с нашей политикой по %{link}.
       welsh_language_scheme_html: Узнайте о наших обязательствах по %{link}.
+    detailed_guide:
+      few:
+      many:
+      one: Подробное руководство
+      other: Руководство
     fatality_notice:
       alt_text: Герб Министерства Обороны
       few:

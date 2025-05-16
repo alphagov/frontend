@@ -479,6 +479,10 @@ cs:
       publication_scheme_html: Přečtěte si, jaké informace běžně zveřejňujeme v našem %{link}.
       social_media_use_html: Přečtěte si naše zásady na %{link}.
       welsh_language_scheme_html: Přečtěte si o našem závazku k %{link}.
+    detailed_guide:
+      few:
+      one: Směrnice
+      other: Směrnice
     fatality_notice:
       alt_text: Ministerstvo obrany
       few:

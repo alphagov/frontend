@@ -403,6 +403,9 @@ nl:
       publication_scheme_html: Lees over de soorten informatie die wij routinematig publiceren in onze %{link}.
       social_media_use_html: Lees ons beleid inzake %{link}.
       welsh_language_scheme_html: Lees meer over onze inzet voor %{link}.
+    detailed_guide:
+      one: Richtsnoer
+      other: Begeleiding
     fatality_notice:
       alt_text: Wapen van het ministerie van Defensie
       field_of_operation: Gebied van operatie

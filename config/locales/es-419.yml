@@ -403,6 +403,9 @@ es-419:
       publication_scheme_html: Lea los tipos de información que publicamos habitualmente en nuestro %{link}.
       social_media_use_html: Lea nuestra normativa en %{link}.
       welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
+    detailed_guide:
+      one: Orientación
+      other: Orientación
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación

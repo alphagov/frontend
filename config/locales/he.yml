@@ -403,6 +403,9 @@ he:
       publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
       social_media_use_html: קרא/י אודות המדיניות שלנו %{link}
       welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}
+    detailed_guide:
+      one: הדרכה
+      other: הדרכה
     fatality_notice:
       alt_text: סמל משרד הביטחון
       field_of_operation: תחום הפעולה

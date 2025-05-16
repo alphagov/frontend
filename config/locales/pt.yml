@@ -403,6 +403,9 @@ pt:
       publication_scheme_html: Leia sobre os tipos de informação que publicamos no nosso %{link}.
       social_media_use_html: Leia a nossa política em %{link}.
       welsh_language_scheme_html: Saiba mais sobre o nosso compromisso para com %{link}.
+    detailed_guide:
+      one: Orientação
+      other: Orientação
     fatality_notice:
       alt_text: Brasão do Ministério da Defesa
       field_of_operation: Campo de operação

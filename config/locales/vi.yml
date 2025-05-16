@@ -327,6 +327,8 @@ vi:
       publication_scheme_html: Tìm hiểu về các loại thông tin chúng tôi thường xuyên xuất bản trong %{link} của chúng tôi.
       social_media_use_html: Đọc chính sách của chúng tôi trên %{link}.
       welsh_language_scheme_html: Tìm hiểu về cam kết của chúng tôi đối với %{link}.
+    detailed_guide:
+      other: Hướng dẫn
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
       field_of_operation: Lĩnh vực hoạt động

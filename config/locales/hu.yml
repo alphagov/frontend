@@ -403,6 +403,9 @@ hu:
       publication_scheme_html: 'Tekintse meg, hogy milyen jellegű információkat teszünk közzé: %{link}'
       social_media_use_html: 'Bővebb információk az alábbi témával kapcsolatban: %{link}'
       welsh_language_scheme_html: 'Tájékozódjon az információk közzétételével kapcsolatos elkötelezettségünkről: %{link}'
+    detailed_guide:
+      one: Útmutató
+      other: Útmutató
     fatality_notice:
       alt_text: A Védelmi Minisztérium címere
       field_of_operation: Működési terület

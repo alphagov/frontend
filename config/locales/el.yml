@@ -403,6 +403,9 @@ el:
       publication_scheme_html: Διαβάστε σχετικά με τους τύπους πληροφοριών που δημοσιεύουμε συνήθως στο %{link}.
       social_media_use_html: Διαβάστε την πολιτική μας στο %{link}.
       welsh_language_scheme_html: Μάθετε για τη δέσμευσή μας στο %{link}.
+    detailed_guide:
+      one: Οδηγία
+      other: Οδηγία
     fatality_notice:
       alt_text: Οικόσημο Υπουργείου Άμυνας
       field_of_operation: Πεδίο λειτουργίας

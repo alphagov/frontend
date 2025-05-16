@@ -555,6 +555,11 @@ gd:
       social_media_use_html: Léigh ár mbeartas ar %{link}.
       two:
       welsh_language_scheme_html: Faigh amach ár gcomhréiteach ar an %{link}.
+    detailed_guide:
+      few:
+      one: Treoshuíomh
+      other: Treoshuíomh
+      two:
     fatality_notice:
       alt_text: Suaitheantas rialtais Chónaidhme
       few:

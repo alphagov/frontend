@@ -403,6 +403,9 @@ sv:
       publication_scheme_html: Läs om vilka typer av information vi rutinmässigt publicerar i vår %{link}.
       social_media_use_html: Läs vår policy för %{link}.
       welsh_language_scheme_html: Ta reda på vårt åtagande om %{link}.
+    detailed_guide:
+      one: Vägledning
+      other: Vägledning
     fatality_notice:
       alt_text: Försvarsministeriets vapensköld
       field_of_operation: Verksamhetsområde

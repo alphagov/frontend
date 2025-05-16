@@ -403,6 +403,9 @@ hi:
       publication_scheme_html: सूचना के उन प्रकारों के बारे में पढ़ें, जिन्हें हम अपने %{link} में नियमित रूप से प्रकाशित करते हैं।
       social_media_use_html: इस बारे में हमारी नीतियां पढ़ें %{link}
       welsh_language_scheme_html: हमारी प्रकाशन के प्रति वचनबद्धता के बारे में जानें %(link)।
+    detailed_guide:
+      one: मार्गदर्शन
+      other: मार्गदर्शन
     fatality_notice:
       alt_text: रक्षा मंत्रालय का क्रेस्ट
       field_of_operation: संचालन का क्षेत्र

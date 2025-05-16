@@ -403,6 +403,9 @@ lv:
       publication_scheme_html: Iepazīsties ar informāciju, kāda parasti tiek publicēta mūsu %{link}.
       social_media_use_html: Iepazīsties ar mūsu nostāju par %{link}.
       welsh_language_scheme_html: Vairāk par mūsu apņemšanos nodrošināt informācijas pieejamību %{link}.
+    detailed_guide:
+      one: Detalizētas norādes
+      other: Detalizētas norādes
     fatality_notice:
       alt_text: Aizsardzības ministrijas ģerbonis
       field_of_operation: Darbības joma

@@ -555,6 +555,11 @@ pl:
       publication_scheme_html: Przeczytaj, jakiego rodzaju wiadomości publikujemy zwykle w naszym %{link}.
       social_media_use_html: Przeczytaj naszą politykę dotyczącą %{link}.
       welsh_language_scheme_html: Poznaj nasze zobowiązania związane z publikowaniem w %{link}.
+    detailed_guide:
+      few:
+      many:
+      one: Szczegółowe wskazówki
+      other: Szczegółowe wskazówki
     fatality_notice:
       alt_text: Herb Ministerstwa Obrony
       few:

@@ -479,6 +479,10 @@ hr:
       publication_scheme_html: Pročitajte o vrstama informacija koje redovito objavljujemo u našoj %{link}.
       social_media_use_html: Pročitajte naša pravila na %{link}.
       welsh_language_scheme_html: Saznajte o našoj predanosti %{link}.
+    detailed_guide:
+      few:
+      one: Upute
+      other: Upute
     fatality_notice:
       alt_text: Grb Ministarstva obrane
       few:

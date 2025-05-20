@@ -135,6 +135,7 @@ class Graphql::EditionQuery
           base_path
           content_id
           document_type
+          locale
           phase
           title
           web_url

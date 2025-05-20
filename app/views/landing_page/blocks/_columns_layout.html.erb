@@ -21,7 +21,5 @@
 %>
 
 <%= tag.div class: "columns-layout", data: data_attributes do %>
-  <% block.blocks.each do |child| %>
-    <%= render "landing_page/blocks/#{child.type}", block: child %>
-  <% end %>
+  <% block.blocks.each { |child| %><%= render_block(child) %><% } %>
 <% end %>

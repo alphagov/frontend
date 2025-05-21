@@ -13,7 +13,7 @@ RSpec.describe "CsvPreview" do
   end
 
   context "when visiting the preview" do
-    before { visit "/#{asset_media_url_path}/preview" }
+    before { visit "/csv-preview/#{asset_manager_id}/#{filename}.csv" }
 
     it "returns a 200 response" do
       expect(page.status_code).to eq(200)
@@ -77,12 +77,22 @@ RSpec.describe "CsvPreview" do
     end
   end
 
-  it "returns a 200 response when visiting the preview with special characters in filename" do
+  it "returns a 200 response when visiting the /media preview with special characters in filename" do
     special_characters_filename = "filename+"
     special_characters_url_path = "media/#{asset_manager_id}/#{special_characters_filename}.csv"
     setup_asset_manager(parent_document_url, asset_manager_id, special_characters_filename)
     setup_content_item(special_characters_url_path, parent_document_base_path)
     visit "/#{special_characters_url_path}/preview"
+
+    expect(page.status_code).to eq(200)
+  end
+
+  it "returns a 200 response when visiting the /csv-preview with special characters in filename" do
+    special_characters_filename = "filename+"
+    special_characters_url_path = "media/#{asset_manager_id}/#{special_characters_filename}.csv"
+    setup_asset_manager(parent_document_url, asset_manager_id, special_characters_filename)
+    setup_content_item(special_characters_url_path, parent_document_base_path)
+    visit "/csv-preview/#{asset_manager_id}/#{special_characters_filename}.csv"
 
     expect(page.status_code).to eq(200)
   end
@@ -148,11 +158,11 @@ RSpec.describe "CsvPreview" do
       asset_manager_response = { id: "https://asset-manager.dev.gov.uk/assets/foo", parent_document_url:, draft: true }
       stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, "/#{filename}.csv")
       setup_content_item("/csv-preview/#{asset_manager_id}/#{filename}/", parent_document_base_path)
-      visit "/csv-preview/#{asset_manager_id}/#{filename}/"
+      visit "http://www.dev.gov.uk/csv-preview/#{asset_manager_id}/#{filename}/"
     end
 
-    it "redirects to the draft assets host" do
-      expect(current_url).to eq("http://www.example.com/csv-preview/4321/filename/")
+    it "redirects to the draft origin host" do
+      expect(current_url).to eq("http://draft-origin.dev.gov.uk/csv-preview/4321/filename")
     end
   end
 

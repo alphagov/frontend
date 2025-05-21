@@ -297,7 +297,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 /* visual tweaks */
 
 .leaflet-container {
-	background: #dddddd;
 	outline-offset: 1px;
 	}
 
@@ -735,6 +734,13 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #ffffff;
 	}
+
+.leaflet-container img.leaflet-tile {
+  /* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
+  mix-blend-mode: normal;
+  width: 256px !important;
+  height: 256px !important;
+}
 
 /* Printing */
 

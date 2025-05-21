@@ -42,6 +42,7 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Image](#image)
 - [Logo](#logo)
 - [Main Navigation](#main-navigation)
+- [Map](#map)
 - [Quote](#quote)
 - [Share Links](#share-links)
 - [Side Navigation](#side-navigation)
@@ -163,6 +164,10 @@ The top-level navigation. It supports multiple headings, each with a row of link
 - type: main_navigation
   navigation_group_id: Top Menu
 ```
+
+#### Map
+
+The map block has been custom built to fit a specific requirement and should only be used for that purpose. It therefore has no customisation options and is designed to be used as-is.
 
 #### Quote
 

@@ -11,9 +11,14 @@
 }
 
 .map__canvas {
-  height: 800px;
+  padding: govuk-spacing(6);
   margin-bottom: govuk-spacing(1);
   border: solid 1px $govuk-border-colour;
+}
+
+.map__canvas--enabled {
+  padding: 0;
+  height: 800px;
   background-color: #d7e0e5;
 }
 

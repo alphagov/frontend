@@ -178,6 +178,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const popupHeading = document.createElement('h3')
     popupHeading.classList.add('govuk-heading-m')
+    popupHeading.setAttribute('data-ga4-text', '')
     const popupBody = document.createElement('div')
 
     if (ftGeomType === 'Point') {
@@ -226,11 +227,13 @@ window.addEventListener('DOMContentLoaded', function () {
       if (ftGeomType === 'Point') e.target.setIcon(icons[lyrPane].active)
       else e.target.setStyle({ fillOpacity: 0.3 })
 
+      const popup = e.target.getPopup()
+      const content = popup.getContent()
       mapElement.setAttribute('data-ga4-auto', JSON.stringify({
         event_name: 'select_content',
         action: 'opened',
         type: 'map',
-        text: ga4Attributes.text,
+        text: content.querySelector('[data-ga4-text]').innerText || '',
         section: ga4Attributes.section,
         tool_name: ga4Attributes.tool_name
       }))

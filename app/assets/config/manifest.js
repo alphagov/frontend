@@ -4,7 +4,7 @@
 //= link dependencies.js
 //= link test-dependencies.js
 //= link views/travel-advice.js
-//= link views/landing_page/map/main.js
+//= link views/landing_page/map/leaflet.js
 //= link views/landing_page/map/data/lookup.js
 //= link views/landing_page/map/data/cdc.geojson.js
 //= link views/landing_page/map/data/hub.geojson.js

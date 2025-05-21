@@ -79,6 +79,7 @@ is:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ is:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Heimsæktu:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ is:
       publication_scheme_html: Lestu um hvaða upplýsingar við birtum reglulega í %{link} okkar.
       social_media_use_html: Lestu stefnuna okkar varðandi %{link}.
       welsh_language_scheme_html: Kynntu þér skuldbindingu okkar við %{link}.
+    detailed_guide:
+      one: Leiðsögn
+      other: Leiðsögn
     fatality_notice:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
       field_of_operation: Starfsvið

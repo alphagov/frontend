@@ -79,6 +79,7 @@ es-419:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ es-419:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Visite:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ es-419:
       publication_scheme_html: Lea los tipos de información que publicamos habitualmente en nuestro %{link}.
       social_media_use_html: Lea nuestra normativa en %{link}.
       welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
+    detailed_guide:
+      one: Orientación
+      other: Orientación
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación

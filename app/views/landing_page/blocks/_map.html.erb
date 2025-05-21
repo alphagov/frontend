@@ -3,9 +3,8 @@
   add_view_stylesheet("landing_page/map/leaflet")
 %>
 <% content_for :extra_javascript do %>
-  <%= javascript_include_tag "views/landing_page/map/main.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "views/landing_page/map/leaflet.js", integrity: false, type: "module" %>
 <% end %>
-
 <div class="map">
   <div id="api-warning"></div>
 
@@ -36,6 +35,7 @@
 
   <div class="map__canvas"
     id="map"
+    data-module="landing-page-map"
     data-api-key="<%= ENV["OS_MAPS_API_KEY"] %>"
     data-icon-cdc-default="<%= asset_path("landing_page/map/CDC-symbol-default.svg") %>"
     data-icon-cdc-active="<%= asset_path("landing_page/map/CDC-symbol-active.svg") %>"

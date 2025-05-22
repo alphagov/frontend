@@ -1,0 +1,13 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.logo {
+  margin-bottom: govuk-spacing(6);
+}
+
+.logo__img {
+  display: block;
+}
+
+.logo__img--nhs {
+  max-width: 100px;
+}

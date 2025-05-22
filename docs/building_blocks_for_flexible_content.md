@@ -40,6 +40,7 @@ Simple blocks generally render one component or "thing". They can either be rend
 - [Govspeak](#govspeak)
 - [Heading](#heading)
 - [Image](#image)
+- [Logo](#logo)
 - [Main Navigation](#main-navigation)
 - [Quote](#quote)
 - [Share Links](#share-links)
@@ -149,6 +150,10 @@ If needed, an optional `theme_colour` integer value can be specified, which give
       tablet: "landing_page/placeholder/tablet.png"
       tablet_2x: "landing_page/placeholder/tablet_2x.png"
 ```
+
+#### Logo
+
+A simple logo. Currently this only allows for one logo to be displayed - the NHS logo.
 
 #### Main Navigation
 

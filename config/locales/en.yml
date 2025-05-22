@@ -79,6 +79,7 @@ en:
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
     bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
     download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook
+    email_and_print_link: Sign up for emails or print this page
     extra_bank_holiday: Extra bank holiday
     holiday_entitlement_html: Your employer does not have to give you <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">paid leave on bank or public holidays</a>.
     nations:
@@ -96,6 +97,7 @@ en:
       scotland_slug: scotland
     next_holiday_in_is: The next bank holiday %{in_nation} is
     past_bank_holidays: Past bank holidays
+    print_link: Print this page
     substitute_day: Substitute day
     today: today
     united-kingdom_slug: united-kingdom
@@ -496,7 +498,6 @@ en:
       invalid_uprn_sub: Enter the postcode again.
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website
-      titled_link: Go to %{title}
       matched_postcode_html: We’ve matched the postcode to <span class="local-authority">%{local_authority}</span>.
       no_local_authority: We couldn't find a council for this postcode.
       no_local_authority_url_html: We don't have a link for their website. Try the <a href="/find-local-council">local council search</a> instead.
@@ -509,6 +510,7 @@ en:
       search_result: search result
       select_address: Select an address
       service_not_available: This service is not available in %{country_name}
+      titled_link: Go to %{title}
       unknown_service: We do not know if they offer this service. Search their website to find out if they do, or what other services they offer.
       valid_postcode_no_match: We couldn't find this postcode.
       valid_postcode_no_match_sub_html: Check it and enter it again.

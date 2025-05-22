@@ -1,8 +1,8 @@
 RSpec.describe "CSV previews" do
   it "routes old style paths to the CsvPreviewController" do
     expect(get("/media/000000000000000000000000/some-file.csv/preview")).to route_to(
-      controller: "csv_preview",
-      action: "show",
+      controller: "csv_preview_redirect",
+      action: "redirect",
       id: "000000000000000000000000",
       filename: "some-file.csv",
     )

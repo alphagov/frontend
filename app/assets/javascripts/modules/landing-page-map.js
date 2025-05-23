@@ -222,7 +222,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       popupContainer.appendChild(popupHeading)
       popupContainer.appendChild(popupBody)
 
-      const popup = layer.bindPopup(popupContainer)
+      const popup = layer.bindPopup(popupContainer, { maxWidth: 250 })
       popup.on('popupopen', (e) => {
         if (ftGeomType === 'Point') e.target.setIcon(this.context.icons[lyrPane].active)
         else e.target.setStyle({ fillOpacity: 0.3 })

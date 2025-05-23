@@ -1,6 +1,5 @@
 <%
   add_view_stylesheet("landing_page/map")
-  add_view_stylesheet("landing_page/map/leaflet")
 %>
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag "views/landing_page/map/leaflet.js", integrity: false, type: "module" %>

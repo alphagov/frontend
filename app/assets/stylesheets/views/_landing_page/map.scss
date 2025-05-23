@@ -1,4 +1,5 @@
 @import "govuk_publishing_components/individual_component_support";
+@import "leaflet/dist/leaflet";
 
 .map {
   display: none;
@@ -20,6 +21,10 @@
   padding: 0;
   height: 800px;
   background-color: #d7e0e5;
+
+  @include govuk-media-query($until: tablet) {
+    max-height: 80vh;
+  }
 }
 
 .map__key {
@@ -55,4 +60,36 @@
 
 .map__key-item--ics::before {
   background-image: url("landing_page/map/IC-symbol-key.svg");
+}
+
+.map-popup__heading {
+  @include govuk-media-query($until: tablet) {
+    padding-right: govuk-spacing(4);
+  }
+}
+
+// leaflet plugin default style overrides
+
+.leaflet-container img.leaflet-tile { // stylelint-disable-line selector-no-qualifying-type
+  // See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120
+  mix-blend-mode: normal;
+  width: 256px !important; // stylelint-disable-line declaration-no-important
+  height: 256px !important; // stylelint-disable-line declaration-no-important
+}
+
+.leaflet-popup-content {
+  @include govuk-media-query($until: tablet) {
+    margin: govuk-spacing(2);
+  }
+
+  p {
+    margin: 0 0 govuk-spacing(1);
+  }
+}
+
+.leaflet-container a.leaflet-popup-close-button { // stylelint-disable-line selector-no-qualifying-type
+  width: 35px;
+  height: 35px;
+  font: 24px/35px Tahoma, Verdana, sans-serif;
+  font-weight: bold;
 }

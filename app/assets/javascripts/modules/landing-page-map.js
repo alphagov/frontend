@@ -206,6 +206,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       const popupHeading = document.createElement('h3')
       popupHeading.classList.add('govuk-heading-m')
+      popupHeading.classList.add('map-popup__heading')
       popupHeading.setAttribute('data-ga4-text', '')
       const popupBody = document.createElement('div')
 
@@ -250,7 +251,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       popupContainer.appendChild(popupHeading)
       popupContainer.appendChild(popupBody)
 
-      const popup = layer.bindPopup(popupContainer)
+      const popup = layer.bindPopup(popupContainer, { maxWidth: 250 })
       popup.on('popupopen', (e) => {
         if (ftGeomType === 'Point') e.target.setIcon(this.context.icons[lyrPane].active)
         else e.target.setStyle({ fillOpacity: 0.3 })

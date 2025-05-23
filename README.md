@@ -37,6 +37,7 @@ some hard-coded routes.
 |                       ||http://www.gov.uk/register-offices|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
 |Service Manual homepage|[service_manual_homepage](https://docs.publishing.service.gov.uk/content-schemas/service_manual_homepage.html)|https://www.gov.uk/service-manual|
+|Service Manual service standard page|[service_manual_service_standard](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_standard.html)|https://www.gov.uk/service-manual/service-standard|
 |Service toolkit page   |[service_toolkit_page](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_toolkit.html)|https://www.gov.uk/service-toolkit|
 |Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
 |                       ||https://www.gov.uk/contact-the-dvla|

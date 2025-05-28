@@ -463,6 +463,10 @@ sr:
       few:
       one: Autorski članak
       other: Autorski članci
+    call_for_evidence:
+      few:
+      one:
+      other:
     case_study:
       few:
       one: Studija slučaja

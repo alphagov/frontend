@@ -537,6 +537,11 @@ be:
       many:
       one: Аўтарскі артыкул
       other: Аўтарскія артыкулы
+    call_for_evidence:
+      few:
+      many:
+      one:
+      other:
     case_study:
       few:
       many:

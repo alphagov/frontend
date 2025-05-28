@@ -463,6 +463,10 @@ lt:
       few:
       one: Autoriaus straipsnis
       other: Autorių straipsniai
+    call_for_evidence:
+      few:
+      one:
+      other:
     case_study:
       few:
       one: Atvejo analizė

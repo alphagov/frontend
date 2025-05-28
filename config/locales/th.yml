@@ -317,6 +317,8 @@ th:
   formats:
     authored_article:
       other: บทความที่มีผู้เขียน
+    call_for_evidence:
+      other:
     case_study:
       other: กรณีศึกษา
     corporate_information_page:

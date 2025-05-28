@@ -391,6 +391,9 @@ fr:
     authored_article:
       one: Article signé
       other: Articles signés
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Etude de cas
       other: Etudes de cas

@@ -391,6 +391,9 @@ is:
     authored_article:
       one: Samin grein
       other: Samdar greinar
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Ferilsathugun
       other: Ferilsathuganir

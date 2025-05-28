@@ -391,6 +391,9 @@ it:
     authored_article:
       one: Articolo d’autore
       other: Articoli d’autore
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Caso di studio
       other: Casi di studio

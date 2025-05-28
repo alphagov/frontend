@@ -391,6 +391,9 @@ el:
     authored_article:
       one: Σύνταξη άρθρου
       other: Σύνταξη άρθρων
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων

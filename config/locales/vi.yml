@@ -317,6 +317,8 @@ vi:
   formats:
     authored_article:
       other: Bài viết có tác giả
+    call_for_evidence:
+      other:
     case_study:
       other: Nghiên cứu điển hình
     corporate_information_page:

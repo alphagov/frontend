@@ -689,6 +689,13 @@ cy:
       other: Erthyglau ag awdur wedi'i enwi
       two:
       zero:
+    call_for_evidence:
+      few:
+      many:
+      one: Galwad am dystiolaeth
+      other: Galwadau am dystiolaeth
+      two:
+      zero:
     case_study:
       few:
       many:

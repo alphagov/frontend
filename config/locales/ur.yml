@@ -391,6 +391,9 @@ ur:
     authored_article:
       one: مصنف کے نام کے ساتھ لکھا مضمون
       other: مصنف کے نام کے ساتھ لکھے مضامین
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز

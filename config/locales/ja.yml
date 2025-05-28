@@ -317,6 +317,8 @@ ja:
   formats:
     authored_article:
       other: 執筆記事
+    call_for_evidence:
+      other:
     case_study:
       other: ケーススタディ
     corporate_information_page:

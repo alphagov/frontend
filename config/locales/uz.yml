@@ -391,6 +391,9 @@ uz:
     authored_article:
       one: Муаллифлик мақоласи
       other: Муаллифлик мақолалари
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари

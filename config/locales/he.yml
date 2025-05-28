@@ -391,6 +391,9 @@ he:
     authored_article:
       one: מאמר מאושר
       other: מאמרים מאושרים
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן

@@ -391,6 +391,9 @@ ne:
     authored_article:
       one: लेखिएको लेख
       other: लेखिएको लेखहरू
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू

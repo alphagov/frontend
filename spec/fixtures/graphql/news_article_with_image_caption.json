@@ -52,6 +52,7 @@
             "base_path": "/international",
             "content_id": "37d0fa26-abed-4c74-8835-b3b51ae1c8b2",
             "document_type": "taxon",
+            "locale": "en",
             "links": {},
             "phase": "live",
             "title": "International",

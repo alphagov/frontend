@@ -98,6 +98,7 @@
               "links": {
                  "parent_taxons": []
               },
+              "locale": "en",
               "phase": "live",
               "title": "Defence and armed forces",
               "web_url": "https://www.gov.uk/defence-and-armed-forces"
@@ -115,6 +116,7 @@
                        "links": {
                           "parent_taxons": []
                        },
+                       "locale": "en",
                        "phase": "live",
                        "title": "Society and culture",
                        "web_url": "https://www.gov.uk/society-and-culture"
@@ -138,12 +140,14 @@
                        "links": {
                           "parent_taxons": []
                        },
+                       "locale": "en",
                        "phase": "live",
                        "title": "Government",
                        "web_url": "https://www.gov.uk/government/all"
                     }
                  ]
               },
+              "locale": "en",
               "phase": "live",
               "title": "Europe",
               "web_url": "https://www.gov.uk/government/europe"
@@ -161,12 +165,14 @@
                        "links": {
                           "parent_taxons": []
                        },
+                       "locale": "en",
                        "phase": "live",
                        "title": "Society and culture",
                        "web_url": "https://www.gov.uk/society-and-culture"
                     }
                  ]
               },
+              "locale": "en",
               "phase": "live",
               "title": "Sports and leisure",
               "web_url": "https://www.gov.uk/society-and-culture/sports-and-leisure"

@@ -55,6 +55,19 @@ RSpec.describe "News Article" do
           expect(response.body).to have_css(".govuk-breadcrumbs__link", text: "Taxon 5")
         end
       end
+
+      context "when top-level taxons are in a different locale to the document" do
+        let(:content_item) { graphql_has_example_item("translated_news_article_with_taxon") }
+
+        it "includes the locale as an attribute on the taxons with different locales to the document" do
+          expect(response.body).to have_css("a[lang='en']", text: "Taxon 1")
+          expect(response.body).to have_css("a[lang='fr']", text: "Taxon 3")
+        end
+
+        it "does not include the locale as an attribute on the taxons with the same as the document" do
+          expect(response.body).not_to have_css("a[lang='cy']", text: "Taxon 2")
+        end
+      end
     end
   end
 end

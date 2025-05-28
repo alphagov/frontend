@@ -107,6 +107,7 @@
                 }
               ]
             },
+            "locale": "en",
             "phase": "live",
             "title": "School food, accommodation, transport and uniform",
             "web_url": "https://www.gov.uk/education/school-food-accommodation-transport-and-uniform"
@@ -124,12 +125,14 @@
                   "links": {
                     "parent_taxons": []
                   },
+                  "locale": "en",
                   "phase": "live",
                   "title": "Health and social care",
                   "web_url": "https://www.gov.uk/health-and-social-care"
                 }
               ]
             },
+            "locale": "en",
             "phase": "live",
             "title": "National Health Service",
             "web_url": "https://www.gov.uk/health-and-social-care/national-health-service"
@@ -147,12 +150,14 @@
                   "links": {
                     "parent_taxons": []
                   },
+                  "locale": "en",
                   "phase": "live",
                   "title": "Health and social care",
                   "web_url": "https://www.gov.uk/health-and-social-care"
                 }
               ]
             },
+            "locale": "en",
             "phase": "live",
             "title": "Public health",
             "web_url": "https://www.gov.uk/health-and-social-care/public-health"

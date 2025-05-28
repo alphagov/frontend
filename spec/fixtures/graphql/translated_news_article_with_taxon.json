@@ -59,53 +59,29 @@
           {
             "base_path": "/taxon-1",
             "content_id": "8fa1fa2f-bcce-4cde-98fb-308514c35c61",
+            "document_type": "taxon",
             "locale": "en",
             "phase": "live",
             "title": "Taxon 1",
-            "links": {
-              "parent_taxons": [
-                {
-                  "base_path": "/taxon-2",
-                  "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755562",
-                  "phase": "live",
-                  "title": "Taxon 2",
-                  "links": {
-                    "parent_taxons": [
-                      {
-                        "base_path": "/taxon-3",
-                        "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755563",
-                        "phase": "live",
-                        "title": "Taxon 3",
-                        "links": {
-                          "parent_taxons": [
-                            {
-                              "base_path": "/taxon-4",
-                              "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755564",
-                              "locale": "en",
-                              "phase": "live",
-                              "title": "Taxon 4",
-                              "links": {
-                                "parent_taxons": [
-                                  {
-                                    "base_path": "/taxon-5",
-                                    "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755565",
-                                    "locale": "en",
-                                    "phase": "live",
-                                    "title": "Taxon 5"
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        },
-                        "locale": "en"
-                      }
-                    ]
-                  },
-                  "locale": "en"
-                }
-              ]
-            }
+            "web_url": "https://www.gov.uk/taxon-1"
+          },
+          {
+            "base_path": "/taxon-2",
+            "content_id": "8fa1fa2f-bcce-4cde-98fb-308514c35c62",
+            "document_type": "taxon",
+            "locale": "cy",
+            "phase": "live",
+            "title": "Taxon 2",
+            "web_url": "https://www.gov.uk/taxon-2"
+          },
+          {
+            "base_path": "/taxon-3",
+            "content_id": "8fa1fa2f-bcce-4cde-98fb-308514c35c63",
+            "document_type": "taxon",
+            "locale": "fr",
+            "phase": "live",
+            "title": "Taxon 3",
+            "web_url": "https://www.gov.uk/taxon-3"
           }
         ],
         "topical_events": [
@@ -121,7 +97,7 @@
           }
         ]
       },
-      "locale": "en",
+      "locale": "cy",
       "public_updated_at": "2016-12-25T01:02:03+00:00",
       "publishing_app": "whitehall",
       "rendering_app": "frontend",

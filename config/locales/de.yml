@@ -391,6 +391,9 @@ de:
     authored_article:
       one: Namensartikel
       other: Namensartikel
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Fallstudie
       other: Fallstudien

@@ -317,6 +317,8 @@ ko:
   formats:
     authored_article:
       other: 저작물
+    call_for_evidence:
+      other:
     case_study:
       other: 사례 연구
     corporate_information_page:

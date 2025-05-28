@@ -391,6 +391,9 @@ sv:
     authored_article:
       one: Författad artikel
       other: Författade artiklar
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Fallstudie
       other: Fallstudier

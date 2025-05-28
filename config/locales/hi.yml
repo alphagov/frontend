@@ -391,6 +391,9 @@ hi:
     authored_article:
       one: मूल आलेख
       other: मूल आलेख
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: विषय अध्ययन
       other: विषय अध्ययन

@@ -539,6 +539,11 @@ sl:
       one: Avtorski članek
       other: Avtorski članki
       two:
+    call_for_evidence:
+      few:
+      one:
+      other:
+      two:
     case_study:
       few:
       one: Študija primera

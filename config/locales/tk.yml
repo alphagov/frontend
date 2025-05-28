@@ -391,6 +391,9 @@ tk:
     authored_article:
       one: Ygtyýarlandyrylan statýa
       other: Ygtyýarlandyrylan statýalar
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri

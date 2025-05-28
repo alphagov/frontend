@@ -539,6 +539,11 @@ gd:
       one: Ailt scríofa
       other: Téacsanna scríofa
       two:
+    call_for_evidence:
+      few:
+      one:
+      other:
+      two:
     case_study:
       few:
       one: Cás-staidéir

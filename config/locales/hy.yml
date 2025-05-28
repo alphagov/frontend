@@ -391,6 +391,9 @@ hy:
     authored_article:
       one: Հեղինակային հոդված
       other: Հեղինակային հոդվածներ
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ

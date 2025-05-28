@@ -391,6 +391,9 @@ pa:
     authored_article:
       one: ਲੇਖਕ ਲੇਖ
       other: ਲੇਖਕ ਲੇਖ
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: ਕੇਸ ਅਧਿਐਨ
       other: ਕੇਸ ਅਧਿਐਨ

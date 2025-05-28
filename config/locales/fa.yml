@@ -391,6 +391,9 @@ fa:
     authored_article:
       one: مقاله تألیف شده
       other: مقالات تألیف شده
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی

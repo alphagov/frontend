@@ -393,6 +393,9 @@ en:
     authored_article:
       one: Authored article
       other: Authored articles
+    call_for_evidence:
+      one: Call for evidence
+      other: Calls for evidence
     case_study:
       one: Case study
       other: Case studies

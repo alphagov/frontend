@@ -391,6 +391,9 @@ ta:
     authored_article:
       one: எழுதிய கட்டுரை
       other: எழுதிய கட்டுரைகள்
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்

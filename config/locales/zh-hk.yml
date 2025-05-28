@@ -317,6 +317,8 @@ zh-hk:
   formats:
     authored_article:
       other: 撰寫文章
+    call_for_evidence:
+      other:
     case_study:
       other: 案例研究
     corporate_information_page:

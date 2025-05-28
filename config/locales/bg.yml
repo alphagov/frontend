@@ -391,6 +391,9 @@ bg:
     authored_article:
       one: Авторска статия
       other: Авторска статии
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Казус
       other: Казуси

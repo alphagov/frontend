@@ -391,6 +391,9 @@ pa-pk:
     authored_article:
       one: لکھاری دا مضمون
       other: لکھاری دے مضمون
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی

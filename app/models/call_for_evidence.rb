@@ -1,4 +1,5 @@
 class CallForEvidence < ContentItem
+  include Attachments
   include People
   include Political
   include SinglePageNotificationButton

@@ -3,11 +3,25 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.heading_and_context[:text] } %>
+<%= render "shared/email_subscribe_unsubscribe_flash", { title: {
+  text: content_item.title,
+  context: I18n.t("formats.#{content_item.document_type}", count: 1),
+  context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+  heading_level: 1,
+  margin_bottom: 8,
+  font_size: "l",
+} } %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/heading", content_item.heading_and_context %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: content_item.title,
+    context: I18n.t("formats.#{content_item.document_type}", count: 1),
+    context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+    heading_level: 1,
+    margin_bottom: 8,
+    font_size: "l",
+  } %>
   </div>
   <%= render "shared/translations" %>
 </div>

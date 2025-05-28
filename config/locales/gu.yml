@@ -391,6 +391,9 @@ gu:
     authored_article:
       one: લેખિત લેખ
       other: લેખિત લેખો
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ

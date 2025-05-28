@@ -391,6 +391,9 @@
     authored_article:
       one: Forfatterartikkel
       other: Forfatterartikler
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Casestudie
       other: Casestudier

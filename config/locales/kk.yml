@@ -391,6 +391,9 @@ kk:
     authored_article:
       one: Мақала авторы
       other: Мақала авторлары
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер

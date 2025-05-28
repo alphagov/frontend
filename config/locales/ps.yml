@@ -391,6 +391,9 @@ ps:
     authored_article:
       one: لیکل شوې مقاله
       other: لیکل شوي مقالې
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات

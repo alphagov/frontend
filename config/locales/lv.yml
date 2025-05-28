@@ -391,6 +391,9 @@ lv:
     authored_article:
       one: Autora raksts
       other: Autora raksti
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Piemērs
       other: Piemēri

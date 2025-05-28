@@ -317,6 +317,8 @@ ms:
   formats:
     authored_article:
       other: Artikel ditulis penulis
+    call_for_evidence:
+      other:
     case_study:
       other: Kajian kes
     corporate_information_page:

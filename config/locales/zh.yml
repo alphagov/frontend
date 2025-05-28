@@ -317,6 +317,8 @@ zh:
   formats:
     authored_article:
       other: 撰写文章
+    call_for_evidence:
+      other:
     case_study:
       other: 案例研究
     corporate_information_page:

@@ -391,6 +391,9 @@ es-419:
     authored_article:
       one: Artículo de autoría
       other: Artículos de autoría
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Estudio de caso
       other: Estudios de caso

@@ -391,6 +391,9 @@ sw:
     authored_article:
       one: Makala ya maelezo ya mwandishi
       other: Makala ya maelezo ya mwandishi
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Uchunguzi kifani
       other: Uchunguzi kifani

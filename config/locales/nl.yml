@@ -391,6 +391,9 @@ nl:
     authored_article:
       one: Geschreven artikel
       other: Geschreven artikelen
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Casestudy
       other: Casestudies

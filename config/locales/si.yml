@@ -391,6 +391,9 @@ si:
     authored_article:
       one: රචනා කළ ලිපිය
       other: රචනා කළ ලිපි
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: සිද්ධි අධ්යයනය
       other: සිද්ධි අධ්යයන

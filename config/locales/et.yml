@@ -391,6 +391,9 @@ et:
     authored_article:
       one: Kirjutatud artikkel
       other: Kirjutatud artiklid
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud

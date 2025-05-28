@@ -391,6 +391,9 @@ bn:
     authored_article:
       one: লেখকের উৎস সহ নিবন্ধ
       other: লেখকের উৎস সহ নিবন্ধসমূহ
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ

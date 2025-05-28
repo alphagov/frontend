@@ -391,6 +391,9 @@ pt:
     authored_article:
       one: Artigo de autor
       other: Artigos de autor
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Estudo de caso
       other: Estudos de caso

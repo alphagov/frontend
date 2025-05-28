@@ -391,6 +391,9 @@ fi:
     authored_article:
       one: Kirjoitettu artikkeli
       other: Kirjoitettuja artikkeleita
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia

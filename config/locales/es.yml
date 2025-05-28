@@ -391,6 +391,9 @@ es:
     authored_article:
       one: Artículo de autor
       other: Artículos de autor
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Caso de estudio práctico
       other: Casos de estudio práctico

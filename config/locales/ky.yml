@@ -403,6 +403,9 @@ ky:
     authored_article:
       one: Макаланын автору
       other: Макалалардын автору
+    call_for_evidence:
+      one: Далилдерди талап кылуу
+      other: Далилдерди талап кылуулар
     case_study:
       one: Окуяны изилдөө
       other: Окуяларды изилдөө

@@ -539,6 +539,11 @@ uk:
       many:
       one: Авторська стаття
       other: Авторські статті
+    call_for_evidence:
+      few:
+      many:
+      one:
+      other:
     case_study:
       few:
       many:

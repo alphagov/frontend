@@ -317,6 +317,8 @@ id:
   formats:
     authored_article:
       other: Artikel bersumber
+    call_for_evidence:
+      other:
     case_study:
       other: Studi kasus
     corporate_information_page:

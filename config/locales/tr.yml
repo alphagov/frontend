@@ -391,6 +391,9 @@ tr:
     authored_article:
       one: Yazılı makale
       other: Yazılı makaleler
+    call_for_evidence:
+      one:
+      other:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri

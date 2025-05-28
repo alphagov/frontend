@@ -1,6 +1,8 @@
 RSpec.describe CallForEvidence do
   let(:open_call_for_evidence) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence")) }
+  let(:call_for_evidence_outcome_with_featured_attachments) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "call_for_evidence_outcome_with_featured_attachments")) }
 
+  it_behaves_like "it can have attachments", "call_for_evidence", "call_for_evidence_outcome_with_featured_attachments"
   it_behaves_like "it can have national applicability", "call_for_evidence", "call_for_evidence_outcome_with_featured_attachments"
   it_behaves_like "it can have people", "call_for_evidence", "open_call_for_evidence"
   it_behaves_like "it has historical government information", "call_for_evidence", "open_call_for_evidence"

@@ -87,6 +87,9 @@ Rails.application.routes.draw do
     get "/placeholder", to: "placeholder#show"
     get "/speeches/:slug(.:locale)", to: "speech#show"
 
+    # Calls for evidence pages
+    get "/calls-for-evidence/:slug(.:locale)", to: "call_for_evidence#show"
+
     get "/case-studies/:slug(.:locale)", to: "case_study#show", as: :case_study
 
     get "/fatalities/:slug", to: "fatality_notice#show", as: :fatality_notice

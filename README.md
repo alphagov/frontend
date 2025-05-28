@@ -12,6 +12,9 @@ some hard-coded routes.
 |Asset placeholder      |hardcoded|https://assets.publishing.service.gov.uk/government/placeholder|
 |Calendars              |[calendar](https://docs.publishing.service.gov.uk/content-schemas/calendar.html)|https://www.gov.uk/bank-holidays|
 |                       ||https://www.gov.uk/when-do-the-clocks-change|
+|Call for evidence   |schema: [call_for_evidence](https://docs.publishing.service.gov.uk/content-schemas/call_for_evidence.html)|https://www.gov.uk/government/calls-for-evidence/credit-union-common-bond-reform|
+|                       ||https://www.gov.uk/government/calls-for-evidence/safety-of-journalists-call-for-evidence|
+|                       ||https://www.gov.uk/government/calls-for-evidence/review-of-civil-legal-aid-call-for-evidence|
 |Case studies           |[case_study](https://docs.publishing.service.gov.uk/content-schemas/case_study.html)|https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy|
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
 |Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|

@@ -23,7 +23,7 @@ class CsvPreviewController < ApplicationController
       redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
 
-    return cacheable_404 if @attachment_metadata["content_type"] != "text/csv"
+    return cacheable_404 unless csv_content_type.include?(@attachment_metadata["content_type"])
 
     @csv_rows, @truncated = CsvPreviewService
       .new(GdsApi.asset_manager.media(params[:id], params[:filename]).body)
@@ -54,5 +54,9 @@ private
 
   def served_from_live_host?
     request.hostname == URI.parse(Plek.website_root).hostname
+  end
+
+  def csv_content_type
+    ["text/csv", "application/csv"]
   end
 end

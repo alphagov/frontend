@@ -35,7 +35,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <ol class="govuk-list">
-        <% @presenter.points.each do |point| %>
+        <% content_item.points.each do |point| %>
           <li class="app-service-standard-point" id="criterion-<%= point.number -%>">
             <h2 class="govuk-heading-m govuk-!-margin-bottom-3 app-service-standard-point__title">
               <span class="app-service-standard-point__number"><%= point.number %>.</span>

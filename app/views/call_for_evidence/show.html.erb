@@ -27,7 +27,7 @@
 </div>
 
 <%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(content_item.contributor_links),
+    from: govuk_styled_links_list(@presenter.contributor_links),
     first_published: display_date(content_item.initial_publication_date),
     last_updated: display_date(content_item.updated),
     see_updates_link: true,
@@ -59,8 +59,8 @@
     <% if content_item.unopened? %>
       <% content_item_unopened = capture do %>
         <%= t("call_for_evidence.opens") %>
-        <%= content_item.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %>
-        <time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time>
+        <%= @presenter.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %>
+        <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
       <% end %>
       <%= render "govuk_publishing_components/components/notice", {
         title: t("call_for_evidence.not_open_yet"),
@@ -99,16 +99,16 @@
 
     <% call_for_evidence_date = capture do %>
       <% if content_item.closed? %>
-        <%= t("call_for_evidence.ran_from") %><br><strong><time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time> to
-        <time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
+        <%= t("call_for_evidence.ran_from") %><br><strong><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time> to
+        <time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% elsif content_item.open? %>
         <%= t("call_for_evidence.closes_at") %><br>
-        <strong><time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
+        <strong><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% elsif content_item.unopened? %>
-        <%= t("call_for_evidence.opens") %> <%= content_item.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %><br>
-        <strong><time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time></strong><br>
+        <%= t("call_for_evidence.opens") %> <%= @presenter.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %><br>
+        <strong><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong><br>
         <%= t("call_for_evidence.closes") %><br>
-        <strong><time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
+        <strong><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% end %>
     <% end %>
 

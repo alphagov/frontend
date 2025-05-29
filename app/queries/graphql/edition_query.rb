@@ -134,6 +134,9 @@ class Graphql::EditionQuery
         fragment Taxon on Edition {
           base_path
           content_id
+          details {
+            url_override
+          }
           document_type
           locale
           phase

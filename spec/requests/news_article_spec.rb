@@ -54,6 +54,14 @@ RSpec.describe "News Article" do
           expect(response.body).to have_css(".govuk-breadcrumbs__link", text: "Taxon 4")
           expect(response.body).to have_css(".govuk-breadcrumbs__link", text: "Taxon 5")
         end
+
+        it "uses the url_override where one exists" do
+          expect(response.body).to have_link("Taxon 2", href: "/taxon-2-override")
+        end
+
+        it "uses the base_path where the url_override is nil" do
+          expect(response.body).to have_link("Taxon 3", href: "/taxon-3")
+        end
       end
 
       context "when top-level taxons are in a different locale to the document" do

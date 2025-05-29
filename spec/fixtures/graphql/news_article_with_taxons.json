@@ -67,6 +67,9 @@
                 {
                   "base_path": "/taxon-2",
                   "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755562",
+                  "details": {
+                    "url_override": "/taxon-2-override"
+                  },
                   "phase": "live",
                   "title": "Taxon 2",
                   "links": {
@@ -74,6 +77,9 @@
                       {
                         "base_path": "/taxon-3",
                         "content_id": "9de167ce-6c4f-40b1-a45e-e3160d755563",
+                        "details": {
+                          "url_override": null
+                        },
                         "phase": "live",
                         "title": "Taxon 3",
                         "links": {

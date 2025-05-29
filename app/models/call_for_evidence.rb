@@ -1,5 +1,6 @@
 class CallForEvidence < ContentItem
   include Attachments
+  include NationalApplicability
   include People
   include Political
   include SinglePageNotificationButton

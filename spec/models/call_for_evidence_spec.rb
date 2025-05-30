@@ -80,5 +80,17 @@ RSpec.describe CallForEvidence do
         expect(closed_call_for_evidence.outcome?).to be(false)
       end
     end
+
+    describe "#outcome_detail" do
+      it "returns information if it has the call_for_evidence_outcome document type" do
+        expect(call_for_evidence_outcome.outcome_detail).to be(call_for_evidence_outcome.content_store_response.dig("details", "outcome_detail"))
+      end
+
+      it "does not return information if it does not have the call_for_evidence_outcome document type" do
+        expect(unopened_call_for_evidence.outcome_detail).not_to be_present
+        expect(open_call_for_evidence.outcome_detail).not_to be_present
+        expect(closed_call_for_evidence.outcome_detail).not_to be_present
+      end
+    end
   end
 end

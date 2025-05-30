@@ -53,4 +53,12 @@ class CallForEvidence < ContentItem
     items.push(*general_documents)
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }.count
   end
+
+  def held_on_another_website?
+    held_on_another_website_url.present?
+  end
+
+  def held_on_another_website_url
+    content_store_response.dig("details", "held_on_another_website_url")
+  end
 end

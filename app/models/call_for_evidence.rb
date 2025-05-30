@@ -37,4 +37,20 @@ class CallForEvidence < ContentItem
   def outcome_detail
     content_store_response.dig("details", "outcome_detail")
   end
+
+  # Read the full outcome, top of page
+  def outcome_documents
+    attachments_from(content_store_response.dig("details", "outcome_attachments"))
+  end
+
+  # Documents, bottom of page
+  def general_documents
+    attachments_from(content_store_response.dig("details", "featured_attachments"))
+  end
+
+  def attachments_with_details_count
+    items = [].push(*outcome_documents)
+    items.push(*general_documents)
+    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }.count
+  end
 end

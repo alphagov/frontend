@@ -92,5 +92,29 @@ RSpec.describe CallForEvidence do
         expect(closed_call_for_evidence.outcome_detail).not_to be_present
       end
     end
+
+    describe "#general_documents" do
+      it "returns featured attachments if available" do
+        expect(call_for_evidence_outcome_with_featured_attachments.general_documents.length).to be(1)
+      end
+    end
+
+    describe "#outcome_documents" do
+      it "returns documents if it has the call_for_evidence_outcome document type" do
+        expect(call_for_evidence_outcome_with_featured_attachments.outcome_documents.length).to be(2)
+      end
+
+      it "does not return documents if it does not have the call_for_evidence_outcome document type" do
+        expect(unopened_call_for_evidence.outcome_documents).to be_empty
+        expect(open_call_for_evidence.outcome_documents).to be_empty
+        expect(closed_call_for_evidence.outcome_documents).to be_empty
+      end
+    end
+
+    describe "#attachments_with_details_count" do
+      it "returns the number of attachments that are not accessible" do
+        expect(call_for_evidence_outcome_with_featured_attachments.attachments_with_details_count).to eq(3)
+      end
+    end
   end
 end

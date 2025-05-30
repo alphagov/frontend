@@ -33,4 +33,8 @@ class CallForEvidence < ContentItem
   def outcome?
     content_store_response["document_type"] == "call_for_evidence_outcome"
   end
+
+  def outcome_detail
+    content_store_response.dig("details", "outcome_detail")
+  end
 end

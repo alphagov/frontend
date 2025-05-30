@@ -37,6 +37,7 @@
             "locale": "en"
           }
         ],
+        "document_collections": [],
         "government": [
           {
             "details": {
@@ -45,6 +46,7 @@
             "title": "2010 to 2015 Conservative and Liberal Democrat coalition government"
           }
         ],
+        "mainstream_browse_pages": [],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
         "organisations": [
@@ -74,6 +76,10 @@
             "title": "Department of Health and Social Care"
           }
         ],
+        "related": [],
+        "related_guides": [],
+        "related_mainstream_content": [],
+        "related_statistical_data_sets": [],
         "suggested_ordered_related_items": [],
         "taxons": [
           {

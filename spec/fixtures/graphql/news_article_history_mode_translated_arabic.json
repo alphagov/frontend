@@ -46,6 +46,7 @@
             "locale": "en"
           }
         ],
+        "document_collections": [],
         "government": [
           {
             "title": "2022 to 2024 Sunak Conservative government",
@@ -54,6 +55,7 @@
             }
           }
         ],
+        "mainstream_browse_pages": [],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
         "organisations": [
@@ -77,6 +79,10 @@
             "title": "Foreign, Commonwealth & Development Office"
           }
         ],
+        "related": [],
+        "related_guides": [],
+        "related_mainstream_content": [],
+        "related_statistical_data_sets": [],
         "suggested_ordered_related_items": [],
         "taxons": [
           {

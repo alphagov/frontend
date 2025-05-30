@@ -43,6 +43,7 @@
           "url": "https://assets.publishing.service.gov.uk/media/5a60e5f2e5274a4441812397/s300_PTN-D1322-115_960x640.jpg"
         }
       },
+      "document_collections": [],
       "links": {
         "available_translations": [
           {
@@ -58,6 +59,7 @@
             }
           }
         ],
+        "mainstream_browse_pages": [],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
         "organisations": [
@@ -81,6 +83,10 @@
             "title": "Centre for Defence Enterprise"
           }
         ],
+        "related": [],
+        "related_guides": [],
+        "related_mainstream_content": [],
+        "related_statistical_data_sets": [],
         "suggested_ordered_related_items": [
           {
             "base_path": "/government/publications/cde-themed-competition-understand-and-interact-with-cyberspace",

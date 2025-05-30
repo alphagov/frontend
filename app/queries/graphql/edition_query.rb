@@ -39,11 +39,17 @@ class Graphql::EditionQuery
                   base_path
                   locale
                 }
+                document_collections {
+                  ...RelatedItem
+                }
                 government {
                   details {
                     current
                   }
                   title
+                }
+                mainstream_browse_pages {
+                  ...RelatedItem
                 }
                 ordered_related_items {
                   ...RelatedItem
@@ -65,6 +71,18 @@ class Graphql::EditionQuery
                 primary_publishing_organisation {
                   base_path
                   title
+                }
+                related {
+                  ...RelatedItem
+                }
+                related_guides {
+                  ...RelatedItem
+                }
+                related_mainstream_content {
+                  ...RelatedItem
+                }
+                related_statistical_data_sets {
+                  ...RelatedItem
                 }
                 suggested_ordered_related_items {
                   ...RelatedItem

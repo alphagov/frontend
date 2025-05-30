@@ -40,6 +40,7 @@
             "locale": "ur"
           }
         ],
+        "document_collections": [],
         "government": [
           {
             "title": "2015 Conservative government",
@@ -48,6 +49,7 @@
             }
           }
         ],
+        "mainstream_browse_pages": [],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
         "organisations": [],
@@ -64,6 +66,10 @@
             "title": "Prime Minister's Office, 10 Downing Street"
           }
         ],
+        "related": [],
+        "related_guides": [],
+        "related_mainstream_content": [],
+        "related_statistical_data_sets": [],
         "suggested_ordered_related_items": [
           {
             "base_path": "/government/publications/valuation-office-agency-june-2021-transparency-data",

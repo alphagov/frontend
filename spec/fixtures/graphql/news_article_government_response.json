@@ -42,6 +42,7 @@
             "locale": "en"
           }
         ],
+        "document_collections": [],
         "government": [
           {
             "title": "2016 to 2019 May Conservative government",
@@ -50,6 +51,7 @@
             }
           }
         ],
+        "mainstream_browse_pages": [],
         "ordered_related_items": [],
         "ordered_related_items_overrides": [],
         "organisations": [
@@ -67,6 +69,10 @@
             "title": "Marine Management Organisation"
           }
         ],
+        "related": [],
+        "related_guides": [],
+        "related_mainstream_content": [],
+        "related_statistical_data_sets": [],
         "suggested_ordered_related_items": [],
         "taxons": [
           {

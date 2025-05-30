@@ -1,5 +1,6 @@
 RSpec.describe CallForEvidence do
   let(:open_call_for_evidence) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence")) }
+  let(:open_call_for_evidence_with_participation) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence_with_participation")) }
   let(:call_for_evidence_outcome_with_featured_attachments) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "call_for_evidence_outcome_with_featured_attachments")) }
   let(:unopened_call_for_evidence) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "unopened_call_for_evidence")) }
   let(:closed_call_for_evidence) { described_class.new(GovukSchemas::Example.find("call_for_evidence", example_name: "closed_call_for_evidence")) }
@@ -138,5 +139,82 @@ RSpec.describe CallForEvidence do
         expect(unopened_call_for_evidence.held_on_another_website?).to be(false)
       end
     end
+
+    describe "#ways_to_respond?" do
+      it "returns true for an open_call_for_evidence document type that has contact information available" do
+        expect(open_call_for_evidence_with_participation.ways_to_respond_available?).to be(true)
+      end
+
+      it "returns false for an open_call_for_evidence document type that does not have any contact information available" do
+        expect(open_call_for_evidence.ways_to_respond_available?).to be(false)
+      end
+
+      it "returns false for an open_call_for_evidence document type that only has an attachment url as contact information" do
+        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
+        ways_to_respond.delete("email")
+        ways_to_respond.delete("postal_address")
+        ways_to_respond.delete("link_url")
+
+        expect(open_call_for_evidence_with_participation.attachment_url).to be_present
+        expect(open_call_for_evidence_with_participation.ways_to_respond_available?).to be(false)
+      end
+
+      it "returns false if it does not have the open_call_for_evidence document type" do
+        expect(unopened_call_for_evidence.ways_to_respond_available?).not_to be_present
+        expect(closed_call_for_evidence.ways_to_respond_available?).not_to be_present
+        expect(call_for_evidence_outcome.ways_to_respond_available?).not_to be_present
+      end
+    end
+
+    describe "#email" do
+      it "returns the email address if available" do
+        expected_email = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "email")
+
+        expect(open_call_for_evidence_with_participation.email).to eq(expected_email)
+      end
+
+      it "returns nil if email address isn't available" do
+        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
+        ways_to_respond.delete("email")
+
+        expect(open_call_for_evidence_with_participation.email).to be_nil
+      end
+    end
+
+    describe "#postal_address" do
+      it "returns the postal address if available" do
+        expected_postal_address = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "postal_address")
+
+        expect(open_call_for_evidence_with_participation.postal_address).to eq(expected_postal_address)
+      end
+
+      it "returns nil if postal address isn't available" do
+        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
+        ways_to_respond.delete("postal_address")
+
+        expect(open_call_for_evidence_with_participation.postal_address).to be_nil
+      end
+    end
+
+    # respond_online_url
+    # attachment_url
+
+    # describe "#response_form?" do
+    #   it "returns true for an open_call_for_evidence document type that has attachment url and one of either email or postal address" do
+    #     expect(open_call_for_evidence_with_participation.response_form?).to be_present
+
+    #     expect(open_call_for_evidence_with_participation.respond_online_url).to be_present
+    #     expect(open_call_for_evidence_with_participation.respond_online_url).to be_present
+    #     expect(open_call_for_evidence_with_participation.postal_address).to be_present
+    #   end
+
+    #   it "returns false for an open_call_for_evidence document type that has attachment url but no email or postal address" do
+    #     ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
+    #     ways_to_respond.delete("email")
+    #     ways_to_respond.delete("postal_address")
+
+    #     expect(open_call_for_evidence_with_participation.response_form?).not_to be_present
+    #   end
+    # end
   end
 end

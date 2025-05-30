@@ -153,7 +153,7 @@
         attachments_for_components: content_item.general_documents %>
     </div>
 
-    <% if content_item.ways_to_respond? %>
+    <% if content_item.ways_to_respond_available? %>
       <div id="ways-to-respond" class="call-for-evidence-ways-to-respond">
         <%= render "govuk_publishing_components/components/heading", {
           text: t("call_for_evidence.ways_to_respond"),

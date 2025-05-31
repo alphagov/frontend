@@ -79,6 +79,7 @@ ja:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ ja:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 訪問：
   components:
     print_link:
       text:
@@ -325,6 +328,8 @@ ja:
       publication_scheme_html: 情報公開の種類については %{link} をご覧下さい。
       social_media_use_html: "%{link} に関する政策をご覧下さい。"
       welsh_language_scheme_html: 情報公開の詳細については %{link} をご覧下さい。
+    detailed_guide:
+      other: ガイダンス
     fatality_notice:
       alt_text: 国防省の紋章
       field_of_operation: 運用分野

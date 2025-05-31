@@ -79,6 +79,7 @@ sl:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ sl:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Obiščite:'
   components:
     print_link:
       text:
@@ -553,6 +556,11 @@ sl:
       social_media_use_html: Preberite si našo politiko na %{link}.
       two:
       welsh_language_scheme_html: Izvedite več o naši zavezanosti %{link}.
+    detailed_guide:
+      few:
+      one: Smernice
+      other: Smernice
+      two:
     fatality_notice:
       alt_text: Grb Ministrstva za obrambo
       few:

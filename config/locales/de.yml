@@ -79,6 +79,7 @@ de:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
     download_ics:
+    email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
     nations:
@@ -96,10 +97,12 @@ de:
       scotland_slug:
     next_holiday_in_is:
     past_bank_holidays:
+    print_link:
     substitute_day:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Besuchen Sie:'
   components:
     print_link:
       text:
@@ -401,6 +404,9 @@ de:
       publication_scheme_html: Lesen Sie in unserem %{link}, welche Arten von Informationen wir regelmäßig veröffentlichen.
       social_media_use_html: Lesen Sie unsere Richtlinie zu %{link}.
       welsh_language_scheme_html: Informieren Sie sich über unser Engagement für %{link}.
+    detailed_guide:
+      one: Detaillierte Hinweise
+      other: Detaillierte Hinweise
     fatality_notice:
       alt_text: Wappen des Verteidigungsministeriums
       field_of_operation: Tätigkeitsbereich

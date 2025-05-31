@@ -175,9 +175,18 @@ uk:
         many:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -375,6 +384,9 @@ uk:
         many:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:
@@ -562,6 +574,8 @@ uk:
       one: Повідомлення про нещасний випадок зі смертельним наслідком
       operations_in: Операції в %{location}
       other: Повідомлення про нещасний випадок зі смертельним наслідком
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -710,7 +724,9 @@ uk:
       many:
       one: Виступ
       other: Виступи
+      two:
       written_on: Написано
+      zero:
     start_now:
     take_part:
       few:

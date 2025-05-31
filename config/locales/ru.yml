@@ -175,9 +175,18 @@ ru:
         many:
         one:
         other:
+      call_for_evidence:
+        one:
+        other:
+      call_for_evidence_outcome:
+        one:
+        other:
       case_study:
         few:
         many:
+        one:
+        other:
+      closed_call_for_evidence:
         one:
         other:
       closed_consultation:
@@ -375,6 +384,9 @@ ru:
         many:
         one:
         other:
+      open_call_for_evidence:
+        one:
+        other:
       open_consultation:
         few:
         many:
@@ -562,6 +574,8 @@ ru:
       one: Уведомление о несчастном случае
       operations_in: Деятельность в  %{location}
       other: Уведомления о несчастных случаях
+      two:
+      zero:
     field_of_operation:
       context:
       title:
@@ -710,7 +724,9 @@ ru:
       many:
       one: Текст выступления
       other: Тексты выступлений
+      two:
       written_on: Написано на
+      zero:
     start_now:
     take_part:
       few:

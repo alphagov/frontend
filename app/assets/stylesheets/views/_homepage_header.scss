@@ -13,6 +13,10 @@
     padding-right: 9px;
   }
 
+  @include govuk-media-query($from: "tablet") {
+    padding-top: govuk-spacing(6);
+  }
+
   @include govuk-media-query($from: desktop) {
     padding-bottom: govuk-spacing(7);
   }

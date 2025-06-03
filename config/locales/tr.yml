@@ -522,6 +522,9 @@ tr:
     news_story:
       one: Haber makalesi
       other: Haber hikayeleri
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Parlamentoya sözlü açıklama
       other: Parlamentoya sözlü açıklamalar

@@ -522,6 +522,9 @@ pa-pk:
     news_story:
       one: خبراں دی کہانی
       other: خبراں دیاں کہانیاں
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: قومی مجلس دے سامنے زبانی بیان
       other: قومی مجلس دے سامنے زبانی بیانات

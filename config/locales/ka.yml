@@ -522,6 +522,9 @@ ka:
     news_story:
       one: ახალი ამბავი
       other: ახალი ამბები
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: ზეპირი განცხადება პარლამენტში
       other: ზეპირი განცხადებები პარლამენტში

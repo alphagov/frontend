@@ -441,6 +441,8 @@ th:
       other: บทความข่าว
     news_story:
       other: เนื้อหาข่าว
+    open_call_for_evidence:
+      other:
     oral_statement:
       other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
     place:

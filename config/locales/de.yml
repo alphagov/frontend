@@ -522,6 +522,9 @@ de:
     news_story:
       one: Meldung
       other: Meldungen
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Mündliche Erklärung vor dem Parlament
       other: Mündliche Erklärungen vor dem Parlament

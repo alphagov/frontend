@@ -684,6 +684,11 @@ gd:
       one: Airteagal Nuachta
       other: Nua
       two:
+    open_call_for_evidence:
+      few:
+      one:
+      other:
+      two:
     oral_statement:
       few:
       one: Ráiteas ó bhéal don Pharlaimint

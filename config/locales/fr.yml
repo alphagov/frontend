@@ -522,6 +522,9 @@ fr:
     news_story:
       one: Actualité
       other: Actualités
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Déclaration orale au Parlement
       other: Déclarations orales au Parlement

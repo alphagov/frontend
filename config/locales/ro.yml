@@ -603,6 +603,10 @@ ro:
       few:
       one: Reportaj de știri
       other: Reportaje de știri
+    open_call_for_evidence:
+      few:
+      one:
+      other:
     oral_statement:
       few:
       one: Expunere orală către Parlament

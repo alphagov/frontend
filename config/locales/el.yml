@@ -522,6 +522,9 @@ el:
     news_story:
       one: Ιστορία ειδήσεων
       other: Ιστορίες ειδήσεων
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Προφορική δήλωση στη Βουλή
       other: Προφορικές δηλώσεις στη Βουλή

@@ -522,6 +522,9 @@ lv:
     news_story:
       one: Ziņa
       other: Ziņas
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Mutisks paziņojums parlamentam
       other: Mutiski paziņojumi parlamentam

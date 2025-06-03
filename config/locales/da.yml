@@ -522,6 +522,9 @@ da:
     news_story:
       one: Nyhedshistorie
       other: Nyhedshistorier
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Mundtlig erklæring til Parlamentet
       other: Mundtlige erklæring til Parlamentet

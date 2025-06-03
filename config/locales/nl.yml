@@ -522,6 +522,9 @@ nl:
     news_story:
       one: Nieuwsbericht
       other: Nieuwsberichten
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Mondelinge verklaring voor het Parlement
       other: Mondelinge verklaringen aan het Parlement

@@ -522,6 +522,9 @@ fi:
     news_story:
       one: Uutistarina
       other: Uutisia
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Suullinen lausuma parlamentille
       other: Suulliset lausumat parlamentille

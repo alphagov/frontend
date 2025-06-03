@@ -522,6 +522,9 @@ pa:
     news_story:
       one: ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
       other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
       other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ

@@ -522,6 +522,9 @@ sq:
     news_story:
       one: Ngjarje
       other: Ngjarje
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Deklarata gojore në Parlament
       other: Deklarata gojore në Parlament

@@ -1,0 +1,41 @@
+<% add_view_stylesheet("published-dates-button-group") %>
+<% skip_account = skip_account || "false" %>
+<% user_account_present = local_assigns.fetch(:user_account, false) %>
+
+<%= render "govuk_publishing_components/components/published_dates", {
+    published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    history: formatted_history(content_item.history),
+    margin_bottom: 5,
+  } %>
+
+<div class="published-dates-button-group">
+  <h2 class="govuk-visually-hidden">
+    <% if content_item.display_single_page_notification_button? %>
+      <%= I18n.t("common.email_and_print_link") %>
+    <% else %>
+      <%= I18n.t("common.print_link") %>
+    <% end %>
+  </h2>
+
+  <%= render "govuk_publishing_components/components/single_page_notification_button", {
+    base_path: content_item.base_path,
+    js_enhancement: user_account_present,
+    button_location: "bottom",
+    margin_bottom: 3,
+    skip_account: skip_account,
+    ga4_data_attributes: {
+      module: "ga4-link-tracker",
+      ga4_link: {
+        event_name: "navigation",
+        type: "subscribe",
+        index_link: 2,
+        index_total: 2,
+        section: "Footer",
+      },
+    },
+  } if content_item.display_single_page_notification_button? %>
+  <%= render "govuk_publishing_components/components/print_link", {
+    margin_bottom: 8,
+  } %>
+</div>

@@ -13,6 +13,7 @@ APP_STYLESHEETS = {
   "views/_location_form.scss" => "views/_location_form.css",
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_popular_links.scss" => "views/_popular_links.css",
+  "views/_published-dates-button-group.scss" => "views/_published-dates-button-group.css",
   "views/_publisher_metadata.scss" => "views/_publisher_metadata.css",
   "views/_roadmap.scss" => "views/_roadmap.css",
   "views/_service-toolkit.scss" => "views/_service-toolkit.css",

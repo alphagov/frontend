@@ -522,6 +522,9 @@ uz:
     news_story:
       one: Янгилик сюжети
       other: Янгилик сюжетлари
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Парламентга оғзаки баёнот
       other: Парламентга оғзаки баёнотлар

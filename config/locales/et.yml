@@ -522,6 +522,9 @@ et:
     news_story:
       one: Uudislugu
       other: Uudislood
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Suuline avaldus parlamendile
       other: Suulised avaldused parlamendile

@@ -684,6 +684,11 @@ pl:
       many:
       one: Aktualności
       other: Aktualności
+    open_call_for_evidence:
+      few:
+      many:
+      one:
+      other:
     oral_statement:
       few:
       many:

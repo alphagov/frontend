@@ -603,6 +603,10 @@ sr:
       few:
       one: Vest
       other: Vesti
+    open_call_for_evidence:
+      few:
+      one:
+      other:
     oral_statement:
       few:
       one: Usmeno obraćanje Parlamentu

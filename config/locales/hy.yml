@@ -522,6 +522,9 @@ hy:
     news_story:
       one: Տեղեկատվական նյութ
       other: Տեղեկատվական նյութեր
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Խորհրդարանին ուղղված բանավոր հայտարարություն
       other: Խորհրդարանին ուղղված բանավոր հայտարարություններ

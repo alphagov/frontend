@@ -522,6 +522,9 @@ kk:
     news_story:
       one: Жаңалықтар оқиғасы
       other: Жаңалықтар оқиғалары
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Парламентке ауызша мәлімдеме
       other: Парламентке ауызша мәлімдемелер

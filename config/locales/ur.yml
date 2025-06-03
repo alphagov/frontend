@@ -522,6 +522,9 @@ ur:
     news_story:
       one: خبروں کی کہانی
       other: خبروں کی کہانیاں
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: پارلیمان کے لیے زبانی بیان
       other: پارلیمان کے لیے زبانی بیانات

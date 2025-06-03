@@ -603,6 +603,10 @@ lt:
       few:
       one: Naujiena
       other: Naujienos
+    open_call_for_evidence:
+      few:
+      one:
+      other:
     oral_statement:
       few:
       one: Žodinis kreipimasis į parlamentą

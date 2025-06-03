@@ -603,6 +603,10 @@ sk:
       few:
       one: Spravodajský príbeh
       other: Spravodajské príbehy
+    open_call_for_evidence:
+      few:
+      one:
+      other:
     oral_statement:
       few:
       one: Ústne vyhlásenie pred Parlamentom

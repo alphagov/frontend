@@ -522,6 +522,9 @@ is:
     news_story:
       one: Frétt
       other: Fréttir
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Munnleg yfirlýsing til Þingsins
       other: Munnlegar yfirlýsingar til Þingsins

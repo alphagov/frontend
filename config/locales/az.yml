@@ -522,6 +522,9 @@ az:
     news_story:
       one: Xəbərləri əks etdirən material
       other: Xəbərləri əks etdirən materiallar
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: Parlamentə şifahi müraciət
       other: Parlamentə şifahi müraciətlər

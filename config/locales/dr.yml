@@ -522,6 +522,9 @@ dr:
     news_story:
       one: گزارش خبری
       other: گزارشات خبری
+    open_call_for_evidence:
+      one:
+      other:
     oral_statement:
       one: بیانیهء شفاهی به پارلمان
       other: بیانیه هایی شفاهی به پارلمان

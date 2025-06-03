@@ -413,6 +413,9 @@ ky:
       publication_scheme_html: Биз дайыма жарыялап турган маалыматтын түрлөрү жөнүндө %{link} баракчабыздан окуңуз.
       social_media_use_html: Саясатыбызды %{link} сайтынан окуп чыгыңыз.
       welsh_language_scheme_html: "%{link} боюнча милдеттенмебиз жөнүндө билип алыңыз."
+    detailed_guide:
+      one: Жетектеме
+      other: Жетектеме
     fatality_notice:
       alt_text:
       field_of_operation:

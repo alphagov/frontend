@@ -319,6 +319,8 @@ th:
       other: บทความที่มีผู้เขียน
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      other:
     case_study:
       other: กรณีศึกษา
     closed_call_for_evidence:

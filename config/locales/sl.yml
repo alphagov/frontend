@@ -544,6 +544,11 @@ sl:
       one:
       other:
       two:
+    call_for_evidence_outcome:
+      few:
+      one:
+      other:
+      two:
     case_study:
       few:
       one: Študija primera

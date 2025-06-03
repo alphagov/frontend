@@ -394,6 +394,9 @@ hi:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      one:
+      other:
     case_study:
       one: विषय अध्ययन
       other: विषय अध्ययन

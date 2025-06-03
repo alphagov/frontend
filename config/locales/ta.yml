@@ -394,6 +394,9 @@ ta:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      one:
+      other:
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்

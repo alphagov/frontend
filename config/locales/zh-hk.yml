@@ -319,6 +319,8 @@ zh-hk:
       other: 撰寫文章
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      other:
     case_study:
       other: 案例研究
     closed_call_for_evidence:

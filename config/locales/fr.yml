@@ -397,6 +397,9 @@ fr:
     case_study:
       one: Etude de cas
       other: Etudes de cas
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: Découvrir %{link}.
       corporate_information: Informations sur l'entreprise

@@ -397,6 +397,9 @@ kk:
     case_study:
       one: Тақырыптық зерттеу
       other: Тақырыптық зерттеулер
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: "%{link} туралы мәлімет алу."
       corporate_information: Корпоративтік ақпарат

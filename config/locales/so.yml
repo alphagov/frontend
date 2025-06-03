@@ -397,6 +397,9 @@ so:
     case_study:
       one: Daraasad
       other: Daraasado
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: Ka raadi %{link}.
       corporate_information: Macluumaadka shirkada

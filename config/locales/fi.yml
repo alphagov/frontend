@@ -397,6 +397,9 @@ fi:
     case_study:
       one: Tapaustutkimus
       other: Tapaustutkimuksia
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: Ota selvää %{link}.
       corporate_information: Yritystiedot

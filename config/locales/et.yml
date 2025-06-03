@@ -397,6 +397,9 @@ et:
     case_study:
       one: Juhtumiuuring
       other: Juhtumiuuringud
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: Uuri välja %{link}.
       corporate_information: Ettevõtte teave

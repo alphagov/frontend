@@ -397,6 +397,9 @@ de:
     case_study:
       one: Fallstudie
       other: Fallstudien
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: Finden Sie es heraus %{link}.
       corporate_information: Unternehmensinformationen

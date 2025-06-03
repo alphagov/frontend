@@ -397,6 +397,9 @@ he:
     case_study:
       one: מקרה בוחן
       other: מקרי בוחן
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: גלה %{link}.
       corporate_information: מידע תאגידי

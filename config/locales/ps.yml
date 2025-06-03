@@ -397,6 +397,9 @@ ps:
     case_study:
       one: موردي مطالعه
       other: موردي مطالعات
+    closed_call_for_evidence:
+      one:
+      other:
     corporate_information_page:
       about_our_services_html: "%{link} ومومئ."
       corporate_information: د شرکت معلومات

@@ -319,6 +319,8 @@ ms:
       other: Artikel ditulis penulis
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      other:
     case_study:
       other: Kajian kes
     closed_call_for_evidence:

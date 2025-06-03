@@ -469,6 +469,10 @@ sr:
       few:
       one:
       other:
+    call_for_evidence_outcome:
+      few:
+      one:
+      other:
     case_study:
       few:
       one: Studija slučaja

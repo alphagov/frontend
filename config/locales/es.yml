@@ -394,6 +394,9 @@ es:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      one:
+      other:
     case_study:
       one: Caso de estudio práctico
       other: Casos de estudio práctico

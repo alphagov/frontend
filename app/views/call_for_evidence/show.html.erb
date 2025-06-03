@@ -5,8 +5,8 @@
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: {
   text: content_item.title,
-  context: I18n.t("formats.#{content_item.document_type}", count: 1),
-  context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+  context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+  context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
   heading_level: 1,
   margin_bottom: 8,
   font_size: "l",
@@ -16,8 +16,8 @@
   <div class="govuk-grid-column-two-thirds">
   <%= render "govuk_publishing_components/components/heading", {
     text: content_item.title,
-    context: I18n.t("formats.#{content_item.document_type}", count: 1),
-    context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+    context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+    context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
     heading_level: 1,
     margin_bottom: 8,
     font_size: "l",
@@ -40,7 +40,7 @@
   <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
   <%= render "govuk_publishing_components/components/notice", {
-    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
     description_govspeak: content_item.withdrawn_explanation&.html_safe,
     time: withdrawn_time_tag,
     lang: "en",
@@ -58,24 +58,24 @@
 
     <% if content_item.unopened? %>
       <% content_item_unopened = capture do %>
-        <%= t("call_for_evidence.opens") %>
-        <%= @presenter.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %>
+        <%= t("formats.call_for_evidence.opens") %>
+        <%= @presenter.opening_date_midnight? ? t("formats.call_for_evidence.on") : t("formats.call_for_evidence.at") %>
         <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
       <% end %>
       <%= render "govuk_publishing_components/components/notice", {
-        title: t("call_for_evidence.not_open_yet"),
+        title: t("formats.call_for_evidence.not_open_yet"),
         description_text: content_item_unopened,
       } %>
 
     <% elsif content_item.outcome? %>
-      <%= render "govuk_publishing_components/components/notice", title: t("call_for_evidence.closed") %>
+      <%= render "govuk_publishing_components/components/notice", title: t("formats.call_for_evidence.closed") %>
 
       <%= render "shared/attachments_list",
-        title: t("call_for_evidence.download_outcome"),
+        title: t("formats.call_for_evidence.download_outcome"),
         attachments_for_components: content_item.outcome_documents %>
 
       <%= render "govuk_publishing_components/components/heading", {
-        text: t("call_for_evidence.detail_of_outcome"),
+        text: t("formats.call_for_evidence.detail_of_outcome"),
         margin_bottom: 4,
       } %>
       <div class="call-for-evidence-outcome-detail">
@@ -92,22 +92,22 @@
           <%= render "govuk_publishing_components/components/heading", {
             heading_level: 2,
             margin_bottom: 4,
-            text: t("call_for_evidence.original_call_for_evidence"),
+            text: t("formats.call_for_evidence.original_call_for_evidence"),
           } %>
         </header>
     <% end %>
 
     <% call_for_evidence_date = capture do %>
       <% if content_item.closed? %>
-        <%= t("call_for_evidence.ran_from") %><br><strong><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time> to
+        <%= t("formats.call_for_evidence.ran_from") %><br><strong><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time> to
         <time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% elsif content_item.open? %>
-        <%= t("call_for_evidence.closes_at") %><br>
+        <%= t("formats.call_for_evidence.closes_at") %><br>
         <strong><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% elsif content_item.unopened? %>
-        <%= t("call_for_evidence.opens") %> <%= @presenter.opening_date_midnight? ? t("call_for_evidence.on") : t("call_for_evidence.at") %><br>
+        <%= t("formats.call_for_evidence.opens") %> <%= @presenter.opening_date_midnight? ? t("formats.call_for_evidence.on") : t("formats.call_for_evidence.at") %><br>
         <strong><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong><br>
-        <%= t("call_for_evidence.closes") %><br>
+        <%= t("formats.call_for_evidence.closes") %><br>
         <strong><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
       <% end %>
     <% end %>
@@ -118,9 +118,9 @@
         <p class="gem-c-summary-banner__text">
           <strong>
             <% if content_item.closed? %>
-              <%= t("call_for_evidence.closed_another_website_html", url: content_item.held_on_another_website_url) %>.
+              <%= t("formats.call_for_evidence.closed_another_website_html", url: content_item.held_on_another_website_url) %>.
             <% else %>
-              <%= t("call_for_evidence.open_another_website_html", url: content_item.held_on_another_website_url) %>.
+              <%= t("formats.call_for_evidence.open_another_website_html", url: content_item.held_on_another_website_url) %>.
             <% end %>
           </strong>
         </p>
@@ -129,7 +129,7 @@
     <%= render "govuk_publishing_components/components/summary_banner", {
       secondary_text: call_for_evidence_date,
       text: call_for_evidence_desc,
-      title: t("call_for_evidence.summary"),
+      title: t("formats.call_for_evidence.summary"),
     } %>
 
     <% if content_item.outcome? %>
@@ -139,7 +139,7 @@
     <div class="call-for-evidence-description">
       <%= render "govuk_publishing_components/components/heading", {
         margin_bottom: 4,
-        text: t("call_for_evidence.description"),
+        text: t("formats.call_for_evidence.description"),
       } %>
 
       <%= render "govuk_publishing_components/components/govspeak", {
@@ -149,14 +149,14 @@
       <% end %>
 
       <%= render "shared/attachments_list",
-        title: t("call_for_evidence.documents"),
+        title: t("formats.call_for_evidence.documents"),
         attachments_for_components: content_item.general_documents %>
     </div>
 
     <% if content_item.ways_to_respond? %>
       <div id="ways-to-respond" class="call-for-evidence-ways-to-respond">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("call_for_evidence.ways_to_respond"),
+          text: t("formats.call_for_evidence.ways_to_respond"),
           margin_bottom: 4,
         } %>
         <%= render "govuk_publishing_components/components/govspeak", {
@@ -164,28 +164,28 @@
         } do %>
           <% if content_item.respond_online_url %>
             <div class="call-to-action">
-              <p><%= link_to t("call_for_evidence.respond_online"), content_item.respond_online_url %></p>
+              <p><%= link_to t("formats.call_for_evidence.respond_online"), content_item.respond_online_url %></p>
             </div>
 
             <% if content_item.email || content_item.postal_address %>
-              <p><%= t("call_for_evidence.or") %></p>
+              <p><%= t("formats.call_for_evidence.or") %></p>
             <% end %>
           <% end %>
 
           <% if content_item.response_form? %>
             <p>
-              <%= t("call_for_evidence.complete_a") %> <%= link_to t("call_for_evidence.response_form"), content_item.attachment_url %> <%= t("call_for_evidence.and") %>
-              <%= t("call_for_evidence.either") if content_item.email && content_item.postal_address %>
+              <%= t("formats.call_for_evidence.complete_a") %> <%= link_to t("formats.call_for_evidence.response_form"), content_item.attachment_url %> <%= t("formats.call_for_evidence.and") %>
+              <%= t("formats.call_for_evidence.either") if content_item.email && content_item.postal_address %>
             </p>
           <% end %>
 
           <% if content_item.email %>
-            <h3><%= t("call_for_evidence.email_to") %></h3>
+            <h3><%= t("formats.call_for_evidence.email_to") %></h3>
             <p><%= mail_to content_item.email, content_item.email %></p>
           <% end %>
 
           <% if content_item.postal_address %>
-            <h3><%= t("call_for_evidence.write_to") %></h3>
+            <h3><%= t("formats.call_for_evidence.write_to") %></h3>
             <div class="contact">
               <div class="content">
                 <%= simple_format(content_item.postal_address) %>

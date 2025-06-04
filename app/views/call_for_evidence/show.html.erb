@@ -145,7 +145,7 @@
       <%= render "govuk_publishing_components/components/govspeak", {
         margin_bottom: 8,
       } do %>
-        <%= raw(content_item.govspeak_body[:content]) %>
+        <%= raw(content_item.body.html_safe) %>
       <% end %>
 
       <%= render "shared/attachments_list",

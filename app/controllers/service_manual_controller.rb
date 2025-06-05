@@ -5,4 +5,8 @@ class ServiceManualController < ContentItemsController
   def index
     @presenter = ServiceManualHomepagePresenter.new(content_item)
   end
+
+  def service_standard
+  end
+
 end

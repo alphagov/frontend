@@ -5,7 +5,7 @@
   <%= render 'shared/custom_phase_message', phase: @content_item.phase %>
 <% end %>
 
-<% content_for :header do %>
+<% content_for :before_content do %>
   <div class="govuk-width-container">
     <%= render partial: "content_items/service_manual_breadcrumbs" %>
   </div>

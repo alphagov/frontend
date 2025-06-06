@@ -11,7 +11,12 @@
     "public/assets/frontend/application-*",
     "public/assets/frontend/static-error-pages-*",
     "public/assets/frontend/test-dependencies-*",
-    "public/assets/frontend/dependencies-*"
+    "public/assets/frontend/dependencies-*",
+    "public/assets/frontend/views/landing_page/map/leaflet-*",
+    "public/assets/frontend/views/landing_page/map/data/cdc.geojson-*",
+    "public/assets/frontend/views/landing_page/map/data/hub.geojson-*",
+    "public/assets/frontend/views/landing_page/map/data/icb.geojson-*",
+    "public/assets/frontend/views/landing_page/map/data/lookup-*"
   ],
   "report-dir": "coverage/javascript",
   "reporter": [

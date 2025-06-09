@@ -7,6 +7,7 @@ class ServiceManualController < ContentItemsController
   end
 
   def service_standard
+    @presenter = ServiceManualServiceStandardPresenter.new(content_item)
   end
 
 end

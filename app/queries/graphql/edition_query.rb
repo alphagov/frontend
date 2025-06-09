@@ -113,12 +113,14 @@ class Graphql::EditionQuery
                 topical_events {
                   base_path
                   content_id
+                  locale
                   title
                 }
                 world_locations {
                   analytics_identifier
                   base_path
                   content_id
+                  locale
                   title
                 }
                 worldwide_organisations {

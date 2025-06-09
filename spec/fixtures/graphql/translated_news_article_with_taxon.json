@@ -99,6 +99,7 @@
         "world_locations": [
           {
             "base_path": "/world-location-1",
+            "locale": "en",
             "title": "A world location"
           }
         ]

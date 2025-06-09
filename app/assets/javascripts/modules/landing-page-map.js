@@ -15,12 +15,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const iconSize = [24, 24]
       this.icons = {
         cdc: {
-          default: L.icon({ iconUrl: this.$module.getAttribute('data-icon-cdc-default'), iconSize: iconSize, iconAnchor: [24, 12], popupAnchor: [-12, 0] }),
-          active: L.icon({ iconUrl: this.$module.getAttribute('data-icon-cdc-active'), iconSize: iconSize, iconAnchor: [24, 12], popupAnchor: [-12, 0] })
+          default: L.icon({ iconUrl: this.$module.getAttribute('data-icon-cdc-default'), iconSize: iconSize, iconAnchor: [24, 12], popupAnchor: [-12, 0] })
         },
         hub: {
-          default: L.icon({ iconUrl: this.$module.getAttribute('data-icon-sh-default'), iconSize: iconSize, iconAnchor: [0, 12], popupAnchor: [12, 0] }),
-          active: L.icon({ iconUrl: this.$module.getAttribute('data-icon-sh-default'), iconSize: iconSize, iconAnchor: [0, 12], popupAnchor: [12, 0] })
+          default: L.icon({ iconUrl: this.$module.getAttribute('data-icon-sh-default'), iconSize: iconSize, iconAnchor: [0, 12], popupAnchor: [12, 0] })
         }
       }
       this.tracking = false
@@ -224,9 +222,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       const popup = layer.bindPopup(popupContainer, { maxWidth: 250 })
       popup.on('popupopen', (e) => {
-        if (ftGeomType === 'Point') e.target.setIcon(this.context.icons[lyrPane].active)
-        else e.target.setStyle({ fillOpacity: 0.3 })
-
         const popup = e.target.getPopup()
         const content = popup.getContent()
 
@@ -242,10 +237,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.context.tracker.sendEvent()
           this.context.$module.removeAttribute('data-ga4-auto')
         }
-      })
-      popup.on('popupclose', (e) => {
-        if (ftGeomType === 'Point') e.target.setIcon(this.context.icons[lyrPane].default)
-        else e.target.setStyle({ fillOpacity: 0.0 })
       })
     }
 

@@ -244,6 +244,38 @@ RSpec.describe "CallForEvidence" do
     end
   end
 
+  context "when visiting an open call for evidence page" do
+    let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+
+    it "displays the call for evidence status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Open call for evidence")
+      end
+    end
+
+    it "displays when the call for evidence closes" do
+      content_store_response["details"]["closing_date"] = "2023-02-02T13:00:00.000+00:00"
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      within(".gem-c-summary-banner") do
+        expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence closes at 1pm on 2 February 2023")
+      end
+    end
+
+    it "links to external url call for evidence page if available" do
+      expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence is being held on")
+
+      expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+    end
+  end
+
   # test "renders featured document attachments" do
   #   setup_and_visit_content_item("call_for_evidence_outcome_with_featured_attachments")
 

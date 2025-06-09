@@ -403,6 +403,9 @@ dr:
       publication_scheme_html: در بارهء انواع اطلاعاتی که بطور معمول نشرمیشود در%{link}.
       social_media_use_html: سیاست ما را در اینجا بخوانید%{link}.
       welsh_language_scheme_html: از تعهد ما به %{link} مطلع شوید.
+    detailed_guide:
+      one: راهنمایی
+      other: راهنمایی
     fatality_notice:
       alt_text: وزارت دفاع
       field_of_operation: ساحهء عملیات

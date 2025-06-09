@@ -403,6 +403,9 @@ bg:
       publication_scheme_html: Прочетете за видовете информация, които обичайно публикуваме на нашата %{link}.
       social_media_use_html: Прочетете нашите правила на %{link}.
       welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
+    detailed_guide:
+      one: Насока
+      other: Насока
     fatality_notice:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие

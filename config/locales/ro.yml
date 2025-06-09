@@ -479,6 +479,10 @@ ro:
       publication_scheme_html: Citiți despre tipurile de informații pe care le publicăm de obicei în %{link}.
       social_media_use_html: Citiți politica noastră pe %{link}.
       welsh_language_scheme_html: Aflați mai multe despre angajamentul nostru pentru %{link}.
+    detailed_guide:
+      few:
+      one: Orientări
+      other: Orientări
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
       few:

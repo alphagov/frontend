@@ -555,6 +555,11 @@ be:
       publication_scheme_html: Чытайце пра тыпы інфармацыі, якую мы рэгулярна публікуем, у нашым %{link}.
       social_media_use_html: Прачытайце пра нашу палітыку датычна %{link}.
       welsh_language_scheme_html: Даведайцеся аб нашых абавязках да публікацыі ў %{link}.
+    detailed_guide:
+      few:
+      many:
+      one: Кіраўніцтва
+      other: Кіраўніцтва
     fatality_notice:
       alt_text: Герб Міністэрства абароны
       few:

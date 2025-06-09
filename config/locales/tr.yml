@@ -403,6 +403,9 @@ tr:
       publication_scheme_html: "%{link} bağlantımızda düzenli olarak yayınladığımız bilgi türlerini okuyun."
       social_media_use_html: "%{link} bağlantısındaki politikamızı okuyun."
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
+    detailed_guide:
+      one: Rehberlik
+      other: Rehberlik
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı

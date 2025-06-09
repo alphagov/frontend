@@ -15,8 +15,12 @@ class ServiceManualServiceStandardPresenter
     ]
   end
 
+  def body
+    @content_item.content_store_response.dig("details", "body").html_safe
+  end
+
   def email_alert_signup_link
-    "/email-signup?link=#{content_item['base_path']}"
+    "/email-signup?link=#{@content_item.base_path}"
   end
 
   def show_default_breadcrumbs?
@@ -26,7 +30,7 @@ class ServiceManualServiceStandardPresenter
 private
 
   def points_attributes
-    @points_attributes ||= links["children"] || []
+    @points_attributes ||= @content_item.links["children"] || []
   end
 
   class Point

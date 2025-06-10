@@ -123,6 +123,7 @@
         "topical_events": [
           {
             "base_path": "/topical-event-1",
+            "document_type": "topical_event",
             "title": "A topical event"
           }
         ],

@@ -276,6 +276,78 @@ RSpec.describe "CallForEvidence" do
     end
   end
 
+  context "when visiting an unopened call for evidence page" do
+    let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "unopened_call_for_evidence") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+
+    it "displays the call for evidence status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Call for evidence")
+      end
+    end
+
+    context "when it displays the notice banner" do
+      it "displays the title" do
+        within(".gem-c-notice") do
+          expect(page).to have_css("h2", text: "This call for evidence isn't open yet")
+        end
+      end
+
+      it "displays the opening time" do
+        content_store_response["details"]["opening_date"] = "2023-01-02T13:00:00.000+00:00"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-notice") do
+          expect(page).to have_css(".gem-c-notice__description", text: "This call for evidence opens at 1pm on 2 January 2023")
+        end
+      end
+    end
+
+    context "when it displays the blue summary box" do
+      it "displays when the call for evidence opens" do
+        content_store_response["details"]["opening_date"] = "2023-01-02T13:00:00.000+00:00"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence opens at 1pm on 2 January 2023")
+        end
+      end
+
+      it "displays when the call for evidence closes" do
+        content_store_response["details"]["closing_date"] = "2023-02-01T13:00:00.000+00:00"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "It closes at 1pm on 1 February 2023")
+        end
+      end
+
+      it "links to external url call for evidence page if available" do
+        content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence is being held on")
+
+          expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+        end
+      end
+    end
+
+    it "does not display ways to respond" do
+      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+    end
+  end
+
   # test "renders featured document attachments" do
   #   setup_and_visit_content_item("call_for_evidence_outcome_with_featured_attachments")
 
@@ -283,20 +355,6 @@ RSpec.describe "CallForEvidence" do
   #   within "#documents" do
   #     assert page.has_text?("Setting the grade standards of new GCSEs in England – part 2")
   #   end
-  # end
-
-  # test "unopened call for evidence" do
-  #   setup_and_visit_content_item("unopened_call_for_evidence", {
-  #     "details" => {
-  #       "closing_date" => "2023-02-01T13:00:00.000+00:00",
-  #       "opening_date" => "2023-01-02T13:00:00.000+00:00",
-  #     },
-  #   })
-
-  #   assert page.has_text?("Call for evidence")
-
-  #   assert page.has_css?(".gem-c-notice", text: "This call for evidence opens at 1pm on 2 January 2023")
-  #   assert page.has_text?(:all, "It closes at 1pm on 1 February 2023")
   # end
 
   # test "closed call for evidence pending outcome" do

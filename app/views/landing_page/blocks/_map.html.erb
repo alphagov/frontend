@@ -3,6 +3,10 @@
 %>
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag "views/landing_page/map/leaflet.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "views/landing_page/map/data/lookup.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "views/landing_page/map/data/cdc.geojson.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "views/landing_page/map/data/hub.geojson.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "views/landing_page/map/data/icb.geojson.js", integrity: false, type: "module" %>
 <% end %>
 <div class="map">
   <div id="api-warning"></div>
@@ -10,7 +14,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/checkboxes", {
-        name: "favourite_small_synonym[]",
+        name: "filter_map_layers[]",
         heading: "Use our interactive map to help locate your nearest CDC or surgical hub",
         description: "Our interactive map shows the new, local NHS services this government is delivering to improve access in your area. This will cut waiting lists and build an NHS fit for the future.",
         hint_text: "Filter by",

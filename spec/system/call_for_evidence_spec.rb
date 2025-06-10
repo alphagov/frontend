@@ -348,6 +348,47 @@ RSpec.describe "CallForEvidence" do
     end
   end
 
+  context "when visiting a closed call for evidence pending outcome page" do
+    let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "closed_call_for_evidence") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+
+    it "displays the call for evidence status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Closed call for evidence")
+      end
+    end
+
+    context "when it displays the blue summary box" do
+      it "displays when the call for evidence ran" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence ran from")
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "2pm on 29 September 2022 to 5pm on 27 October 2022")
+        end
+      end
+
+      it "links to external url call for evidence page if available" do
+        content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence was held on")
+
+          expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+        end
+      end
+    end
+
+    it "does not display ways to respond" do
+      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+    end
+  end
+
   # test "renders featured document attachments" do
   #   setup_and_visit_content_item("call_for_evidence_outcome_with_featured_attachments")
 
@@ -355,15 +396,6 @@ RSpec.describe "CallForEvidence" do
   #   within "#documents" do
   #     assert page.has_text?("Setting the grade standards of new GCSEs in England – part 2")
   #   end
-  # end
-
-  # test "closed call for evidence pending outcome" do
-  #   setup_and_visit_content_item("closed_call_for_evidence")
-
-  #   assert page.has_text?("Closed call for evidence")
-
-  #   assert page.has_text?("ran from")
-  #   assert page.has_text?("2pm on 29 September 2022 to 5pm on 27 October 2022")
   # end
 
   # test "call for evidence outcome" do

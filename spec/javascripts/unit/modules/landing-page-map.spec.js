@@ -42,7 +42,7 @@ describe('Map Block module', function () {
   })
 
   describe('when initialising the map', function () {
-    function setupMap (apiKey) {
+    function setupMap (apiKey = '') {
       denyCookies()
       createMapDom(apiKey)
       module = new GOVUK.Modules.LandingPageMap(el.querySelector('.map__canvas'))
@@ -54,7 +54,7 @@ describe('Map Block module', function () {
     }
 
     it('does nothing if there is no API key', function () {
-      setupMap('') // need to pass an empty string, otherwise becomes the string 'undefined'
+      setupMap() // need to pass an empty string, otherwise becomes the string 'undefined'
       expect(module.initialiseMap).not.toHaveBeenCalled()
       expect(el.querySelector('.map__canvas').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
     })
@@ -66,13 +66,13 @@ describe('Map Block module', function () {
   })
 
   describe('when initialising analytics', function () {
-    function setupMap (apiKey, allowCookies) {
+    function setupMap (allowCookies) {
       if (allowCookies) {
         agreeToCookies()
       } else {
         denyCookies()
       }
-      createMapDom(apiKey)
+      createMapDom('not_really_the_key')
       module = new GOVUK.Modules.LandingPageMap(el.querySelector('.map__canvas'))
       // need to spy on all these functions so they don't call through and error
       spyOn(module, 'initialiseMap')
@@ -82,18 +82,18 @@ describe('Map Block module', function () {
     }
 
     it('does not initialise analytics if consent is rejected', function () {
-      setupMap('not_really_the_key', false)
+      setupMap(false)
       expect(module.enableTracking).not.toHaveBeenCalled()
     })
 
     it('does initialise analytics if consent is given', function () {
-      setupMap('not_really_the_key', true)
+      setupMap(true)
       expect(module.enableTracking).toHaveBeenCalled()
     })
 
     it('initialises analytics if consent is given later', function () {
       window.GOVUK.Modules = window.GOVUK.Modules || {}
-      setupMap('not_really_the_key', false)
+      setupMap(false)
       expect(module.enableTracking).not.toHaveBeenCalled()
       module.enableTracking.calls.reset()
 
@@ -111,6 +111,21 @@ describe('Map Block module', function () {
       module.enableTracking()
       expect(module.tracking).toEqual(true)
       expect(module.ga4Attributes).toEqual({ section: 'Find local CDCs and surgical hubs near you', tool_name: 'community diagnostics centres and surgical hubs' })
+    })
+  })
+
+  describe('when tracking is disabled', function () {
+    it('sendTracking does nothing', function () {
+      createMapDom('not_really_the_key')
+      module = new GOVUK.Modules.LandingPageMap(el.querySelector('.map__canvas'))
+      module.tracker = {
+        sendEvent: function () {}
+      }
+      spyOn(module.tracker, 'sendEvent')
+      module.initialiseMap()
+      module.addOverlays()
+      module.sendTracking()
+      expect(module.tracker.sendEvent).not.toHaveBeenCalled()
     })
   })
 
@@ -136,13 +151,13 @@ describe('Map Block module', function () {
 
     it('sets the right data attributes when a checkbox is used', function () {
       var expected = {
-        event_name: 'select_content',
         action: 'select',
-        type: 'map',
         index_link: 1,
         index_total: 2,
-        section: 'section',
         text: 'community diagnostic centres',
+        event_name: 'select_content',
+        type: 'map',
+        section: 'section',
         tool_name: 'tool_name'
       }
       el.querySelector('#mapfilter-0').click()
@@ -152,16 +167,34 @@ describe('Map Block module', function () {
     // this test is a bit brittle as it depends on specific data, but at least it's tested
     it('tracks when popups are clicked', function () {
       var expected = {
-        event_name: 'select_content',
         action: 'opened',
-        type: 'map',
         text: 'Yeovil Elective Orthopaedic Centre',
+        event_name: 'select_content',
+        type: 'map',
         section: 'section',
         tool_name: 'tool_name'
       }
 
       var marker = el.querySelectorAll('.leaflet-marker-icon')
       marker[marker.length - 1].click() // click the last popup
+      expect(attributes).toEqual(JSON.stringify(expected))
+    })
+
+    it('tracks when the sendTracking function is called', function () {
+      var extraAttributes = {
+        action: 'opened',
+        text: 'Yeovil Elective Orthopaedic Centre'
+      }
+      var expected = {
+        action: 'opened',
+        text: 'Yeovil Elective Orthopaedic Centre',
+        event_name: 'select_content',
+        type: 'map',
+        section: 'section',
+        tool_name: 'tool_name'
+      }
+
+      module.sendTracking(extraAttributes)
       expect(attributes).toEqual(JSON.stringify(expected))
     })
   })
@@ -284,6 +317,36 @@ describe('Map Block module', function () {
         }
       ]
       expect(result).toEqual(expected)
+    })
+  })
+
+  describe('create popup element functions', function () {
+    beforeEach(function () {
+      createMapDom('not_really_the_key')
+      module = new GOVUK.Modules.LandingPageMap(el.querySelector('.map__canvas'))
+    })
+
+    it('returns html for the popup heading', function () {
+      const expected = document.createElement('h3')
+      expected.classList.add('govuk-heading-m')
+      expected.classList.add('map-popup__heading')
+      expected.innerText = 'text'
+      expect(module.createPopupHeading('text')).toEqual(expected)
+    })
+
+    it('returns empty html for the popup body if nothing is passed', function () {
+      const propLookup = {}
+      const ftProps = {}
+      const expected = document.createElement('div')
+      expect(module.createPopupBody(propLookup, ftProps)).toEqual(expected)
+    })
+
+    it('returns html for a regional popup', function () {
+      const propLookup = { cdcCount: 'Community Diagnostic Centres', hubCount: 'Surgical Hubs' }
+      const ftProps = { ICB23CD: 'E54000064', NHSER22CD: 'E40000005', cdcCount: 7, hubCount: 2 }
+      const expected = document.createElement('div')
+      expected.innerHTML = '<h4 class="govuk-heading-s govuk-!-margin-0">Community Diagnostic Centres</h4><p class="govuk-body">7</p><h4 class="govuk-heading-s govuk-!-margin-0">Surgical Hubs</h4><p class="govuk-body">2</p>'
+      expect(module.createPopupBody(propLookup, ftProps)).toEqual(expected)
     })
   })
 })

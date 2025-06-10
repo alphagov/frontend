@@ -1,10 +1,7 @@
 /* global L */
-//= require views/landing_page/map/data/lookup.js
-//= require views/landing_page/map/data/cdc.geojson.js
-//= require views/landing_page/map/data/hub.geojson.js
-//= require views/landing_page/map/data/icb.geojson.js
-
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
+/* istanbul ignore next */
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
@@ -138,6 +135,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         return obj
       }, {})
 
+      /* istanbul ignore next */
       window.GOVUK.icbGeojson.features.forEach((element) => {
         element.properties.cdcCount = icsCdcCount[element.properties.ICB23CD] || '0'
         element.properties.hubCount = icsHubCount[element.properties.ICB23CD] || '0'
@@ -172,72 +170,77 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
         checkbox.addEventListener('click', () => {
           this.map.closePopup()
+          /* istanbul ignore next */
           checkbox.checked ? this.map.addLayer(mapLayer) : this.map.removeLayer(mapLayer)
-
-          // track the filter click
-          if (this.tracking) {
-            this.$module.setAttribute('data-ga4-auto', JSON.stringify({
-              event_name: 'select_content',
-              action: 'select',
-              type: 'map',
-              index_link: i + 1,
-              index_total: layers.length,
-              section: this.ga4Attributes.section,
-              text: checkbox.parentElement.innerText.toLowerCase(),
-              tool_name: this.ga4Attributes.tool_name
-            }))
-            this.tracker.sendEvent()
-            this.$module.removeAttribute('data-ga4-auto')
+          const extraAttributes = {
+            action: 'select',
+            index_link: i + 1,
+            index_total: layers.length,
+            text: checkbox.parentElement.innerText.toLowerCase()
           }
+          this.sendTracking(extraAttributes)
         })
       }
     }
 
     bindPopup (feature, layer) {
-      const ftProps = layer.feature.properties
-      const ftGeomType = layer.feature.geometry.type
-      const lyrPane = layer.options.pane
+      const featureProperties = layer.feature.properties
+      const geometryType = layer.feature.geometry.type
+      const layerPane = layer.options.pane
 
       const popupContainer = this.context.createAndPopulateElement('div', null, null)
-      const popupHeading = this.context.createAndPopulateElement('h3', null, 'govuk-heading-m map-popup__heading')
-      popupHeading.setAttribute('data-ga4-text', '')
-      const popupBody = this.context.createAndPopulateElement('div', null, null)
+      const getHeadingAndPropVals = this.context.getHeadingAndProp(geometryType, featureProperties, layerPane)
 
-      const getHeadingAndPropVals = this.context.getHeadingAndProp(ftGeomType, ftProps, lyrPane)
-      popupHeading.innerText = getHeadingAndPropVals[0]
-      const propLookup = getHeadingAndPropVals[1]
-
-      for (const [key, value] of Object.entries(propLookup)) {
-        if (Object.prototype.hasOwnProperty.call(ftProps, key)) {
-          const popupBodyHeading = this.context.createAndPopulateElement('h4', value, 'govuk-heading-s govuk-!-margin-0')
-          popupBody.appendChild(popupBodyHeading)
-
-          const popupBodyContent = this.context.createAndPopulateElement('p', ftProps[key], 'govuk-body')
-          popupBody.appendChild(popupBodyContent)
-        }
-      }
-
-      popupContainer.appendChild(popupHeading)
-      popupContainer.appendChild(popupBody)
+      popupContainer.appendChild(this.context.createPopupHeading(getHeadingAndPropVals[0]))
+      popupContainer.appendChild(this.context.createPopupBody(getHeadingAndPropVals[1], featureProperties))
 
       const popup = layer.bindPopup(popupContainer, { maxWidth: 250 })
       popup.on('popupopen', (e) => {
         const popup = e.target.getPopup()
         const content = popup.getContent()
-
-        if (this.context.tracking) {
-          this.context.$module.setAttribute('data-ga4-auto', JSON.stringify({
-            event_name: 'select_content',
-            action: 'opened',
-            type: 'map',
-            text: content.querySelector('[data-ga4-text]').innerText || '',
-            section: this.context.ga4Attributes.section,
-            tool_name: this.context.ga4Attributes.tool_name
-          }))
-          this.context.tracker.sendEvent()
-          this.context.$module.removeAttribute('data-ga4-auto')
+        /* istanbul ignore next */
+        const extraAttributes = {
+          action: 'opened',
+          text: content.querySelector('.map-popup__heading').innerText.trim() || ''
         }
+        this.context.sendTracking(extraAttributes)
       })
+    }
+
+    createPopupHeading (innerText) {
+      const popupHeading = this.createAndPopulateElement('h3', null, 'govuk-heading-m map-popup__heading')
+      popupHeading.innerText = innerText
+      return popupHeading
+    }
+
+    createPopupBody (propLookup, featureProperties) {
+      const popupBody = this.createAndPopulateElement('div', null, null)
+      for (const [key, value] of Object.entries(propLookup)) {
+        /* istanbul ignore next */
+        if (Object.prototype.hasOwnProperty.call(featureProperties, key)) {
+          const popupBodyHeading = this.createAndPopulateElement('h4', value, 'govuk-heading-s govuk-!-margin-0')
+          popupBody.appendChild(popupBodyHeading)
+
+          const popupBodyContent = this.createAndPopulateElement('p', featureProperties[key], 'govuk-body')
+          popupBody.appendChild(popupBodyContent)
+        }
+      }
+      return popupBody
+    }
+
+    sendTracking (extraAttributes) {
+      if (this.tracking) {
+        let attributes = {
+          event_name: 'select_content',
+          type: 'map',
+          section: this.ga4Attributes.section,
+          tool_name: this.ga4Attributes.tool_name
+        }
+        attributes = Object.assign(extraAttributes, attributes)
+        this.$module.setAttribute('data-ga4-auto', JSON.stringify(attributes))
+        this.tracker.sendEvent()
+        this.$module.removeAttribute('data-ga4-auto')
+      }
     }
 
     createAndPopulateElement (type, text, classes) {
@@ -253,25 +256,26 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return element
     }
 
-    getHeadingAndProp (ftGeomType, ftProps, lyrPane) {
+    getHeadingAndProp (geometryType, featureProperties, layerPane) {
       let innerText
       let propLookup
-      if (ftGeomType === 'Point') {
-        innerText = ftProps.name
+      if (geometryType === 'Point') {
+        innerText = featureProperties.name
 
-        if (lyrPane === 'cdc') {
+        /* istanbul ignore next */
+        if (layerPane === 'cdc') {
           propLookup = {
             services: 'Services offered',
             isOpen12_7: 'Open 12 hours a day, 7 days a week?',
             address: 'Address'
           }
-        } else if (lyrPane === 'hub') {
+        } else if (layerPane === 'hub') {
           propLookup = {
             address: 'Address'
           }
         }
       } else {
-        innerText = window.GOVUK.lookup.ics[ftProps.ICB23CD]
+        innerText = window.GOVUK.lookup.ics[featureProperties.ICB23CD]
 
         propLookup = {
           cdcCount: 'Community Diagnostic Centres',

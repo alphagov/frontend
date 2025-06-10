@@ -9,7 +9,7 @@ class CsvPreviewController < ApplicationController
 
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
     if draft_asset? && served_from_live_host?
-      redirect_to(Plek.find("draft-origin", external: true) + request.path, allow_other_host: true) and return
+      redirect_to(URI.parse(Plek.find("draft-origin", external: true) + request.path), allow_other_host: true) and return
     end
 
     parent_document_uri = @asset["parent_document_url"]

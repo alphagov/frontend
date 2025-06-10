@@ -41,6 +41,7 @@ class Graphql::EditionQuery
                 }
                 document_collections {
                   ...RelatedItem
+                  web_url
                 }
                 government {
                   details {

@@ -8,8 +8,8 @@ class CsvPreviewController < ApplicationController
     @asset = GdsApi.asset_manager.asset(params[:id]).to_hash
 
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
-    if draft_asset? && served_from_asset_host?
-      redirect_to(Plek.find("draft-assets") + request.path, allow_other_host: true) and return
+    if draft_asset? && served_from_live_host?
+      redirect_to(URI.parse(Plek.find("draft-origin", external: true) + request.path), allow_other_host: true) and return
     end
 
     parent_document_uri = @asset["parent_document_url"]
@@ -23,7 +23,7 @@ class CsvPreviewController < ApplicationController
       redirect_to(parent_document_uri, status: :see_other, allow_other_host: true) and return
     end
 
-    return cacheable_404 if @attachment_metadata["content_type"] != "text/csv"
+    return cacheable_404 unless csv_content_type.include?(@attachment_metadata["content_type"])
 
     @csv_rows, @truncated = CsvPreviewService
       .new(GdsApi.asset_manager.media(params[:id], params[:filename]).body)
@@ -52,7 +52,11 @@ private
     @asset["draft"] == true
   end
 
-  def served_from_asset_host?
-    request.hostname == URI.parse(Plek.find("assets")).hostname
+  def served_from_live_host?
+    request.hostname == URI.parse(Plek.website_root).hostname
+  end
+
+  def csv_content_type
+    ["text/csv", "application/csv"]
   end
 end

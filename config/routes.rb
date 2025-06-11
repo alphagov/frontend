@@ -77,8 +77,8 @@ Rails.application.routes.draw do
   get "/find-licences/:slug/:authority_slug", to: "licence_transaction#authority", as: "licence_transaction_authority"
   get "/find-licences/:slug/:authority_slug/:interaction", to: "licence_transaction#authority_interaction", as: "licence_transaction_authority_interaction"
 
-  # Old style media previews (compatible with preview_url)
-  get "/media/:id/:filename/preview", to: "csv_preview#show", filename: /[^\/]+/
+  # Old style media previews
+  get "/media/:id/:filename/preview", to: "csv_preview_redirect#redirect", filename: /[^\/]+/
   # New style CSV previews (using a different path to avoid the special routing for preview_url)
   get "/csv-preview/:id/:filename", to: "csv_preview#show", filename: /[^\/]+/, defaults: { format: "html" }
 

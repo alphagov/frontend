@@ -1,0 +1,59 @@
+<% add_view_stylesheet("service-manual-service-standard") %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+<% end %>
+<%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
+
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render partial: "service_manual/service_manual_breadcrumbs", breadcrumbs: @presenter.breadcrumbs %>
+  </div>
+<% end %>
+<div class="govuk-width-container">
+  <!-- Page title and contact -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="app-page-header govuk-!-margin-top-3 govuk-!-margin-bottom-3">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: content_item.title,
+          heading_level: 1,
+          font_size: "xl",
+          margin_bottom: 8,
+        } %>
+        <p class="govuk-body-l govuk-!-margin-bottom-7 app-page-header__summary">
+          <%= content_item.description %>
+        </p>
+        <div class="app-page-header__intro govuk-!-padding-bottom-3">
+          <%= @presenter.body %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Points -->
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <ol class="govuk-list">
+        <% content_item.points.each do |point| %>
+          <li class="app-service-standard-point" id="criterion-<%= point.number -%>">
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-3 app-service-standard-point__title">
+              <span class="app-service-standard-point__number"><%= point.number %>.</span>
+              <%= point.title_without_number %>
+            </h2>
+            <div class="app-service-standard-point__details">
+              <%= "<p class='govuk-body'>#{point.description}</p>" if point.description.present? %>
+              <p class="govuk-body app-service-standard-point__link"><%= link_to "Read more about point #{ point.number }", point.base_path, class: "govuk-link" %></p>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="related govuk-!-padding-top-4">
+        <%= render partial: "service_manual/email_signup", locals: { email_alert_signup_link: @presenter.email_alert_signup_link } %>
+      </aside>
+    </div>
+  </div>
+</div>

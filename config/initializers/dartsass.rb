@@ -16,6 +16,7 @@ APP_STYLESHEETS = {
   "views/_published-dates-button-group.scss" => "views/_published-dates-button-group.css",
   "views/_publisher_metadata.scss" => "views/_publisher_metadata.css",
   "views/_roadmap.scss" => "views/_roadmap.css",
+  "views/_service-manual-service-standard.scss" => "views/_service-manual-service-standard.css",
   "views/_service-toolkit.scss" => "views/_service-toolkit.css",
   "views/_sidebar-navigation.scss" => "views/_sidebar-navigation.css",
   "views/_specialist-document.scss" => "views/_specialist-document.css",

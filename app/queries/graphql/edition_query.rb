@@ -112,10 +112,8 @@ class Graphql::EditionQuery
                   }
                 }
                 topical_events {
-                  base_path
+                  ...RelatedItem
                   content_id
-                  locale
-                  title
                 }
                 world_locations {
                   analytics_identifier

@@ -27,6 +27,7 @@ class Graphql::EditionQuery
                 image {
                   alt_text
                   caption
+                  credit
                   high_resolution_url
                   url
                 }

@@ -1,4 +1,5 @@
 class DocumentCollection < ContentItem
+  include Political
   include Updatable
 
   def show_email_signup_link?

@@ -403,6 +403,9 @@ az:
       publication_scheme_html: "%{link}-də adətən istifadə etdiyimiz məlumatların növləri barədə oxuyun."
       social_media_use_html: "%{link}-də siyasətmizi oxuyun."
       welsh_language_scheme_html: "%{link} ilə bağlı öhdəliyimiz barədə öyrənin."
+    document_collection:
+      one: Yığım
+      other: Yığımlar
     fatality_notice:
       alt_text: Müdafiə nazirliyinin emblemi
       field_of_operation: Əməliyyat sahəsi

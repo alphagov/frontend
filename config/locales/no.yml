@@ -403,6 +403,9 @@
       publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i vår %{link}.
       social_media_use_html: Les retningslinjene våre på %{link}.
       welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
+    document_collection:
+      one: Samling
+      other: Samlinger
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
       field_of_operation: Operasjonsfelt

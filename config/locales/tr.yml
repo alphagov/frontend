@@ -403,6 +403,9 @@ tr:
       publication_scheme_html: "%{link} bağlantımızda düzenli olarak yayınladığımız bilgi türlerini okuyun."
       social_media_use_html: "%{link} bağlantısındaki politikamızı okuyun."
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
+    document_collection:
+      one: Toplama
+      other: Toplamalar
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı

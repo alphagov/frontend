@@ -389,49 +389,81 @@ RSpec.describe "CallForEvidence" do
     end
   end
 
-  # test "renders featured document attachments" do
-  #   setup_and_visit_content_item("call_for_evidence_outcome_with_featured_attachments")
+  context "when visiting a call for evidence outcome page" do
+    let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "call_for_evidence_outcome_with_featured_attachments") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Documents")
-  #   within "#documents" do
-  #     assert page.has_text?("Setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  # test "call for evidence outcome" do
-  #   setup_and_visit_content_item("call_for_evidence_outcome", {
-  #     "details" => {
-  #       "closing_date" => "2022-02-01T13:00:00.000+00:00",
-  #       "opening_date" => "2022-01-01T13:00:00.000+00:00",
-  #     },
-  #   })
-  #   assert page.has_text?("Call for evidence outcome")
-  #   assert page.has_css?(".gem-c-notice", text: "This call for evidence has closed")
-  #   assert page.has_css?("h2", text: "Original call for evidence")
-  #   assert page.has_text?("ran from")
-  #   assert page.has_text?("1pm on 1 January 2022 to 1pm on 1 February 2022")
+    it "displays the call for evidence status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Call for evidence outcome")
+      end
+    end
 
-  #   within ".call-for-evidence-outcome-detail" do
-  #     assert page.has_text?(@content_item["details"]["outcome_detail"])
-  #   end
-  # end
+    it "displays the status in the notice banner" do
+      within(".gem-c-notice") do
+        expect(page).to have_css(".gem-c-notice__title", text: "This call for evidence has closed")
+      end
+    end
 
-  # test "renders call for evidence outcome attachments" do
-  #   setup_and_visit_content_item("call_for_evidence_outcome", general_overrides)
+    it "displays 'Read the full outcome' heading" do
+      within("#read-the-full-outcome") do
+        expect(page).to have_css("h2", text: "Read the full outcome")
+      end
+    end
 
-  #   assert page.has_text?("This call for evidence has closed")
-  #   assert page.has_text?("Read the full outcome")
-  #   within "#read-the-full-outcome" do
-  #     assert page.has_text?("Setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
+    it "displays the outcome attachment" do
+      within("#read-the-full-outcome") do
+        expect(page).to have_link("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2", href: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/551115/Grading-consulation-Equalities-Impact-Assessment.pdf")
+      end
+    end
 
-  # test "renders featured call for evidence outcome attachments" do
-  #   setup_and_visit_content_item("call_for_evidence_outcome_with_featured_attachments")
+    it "displays the 'Detail of outcome' heading" do
+      expect(page).to have_css("h2", text: "Detail of outcome")
+    end
 
-  #   assert page.has_text?("Read the full outcome")
-  #   within "#read-the-full-outcome" do
-  #     assert page.has_text?("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
+    it "displays the outcome detail" do
+      within(".call-for-evidence-outcome-detail") do
+        expect(page).to have_content("The first award of all new GCSEs will be based primarily on statistical predictions with examiner judgement playing a secondary role.")
+      end
+    end
+
+    it "displays the 'Original call for evidence' heading" do
+      expect(page).to have_css("h2", text: "Original call for evidence")
+    end
+
+    context "when it displays the blue summary box" do
+      it "displays when the call for evidence ran" do
+        content_store_response["details"]["closing_date"] = "2022-02-01T13:00:00.000+00:00"
+        content_store_response["details"]["opening_date"] = "2022-01-01T13:00:00.000+00:00"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence ran from")
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "1pm on 1 January 2022 to 1pm on 1 February 2022")
+        end
+      end
+
+      it "links to external url call for evidence page if available" do
+        content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This call for evidence was held on")
+
+          expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+        end
+      end
+    end
+
+    it "does not display ways to respond" do
+      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+    end
+  end
 end

@@ -12,7 +12,7 @@ class DocumentCollection < ContentItem
     @groups = content_store_response.dig("details", "collection_groups").map do |group_details|
       Group.new(
         body: group_details["body"],
-        documents: group_details["documents"].map { |id| linked("documents"].scan() },
+        documents: group_details["documents"].map { |id| linked("documents").find { |d| d.content_id == id } },
         title: group_details["title"],
       )
     end
@@ -28,36 +28,5 @@ class DocumentCollection < ContentItem
 
   def contents
     []
-  end
-
-  class Group
-    attr_reader
-  end
-
-  def groups
-    groups = content_store_response.dig("details", "collection_groups").reject do |group|
-      group_documents(group).empty?
-    end
-
-    groups.map do |group|
-      group["documents"] = reject_withdrawn_documents(group)
-      group
-    end
-  end
-
-private
-
-  def group_documents(group)
-    group["documents"].map { |id| documents_hash[id] }.compact
-  end
-
-  def reject_withdrawn_documents(group)
-    group_documents(group)
-      .reject { |document| document["withdrawn"] }
-      .map { |document| document["content_id"] }
-  end
-
-  def documents_hash
-    @documents_hash ||= Array(content_store_response.dig("links", "documents")).index_by { |d| d["content_id"] }
   end
 end

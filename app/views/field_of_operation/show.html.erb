@@ -27,7 +27,7 @@
         } %>
       </div>
     <% end %>
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-7">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-8">
       <section id="field-of-operation">
         <% unless @presenter.description.blank? %>
           <%= render "govuk_publishing_components/components/heading", {
@@ -35,42 +35,41 @@
             margin_bottom: 4,
           } %>
           <%= render "govuk_publishing_components/components/govspeak", {
+              margin_bottom: 8,
             } do %>
               <%= @presenter.description %>
           <% end %>
         <% end %>
-        <div class="govuk-!-margin-top-7 govuk-!-padding-bottom-3">
-          <% if @content_item.fatality_notices.any? %>
-            <%= render "govuk_publishing_components/components/heading", {
-              text: "Fatalities",
-              id: "fatalities",
-              margin_bottom: 4,
-            } %>
-            <ul class="govuk-list">
-              <% @content_item.fatality_notices.each do |fatality_notice| %>
-                <li class="fatality-notice govuk-!-padding-bottom-3">
-                  <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
-                  <p class="govuk-body">
-                    <%= @presenter.roll_call_introduction(fatality_notice) %>
-                  </p>
-                  <% end %>
-                  <ul class="govuk-list govuk-list--spaced govuk-!-padding-left-4">
-                    <% if @presenter.casualties(fatality_notice).present? %>
-                      <% @presenter.casualties(fatality_notice).each do |casualty| %>
-                        <li class="govuk-list--bullet"><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
-                      <% end %>
-                    <% else %>
-                      <li class="govuk-list--bullet"><%= link_to fatality_notice.title, fatality_notice.base_path, class: "govuk-link" %></li>
+        <% if @content_item.fatality_notices.any? %>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: "Fatalities",
+            id: "fatalities",
+            margin_bottom: 4,
+          } %>
+          <ul class="govuk-list">
+            <% @content_item.fatality_notices.each do |fatality_notice| %>
+              <li class="fatality-notice govuk-!-padding-bottom-3">
+                <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
+                <p class="govuk-body">
+                  <%= @presenter.roll_call_introduction(fatality_notice) %>
+                </p>
+                <% end %>
+                <ul class="govuk-list govuk-list--spaced govuk-!-padding-left-4">
+                  <% if @presenter.casualties(fatality_notice).present? %>
+                    <% @presenter.casualties(fatality_notice).each do |casualty| %>
+                      <li class="govuk-list--bullet"><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
                     <% end %>
-                  </ul>
-                  <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-2">
-                </li>
-              <% end %>
-            </ul>
-          <% else %>
-            <p class="govuk-body"><%= t("formats.fatality_notice.none_added") %></p>
-          <% end %>
-        </div>
+                  <% else %>
+                    <li class="govuk-list--bullet"><%= link_to fatality_notice.title, fatality_notice.base_path, class: "govuk-link" %></li>
+                  <% end %>
+                </ul>
+                <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-2">
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p class="govuk-body"><%= t("formats.fatality_notice.none_added") %></p>
+        <% end %>
       </section>
     </div>
   </div>

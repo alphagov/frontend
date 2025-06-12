@@ -35,7 +35,6 @@
         ],
         "first_public_at": "2015-03-25T13:23:00+00:00",
         "political": false,
-        "default_news_image": null,
         "image": {
           "alt_text": "Networking hub at CDE event.",
           "caption": null,
@@ -81,6 +80,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/centre-for-defence-enterprise",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Centre for Defence Enterprise"
           }
         ],

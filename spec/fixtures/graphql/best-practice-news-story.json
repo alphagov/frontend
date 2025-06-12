@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2014-03-27T09:35:00+00:00",
         "political": true,
-        "default_news_image": null,
         "image": {
           "alt_text": "Robert Goodwill MP visiting a drug testing laboratory.",
           "caption": null,
@@ -73,6 +72,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/department-for-transport",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Department for Transport"
           }
         ],

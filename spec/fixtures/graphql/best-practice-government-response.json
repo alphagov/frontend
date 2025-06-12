@@ -12,7 +12,6 @@
             "public_timestamp": "2014-05-08T15:38:28.000+01:00"
           }
         ],
-        "default_news_image": null,
         "display_date": null,
         "emphasised_organisations": [
           "7cd6bf12-bbe9-4118-8523-f927b0442156",
@@ -74,6 +73,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/department-of-health-and-social-care",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Department of Health and Social Care"
           }
         ],

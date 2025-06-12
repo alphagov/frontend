@@ -7,7 +7,6 @@
       "details": {
         "body": "Some text",
         "change_history": [],
-        "default_news_image": null,
         "display_date": null,
         "emphasised_organisations": [],
         "first_public_at": "2016-12-25T01:02:03+00:00",
@@ -53,6 +52,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/organisation-1",
+            "details": {
+              "default_news_image": null
+            },
             "title": "An organisation"
           }
         ],

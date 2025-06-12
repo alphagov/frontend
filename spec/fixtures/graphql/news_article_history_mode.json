@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2014-10-23T14:52:14+01:00",
         "political": true,
-        "default_news_image": null,
         "image": {
           "alt_text": "",
           "caption": null,
@@ -67,6 +66,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/department-of-health-and-social-care",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Department of Health and Social Care"
           }
         ],

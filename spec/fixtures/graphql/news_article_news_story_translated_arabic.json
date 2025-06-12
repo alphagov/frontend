@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2016-12-25T00:15:02+00:00",
         "political": true,
-        "default_news_image": null,
         "image": {
           "alt_text": "Christmas",
           "caption": null,
@@ -77,6 +76,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/prime-ministers-office-10-downing-street",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Prime Minister's Office, 10 Downing Street"
           }
         ],

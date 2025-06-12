@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2016-12-28T00:00:17+00:00",
         "political": false,
-        "default_news_image": null,
         "image": {
           "alt_text": "How are you billboard",
           "caption": null,
@@ -67,6 +66,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/public-health-england",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Public Health England"
           }
         ],

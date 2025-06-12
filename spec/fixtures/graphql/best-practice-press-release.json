@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2013-01-28T00:00:00+00:00",
         "political": true,
-        "default_news_image": null,
         "image": {
           "alt_text": "",
           "caption": null,
@@ -73,6 +72,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/home-office",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Home Office"
           }
         ],

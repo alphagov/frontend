@@ -17,10 +17,6 @@ class Graphql::EditionQuery
               details {
                 body
                 change_history
-                default_news_image {
-                  alt_text
-                  url
-                }
                 display_date
                 emphasised_organisations
                 first_public_at
@@ -72,6 +68,12 @@ class Graphql::EditionQuery
                 }
                 primary_publishing_organisation {
                   base_path
+                  details {
+                    default_news_image {
+                      alt_text
+                      url
+                    }
+                  }
                   title
                 }
                 related {

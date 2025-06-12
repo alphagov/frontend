@@ -13,7 +13,6 @@
               "public_timestamp": "2016-12-25T00:15:02.000+00:00"
            }
         ],
-        "default_news_image": null,
         "display_date": null,
         "emphasised_organisations": [
            "705dbea4-8bd7-422e-ba9c-254557f77f81"
@@ -64,6 +63,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/prime-ministers-office-10-downing-street",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Prime Minister's Office, 10 Downing Street"
           }
         ],

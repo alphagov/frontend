@@ -27,7 +27,6 @@
         ],
         "first_public_at": "2016-12-19T15:20:29+00:00",
         "political": false,
-        "default_news_image": null,
         "image": {
           "alt_text": "St Michael's Mount Cornwall",
           "caption": null,
@@ -67,6 +66,9 @@
         "primary_publishing_organisation": [
           {
             "base_path": "/government/organisations/marine-management-organisation",
+            "details": {
+              "default_news_image": null
+            },
             "title": "Marine Management Organisation"
           }
         ],

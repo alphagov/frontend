@@ -1,10 +1,10 @@
 RSpec.describe "TravelAdvice" do
+  let(:base_path) { content_store_response.fetch("base_path") }
+
+  before { stub_content_store_has_item(base_path, content_store_response) }
+
   describe "GET /foreign-travel-advice" do
-    before do
-      content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
-      base_path = content_item.fetch("base_path")
-      stub_content_store_has_item(base_path, content_item)
-    end
+    let(:content_store_response) { GovukSchemas::Example.find("travel_advice_index", example_name: "index") }
 
     it "displays the list of countries" do
       visit "/foreign-travel-advice"
@@ -65,12 +65,7 @@ RSpec.describe "TravelAdvice" do
     end
 
     context "with the javascript driver" do
-      before do
-        content_item = GovukSchemas::Example.find("travel_advice_index", example_name: "index")
-        base_path = content_item.fetch("base_path")
-        stub_content_store_has_item(base_path, content_item)
-        Capybara.current_driver = Capybara.javascript_driver
-      end
+      before { Capybara.current_driver = Capybara.javascript_driver }
 
       it "loads the page and performs filtering correctly" do
         visit "/foreign-travel-advice"
@@ -99,44 +94,40 @@ RSpec.describe "TravelAdvice" do
   end
 
   describe "GET /foreign-travel-advice/<country>" do
-    before do
-      @content_store_response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
-      @base_path = @content_store_response.fetch("base_path")
-      stub_content_store_has_item(@base_path, @content_store_response)
-    end
+    let(:content_store_response) { GovukSchemas::Example.find("travel_advice", example_name: "full-country") }
 
     it "displays the page" do
-      visit @base_path
+      visit base_path
 
       expect(page.status_code).to eq(200)
     end
 
     it "displays the title" do
-      visit @base_path
+      visit base_path
 
-      expect(page).to have_title("#{@content_store_response['details']['country']['name']} travel advice")
+      expect(page).to have_title("#{content_store_response['details']['country']['name']} travel advice")
 
       within(".travel-advice__header .gem-c-heading") do
-        expect(page).to have_content(@content_store_response["details"]["country"]["name"])
+        expect(page).to have_content(content_store_response["details"]["country"]["name"])
       end
     end
 
     it "displays the email sign-up link" do
-      visit @base_path
+      visit base_path
 
-      expect(page).to have_css("a[href=\"#{@content_store_response['details']['email_signup_link']}\"]", text: "Get email alerts")
+      expect(page).to have_css("a[href=\"#{content_store_response['details']['email_signup_link']}\"]", text: "Get email alerts")
     end
 
     it "displays the navigation" do
-      visit @base_path
+      visit base_path
 
-      parts_size = @content_store_response["details"]["parts"].size
+      parts_size = content_store_response["details"]["parts"].size
 
       expect(page).to have_css(".part-navigation-container nav li", count: parts_size)
-      expect(page).to have_css(".part-navigation-container nav li", text: @content_store_response["details"]["parts"].first["title"])
-      expect(page).not_to have_css(".part-navigation li a", text: @content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_css(".part-navigation-container nav li", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).not_to have_css(".part-navigation li a", text: content_store_response["details"]["parts"].first["title"])
 
-      @content_store_response["details"]["parts"][1..parts_size].each do |part|
+      content_store_response["details"]["parts"][1..parts_size].each do |part|
         expect(page).to have_css(".part-navigation-container nav li a[href*=\"#{part['slug']}\"]", text: part["title"])
       end
 
@@ -145,79 +136,78 @@ RSpec.describe "TravelAdvice" do
     end
 
     it "displays breadcrumbs" do
-      visit @base_path
+      visit base_path
 
       expect(page).to have_css(".gem-c-contextual-breadcrumbs")
     end
 
     describe "first part" do
       it "displays latest updates" do
-        visit @base_path
+        visit base_path
 
-        expect(page).to have_css("h1", text: @content_store_response["details"]["parts"].first["title"])
+        expect(page).to have_css("h1", text: content_store_response["details"]["parts"].first["title"])
         expect(page).to have_text("The main opposition party has called for mass protests against the government in Tirana on 18 February 2017.")
 
         expect(page).to have_content(I18n.t("formats.travel_advice.still_current_at"))
         expect(page).to have_content(Time.zone.today.strftime("%-d %B %Y"))
 
         expect(page).to have_content(I18n.t("formats.travel_advice.updated"))
-        expect(page).to have_content(Date.parse(@content_store_response["details"]["reviewed_at"]).strftime("%-d %B %Y"))
+        expect(page).to have_content(Date.parse(content_store_response["details"]["reviewed_at"]).strftime("%-d %B %Y"))
 
         within ".gem-c-metadata" do
+          expect(page).to have_content(content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
           expect(page).to have_content(@content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
         end
       end
 
       it "displays the map" do
-        visit @base_path
+        visit base_path
 
-        expect(page).to have_css(".map img[src=\"#{@content_store_response['details']['image']['url']}\"]")
-        expect(page).to have_css(".map figcaption a[href=\"#{@content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF)")
+        expect(page).to have_css(".map img[src=\"#{content_store_response['details']['image']['url']}\"]")
+        expect(page).to have_css(".map figcaption a[href=\"#{content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF)")
       end
     end
 
     describe "other parts" do
-      before do
-        @part = @content_store_response.dig("details", "parts").last
-      end
+      let(:part) { content_store_response.dig("details", "parts").last }
 
       it "only renders one part" do
-        visit "#{@base_path}/#{@part['slug']}"
+        visit "#{base_path}/#{part['slug']}"
 
-        expect(page).to have_title("#{@part['title']} - #{@content_store_response['title']} - GOV.UK")
-        expect(page).to have_css("h1", text: @part["title"])
+        expect(page).to have_title("#{part['title']} - #{content_store_response['title']} - GOV.UK")
+        expect(page).to have_css("h1", text: part["title"])
         expect(page).to have_text("If you’re abroad and you need emergency help from the UK government, contact the nearest British embassy, consulate or high commission")
       end
 
       it "does not display a map" do
-        visit "#{@base_path}/#{@part['slug']}"
+        visit "#{base_path}/#{part['slug']}"
 
         expect(page).not_to have_css(".map")
         expect(page).not_to have_css(".gem-c-metadata")
       end
 
       it "does not display navigation links for the part" do
-        visit "#{@base_path}/#{@part['slug']}"
+        visit "#{base_path}/#{part['slug']}"
 
-        expect(page).to have_css(".part-navigation-container nav li", text: @part["title"])
-        expect(page).not_to have_css(".part-navigation-container nav li a", text: @part["title"])
+        expect(page).to have_css(".part-navigation-container nav li", text: part["title"])
+        expect(page).not_to have_css(".part-navigation-container nav li a", text: part["title"])
       end
     end
 
     it "includes a discoverable atom feed link" do
-      visit @base_path
+      visit base_path
 
-      expect(page).to have_css("link[type*='atom'][href='#{@base_path}.atom']", visible: :hidden)
+      expect(page).to have_css("link[type*='atom'][href='#{base_path}.atom']", visible: :hidden)
     end
 
     it "does not render with the single page notification button" do
-      visit @base_path
+      visit base_path
 
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
 
     it "has GA4 tracking on the print link" do
-      visit @base_path
+      visit base_path
 
       expected_ga4_json = {
         event_name: "navigation",

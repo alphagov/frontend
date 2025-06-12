@@ -156,7 +156,20 @@ RSpec.describe "TravelAdvice" do
 
         within ".gem-c-metadata" do
           expect(page).to have_content(content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
-          expect(page).to have_content(@content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
+        end
+      end
+
+      context "when there is no reviewed_at date" do
+        let(:content_store_response) do
+          response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
+          response["details"].delete("reviewed_at")
+          response
+        end
+
+        it "displays the updated_at date" do
+          visit base_path
+
+          expect(page).to have_content(Date.parse(content_store_response["details"]["updated_at"]).strftime("%-d %B %Y"))
         end
       end
 

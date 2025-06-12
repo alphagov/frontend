@@ -29,4 +29,28 @@ RSpec.describe TravelAdvicePresenter do
       end
     end
   end
+
+  describe "#latest_update" do
+    before { content_store_response["details"]["change_description"] = "Latest update: hello!" }
+
+    it "strips Latest update: from change description and capitalises the remainder correctly" do
+      expect(travel_advice_presenter.latest_update).to eq("Hello!")
+    end
+
+    context "when there isn't an embedded Latest update in the change details string" do
+      before { content_store_response["details"]["change_description"] = "hello!" }
+
+      it "capitalises the string" do
+        expect(travel_advice_presenter.latest_update).to eq("Hello!")
+      end
+    end
+
+    context "when there isn't a change description string" do
+      before { content_store_response["details"]["change_description"] = "" }
+
+      it "returns the empty string" do
+        expect(travel_advice_presenter.latest_update).to eq("")
+      end
+    end
+  end
 end

@@ -60,14 +60,14 @@ RSpec.describe "Field of operation page" do
       end
 
       it "has the correct page text" do
-        within("#field-of-operation div > ul.govuk-list") do
+        within("#field-of-operation > ul.govuk-list") do
           expect(page).to have_text("A fatality sadly occurred on 1 December")
           expect(page).to have_text("A fatality sadly occurred on 2 December")
         end
       end
 
       it "has the correct links" do
-        within("#field-of-operation div > ul.govuk-list") do
+        within("#field-of-operation > ul.govuk-list") do
           expect(page).to have_link("A fatality notice", href: "/government/fatalities/fatality-notice-one")
           expect(page).to have_link("A second fatality notice", href: "/government/fatalities/fatality-notice-two")
         end

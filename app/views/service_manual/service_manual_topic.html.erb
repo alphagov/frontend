@@ -1,7 +1,9 @@
 <%= content_for :title, "#{@content_item.title} - Service Manual" %>
 
-<% content_for :header do %>
-  <%= render partial: "content_items/service_manual_breadcrumbs" %>
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render partial: "service_manual/service_manual_breadcrumbs", breadcrumbs: @presenter.breadcrumbs %>
+  </div>
 <% end %>
 
 <div class="govuk-grid-row">

@@ -108,6 +108,7 @@ Rails.application.routes.draw do
   scope "/service-manual" do
     get "/", to: "service_manual#index"
     get "/service-standard", to: "service_manual#service_standard"
+    get ":slug", to: "service_manual#service_manual_topic"
   end
 
   # Service toolkit page

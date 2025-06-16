@@ -1,9 +1,4 @@
-<% add_view_stylesheet("service_manual_guide") %>
 <%= content_for :title, "#{@content_item.title} - Service Manual" %>
-
-<% content_for :phase_message do %>
-  <%= render "shared/custom_phase_message", phase: @content_item.phase %>
-<% end %>
 
 <% content_for :header do %>
   <%= render partial: "content_items/service_manual_breadcrumbs" %>

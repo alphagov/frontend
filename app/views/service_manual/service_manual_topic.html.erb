@@ -2,7 +2,7 @@
 <%= content_for :title, "#{@content_item.title} - Service Manual" %>
 
 <% content_for :phase_message do %>
-  <%= render 'shared/custom_phase_message', phase: @content_item.phase %>
+  <%= render "shared/custom_phase_message", phase: @content_item.phase %>
 <% end %>
 
 <% content_for :header do %>
@@ -15,7 +15,7 @@
         text: @content_item.title,
         heading_level: 1,
         font_size: "xl",
-        margin_bottom: 7
+        margin_bottom: 7,
       } %>
       <p class="govuk-body-l">
         <%= @content_item.description %>
@@ -49,11 +49,11 @@
             link_items = []
 
             link_group.linked_items.each do |linked_item|
-              link_items << sanitize(link_to linked_item.label, linked_item.href, class: 'govuk-link')
+              link_items << sanitize(link_to linked_item.label, linked_item.href, class: "govuk-link")
             end
           %>
           <%= render "govuk_publishing_components/components/list", {
-            items: link_items
+            items: link_items,
           } %>
         <% end %>
       <% end %>
@@ -75,16 +75,16 @@
           <nav role="navigation" aria-labelledby="related-communities" class="related-communities">
             <%
               related_items = @content_item.content_owners.map do |content_owner|
-                sanitize(link_to content_owner.title, content_owner.href, class: 'govuk-link')
+                sanitize(link_to content_owner.title, content_owner.href, class: "govuk-link")
               end
             %>
             <%= render "govuk_publishing_components/components/list", {
-              items: related_items
+              items: related_items,
             } %>
           </nav>
         </div>
       <% end %>
-      <%= render partial: 'shared/email_signup' %>
+      <%= render partial: "shared/email_signup" %>
       </aside>
     </div>
 

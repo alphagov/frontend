@@ -93,3 +93,11 @@
   font: 24px/35px Tahoma, Verdana, sans-serif;
   font-weight: bold;
 }
+
+.leaflet-marker-icon:focus {
+  z-index: 999 !important; // stylelint-disable-line declaration-no-important
+  outline: none;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px $govuk-focus-text-colour;
+  border-radius: 100%;
+}

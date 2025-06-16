@@ -101,6 +101,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         pointToLayer: (feature, latlng) => {
           return L.marker(latlng, {
             icon: this.icons.cdc.default,
+            riseOnHover: true,
+            riseOffset: 999,
             pane: 'cdc'
           })
         },
@@ -117,6 +119,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         pointToLayer: (feature, latlng) => {
           return L.marker(latlng, {
             icon: this.icons.hub.default,
+            riseOnHover: true,
+            riseOffset: 999,
             pane: 'hub'
           })
         },

@@ -185,6 +185,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.sendTracking(extraAttributes)
         })
       }
+
+      this.$module.addEventListener('keyup', (e) => {
+        if (e.keyCode === 27) {
+          this.map.closePopup()
+        }
+      })
     }
 
     bindPopup (feature, layer) {

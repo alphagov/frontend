@@ -1,6 +1,4 @@
-<% content_for :title do %>
-  <%= @content_item.title %> - GOV.UK
-<% end %>
+<% content_for :title, "#{@presenter.page_title} - GOV.UK" %>
 
 <% content_for :extra_headers do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :faq } %>

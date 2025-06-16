@@ -9,6 +9,10 @@
   <%= javascript_include_tag "views/landing_page/map/data/icb.geojson.js", integrity: false, type: "module" %>
 <% end %>
 <div class="map">
+  <%= render "govuk_publishing_components/components/skip_link", {
+    text: "Skip map content",
+    href: "#end-of-map",
+  } %>
   <div id="api-warning"></div>
 
   <div class="govuk-grid-row">
@@ -69,4 +73,5 @@
       </ul>
     </div>
   </div>
+  <div id="end-of-map"></div>
 </div>

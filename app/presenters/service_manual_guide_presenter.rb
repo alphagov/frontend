@@ -1,9 +1,16 @@
-class ServiceManualGuidePresenter < ServiceManualPresenter
+class ServiceManualGuidePresenter < ContentItemPresenter
   ContentOwner = Struct.new(:title, :href)
   Change = Struct.new(:public_timestamp, :note)
 
-  def body
-    @body ||= details.fetch("body", {})
+  def initialize(content_item)
+    super(content_item)
+    @content_store_response = content_item.content_store_response
+  end
+
+  delegate :links, to: :content_item
+
+  def details
+    @details ||= @content_store_response["details"] || {}
   end
 
   def header_links
@@ -32,7 +39,7 @@ class ServiceManualGuidePresenter < ServiceManualPresenter
   end
 
   def public_updated_at
-    timestamp = content_item["public_updated_at"]
+    timestamp = @content_store_response["public_updated_at"]
 
     Time.zone.parse(timestamp) if timestamp
   end
@@ -63,7 +70,7 @@ class ServiceManualGuidePresenter < ServiceManualPresenter
 private
 
   def links_content_owners_attributes
-    content_item.to_hash.fetch("links", {}).fetch("content_owners", [])
+    links.fetch("content_owners", [])
   end
 
   def category
@@ -71,11 +78,11 @@ private
   end
 
   def parent
-    @parent ||= Array(links["parent"]).first
+    @parent ||= Array(links.fetch("parent", [])).first
   end
 
   def topic
-    @topic ||= Array(links["service_manual_topics"]).first
+    @topic ||= Array(links.fetch("service_manual_topics", [])).first
   end
 
   def change_history
@@ -83,6 +90,6 @@ private
   end
 
   def updated_at
-    Time.zone.parse(content_item["updated_at"])
+    Time.zone.parse(@content_store_response["updated_at"])
   end
 end

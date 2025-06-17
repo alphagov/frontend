@@ -1,9 +1,11 @@
-class ServiceManualGuidePresenter < ServiceManualPresenter
+class ServiceManualGuidePresenter < ContentItemPresenter
   ContentOwner = Struct.new(:title, :href)
   Change = Struct.new(:public_timestamp, :note)
 
-  def body
-    @body ||= details.fetch("body", {})
+  delegate :links, to: :content_item
+
+  def details
+    content_item.content_store_response["details"]
   end
 
   def header_links
@@ -12,18 +14,18 @@ class ServiceManualGuidePresenter < ServiceManualPresenter
   end
 
   def content_owners
-    links_content_owners_attributes.map do |content_owner_attributes|
-      ContentOwner.new(content_owner_attributes["title"], content_owner_attributes["base_path"])
+    content_item.content_owners.map do |content_owner_attributes|
+      ContentOwner.new(content_owner_attributes.content_store_response["title"], content_owner_attributes.content_store_response["base_path"])
     end
   end
 
   def category_title
-    category["title"] if category.present?
+    category.content_store_response["title"] if category.present?
   end
 
   def breadcrumbs
     crumbs = [{ title: "Service manual", url: "/service-manual" }]
-    crumbs << { title: category["title"], url: category["base_path"] } if category
+    crumbs << { title: category.content_store_response["title"], url: category.content_store_response["base_path"] } if category
     crumbs
   end
 
@@ -32,7 +34,7 @@ class ServiceManualGuidePresenter < ServiceManualPresenter
   end
 
   def public_updated_at
-    timestamp = content_item["public_updated_at"]
+    timestamp = content_item.content_store_response["public_updated_at"]
 
     Time.zone.parse(timestamp) if timestamp
   end
@@ -62,27 +64,15 @@ class ServiceManualGuidePresenter < ServiceManualPresenter
 
 private
 
-  def links_content_owners_attributes
-    content_item.to_hash.fetch("links", {}).fetch("content_owners", [])
-  end
-
   def category
-    topic || parent
-  end
-
-  def parent
-    @parent ||= Array(links["parent"]).first
-  end
-
-  def topic
-    @topic ||= Array(links["service_manual_topics"]).first
+    content_item.topic || content_item.parent
   end
 
   def change_history
-    @change_history ||= details.fetch("change_history", {})
+    details.fetch("change_history", {})
   end
 
   def updated_at
-    Time.zone.parse(content_item["updated_at"])
+    Time.zone.parse(content_item.content_store_response["updated_at"])
   end
 end

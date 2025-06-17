@@ -1,19 +1,14 @@
-<% add_view_stylesheet("service_manual_guide") %>
-<%= content_for :title, "#{@content_item.title} - Service Manual" %>
+<% add_view_stylesheet("service-manual-guide") %>
+<%= content_for :title, "#{@content_item.title} - Service Manual - GOV.UK" %>
 
-<% content_for :extra_head do %>
-    <%= machine_readable_metadata(
-    schema: :article
-  ) %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= @content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<% content_for :phase_message do %>
-  <%= render "shared/custom_phase_message", phase: @content_item.phase %>
-<% end %>
-
-<% content_for :header do %>
+<% content_for :before_content do %>
   <div class="govuk-width-container">
-    <%= render partial: "content_items/service_manual_breadcrumbs" %>
+    <%= render partial: "service_manual/service_manual_breadcrumbs" %>
   </div>
 <% end %>
 
@@ -23,15 +18,15 @@
     <div class="govuk-grid-column-two-thirds">
       <div class="app-page-header">
         <%= render "govuk_publishing_components/components/heading", {
-          context: @content_item.category_title,
-          text: @content_item.title,
+          context: @presenter.category_title,
+          text: content_item.title,
           heading_level: 1,
           font_size: "xl",
-          margin_bottom: 8
+          margin_bottom: 8,
         } %>
-        <% if @content_item.show_description? %>
+        <% if @presenter.show_description? %>
           <p class="govuk-body-l app-page-header__summary">
-            <%= @content_item.description %>
+            <%= content_item.description %>
           </p>
         <% end %>
       </div>
@@ -47,9 +42,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds app-metadata--heading">
       <%= render "govuk_publishing_components/components/metadata", {
-        from: @content_item.content_owners.map { |content_owner|
+        from: @presenter.content_owners.map do |content_owner|
           link_to(content_owner.title, content_owner.href)
-        }
+        end,
       } %>
     </div>
   </div>
@@ -59,38 +54,38 @@
       <!--  Page contents -->
       <%= render "govuk_publishing_components/components/contents_list", {
         underline_links: true,
-        contents: @content_item.header_links,
-        id: "contents"
+        contents: @presenter.header_links,
+        id: "contents",
       } %>
     </div>
     <div class="govuk-grid-column-two-thirds">
       <div class="govspeak-wrapper govuk-!-padding-top-2">
-        <%= render "govuk_publishing_components/components/govspeak", content: @content_item.body.html_safe %>
+        <%= render "govuk_publishing_components/components/govspeak", content: content_item.body.html_safe %>
       </div>
       <div class="app-change-history govuk-!-margin-top-6" data-module="gem-toggle">
         <div class="app-change-history__latest-change">
-          <% if @content_item.content_owners.any? %>
+          <% if @presenter.content_owners.any? %>
             <%= render "govuk_publishing_components/components/metadata", {
-              last_updated: "#{time_ago_in_words(@content_item.visible_updated_at)} ago",
-              from: @content_item.content_owners.map { |content_owner|
+              last_updated: "#{time_ago_in_words(@presenter.visible_updated_at)} ago",
+              from: @presenter.content_owners.map do |content_owner|
                 link_to(content_owner.title, content_owner.href)
-              }
+              end,
             } %>
           <% end %>
-            <% if @content_item.latest_change.present? %>
+            <% if @presenter.latest_change.present? %>
               <dl>
                 <dt class="govuk-body govuk-!-margin-bottom-0">Last update:</dt>
                 <dd>
-                  <%= render partial: 'shared/change_history', locals: {change: @content_item.latest_change} %>
+                  <%= render partial: "service_manual/change_history", locals: {change: @presenter.latest_change} %>
                 </dd>
               </dl>
             <% end %>
         </div>
-        <% if @content_item.previous_changes.present? %>
+        <% if @presenter.previous_changes.present? %>
           <p class="govuk-!-margin-bottom-3">
             <a href="#full-history"
               data-controls="full-history"
-              data-toggled-text="- Hide all page updates (<%= @content_item.previous_changes.length %>)"
+              data-toggled-text="- Hide all page updates (<%= @presenter.previous_changes.length %>)"
               data-expanded="false"
               data-module="ga4-event-tracker"
               data-ga4-event="<%= {event_name: "select_content", type: "content history", section: "Footer"}.to_json %>"
@@ -99,13 +94,13 @@
               aria-controls="full-history"
               aria-expanded="false"
               class="govuk-link">
-                + Show all page updates (<%= @content_item.previous_changes.length %>)
+                + Show all page updates (<%= @presenter.previous_changes.length %>)
             </a>
           </p>
           <ol id="full-history" class="app-change-history__past govuk-list js-hidden" aria-live="polite" role="region">
-            <% @content_item.previous_changes.each do |previous_change| %>
+            <% @presenter.previous_changes.each do |previous_change| %>
               <li>
-                <%= render partial: 'shared/change_history', locals: { change: previous_change, compressed: true} %>
+                <%= render partial: "service_manual/change_history", locals: { change: previous_change, compressed: true} %>
               </li>
             <% end %>
           </ol>

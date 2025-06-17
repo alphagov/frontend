@@ -78,7 +78,9 @@
               } %>
           <% end %>
 
-
+          <div class="govuk-!-margin-bottom-8">
+            <%= render 'govuk_publishing_components/components/document_list', items: @presenter.group_as_document_list(group) %>
+          </div>
         <% end %>
       </div>
 

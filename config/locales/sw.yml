@@ -389,16 +389,19 @@ sw:
   find:
   formats:
     authored_article:
-      one: Makala ya maelezo ya mwandishi
-      other: Makala ya maelezo ya mwandishi
+      name:
+        one: Makala ya maelezo ya mwandishi
+        other: Makala ya maelezo ya mwandishi
     case_study:
-      one: Uchunguzi kifani
-      other: Uchunguzi kifani
+      name:
+        one: Uchunguzi kifani
+        other: Uchunguzi kifani
     corporate_information_page:
       about_our_services_html: Pata maelezo kuhusu %{link}.
       corporate_information: Maelezo ya shirika
-      one: Ukurasa wa maelezo
-      other: Kurasa za maelezo
+      name:
+        one: Ukurasa wa maelezo
+        other: Kurasa za maelezo
       personal_information_charter_html: "%{link} yetu inafafanua jinsi tunavyoshughulikia maelezo yako ya kibinafsi."
       publication_scheme_html: Soma maelezo kuhusu aina za maelezo tunayochapisha kila wakati kwenye %{link} yetu.
       social_media_use_html: Soma sera yetu kwenye %{link}.
@@ -406,10 +409,11 @@ sw:
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi
+      name:
+        one: Notisi ya idadi ya vifo
+        other: Notisi za idadi ya vifo
       none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
-      one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
-      other: Notisi za idadi ya vifo
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ sw:
       updated:
       your_views:
     government_response:
-      one: Hatua iliyochukuliwa na serikali
-      other: Hatua zilizochukuliwa na serikali
+      name:
+        one: Hatua iliyochukuliwa na serikali
+        other: Hatua zilizochukuliwa na serikali
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ sw:
       website:
       what_you_need_to_know:
     news_article:
-      one: Makala ya habari
-      other: Makala ya habari
+      name:
+        one: Makala ya habari
+        other: Makala ya habari
     news_story:
-      one: Taarifa ya habari
-      other: Taarifa za habari
+      name:
+        one: Taarifa ya habari
+        other: Taarifa za habari
     oral_statement:
-      one: Taarifa ya Matamshi kwa Bunge
-      other: Taarifa za Matamshi kwa Bunge
+      name:
+        one: Taarifa ya Matamshi kwa Bunge
+        other: Taarifa za Matamshi kwa Bunge
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Taarifa kwa vyombo vya habari
-      other: Taarifa kwa vyombo vya habari
+      name:
+        one: Taarifa kwa vyombo vya habari
+        other: Taarifa kwa vyombo vya habari
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ sw:
     speech:
       delivered_on: Iliwasilishwa mnamo
       location: Mahali
-      one: Hotuba
-      other: Hotuba
+      name:
+        one: Hotuba
+        other: Hotuba
       written_on: Iliandikwa mnamo
     start_now:
     take_part:
-      one: Shiriki
-      other: Shiriki
+      name:
+        one: Shiriki
+        other: Shiriki
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ sw:
       summary: Muhtasari
       updated: Ulisasishwa
     world_news_story:
-      one: Taarifa ya habari za kimataifa
-      other: Taarifa za habari za kimataifa
+      name:
+        one: Taarifa ya habari za kimataifa
+        other: Taarifa za habari za kimataifa
     written_statement:
-      one: Taarifa ya Maandishi kwa Bunge
-      other: Taarifa za Maandishi kwa Bunge
+      name:
+        one: Taarifa ya Maandishi kwa Bunge
+        other: Taarifa za Maandishi kwa Bunge
   help:
     index:
       about:

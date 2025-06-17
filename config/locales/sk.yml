@@ -462,31 +462,35 @@ sk:
   find:
   formats:
     authored_article:
-      few:
-      one: Autor článku
-      other: Autorské články
+      name:
+        few:
+        one: Autor článku
+        other: Autorské články
     case_study:
-      few:
-      one: Prípadová štúdia
-      other: Prípadové štúdie
+      name:
+        few:
+        one: Prípadová štúdia
+        other: Prípadové štúdie
     corporate_information_page:
       about_our_services_html: Zistite %{link}.
       corporate_information: Firemné informácie
-      few:
-      one: Informačná stránka
-      other: Informačné stránky
+      name:
+        few:
+        one: Informačná stránka
+        other: Informačné stránky
       personal_information_charter_html: Náš %{link} vysvetľuje, ako zaobchádzame s vašimi osobnými údajmi.
       publication_scheme_html: Prečítajte si o typoch informácií, ktoré bežne zverejňujeme v našom %{link}.
       social_media_use_html: Prečítajte si naše zásady na %{link}.
       welsh_language_scheme_html: Prečítajte si o našom záväzku voči %{link}.
     fatality_notice:
       alt_text: Erb ministerstva obrany
-      few:
       field_of_operation: Oblasť činnosti
+      name:
+        few:
+        one: Oznámenie o úmrtí
+        other: Oznámenia o úmrtí
       none_added: Pre túto oblasť činnosti zatiaľ neboli pridané žiadne oznámenia o úmrtí.
-      one: Oznámenie o úmrtí
       operations_in: Operácie v %{location}
-      other: Oznámenia o úmrtí
     field_of_operation:
       context:
       title:
@@ -535,9 +539,10 @@ sk:
       updated:
       your_views:
     government_response:
-      few:
-      one: Odpoveď vlády
-      other: Odpovede vlády
+      name:
+        few:
+        one: Odpoveď vlády
+        other: Odpovede vlády
     licence:
       change:
     local_transaction:
@@ -592,26 +597,30 @@ sk:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Spravodajský článok
-      other: Spravodajské články
+      name:
+        few:
+        one: Spravodajský článok
+        other: Spravodajské články
     news_story:
-      few:
-      one: Spravodajský príbeh
-      other: Spravodajské príbehy
+      name:
+        few:
+        one: Spravodajský príbeh
+        other: Spravodajské príbehy
     oral_statement:
-      few:
-      one: Ústne vyhlásenie pred Parlamentom
-      other: Ústne vyhlásenia pred Parlamentom
+      name:
+        few:
+        one: Ústne vyhlásenie pred Parlamentom
+        other: Ústne vyhlásenia pred Parlamentom
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Tlačová správa
-      other: Tlačové správy
+      name:
+        few:
+        one: Tlačová správa
+        other: Tlačové správy
     simple_smart_answer:
       change:
       next_step:
@@ -625,16 +634,18 @@ sk:
         tsg_alt_text: Logo schémy je čierna pečiatka s nápisom Traditional Speciality UK Protected
     speech:
       delivered_on: Doručené dňa
-      few:
       location: Umiestnenie
-      one: Prejav
-      other: Prejay
+      name:
+        few:
+        one: Prejav
+        other: Prejay
       written_on: Napísané dňa
     start_now:
     take_part:
-      few:
-      one: Zúčastniť sa
-      other: Zúčastniť sa
+      name:
+        few:
+        one: Zúčastniť sa
+        other: Zúčastniť sa
     transaction:
       before_you_start:
       more_information:
@@ -654,13 +665,15 @@ sk:
       summary: Zhrnutie
       updated: Aktualizované
     world_news_story:
-      few:
-      one: Svetové spravodajstvo
-      other: Svetové spravodajstvá
+      name:
+        few:
+        one: Svetové spravodajstvo
+        other: Svetové spravodajstvá
     written_statement:
-      few:
-      one: Písomné vyhlásenie pre Parlament
-      other: Písomné vyhlásenia pre Parlament
+      name:
+        few:
+        one: Písomné vyhlásenie pre Parlament
+        other: Písomné vyhlásenia pre Parlament
   help:
     index:
       about:

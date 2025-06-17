@@ -391,16 +391,19 @@ en:
   find: Find
   formats:
     authored_article:
-      one: Authored article
-      other: Authored articles
+      name:
+        one: Authored article
+        other: Authored articles
     case_study:
-      one: Case study
-      other: Case studies
+      name:
+        one: Case study
+        other: Case studies
     corporate_information_page:
       about_our_services_html: Find out %{link}.
       corporate_information: Corporate information
-      one: Information page
-      other: Information pages
+      name:
+        one: Information page
+        other: Information pages
       personal_information_charter_html: Our %{link} explains how we treat your personal information.
       publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
       social_media_use_html: Read our policy on %{link}.
@@ -408,10 +411,11 @@ en:
     fatality_notice:
       alt_text: Ministry of Defence crest
       field_of_operation: Field of operation
+      name:
+        one: Fatality notice
+        other: Fatality notices
       none_added: There have been no fatality notices added for this field of operation yet.
-      one: Fatality notice
       operations_in: Operations in %{location}
-      other: Fatality notices
     field_of_operation:
       context: British fatalities
       title: Operations in
@@ -460,8 +464,9 @@ en:
       updated: Updated
       your_views: You can give your views on new or changing government policies by responding to consultations. Government departments take these responses into consideration before making decisions.
     government_response:
-      one: Government response
-      other: Government responses
+      name:
+        one: Government response
+        other: Government responses
     licence:
       change: Change
     local_transaction:
@@ -519,22 +524,26 @@ en:
       website: You can get information on their website.
       what_you_need_to_know: What you need to know
     news_article:
-      one: News article
-      other: News articles
+      name:
+        one: News article
+        other: News articles
     news_story:
-      one: News story
-      other: News stories
+      name:
+        one: News story
+        other: News stories
     oral_statement:
-      one: Oral statement to Parliament
-      other: Oral statements to Parliament
+      name:
+        one: Oral statement to Parliament
+        other: Oral statements to Parliament
     place:
       change: Change
       find_results: Find results near you
       postcode: Postcode
       select_address: Select an address
     press_release:
-      one: Press release
-      other: Press releases
+      name:
+        one: Press release
+        other: Press releases
     simple_smart_answer:
       change: Change
       next_step: Next step
@@ -549,13 +558,15 @@ en:
     speech:
       delivered_on: Delivered on
       location: Location
-      one: Speech
-      other: Speeches
+      name:
+        one: Speech
+        other: Speeches
       written_on: Written on
     start_now: Start now
     take_part:
-      one: Take part
-      other: Take part
+      name:
+        one: Take part
+        other: Take part
     transaction:
       before_you_start: Before you start
       more_information: More information
@@ -575,11 +586,13 @@ en:
       summary: Summary
       updated: Updated
     world_news_story:
-      one: World news story
-      other: World news stories
+      name:
+        one: World news story
+        other: World news stories
     written_statement:
-      one: Written statement to Parliament
-      other: Written statements to Parliament
+      name:
+        one: Written statement to Parliament
+        other: Written statements to Parliament
   help:
     index:
       about: About GOV.UK

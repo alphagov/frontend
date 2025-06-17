@@ -535,35 +535,39 @@ uk:
   find:
   formats:
     authored_article:
-      few:
-      many:
-      one: Авторська стаття
-      other: Авторські статті
+      name:
+        few:
+        many:
+        one: Авторська стаття
+        other: Авторські статті
     case_study:
-      few:
-      many:
-      one: Аналіз ситуації
-      other: Аналізи ситуації
+      name:
+        few:
+        many:
+        one: Аналіз ситуації
+        other: Аналізи ситуації
     corporate_information_page:
       about_our_services_html: Дізнатися %{link}.
       corporate_information: Корпоративна інформація
-      few:
-      many:
-      one: Інформаційна сторінка
-      other: Інформаційні сторінки
+      name:
+        few:
+        many:
+        one: Інформаційна сторінка
+        other: Інформаційні сторінки
       personal_information_charter_html: Наш %{link} пояснює, як ми обробляємо ваші персональні дані.
       publication_scheme_html: Про те, які типи інформації ми регулярно публікуємо, читайте у нашому %{link}.
       social_media_use_html: Ознайомтеся із нашою політикою на %{link}.
       welsh_language_scheme_html: Дізнайтесь про дотримання нами %{link}.
     fatality_notice:
       alt_text: Герб Міністерства оборони
-      few:
       field_of_operation: Сфера діяльності
-      many:
+      name:
+        few:
+        many:
+        one: Повідомлення про нещасний випадок зі смертельним наслідком
+        other: Повідомлення про нещасний випадок зі смертельним наслідком
       none_added: Поки що не було додано жодних повідомлень про нещасні випадки зі смертельним наслідком в цій сфері діяльності.
-      one: Повідомлення про нещасний випадок зі смертельним наслідком
       operations_in: Операції в %{location}
-      other: Повідомлення про нещасний випадок зі смертельним наслідком
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ uk:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: Відповідь уряду
-      other: Відповіді уряду
+      name:
+        few:
+        many:
+        one: Відповідь уряду
+        other: Відповіді уряду
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ uk:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      many:
-      one: Новини
-      other: Новини
+      name:
+        few:
+        many:
+        one: Новини
+        other: Новини
     news_story:
-      few:
-      many:
-      one: Сюжет новин
-      other: Сюжети новин
+      name:
+        few:
+        many:
+        one: Сюжет новин
+        other: Сюжети новин
     oral_statement:
-      few:
-      many:
-      one: Усна заява до Парламенту
-      other: Усні заяви до Парламенту
+      name:
+        few:
+        many:
+        one: Усна заява до Парламенту
+        other: Усні заяви до Парламенту
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      many:
-      one: Пресреліз
-      other: Пресрелізи
+      name:
+        few:
+        many:
+        one: Пресреліз
+        other: Пресрелізи
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ uk:
         tsg_alt_text: Логотип схеми –– це чорний штамп зі словами Traditional Speciality UK Protected
     speech:
       delivered_on: Доставлено
-      few:
       location: Розташування
-      many:
-      one: Виступ
-      other: Виступи
+      name:
+        few:
+        many:
+        one: Виступ
+        other: Виступи
       written_on: Написано
     start_now:
     take_part:
-      few:
-      many:
-      one: Взяти участь
-      other: Взяти участь
+      name:
+        few:
+        many:
+        one: Взяти участь
+        other: Взяти участь
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ uk:
       summary: Резюме
       updated: Оновлено
     world_news_story:
-      few:
-      many:
-      one: Сюжет міжнародних новин
-      other: Сюжети міжнародних новин
+      name:
+        few:
+        many:
+        one: Сюжет міжнародних новин
+        other: Сюжети міжнародних новин
     written_statement:
-      few:
-      many:
-      one: Письмова заява до Парламенту
-      other: Письмові заяви до Парламенту
+      name:
+        few:
+        many:
+        one: Письмова заява до Парламенту
+        other: Письмові заяви до Парламенту
   help:
     index:
       about:

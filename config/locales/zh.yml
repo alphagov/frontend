@@ -316,13 +316,16 @@ zh:
   find:
   formats:
     authored_article:
-      other: 撰写文章
+      name:
+        other: 撰写文章
     case_study:
-      other: 案例研究
+      name:
+        other: 案例研究
     corporate_information_page:
       about_our_services_html: 查找 %{link}。
       corporate_information: 公司信息
-      other: 信息页
+      name:
+        other: 信息页
       personal_information_charter_html: 我们的 %{link} 解释我们如何处理您的个人信息。
       publication_scheme_html: 阅读我们在 %{link} 中例行发布的信息类型。
       social_media_use_html: 阅读我们在 %{link} 的政策。
@@ -330,9 +333,10 @@ zh:
     fatality_notice:
       alt_text: 国防部徽章
       field_of_operation: 经营领域
+      name:
+        other: 死亡通知
       none_added: 目前还没有关于这一经营领域的死亡通知。
       operations_in: 在 %{location} 经营
-      other: 死亡通知
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ zh:
       updated:
       your_views:
     government_response:
-      other: 政府回应
+      name:
+        other: 政府回应
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ zh:
       website:
       what_you_need_to_know:
     news_article:
-      other: 新闻报道
+      name:
+        other: 新闻报道
     news_story:
-      other: 新闻故事
+      name:
+        other: 新闻故事
     oral_statement:
-      other: 议会口头声明
+      name:
+        other: 议会口头声明
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: 新闻稿
+      name:
+        other: 新闻稿
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ zh:
     speech:
       delivered_on: 提交日期
       location: 位置
-      other: 演讲
+      name:
+        other: 演讲
       written_on: 书写日期
     start_now:
     take_part:
-      other: 参加
+      name:
+        other: 参加
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ zh:
       summary: 总结
       updated: 已更新
     world_news_story:
-      other: 世界新闻故事
+      name:
+        other: 世界新闻故事
     written_statement:
-      other: 议会口头声明
+      name:
+        other: 议会口头声明
   help:
     index:
       about:

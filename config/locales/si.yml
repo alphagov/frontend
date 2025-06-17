@@ -389,16 +389,19 @@ si:
   find:
   formats:
     authored_article:
-      one: රචනා කළ ලිපිය
-      other: රචනා කළ ලිපි
+      name:
+        one: රචනා කළ ලිපිය
+        other: රචනා කළ ලිපි
     case_study:
-      one: සිද්ධි අධ්යයනය
-      other: සිද්ධි අධ්යයන
+      name:
+        one: සිද්ධි අධ්යයනය
+        other: සිද්ධි අධ්යයන
     corporate_information_page:
       about_our_services_html: "%{link} සොයන්න."
       corporate_information: ආයතනික තොරතුරු
-      one: තොරතුරු පිටුව
-      other: තොරතුරු පිටු
+      name:
+        one: තොරතුරු පිටුව
+        other: තොරතුරු පිටු
       personal_information_charter_html: අගේ %{link} අපි ඔබගේ පුද්ගලික තොරතුරු හසුරුවන ආකාරය විස්තර කරයි.
       publication_scheme_html: අපේ %{link} තුල අපි ආකාරික ලෙස ප්රකාශයට පත් කරන තොරතුරු වර්ග ගැන කියවන්න.
       social_media_use_html: අපේ ප්රතිපත්තිය කියවන්න %{link}.
@@ -406,10 +409,11 @@ si:
     fatality_notice:
       alt_text: ආරක්ෂක අමාත්යාංශ ලාංඡනය
       field_of_operation: මෙහෙයුම් ක්ෂේත්රය
+      name:
+        one: මරණ දැන්වීම
+        other: මරණ දැන්වීම්
       none_added: මෙම මෙහෙයුම් ක්ෂේත්රයට තවමත් මරණ දැන්වීම් එකතු කර නොමැත.
-      one: මරණ දැන්වීම
       operations_in: "%{location} තුළ මෙහෙයුම්"
-      other: මරණ දැන්වීම්
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ si:
       updated:
       your_views:
     government_response:
-      one: රජයේ ප්රතිචාරය
-      other: රජයේ ප්රතිචාර
+      name:
+        one: රජයේ ප්රතිචාරය
+        other: රජයේ ප්රතිචාර
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ si:
       website:
       what_you_need_to_know:
     news_article:
-      one: පුවත් ලිපිය
-      other: පුවත් ලිපි
+      name:
+        one: පුවත් ලිපිය
+        other: පුවත් ලිපි
     news_story:
-      one: පුවත් කතාව
-      other: පුවත් කතා
+      name:
+        one: පුවත් කතාව
+        other: පුවත් කතා
     oral_statement:
-      one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
-      other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
+      name:
+        one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+        other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: මාධ්ය නිවේදනය
-      other: මාධ්ය නිවේදන
+      name:
+        one: මාධ්ය නිවේදනය
+        other: මාධ්ය නිවේදන
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ si:
     speech:
       delivered_on: බෙදාහරින ලද දිනය
       location: ස්ථානය
-      one: කථාව
-      other: කථා
+      name:
+        one: කථාව
+        other: කථා
       written_on: ලියන ලද දිනය
     start_now:
     take_part:
-      one: සහභාගී වන්න
-      other: සහභාගී වන්න
+      name:
+        one: සහභාගී වන්න
+        other: සහභාගී වන්න
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ si:
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
     world_news_story:
-      one: ලෝක පුවත් කතාව
-      other: ලෝක පුවත් කතා
+      name:
+        one: ලෝක පුවත් කතාව
+        other: ලෝක පුවත් කතා
     written_statement:
-      one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
-      other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
+      name:
+        one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+        other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   help:
     index:
       about:

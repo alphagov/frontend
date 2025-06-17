@@ -316,13 +316,16 @@ ja:
   find:
   formats:
     authored_article:
-      other: 執筆記事
+      name:
+        other: 執筆記事
     case_study:
-      other: ケーススタディ
+      name:
+        other: ケーススタディ
     corporate_information_page:
       about_our_services_html: "%{link} をご覧ください。"
       corporate_information: 各種情報
-      other: 情報ページ
+      name:
+        other: 情報ページ
       personal_information_charter_html: 個人情報の取り扱いについては %{link} をご覧下さい。
       publication_scheme_html: 情報公開の種類については %{link} をご覧下さい。
       social_media_use_html: "%{link} に関する政策をご覧下さい。"
@@ -330,9 +333,10 @@ ja:
     fatality_notice:
       alt_text: 国防省の紋章
       field_of_operation: 運用分野
+      name:
+        other: 死亡通知
       none_added: この活動分野での死亡通知はまだ追加されていません。
       operations_in: "%{location} での操作"
-      other: 死亡通知
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ ja:
       updated:
       your_views:
     government_response:
-      other: 政府の対応
+      name:
+        other: 政府の対応
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ ja:
       website:
       what_you_need_to_know:
     news_article:
-      other: ニュース記事
+      name:
+        other: ニュース記事
     news_story:
-      other: ニュースストーリー
+      name:
+        other: ニュースストーリー
     oral_statement:
-      other: 議会への口頭声明
+      name:
+        other: 議会への口頭声明
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: プレスリリース
+      name:
+        other: プレスリリース
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ ja:
     speech:
       delivered_on: 配信日：
       location: 場所
-      other: スピーチ
+      name:
+        other: スピーチ
       written_on: 記述日：
     start_now:
     take_part:
-      other: 参加する
+      name:
+        other: 参加する
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ ja:
       summary: 概要
       updated: 更新済み
     world_news_story:
-      other: 世界のニュース記事
+      name:
+        other: 世界のニュース記事
     written_statement:
-      other: 議会への書面による声明
+      name:
+        other: 議会への書面による声明
   help:
     index:
       about:

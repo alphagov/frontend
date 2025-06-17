@@ -389,16 +389,19 @@ it:
   find:
   formats:
     authored_article:
-      one: Articolo d’autore
-      other: Articoli d’autore
+      name:
+        one: Articolo d’autore
+        other: Articoli d’autore
     case_study:
-      one: Caso di studio
-      other: Casi di studio
+      name:
+        one: Caso di studio
+        other: Casi di studio
     corporate_information_page:
       about_our_services_html: Trova %{link}.
       corporate_information: Informazioni aziendali
-      one: Pagina informativa
-      other: Pagine informative
+      name:
+        one: Pagina informativa
+        other: Pagine informative
       personal_information_charter_html: Il nostro %{link} spiega come trattiamo i tuoi dati personali.
       publication_scheme_html: Leggi i tipi di informazioni che pubblichiamo abitualmente nel nostro %{link}.
       social_media_use_html: Leggi la nostra informativa su %{link}.
@@ -406,10 +409,11 @@ it:
     fatality_notice:
       alt_text: Stemma del Ministero della Difesa
       field_of_operation: Campo operativo
+      name:
+        one: Avviso di morte
+        other: Avvisi di morte
       none_added: Non sono stati ancora aggiunti avvisi di morte per questo campo di attività.
-      one: Avviso di morte
       operations_in: Operazioni in %{location}
-      other: Avvisi di morte
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ it:
       updated:
       your_views:
     government_response:
-      one: Risposta del governo
-      other: Risposte del governo
+      name:
+        one: Risposta del governo
+        other: Risposte del governo
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ it:
       website:
       what_you_need_to_know:
     news_article:
-      one: Articolo di notizie
-      other: Articoli di notizie
+      name:
+        one: Articolo di notizie
+        other: Articoli di notizie
     news_story:
-      one: Storia di notizie
-      other: Storie di notizie
+      name:
+        one: Storia di notizie
+        other: Storie di notizie
     oral_statement:
-      one: Dichiarazione orale al Parlamento
-      other: Dichiarazioni orali al Parlamento
+      name:
+        one: Dichiarazione orale al Parlamento
+        other: Dichiarazioni orali al Parlamento
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Comunicato stampa
-      other: Comunicati stampa
+      name:
+        one: Comunicato stampa
+        other: Comunicati stampa
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ it:
     speech:
       delivered_on: Consegnato il
       location: Posizione
-      one: Discorso
-      other: Discorsi
+      name:
+        one: Discorso
+        other: Discorsi
       written_on: Scritto il
     start_now:
     take_part:
-      one: Prendere parte
-      other: Prendere parte
+      name:
+        one: Prendere parte
+        other: Prendere parte
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ it:
       summary: Riepilogo
       updated: Aggiornato
     world_news_story:
-      one: Storia di notizie dal mondo
-      other: Storie di notizie dal mondo
+      name:
+        one: Storia di notizie dal mondo
+        other: Storie di notizie dal mondo
     written_statement:
-      one: Dichiarazione scritta al Parlamento
-      other: Dichiarazioni scritte al Parlamento
+      name:
+        one: Dichiarazione scritta al Parlamento
+        other: Dichiarazioni scritte al Parlamento
   help:
     index:
       about:

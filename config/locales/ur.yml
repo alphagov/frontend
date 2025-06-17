@@ -389,16 +389,19 @@ ur:
   find:
   formats:
     authored_article:
-      one: مصنف کے نام کے ساتھ لکھا مضمون
-      other: مصنف کے نام کے ساتھ لکھے مضامین
+      name:
+        one: مصنف کے نام کے ساتھ لکھا مضمون
+        other: مصنف کے نام کے ساتھ لکھے مضامین
     case_study:
-      one: کیس اسٹڈی
-      other: کیس اسٹڈیز
+      name:
+        one: کیس اسٹڈی
+        other: کیس اسٹڈیز
     corporate_information_page:
       about_our_services_html: "%{link} کو جانیے۔"
       corporate_information: کارپوریٹ معلومات
-      one: معلومات کا صفحہ
-      other: معلومات کے صفحات
+      name:
+        one: معلومات کا صفحہ
+        other: معلومات کے صفحات
       personal_information_charter_html: ہماری %{link} بیان کرتی ہے کہ ہم آپ کی ذاتی معلومات سے کیسے نمٹتے ہیں۔
       publication_scheme_html: ہماری %{link} میں ہماری جانب سے معمول کے حساب سے شائع کی جانے والی معلومات کی اقسام کے بارے میں پڑھیں۔
       social_media_use_html: "%{link} پر ہماری پالیسی کو پڑھیں۔"
@@ -406,10 +409,11 @@ ur:
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ
+      name:
+        one: موت کا نوٹس
+        other: موت کے نوٹسز
       none_added: اس کارروائی کی فیلڈ کے لیے ابھی تک کوئی موت کے نوٹسز شامل نہیں کیے گئے۔
-      one: موت کا نوٹس
       operations_in: "%{location} میں کارروائیاں"
-      other: موت کے نوٹسز
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ ur:
       updated:
       your_views:
     government_response:
-      one: حکومت کا جواب
-      other: حکومت کے جوابات
+      name:
+        one: حکومت کا جواب
+        other: حکومت کے جوابات
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ ur:
       website:
       what_you_need_to_know:
     news_article:
-      one: خبروں کا مضمون
-      other: خبروں کے مضامین
+      name:
+        one: خبروں کا مضمون
+        other: خبروں کے مضامین
     news_story:
-      one: خبروں کی کہانی
-      other: خبروں کی کہانیاں
+      name:
+        one: خبروں کی کہانی
+        other: خبروں کی کہانیاں
     oral_statement:
-      one: پارلیمان کے لیے زبانی بیان
-      other: پارلیمان کے لیے زبانی بیانات
+      name:
+        one: پارلیمان کے لیے زبانی بیان
+        other: پارلیمان کے لیے زبانی بیانات
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: پریس ریلیز
-      other: پریس ریلیزز
+      name:
+        one: پریس ریلیز
+        other: پریس ریلیزز
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ ur:
     speech:
       delivered_on: ترسیل کردہ بتاریخ
       location: مقام
-      one: تقریر
-      other: تقاریر
+      name:
+        one: تقریر
+        other: تقاریر
       written_on: تحریر کردہ بتاریخ
     start_now:
     take_part:
-      one: شرکت کریں
-      other: شرکت کریں
+      name:
+        one: شرکت کریں
+        other: شرکت کریں
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ ur:
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
     world_news_story:
-      one: دنیا کی خبروں کی کہانی
-      other: دنیا کی خبروں کی کہانیاں
+      name:
+        one: دنیا کی خبروں کی کہانی
+        other: دنیا کی خبروں کی کہانیاں
     written_statement:
-      one: پالیمان کے لیے تحریری بیان
-      other: پالیمان کے لیے تحریری بیانات
+      name:
+        one: پالیمان کے لیے تحریری بیان
+        other: پالیمان کے لیے تحریری بیانات
   help:
     index:
       about:

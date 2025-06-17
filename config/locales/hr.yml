@@ -462,31 +462,35 @@ hr:
   find:
   formats:
     authored_article:
-      few:
-      one: Autorski članak
-      other: Autorski članci
+      name:
+        few:
+        one: Autorski članak
+        other: Autorski članci
     case_study:
-      few:
-      one: Studija slučaja
-      other: Studije slučaja
+      name:
+        few:
+        one: Studija slučaja
+        other: Studije slučaja
     corporate_information_page:
       about_our_services_html: Saznajte %{link}.
       corporate_information: Korporativne informacije
-      few:
-      one: Stranica s informacijama
-      other: Stranice s informacijama
+      name:
+        few:
+        one: Stranica s informacijama
+        other: Stranice s informacijama
       personal_information_charter_html: Naš %{link} objašnjava kako postupamo s vašim osobnim podacima.
       publication_scheme_html: Pročitajte o vrstama informacija koje redovito objavljujemo u našoj %{link}.
       social_media_use_html: Pročitajte naša pravila na %{link}.
       welsh_language_scheme_html: Saznajte o našoj predanosti %{link}.
     fatality_notice:
       alt_text: Grb Ministarstva obrane
-      few:
       field_of_operation: Područje djelovanja
+      name:
+        few:
+        one: Obavijest o smrtnom slučaju
+        other: Obavijest o smrtnim slučajevima
       none_added: Za ovo područje djelovanja još nema dodanih obavijesti o smrtnim slučajevima.
-      one: Obavijest o smrtnom slučaju
       operations_in: Operacije u %{location}
-      other: Obavijest o smrtnim slučajevima
     field_of_operation:
       context:
       title:
@@ -535,9 +539,10 @@ hr:
       updated:
       your_views:
     government_response:
-      few:
-      one: Odgovor vlade
-      other: Odgovori vlade
+      name:
+        few:
+        one: Odgovor vlade
+        other: Odgovori vlade
     licence:
       change:
     local_transaction:
@@ -592,26 +597,30 @@ hr:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Novinski članak
-      other: Novinski članci
+      name:
+        few:
+        one: Novinski članak
+        other: Novinski članci
     news_story:
-      few:
-      one: Novosti
-      other: Novosti
+      name:
+        few:
+        one: Novosti
+        other: Novosti
     oral_statement:
-      few:
-      one: Usmena izjava Parlamentu
-      other: Usmene izjave Parlamentu
+      name:
+        few:
+        one: Usmena izjava Parlamentu
+        other: Usmene izjave Parlamentu
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Saopćenje za javnost
-      other: Saopćenja za javnost
+      name:
+        few:
+        one: Saopćenje za javnost
+        other: Saopćenja za javnost
     simple_smart_answer:
       change:
       next_step:
@@ -625,16 +634,18 @@ hr:
         tsg_alt_text: Logo sheme je crni pečat s riječima Tradicionalni Specijalitet UK Zaštićeno
     speech:
       delivered_on: Dostavljeno
-      few:
       location: Mjesto
-      one: Govor
-      other: Govori
+      name:
+        few:
+        one: Govor
+        other: Govori
       written_on: Napisano
     start_now:
     take_part:
-      few:
-      one: Sudjelovati
-      other: Sudjelovati
+      name:
+        few:
+        one: Sudjelovati
+        other: Sudjelovati
     transaction:
       before_you_start:
       more_information:
@@ -654,13 +665,15 @@ hr:
       summary: Sažetak
       updated: Ažurirano
     world_news_story:
-      few:
-      one: Vijest iz svijeta
-      other: Vijesti iz svijeta
+      name:
+        few:
+        one: Vijest iz svijeta
+        other: Vijesti iz svijeta
     written_statement:
-      few:
-      one: Pismena izjava Parlamentu
-      other: Pismene izjave Parlamentu
+      name:
+        few:
+        one: Pismena izjava Parlamentu
+        other: Pismene izjave Parlamentu
   help:
     index:
       about:

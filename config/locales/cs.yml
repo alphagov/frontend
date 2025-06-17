@@ -462,31 +462,35 @@ cs:
   find:
   formats:
     authored_article:
-      few:
-      one: Autorský článek
-      other: Autorské články
+      name:
+        few:
+        one: Autorský článek
+        other: Autorské články
     case_study:
-      few:
-      one: Případová studie
-      other: Případové studie
+      name:
+        few:
+        one: Případová studie
+        other: Případové studie
     corporate_information_page:
       about_our_services_html: Zjistěte %{link}.
       corporate_information: Firemní informace
-      few:
-      one: Informační stránka
-      other: Informační stránky
+      name:
+        few:
+        one: Informační stránka
+        other: Informační stránky
       personal_information_charter_html: Náš %{link} vysvětluje, jak nakládáme s vašimi osobními údaji.
       publication_scheme_html: Přečtěte si, jaké informace běžně zveřejňujeme v našem %{link}.
       social_media_use_html: Přečtěte si naše zásady na %{link}.
       welsh_language_scheme_html: Přečtěte si o našem závazku k %{link}.
     fatality_notice:
       alt_text: Ministerstvo obrany
-      few:
       field_of_operation: Oblast provozu
+      name:
+        few:
+        one: Oznámení o úmrtí
+        other: Oznámení o úmrtí
       none_added: Pro tuto oblast činnosti zatím nebyla přidána žádná oznámení o úmrtí.
-      one: Oznámení o úmrtí
       operations_in: Operace v %{location}
-      other: Oznámení o úmrtí
     field_of_operation:
       context:
       title:
@@ -535,9 +539,10 @@ cs:
       updated:
       your_views:
     government_response:
-      few:
-      one: Reakce vlády
-      other: Reakce vlády
+      name:
+        few:
+        one: Reakce vlády
+        other: Reakce vlády
     licence:
       change:
     local_transaction:
@@ -592,26 +597,30 @@ cs:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Zpravodajský článek
-      other: Zpravodajské články
+      name:
+        few:
+        one: Zpravodajský článek
+        other: Zpravodajské články
     news_story:
-      few:
-      one: Zpravodajský příběh
-      other: Zpravodajské příběhy
+      name:
+        few:
+        one: Zpravodajský příběh
+        other: Zpravodajské příběhy
     oral_statement:
-      few:
-      one: Ústní prohlášení pro Parlament
-      other: Ústní prohlášení pro Parlament
+      name:
+        few:
+        one: Ústní prohlášení pro Parlament
+        other: Ústní prohlášení pro Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Tisková zpráva
-      other: Tiskové zprávy
+      name:
+        few:
+        one: Tisková zpráva
+        other: Tiskové zprávy
     simple_smart_answer:
       change:
       next_step:
@@ -625,16 +634,18 @@ cs:
         tsg_alt_text: Logo programu je černé razítko s nápisem Tradiční specialita chráněná ve Spojeném království
     speech:
       delivered_on: Doručeno dne
-      few:
       location: Sídlo
-      one: Projev
-      other: Projevy
+      name:
+        few:
+        one: Projev
+        other: Projevy
       written_on: Odepsané
     start_now:
     take_part:
-      few:
-      one: Zúčastněte se
-      other: Zúčastněte se
+      name:
+        few:
+        one: Zúčastněte se
+        other: Zúčastněte se
     transaction:
       before_you_start:
       more_information:
@@ -654,13 +665,15 @@ cs:
       summary: Shrnutí
       updated: Aktualizováno
     world_news_story:
-      few:
-      one: Zprávy ze světa
-      other: Zprávy ze světa
+      name:
+        few:
+        one: Zprávy ze světa
+        other: Zprávy ze světa
     written_statement:
-      few:
-      one: Písemné prohlášení pro Parlament
-      other: Písemná prohlášení pro Parlament
+      name:
+        few:
+        one: Písemné prohlášení pro Parlament
+        other: Písemná prohlášení pro Parlament
   help:
     index:
       about:

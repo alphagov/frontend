@@ -316,13 +316,16 @@ ms:
   find:
   formats:
     authored_article:
-      other: Artikel ditulis penulis
+      name:
+        other: Artikel ditulis penulis
     case_study:
-      other: Kajian kes
+      name:
+        other: Kajian kes
     corporate_information_page:
       about_our_services_html: Ketahui %{link}.
       corporate_information: Maklumat korporat
-      other: Halaman maklumat
+      name:
+        other: Halaman maklumat
       personal_information_charter_html: "%{link} kami menerangkan bagaimana kami menggunakan maklumat peribadi anda."
       publication_scheme_html: Baca tentang jenis maklumat yang kami biasa terbitkan dalam %{link} kami.
       social_media_use_html: Baca dasar kami di %{link}.
@@ -330,9 +333,10 @@ ms:
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Medan operasi
+      name:
+        other: Notis kematian
       none_added: Belum ada notis kematian yang ditambahkan untuk medan operasi ini.
       operations_in: Operasi di %{location}
-      other: Notis kematian
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ ms:
       updated:
       your_views:
     government_response:
-      other: Respons kerajaan
+      name:
+        other: Respons kerajaan
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ ms:
       website:
       what_you_need_to_know:
     news_article:
-      other: Artikel berita
+      name:
+        other: Artikel berita
     news_story:
-      other: Berita
+      name:
+        other: Berita
     oral_statement:
-      other: Kenyataan lisan kepada Parlimen
+      name:
+        other: Kenyataan lisan kepada Parlimen
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: Siaran akhbar
+      name:
+        other: Siaran akhbar
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ ms:
     speech:
       delivered_on: Dihantar pada
       location: Lokasi
-      other: Ucapan
+      name:
+        other: Ucapan
       written_on: Ditulis pada
     start_now:
     take_part:
-      other: Ambil bahagian
+      name:
+        other: Ambil bahagian
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ ms:
       summary: Ringkasan
       updated: Dikemas kini
     world_news_story:
-      other: Berita dunia
+      name:
+        other: Berita dunia
     written_statement:
-      other: Kenyataan bertulis kepada Parlimen
+      name:
+        other: Kenyataan bertulis kepada Parlimen
   help:
     index:
       about:

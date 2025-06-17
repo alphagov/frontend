@@ -389,16 +389,19 @@ dr:
   find:
   formats:
     authored_article:
-      one: مقاله تألیف شده
-      other: مقالات تألیف شده
+      name:
+        one: مقاله تألیف شده
+        other: مقالات تألیف شده
     case_study:
-      one: مطالعه موردی
-      other: مطالعات موردی
+      name:
+        one: مطالعه موردی
+        other: مطالعات موردی
     corporate_information_page:
       about_our_services_html: دریابید%{link}.
       corporate_information: اطلاعات شرکت
-      one: صفحه معلومات
-      other: صفحات معلومات
+      name:
+        one: صفحه معلومات
+        other: صفحات معلومات
       personal_information_charter_html: ما%{link} نحوهء برخورد ما با اطلاعات شخصی شما را بیان مینماید
       publication_scheme_html: در بارهء انواع اطلاعاتی که بطور معمول نشرمیشود در%{link}.
       social_media_use_html: سیاست ما را در اینجا بخوانید%{link}.
@@ -406,10 +409,11 @@ dr:
     fatality_notice:
       alt_text: وزارت دفاع
       field_of_operation: ساحهء عملیات
+      name:
+        one: اطلاعیه مرگ و میر
+        other: اطلاعیه هایی مرگ و میر
       none_added: هنوز هیچ خبر مرگ و میر در این بخش عملیات اضافه نشده است.
-      one: اطلاعیه مرگ و میر
       operations_in: عملیات در%{location}
-      other: اطلاعیه هایی مرگ و میر
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ dr:
       updated:
       your_views:
     government_response:
-      one: پاسخ حکومت
-      other: پاسخ هایی حکومت
+      name:
+        one: پاسخ حکومت
+        other: پاسخ هایی حکومت
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ dr:
       website:
       what_you_need_to_know:
     news_article:
-      one: مقاله خبری
-      other: مقالات خبری
+      name:
+        one: مقاله خبری
+        other: مقالات خبری
     news_story:
-      one: گزارش خبری
-      other: گزارشات خبری
+      name:
+        one: گزارش خبری
+        other: گزارشات خبری
     oral_statement:
-      one: بیانیهء شفاهی به پارلمان
-      other: بیانیه هایی شفاهی به پارلمان
+      name:
+        one: بیانیهء شفاهی به پارلمان
+        other: بیانیه هایی شفاهی به پارلمان
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: بیانیه مطبوعاتی
-      other: بیانیه هایی مطبوعاتی
+      name:
+        one: بیانیه مطبوعاتی
+        other: بیانیه هایی مطبوعاتی
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ dr:
     speech:
       delivered_on: تحویل داده شد به
       location: موقعیت
-      one: سخنرانی
-      other: سخنرانی ها
+      name:
+        one: سخنرانی
+        other: سخنرانی ها
       written_on: نوشته شده است د
     start_now:
     take_part:
-      one: سهم بگیرید
-      other: سهم بگیرید
+      name:
+        one: سهم بگیرید
+        other: سهم بگیرید
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ dr:
       summary: خلاصه
       updated: آپدیت شده
     world_news_story:
-      one: گزارش خبری جهان
-      other: گزارشات خبری جهان
+      name:
+        one: گزارش خبری جهان
+        other: گزارشات خبری جهان
     written_statement:
-      one: بیانیهء کتبی به پارلمان
-      other: بیانیه هایی کتبی به پارلمان
+      name:
+        one: بیانیهء کتبی به پارلمان
+        other: بیانیه هایی کتبی به پارلمان
   help:
     index:
       about:

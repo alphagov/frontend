@@ -389,16 +389,19 @@
   find:
   formats:
     authored_article:
-      one: Forfatterartikkel
-      other: Forfatterartikler
+      name:
+        one: Forfatterartikkel
+        other: Forfatterartikler
     case_study:
-      one: Casestudie
-      other: Casestudier
+      name:
+        one: Casestudie
+        other: Casestudier
     corporate_information_page:
       about_our_services_html: Finn ut %{link}.
       corporate_information: Bedriftsinformasjon
-      one: Informasjonsside
-      other: Informasjonssider
+      name:
+        one: Informasjonsside
+        other: Informasjonssider
       personal_information_charter_html: Vår %{link} forklarer hvordan vi behandler dine personopplysninger.
       publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i vår %{link}.
       social_media_use_html: Les retningslinjene våre på %{link}.
@@ -406,10 +409,11 @@
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
       field_of_operation: Operasjonsfelt
+      name:
+        one: Melding om dødsfall
+        other: Meldinger om dødsfall
       none_added: Det har ikke blitt lagt til noen meldinger om dødsfall for dette operasjonsfeltet ennå.
-      one: Melding om dødsfall
       operations_in: Operasjoner i %{location}
-      other: Meldinger om dødsfall
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@
       updated:
       your_views:
     government_response:
-      one: Myndighetenes svar
-      other: Myndighetenes svar
+      name:
+        one: Myndighetenes svar
+        other: Myndighetenes svar
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@
       website:
       what_you_need_to_know:
     news_article:
-      one: Nyhetsartikkel
-      other: Nyhetsartikler
+      name:
+        one: Nyhetsartikkel
+        other: Nyhetsartikler
     news_story:
-      one: Nyhetssak
-      other: Nyheter
+      name:
+        one: Nyhetssak
+        other: Nyheter
     oral_statement:
-      one: Muntlig uttalelse til Stortinget
-      other: Muntlige uttalelser til Stortinget
+      name:
+        one: Muntlig uttalelse til Stortinget
+        other: Muntlige uttalelser til Stortinget
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Pressemelding
-      other: Pressemeldinger
+      name:
+        one: Pressemelding
+        other: Pressemeldinger
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@
     speech:
       delivered_on: Levert på
       location: Plassering
-      one: Tale
-      other: Taler
+      name:
+        one: Tale
+        other: Taler
       written_on: Skrevet på
     start_now:
     take_part:
-      one: Delta
-      other: Delta
+      name:
+        one: Delta
+        other: Delta
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@
       summary: Sammendrag
       updated: Oppdatert
     world_news_story:
-      one: Verdensnyhet
-      other: Verdensnyheter
+      name:
+        one: Verdensnyhet
+        other: Verdensnyheter
     written_statement:
-      one: Skriftlig uttalelse til Stortinget
-      other: Skriftlige uttalelser til Stortinget
+      name:
+        one: Skriftlig uttalelse til Stortinget
+        other: Skriftlige uttalelser til Stortinget
   help:
     index:
       about:

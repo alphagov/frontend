@@ -389,16 +389,19 @@ pt:
   find:
   formats:
     authored_article:
-      one: Artigo de autor
-      other: Artigos de autor
+      name:
+        one: Artigo de autor
+        other: Artigos de autor
     case_study:
-      one: Estudo de caso
-      other: Estudos de caso
+      name:
+        one: Estudo de caso
+        other: Estudos de caso
     corporate_information_page:
       about_our_services_html: Saiba mais %{link}.
       corporate_information: Informações da empresa
-      one: Página de informação
-      other: Páginas de informação
+      name:
+        one: Página de informação
+        other: Páginas de informação
       personal_information_charter_html: O nosso %{link} explica como tratamos as suas informações pessoais.
       publication_scheme_html: Leia sobre os tipos de informação que publicamos no nosso %{link}.
       social_media_use_html: Leia a nossa política em %{link}.
@@ -406,10 +409,11 @@ pt:
     fatality_notice:
       alt_text: Brasão do Ministério da Defesa
       field_of_operation: Campo de operação
+      name:
+        one: Aviso de fatalidade
+        other: Avisos de fatalidade
       none_added: Ainda não foram adicionados avisos de fatalidade para este campo de operação.
-      one: Aviso de fatalidade
       operations_in: Operações em %{location}
-      other: Avisos de fatalidade
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ pt:
       updated:
       your_views:
     government_response:
-      one: Resposta do governo
-      other: Respostas do governo
+      name:
+        one: Resposta do governo
+        other: Respostas do governo
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ pt:
       website:
       what_you_need_to_know:
     news_article:
-      one: Artigo noticioso
-      other: Artigos noticiosos
+      name:
+        one: Artigo noticioso
+        other: Artigos noticiosos
     news_story:
-      one: Reportagem
-      other: Reportagens
+      name:
+        one: Reportagem
+        other: Reportagens
     oral_statement:
-      one: Declaração oral ao Parlamento
-      other: Declarações orais ao Parlamento
+      name:
+        one: Declaração oral ao Parlamento
+        other: Declarações orais ao Parlamento
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Comunicado de imprensa
-      other: Comunicados de imprensa
+      name:
+        one: Comunicado de imprensa
+        other: Comunicados de imprensa
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ pt:
     speech:
       delivered_on: Entregue em
       location: Local
-      one: Discurso
-      other: Discursos
+      name:
+        one: Discurso
+        other: Discursos
       written_on: Escrito em
     start_now:
     take_part:
-      one: Participar
-      other: Participar
+      name:
+        one: Participar
+        other: Participar
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ pt:
       summary: Resumo
       updated: Atualizado em
     world_news_story:
-      one: Reportagem do mundo
-      other: Reportagens do mundo
+      name:
+        one: Reportagem do mundo
+        other: Reportagens do mundo
     written_statement:
-      one: Declaração escrita ao Parlamento
-      other: Declarações escritas ao Parlamento
+      name:
+        one: Declaração escrita ao Parlamento
+        other: Declarações escritas ao Parlamento
   help:
     index:
       about:

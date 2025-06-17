@@ -535,35 +535,39 @@ gd:
   find:
   formats:
     authored_article:
-      few:
-      one: Ailt scríofa
-      other: Téacsanna scríofa
-      two:
+      name:
+        few:
+        one: Ailt scríofa
+        other: Téacsanna scríofa
+        two:
     case_study:
-      few:
-      one: Cás-staidéir
-      other: Tuarascálacha staidéir
-      two:
+      name:
+        few:
+        one: Cás-staidéir
+        other: Tuarascálacha staidéir
+        two:
     corporate_information_page:
       about_our_services_html: Amharc ar %{link}.
       corporate_information: Faisnéis cuideachta
-      few:
-      one: Leathanach faisnéise
-      other: Leathanaigh faisnéise
+      name:
+        few:
+        one: Leathanach faisnéise
+        other: Leathanaigh faisnéise
+        two:
       personal_information_charter_html: Míníonn ár %{link} conas a dhéanaimid do chuid smaointe pearsanta a rianú.
       publication_scheme_html: Faigh amach na príomhchineálacha faisnéise a ndéanaimid cumarsáid rialta inár %{link}.
       social_media_use_html: Léigh ár mbeartas ar %{link}.
-      two:
       welsh_language_scheme_html: Faigh amach ár gcomhréiteach ar an %{link}.
     fatality_notice:
       alt_text: Suaitheantas rialtais Chónaidhme
-      few:
       field_of_operation: Réimse oibríochta
+      name:
+        few:
+        one: Obituary
+        other: Obituary
+        two:
       none_added: Níor cuireadh aon fhógra báis leis an réimse gníomhaíochta seo.
-      one: Obituary
       operations_in: Idirbhearta I %{location}
-      other: Obituary
-      two:
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ gd:
       updated:
       your_views:
     government_response:
-      few:
-      one: Freagra an Rialtais
-      other: Freagraí an Rialtais
-      two:
+      name:
+        few:
+        one: Freagra an Rialtais
+        other: Freagraí an Rialtais
+        two:
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ gd:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Airteagal Nuachta
-      other: Airteagal Nuachta
-      two:
+      name:
+        few:
+        one: Airteagal Nuachta
+        other: Airteagal Nuachta
+        two:
     news_story:
-      few:
-      one: Airteagal Nuachta
-      other: Nua
-      two:
+      name:
+        few:
+        one: Airteagal Nuachta
+        other: Nua
+        two:
     oral_statement:
-      few:
-      one: Ráiteas ó bhéal don Pharlaimint
-      other: Ráitis ó bhéal sa Pharlaimint
-      two:
+      name:
+        few:
+        one: Ráiteas ó bhéal don Pharlaimint
+        other: Ráitis ó bhéal sa Pharlaimint
+        two:
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Preaseisiúint
-      other: Preaseisiúintí
-      two:
+      name:
+        few:
+        one: Preaseisiúint
+        other: Preaseisiúintí
+        two:
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ gd:
         tsg_alt_text: Tá stampa dubh ar lógó an chláir leis na focail Traditional Specialty UK Protected
     speech:
       delivered_on: Seachadadh ar
-      few:
       location: Suíomh
-      one: Óráid
-      other: Óráid
-      two:
+      name:
+        few:
+        one: Óráid
+        other: Óráid
+        two:
       written_on: Scríobh an
     start_now:
     take_part:
-      few:
-      one: Chun páirt a ghlacadh
-      other: Chun páirt a ghlacadh
-      two:
+      name:
+        few:
+        one: Chun páirt a ghlacadh
+        other: Chun páirt a ghlacadh
+        two:
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ gd:
       summary: Coimriú
       updated: Athnuachan
     world_news_story:
-      few:
-      one: Alt nuachta domhanda
-      other: Nuacht domhanda
-      two:
+      name:
+        few:
+        one: Alt nuachta domhanda
+        other: Nuacht domhanda
+        two:
     written_statement:
-      few:
-      one: Dearbhú i scríbhinn don Pharlaimint
-      other: Ráitis i scríbhinn don Pharlaimint
-      two:
+      name:
+        few:
+        one: Dearbhú i scríbhinn don Pharlaimint
+        other: Ráitis i scríbhinn don Pharlaimint
+        two:
   help:
     index:
       about:

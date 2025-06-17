@@ -535,35 +535,39 @@ sl:
   find:
   formats:
     authored_article:
-      few:
-      one: Avtorski članek
-      other: Avtorski članki
-      two:
+      name:
+        few:
+        one: Avtorski članek
+        other: Avtorski članki
+        two:
     case_study:
-      few:
-      one: Študija primera
-      other: Študije primera
-      two:
+      name:
+        few:
+        one: Študija primera
+        other: Študije primera
+        two:
     corporate_information_page:
       about_our_services_html: Izvedite več %{link}.
       corporate_information: Informacije o podjetju
-      few:
-      one: Stran z informacijami
-      other: Strani z informacijami
+      name:
+        few:
+        one: Stran z informacijami
+        other: Strani z informacijami
+        two:
       personal_information_charter_html: Na povezavi %{link} je razloženo, kako ravnamo z vašimi osebnimi podatki.
       publication_scheme_html: Več o vrstah informacij, ki jih redno objavljamo, preberite v naši %{link}.
       social_media_use_html: Preberite si našo politiko na %{link}.
-      two:
       welsh_language_scheme_html: Izvedite več o naši zavezanosti %{link}.
     fatality_notice:
       alt_text: Grb Ministrstva za obrambo
-      few:
       field_of_operation: Področje delovanja
+      name:
+        few:
+        one: Obvestilo o smrti
+        other: Obvestila o smrti
+        two:
       none_added: Za to področje delovanja še ni bilo dodanih obvestil o smrtnih žrtvah.
-      one: Obvestilo o smrti
       operations_in: Dejavni v %{location}
-      other: Obvestila o smrti
-      two:
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ sl:
       updated:
       your_views:
     government_response:
-      few:
-      one: Odziv vlade
-      other: Odzivi vlade
-      two:
+      name:
+        few:
+        one: Odziv vlade
+        other: Odzivi vlade
+        two:
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ sl:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Časopisni članek
-      other: Časopisni članki
-      two:
+      name:
+        few:
+        one: Časopisni članek
+        other: Časopisni članki
+        two:
     news_story:
-      few:
-      one: Časopisna zgodba
-      other: Časopisne zgodbe
-      two:
+      name:
+        few:
+        one: Časopisna zgodba
+        other: Časopisne zgodbe
+        two:
     oral_statement:
-      few:
-      one: Ustna izjava za parlament
-      other: Ustne izjave za parlament
-      two:
+      name:
+        few:
+        one: Ustna izjava za parlament
+        other: Ustne izjave za parlament
+        two:
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Sporočilo za javnost
-      other: Sporočila za javnost
-      two:
+      name:
+        few:
+        one: Sporočilo za javnost
+        other: Sporočila za javnost
+        two:
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ sl:
         tsg_alt_text: Logotip sheme je črni žig z besedami Traditional Speciality UK Protected
     speech:
       delivered_on: 'Podano dne:'
-      few:
       location: Lokacija
-      one: Govor
-      other: Govori
-      two:
+      name:
+        few:
+        one: Govor
+        other: Govori
+        two:
       written_on: Napisano dne
     start_now:
     take_part:
-      few:
-      one: Sodelujte
-      other: Sodelujte
-      two:
+      name:
+        few:
+        one: Sodelujte
+        other: Sodelujte
+        two:
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ sl:
       summary: Povzetek
       updated: Posodobljeno
     world_news_story:
-      few:
-      one: Novica s sveta
-      other: Novice s celega sveta
-      two:
+      name:
+        few:
+        one: Novica s sveta
+        other: Novice s celega sveta
+        two:
     written_statement:
-      few:
-      one: Pisna izjava za parlament
-      other: Pisne izjave za parlament
-      two:
+      name:
+        few:
+        one: Pisna izjava za parlament
+        other: Pisne izjave za parlament
+        two:
   help:
     index:
       about:

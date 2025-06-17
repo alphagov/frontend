@@ -389,16 +389,19 @@ pa-pk:
   find:
   formats:
     authored_article:
-      one: لکھاری دا مضمون
-      other: لکھاری دے مضمون
+      name:
+        one: لکھاری دا مضمون
+        other: لکھاری دے مضمون
     case_study:
-      one: کیس دی پڑھائی
-      other: کیس دی پڑھائی
+      name:
+        one: کیس دی پڑھائی
+        other: کیس دی پڑھائی
     corporate_information_page:
       about_our_services_html: اینوں لبھو %{link}.
       corporate_information: کاروبار دی معلومات
-      one: خبراں دا ورقہ
-      other: خبراں دا ورقے
+      name:
+        one: خبراں دا ورقہ
+        other: خبراں دا ورقے
       personal_information_charter_html: ساڈا %{link} ایہ وضاحت کر دا اے کہ اسی ذاتی معلومات نال کی سلوک کرنے آں۔
       publication_scheme_html: ایس تے ایہ پڑھو کہ اسی رضاکارانہ طور تے کیس طراں دی معلومات شائع کرنے آں %{link}.
       social_media_use_html: ایندے تے ساڈی حکمتِ عملی بارے پڑھو %{link}.
@@ -406,10 +409,11 @@ pa-pk:
     fatality_notice:
       alt_text: وزارتِ دفاع کریسٹ
       field_of_operation: عمل کرن دا حلقہ
+      name:
+        one: موت بارے نوٹس
+        other: موت بارے نوٹسز
       none_added: موت دی کوئی وی اطلاع شامل نئیں کیتی گئی ایس تھاں تے کم کرن لئی
-      one: موت بارے نوٹس
       operations_in: ایندے بارے عمل %{location}
-      other: موت بارے نوٹسز
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ pa-pk:
       updated:
       your_views:
     government_response:
-      one: حکومت دا جواب
-      other: حکومت دے جوابات
+      name:
+        one: حکومت دا جواب
+        other: حکومت دے جوابات
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ pa-pk:
       website:
       what_you_need_to_know:
     news_article:
-      one: خبراں دا مضمون
-      other: خبراں دے مضمون
+      name:
+        one: خبراں دا مضمون
+        other: خبراں دے مضمون
     news_story:
-      one: خبراں دی کہانی
-      other: خبراں دیاں کہانیاں
+      name:
+        one: خبراں دی کہانی
+        other: خبراں دیاں کہانیاں
     oral_statement:
-      one: قومی مجلس دے سامنے زبانی بیان
-      other: قومی مجلس دے سامنے زبانی بیانات
+      name:
+        one: قومی مجلس دے سامنے زبانی بیان
+        other: قومی مجلس دے سامنے زبانی بیانات
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: خبراں دینا
-      other: خبراں دینا
+      name:
+        one: خبراں دینا
+        other: خبراں دینا
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ pa-pk:
     speech:
       delivered_on: حوالے کیتا گیا
       location: تھاں
-      one: تقریر
-      other: تقریراں
+      name:
+        one: تقریر
+        other: تقریراں
       written_on: ایس  تے لکھیا گیا
     start_now:
     take_part:
-      one: حصہ لوؤ
-      other: حصہ لوؤ
+      name:
+        one: حصہ لوؤ
+        other: حصہ لوؤ
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ pa-pk:
       summary: خلاصہ
       updated: تازہ ترین حال
     world_news_story:
-      one: دُنیا دیاں خبراں دی کہانی
-      other: دُنیا دیاں خبراں دیاں کہانیاں
+      name:
+        one: دُنیا دیاں خبراں دی کہانی
+        other: دُنیا دیاں خبراں دیاں کہانیاں
     written_statement:
-      one: قومی مجلس دے سامنے تحریری بیان
-      other: قومی مجلس دے سامنے تحریری بیانات
+      name:
+        one: قومی مجلس دے سامنے تحریری بیان
+        other: قومی مجلس دے سامنے تحریری بیانات
   help:
     index:
       about:

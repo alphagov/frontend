@@ -389,16 +389,19 @@ et:
   find:
   formats:
     authored_article:
-      one: Kirjutatud artikkel
-      other: Kirjutatud artiklid
+      name:
+        one: Kirjutatud artikkel
+        other: Kirjutatud artiklid
     case_study:
-      one: Juhtumiuuring
-      other: Juhtumiuuringud
+      name:
+        one: Juhtumiuuring
+        other: Juhtumiuuringud
     corporate_information_page:
       about_our_services_html: Uuri välja %{link}.
       corporate_information: Ettevõtte teave
-      one: Teabeleht
-      other: Teabelehed
+      name:
+        one: Teabeleht
+        other: Teabelehed
       personal_information_charter_html: Meie %{link} selgitab, kuidas me teie isikuandmeid käsitleme.
       publication_scheme_html: Lisateavet selle kohta, millist teavet me regulaarselt avaldame oma saidil %{link}.
       social_media_use_html: Lugege meie eeskirju saidil %{link}.
@@ -406,10 +409,11 @@ et:
     fatality_notice:
       alt_text: Kaitseministeeriumi teadus- ja tehnikauuringute komitee
       field_of_operation: Tegevusvaldkond
+      name:
+        one: Surmateade
+        other: Surmateated
       none_added: Selle tegevusvaldkonna kohta ei ole surmajuhtumeid veel lisatud.
-      one: Surmateade
       operations_in: Toimingud asukohas %{location}
-      other: Surmateated
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ et:
       updated:
       your_views:
     government_response:
-      one: Valitsuse vastus
-      other: Valitsuse vastused
+      name:
+        one: Valitsuse vastus
+        other: Valitsuse vastused
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ et:
       website:
       what_you_need_to_know:
     news_article:
-      one: Uudiste artikkel
-      other: Uudiste artiklid
+      name:
+        one: Uudiste artikkel
+        other: Uudiste artiklid
     news_story:
-      one: Uudislugu
-      other: Uudislood
+      name:
+        one: Uudislugu
+        other: Uudislood
     oral_statement:
-      one: Suuline avaldus parlamendile
-      other: Suulised avaldused parlamendile
+      name:
+        one: Suuline avaldus parlamendile
+        other: Suulised avaldused parlamendile
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Pressiteade
-      other: Pressiteated
+      name:
+        one: Pressiteade
+        other: Pressiteated
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ et:
     speech:
       delivered_on: Edastati
       location: Asukoht
-      one: Kõne
-      other: Kõned
+      name:
+        one: Kõne
+        other: Kõned
       written_on: Kirjutatud
     start_now:
     take_part:
-      one: Osa võtma
-      other: Osa võtma
+      name:
+        one: Osa võtma
+        other: Osa võtma
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ et:
       summary: Kokkuvõte
       updated: Uuendatud
     world_news_story:
-      one: Maailma uudislugu
-      other: Maailma uudislood
+      name:
+        one: Maailma uudislugu
+        other: Maailma uudislood
     written_statement:
-      one: Kirjalik avaldus parlamendile
-      other: Kirjalikud avaldused parlamendile
+      name:
+        one: Kirjalik avaldus parlamendile
+        other: Kirjalikud avaldused parlamendile
   help:
     index:
       about:

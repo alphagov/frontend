@@ -389,16 +389,19 @@ da:
   find:
   formats:
     authored_article:
-      one: Forfattet artikel
-      other: Forfatterartikler
+      name:
+        one: Forfattet artikel
+        other: Forfatterartikler
     case_study:
-      one: Casestudie
-      other: Casestudie
+      name:
+        one: Casestudie
+        other: Casestudie
     corporate_information_page:
       about_our_services_html: Find ud af %{link}.
       corporate_information: Virksomhedsoplysninger
-      one: Informationsside
-      other: Informationssider
+      name:
+        one: Informationsside
+        other: Informationssider
       personal_information_charter_html: Vores %{link} forklarer, hvordan vi behandler dine personlige oplysninger.
       publication_scheme_html: Læs om de typer af oplysninger, som vi rutinemæssigt offentliggør i vores %{link}.
       social_media_use_html: Læs vores politik om %{link}.
@@ -406,10 +409,11 @@ da:
     fatality_notice:
       alt_text: Forsvarsministeriets kam
       field_of_operation: Operationsområde
+      name:
+        one: Meddelelse om dødsfald
+        other: Meddelelser om dødsfald
       none_added: Der er ikke tilføjet nogen dødsfald for dette operationsområde endnu.
-      one: Meddelelse om dødsfald
       operations_in: Handlinger i %{location}
-      other: Meddelelser om dødsfald
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ da:
       updated:
       your_views:
     government_response:
-      one: Regeringens reaktion
-      other: Regeringens reaktioner
+      name:
+        one: Regeringens reaktion
+        other: Regeringens reaktioner
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ da:
       website:
       what_you_need_to_know:
     news_article:
-      one: Nyhedsartikel
-      other: Nyhedsartikler
+      name:
+        one: Nyhedsartikel
+        other: Nyhedsartikler
     news_story:
-      one: Nyhedshistorie
-      other: Nyhedshistorier
+      name:
+        one: Nyhedshistorie
+        other: Nyhedshistorier
     oral_statement:
-      one: Mundtlig erklæring til Parlamentet
-      other: Mundtlige erklæring til Parlamentet
+      name:
+        one: Mundtlig erklæring til Parlamentet
+        other: Mundtlige erklæring til Parlamentet
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Pressemeddelelse
-      other: Pressemeddelelser
+      name:
+        one: Pressemeddelelse
+        other: Pressemeddelelser
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ da:
     speech:
       delivered_on: Leveret den
       location: Placering
-      one: tale
-      other: taler
+      name:
+        one: tale
+        other: taler
       written_on: Skrevet på
     start_now:
     take_part:
-      one: Deltage
-      other: Deltage
+      name:
+        one: Deltage
+        other: Deltage
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ da:
       summary: Resumé
       updated: Opdateret
     world_news_story:
-      one: Verdensomspændende nyhedshistorie
-      other: Verdensomspændende nyhedshistorier
+      name:
+        one: Verdensomspændende nyhedshistorie
+        other: Verdensomspændende nyhedshistorier
     written_statement:
-      one: Mundtlig erklæring til Parlamentet
-      other: Mundtlige erklæring til Parlamentet
+      name:
+        one: Mundtlig erklæring til Parlamentet
+        other: Mundtlige erklæring til Parlamentet
   help:
     index:
       about:

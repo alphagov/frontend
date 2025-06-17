@@ -389,16 +389,19 @@ ps:
   find:
   formats:
     authored_article:
-      one: لیکل شوې مقاله
-      other: لیکل شوي مقالې
+      name:
+        one: لیکل شوې مقاله
+        other: لیکل شوي مقالې
     case_study:
-      one: موردي مطالعه
-      other: موردي مطالعات
+      name:
+        one: موردي مطالعه
+        other: موردي مطالعات
     corporate_information_page:
       about_our_services_html: "%{link} ومومئ."
       corporate_information: د شرکت معلومات
-      one: د معلوماتو پاڼه
-      other: د معلوماتو پاڼې
+      name:
+        one: د معلوماتو پاڼه
+        other: د معلوماتو پاڼې
       personal_information_charter_html: زموږ %{link} تشریح کوي چې موږ ستاسو شخصي معلوماتو سره څنګه چلند کوو.
       publication_scheme_html: د هغه معلوماتو ډولونو په اړه ولولئ چې موږ یې په منظم ډول زموږ په %{link} کې خپروو.
       social_media_use_html: زموږ پالیسي په%{link} ولولئ.
@@ -406,10 +409,11 @@ ps:
     fatality_notice:
       alt_text: د دفاع وزارت کریسټ
       field_of_operation: د عملیاتو ساحه
+      name:
+        one: د مرګ خبرتیا
+        other: د مرګ خبرتیا
       none_added: تر دې دمه د عملیاتو ساحې لپاره د مرګ خبرتیاوې ندي اضافه شوي.
-      one: د مرګ خبرتیا
       operations_in: په%{location} کې عملیات
-      other: د مرګ خبرتیا
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ ps:
       updated:
       your_views:
     government_response:
-      one: د حکومت غبرګون
-      other: د حکومت غبرګون
+      name:
+        one: د حکومت غبرګون
+        other: د حکومت غبرګون
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ ps:
       website:
       what_you_need_to_know:
     news_article:
-      one: د خبر مقاله
-      other: د خبر مقالې
+      name:
+        one: د خبر مقاله
+        other: د خبر مقالې
     news_story:
-      one: د خبر کیسه
-      other: د خبرونو کیسې
+      name:
+        one: د خبر کیسه
+        other: د خبرونو کیسې
     oral_statement:
-      one: پارلماني غونډې ته وینا
-      other: پارلمان ته شفاهي څرګندونې
+      name:
+        one: پارلماني غونډې ته وینا
+        other: پارلمان ته شفاهي څرګندونې
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: مطبوعاتي اعلامیه
-      other: مطبوعاتي اعلامیې
+      name:
+        one: مطبوعاتي اعلامیه
+        other: مطبوعاتي اعلامیې
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ ps:
     speech:
       delivered_on: ته وسپارل شو
       location: ځای
-      one: وینا
-      other: ويناوې
+      name:
+        one: وینا
+        other: ويناوې
       written_on: باندې لیکل شوی
     start_now:
     take_part:
-      one: برخه واخلئ
-      other: برخه واخلئ
+      name:
+        one: برخه واخلئ
+        other: برخه واخلئ
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ ps:
       summary: لنډيز
       updated: تازه شوی
     world_news_story:
-      one: د نړۍ خبرونه
-      other: د نړۍ خبرونه
+      name:
+        one: د نړۍ خبرونه
+        other: د نړۍ خبرونه
     written_statement:
-      one: پارلمان ته لیکلې وینا
-      other: پارلمان ته لیکلي بیانونه
+      name:
+        one: پارلمان ته لیکلې وینا
+        other: پارلمان ته لیکلي بیانونه
   help:
     index:
       about:

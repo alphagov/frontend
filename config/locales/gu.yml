@@ -389,16 +389,19 @@ gu:
   find:
   formats:
     authored_article:
-      one: લેખિત લેખ
-      other: લેખિત લેખો
+      name:
+        one: લેખિત લેખ
+        other: લેખિત લેખો
     case_study:
-      one: કેસ સ્ટડી
-      other: કેસ સ્ટડીઝ
+      name:
+        one: કેસ સ્ટડી
+        other: કેસ સ્ટડીઝ
     corporate_information_page:
       about_our_services_html: "%{link} શોધી કાઢો."
       corporate_information: કોર્પોરેટ માહિતી
-      one: માહિતી પૃષ્ઠ
-      other: માહિતી પૃષ્ઠો
+      name:
+        one: માહિતી પૃષ્ઠ
+        other: માહિતી પૃષ્ઠો
       personal_information_charter_html: અમારી %{link} માં સમજાવ્યું છે કે અમે તમારી વ્યક્તિગત માહિતી સાથે કેવી રીતે વર્તીએ છીએ.
       publication_scheme_html: અમે અમારી %{link} માં સામાન્ય રીતે કઈ પ્રકારની માહિતી પ્રકાશિત કરીએ છીએ તે વાંચો.
       social_media_use_html: "%{link} માં અમારી નીતિ વાંચો."
@@ -406,10 +409,11 @@ gu:
     fatality_notice:
       alt_text: સંરક્ષણ મંત્રાલય ક્રેસ્ટ
       field_of_operation: કામગીરીનું ક્ષેત્ર
+      name:
+        one: મૃત્યુ અંગેની સૂચના
+        other: મૃત્યુ અંગેની સૂચનાઓ
       none_added: આ કામગીરીના ક્ષેત્રમાં હજુ સુધી કોઇ જાનહાનિ સૂચનાઓ ઉમેરાઈ નથી.
-      one: મૃત્યુ અંગેની સૂચના
       operations_in: "%{location} માં સંચાલનો"
-      other: મૃત્યુ અંગેની સૂચનાઓ
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ gu:
       updated:
       your_views:
     government_response:
-      one: સરકારનો પ્રતિભાવ
-      other: સરકારના પ્રતિભાવો
+      name:
+        one: સરકારનો પ્રતિભાવ
+        other: સરકારના પ્રતિભાવો
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ gu:
       website:
       what_you_need_to_know:
     news_article:
-      one: ન્યૂઝ આર્ટિકલ
-      other: ન્યૂઝ આર્ટિકલ્સ
+      name:
+        one: ન્યૂઝ આર્ટિકલ
+        other: ન્યૂઝ આર્ટિકલ્સ
     news_story:
-      one: ન્યૂઝ સ્ટોરી
-      other: ન્યૂઝ સ્ટોરીઝ
+      name:
+        one: ન્યૂઝ સ્ટોરી
+        other: ન્યૂઝ સ્ટોરીઝ
     oral_statement:
-      one: સંસદમાં મૌખિક નિવેદન
-      other: સંસદમાં મૌખિક નિવેદનો
+      name:
+        one: સંસદમાં મૌખિક નિવેદન
+        other: સંસદમાં મૌખિક નિવેદનો
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: પ્રેસ રીલીઝ
-      other: પ્રેસ રીલીઝ
+      name:
+        one: પ્રેસ રીલીઝ
+        other: પ્રેસ રીલીઝ
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ gu:
     speech:
       delivered_on: ના રોજ ડિલિવર થયું
       location: સ્થાન
-      one: ભાષણ
-      other: ભાષણો
+      name:
+        one: ભાષણ
+        other: ભાષણો
       written_on: પર લખેલ
     start_now:
     take_part:
-      one: ભાગ લો
-      other: ભાગ લો
+      name:
+        one: ભાગ લો
+        other: ભાગ લો
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ gu:
       summary: સારાંશ
       updated: અપડેટ કરેલ
     world_news_story:
-      one: વૈશ્વિક ન્યૂઝ સ્ટોરી
-      other: વૈશ્વિક ન્યૂઝ સ્ટોરીઝ
+      name:
+        one: વૈશ્વિક ન્યૂઝ સ્ટોરી
+        other: વૈશ્વિક ન્યૂઝ સ્ટોરીઝ
     written_statement:
-      one: સંસદમાં લેખિત નિવેદન
-      other: સંસદમાં લેખિત નિવેદનો
+      name:
+        one: સંસદમાં લેખિત નિવેદન
+        other: સંસદમાં લેખિત નિવેદનો
   help:
     index:
       about:

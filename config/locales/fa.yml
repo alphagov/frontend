@@ -389,16 +389,19 @@ fa:
   find:
   formats:
     authored_article:
-      one: مقاله تألیف شده
-      other: مقالات تألیف شده
+      name:
+        one: مقاله تألیف شده
+        other: مقالات تألیف شده
     case_study:
-      one: مطالعه موردی
-      other: مطالعات موردی
+      name:
+        one: مطالعه موردی
+        other: مطالعات موردی
     corporate_information_page:
       about_our_services_html: اطلاعات کسب کنید %{link}.
       corporate_information: اطلاعات شرکت
-      one: صفحه اطلاعاتی
-      other: صفحات اطلاعاتی
+      name:
+        one: صفحه اطلاعاتی
+        other: صفحات اطلاعاتی
       personal_information_charter_html: "%{link} نحوه رفتار ما با اطلاعات شخصی شما را توضیح می‌دهد."
       publication_scheme_html: درباره انواع اطلاعاتی که معمولاً در %{link} خود منتشر می‌کنیم، اطلاعات بیشتری کسب کنید.
       social_media_use_html: سیاست ما را درباره %{link} مطالعه کنید.
@@ -406,10 +409,11 @@ fa:
     fatality_notice:
       alt_text: تاج وزارت دفاع
       field_of_operation: زمینه فعالیت
+      name:
+        one: اطلاعیه مرگ‌و‌میر
+        other: اطلاعیه‌های مرگ‌و‌میر
       none_added: هنوز هیچ اعلامیه مرگ‌و‌میری برای این زمینه فعالیت اضافه نشده است.
-      one: اطلاعیه مرگ‌و‌میر
       operations_in: فعالیت در %{location}
-      other: اطلاعیه‌های مرگ‌و‌میر
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ fa:
       updated:
       your_views:
     government_response:
-      one: پاسخ دولتی
-      other: پاسخ‌های دولتی
+      name:
+        one: پاسخ دولتی
+        other: پاسخ‌های دولتی
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ fa:
       website:
       what_you_need_to_know:
     news_article:
-      one: مقاله خبری
-      other: مقالات خبری
+      name:
+        one: مقاله خبری
+        other: مقالات خبری
     news_story:
-      one: گزارش خبری
-      other: گزارشات خبری
+      name:
+        one: گزارش خبری
+        other: گزارشات خبری
     oral_statement:
-      one: بیانیه شفاهی به پارلمان
-      other: بیانیه‌های شفاهی به پارلمان
+      name:
+        one: بیانیه شفاهی به پارلمان
+        other: بیانیه‌های شفاهی به پارلمان
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: بیانیه مطبوعاتی
-      other: بیانیه‌های مطبوعاتی
+      name:
+        one: بیانیه مطبوعاتی
+        other: بیانیه‌های مطبوعاتی
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ fa:
     speech:
       delivered_on: تخویل شده در
       location: موقعیت مکانی
-      one: سخنرانی
-      other: سخنرانی‌ها
+      name:
+        one: سخنرانی
+        other: سخنرانی‌ها
       written_on: نوشته شده در
     start_now:
     take_part:
-      one: مشارکت
-      other: مشارکت
+      name:
+        one: مشارکت
+        other: مشارکت
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ fa:
       summary: خلاصه
       updated: بروز شده
     world_news_story:
-      one: گزارش خبری جهانی
-      other: گزارشات خبری جهانی
+      name:
+        one: گزارش خبری جهانی
+        other: گزارشات خبری جهانی
     written_statement:
-      one: بیانیه کتبی به پارلمان
-      other: بیانیه‌های کتبی به پارلمان
+      name:
+        one: بیانیه کتبی به پارلمان
+        other: بیانیه‌های کتبی به پارلمان
   help:
     index:
       about:

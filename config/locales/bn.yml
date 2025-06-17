@@ -389,16 +389,19 @@ bn:
   find:
   formats:
     authored_article:
-      one: লেখকের উৎস সহ নিবন্ধ
-      other: লেখকের উৎস সহ নিবন্ধসমূহ
+      name:
+        one: লেখকের উৎস সহ নিবন্ধ
+        other: লেখকের উৎস সহ নিবন্ধসমূহ
     case_study:
-      one: কেস স্টাডি
-      other: কেস স্টাডিসমূহ
+      name:
+        one: কেস স্টাডি
+        other: কেস স্টাডিসমূহ
     corporate_information_page:
       about_our_services_html: "%{link} খুঁজুন।"
       corporate_information: কর্পোরেট তথ্য
-      one: তথ্য পেইজ
-      other: তথ্য পেইজসমূহ
+      name:
+        one: তথ্য পেইজ
+        other: তথ্য পেইজসমূহ
       personal_information_charter_html: আমরা কিভাবে আপনার ব্যক্তিগত তথ্য নিয়ে কাজ করি তা আমাদের %{link}-এ ব্যাখ্যা করা হয়েছে।
       publication_scheme_html: আমরা নিয়মিতভাবে যে প্রকারের সংবাদ প্রকাশ করি তা আমাদের %{link}-এ পড়ুন।
       social_media_use_html: "%{link}-এ আমাদের নীতিমালা পড়ুন।"
@@ -406,10 +409,11 @@ bn:
     fatality_notice:
       alt_text: প্রতিরক্ষা মন্ত্রণালয়ের ক্রেস্ট
       field_of_operation: কার্যক্রমের ক্ষেত্র
+      name:
+        one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
+        other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
       none_added: এখনও এই পরিচালনার ফিল্ডের জন্য কোনো বিপর্যয়ের বিজ্ঞপ্তি যোগ করা হয়নি।
-      one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
       operations_in: "%{location}-এ পরিচালনা"
-      other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ bn:
       updated:
       your_views:
     government_response:
-      one: সরকারের সাড়া
-      other: সরকারের সাড়া
+      name:
+        one: সরকারের সাড়া
+        other: সরকারের সাড়া
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ bn:
       website:
       what_you_need_to_know:
     news_article:
-      one: সংবাদের নিবন্ধ
-      other: সংবাদের নিবন্ধসমূহ
+      name:
+        one: সংবাদের নিবন্ধ
+        other: সংবাদের নিবন্ধসমূহ
     news_story:
-      one: সংবাদের বিষয়
-      other: সংবাদের বিষয়াবলী
+      name:
+        one: সংবাদের বিষয়
+        other: সংবাদের বিষয়াবলী
     oral_statement:
-      one: সংসদে মৌখিক বিবৃতি
-      other: সংসদে মৌখিক বিবৃতিসমূহ
+      name:
+        one: সংসদে মৌখিক বিবৃতি
+        other: সংসদে মৌখিক বিবৃতিসমূহ
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: প্রেস বিজ্ঞপ্তি
-      other: প্রেস বিজ্ঞপ্তিসমূহ
+      name:
+        one: প্রেস বিজ্ঞপ্তি
+        other: প্রেস বিজ্ঞপ্তিসমূহ
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ bn:
     speech:
       delivered_on: পাঠানো হয়েছে
       location: অবস্থান
-      one: বক্তব্য
-      other: বক্তব্যসমূহ
+      name:
+        one: বক্তব্য
+        other: বক্তব্যসমূহ
       written_on: যখন লেখা হয়েছে
     start_now:
     take_part:
-      one: অংশ নিন
-      other: অংশ নিন
+      name:
+        one: অংশ নিন
+        other: অংশ নিন
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ bn:
       summary: সারসংক্ষেপ
       updated: হালনাগাদ করা হয়েছে
     world_news_story:
-      one: বিশ্ব সংবাদের বিষয়বস্তু
-      other: বিশ্ব সংবাদের বিষয়বস্তুসমূহ
+      name:
+        one: বিশ্ব সংবাদের বিষয়বস্তু
+        other: বিশ্ব সংবাদের বিষয়বস্তুসমূহ
     written_statement:
-      one: সংসদে লিখিত বিবৃতি
-      other: সংসদে লিখিত বিবৃতিসমূহ
+      name:
+        one: সংসদে লিখিত বিবৃতি
+        other: সংসদে লিখিত বিবৃতিসমূহ
   help:
     index:
       about:

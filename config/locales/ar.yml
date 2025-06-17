@@ -681,43 +681,47 @@ ar:
   find:
   formats:
     authored_article:
-      few:
-      many:
-      one: مقال مؤلَّف
-      other: مقالات مؤلَّفة
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: مقال مؤلَّف
+        other: مقالات مؤلَّفة
+        two:
+        zero:
     case_study:
-      few:
-      many:
-      one: دراسة الحالة
-      other: دراسات الحالة
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: دراسة الحالة
+        other: دراسات الحالة
+        two:
+        zero:
     corporate_information_page:
       about_our_services_html: تعرف على %{link}.
       corporate_information: معلومات الشركة
-      few:
-      many:
-      one: صفحة المعلومات
-      other: صفحات المعلومات
+      name:
+        few:
+        many:
+        one: صفحة المعلومات
+        other: صفحات المعلومات
+        two:
+        zero:
       personal_information_charter_html: يوضح %{link} كيف نتعامل مع معلوماتك الشخصية.
       publication_scheme_html: اقرأ عن أنواع المعلومات التي ننشرها بشكل روتيني في %{link}.
       social_media_use_html: اقرأ سياستنا على %{link}.
-      two:
       welsh_language_scheme_html: تعرف على التزامنا بشأن %{link}.
-      zero:
     fatality_notice:
       alt_text: شعار وزارة الدفاع
-      few:
       field_of_operation: ساحة العمليات
-      many:
+      name:
+        few:
+        many:
+        one: إشعار حول الوفيات
+        other: إشعارات حول الوفيات
+        two:
+        zero:
       none_added: لم تتم إضافة أي إشعارات حول الوفيات في ساحة العمليات هذه حتى الآن.
-      one: إشعار حول الوفيات
       operations_in: العمليات الدائرة في %{location}
-      other: إشعارات حول الوفيات
-      two:
-      zero:
     field_of_operation:
       context:
       title:
@@ -766,12 +770,13 @@ ar:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: استجابة الحكومة
-      other: استجابات الحكومة
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: استجابة الحكومة
+        other: استجابات الحكومة
+        two:
+        zero:
     licence:
       change:
     local_transaction:
@@ -826,38 +831,42 @@ ar:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      many:
-      one: مقال إخباري
-      other: مقالات إخبارية
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: مقال إخباري
+        other: مقالات إخبارية
+        two:
+        zero:
     news_story:
-      few:
-      many:
-      one: قصة إخبارية
-      other: قصص إخبارية
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: قصة إخبارية
+        other: قصص إخبارية
+        two:
+        zero:
     oral_statement:
-      few:
-      many:
-      one: بيان شفوي للبرلمان
-      other: بيانات شفوية للبرلمان
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: بيان شفوي للبرلمان
+        other: بيانات شفوية للبرلمان
+        two:
+        zero:
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      many:
-      one: بيان صحفي
-      other: بيانات صحفية
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: بيان صحفي
+        other: بيانات صحفية
+        two:
+        zero:
     simple_smart_answer:
       change:
       next_step:
@@ -871,22 +880,24 @@ ar:
         tsg_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Traditional Speciality UK Protected
     speech:
       delivered_on: تاريخ التسليم
-      few:
       location: الموقع
-      many:
-      one: خطاب
-      other: خطابات
-      two:
+      name:
+        few:
+        many:
+        one: خطاب
+        other: خطابات
+        two:
+        zero:
       written_on: تاريخ الكتابة
-      zero:
     start_now:
     take_part:
-      few:
-      many:
-      one:
-      other: شارك
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one:
+        other: شارك
+        two:
+        zero:
     transaction:
       before_you_start:
       more_information:
@@ -906,19 +917,21 @@ ar:
       summary: ملخص
       updated: تاريخ التحديث
     world_news_story:
-      few:
-      many:
-      one: قصة إخبارية عالمية
-      other: قصص إخبارية عالمية
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: قصة إخبارية عالمية
+        other: قصص إخبارية عالمية
+        two:
+        zero:
     written_statement:
-      few:
-      many:
-      one: بيان خطي للبرلمان
-      other: بيانات خطية للبرلمان
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: بيان خطي للبرلمان
+        other: بيانات خطية للبرلمان
+        two:
+        zero:
   help:
     index:
       about:

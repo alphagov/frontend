@@ -389,16 +389,19 @@ el:
   find:
   formats:
     authored_article:
-      one: Σύνταξη άρθρου
-      other: Σύνταξη άρθρων
+      name:
+        one: Σύνταξη άρθρου
+        other: Σύνταξη άρθρων
     case_study:
-      one: Μελέτη περίπτωσης
-      other: Μελέτες περιπτώσεων
+      name:
+        one: Μελέτη περίπτωσης
+        other: Μελέτες περιπτώσεων
     corporate_information_page:
       about_our_services_html: Μάθετε %{link}.
       corporate_information: Εταιρικές πληροφορίες
-      one: Σελίδα πληροφοριών
-      other: Σελίδες πληροφοριών
+      name:
+        one: Σελίδα πληροφοριών
+        other: Σελίδες πληροφοριών
       personal_information_charter_html: Το %{link} εξηγεί πώς αντιμετωπίζουμε τα προσωπικά σας στοιχεία.
       publication_scheme_html: Διαβάστε σχετικά με τους τύπους πληροφοριών που δημοσιεύουμε συνήθως στο %{link}.
       social_media_use_html: Διαβάστε την πολιτική μας στο %{link}.
@@ -406,10 +409,11 @@ el:
     fatality_notice:
       alt_text: Οικόσημο Υπουργείου Άμυνας
       field_of_operation: Πεδίο λειτουργίας
+      name:
+        one: Ανακοίνωση θανάτου
+        other: Ανακοινώσεις θανάτου
       none_added: Δεν έχουν προστεθεί ακόμη ανακοινώσεις θανάτου για αυτό το πεδίο λειτουργίας.
-      one: Ανακοίνωση θανάτου
       operations_in: Λειτουργίες στην τοποθεσία %{location}
-      other: Ανακοινώσεις θανάτου
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ el:
       updated:
       your_views:
     government_response:
-      one: Κυβερνητική απάντηση
-      other: Κυβερνητικές απαντήσεις
+      name:
+        one: Κυβερνητική απάντηση
+        other: Κυβερνητικές απαντήσεις
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ el:
       website:
       what_you_need_to_know:
     news_article:
-      one: Άρθρο ειδήσεων
-      other: Άρθρα ειδήσεων
+      name:
+        one: Άρθρο ειδήσεων
+        other: Άρθρα ειδήσεων
     news_story:
-      one: Ιστορία ειδήσεων
-      other: Ιστορίες ειδήσεων
+      name:
+        one: Ιστορία ειδήσεων
+        other: Ιστορίες ειδήσεων
     oral_statement:
-      one: Προφορική δήλωση στη Βουλή
-      other: Προφορικές δηλώσεις στη Βουλή
+      name:
+        one: Προφορική δήλωση στη Βουλή
+        other: Προφορικές δηλώσεις στη Βουλή
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Δελτίο τύπου
-      other: Δελτία Τύπου
+      name:
+        one: Δελτίο τύπου
+        other: Δελτία Τύπου
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ el:
     speech:
       delivered_on: Παραδόθηκε στις
       location: Τοποθεσία
-      one: Ομιλία
-      other: Ομιλίες
+      name:
+        one: Ομιλία
+        other: Ομιλίες
       written_on: Γράφτηκε στις
     start_now:
     take_part:
-      one: Συμμετοχή
-      other: Συμμετοχή
+      name:
+        one: Συμμετοχή
+        other: Συμμετοχή
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ el:
       summary: Περίληψη
       updated: Ενημερωμένο
     world_news_story:
-      one: Ιστορία παγκόσμιων ειδήσεων
-      other: Ιστορίες παγκόσμιων ειδήσεων
+      name:
+        one: Ιστορία παγκόσμιων ειδήσεων
+        other: Ιστορίες παγκόσμιων ειδήσεων
     written_statement:
-      one: Γραπτή δήλωση στη Βουλή
-      other: Γραπτές δηλώσεις στη Βουλή
+      name:
+        one: Γραπτή δήλωση στη Βουλή
+        other: Γραπτές δηλώσεις στη Βουλή
   help:
     index:
       about:

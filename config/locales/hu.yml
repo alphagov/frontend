@@ -389,16 +389,19 @@ hu:
   find:
   formats:
     authored_article:
-      one: Publicisztika
-      other: Publicisztikák
+      name:
+        one: Publicisztika
+        other: Publicisztikák
     case_study:
-      one: Esettanulmány
-      other: Esettanulmányok
+      name:
+        one: Esettanulmány
+        other: Esettanulmányok
     corporate_information_page:
       about_our_services_html: 'Tudja meg: %{link}.'
       corporate_information: Vállalati adatok
-      one: Információs oldal
-      other: Információs oldalak
+      name:
+        one: Információs oldal
+        other: Információs oldalak
       personal_information_charter_html: 'A következő oldalon olvashat róla, hogy hogyan kezeljük a személyes adatokat: %{link}.'
       publication_scheme_html: 'Tekintse meg, hogy milyen jellegű információkat teszünk közzé: %{link}'
       social_media_use_html: 'Bővebb információk az alábbi témával kapcsolatban: %{link}'
@@ -406,10 +409,11 @@ hu:
     fatality_notice:
       alt_text: A Védelmi Minisztérium címere
       field_of_operation: Működési terület
+      name:
+        one: Halálesettel kapcsolatos értesítés
+        other: Halálesettel kapcsolatos értesítések
       none_added: Ehhez a működési területhez még nem lettek hozzáadva halálesetekkel kapcsolatos értesítések.
-      one: Halálesettel kapcsolatos értesítés
       operations_in: 'Tevékenységek itt: %{location}'
-      other: Halálesettel kapcsolatos értesítések
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ hu:
       updated:
       your_views:
     government_response:
-      one: Kormányválasz
-      other: Kormányválaszok
+      name:
+        one: Kormányválasz
+        other: Kormányválaszok
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ hu:
       website:
       what_you_need_to_know:
     news_article:
-      one: Cikk
-      other: Cikkek
+      name:
+        one: Cikk
+        other: Cikkek
     news_story:
-      one: Hír
-      other: Hírek
+      name:
+        one: Hír
+        other: Hírek
     oral_statement:
-      one: Parlamenti felszólalás
-      other: Parlamenti felszólalások
+      name:
+        one: Parlamenti felszólalás
+        other: Parlamenti felszólalások
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Sajtóközlemény
-      other: Sajtóközlemények
+      name:
+        one: Sajtóközlemény
+        other: Sajtóközlemények
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ hu:
     speech:
       delivered_on: 'Kézbesítve ekkor:'
       location: Helyszín
-      one: Beszéd
-      other: Beszédek
+      name:
+        one: Beszéd
+        other: Beszédek
       written_on: 'Írás időpontja:'
     start_now:
     take_part:
-      one: Részvétel
-      other: Részvétel
+      name:
+        one: Részvétel
+        other: Részvétel
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ hu:
       summary: Összefoglalás
       updated: Frissítve
     world_news_story:
-      one: Nemzetközi hír
-      other: Nemzetközi hírek
+      name:
+        one: Nemzetközi hír
+        other: Nemzetközi hírek
     written_statement:
-      one: Írásbeli parlamenti nyilatkozat
-      other: Írásbeli parlamenti nyilatkozatok
+      name:
+        one: Írásbeli parlamenti nyilatkozat
+        other: Írásbeli parlamenti nyilatkozatok
   help:
     index:
       about:

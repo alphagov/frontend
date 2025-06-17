@@ -389,16 +389,19 @@ tr:
   find:
   formats:
     authored_article:
-      one: Yazılı makale
-      other: Yazılı makaleler
+      name:
+        one: Yazılı makale
+        other: Yazılı makaleler
     case_study:
-      one: Vaka incelemesi
-      other: Vaka incelemeleri
+      name:
+        one: Vaka incelemesi
+        other: Vaka incelemeleri
     corporate_information_page:
       about_our_services_html: "%{link} bağlantısını keşfedin."
       corporate_information: Kurumsal bilgiler
-      one: Bilgi sayfası
-      other: Bilgi sayfaları
+      name:
+        one: Bilgi sayfası
+        other: Bilgi sayfaları
       personal_information_charter_html: "%{link} bağlantımız özel bilgilerinizi nasıl işlediğimizi açıklamaktadır."
       publication_scheme_html: "%{link} bağlantımızda düzenli olarak yayınladığımız bilgi türlerini okuyun."
       social_media_use_html: "%{link} bağlantısındaki politikamızı okuyun."
@@ -406,10 +409,11 @@ tr:
     fatality_notice:
       alt_text: Savunma Bakanlığı arması
       field_of_operation: Faaliyet alanı
+      name:
+        one: Hata bildirimi
+        other: Hata bildirimleri
       none_added: Henüz bu faaliyet alanına eklenen hiçbir ölüm oranı bildirimi yok.
-      one: Hata bildirimi
       operations_in: "%{location} konumundaki faaliyetler"
-      other: Hata bildirimleri
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ tr:
       updated:
       your_views:
     government_response:
-      one: Devletin yanıtı
-      other: Devletin yanıtları
+      name:
+        one: Devletin yanıtı
+        other: Devletin yanıtları
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ tr:
       website:
       what_you_need_to_know:
     news_article:
-      one: Haber makalesi
-      other: Haber makaleleri
+      name:
+        one: Haber makalesi
+        other: Haber makaleleri
     news_story:
-      one: Haber makalesi
-      other: Haber hikayeleri
+      name:
+        one: Haber makalesi
+        other: Haber hikayeleri
     oral_statement:
-      one: Parlamentoya sözlü açıklama
-      other: Parlamentoya sözlü açıklamalar
+      name:
+        one: Parlamentoya sözlü açıklama
+        other: Parlamentoya sözlü açıklamalar
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Basın duyurusu
-      other: Basın duyuruları
+      name:
+        one: Basın duyurusu
+        other: Basın duyuruları
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ tr:
     speech:
       delivered_on: 'Teslim tarihi:'
       location: Konum
-      one: Konuşma
-      other: Konuşmalar
+      name:
+        one: Konuşma
+        other: Konuşmalar
       written_on: 'Yazılma tarihi:'
     start_now:
     take_part:
-      one: Katıl
-      other: Katıl
+      name:
+        one: Katıl
+        other: Katıl
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ tr:
       summary: Özet
       updated: Güncelleme
     world_news_story:
-      one: Dünya geneli haber makalesi
-      other: Dünya geneli haber makaleleri
+      name:
+        one: Dünya geneli haber makalesi
+        other: Dünya geneli haber makaleleri
     written_statement:
-      one: Parlamentoya yazılı açıklama
-      other: Parlamentoya yazılı açıklamalar
+      name:
+        one: Parlamentoya yazılı açıklama
+        other: Parlamentoya yazılı açıklamalar
   help:
     index:
       about:

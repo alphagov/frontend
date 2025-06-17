@@ -389,16 +389,19 @@ so:
   find:
   formats:
     authored_article:
-      one: Qodob laqoray
-      other: Qodobada laqoray
+      name:
+        one: Qodob laqoray
+        other: Qodobada laqoray
     case_study:
-      one: Daraasad
-      other: Daraasado
+      name:
+        one: Daraasad
+        other: Daraasado
     corporate_information_page:
       about_our_services_html: Ka raadi %{link}.
       corporate_information: Macluumaadka shirkada
-      one: Boga macluumaadka
-      other: Bogaga macluumaadka
+      name:
+        one: Boga macluumaadka
+        other: Bogaga macluumaadka
       personal_information_charter_html: Sharaxadahayagu %{link} waxay sheegayaan sida loola dhaqmayo macluumaadkaaga shaqsiyeed.
       publication_scheme_html: Akhri waxyaabaha ku saabsan nooca macluumaadka aan si joogto ugu daabacno %{link}.
       social_media_use_html: Ka akhri siyaasadayahaga %{link}.
@@ -406,10 +409,11 @@ so:
     fatality_notice:
       alt_text: Calaamada Wasaarada Difaaca
       field_of_operation: Hawalaha dibadaa
+      name:
+        one: Ogeysiiska masiibooyinka
+        other: Ogeysiisyada masiibooyinka
       none_added: Ma jiraan wax ogaysiisyada muhiimka ah oo lagu daray goobtan shaqada wali.
-      one: Ogeysiiska masiibooyinka
       operations_in: Hawalaha %{location}
-      other: Ogeysiisyada masiibooyinka
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ so:
       updated:
       your_views:
     government_response:
-      one: Jawaabta dawlada
-      other: Jawaabaha dawlada
+      name:
+        one: Jawaabta dawlada
+        other: Jawaabaha dawlada
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ so:
       website:
       what_you_need_to_know:
     news_article:
-      one: Maqaal war ah
-      other: Maqaalo war ah
+      name:
+        one: Maqaal war ah
+        other: Maqaalo war ah
     news_story:
-      one: War
-      other: Warar
+      name:
+        one: War
+        other: Warar
     oral_statement:
-      one: Bayaanka loogu talogalay Baarlamaanka
-      other: Bayaanada loogu talogalay Baarlamaanka
+      name:
+        one: Bayaanka loogu talogalay Baarlamaanka
+        other: Bayaanada loogu talogalay Baarlamaanka
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: War-saxaafadeed
-      other: War-saxaafadeedyo
+      name:
+        one: War-saxaafadeed
+        other: War-saxaafadeedyo
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ so:
     speech:
       delivered_on: Loo diray
       location: Goobta
-      one: Khudbad
-      other: Khudbado
+      name:
+        one: Khudbad
+        other: Khudbado
       written_on: Lagu qoray
     start_now:
     take_part:
-      one: Ka qeybgal
-      other: Ka qeybgal
+      name:
+        one: Ka qeybgal
+        other: Ka qeybgal
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ so:
       summary: Soo koobitaanka
       updated: La cusboonaysiiyay
     world_news_story:
-      one: Warka caalamka
-      other: Wararka caalamka
+      name:
+        one: Warka caalamka
+        other: Wararka caalamka
     written_statement:
-      one: Bayaan qoran oo loogu talogalay Baarlamaanka
-      other: Bayaanada qoran ee loogu talogalay Baarlamaanka
+      name:
+        one: Bayaan qoran oo loogu talogalay Baarlamaanka
+        other: Bayaanada qoran ee loogu talogalay Baarlamaanka
   help:
     index:
       about:

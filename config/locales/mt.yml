@@ -535,35 +535,39 @@ mt:
   find:
   formats:
     authored_article:
-      few:
-      many:
-      one: Artiklu miktub
-      other: Artikli miktuba
+      name:
+        few:
+        many:
+        one: Artiklu miktub
+        other: Artikli miktuba
     case_study:
-      few:
-      many:
-      one: Studju ta' Każ
-      other: Studju ta' Każijiet
+      name:
+        few:
+        many:
+        one: Studju ta' Każ
+        other: Studju ta' Każijiet
     corporate_information_page:
       about_our_services_html: Kun af %{link}.
       corporate_information: Informazzjoni korporattiva
-      few:
-      many:
-      one: Paġna ta' informazzjoni
-      other: Paġni ta' informazzjoni
+      name:
+        few:
+        many:
+        one: Paġna ta' informazzjoni
+        other: Paġni ta' informazzjoni
       personal_information_charter_html: Il-%{link} jispjega kif aħna nittrattaw l-informazzjoni personali tiegħek.
       publication_scheme_html: Aqra dwar it-tipi ta' informazzjoni li aħna nippubblikaw regolarment fuq %{link}.
       social_media_use_html: Aqra l-politika tagħna fuq %{link}.
       welsh_language_scheme_html: Kun af dwar l-impenn tagħna lejn %{link}.
     fatality_notice:
       alt_text: Il-Ministeru tad-Difiża
-      few:
       field_of_operation: Qasam tal-operazzjoni
-      many:
+      name:
+        few:
+        many:
+        one: Avviż dwar fatalità
+        other: Avviżi dwar fatalitajiet
       none_added: Ma kien hemm l-ebda avviżi ta' fatalitajiet miżjuda għal din l-operazzjoni.
-      one: Avviż dwar fatalità
       operations_in: Operazzjonijiet fil- %{location}
-      other: Avviżi dwar fatalitajiet
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ mt:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: Risposta tal-Gvern
-      other: Risposti tal-Gvern
+      name:
+        few:
+        many:
+        one: Risposta tal-Gvern
+        other: Risposti tal-Gvern
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ mt:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      many:
-      one: Artiklu bl-aħbarijiet
-      other: Artikli bl-aħbarijiet
+      name:
+        few:
+        many:
+        one: Artiklu bl-aħbarijiet
+        other: Artikli bl-aħbarijiet
     news_story:
-      few:
-      many:
-      one: Storja aħbar
-      other: Stejjer aħbar
+      name:
+        few:
+        many:
+        one: Storja aħbar
+        other: Stejjer aħbar
     oral_statement:
-      few:
-      many:
-      one: Dikjarazzjoni verbali lill-Parlament
-      other: Dikjarazzjonijiet verbali lill-Parlament
+      name:
+        few:
+        many:
+        one: Dikjarazzjoni verbali lill-Parlament
+        other: Dikjarazzjonijiet verbali lill-Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      many:
-      one: Stqarrija għall-istampa
-      other: Stqarrijiet għall-istampa
+      name:
+        few:
+        many:
+        one: Stqarrija għall-istampa
+        other: Stqarrijiet għall-istampa
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ mt:
         tsg_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Speċjalità Tradizzjonali Protetta mir-RU
     speech:
       delivered_on: Kunsinnat f'
-      few:
       location: Post
-      many:
-      one: Diskors
-      other: Diskorsi
+      name:
+        few:
+        many:
+        one: Diskors
+        other: Diskorsi
       written_on: Miktub nhar
     start_now:
     take_part:
-      few:
-      many:
-      one: Ħu sehem
-      other: Ħu sehem
+      name:
+        few:
+        many:
+        one: Ħu sehem
+        other: Ħu sehem
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ mt:
       summary: Sommarju
       updated: Aġġornat
     world_news_story:
-      few:
-      many:
-      one: Storja b'aħbarijiet mid-dinja
-      other: Stejjer b'aħbarijiet mid-dinja
+      name:
+        few:
+        many:
+        one: Storja b'aħbarijiet mid-dinja
+        other: Stejjer b'aħbarijiet mid-dinja
     written_statement:
-      few:
-      many:
-      one: Dikjarazzjoni bil-miktub lill-Parlament
-      other: Dikjarazzjonijiet bil-miktub lill-Parlament
+      name:
+        few:
+        many:
+        one: Dikjarazzjoni bil-miktub lill-Parlament
+        other: Dikjarazzjonijiet bil-miktub lill-Parlament
   help:
     index:
       about:

@@ -316,13 +316,16 @@ zh-hk:
   find:
   formats:
     authored_article:
-      other: 撰寫文章
+      name:
+        other: 撰寫文章
     case_study:
-      other: 案例研究
+      name:
+        other: 案例研究
     corporate_information_page:
       about_our_services_html: 找尋 %{link}。
       corporate_information: 政府資訊
-      other: 資訊頁面
+      name:
+        other: 資訊頁面
       personal_information_charter_html: 我們的 %{link} 解釋我們如何處理你的個人資料。
       publication_scheme_html: 查閱我們在 %{link} 定期發佈的資訊。
       social_media_use_html: 查閱我們在 %{link} 的政策。
@@ -330,9 +333,10 @@ zh-hk:
     fatality_notice:
       alt_text: 國防部徽章
       field_of_operation: 行動領域
+      name:
+        other: 安全事故通知
       none_added: 此運作領域仍未加入任何死亡通知。
       operations_in: 行動位置 %{location}
-      other: 安全事故通知
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ zh-hk:
       updated:
       your_views:
     government_response:
-      other: 政府回應
+      name:
+        other: 政府回應
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ zh-hk:
       website:
       what_you_need_to_know:
     news_article:
-      other: 新聞
+      name:
+        other: 新聞
     news_story:
-      other: 新聞
+      name:
+        other: 新聞
     oral_statement:
-      other: 提交國會的口頭聲明
+      name:
+        other: 提交國會的口頭聲明
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: 新聞稿
+      name:
+        other: 新聞稿
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ zh-hk:
     speech:
       delivered_on: 交付時間
       location: 地點
-      other: 演講
+      name:
+        other: 演講
       written_on: 記載於
     start_now:
     take_part:
-      other: 參加活動
+      name:
+        other: 參加活動
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ zh-hk:
       summary: 摘要
       updated: 已更新
     world_news_story:
-      other: 世界新聞故事
+      name:
+        other: 世界新聞故事
     written_statement:
-      other: 提交國會的書面聲明
+      name:
+        other: 提交國會的書面聲明
   help:
     index:
       about:

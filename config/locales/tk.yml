@@ -389,16 +389,19 @@ tk:
   find:
   formats:
     authored_article:
-      one: Ygtyýarlandyrylan statýa
-      other: Ygtyýarlandyrylan statýalar
+      name:
+        one: Ygtyýarlandyrylan statýa
+        other: Ygtyýarlandyrylan statýalar
     case_study:
-      one: Ýagdaý seljermesi
-      other: Ýagdaý seljermeleri
+      name:
+        one: Ýagdaý seljermesi
+        other: Ýagdaý seljermeleri
     corporate_information_page:
       about_our_services_html: Öwreniň %{link}.
       corporate_information: Korporatiw maglumatlar
-      one: Maglumat sahypasy
-      other: Maglumat sahypalary
+      name:
+        one: Maglumat sahypasy
+        other: Maglumat sahypalary
       personal_information_charter_html: Biziň %{link} baglanyşygymyz siziň şahsy maglumatlaryňyza nähili çemeleşýändigimiz barada habar berýär.
       publication_scheme_html: Biziň %{link} baglanyşygymyzdan nähili habarlary yzygiderli neşir edýändigimizi okaň.
       social_media_use_html: Biziň syýasatymyz barada %{link} baglanyşygymyzda okaň.
@@ -406,10 +409,11 @@ tk:
     fatality_notice:
       alt_text: Goranmak ministrliginiň nyşany
       field_of_operation: Iş meýdany
+      name:
+        one: Ölüm howpy barada duýduryş
+        other: Ölüm howpy barada duýduryşlar
       none_added: Bu ugurda entek ölüm howpy barada duýduryş habary ýok.
-      one: Ölüm howpy barada duýduryş
       operations_in: "%{location} ýerindäki işler"
-      other: Ölüm howpy barada duýduryşlar
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ tk:
       updated:
       your_views:
     government_response:
-      one: Hökümetiň jogaby
-      other: Hökümetiň jogaplary
+      name:
+        one: Hökümetiň jogaby
+        other: Hökümetiň jogaplary
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ tk:
       website:
       what_you_need_to_know:
     news_article:
-      one: Habar makalasy
-      other: Habar makalalary
+      name:
+        one: Habar makalasy
+        other: Habar makalalary
     news_story:
-      one: Habar
-      other: Habarlar
+      name:
+        one: Habar
+        other: Habarlar
     oral_statement:
-      one: Mejlise dilden beýan
-      other: Mejlise dilden beýanlar
+      name:
+        one: Mejlise dilden beýan
+        other: Mejlise dilden beýanlar
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Goýberiliş neşiri
-      other: Goýberiliş neşirleri
+      name:
+        one: Goýberiliş neşiri
+        other: Goýberiliş neşirleri
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ tk:
     speech:
       delivered_on: 'Gowşuryldy:'
       location: Ýerleşýän ýeri
-      one: Çykyş
-      other: Çykyşlar
+      name:
+        one: Çykyş
+        other: Çykyşlar
       written_on: 'Ýazylan:'
     start_now:
     take_part:
-      one: Gatnaşmak
-      other: Gatnaşmak
+      name:
+        one: Gatnaşmak
+        other: Gatnaşmak
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ tk:
       summary: Gysgaça
       updated: Täzelenen
     world_news_story:
-      one: Dünýä habary
-      other: Dünýä habarlary
+      name:
+        one: Dünýä habary
+        other: Dünýä habarlary
     written_statement:
-      one: Mejlise ýazmaça beýan
-      other: Mejlise ýazmaça beýanlar
+      name:
+        one: Mejlise ýazmaça beýan
+        other: Mejlise ýazmaça beýanlar
   help:
     index:
       about:

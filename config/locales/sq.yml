@@ -389,16 +389,19 @@ sq:
   find:
   formats:
     authored_article:
-      one: Artikull me autor
-      other: Artikuj me autor
+      name:
+        one: Artikull me autor
+        other: Artikuj me autor
     case_study:
-      one: Rast studimi
-      other: Raste studimi
+      name:
+        one: Rast studimi
+        other: Raste studimi
     corporate_information_page:
       about_our_services_html: Mësoni %{link}.
       corporate_information: Informacioni i korporatës
-      one: Faqja e informacionit
-      other: Faqet e informacionit
+      name:
+        one: Faqja e informacionit
+        other: Faqet e informacionit
       personal_information_charter_html: "%{link} ynë shpjegon se si i trajtojmë informacionet tuaja personale."
       publication_scheme_html: Lexoni për llojet e informacionit që botojmë në mënyrë rutinore në %{link} tonë.
       social_media_use_html: Lexoni politikën tonë në %{link}.
@@ -406,10 +409,11 @@ sq:
     fatality_notice:
       alt_text: Stema e Ministrisë së Mbrojtjes
       field_of_operation: Fusha e operimit
+      name:
+        one: Njoftim fataliteti
+        other: Njoftime fataliteti
       none_added: Ende nuk është shtuar asnjë njoftim për fatalitet për këtë fushë të funksionimit.
-      one: Njoftim fataliteti
       operations_in: Operacione në %{location}
-      other: Njoftime fataliteti
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ sq:
       updated:
       your_views:
     government_response:
-      one: Reagim qeveritar
-      other: Reagime qeveritare
+      name:
+        one: Reagim qeveritar
+        other: Reagime qeveritare
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ sq:
       website:
       what_you_need_to_know:
     news_article:
-      one: Artikull lajmesh
-      other: Artikuj lajmesh
+      name:
+        one: Artikull lajmesh
+        other: Artikuj lajmesh
     news_story:
-      one: Ngjarje
-      other: Ngjarje
+      name:
+        one: Ngjarje
+        other: Ngjarje
     oral_statement:
-      one: Deklarata gojore në Parlament
-      other: Deklarata gojore në Parlament
+      name:
+        one: Deklarata gojore në Parlament
+        other: Deklarata gojore në Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Njoftimi shtypi
-      other: Njoftime shtypi
+      name:
+        one: Njoftimi shtypi
+        other: Njoftime shtypi
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ sq:
     speech:
       delivered_on: Dorëzuar më
       location: Vendndodhja
-      one: Fjalim
-      other: Fjalime
+      name:
+        one: Fjalim
+        other: Fjalime
       written_on: Shkruar në
     start_now:
     take_part:
-      one: Merr pjesë
-      other: Merr pjesë
+      name:
+        one: Merr pjesë
+        other: Merr pjesë
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ sq:
       summary: Përmbajtja
       updated: Përditësuar
     world_news_story:
-      one: Historia e lajmeve botërore
-      other: Histori të lajmeve botërore
+      name:
+        one: Historia e lajmeve botërore
+        other: Histori të lajmeve botërore
     written_statement:
-      one: Deklaratë me shkrim në Parlament
-      other: Deklarata me shkrim në Parlament
+      name:
+        one: Deklaratë me shkrim në Parlament
+        other: Deklarata me shkrim në Parlament
   help:
     index:
       about:

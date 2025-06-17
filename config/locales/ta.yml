@@ -389,16 +389,19 @@ ta:
   find:
   formats:
     authored_article:
-      one: எழுதிய கட்டுரை
-      other: எழுதிய கட்டுரைகள்
+      name:
+        one: எழுதிய கட்டுரை
+        other: எழுதிய கட்டுரைகள்
     case_study:
-      one: நிகழ்வு ஆய்வு
-      other: நிகழ்வு ஆய்வுகள்
+      name:
+        one: நிகழ்வு ஆய்வு
+        other: நிகழ்வு ஆய்வுகள்
     corporate_information_page:
       about_our_services_html: கண்டறியுங்கள் %{link}.
       corporate_information: குழுமத் தகவல்கள்
-      one: தகவல் பக்கம்
-      other: தகவல் பக்கங்கள்
+      name:
+        one: தகவல் பக்கம்
+        other: தகவல் பக்கங்கள்
       personal_information_charter_html: எங்கள் %{link} உங்கள் தனிப்பட்ட தகவல்களை நாங்கள் எவ்வாறு கையாள்கிறோம் என்பதை விளக்குகிறது.
       publication_scheme_html: எங்கள் %{link}-ல் நாங்கள் வழக்கமாக வெளியிடும் தகவல்களின் வகைகள் குறித்து வாசியுங்கள்.
       social_media_use_html: "%{link}-ல் எங்கள் கொள்கை குறித்து வாசியுங்கள்."
@@ -406,10 +409,11 @@ ta:
     fatality_notice:
       alt_text: பாதுகாப்பு காவல்துறை அமைச்சர்
       field_of_operation: இயங்குதளம்
+      name:
+        one: இறப்பு அறிவிப்பு
+        other: இறப்பு அறிவிப்புகள்
       none_added: இந்த செயல்பாட்டுத் தளத்தில் எந்த உயிரிழப்பு அறிவிப்புகளும் இன்னும் சேர்க்கப்படவில்லை.
-      one: இறப்பு அறிவிப்பு
       operations_in: "%{location}-ல் செயல்பாடுகள்"
-      other: இறப்பு அறிவிப்புகள்
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ ta:
       updated:
       your_views:
     government_response:
-      one: அரசாங்க பதில்
-      other: அரசாங்க பதில்கள்
+      name:
+        one: அரசாங்க பதில்
+        other: அரசாங்க பதில்கள்
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ ta:
       website:
       what_you_need_to_know:
     news_article:
-      one: செய்திக் கட்டுரை
-      other: செய்திக் கட்டுரைகள்
+      name:
+        one: செய்திக் கட்டுரை
+        other: செய்திக் கட்டுரைகள்
     news_story:
-      one: செய்தி
-      other: செய்திகள்
+      name:
+        one: செய்தி
+        other: செய்திகள்
     oral_statement:
-      one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
-      other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
+      name:
+        one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
+        other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: செய்திக் குறிப்பு
-      other: செய்திக் குறிப்புகள்
+      name:
+        one: செய்திக் குறிப்பு
+        other: செய்திக் குறிப்புகள்
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ ta:
     speech:
       delivered_on: ஒப்படைத்த தேதி
       location: இருப்பிடம்
-      one: பேச்சு
-      other: பேச்சுகள்
+      name:
+        one: பேச்சு
+        other: பேச்சுகள்
       written_on: எழுதப்பட்ட தேதி
     start_now:
     take_part:
-      one: பங்கெடுத்தல்
-      other: பங்கெடுத்தல்
+      name:
+        one: பங்கெடுத்தல்
+        other: பங்கெடுத்தல்
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ ta:
       summary: சுருக்கம்
       updated: புதுப்பிக்கப்பட்டது
     world_news_story:
-      one: உலகச் செய்தி
-      other: உலகச் செய்திகள்
+      name:
+        one: உலகச் செய்தி
+        other: உலகச் செய்திகள்
     written_statement:
-      one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
-      other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்
+      name:
+        one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
+        other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்
   help:
     index:
       about:

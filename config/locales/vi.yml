@@ -316,13 +316,16 @@ vi:
   find:
   formats:
     authored_article:
-      other: Bài viết có tác giả
+      name:
+        other: Bài viết có tác giả
     case_study:
-      other: Nghiên cứu điển hình
+      name:
+        other: Nghiên cứu điển hình
     corporate_information_page:
       about_our_services_html: Tìm hiểu %{link}.
       corporate_information: Thông tin doanh nghiệp
-      other: Trang thông tin
+      name:
+        other: Trang thông tin
       personal_information_charter_html: "%{link} của chúng tôi giải thích cách chúng tôi xử lý thông tin cá nhân của bạn."
       publication_scheme_html: Tìm hiểu về các loại thông tin chúng tôi thường xuyên xuất bản trong %{link} của chúng tôi.
       social_media_use_html: Đọc chính sách của chúng tôi trên %{link}.
@@ -330,9 +333,10 @@ vi:
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
       field_of_operation: Lĩnh vực hoạt động
+      name:
+        other: Thông báo tử vong
       none_added: Chưa có thông báo tử vong nào được thêm vào cho lĩnh vực hoạt động này.
       operations_in: Hoạt động ở %{location}
-      other: Thông báo tử vong
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ vi:
       updated:
       your_views:
     government_response:
-      other: Phản hồi của chính phủ
+      name:
+        other: Phản hồi của chính phủ
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ vi:
       website:
       what_you_need_to_know:
     news_article:
-      other: Bài viết thời sự
+      name:
+        other: Bài viết thời sự
     news_story:
-      other: Bài phóng sự
+      name:
+        other: Bài phóng sự
     oral_statement:
-      other: Tuyên bố bằng lời trước Quốc hội
+      name:
+        other: Tuyên bố bằng lời trước Quốc hội
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: Thông cáo báo chí
+      name:
+        other: Thông cáo báo chí
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ vi:
     speech:
       delivered_on: Ngày giao
       location: Vị trí
-      other: Bài phát biểu
+      name:
+        other: Bài phát biểu
       written_on: Ngày viết
     start_now:
     take_part:
-      other: Tham gia
+      name:
+        other: Tham gia
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ vi:
       summary: Tóm tắt
       updated: Đã cập nhật
     world_news_story:
-      other: Bài phóng sự thế giới
+      name:
+        other: Bài phóng sự thế giới
     written_statement:
-      other: Tuyên bố bằng văn bản trước Quốc hội
+      name:
+        other: Tuyên bố bằng văn bản trước Quốc hội
   help:
     index:
       about:

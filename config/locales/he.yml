@@ -389,16 +389,19 @@ he:
   find:
   formats:
     authored_article:
-      one: מאמר מאושר
-      other: מאמרים מאושרים
+      name:
+        one: מאמר מאושר
+        other: מאמרים מאושרים
     case_study:
-      one: מקרה בוחן
-      other: מקרי בוחן
+      name:
+        one: מקרה בוחן
+        other: מקרי בוחן
     corporate_information_page:
       about_our_services_html: גלה %{link}.
       corporate_information: מידע תאגידי
-      one: דף מידע
-      other: דפי מידע
+      name:
+        one: דף מידע
+        other: דפי מידע
       personal_information_charter_html: ה%{link} מסביר אודות המדיניות שלנו כלפי מידע פרטי
       publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
       social_media_use_html: קרא/י אודות המדיניות שלנו %{link}
@@ -406,10 +409,11 @@ he:
     fatality_notice:
       alt_text: סמל משרד הביטחון
       field_of_operation: תחום הפעולה
+      name:
+        one: הודעת פטירה
+        other: הודעות פטירה
       none_added: עדיין לא נוספו הודעות פטירה על תחום פעולה זה.
-      one: הודעת פטירה
       operations_in: פעולות ב- %{location}
-      other: הודעות פטירה
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ he:
       updated:
       your_views:
     government_response:
-      one: תגובה ממשלתית
-      other: תגובות ממשלתיות
+      name:
+        one: תגובה ממשלתית
+        other: תגובות ממשלתיות
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ he:
       website:
       what_you_need_to_know:
     news_article:
-      one: מאמר חדשות
-      other: מאמרי חדשות
+      name:
+        one: מאמר חדשות
+        other: מאמרי חדשות
     news_story:
-      one: חדשות
-      other: חדשות
+      name:
+        one: חדשות
+        other: חדשות
     oral_statement:
-      one: הצהרה בעל פה לפרלמנט
-      other: הצהרות בעל פה לפרלמנט
+      name:
+        one: הצהרה בעל פה לפרלמנט
+        other: הצהרות בעל פה לפרלמנט
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: הודעה לעיתונות
-      other: הודעות לעיתונות
+      name:
+        one: הודעה לעיתונות
+        other: הודעות לעיתונות
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ he:
     speech:
       delivered_on: נמסר ב
       location: מיקום
-      one: נאום
-      other: נאומים
+      name:
+        one: נאום
+        other: נאומים
       written_on: כתוב על
     start_now:
     take_part:
-      one: קח חלק
-      other: קח חלק
+      name:
+        one: קח חלק
+        other: קח חלק
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ he:
       summary: סיכום
       updated: מעודכן
     world_news_story:
-      one: חדשות עולמי
-      other: 'חדשות עולמיים '
+      name:
+        one: חדשות עולמי
+        other: 'חדשות עולמיים '
     written_statement:
-      one: הצהרה בכתב לפרלמנט
-      other: הצהרות בכתב לפרלמנט
+      name:
+        one: הצהרה בכתב לפרלמנט
+        other: הצהרות בכתב לפרלמנט
   help:
     index:
       about:

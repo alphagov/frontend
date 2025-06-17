@@ -389,16 +389,19 @@ uz:
   find:
   formats:
     authored_article:
-      one: Муаллифлик мақоласи
-      other: Муаллифлик мақолалари
+      name:
+        one: Муаллифлик мақоласи
+        other: Муаллифлик мақолалари
     case_study:
-      one: Ҳолатларнинг таҳлили
-      other: Ҳолатларнинг таҳлиллари
+      name:
+        one: Ҳолатларнинг таҳлили
+        other: Ҳолатларнинг таҳлиллари
     corporate_information_page:
       about_our_services_html: Билиб олиш %{link}.
       corporate_information: Корпоратив маълумотлар
-      one: Маълумотлар саҳифаси
-      other: Маълумотлар саҳифалари
+      name:
+        one: Маълумотлар саҳифаси
+        other: Маълумотлар саҳифалари
       personal_information_charter_html: Бизнинг %{link} биз сизнинг шахсий маълумотларингизга қандай тарзда ишлов беришни бажараётганимизни тушунтириб беради.
       publication_scheme_html: Биз мунтазам нашр қилаётган маълумотларнинг турлари ҳақида, бизнинг %{link} да ўқинг.
       social_media_use_html: "%{link} да бизнинг сиёсатимиз билан танишинг."
@@ -406,10 +409,11 @@ uz:
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
       field_of_operation: Фаолият соҳаси
+      name:
+        one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
+        other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
       none_added: Ушбу фаолият соҳасида ўлим ҳолатлари ҳақида хабарномалар ҳали қўшилмаган.
-      one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
       operations_in: "%{location} да ишлаш"
-      other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ uz:
       updated:
       your_views:
     government_response:
-      one: Ҳукумат жавоби
-      other: Ҳукумат жавоблари
+      name:
+        one: Ҳукумат жавоби
+        other: Ҳукумат жавоблари
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ uz:
       website:
       what_you_need_to_know:
     news_article:
-      one: Янгилик мақоласи
-      other: Янгилик мақолалари
+      name:
+        one: Янгилик мақоласи
+        other: Янгилик мақолалари
     news_story:
-      one: Янгилик сюжети
-      other: Янгилик сюжетлари
+      name:
+        one: Янгилик сюжети
+        other: Янгилик сюжетлари
     oral_statement:
-      one: Парламентга оғзаки баёнот
-      other: Парламентга оғзаки баёнотлар
+      name:
+        one: Парламентга оғзаки баёнот
+        other: Парламентга оғзаки баёнотлар
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Матбуот-релизи
-      other: Матбуот-релизлари
+      name:
+        one: Матбуот-релизи
+        other: Матбуот-релизлари
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ uz:
     speech:
       delivered_on: Етказиб берилди
       location: Жойлашиш жойи
-      one: Нутқ
-      other: Нутқлар
+      name:
+        one: Нутқ
+        other: Нутқлар
       written_on: Ёзилган
     start_now:
     take_part:
-      one: Иштирок этиш
-      other: Иштирок этиш
+      name:
+        one: Иштирок этиш
+        other: Иштирок этиш
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ uz:
       summary: Жамланма маълумот
       updated: Янгиланган
     world_news_story:
-      one: Янгилик сюжетлари
-      other: Халқаро янги тарихлар
+      name:
+        one: Янгилик сюжетлари
+        other: Халқаро янги тарихлар
     written_statement:
-      one: Парламентга ёзма баёнот
-      other: Парламентга ёзма баёнотлар
+      name:
+        one: Парламентга ёзма баёнот
+        other: Парламентга ёзма баёнотлар
   help:
     index:
       about:

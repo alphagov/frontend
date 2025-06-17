@@ -683,43 +683,47 @@ cy:
   find: Ffeindio
   formats:
     authored_article:
-      few:
-      many:
-      one: Erthygl ag awdur wedi'i enwi
-      other: Erthyglau ag awdur wedi'i enwi
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Erthygl ag awdur wedi'i enwi
+        other: Erthyglau ag awdur wedi'i enwi
+        two:
+        zero:
     case_study:
-      few:
-      many:
-      one: Astudiaeth achos
-      other: Astudiaethau achos
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Astudiaeth achos
+        other: Astudiaethau achos
+        two:
+        zero:
     corporate_information_page:
       about_our_services_html: Dysgu %{link}.
       corporate_information: Gwybodaeth gorfforaethol
-      few:
-      many:
-      one: Tudalen wybodaeth
-      other: Tudalennau gwybodaeth
+      name:
+        few:
+        many:
+        one: Tudalen wybodaeth
+        other: Tudalennau gwybodaeth
+        two:
+        zero:
       personal_information_charter_html: Mae ein %{link} yn esbonio sut rydyn ni'n ymdrin â'ch gwybodaeth bersonol.
       publication_scheme_html: Darllenwch am y mathau o wybodaeth rydyn ni'n ei chyhoeddi'n rheolaidd yn ein %{link}.
       social_media_use_html: Darllenwch ein polisi ar %{link}.
-      two:
       welsh_language_scheme_html: Dysgwch am ein hymrwymiad i %{link}.
-      zero:
     fatality_notice:
       alt_text: Arwyddlun y Weinyddiaeth Amddiffyn
-      few:
       field_of_operation: Maes gweithredu
-      many:
+      name:
+        few:
+        many:
+        one: Hysbysiad o farwolaeth
+        other: Hysbysiadau o farwolaeth
+        two:
+        zero:
       none_added: Does dim hysbysiadau o farwolaethau wedi'u hychwanegu ar gyfer y maes gweithredu hwn eto.
-      one: Hysbysiad o farwolaeth
       operations_in: Gweithrediadau yn %{location}
-      other: Hysbysiadau o farwolaeth
-      two:
-      zero:
     field_of_operation:
       context:
       title:
@@ -768,12 +772,13 @@ cy:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: Ymateb y llywodraeth
-      other: Ymatebion y llywodraeth
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Ymateb y llywodraeth
+        other: Ymatebion y llywodraeth
+        two:
+        zero:
     licence:
       change: Newid
     local_transaction:
@@ -831,38 +836,42 @@ cy:
       website:
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
     news_article:
-      few:
-      many:
-      one: Erthygl newyddion
-      other: Erthyglau newyddion
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Erthygl newyddion
+        other: Erthyglau newyddion
+        two:
+        zero:
     news_story:
-      few:
-      many:
-      one: Stori newyddion
-      other: Straeon newyddion
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Stori newyddion
+        other: Straeon newyddion
+        two:
+        zero:
     oral_statement:
-      few:
-      many:
-      one: Datganiad llafar i'r Senedd
-      other: Datganiadau llafar i'r Senedd
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Datganiad llafar i'r Senedd
+        other: Datganiadau llafar i'r Senedd
+        two:
+        zero:
     place:
       change: Newid
       find_results: Darganfod canlyniadau yn agos i chi
       postcode: Cod post
       select_address: Dewiswch gyfeiriad
     press_release:
-      few:
-      many:
-      one: Datganiad i'r wasg
-      other: Datganiadau i'r wasg
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Datganiad i'r wasg
+        other: Datganiadau i'r wasg
+        two:
+        zero:
     simple_smart_answer:
       change: Newid
       next_step: Cam nesaf
@@ -876,22 +885,24 @@ cy:
         tsg_alt_text: Stamp du gyda'r geiriau Traditional Speciality UK Protected yw logo'r cynllun
     speech:
       delivered_on: Cyflawnwyd ar
-      few:
       location: Lleoliad
-      many:
-      one: Anerchiad
-      other: Anerchiadau
-      two:
+      name:
+        few:
+        many:
+        one: Anerchiad
+        other: Anerchiadau
+        two:
+        zero:
       written_on: Ysgrifennwyd ar
-      zero:
     start_now: Dechrau nawr
     take_part:
-      few:
-      many:
-      one: Cymryd rhan
-      other: Cymryd rhan
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Cymryd rhan
+        other: Cymryd rhan
+        two:
+        zero:
     transaction:
       before_you_start: Cyn i chi ddechrau
       more_information: Rhagor o wybodaeth
@@ -911,19 +922,21 @@ cy:
       summary: Crynodeb
       updated: Diweddarwyd
     world_news_story:
-      few:
-      many:
-      one: Stori newyddion byd-eang
-      other: Straeon newyddion byd-eang
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Stori newyddion byd-eang
+        other: Straeon newyddion byd-eang
+        two:
+        zero:
     written_statement:
-      few:
-      many:
-      one: Datganiad ysgrifenedig i'r Senedd
-      other: Datganiadau ysgrifenedig i'r Senedd
-      two:
-      zero:
+      name:
+        few:
+        many:
+        one: Datganiad ysgrifenedig i'r Senedd
+        other: Datganiadau ysgrifenedig i'r Senedd
+        two:
+        zero:
   help:
     index:
       about: Ynghylch GOV.UK

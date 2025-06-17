@@ -389,16 +389,19 @@ hi:
   find:
   formats:
     authored_article:
-      one: मूल आलेख
-      other: मूल आलेख
+      name:
+        one: मूल आलेख
+        other: मूल आलेख
     case_study:
-      one: विषय अध्ययन
-      other: विषय अध्ययन
+      name:
+        one: विषय अध्ययन
+        other: विषय अध्ययन
     corporate_information_page:
       about_our_services_html: "%{link} खोजें।"
       corporate_information: कारपोरेट सूचना
-      one: सूचना का पेज
-      other: सूचना के पेज
+      name:
+        one: सूचना का पेज
+        other: सूचना के पेज
       personal_information_charter_html: हमारे %{link} बताते हैं कि हम कैसे आपकी व्यक्तिगत सूचना का उपयोग करते हैं।
       publication_scheme_html: सूचना के उन प्रकारों के बारे में पढ़ें, जिन्हें हम अपने %{link} में नियमित रूप से प्रकाशित करते हैं।
       social_media_use_html: इस बारे में हमारी नीतियां पढ़ें %{link}
@@ -406,10 +409,11 @@ hi:
     fatality_notice:
       alt_text: रक्षा मंत्रालय का क्रेस्ट
       field_of_operation: संचालन का क्षेत्र
+      name:
+        one: विपत्ति की सूचना
+        other: विपत्ति की सूचना
       none_added: संचालन के इस क्षेत्र में अभी तक कोई घातक नोटिस नहीं जोड़ा गया है।
-      one: विपत्ति की सूचना
       operations_in: "%{location} में संचालन"
-      other: विपत्ति की सूचना
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ hi:
       updated:
       your_views:
     government_response:
-      one: सरकारी जवाब
-      other: सरकारी जवाब
+      name:
+        one: सरकारी जवाब
+        other: सरकारी जवाब
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ hi:
       website:
       what_you_need_to_know:
     news_article:
-      one: समाचार लेख
-      other: समाचार लेख
+      name:
+        one: समाचार लेख
+        other: समाचार लेख
     news_story:
-      one: समाचार कथा
-      other: समाचार कथाएं
+      name:
+        one: समाचार कथा
+        other: समाचार कथाएं
     oral_statement:
-      one: संसद में मौखिक बयान
-      other: संसद में मौखिक बयान
+      name:
+        one: संसद में मौखिक बयान
+        other: संसद में मौखिक बयान
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: प्रेस विज्ञप्ति
-      other: प्रेस विज्ञप्तियां
+      name:
+        one: प्रेस विज्ञप्ति
+        other: प्रेस विज्ञप्तियां
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ hi:
     speech:
       delivered_on: इस पर डिलीवरी किया गया
       location: स्थान
-      one: भाषण
-      other: भाषण
+      name:
+        one: भाषण
+        other: भाषण
       written_on: पर लिखा
     start_now:
     take_part:
-      one: हिस्सा लें
-      other: हिस्सा लें
+      name:
+        one: हिस्सा लें
+        other: हिस्सा लें
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ hi:
       summary: सारांश
       updated: अपडेट किया गया
     world_news_story:
-      one: विश्व की समाचार कथा
-      other: विश्व की समाचार कथाएं
+      name:
+        one: विश्व की समाचार कथा
+        other: विश्व की समाचार कथाएं
     written_statement:
-      one: संसद में लिखित बयान
-      other: संसद में लिखित बयान
+      name:
+        one: संसद में लिखित बयान
+        other: संसद में लिखित बयान
   help:
     index:
       about:

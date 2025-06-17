@@ -389,16 +389,19 @@ es:
   find:
   formats:
     authored_article:
-      one: Artículo de autor
-      other: Artículos de autor
+      name:
+        one: Artículo de autor
+        other: Artículos de autor
     case_study:
-      one: Caso de estudio práctico
-      other: Casos de estudio práctico
+      name:
+        one: Caso de estudio práctico
+        other: Casos de estudio práctico
     corporate_information_page:
       about_our_services_html: Descubra %{link}.
       corporate_information: Información corporativa
-      one: Página de información
-      other: Páginas de información
+      name:
+        one: Página de información
+        other: Páginas de información
       personal_information_charter_html: El siguiente enlace %{link} explica cómo tratamos tu información personal
       publication_scheme_html: Lea acerca del tipo de información que publicamos en el siguiente enlace %{link}
       social_media_use_html: Lea nuestra política en %{link}
@@ -406,10 +409,11 @@ es:
     fatality_notice:
       alt_text: Escudo del Ministerio de Defensa
       field_of_operation: Campo de operación
+      name:
+        one: Aviso de defunción
+        other: Avisos de defunción
       none_added: Aún no se han agregado los avisos de defunción para este campo de operación.
-      one: Aviso de defunción
       operations_in: Operaciones en %{location}
-      other: Avisos de defunción
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ es:
       updated:
       your_views:
     government_response:
-      one: Respuesta gubernamental
-      other: Respuestas gubernamentales
+      name:
+        one: Respuesta gubernamental
+        other: Respuestas gubernamentales
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ es:
       website:
       what_you_need_to_know:
     news_article:
-      one: Artículo
-      other: Artículos
+      name:
+        one: Artículo
+        other: Artículos
     news_story:
-      one: Noticia
-      other: Noticias
+      name:
+        one: Noticia
+        other: Noticias
     oral_statement:
-      one: Declaración formulada oralmente
-      other: Declaraciones formuladas oralmente
+      name:
+        one: Declaración formulada oralmente
+        other: Declaraciones formuladas oralmente
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Nota de prensa
-      other: Notas de prensa
+      name:
+        one: Nota de prensa
+        other: Notas de prensa
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ es:
     speech:
       delivered_on: Entregado el
       location: Ubicación
-      one: Discurso
-      other: Discursos
+      name:
+        one: Discurso
+        other: Discursos
       written_on: Escrito en
     start_now:
     take_part:
-      one: Participar
-      other: Participar
+      name:
+        one: Participar
+        other: Participar
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ es:
       summary: Resumen
       updated: Actualizado
     world_news_story:
-      one: Noticia internacional
-      other: Noticias internacionales
+      name:
+        one: Noticia internacional
+        other: Noticias internacionales
     written_statement:
-      one: Declaración escrita
-      other: Declaraciones escritas
+      name:
+        one: Declaración escrita
+        other: Declaraciones escritas
   help:
     index:
       about:

@@ -316,13 +316,16 @@ th:
   find:
   formats:
     authored_article:
-      other: บทความที่มีผู้เขียน
+      name:
+        other: บทความที่มีผู้เขียน
     case_study:
-      other: กรณีศึกษา
+      name:
+        other: กรณีศึกษา
     corporate_information_page:
       about_our_services_html: ดูข้อมูลเพิ่มเติมที่ %{link}
       corporate_information: ข้อมูลองค์กร
-      other: หน้าข้อมูล
+      name:
+        other: หน้าข้อมูล
       personal_information_charter_html: "%{link} ของเราอธิบายว่าเราปฏิบัติต่อข้อมูลส่วนบุคคลของคุณอย่างไร"
       publication_scheme_html: อ่านเกี่ยวกับประเภทข้อมูลที่เราเผยแพร่เป็นประจำใน %{link} ของเรา
       social_media_use_html: อ่านนโยบายของเราที่ %{link}
@@ -330,9 +333,10 @@ th:
     fatality_notice:
       alt_text: ตรากระทรวงกลาโหม
       field_of_operation: พื้นที่ปฏิบัติการ
+      name:
+        other: การแจ้งตาย
       none_added: ยังไม่มีการแจ้งการเสียชีวิตเพิ่มเติมสำหรับพื้นที่ปฏิบัติการนี้
       operations_in: การดำเนินงานใน %{location}
-      other: การแจ้งตาย
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ th:
       updated:
       your_views:
     government_response:
-      other: คำตอบของรัฐบาล
+      name:
+        other: คำตอบของรัฐบาล
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ th:
       website:
       what_you_need_to_know:
     news_article:
-      other: บทความข่าว
+      name:
+        other: บทความข่าว
     news_story:
-      other: เนื้อหาข่าว
+      name:
+        other: เนื้อหาข่าว
     oral_statement:
-      other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
+      name:
+        other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: ข่าวประชาสัมพันธ์
+      name:
+        other: ข่าวประชาสัมพันธ์
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ th:
     speech:
       delivered_on: ส่งมอบเมื่อ
       location: ตำแหน่งที่ตั้ง
-      other: สุนทรพจน์
+      name:
+        other: สุนทรพจน์
       written_on: เขียนเมื่อ
     start_now:
     take_part:
-      other: มีส่วนร่วม
+      name:
+        other: มีส่วนร่วม
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ th:
       summary: สรุป
       updated: ปรับปรุงแล้ว
     world_news_story:
-      other: ข่าวสารรอบโลก
+      name:
+        other: ข่าวสารรอบโลก
     written_statement:
-      other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
+      name:
+        other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
   help:
     index:
       about:

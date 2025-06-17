@@ -389,16 +389,19 @@ sv:
   find:
   formats:
     authored_article:
-      one: Författad artikel
-      other: Författade artiklar
+      name:
+        one: Författad artikel
+        other: Författade artiklar
     case_study:
-      one: Fallstudie
-      other: Fallstudier
+      name:
+        one: Fallstudie
+        other: Fallstudier
     corporate_information_page:
       about_our_services_html: Ta reda på %{link}.
       corporate_information: Företagsinformation
-      one: Informationssida
-      other: Informationssidor
+      name:
+        one: Informationssida
+        other: Informationssidor
       personal_information_charter_html: Vår %{link} förklarar hur vi behandlar din personliga information.
       publication_scheme_html: Läs om vilka typer av information vi rutinmässigt publicerar i vår %{link}.
       social_media_use_html: Läs vår policy för %{link}.
@@ -406,10 +409,11 @@ sv:
     fatality_notice:
       alt_text: Försvarsministeriets vapensköld
       field_of_operation: Verksamhetsområde
+      name:
+        one: Meddelande om dödsfall
+        other: Meddelanden om dödsfall
       none_added: Det har ännu inte lagts till några meddelanden om dödsfall för detta verksamhetsområde.
-      one: Meddelande om dödsfall
       operations_in: Verksamhet på %{location}
-      other: Meddelanden om dödsfall
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ sv:
       updated:
       your_views:
     government_response:
-      one: Regeringens svar
-      other: Regeringens svar
+      name:
+        one: Regeringens svar
+        other: Regeringens svar
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ sv:
       website:
       what_you_need_to_know:
     news_article:
-      one: Nyhetsartikel
-      other: Nyhetsartiklar
+      name:
+        one: Nyhetsartikel
+        other: Nyhetsartiklar
     news_story:
-      one: Nyhet
-      other: Nyheter
+      name:
+        one: Nyhet
+        other: Nyheter
     oral_statement:
-      one: Muntligt uttalande till parlamentet
-      other: Muntliga uttalanden till parlamentet
+      name:
+        one: Muntligt uttalande till parlamentet
+        other: Muntliga uttalanden till parlamentet
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Pressmeddelande
-      other: Pressmeddelanden
+      name:
+        one: Pressmeddelande
+        other: Pressmeddelanden
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ sv:
     speech:
       delivered_on: Levererad den
       location: Plats
-      one: Tal
-      other: Tal
+      name:
+        one: Tal
+        other: Tal
       written_on: Skrivet på
     start_now:
     take_part:
-      one: Delta
-      other: Delta
+      name:
+        one: Delta
+        other: Delta
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ sv:
       summary: Sammanfattning
       updated: Uppdaterad
     world_news_story:
-      one: Världsnyheter
-      other: Världsnyheter
+      name:
+        one: Världsnyheter
+        other: Världsnyheter
     written_statement:
-      one: Skriftligt uttalande till parlamentet
-      other: Skriftliga uttalanden till parlamentet
+      name:
+        one: Skriftligt uttalande till parlamentet
+        other: Skriftliga uttalanden till parlamentet
   help:
     index:
       about:

@@ -389,16 +389,19 @@ bg:
   find:
   formats:
     authored_article:
-      one: Авторска статия
-      other: Авторска статии
+      name:
+        one: Авторска статия
+        other: Авторска статии
     case_study:
-      one: Казус
-      other: Казуси
+      name:
+        one: Казус
+        other: Казуси
     corporate_information_page:
       about_our_services_html: Научете повече за %{link}.
       corporate_information: Фирмена информация
-      one: Информационна страница
-      other: Информационни страници
+      name:
+        one: Информационна страница
+        other: Информационни страници
       personal_information_charter_html: В нашия %{link} е обяснено как работим с личната информация.
       publication_scheme_html: Прочетете за видовете информация, които обичайно публикуваме на нашата %{link}.
       social_media_use_html: Прочетете нашите правила на %{link}.
@@ -406,10 +409,11 @@ bg:
     fatality_notice:
       alt_text: Герб на Министерството на отбраната
       field_of_operation: Област на действие
+      name:
+        one: Известие за смъртен случай
+        other: Известия за смъртни случаи
       none_added: Все още няма добавени съобщения за смъртни случаи в тази област на дейност.
-      one: Известие за смъртен случай
       operations_in: Операции в %{location}
-      other: Известия за смъртни случаи
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ bg:
       updated:
       your_views:
     government_response:
-      one: Отговор на правителството
-      other: Отговори на правителството
+      name:
+        one: Отговор на правителството
+        other: Отговори на правителството
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ bg:
       website:
       what_you_need_to_know:
     news_article:
-      one: Информационна статия
-      other: Информационни статии
+      name:
+        one: Информационна статия
+        other: Информационни статии
     news_story:
-      one: Репортаж
-      other: Репортажи
+      name:
+        one: Репортаж
+        other: Репортажи
     oral_statement:
-      one: Устно изявление в Парламента
-      other: Устни изявления в Парламента
+      name:
+        one: Устно изявление в Парламента
+        other: Устни изявления в Парламента
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Съобщение за пресата
-      other: Съобщения за пресата
+      name:
+        one: Съобщение за пресата
+        other: Съобщения за пресата
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ bg:
     speech:
       delivered_on: Доставено на
       location: Местоположение
-      one: Реч
-      other: Речи
+      name:
+        one: Реч
+        other: Речи
       written_on: Написано на
     start_now:
     take_part:
-      one: Вземете участие
-      other: Вземете участие
+      name:
+        one: Вземете участие
+        other: Вземете участие
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ bg:
       summary: Обобщение
       updated: Актуализиран
     world_news_story:
-      one: Световна новина
-      other: Световни новини
+      name:
+        one: Световна новина
+        other: Световни новини
     written_statement:
-      one: Писмено изявление в Парламента
-      other: Писмени изявления в Парламента
+      name:
+        one: Писмено изявление в Парламента
+        other: Писмени изявления в Парламента
   help:
     index:
       about:

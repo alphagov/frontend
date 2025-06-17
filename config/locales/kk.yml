@@ -389,16 +389,19 @@ kk:
   find:
   formats:
     authored_article:
-      one: Мақала авторы
-      other: Мақала авторлары
+      name:
+        one: Мақала авторы
+        other: Мақала авторлары
     case_study:
-      one: Тақырыптық зерттеу
-      other: Тақырыптық зерттеулер
+      name:
+        one: Тақырыптық зерттеу
+        other: Тақырыптық зерттеулер
     corporate_information_page:
       about_our_services_html: "%{link} туралы мәлімет алу."
       corporate_information: Корпоративтік ақпарат
-      one: Ақпараттық бет
-      other: Ақпараттық беттер
+      name:
+        one: Ақпараттық бет
+        other: Ақпараттық беттер
       personal_information_charter_html: Біздің %{link} жеке басқа қатысты ақпаратты қалай пайдалану керектігін түсіндіреді.
       publication_scheme_html: Біз үнемі %{link} бөлімінде жариялайтын ақпарат түрлері туралы оқыңыз.
       social_media_use_html: "%{link} мекенжайындағы саясатымызды оқыңыз."
@@ -406,10 +409,11 @@ kk:
     fatality_notice:
       alt_text: Қорғаныс министрлігінің елтаңбасы
       field_of_operation: Жұмыс аймағы
+      name:
+        one: Өлім туралы хабарлама
+        other: Өлім туралы хабарламалар
       none_added: Бұл жұмыс саласы үшін өлім туралы хабарламалар әлі қосылмады.
-      one: Өлім туралы хабарлама
       operations_in: "%{location} орнындағы жұмыстар"
-      other: Өлім туралы хабарламалар
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ kk:
       updated:
       your_views:
     government_response:
-      one: Мемлекет жауабы
-      other: Мемлекет жауаптары
+      name:
+        one: Мемлекет жауабы
+        other: Мемлекет жауаптары
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ kk:
       website:
       what_you_need_to_know:
     news_article:
-      one: Жаңалықтар мақаласы
-      other: Жаңалықтар мақалалары
+      name:
+        one: Жаңалықтар мақаласы
+        other: Жаңалықтар мақалалары
     news_story:
-      one: Жаңалықтар оқиғасы
-      other: Жаңалықтар оқиғалары
+      name:
+        one: Жаңалықтар оқиғасы
+        other: Жаңалықтар оқиғалары
     oral_statement:
-      one: Парламентке ауызша мәлімдеме
-      other: Парламентке ауызша мәлімдемелер
+      name:
+        one: Парламентке ауызша мәлімдеме
+        other: Парламентке ауызша мәлімдемелер
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Пресс-релиз
-      other: Пресс-релиздер
+      name:
+        one: Пресс-релиз
+        other: Пресс-релиздер
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ kk:
     speech:
       delivered_on: Жеткізілген күні
       location: Орны
-      one: Сөйлеу
-      other: Сөйлеулер
+      name:
+        one: Сөйлеу
+        other: Сөйлеулер
       written_on: Жазылған күні
     start_now:
     take_part:
-      one: Қатысу
-      other: Қатысу
+      name:
+        one: Қатысу
+        other: Қатысу
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ kk:
       summary: Қысқаша мазмұны
       updated: Жаңартылды
     world_news_story:
-      one: Әлемдегі жаңалықтар оқиғасы
-      other: Әлемдегі жаңалықтар оқиғалары
+      name:
+        one: Әлемдегі жаңалықтар оқиғасы
+        other: Әлемдегі жаңалықтар оқиғалары
     written_statement:
-      one: Парламентке жазбаша мәлімдеме
-      other: Парламентке жазбаша мәлімдемелер
+      name:
+        one: Парламентке жазбаша мәлімдеме
+        other: Парламентке жазбаша мәлімдемелер
   help:
     index:
       about:

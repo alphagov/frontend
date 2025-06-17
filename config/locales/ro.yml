@@ -462,31 +462,35 @@ ro:
   find:
   formats:
     authored_article:
-      few:
-      one: Articol publicat
-      other: Articole publicate
+      name:
+        few:
+        one: Articol publicat
+        other: Articole publicate
     case_study:
-      few:
-      one: Studiu de caz
-      other: Studii de caz
+      name:
+        few:
+        one: Studiu de caz
+        other: Studii de caz
     corporate_information_page:
       about_our_services_html: Aflați %{link}.
       corporate_information: Informații despre corporație
-      few:
-      one: Pagina de informații
-      other: Pagini de informații
+      name:
+        few:
+        one: Pagina de informații
+        other: Pagini de informații
       personal_information_charter_html: "%{link} explică cum tratăm informațiile dvs. cu caracter personal."
       publication_scheme_html: Citiți despre tipurile de informații pe care le publicăm de obicei în %{link}.
       social_media_use_html: Citiți politica noastră pe %{link}.
       welsh_language_scheme_html: Aflați mai multe despre angajamentul nostru pentru %{link}.
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
-      few:
       field_of_operation: Domeniul de activitate
+      name:
+        few:
+        one: Notificare accident mortal
+        other: Notificări accident mortal
       none_added: Încă nu au fost adăugate notificări de accidente mortale în acest domeniu de activitate.
-      one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
-      other: Notificări accident mortal
     field_of_operation:
       context:
       title:
@@ -535,9 +539,10 @@ ro:
       updated:
       your_views:
     government_response:
-      few:
-      one: Răspunsul guvernului
-      other: Răspunsurile guvernului
+      name:
+        few:
+        one: Răspunsul guvernului
+        other: Răspunsurile guvernului
     licence:
       change:
     local_transaction:
@@ -592,26 +597,30 @@ ro:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Articol de știri
-      other: Articole de știri
+      name:
+        few:
+        one: Articol de știri
+        other: Articole de știri
     news_story:
-      few:
-      one: Reportaj de știri
-      other: Reportaje de știri
+      name:
+        few:
+        one: Reportaj de știri
+        other: Reportaje de știri
     oral_statement:
-      few:
-      one: Expunere orală către Parlament
-      other: Expuneri orale către Parlament
+      name:
+        few:
+        one: Expunere orală către Parlament
+        other: Expuneri orale către Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Comunicat de presă
-      other: Comunicate de presă
+      name:
+        few:
+        one: Comunicat de presă
+        other: Comunicate de presă
     simple_smart_answer:
       change:
       next_step:
@@ -625,16 +634,18 @@ ro:
         tsg_alt_text: Logoul schemei este un timbru negru cu cuvintele Traditional Speciality UK Protected
     speech:
       delivered_on: Livrat pe
-      few:
       location: Locație
-      one: Discurs
-      other: Discursuri
+      name:
+        few:
+        one: Discurs
+        other: Discursuri
       written_on: Scris pe
     start_now:
     take_part:
-      few:
-      one: Participă
-      other: Participă
+      name:
+        few:
+        one: Participă
+        other: Participă
     transaction:
       before_you_start:
       more_information:
@@ -654,13 +665,15 @@ ro:
       summary: Rezumat
       updated: Actualizat
     world_news_story:
-      few:
-      one: Reportaj de știri global
-      other: Reportaje de știri globale
+      name:
+        few:
+        one: Reportaj de știri global
+        other: Reportaje de știri globale
     written_statement:
-      few:
-      one: Declarație scrisă către Parlament
-      other: Declarații scrise către Parlament
+      name:
+        few:
+        one: Declarație scrisă către Parlament
+        other: Declarații scrise către Parlament
   help:
     index:
       about:

@@ -389,16 +389,19 @@ hy:
   find:
   formats:
     authored_article:
-      one: Հեղինակային հոդված
-      other: Հեղինակային հոդվածներ
+      name:
+        one: Հեղինակային հոդված
+        other: Հեղինակային հոդվածներ
     case_study:
-      one: Մասնավոր դեպքի ուսումնասիրություն
-      other: Մասնավոր դեպքի ուսումնասիրություններ
+      name:
+        one: Մասնավոր դեպքի ուսումնասիրություն
+        other: Մասնավոր դեպքի ուսումնասիրություններ
     corporate_information_page:
       about_our_services_html: Տեղեկանալ %{link}։
       corporate_information: Կորպորատիվ տեղեկություն
-      one: Տեղեկատվական էջ
-      other: Տեղեկատվական էջեր
+      name:
+        one: Տեղեկատվական էջ
+        other: Տեղեկատվական էջեր
       personal_information_charter_html: Մեր %{link}-ում ներկայացված է, թե ինչպես ենք մշակում ձեր անձնական տվյալները
       publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
       social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'
@@ -406,10 +409,11 @@ hy:
     fatality_notice:
       alt_text: Պաշտպանության նախարարության զինանշան
       field_of_operation: Գործունեության ոլորտ
+      name:
+        one: Դժբախտ պատահարի ծանուցում
+        other: Դժբախտ պատահարի ծանուցումներ
       none_added: 'Գործունեության այս ոլորտի համար դժբախտ պատահարի ծանուցումներ դեռևս չեն ավելացվել:'
-      one: Դժբախտ պատահարի ծանուցում
       operations_in: Գործունեություն % {location}-ում
-      other: Դժբախտ պատահարի ծանուցումներ
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ hy:
       updated:
       your_views:
     government_response:
-      one: Կառավարության արձագանք
-      other: Կառավարության արձագանքներ
+      name:
+        one: Կառավարության արձագանք
+        other: Կառավարության արձագանքներ
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ hy:
       website:
       what_you_need_to_know:
     news_article:
-      one: Տեղեկատվական հոդված
-      other: Տեղեկատվական հոդվածներ
+      name:
+        one: Տեղեկատվական հոդված
+        other: Տեղեկատվական հոդվածներ
     news_story:
-      one: Տեղեկատվական նյութ
-      other: Տեղեկատվական նյութեր
+      name:
+        one: Տեղեկատվական նյութ
+        other: Տեղեկատվական նյութեր
     oral_statement:
-      one: Խորհրդարանին ուղղված բանավոր հայտարարություն
-      other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
+      name:
+        one: Խորհրդարանին ուղղված բանավոր հայտարարություն
+        other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Կոմյունիկե
-      other: Կոմյունիկեներ
+      name:
+        one: Կոմյունիկե
+        other: Կոմյունիկեներ
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ hy:
     speech:
       delivered_on: Ուղարկվել է
       location: Տեղանք
-      one: Հրապարակային խոսք
-      other: Հրապարակային խոսքեր
+      name:
+        one: Հրապարակային խոսք
+        other: Հրապարակային խոսքեր
       written_on: Գրվել է
     start_now:
     take_part:
-      one: Մասնակցություն
-      other: Մասնակցություն
+      name:
+        one: Մասնակցություն
+        other: Մասնակցություն
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ hy:
       summary: Ամփոփ
       updated: Թարմացված
     world_news_story:
-      one: Համաշխարհային տեղեկատվական նյութ
-      other: Համաշխարհային տեղեկատվական նյութեր
+      name:
+        one: Համաշխարհային տեղեկատվական նյութ
+        other: Համաշխարհային տեղեկատվական նյութեր
     written_statement:
-      one: Խորհրդարանին ուղղված գրավոր հայտարարություն
-      other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
+      name:
+        one: Խորհրդարանին ուղղված գրավոր հայտարարություն
+        other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
   help:
     index:
       about:

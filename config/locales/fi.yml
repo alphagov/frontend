@@ -389,16 +389,19 @@ fi:
   find:
   formats:
     authored_article:
-      one: Kirjoitettu artikkeli
-      other: Kirjoitettuja artikkeleita
+      name:
+        one: Kirjoitettu artikkeli
+        other: Kirjoitettuja artikkeleita
     case_study:
-      one: Tapaustutkimus
-      other: Tapaustutkimuksia
+      name:
+        one: Tapaustutkimus
+        other: Tapaustutkimuksia
     corporate_information_page:
       about_our_services_html: Ota selvää %{link}.
       corporate_information: Yritystiedot
-      one: Tietosivu
-      other: Tietosivut
+      name:
+        one: Tietosivu
+        other: Tietosivut
       personal_information_charter_html: "%{link} selittää, miten käsittelemme henkilötietojasi."
       publication_scheme_html: Lue, millaisia tietoja julkaisemme rutiininomaisesti %{link}.
       social_media_use_html: Lue käytäntömme osoitteesta %{link}.
@@ -406,10 +409,11 @@ fi:
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
       field_of_operation: Toiminta -alue
+      name:
+        one: Kuolemantapauksia koskeva ilmoitus
+        other: Kuolemantapauksia koskevat ilmoitukset
       none_added: Kuolemantapauksia ei ole ilmoitettu lisätty tälle toiminta-alueelle.
-      one: Kuolemantapauksia koskeva ilmoitus
       operations_in: Toiminnot paikassa %{location}
-      other: Kuolemantapauksia koskevat ilmoitukset
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ fi:
       updated:
       your_views:
     government_response:
-      one: Hallituksen vastaus
-      other: Hallituksen vastaukset
+      name:
+        one: Hallituksen vastaus
+        other: Hallituksen vastaukset
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ fi:
       website:
       what_you_need_to_know:
     news_article:
-      one: Uutisartikkeli
-      other: Uutisartikkelit
+      name:
+        one: Uutisartikkeli
+        other: Uutisartikkelit
     news_story:
-      one: Uutistarina
-      other: Uutisia
+      name:
+        one: Uutistarina
+        other: Uutisia
     oral_statement:
-      one: Suullinen lausuma parlamentille
-      other: Suulliset lausumat parlamentille
+      name:
+        one: Suullinen lausuma parlamentille
+        other: Suulliset lausumat parlamentille
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Lehdistötiedote
-      other: Lehdistötiedotteet
+      name:
+        one: Lehdistötiedote
+        other: Lehdistötiedotteet
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ fi:
     speech:
       delivered_on: Toimitettu
       location: Sijainti
-      one: Puhe
-      other: Puheet
+      name:
+        one: Puhe
+        other: Puheet
       written_on: Kirjoitettu
     start_now:
     take_part:
-      one: Osallistu
-      other: Osallistu
+      name:
+        one: Osallistu
+        other: Osallistu
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ fi:
       summary: Yhteenveto
       updated: Päivitetty
     world_news_story:
-      one: Maailman uutinen
-      other: Maailman uutisia
+      name:
+        one: Maailman uutinen
+        other: Maailman uutisia
     written_statement:
-      one: Kirjallinen lausuma parlamentille
-      other: Kirjallinen lausumat parlamentille
+      name:
+        one: Kirjallinen lausuma parlamentille
+        other: Kirjallinen lausumat parlamentille
   help:
     index:
       about:

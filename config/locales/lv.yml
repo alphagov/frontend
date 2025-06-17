@@ -389,16 +389,19 @@ lv:
   find:
   formats:
     authored_article:
-      one: Autora raksts
-      other: Autora raksti
+      name:
+        one: Autora raksts
+        other: Autora raksti
     case_study:
-      one: Piemērs
-      other: Piemēri
+      name:
+        one: Piemērs
+        other: Piemēri
     corporate_information_page:
       about_our_services_html: Uzziniet vairāk %{link}.
       corporate_information: Korporatīva informācija
-      one: Informācijas lapa
-      other: Informācijas lapas
+      name:
+        one: Informācijas lapa
+        other: Informācijas lapas
       personal_information_charter_html: Šeit %{link} izskaidrots, kā tiks apstrādāta Jūsu sniegtā personīgā informācija.
       publication_scheme_html: Iepazīsties ar informāciju, kāda parasti tiek publicēta mūsu %{link}.
       social_media_use_html: Iepazīsties ar mūsu nostāju par %{link}.
@@ -406,10 +409,11 @@ lv:
     fatality_notice:
       alt_text: Aizsardzības ministrijas ģerbonis
       field_of_operation: Darbības joma
+      name:
+        one: Nāves paziņojums
+        other: Nāves paziņojumi
       none_added: Šajā darbības jomā vēl nav neviena paziņojuma par bojāgājušajiem.
-      one: Nāves paziņojums
       operations_in: 'Darbības šeit: %{location}'
-      other: Nāves paziņojumi
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ lv:
       updated:
       your_views:
     government_response:
-      one: Valdības atbilde
-      other: Valdības atbildes
+      name:
+        one: Valdības atbilde
+        other: Valdības atbildes
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ lv:
       website:
       what_you_need_to_know:
     news_article:
-      one: Raksts
-      other: Raksti
+      name:
+        one: Raksts
+        other: Raksti
     news_story:
-      one: Ziņa
-      other: Ziņas
+      name:
+        one: Ziņa
+        other: Ziņas
     oral_statement:
-      one: Mutisks paziņojums parlamentam
-      other: Mutiski paziņojumi parlamentam
+      name:
+        one: Mutisks paziņojums parlamentam
+        other: Mutiski paziņojumi parlamentam
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Paziņojums presei
-      other: Paziņojumi presei
+      name:
+        one: Paziņojums presei
+        other: Paziņojumi presei
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ lv:
     speech:
       delivered_on: Piegādāts
       location: Atrašanās vieta
-      one: Runa
-      other: Runas
+      name:
+        one: Runa
+        other: Runas
       written_on: Uzrakstīts uz
     start_now:
     take_part:
-      one: Piedalīties
-      other: Piedalīties
+      name:
+        one: Piedalīties
+        other: Piedalīties
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ lv:
       summary: Kopsavilkums
       updated: Atjaunināts
     world_news_story:
-      one: Pasaules ziņa
-      other: Pasaules ziņas
+      name:
+        one: Pasaules ziņa
+        other: Pasaules ziņas
     written_statement:
-      one: Rakstisks ziņojums parlamentam
-      other: Rakstiski ziņojumi parlamentam
+      name:
+        one: Rakstisks ziņojums parlamentam
+        other: Rakstiski ziņojumi parlamentam
   help:
     index:
       about:

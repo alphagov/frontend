@@ -316,13 +316,16 @@ ko:
   find:
   formats:
     authored_article:
-      other: 저작물
+      name:
+        other: 저작물
     case_study:
-      other: 사례 연구
+      name:
+        other: 사례 연구
     corporate_information_page:
       about_our_services_html: "%{link} 를 찾아보십시오."
       corporate_information: 대사관 정보
-      other: 정보 페이지
+      name:
+        other: 정보 페이지
       personal_information_charter_html: "%{link} 에서 개인정보 처리에 대한 안내."
       publication_scheme_html: 정기적으로 공개되는 %{link} 정보에 대한 안내.
       social_media_use_html: "%{link} 에서 정책 정보 확인"
@@ -330,9 +333,10 @@ ko:
     fatality_notice:
       alt_text: 국방부 문장
       field_of_operation: 운영 현장
+      name:
+        other: 사상자 공지
       none_added: 이 운영 분야의 사망 통지는 아직 추가되지 않았습니다.
       operations_in: "%{Location} 내 운영"
-      other: 사상자 공지
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ ko:
       updated:
       your_views:
     government_response:
-      other: 정부 대응
+      name:
+        other: 정부 대응
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ ko:
       website:
       what_you_need_to_know:
     news_article:
-      other: 뉴스 기사
+      name:
+        other: 뉴스 기사
     news_story:
-      other: 뉴스 스토리
+      name:
+        other: 뉴스 스토리
     oral_statement:
-      other: 의회로 구두 성명
+      name:
+        other: 의회로 구두 성명
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: 보도자료
+      name:
+        other: 보도자료
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ ko:
     speech:
       delivered_on: 행사 일시
       location: 위치
-      other: 연설문
+      name:
+        other: 연설문
       written_on: 작성 날짜
     start_now:
     take_part:
-      other: 참여하기
+      name:
+        other: 참여하기
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ ko:
       summary: 요약
       updated: 업데이트
     world_news_story:
-      other: 세계 뉴스 스토리
+      name:
+        other: 세계 뉴스 스토리
     written_statement:
-      other: 의회로 서면 성명
+      name:
+        other: 의회로 서면 성명
   help:
     index:
       about:

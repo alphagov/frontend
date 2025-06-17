@@ -389,16 +389,19 @@ nl:
   find:
   formats:
     authored_article:
-      one: Geschreven artikel
-      other: Geschreven artikelen
+      name:
+        one: Geschreven artikel
+        other: Geschreven artikelen
     case_study:
-      one: Casestudy
-      other: Casestudies
+      name:
+        one: Casestudy
+        other: Casestudies
     corporate_information_page:
       about_our_services_html: Ontdek %{link}.
       corporate_information: Bedrijfsinformatie
-      one: Informatie pagina
-      other: Informatie pagina's
+      name:
+        one: Informatie pagina
+        other: Informatie pagina's
       personal_information_charter_html: In onze %{link} leggen wij uit hoe wij met uw persoonlijke informatie omgaan.
       publication_scheme_html: Lees over de soorten informatie die wij routinematig publiceren in onze %{link}.
       social_media_use_html: Lees ons beleid inzake %{link}.
@@ -406,10 +409,11 @@ nl:
     fatality_notice:
       alt_text: Wapen van het ministerie van Defensie
       field_of_operation: Gebied van operatie
+      name:
+        one: Kennisgeving van overlijden
+        other: Kennisgevingen van overlijden
       none_added: Er zijn nog geen meldingen van sterfgevallen toegevoegd voor dit werkgebied.
-      one: Kennisgeving van overlijden
       operations_in: Operaties in %{location}
-      other: Kennisgevingen van overlijden
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ nl:
       updated:
       your_views:
     government_response:
-      one: Overheidsantwoord
-      other: Overheidsantwoorden
+      name:
+        one: Overheidsantwoord
+        other: Overheidsantwoorden
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ nl:
       website:
       what_you_need_to_know:
     news_article:
-      one: Nieuwsartikel
-      other: Nieuwsartikel
+      name:
+        one: Nieuwsartikel
+        other: Nieuwsartikel
     news_story:
-      one: Nieuwsbericht
-      other: Nieuwsberichten
+      name:
+        one: Nieuwsbericht
+        other: Nieuwsberichten
     oral_statement:
-      one: Mondelinge verklaring voor het Parlement
-      other: Mondelinge verklaringen aan het Parlement
+      name:
+        one: Mondelinge verklaring voor het Parlement
+        other: Mondelinge verklaringen aan het Parlement
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Persbericht
-      other: Persberichten
+      name:
+        one: Persbericht
+        other: Persberichten
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ nl:
     speech:
       delivered_on: Geleverd op
       location: Plaats
-      one: Toespraak
-      other: Toespraken
+      name:
+        one: Toespraak
+        other: Toespraken
       written_on: Geschreven op
     start_now:
     take_part:
-      one: Neem deel
-      other: Deelnemen
+      name:
+        one: Neem deel
+        other: Deelnemen
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ nl:
       summary: Samenvatting
       updated: Bijgewerkt op
     world_news_story:
-      one: Wereldnieuwsbericht
-      other: Wereldnieuwsberichten
+      name:
+        one: Wereldnieuwsbericht
+        other: Wereldnieuwsberichten
     written_statement:
-      one: Schriftelijke verklaring aan het Parlement
-      other: Schriftelijke verklaringen aan het Parlement
+      name:
+        one: Schriftelijke verklaring aan het Parlement
+        other: Schriftelijke verklaringen aan het Parlement
   help:
     index:
       about:

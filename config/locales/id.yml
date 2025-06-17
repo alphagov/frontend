@@ -316,13 +316,16 @@ id:
   find:
   formats:
     authored_article:
-      other: Artikel bersumber
+      name:
+        other: Artikel bersumber
     case_study:
-      other: Studi kasus
+      name:
+        other: Studi kasus
     corporate_information_page:
       about_our_services_html: Temukan %{link}.
       corporate_information: Informasi korporat
-      other: Halaman informasi
+      name:
+        other: Halaman informasi
       personal_information_charter_html: "%{link} menjelaskan cara kami memperlakukan informasi pribadi Anda."
       publication_scheme_html: Bacalah jenis-jenis informasi yang kami terbitkan secara rutin di %{link} kami.
       social_media_use_html: Baca kebijakan kami di %{link}.
@@ -330,9 +333,10 @@ id:
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Bidang operasi
+      name:
+        other: Pemberitahuan fatalitas
       none_added: Belum ada pemberitahuan fatalitas yang ditambahkan untuk bidang operasi ini.
       operations_in: Operasi di %{location}
-      other: Pemberitahuan fatalitas
     field_of_operation:
       context:
       title:
@@ -381,7 +385,8 @@ id:
       updated:
       your_views:
     government_response:
-      other: Respons pemerintah
+      name:
+        other: Respons pemerintah
     licence:
       change:
     local_transaction:
@@ -436,18 +441,22 @@ id:
       website:
       what_you_need_to_know:
     news_article:
-      other: Artikel berita
+      name:
+        other: Artikel berita
     news_story:
-      other: Cerita berita
+      name:
+        other: Cerita berita
     oral_statement:
-      other: Pernyataan lisan kepada Parlemen
+      name:
+        other: Pernyataan lisan kepada Parlemen
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      other: Siaran pers
+      name:
+        other: Siaran pers
     simple_smart_answer:
       change:
       next_step:
@@ -462,11 +471,13 @@ id:
     speech:
       delivered_on: Dikirim pada
       location: Lokasi
-      other: Pidato
+      name:
+        other: Pidato
       written_on: Ditulis pada
     start_now:
     take_part:
-      other: Ikut serta
+      name:
+        other: Ikut serta
     transaction:
       before_you_start:
       more_information:
@@ -486,9 +497,11 @@ id:
       summary: Rangkuman
       updated: Diperbarui
     world_news_story:
-      other: Cerita berita dunia
+      name:
+        other: Cerita berita dunia
     written_statement:
-      other: Pernyataan tertulis kepada Parlemen
+      name:
+        other: Pernyataan tertulis kepada Parlemen
   help:
     index:
       about:

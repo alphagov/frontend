@@ -462,31 +462,35 @@ lt:
   find:
   formats:
     authored_article:
-      few:
-      one: Autoriaus straipsnis
-      other: Autorių straipsniai
+      name:
+        few:
+        one: Autoriaus straipsnis
+        other: Autorių straipsniai
     case_study:
-      few:
-      one: Atvejo analizė
-      other: Atvejų analizės
+      name:
+        few:
+        one: Atvejo analizė
+        other: Atvejų analizės
     corporate_information_page:
       about_our_services_html: Sužinokite %{link}.
       corporate_information: Korporatyvinė informacija
-      few:
-      one: Informacinis puslapis
-      other: Informaciniai puslapiai
+      name:
+        few:
+        one: Informacinis puslapis
+        other: Informaciniai puslapiai
       personal_information_charter_html: Čia %{link} rasite paaiškinimą, kaip tvarkoma Jūsų asmeninė informacija.
       publication_scheme_html: Sužinokite, kokią informaciją mes pastoviai pateikiame puslapyje %{link}.
       social_media_use_html: Perskaitykite mūsų strategiją %{link}.
       welsh_language_scheme_html: Sužinokite apie mūsų įsipareigojimą skelbti %{link}.
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
-      few:
       field_of_operation: Veiklos sritis
+      name:
+        few:
+        one: Pranešimas apie nelaimę
+        other: Pranešimas apie nelaimes
       none_added: Šioje srityje kol kas neskelbiamas apie nelaimes.
-      one: Pranešimas apie nelaimę
       operations_in: Veikla vykdoma %{location}
-      other: Pranešimas apie nelaimes
     field_of_operation:
       context:
       title:
@@ -535,9 +539,10 @@ lt:
       updated:
       your_views:
     government_response:
-      few:
-      one: Vyriausybės atsakas
-      other: Vyriausybės atsakai
+      name:
+        few:
+        one: Vyriausybės atsakas
+        other: Vyriausybės atsakai
     licence:
       change:
     local_transaction:
@@ -592,26 +597,30 @@ lt:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      one: Straipsnis
-      other: Straipsniai
+      name:
+        few:
+        one: Straipsnis
+        other: Straipsniai
     news_story:
-      few:
-      one: Naujiena
-      other: Naujienos
+      name:
+        few:
+        one: Naujiena
+        other: Naujienos
     oral_statement:
-      few:
-      one: Žodinis kreipimasis į parlamentą
-      other: Žodiniai kreipimaisi į parlamentą
+      name:
+        few:
+        one: Žodinis kreipimasis į parlamentą
+        other: Žodiniai kreipimaisi į parlamentą
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      one: Pranešimas spaudai
-      other: Pranešimai spaudai
+      name:
+        few:
+        one: Pranešimas spaudai
+        other: Pranešimai spaudai
     simple_smart_answer:
       change:
       next_step:
@@ -625,16 +634,18 @@ lt:
         tsg_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugomas tradicinis gaminys“ '
     speech:
       delivered_on: Pateikta
-      few:
       location: Vieta
-      one: Kalba
-      other: Kalbos
+      name:
+        few:
+        one: Kalba
+        other: Kalbos
       written_on: Parašymo data
     start_now:
     take_part:
-      few:
-      one: Dalyvauti
-      other: Dalyvauti
+      name:
+        few:
+        one: Dalyvauti
+        other: Dalyvauti
     transaction:
       before_you_start:
       more_information:
@@ -654,13 +665,15 @@ lt:
       summary: Santrauka
       updated: Atnaujinta
     world_news_story:
-      few:
-      one: Pasaulio naujienos
-      other: Pasaulio naujienos
+      name:
+        few:
+        one: Pasaulio naujienos
+        other: Pasaulio naujienos
     written_statement:
-      few:
-      one: Rašytinis kreipimasis į parlamentą
-      other: Rašytiniai kreipimaisi į parlamentą
+      name:
+        few:
+        one: Rašytinis kreipimasis į parlamentą
+        other: Rašytiniai kreipimaisi į parlamentą
   help:
     index:
       about:

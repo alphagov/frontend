@@ -535,35 +535,39 @@ pl:
   find:
   formats:
     authored_article:
-      few:
-      many:
-      one: Dokument utworzony przez
-      other: Dokumenty utworzone przez
+      name:
+        few:
+        many:
+        one: Dokument utworzony przez
+        other: Dokumenty utworzone przez
     case_study:
-      few:
-      many:
-      one: Studium przypadku
-      other: Studia przypadku
+      name:
+        few:
+        many:
+        one: Studium przypadku
+        other: Studia przypadku
     corporate_information_page:
       about_our_services_html: Dowiedz się %{link}.
       corporate_information: Informacje korporacyjne
-      few:
-      many:
-      one: Strona informacyjna
-      other: Strony informacyjne
+      name:
+        few:
+        many:
+        one: Strona informacyjna
+        other: Strony informacyjne
       personal_information_charter_html: Nasz %{link} pokazuje, w jaki sposób traktujemy Państwa informacje osobiste.
       publication_scheme_html: Przeczytaj, jakiego rodzaju wiadomości publikujemy zwykle w naszym %{link}.
       social_media_use_html: Przeczytaj naszą politykę dotyczącą %{link}.
       welsh_language_scheme_html: Poznaj nasze zobowiązania związane z publikowaniem w %{link}.
     fatality_notice:
       alt_text: Herb Ministerstwa Obrony
-      few:
       field_of_operation: Zakres działania
-      many:
+      name:
+        few:
+        many:
+        one: Informacja o śmierci
+        other: Informacje o śmierci
       none_added: Dla tego obszaru nie podano jeszcze żadnych informacji o ofiarach śmiertelnych.
-      one: Informacja o śmierci
       operations_in: Działania w %{location}
-      other: Informacje o śmierci
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ pl:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: Odpowiedź rządu
-      other: Odpowiedzi rządu
+      name:
+        few:
+        many:
+        one: Odpowiedź rządu
+        other: Odpowiedzi rządu
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ pl:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      many:
-      one: Artykuł prasowy
-      other: Artykuły prasowe
+      name:
+        few:
+        many:
+        one: Artykuł prasowy
+        other: Artykuły prasowe
     news_story:
-      few:
-      many:
-      one: Aktualności
-      other: Aktualności
+      name:
+        few:
+        many:
+        one: Aktualności
+        other: Aktualności
     oral_statement:
-      few:
-      many:
-      one: Ustne oświadczenie przed parlamentem
-      other: Ustne oświadczenia przed parlamentem
+      name:
+        few:
+        many:
+        one: Ustne oświadczenie przed parlamentem
+        other: Ustne oświadczenia przed parlamentem
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      many:
-      one: Informacja prasowa
-      other: Informacje prasowe
+      name:
+        few:
+        many:
+        one: Informacja prasowa
+        other: Informacje prasowe
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ pl:
         tsg_alt_text: Logo programu to czarna pieczęć z napisem „Traditional Specialty UK Protected”
     speech:
       delivered_on: Dostarczono o
-      few:
       location: Lokalizacja
-      many:
-      one: Przemówienie
-      other: Przemówienia
+      name:
+        few:
+        many:
+        one: Przemówienie
+        other: Przemówienia
       written_on: Napisano o
     start_now:
     take_part:
-      few:
-      many:
-      one: Weź udział
-      other: Weź udział
+      name:
+        few:
+        many:
+        one: Weź udział
+        other: Weź udział
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ pl:
       summary: Podsumowanie
       updated: Zaktualizowano
     world_news_story:
-      few:
-      many:
-      one: Artykuł prasowy ze świata
-      other: Artykuły prasowe ze świata
+      name:
+        few:
+        many:
+        one: Artykuł prasowy ze świata
+        other: Artykuły prasowe ze świata
     written_statement:
-      few:
-      many:
-      one: Pisemne oświadczenie przed parlamentem
-      other: Pisemne oświadczenia przed parlamentem
+      name:
+        few:
+        many:
+        one: Pisemne oświadczenie przed parlamentem
+        other: Pisemne oświadczenia przed parlamentem
   help:
     index:
       about:

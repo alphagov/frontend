@@ -535,35 +535,39 @@ be:
   find:
   formats:
     authored_article:
-      few:
-      many:
-      one: Аўтарскі артыкул
-      other: Аўтарскія артыкулы
+      name:
+        few:
+        many:
+        one: Аўтарскі артыкул
+        other: Аўтарскія артыкулы
     case_study:
-      few:
-      many:
-      one: Тэматычнае даследаванне
-      other: Тэматычныя даследаванні
+      name:
+        few:
+        many:
+        one: Тэматычнае даследаванне
+        other: Тэматычныя даследаванні
     corporate_information_page:
       about_our_services_html: Даведайцеся %{link}.
       corporate_information: Карпаратыўная іфармацыя
-      few:
-      many:
-      one: Iнфармацыйная старонка
-      other: Iнфармацыйная старонкi
+      name:
+        few:
+        many:
+        one: Iнфармацыйная старонка
+        other: Iнфармацыйная старонкi
       personal_information_charter_html: Наша %{link} тлумачыць, як мы ставімся да Вашай асабістай інфармацыі.
       publication_scheme_html: Чытайце пра тыпы інфармацыі, якую мы рэгулярна публікуем, у нашым %{link}.
       social_media_use_html: Прачытайце пра нашу палітыку датычна %{link}.
       welsh_language_scheme_html: Даведайцеся аб нашых абавязках да публікацыі ў %{link}.
     fatality_notice:
       alt_text: Герб Міністэрства абароны
-      few:
       field_of_operation: Сфера дзейнасці
-      many:
+      name:
+        few:
+        many:
+        one: Паведамлення аб смерці
+        other: Паведамлення аб смерці
       none_added: Для гэтага аперацыйнага поля яшчэ не было дададзена ніякіх паведамленняў аб смерцi.
-      one: Паведамлення аб смерці
       operations_in: Дзейнасць у %{location}
-      other: Паведамлення аб смерці
     field_of_operation:
       context:
       title:
@@ -612,10 +616,11 @@ be:
       updated:
       your_views:
     government_response:
-      few:
-      many:
-      one: Адказ ўрада
-      other: Адказы ўрада
+      name:
+        few:
+        many:
+        one: Адказ ўрада
+        other: Адказы ўрада
     licence:
       change:
     local_transaction:
@@ -670,30 +675,34 @@ be:
       website:
       what_you_need_to_know:
     news_article:
-      few:
-      many:
-      one: Артыкул
-      other: Артыкулы
+      name:
+        few:
+        many:
+        one: Артыкул
+        other: Артыкулы
     news_story:
-      few:
-      many:
-      one: Навіна
-      other: Навіны
+      name:
+        few:
+        many:
+        one: Навіна
+        other: Навіны
     oral_statement:
-      few:
-      many:
-      one: Вусная заява ў парламенце
-      other: Вусныя даклады ў парламенце
+      name:
+        few:
+        many:
+        one: Вусная заява ў парламенце
+        other: Вусныя даклады ў парламенце
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      few:
-      many:
-      one: Прэс-рэліз
-      other: Прэс-рэлізы
+      name:
+        few:
+        many:
+        one: Прэс-рэліз
+        other: Прэс-рэлізы
     simple_smart_answer:
       change:
       next_step:
@@ -707,18 +716,20 @@ be:
         tsg_alt_text: Лагатып схемы ўяўляе сабою чорны друк з надпісам Traditional Speciality UK Protected
     speech:
       delivered_on: Дастаўлена
-      few:
       location: Месцазнаходжанне
-      many:
-      one: Выступ
-      other: Выступы
+      name:
+        few:
+        many:
+        one: Выступ
+        other: Выступы
       written_on: Напісана
     start_now:
     take_part:
-      few:
-      many:
-      one: Прыняць удзел
-      other: Прыняць удзел
+      name:
+        few:
+        many:
+        one: Прыняць удзел
+        other: Прыняць удзел
     transaction:
       before_you_start:
       more_information:
@@ -738,15 +749,17 @@ be:
       summary: Рэзюмэ
       updated: Адноўлена
     world_news_story:
-      few:
-      many:
-      one: Сусветная навіна
-      other: Сусветныя навіны
+      name:
+        few:
+        many:
+        one: Сусветная навіна
+        other: Сусветныя навіны
     written_statement:
-      few:
-      many:
-      one: Пісьмовая заява ў парламенце
-      other: Пісьмовыя заявы ў парламенце
+      name:
+        few:
+        many:
+        one: Пісьмовая заява ў парламенце
+        other: Пісьмовыя заявы ў парламенце
   help:
     index:
       about:

@@ -389,16 +389,19 @@ yi:
   find:
   formats:
     authored_article:
-      one:
-      other:
+      name:
+        one:
+        other:
     case_study:
-      one:
-      other:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html:
       corporate_information:
-      one:
-      other:
+      name:
+        one:
+        other:
       personal_information_charter_html:
       publication_scheme_html:
       social_media_use_html:
@@ -406,10 +409,11 @@ yi:
     fatality_notice:
       alt_text:
       field_of_operation:
+      name:
+        one:
+        other:
       none_added:
-      one:
       operations_in:
-      other:
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ yi:
       updated:
       your_views:
     government_response:
-      one:
-      other:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ yi:
       website:
       what_you_need_to_know:
     news_article:
-      one:
-      other:
+      name:
+        one:
+        other:
     news_story:
-      one:
-      other:
+      name:
+        one:
+        other:
     oral_statement:
-      one:
-      other:
+      name:
+        one:
+        other:
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one:
-      other:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ yi:
     speech:
       delivered_on:
       location:
-      one:
-      other:
+      name:
+        one:
+        other:
       written_on:
     start_now:
     take_part:
-      one:
-      other:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ yi:
       summary:
       updated:
     world_news_story:
-      one:
-      other:
+      name:
+        one:
+        other:
     written_statement:
-      one:
-      other:
+      name:
+        one:
+        other:
   help:
     index:
       about:

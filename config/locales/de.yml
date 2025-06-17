@@ -389,16 +389,19 @@ de:
   find:
   formats:
     authored_article:
-      one: Namensartikel
-      other: Namensartikel
+      name:
+        one: Namensartikel
+        other: Namensartikel
     case_study:
-      one: Fallstudie
-      other: Fallstudien
+      name:
+        one: Fallstudie
+        other: Fallstudien
     corporate_information_page:
       about_our_services_html: Finden Sie es heraus %{link}.
       corporate_information: Unternehmensinformationen
-      one: Informationsseite
-      other: Informationsseiten
+      name:
+        one: Informationsseite
+        other: Informationsseiten
       personal_information_charter_html: Unsere %{link} erläutert, wie wir mit Ihren persönlichen Daten umgehen.
       publication_scheme_html: Lesen Sie in unserem %{link}, welche Arten von Informationen wir regelmäßig veröffentlichen.
       social_media_use_html: Lesen Sie unsere Richtlinie zu %{link}.
@@ -406,10 +409,11 @@ de:
     fatality_notice:
       alt_text: Wappen des Verteidigungsministeriums
       field_of_operation: Tätigkeitsbereich
+      name:
+        one: Todesanzeige
+        other: Todesanzeigen
       none_added: Für dieses Einsatzgebiet wurden noch keine Meldungen über Todesfälle hinzugefügt.
-      one: Todesanzeige
       operations_in: Tätigkeiten in %{location}
-      other: Todesanzeigen
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ de:
       updated:
       your_views:
     government_response:
-      one: Antwort der Regierung
-      other: Antworten der Regierung
+      name:
+        one: Antwort der Regierung
+        other: Antworten der Regierung
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ de:
       website:
       what_you_need_to_know:
     news_article:
-      one: Nachrichtenartikel
-      other: Nachrichtenartikel
+      name:
+        one: Nachrichtenartikel
+        other: Nachrichtenartikel
     news_story:
-      one: Meldung
-      other: Meldungen
+      name:
+        one: Meldung
+        other: Meldungen
     oral_statement:
-      one: Mündliche Erklärung vor dem Parlament
-      other: Mündliche Erklärungen vor dem Parlament
+      name:
+        one: Mündliche Erklärung vor dem Parlament
+        other: Mündliche Erklärungen vor dem Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Pressemitteilung
-      other: Pressemitteilungen
+      name:
+        one: Pressemitteilung
+        other: Pressemitteilungen
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ de:
     speech:
       delivered_on: Geliefert am
       location: Standort
-      one: Rede
-      other: Reden
+      name:
+        one: Rede
+        other: Reden
       written_on: Geschrieben am
     start_now:
     take_part:
-      one: Teilnehmen
-      other: Teilnehmen
+      name:
+        one: Teilnehmen
+        other: Teilnehmen
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ de:
       summary: Zusammenfassung
       updated: Aktualisiert
     world_news_story:
-      one: Weltnachrichten Geschichte
-      other: Weltnachrichten Geschichten
+      name:
+        one: Weltnachrichten Geschichte
+        other: Weltnachrichten Geschichten
     written_statement:
-      one: Schriftliche Erklärung vor dem Parlament
-      other: Schriftliche Erklärungen vor dem Parlament
+      name:
+        one: Schriftliche Erklärung vor dem Parlament
+        other: Schriftliche Erklärungen vor dem Parlament
   help:
     index:
       about:

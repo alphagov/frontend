@@ -389,16 +389,19 @@ is:
   find:
   formats:
     authored_article:
-      one: Samin grein
-      other: Samdar greinar
+      name:
+        one: Samin grein
+        other: Samdar greinar
     case_study:
-      one: Ferilsathugun
-      other: Ferilsathuganir
+      name:
+        one: Ferilsathugun
+        other: Ferilsathuganir
     corporate_information_page:
       about_our_services_html: Kynntu þér málið %{link}.
       corporate_information: Upplýsingar um fyrirtæki
-      one: Upplýsingasíða
-      other: Upplýsingasíður
+      name:
+        one: Upplýsingasíða
+        other: Upplýsingasíður
       personal_information_charter_html: "%{link} okkar útskýrir hvernig við meðhöndlum þínar persónulegu upplýsingar."
       publication_scheme_html: Lestu um hvaða upplýsingar við birtum reglulega í %{link} okkar.
       social_media_use_html: Lestu stefnuna okkar varðandi %{link}.
@@ -406,10 +409,11 @@ is:
     fatality_notice:
       alt_text: Skjaldarmerki Varnarmálaráðuneytisins
       field_of_operation: Starfsvið
+      name:
+        one: Tilkynning um dauðsfall
+        other: Tilkynningar um dauðsfall
       none_added: Engum tilkynningum um dauðsföll hefur verið bætt við fyrir þetta starfsvið.
-      one: Tilkynning um dauðsfall
       operations_in: Starfsemi á %{location}
-      other: Tilkynningar um dauðsfall
     field_of_operation:
       context:
       title:
@@ -458,8 +462,9 @@ is:
       updated:
       your_views:
     government_response:
-      one: Viðbrögð stjórnvalda
-      other: Viðbrögð stjórnvalda
+      name:
+        one: Viðbrögð stjórnvalda
+        other: Viðbrögð stjórnvalda
     licence:
       change:
     local_transaction:
@@ -514,22 +519,26 @@ is:
       website:
       what_you_need_to_know:
     news_article:
-      one: Fréttagrein
-      other: Fréttagreinar
+      name:
+        one: Fréttagrein
+        other: Fréttagreinar
     news_story:
-      one: Frétt
-      other: Fréttir
+      name:
+        one: Frétt
+        other: Fréttir
     oral_statement:
-      one: Munnleg yfirlýsing til Þingsins
-      other: Munnlegar yfirlýsingar til Þingsins
+      name:
+        one: Munnleg yfirlýsing til Þingsins
+        other: Munnlegar yfirlýsingar til Þingsins
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Fréttatilkynning
-      other: Fréttatilkynningar
+      name:
+        one: Fréttatilkynning
+        other: Fréttatilkynningar
     simple_smart_answer:
       change:
       next_step:
@@ -544,13 +553,15 @@ is:
     speech:
       delivered_on: Afhent þann
       location: Staðsetning
-      one: Ræða
-      other: Ræður
+      name:
+        one: Ræða
+        other: Ræður
       written_on: Skrifað þann
     start_now:
     take_part:
-      one: Taka þátt
-      other: Taka þátt
+      name:
+        one: Taka þátt
+        other: Taka þátt
     transaction:
       before_you_start:
       more_information:
@@ -570,11 +581,13 @@ is:
       summary: Samantekt
       updated: Uppfært
     world_news_story:
-      one: Heimsfrétt
-      other: Heimsfréttir
+      name:
+        one: Heimsfrétt
+        other: Heimsfréttir
     written_statement:
-      one: Skrifleg yfirlýsing til Þingsins
-      other: Skriflegar yfirlýsingar til Þingsins
+      name:
+        one: Skrifleg yfirlýsing til Þingsins
+        other: Skriflegar yfirlýsingar til Þingsins
   help:
     index:
       about:

@@ -389,11 +389,13 @@ ky:
   find:
   formats:
     authored_article:
-      one: Макаланын автору
-      other: Макалалардын автору
+      name:
+        one: Макаланын автору
+        other: Макалалардын автору
     case_study:
-      one: Окуяны изилдөө
-      other: Окуяларды изилдөө
+      name:
+        one: Окуяны изилдөө
+        other: Окуяларды изилдөө
     corporate_information_page:
       about_our_services_html: Аныктоо %{link}.
       corporate_information: Корпоративдик маалымат
@@ -404,10 +406,11 @@ ky:
     fatality_notice:
       alt_text:
       field_of_operation:
+      name:
+        one: Өлүм тууралуу билдирүү
+        other: Өлүм тууралуу билдирүүлөр
       none_added:
-      one: Өлүм тууралуу билдирүү
       operations_in:
-      other: Өлүм тууралуу билдирүүлөр
     field_of_operation:
       context:
       title:
@@ -456,8 +459,9 @@ ky:
       updated:
       your_views:
     government_response:
-      one: Өкмөттүн реакциясы
-      other: Өкмөттүн реакциялары
+      name:
+        one: Өкмөттүн реакциясы
+        other: Өкмөттүн реакциялары
     licence:
       change:
     local_transaction:
@@ -512,22 +516,26 @@ ky:
       website:
       what_you_need_to_know:
     news_article:
-      one: Жаңылыктар макаласы
-      other: Жаңылыктар макалалары
+      name:
+        one: Жаңылыктар макаласы
+        other: Жаңылыктар макалалары
     news_story:
-      one: Жаңылыктар тарыхчасы
-      other: Жаңылыктар тарыхчалары
+      name:
+        one: Жаңылыктар тарыхчасы
+        other: Жаңылыктар тарыхчалары
     oral_statement:
-      one: Парламентте ооз эки арыз
-      other: Парламентте ооз эки арыздар
+      name:
+        one: Парламентте ооз эки арыз
+        other: Парламентте ооз эки арыздар
     place:
       change:
       find_results:
       postcode:
       select_address:
     press_release:
-      one: Пресс-релиз
-      other: Пресс-релиздер
+      name:
+        one: Пресс-релиз
+        other: Пресс-релиздер
     simple_smart_answer:
       change:
       next_step:
@@ -542,13 +550,15 @@ ky:
     speech:
       delivered_on: Жеткирилген күнү
       location: Жайгашкан жер
-      one: Сөз
-      other: Сөздөр
+      name:
+        one: Сөз
+        other: Сөздөр
       written_on: Жазылган күн
     start_now:
     take_part:
-      one:
-      other:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -568,11 +578,13 @@ ky:
       summary:
       updated:
     world_news_story:
-      one: Дүйнөлүк жаңылыктар тарыхчасы
-      other: Дүйнөлүк жаңылыктар тарыхчалары
+      name:
+        one: Дүйнөлүк жаңылыктар тарыхчасы
+        other: Дүйнөлүк жаңылыктар тарыхчалары
     written_statement:
-      one: Парламентте жазуу түрүндө арыз
-      other: Парламентте жазуу түрүндө арыздар
+      name:
+        one: Парламентте жазуу түрүндө арыз
+        other: Парламентте жазуу түрүндө арыздар
   help:
     index:
       about:

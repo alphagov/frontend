@@ -69,7 +69,8 @@
         <% end %>
 
         <% content_item.groups.each do |group| %>
-          <%= group.title %>
+
+          <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 
           <% if group.body.present? %>
             <%= render 'govuk_publishing_components/components/govspeak', {

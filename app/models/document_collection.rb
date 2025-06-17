@@ -4,7 +4,7 @@ class DocumentCollection < ContentItem
 
   attr_reader :groups
 
-  Group = Data.define(:body, :documents, :title)
+  Group = Data.define(:body, :documents, :id, :title)
 
   def initialize(content_store_response)
     super
@@ -12,7 +12,8 @@ class DocumentCollection < ContentItem
     @groups = content_store_response.dig("details", "collection_groups").map do |group_details|
       Group.new(
         body: group_details["body"],
-        documents: group_details["documents"].map { |id| linked("documents").find { |d| d.content_id == id } },
+        documents: group_details["documents"].map { |id| linked("documents").find { |d| d.content_id == id } }.compact,
+        id: group_details["title"].tr(" ", "-").downcase,
         title: group_details["title"],
       )
     end

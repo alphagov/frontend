@@ -1,6 +1,6 @@
 class DocumentCollectionPresenter < ContentItemPresenter
   def groups_as_content_list
-    content_item.groups.map do |group|
+    content_item.groups_with_items.map do |group|
       {
         href: "##{group.id}",
         text: group.title,

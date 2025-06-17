@@ -1095,6 +1095,9 @@ en:
   shared:
     historically_political: This was published under the %{government}
   sign_up: Sign up
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website: Website
   when_do_the_clocks_change:
     calendar:

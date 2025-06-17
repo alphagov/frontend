@@ -1154,6 +1154,9 @@ cy:
   shared:
     historically_political: Cyhoeddwyd hwn o dan y %{government}
   sign_up: Cofrestru
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website: Gwefan
   when_do_the_clocks_change:
     calendar:

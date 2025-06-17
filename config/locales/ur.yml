@@ -836,6 +836,9 @@ ur:
   shared:
     historically_political: اسے %{government} کے تحت شائع کیا گیا تھا
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

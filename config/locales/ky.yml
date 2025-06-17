@@ -836,6 +836,9 @@ ky:
   shared:
     historically_political: Бул %{government} астында жарыяланган
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

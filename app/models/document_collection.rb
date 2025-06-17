@@ -27,7 +27,7 @@ class DocumentCollection < ContentItem
     true
   end
 
-  def contents
-    []
+  def groups_with_items
+    groups.select { |group| group.documents.any? }
   end
 end

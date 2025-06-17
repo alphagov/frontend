@@ -30,7 +30,11 @@ private
       load_json_file(base_path)
     elsif use_graphql?
       graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
+      if graphql_response.to_hash.key?("errors")
+        set_prometheus_labels("contains_errors" => true)
+      elsif graphql_response.code!=200
+        set_prometheus_labels("graphql_status_code" => graphql_response.code)
+      elsif GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
         graphql_response
       else
         GdsApi.content_store.content_item(base_path)
@@ -87,5 +91,13 @@ private
 
   def headers
     { cache_control: "max-age=0, public", expires: "" }
+  end
+
+  def set_prometheus_labels(hash)
+    return unless hash
+
+    prometheus_labels = request.env.fetch("govuk.prometheus_labels", {})
+
+    request.env["govuk.prometheus_labels"] = prometheus_labels.merge(hash)
   end
 end

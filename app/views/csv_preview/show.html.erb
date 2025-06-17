@@ -35,7 +35,7 @@
   <div class="govuk-grid-column-full">
     <%= render "govuk_publishing_components/components/inverse_header", {} do %>
       <%= render "govuk_publishing_components/components/heading", {
-        context: I18n.t("csv_preview.document_type.#{@content_item['document_type']}", count: 1),
+        context: I18n.t("formats.#{@content_item['document_type']}.name", count: 1),
         text: @attachment_metadata["title"],
         font_size: "xl",
         inverse: true,

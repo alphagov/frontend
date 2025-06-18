@@ -187,6 +187,10 @@ es:
         one:
         other:
     call_for_evidence:
+      name: 
+        one:
+        other:
+    call_for_evidence_outcome:
       name:
         one:
         other:

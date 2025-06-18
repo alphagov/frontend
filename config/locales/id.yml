@@ -184,6 +184,9 @@ id:
     call_for_evidence:
       name:
         other:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       name:
         other: Studi kasus

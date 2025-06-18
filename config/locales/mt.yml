@@ -202,6 +202,12 @@ mt:
         many:
         one:
         other:
+    call_for_evidence_outcome:
+      name:
+        few:
+        many:
+        one:
+        other:
     case_study:
       name:
         few:

@@ -201,6 +201,11 @@ sk:
         few:
         one: Prípadová štúdia
         other: Prípadové štúdie
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     closed_consultation:
       name:
         few:

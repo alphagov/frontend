@@ -208,6 +208,12 @@ gd:
         one: Cás-staidéir
         other: Tuarascálacha staidéir
         two:
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     closed_consultation:
       name:
         few:

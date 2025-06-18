@@ -187,6 +187,9 @@ vi:
     case_study:
       name:
         other: Nghiên cứu điển hình
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:

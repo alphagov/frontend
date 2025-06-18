@@ -194,6 +194,10 @@ tk:
       name:
         one: Ýagdaý seljermesi
         other: Ýagdaý seljermeleri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

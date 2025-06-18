@@ -194,6 +194,10 @@ tr:
       name:
         one: Vaka incelemesi
         other: Vaka incelemeleri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

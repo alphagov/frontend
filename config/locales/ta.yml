@@ -194,6 +194,10 @@ ta:
       name:
         one: நிகழ்வு ஆய்வு
         other: நிகழ்வு ஆய்வுகள்
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

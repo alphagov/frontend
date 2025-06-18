@@ -194,6 +194,10 @@ pt:
       name:
         one: Estudo de caso
         other: Estudos de caso
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

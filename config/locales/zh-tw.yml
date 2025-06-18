@@ -187,6 +187,9 @@ zh-tw:
     case_study:
       name:
         other: 案例分析
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:

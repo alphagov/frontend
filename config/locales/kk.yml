@@ -194,6 +194,10 @@ kk:
       name:
         one: Тақырыптық зерттеу
         other: Тақырыптық зерттеулер
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

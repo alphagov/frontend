@@ -194,6 +194,10 @@ es:
       name:
         one: Caso de estudio práctico
         other: Casos de estudio práctico
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

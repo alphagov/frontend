@@ -194,6 +194,10 @@ fi:
       name:
         one: Tapaustutkimus
         other: Tapaustutkimuksia
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

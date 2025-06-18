@@ -208,6 +208,12 @@ sl:
         one: Študija primera
         other: Študije primera
         two:
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     closed_consultation:
       name:
         few:

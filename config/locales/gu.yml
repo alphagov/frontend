@@ -194,6 +194,10 @@ gu:
       name:
         one: કેસ સ્ટડી
         other: કેસ સ્ટડીઝ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

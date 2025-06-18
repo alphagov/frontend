@@ -194,6 +194,10 @@ so:
       name:
         one: Daraasad
         other: Daraasado
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

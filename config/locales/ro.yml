@@ -201,6 +201,11 @@ ro:
         few:
         one: Studiu de caz
         other: Studii de caz
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     closed_consultation:
       name:
         few:

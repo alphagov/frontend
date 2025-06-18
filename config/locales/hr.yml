@@ -201,6 +201,11 @@ hr:
         few:
         one: Studija slučaja
         other: Studije slučaja
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     closed_consultation:
       name:
         few:

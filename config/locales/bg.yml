@@ -194,6 +194,10 @@ bg:
       name:
         one: Казус
         other: Казуси
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

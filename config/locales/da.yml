@@ -194,6 +194,10 @@ da:
       name:
         one: Casestudie
         other: Casestudie
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

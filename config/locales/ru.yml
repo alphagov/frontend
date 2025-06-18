@@ -208,6 +208,12 @@ ru:
         many:
         one: Причинный анализ
         other: Причинные анализы
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     closed_consultation:
       name:
         few:

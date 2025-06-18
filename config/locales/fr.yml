@@ -194,6 +194,10 @@ fr:
       name:
         one: Etude de cas
         other: Etudes de cas
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

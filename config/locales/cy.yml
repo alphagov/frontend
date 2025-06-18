@@ -224,6 +224,14 @@ cy:
         other: Astudiaethau achos
         two:
         zero:
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one: Galwad gaeedig am dystiolaeth
+        other: Galwadau caeedig am dystiolaeth
+        two:
+        zero:
     closed_consultation:
       name:
         few:

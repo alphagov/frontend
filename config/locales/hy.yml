@@ -194,6 +194,10 @@ hy:
       name:
         one: Մասնավոր դեպքի ուսումնասիրություն
         other: Մասնավոր դեպքի ուսումնասիրություններ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

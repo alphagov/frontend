@@ -208,6 +208,12 @@ uk:
         many:
         one: Аналіз ситуації
         other: Аналізи ситуації
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     closed_consultation:
       name:
         few:

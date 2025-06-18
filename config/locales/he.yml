@@ -194,6 +194,10 @@ he:
       name:
         one: מקרה בוחן
         other: מקרי בוחן
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

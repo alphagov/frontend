@@ -194,6 +194,10 @@ it:
       name:
         one: Caso di studio
         other: Casi di studio
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

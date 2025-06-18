@@ -194,6 +194,10 @@ ne:
       name:
         one: मामिला अध्ययन
         other: मामिला अध्ययनहरू
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

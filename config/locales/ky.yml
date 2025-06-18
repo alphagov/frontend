@@ -194,6 +194,10 @@ ky:
       name:
         one: Окуяны изилдөө
         other: Окуяларды изилдөө
+    closed_call_for_evidence:
+      name:
+        one: Далилдерди жабык түрдө талап кылуу
+        other: Далилдерди жабык түрдө талап кылуулар
     closed_consultation:
       name:
         one: Жабык түрдө консультация

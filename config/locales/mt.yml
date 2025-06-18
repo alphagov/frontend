@@ -208,6 +208,12 @@ mt:
         many:
         one: Studju ta' Każ
         other: Studju ta' Każijiet
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     closed_consultation:
       name:
         few:

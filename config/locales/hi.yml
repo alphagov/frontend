@@ -194,6 +194,10 @@ hi:
       name:
         one: विषय अध्ययन
         other: विषय अध्ययन
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

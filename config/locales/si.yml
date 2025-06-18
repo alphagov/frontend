@@ -194,6 +194,10 @@ si:
       name:
         one: සිද්ධි අධ්යයනය
         other: සිද්ධි අධ්යයන
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

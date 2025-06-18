@@ -194,6 +194,10 @@ lv:
       name:
         one: Piemērs
         other: Piemēri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

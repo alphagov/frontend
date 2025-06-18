@@ -194,6 +194,10 @@ ur:
       name:
         one: کیس اسٹڈی
         other: کیس اسٹڈیز
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

@@ -319,6 +319,9 @@ vi:
       other: Bài viết có tác giả
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       other: Nghiên cứu điển hình
     closed_call_for_evidence:

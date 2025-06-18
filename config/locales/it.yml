@@ -394,6 +394,10 @@ it:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: Caso di studio
       other: Casi di studio

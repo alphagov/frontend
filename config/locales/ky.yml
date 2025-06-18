@@ -406,6 +406,10 @@ ky:
     call_for_evidence:
       one: Далилдерди талап кылуу
       other: Далилдерди талап кылуулар
+    call_for_evidence_outcome:
+      name:
+        one: Натыйжанын далилдөөсүн талап кылуу
+        other: Натыйжанын далилдөөлөрүн талап кылуу
     case_study:
       one: Окуяны изилдөө
       other: Окуяларды изилдөө

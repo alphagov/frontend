@@ -394,6 +394,10 @@ az:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar

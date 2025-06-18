@@ -396,6 +396,10 @@ en:
     call_for_evidence:
       one: Call for evidence
       other: Calls for evidence
+    call_for_evidence_outcome:
+      name:
+        one: Call for evidence outcome
+        other: Call for evidence outcomes
     case_study:
       one: Case study
       other: Case studies

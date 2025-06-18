@@ -319,6 +319,9 @@ ko:
       other: 저작물
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       other: 사례 연구
     closed_call_for_evidence:

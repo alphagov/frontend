@@ -544,6 +544,12 @@ gd:
       one:
       other:
       two:
+    call_for_evidence_outcome:
+      name:
+        few:
+        one:
+        other:
+        two:
     case_study:
       few:
       one: Cás-staidéir

@@ -544,6 +544,12 @@ be:
       many:
       one:
       other:
+    call_for_evidence_outcome:
+      name:
+        few:
+        many:
+        one:
+        other:
     case_study:
       few:
       many:

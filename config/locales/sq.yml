@@ -394,6 +394,10 @@ sq:
     call_for_evidence:
       one:
       other:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: Rast studimi
       other: Raste studimi

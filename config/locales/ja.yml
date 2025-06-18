@@ -319,6 +319,9 @@ ja:
       other: 執筆記事
     call_for_evidence:
       other:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       other: ケーススタディ
     closed_call_for_evidence:

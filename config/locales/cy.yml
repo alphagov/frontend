@@ -696,6 +696,14 @@ cy:
       other: Galwadau am dystiolaeth
       two:
       zero:
+    call_for_evidence_outcome:
+      name:
+        few:
+        many:
+        one: Canlyniad yr alwad am dystiolaeth
+        other: Canlyniadau yr alwad am dystiolaeth
+        two:
+        zero:
     case_study:
       few:
       many:

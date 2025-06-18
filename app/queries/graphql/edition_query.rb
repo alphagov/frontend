@@ -51,6 +51,15 @@ class Graphql::EditionQuery
                 }
                 ordered_related_items {
                   ...RelatedItem
+                  links {
+                    mainstream_browse_pages {
+                      links {
+                        parent {
+                          title
+                        }
+                      }
+                    }
+                  }
                 }
                 ordered_related_items_overrides {
                   ...RelatedItem

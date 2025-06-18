@@ -162,14 +162,14 @@ uz:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Муаллифлик мақоласи
+        other: Муаллифлик мақолалари
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Ҳолатларнинг таҳлили
+        other: Ҳолатларнинг таҳлиллари
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ uz:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Маълумотлар саҳифаси
+        other: Маълумотлар саҳифалари
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ uz:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
+        other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ uz:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Ҳукумат жавоби
+        other: Ҳукумат жавоблари
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ uz:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Янгилик мақоласи
+        other: Янгилик мақолалари
       news_story:
-        one:
-        other:
+        one: Янгилик сюжети
+        other: Янгилик сюжетлари
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ uz:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Парламентга оғзаки баёнот
+        other: Парламентга оғзаки баёнотлар
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ uz:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Матбуот-релизи
+        other: Матбуот-релизлари
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ uz:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Нутқ
+        other: Нутқлар
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ uz:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Иштирок этиш
+        other: Иштирок этиш
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ uz:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Янгилик сюжетлари
+        other: Халқаро янги тарихлар
       written_statement:
-        one:
-        other:
+        one: Парламентга ёзма баёнот
+        other: Парламентга ёзма баёнотлар
   electoral:
     registration:
       description:

@@ -159,11 +159,11 @@ ms:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: Artikel ditulis penulis
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: Kajian kes
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ ms:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: Halaman maklumat
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ ms:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: Notis kematian
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: Respons kerajaan
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ ms:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: Artikel berita
       news_story:
-        other:
+        other: Berita
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ ms:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: Kenyataan lisan kepada Parlimen
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: Siaran akhbar
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ ms:
       speaking_notes:
         other:
       speech:
-        other:
+        other: Ucapan
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ ms:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: Ambil bahagian
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ ms:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: Berita dunia
       written_statement:
-        other:
+        other: Kenyataan bertulis kepada Parlimen
   electoral:
     registration:
       description:

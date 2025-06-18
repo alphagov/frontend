@@ -162,14 +162,14 @@ sw:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Makala ya maelezo ya mwandishi
+        other: Makala ya maelezo ya mwandishi
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Uchunguzi kifani
+        other: Uchunguzi kifani
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ sw:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Ukurasa wa maelezo
+        other: Kurasa za maelezo
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ sw:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Notisi ya idadi ya vifo
+        other: Notisi za idadi ya vifo
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ sw:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Hatua iliyochukuliwa na serikali
+        other: Hatua zilizochukuliwa na serikali
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ sw:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Makala ya habari
+        other: Makala ya habari
       news_story:
-        one:
-        other:
+        one: Taarifa ya habari
+        other: Taarifa za habari
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ sw:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Taarifa ya Matamshi kwa Bunge
+        other: Taarifa za Matamshi kwa Bunge
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ sw:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Taarifa kwa vyombo vya habari
+        other: Taarifa kwa vyombo vya habari
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ sw:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Hotuba
+        other: Hotuba
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ sw:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Shiriki
+        other: Shiriki
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ sw:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Taarifa ya habari za kimataifa
+        other: Taarifa za habari za kimataifa
       written_statement:
-        one:
-        other:
+        one: Taarifa ya Maandishi kwa Bunge
+        other: Taarifa za Maandishi kwa Bunge
   electoral:
     registration:
       description:

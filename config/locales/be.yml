@@ -170,8 +170,8 @@ be:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: Аўтарскі артыкул
+        other: Аўтарскія артыкулы
       business_finance_support_scheme:
         few:
         many:
@@ -180,8 +180,8 @@ be:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: Тэматычнае даследаванне
+        other: Тэматычныя даследаванні
       closed_consultation:
         few:
         many:
@@ -205,8 +205,8 @@ be:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: Iнфармацыйная старонка
+        other: Iнфармацыйная старонкi
       corporate_report:
         few:
         many:
@@ -270,8 +270,8 @@ be:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: Паведамлення аб смерці
+        other: Паведамлення аб смерці
       foi_release:
         few:
         many:
@@ -285,8 +285,8 @@ be:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: Адказ ўрада
+        other: Адказы ўрада
       guidance:
         few:
         many:
@@ -350,13 +350,13 @@ be:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: Артыкул
+        other: Артыкулы
       news_story:
         few:
         many:
-        one:
-        other:
+        one: Навіна
+        other: Навіны
       notice:
         few:
         many:
@@ -385,8 +385,8 @@ be:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: Вусная заява ў парламенце
+        other: Вусныя даклады ў парламенце
       policy:
         few:
         many:
@@ -400,8 +400,8 @@ be:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: Прэс-рэліз
+        other: Прэс-рэлізы
       product-safety-alert-report-recall:
         few:
         many:
@@ -455,8 +455,8 @@ be:
       speech:
         few:
         many:
-        one:
-        other:
+        one: Выступ
+        other: Выступы
       standard:
         few:
         many:
@@ -485,8 +485,8 @@ be:
       take_part:
         few:
         many:
-        one:
-        other:
+        one: Прыняць удзел
+        other: Прыняць удзел
       tax_tribunal_decision:
         few:
         many:
@@ -510,13 +510,13 @@ be:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: Сусветная навіна
+        other: Сусветныя навіны
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: Пісьмовая заява ў парламенце
+        other: Пісьмовыя заявы ў парламенце
   electoral:
     registration:
       description:

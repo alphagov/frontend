@@ -162,14 +162,14 @@ gu:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: લેખિત લેખ
+        other: લેખિત લેખો
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: કેસ સ્ટડી
+        other: કેસ સ્ટડીઝ
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ gu:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: માહિતી પૃષ્ઠ
+        other: માહિતી પૃષ્ઠો
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ gu:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: મૃત્યુ અંગેની સૂચના
+        other: મૃત્યુ અંગેની સૂચનાઓ
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ gu:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: સરકારનો પ્રતિભાવ
+        other: સરકારના પ્રતિભાવો
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ gu:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: ન્યૂઝ આર્ટિકલ
+        other: ન્યૂઝ આર્ટિકલ્સ
       news_story:
-        one:
-        other:
+        one: ન્યૂઝ સ્ટોરી
+        other: ન્યૂઝ સ્ટોરીઝ
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ gu:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: સંસદમાં મૌખિક નિવેદન
+        other: સંસદમાં મૌખિક નિવેદનો
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ gu:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: પ્રેસ રીલીઝ
+        other: પ્રેસ રીલીઝ
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ gu:
         one:
         other:
       speech:
-        one:
-        other:
+        one: ભાષણ
+        other: ભાષણો
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ gu:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: ભાગ લો
+        other: ભાગ લો
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ gu:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: વૈશ્વિક ન્યૂઝ સ્ટોરી
+        other: વૈશ્વિક ન્યૂઝ સ્ટોરીઝ
       written_statement:
-        one:
-        other:
+        one: સંસદમાં લેખિત નિવેદન
+        other: સંસદમાં લેખિત નિવેદનો
   electoral:
     registration:
       description:

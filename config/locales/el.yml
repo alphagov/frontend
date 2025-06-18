@@ -162,14 +162,14 @@ el:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Σύνταξη άρθρου
+        other: Σύνταξη άρθρων
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Μελέτη περίπτωσης
+        other: Μελέτες περιπτώσεων
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ el:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Σελίδα πληροφοριών
+        other: Σελίδες πληροφοριών
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ el:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Ανακοίνωση θανάτου
+        other: Ανακοινώσεις θανάτου
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ el:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Κυβερνητική απάντηση
+        other: Κυβερνητικές απαντήσεις
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ el:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Άρθρο ειδήσεων
+        other: Άρθρα ειδήσεων
       news_story:
-        one:
-        other:
+        one: Ιστορία ειδήσεων
+        other: Ιστορίες ειδήσεων
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ el:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Προφορική δήλωση στη Βουλή
+        other: Προφορικές δηλώσεις στη Βουλή
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ el:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Δελτίο τύπου
+        other: Δελτία Τύπου
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ el:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Ομιλία
+        other: Ομιλίες
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ el:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Συμμετοχή
+        other: Συμμετοχή
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ el:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Ιστορία παγκόσμιων ειδήσεων
+        other: Ιστορίες παγκόσμιων ειδήσεων
       written_statement:
-        one:
-        other:
+        one: Γραπτή δήλωση στη Βουλή
+        other: Γραπτές δηλώσεις στη Βουλή
   electoral:
     registration:
       description:

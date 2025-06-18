@@ -162,14 +162,14 @@ si:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: රචනා කළ ලිපිය
+        other: රචනා කළ ලිපි
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: සිද්ධි අධ්යයනය
+        other: සිද්ධි අධ්යයන
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ si:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: තොරතුරු පිටුව
+        other: තොරතුරු පිටු
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ si:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: මරණ දැන්වීම
+        other: මරණ දැන්වීම්
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ si:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: රජයේ ප්රතිචාරය
+        other: රජයේ ප්රතිචාර
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ si:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: පුවත් ලිපිය
+        other: පුවත් ලිපි
       news_story:
-        one:
-        other:
+        one: පුවත් කතාව
+        other: පුවත් කතා
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ si:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+        other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ si:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: මාධ්ය නිවේදනය
+        other: මාධ්ය නිවේදන
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ si:
         one:
         other:
       speech:
-        one:
-        other:
+        one: කථාව
+        other: කථා
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ si:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: සහභාගී වන්න
+        other: සහභාගී වන්න
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ si:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: ලෝක පුවත් කතාව
+        other: ලෝක පුවත් කතා
       written_statement:
-        one:
-        other:
+        one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+        other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   electoral:
     registration:
       description:

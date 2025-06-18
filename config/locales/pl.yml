@@ -170,8 +170,8 @@ pl:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: Dokument utworzony przez
+        other: Dokumenty utworzone przez
       business_finance_support_scheme:
         few:
         many:
@@ -180,8 +180,8 @@ pl:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: Studium przypadku
+        other: Studia przypadku
       closed_consultation:
         few:
         many:
@@ -205,8 +205,8 @@ pl:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: Strona informacyjna
+        other: Strony informacyjne
       corporate_report:
         few:
         many:
@@ -270,8 +270,8 @@ pl:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: Informacja o śmierci
+        other: Informacje o śmierci
       foi_release:
         few:
         many:
@@ -285,8 +285,8 @@ pl:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: Odpowiedź rządu
+        other: Odpowiedzi rządu
       guidance:
         few:
         many:
@@ -350,13 +350,13 @@ pl:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: Artykuł prasowy
+        other: Artykuły prasowe
       news_story:
         few:
         many:
-        one:
-        other:
+        one: Aktualności
+        other: Aktualności
       notice:
         few:
         many:
@@ -385,8 +385,8 @@ pl:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: Ustne oświadczenie przed parlamentem
+        other: Ustne oświadczenia przed parlamentem
       policy:
         few:
         many:
@@ -400,8 +400,8 @@ pl:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: Informacja prasowa
+        other: Informacje prasowe
       product-safety-alert-report-recall:
         few:
         many:
@@ -455,8 +455,8 @@ pl:
       speech:
         few:
         many:
-        one:
-        other:
+        one: Przemówienie
+        other: Przemówienia
       standard:
         few:
         many:
@@ -485,8 +485,8 @@ pl:
       take_part:
         few:
         many:
-        one:
-        other:
+        one: Weź udział
+        other: Weź udział
       tax_tribunal_decision:
         few:
         many:
@@ -510,13 +510,13 @@ pl:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: Artykuł prasowy ze świata
+        other: Artykuły prasowe ze świata
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: Pisemne oświadczenie przed parlamentem
+        other: Pisemne oświadczenia przed parlamentem
   electoral:
     registration:
       description:

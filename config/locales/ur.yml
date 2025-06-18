@@ -162,14 +162,14 @@ ur:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: مصنف کے نام کے ساتھ لکھا مضمون
+        other: مصنف کے نام کے ساتھ لکھے مضامین
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: کیس اسٹڈی
+        other: کیس اسٹڈیز
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ ur:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: معلومات کا صفحہ
+        other: معلومات کے صفحات
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ ur:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: موت کا نوٹس
+        other: موت کے نوٹسز
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ ur:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: حکومت کا جواب
+        other: حکومت کے جوابات
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ ur:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: خبروں کا مضمون
+        other: خبروں کے مضامین
       news_story:
-        one:
-        other:
+        one: خبروں کی کہانی
+        other: خبروں کی کہانیاں
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ ur:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: پارلیمان کے لیے زبانی بیان
+        other: پارلیمان کے لیے زبانی بیانات
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ ur:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: پریس ریلیز
+        other: پریس ریلیزز
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ ur:
         one:
         other:
       speech:
-        one:
-        other:
+        one: تقریر
+        other: تقاریر
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ ur:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: شرکت کریں
+        other: شرکت کریں
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ ur:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: دنیا کی خبروں کی کہانی
+        other: دنیا کی خبروں کی کہانیاں
       written_statement:
-        one:
-        other:
+        one: پالیمان کے لیے تحریری بیان
+        other: پالیمان کے لیے تحریری بیانات
   electoral:
     registration:
       description:

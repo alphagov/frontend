@@ -166,16 +166,16 @@ hr:
         other:
       authored_article:
         few:
-        one:
-        other:
+        one: Autorski članak
+        other: Autorski članci
       business_finance_support_scheme:
         few:
         one:
         other:
       case_study:
         few:
-        one:
-        other:
+        one: Studija slučaja
+        other: Studije slučaja
       closed_consultation:
         few:
         one:
@@ -194,8 +194,8 @@ hr:
         other:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Stranica s informacijama
+        other: Stranice s informacijama
       corporate_report:
         few:
         one:
@@ -246,8 +246,8 @@ hr:
         other:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Obavijest o smrtnom slučaju
+        other: Obavijest o smrtnim slučajevima
       foi_release:
         few:
         one:
@@ -258,8 +258,8 @@ hr:
         other:
       government_response:
         few:
-        one:
-        other:
+        one: Odgovor vlade
+        other: Odgovori vlade
       guidance:
         few:
         one:
@@ -310,12 +310,12 @@ hr:
         other:
       news_article:
         few:
-        one:
-        other:
+        one: Novinski članak
+        other: Novinski članci
       news_story:
         few:
-        one:
-        other:
+        one: Novosti
+        other: Novosti
       notice:
         few:
         one:
@@ -338,8 +338,8 @@ hr:
         other:
       oral_statement:
         few:
-        one:
-        other:
+        one: Usmena izjava Parlamentu
+        other: Usmene izjave Parlamentu
       policy:
         few:
         one:
@@ -350,8 +350,8 @@ hr:
         other:
       press_release:
         few:
-        one:
-        other:
+        one: Saopćenje za javnost
+        other: Saopćenja za javnost
       product-safety-alert-report-recall:
         few:
         one:
@@ -394,8 +394,8 @@ hr:
         other:
       speech:
         few:
-        one:
-        other:
+        one: Govor
+        other: Govori
       standard:
         few:
         one:
@@ -418,8 +418,8 @@ hr:
         other:
       take_part:
         few:
-        one:
-        other:
+        one: Sudjelovati
+        other: Sudjelovati
       tax_tribunal_decision:
         few:
         one:
@@ -438,12 +438,12 @@ hr:
         other:
       world_news_story:
         few:
-        one:
-        other:
+        one: Vijest iz svijeta
+        other: Vijesti iz svijeta
       written_statement:
         few:
-        one:
-        other:
+        one: Pismena izjava Parlamentu
+        other: Pismene izjave Parlamentu
   electoral:
     registration:
       description:

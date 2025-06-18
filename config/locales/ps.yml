@@ -162,14 +162,14 @@ ps:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: لیکل شوې مقاله
+        other: لیکل شوي مقالې
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: موردي مطالعه
+        other: موردي مطالعات
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ ps:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: د معلوماتو پاڼه
+        other: د معلوماتو پاڼې
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ ps:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: د مرګ خبرتیا
+        other: د مرګ خبرتیا
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ ps:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: د حکومت غبرګون
+        other: د حکومت غبرګون
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ ps:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: د خبر مقاله
+        other: د خبر مقالې
       news_story:
-        one:
-        other:
+        one: د خبر کیسه
+        other: د خبرونو کیسې
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ ps:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: پارلماني غونډې ته وینا
+        other: پارلمان ته شفاهي څرګندونې
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ ps:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: مطبوعاتي اعلامیه
+        other: مطبوعاتي اعلامیې
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ ps:
         one:
         other:
       speech:
-        one:
-        other:
+        one: وینا
+        other: ويناوې
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ ps:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: برخه واخلئ
+        other: برخه واخلئ
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ ps:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: د نړۍ خبرونه
+        other: د نړۍ خبرونه
       written_statement:
-        one:
-        other:
+        one: پارلمان ته لیکلې وینا
+        other: پارلمان ته لیکلي بیانونه
   electoral:
     registration:
       description:

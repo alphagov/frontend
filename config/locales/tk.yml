@@ -162,14 +162,14 @@ tk:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Ygtyýarlandyrylan statýa
+        other: Ygtyýarlandyrylan statýalar
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Ýagdaý seljermesi
+        other: Ýagdaý seljermeleri
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ tk:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Maglumat sahypasy
+        other: Maglumat sahypalary
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ tk:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Ölüm howpy barada duýduryş
+        other: Ölüm howpy barada duýduryşlar
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ tk:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Hökümetiň jogaby
+        other: Hökümetiň jogaplary
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ tk:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Habar makalasy
+        other: Habar makalalary
       news_story:
-        one:
-        other:
+        one: Habar
+        other: Habarlar
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ tk:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Mejlise dilden beýan
+        other: Mejlise dilden beýanlar
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ tk:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Goýberiliş neşiri
+        other: Goýberiliş neşirleri
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ tk:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Çykyş
+        other: Çykyşlar
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ tk:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Gatnaşmak
+        other: Gatnaşmak
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ tk:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Dünýä habary
+        other: Dünýä habarlary
       written_statement:
-        one:
-        other:
+        one: Mejlise ýazmaça beýan
+        other: Mejlise ýazmaça beýanlar
   electoral:
     registration:
       description:

@@ -162,14 +162,14 @@
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Forfatterartikkel
+        other: Forfatterartikler
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Casestudie
+        other: Casestudier
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informasjonsside
+        other: Informasjonssider
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Melding om dødsfall
+        other: Meldinger om dødsfall
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Myndighetenes svar
+        other: Myndighetenes svar
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Nyhetsartikkel
+        other: Nyhetsartikler
       news_story:
-        one:
-        other:
+        one: Nyhetssak
+        other: Nyheter
       notice:
         one:
         other:
@@ -291,8 +291,8 @@
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Muntlig uttalelse til Stortinget
+        other: Muntlige uttalelser til Stortinget
       policy:
         one:
         other:
@@ -300,8 +300,8 @@
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Pressemelding
+        other: Pressemeldinger
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@
         one:
         other:
       speech:
-        one:
-        other:
+        one: Tale
+        other: Taler
       standard:
         one:
         other:
@@ -351,8 +351,8 @@
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Delta
+        other: Delta
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Verdensnyhet
+        other: Verdensnyheter
       written_statement:
-        one:
-        other:
+        one: Skriftlig uttalelse til Stortinget
+        other: Skriftlige uttalelser til Stortinget
   electoral:
     registration:
       description:

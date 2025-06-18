@@ -162,14 +162,14 @@ az:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Müəlliflik edilmiş məqalə
+        other: Müəlliflik edilmiş məqalələr
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Nümunə üzrə araşdırma
+        other: Nümunə üzrə araşdırmalar
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ az:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Məlumat səhifəsi
+        other: Məlumat səhifələri
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ az:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Ölüm hadisəsi bildirişi
+        other: Ölüm hadisəsi bildirişləri
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ az:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Hökumətin reaksiyası
+        other: Hökumətin reaksiyaları
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ az:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Xəbərləri əks etdirən məqalə
+        other: Xəbərləri əks etdirən məqalələr
       news_story:
-        one:
-        other:
+        one: Xəbərləri əks etdirən material
+        other: Xəbərləri əks etdirən materiallar
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ az:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Parlamentə şifahi müraciət
+        other: Parlamentə şifahi müraciətlər
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ az:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Press-reliz
+        other: Press-relizlər
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ az:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Nitq
+        other: Nitqlər
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ az:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: İştirak edin
+        other: İştirak edin
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ az:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Dünya üzrə xəbərləri əks etdirən material
+        other: Dünya üzrə xəbərləri əks etdirən materiallar
       written_statement:
-        one:
-        other:
+        one: Parlamentə yazılı müraciət
+        other: Parlamentə yazılı müraciətlər
   electoral:
     registration:
       description:

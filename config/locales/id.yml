@@ -159,11 +159,11 @@ id:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: Artikel bersumber
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: Studi kasus
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ id:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: Halaman informasi
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ id:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: Pemberitahuan fatalitas
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: Respons pemerintah
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ id:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: Artikel berita
       news_story:
-        other:
+        other: Cerita berita
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ id:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: Pernyataan lisan kepada Parlemen
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: Siaran pers
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ id:
       speaking_notes:
         other:
       speech:
-        other:
+        other: Pidato
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ id:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: Ikut serta
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ id:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: Cerita berita dunia
       written_statement:
-        other:
+        other: Pernyataan tertulis kepada Parlemen
   electoral:
     registration:
       description:

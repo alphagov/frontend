@@ -166,16 +166,16 @@ ro:
         other:
       authored_article:
         few:
-        one:
-        other:
+        one: Articol publicat
+        other: Articole publicate
       business_finance_support_scheme:
         few:
         one:
         other:
       case_study:
         few:
-        one:
-        other:
+        one: Studiu de caz
+        other: Studii de caz
       closed_consultation:
         few:
         one:
@@ -194,8 +194,8 @@ ro:
         other:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Pagina de informații
+        other: Pagini de informații
       corporate_report:
         few:
         one:
@@ -246,8 +246,8 @@ ro:
         other:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Notificare accident mortal
+        other: Notificări accident mortal
       foi_release:
         few:
         one:
@@ -258,8 +258,8 @@ ro:
         other:
       government_response:
         few:
-        one:
-        other:
+        one: Răspunsul guvernului
+        other: Răspunsurile guvernului
       guidance:
         few:
         one:
@@ -310,12 +310,12 @@ ro:
         other:
       news_article:
         few:
-        one:
-        other:
+        one: Articol de știri
+        other: Articole de știri
       news_story:
         few:
-        one:
-        other:
+        one: Reportaj de știri
+        other: Reportaje de știri
       notice:
         few:
         one:
@@ -338,8 +338,8 @@ ro:
         other:
       oral_statement:
         few:
-        one:
-        other:
+        one: Expunere orală către Parlament
+        other: Expuneri orale către Parlament
       policy:
         few:
         one:
@@ -350,8 +350,8 @@ ro:
         other:
       press_release:
         few:
-        one:
-        other:
+        one: Comunicat de presă
+        other: Comunicate de presă
       product-safety-alert-report-recall:
         few:
         one:
@@ -394,8 +394,8 @@ ro:
         other:
       speech:
         few:
-        one:
-        other:
+        one: Discurs
+        other: Discursuri
       standard:
         few:
         one:
@@ -418,8 +418,8 @@ ro:
         other:
       take_part:
         few:
-        one:
-        other:
+        one: Participă
+        other: Participă
       tax_tribunal_decision:
         few:
         one:
@@ -438,12 +438,12 @@ ro:
         other:
       world_news_story:
         few:
-        one:
-        other:
+        one: Reportaj de știri global
+        other: Reportaje de știri globale
       written_statement:
         few:
-        one:
-        other:
+        one: Declarație scrisă către Parlament
+        other: Declarații scrise către Parlament
   electoral:
     registration:
       description:

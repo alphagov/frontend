@@ -162,14 +162,14 @@ et:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Kirjutatud artikkel
+        other: Kirjutatud artiklid
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Juhtumiuuring
+        other: Juhtumiuuringud
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ et:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Teabeleht
+        other: Teabelehed
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ et:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Surmateade
+        other: Surmateated
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ et:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Valitsuse vastus
+        other: Valitsuse vastused
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ et:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Uudiste artikkel
+        other: Uudiste artiklid
       news_story:
-        one:
-        other:
+        one: Uudislugu
+        other: Uudislood
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ et:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Suuline avaldus parlamendile
+        other: Suulised avaldused parlamendile
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ et:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Pressiteade
+        other: Pressiteated
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ et:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Kõne
+        other: Kõned
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ et:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Osa võtma
+        other: Osa võtma
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ et:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Maailma uudislugu
+        other: Maailma uudislood
       written_statement:
-        one:
-        other:
+        one: Kirjalik avaldus parlamendile
+        other: Kirjalikud avaldused parlamendile
   electoral:
     registration:
       description:

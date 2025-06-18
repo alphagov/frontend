@@ -159,11 +159,11 @@ ko:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: 저작물
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: 사례 연구
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ ko:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: 정보 페이지
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ ko:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: 사상자 공지
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: 정부 대응
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ ko:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: 뉴스 기사
       news_story:
-        other:
+        other: 뉴스 스토리
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ ko:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: 의회로 구두 성명
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: 보도자료
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ ko:
       speaking_notes:
         other:
       speech:
-        other:
+        other: 연설문
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ ko:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: 참여하기
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ ko:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: 세계 뉴스 스토리
       written_statement:
-        other:
+        other: 의회로 서면 성명
   electoral:
     registration:
       description:

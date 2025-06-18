@@ -169,8 +169,8 @@ gd:
         two:
       authored_article:
         few:
-        one:
-        other:
+        one: Ailt scríofa
+        other: Téacsanna scríofa
         two:
       business_finance_support_scheme:
         few:
@@ -179,8 +179,8 @@ gd:
         two:
       case_study:
         few:
-        one:
-        other:
+        one: Cás-staidéir
+        other: Tuarascálacha staidéir
         two:
       closed_consultation:
         few:
@@ -204,8 +204,8 @@ gd:
         two:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Leathanach faisnéise
+        other: Leathanaigh faisnéise
         two:
       corporate_report:
         few:
@@ -269,8 +269,8 @@ gd:
         two:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Obituary
+        other: Obituary
         two:
       foi_release:
         few:
@@ -284,8 +284,8 @@ gd:
         two:
       government_response:
         few:
-        one:
-        other:
+        one: Freagra an Rialtais
+        other: Freagraí an Rialtais
         two:
       guidance:
         few:
@@ -349,13 +349,13 @@ gd:
         two:
       news_article:
         few:
-        one:
-        other:
+        one: Airteagal Nuachta
+        other: Airteagal Nuachta
         two:
       news_story:
         few:
-        one:
-        other:
+        one: Airteagal Nuachta
+        other: Nua
         two:
       notice:
         few:
@@ -384,8 +384,8 @@ gd:
         two:
       oral_statement:
         few:
-        one:
-        other:
+        one: Ráiteas ó bhéal don Pharlaimint
+        other: Ráitis ó bhéal sa Pharlaimint
         two:
       policy:
         few:
@@ -399,8 +399,8 @@ gd:
         two:
       press_release:
         few:
-        one:
-        other:
+        one: Preaseisiúint
+        other: Preaseisiúintí
         two:
       product-safety-alert-report-recall:
         few:
@@ -454,8 +454,8 @@ gd:
         two:
       speech:
         few:
-        one:
-        other:
+        one: Óráid
+        other: Óráid
         two:
       standard:
         few:
@@ -484,8 +484,8 @@ gd:
         two:
       take_part:
         few:
-        one:
-        other:
+        one: Chun páirt a ghlacadh
+        other: Chun páirt a ghlacadh
         two:
       tax_tribunal_decision:
         few:
@@ -509,13 +509,13 @@ gd:
         two:
       world_news_story:
         few:
-        one:
-        other:
+        one: Alt nuachta domhanda
+        other: Nuacht domhanda
         two:
       written_statement:
         few:
-        one:
-        other:
+        one: Dearbhú i scríbhinn don Pharlaimint
+        other: Ráitis i scríbhinn don Pharlaimint
         two:
   electoral:
     registration:

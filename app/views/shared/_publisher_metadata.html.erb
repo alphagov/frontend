@@ -3,7 +3,7 @@
 %>
 
 <div class="govuk-grid-row">
-  <div class="metadata-wrapper gem-print-columns-none">
+  <div class="metadata-wrapper gem-print-columns-none <%= "responsive-bottom-margin" if content_item.try(:logo) %>">
     <div class="govuk-grid-column-two-thirds metadata-column">
       <%= render "govuk_publishing_components/components/metadata", {
         from: locals[:from],
@@ -11,6 +11,13 @@
         last_updated: locals[:last_updated],
         see_updates_link: locals[:see_updates_link],
       } %>
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <% if content_item.try(:logo) %>
+        <%= image_tag content_item.logo[:path],
+          alt: content_item.logo[:alt_text],
+          class: "metadata-logo" %>
+      <% end %>
     </div>
   </div>
 </div>

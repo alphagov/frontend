@@ -43,4 +43,27 @@ RSpec.describe DetailedGuide do
       end
     end
   end
+
+  describe "#logo" do
+    context "when image is present for a detailed guide page" do
+      it "returns the URL and alt text for the image" do
+        content_store_response = GovukSchemas::Example.find("detailed_guide", example_name: "england-2014-to-2020-european-structural-and-investment-funds")
+        content_item = described_class.new(content_store_response)
+        image_url = content_store_response.dig("details", "image", "url")
+        expect(content_item.logo).to eq({
+          path: image_url,
+          alt_text: "European structural investment funds",
+        })
+      end
+    end
+
+    context "when image is not present for a detailed guide page" do
+      it "returns nil" do
+        content_store_response = GovukSchemas::Example.find("detailed_guide", example_name: "detailed_guide")
+        content_item = described_class.new(content_store_response)
+
+        expect(content_item.logo).to be_nil
+      end
+    end
+  end
 end

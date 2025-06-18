@@ -403,6 +403,9 @@ fi:
       publication_scheme_html: Lue, millaisia tietoja julkaisemme rutiininomaisesti %{link}.
       social_media_use_html: Lue käytäntömme osoitteesta %{link}.
       welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
+    document_collection:
+      one: Kokoelma
+      other: Kokoelmat
     fatality_notice:
       alt_text: Puolustusministeriön vaakuna
       field_of_operation: Toiminta -alue

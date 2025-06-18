@@ -151,226 +151,6 @@ ur:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one: مصنف کے نام کے ساتھ لکھا مضمون
-        other: مصنف کے نام کے ساتھ لکھے مضامین
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one: کیس اسٹڈی
-        other: کیس اسٹڈیز
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one: معلومات کا صفحہ
-        other: معلومات کے صفحات
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one: موت کا نوٹس
-        other: موت کے نوٹسز
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one: حکومت کا جواب
-        other: حکومت کے جوابات
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one: خبروں کا مضمون
-        other: خبروں کے مضامین
-      news_story:
-        one: خبروں کی کہانی
-        other: خبروں کی کہانیاں
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one: پارلیمان کے لیے زبانی بیان
-        other: پارلیمان کے لیے زبانی بیانات
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one: پریس ریلیز
-        other: پریس ریلیزز
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one: تقریر
-        other: تقاریر
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one: شرکت کریں
-        other: شرکت کریں
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one: دنیا کی خبروں کی کہانی
-        other: دنیا کی خبروں کی کہانیاں
-      written_statement:
-        one: پالیمان کے لیے تحریری بیان
-        other: پالیمان کے لیے تحریری بیانات
   electoral:
     registration:
       description:
@@ -388,14 +168,46 @@ ur:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         one: مصنف کے نام کے ساتھ لکھا مضمون
         other: مصنف کے نام کے ساتھ لکھے مضامین
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: کیس اسٹڈی
         other: کیس اسٹڈیز
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} کو جانیے۔"
       corporate_information: کارپوریٹ معلومات
@@ -406,6 +218,54 @@ ur:
       publication_scheme_html: ہماری %{link} میں ہماری جانب سے معمول کے حساب سے شائع کی جانے والی معلومات کی اقسام کے بارے میں پڑھیں۔
       social_media_use_html: "%{link} پر ہماری پالیسی کو پڑھیں۔"
       welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ
@@ -421,6 +281,14 @@ ur:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -465,6 +333,30 @@ ur:
       name:
         one: حکومت کا جواب
         other: حکومت کے جوابات
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -518,6 +410,30 @@ ur:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         one: خبروں کا مضمون
@@ -526,6 +442,26 @@ ur:
       name:
         one: خبروں کی کہانی
         other: خبروں کی کہانیاں
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         one: پارلیمان کے لیے زبانی بیان
@@ -535,16 +471,64 @@ ur:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         one: پریس ریلیز
         other: پریس ریلیزز
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: سکیم کا لوگو متعین کردہ اصل UK سے محفوظ شدہ (Designated Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
@@ -557,11 +541,35 @@ ur:
         one: تقریر
         other: تقاریر
       written_on: تحریر کردہ بتاریخ
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         one: شرکت کریں
         other: شرکت کریں
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -569,6 +577,14 @@ ur:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> سوائے ملک کے کچھ حصوں میں ضروری سفر کرنے کے ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
@@ -580,6 +596,10 @@ ur:
       still_current_at: ابھی تک حالیہ ہے از
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         one: دنیا کی خبروں کی کہانی

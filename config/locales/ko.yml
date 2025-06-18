@@ -151,153 +151,6 @@ ko:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        other:
-      announcement:
-        other:
-      asylum_support_decision:
-        other:
-      authored_article:
-        other: 저작물
-      business_finance_support_scheme:
-        other:
-      case_study:
-        other: 사례 연구
-      closed_consultation:
-        other:
-      cma_case:
-        other:
-      consultation:
-        other:
-      consultation_outcome:
-        other:
-      corporate_information_page:
-        other: 정보 페이지
-      corporate_report:
-        other:
-      correspondence:
-        other:
-      countryside_stewardship_grant:
-        other:
-      decision:
-        other:
-      detailed_guide:
-        other:
-      dfid_research_output:
-        other:
-      document_collection:
-        other:
-      draft_text:
-        other:
-      drug_safety_update:
-        other:
-      employment_appeal_tribunal_decision:
-        other:
-      employment_tribunal_decision:
-        other:
-      esi_fund:
-        other:
-      fatality_notice:
-        other: 사상자 공지
-      foi_release:
-        other:
-      form:
-        other:
-      government_response:
-        other: 정부 대응
-      guidance:
-        other:
-      impact_assessment:
-        other:
-      imported:
-        other:
-      independent_report:
-        other:
-      international_development_fund:
-        other:
-      international_treaty:
-        other:
-      maib_report:
-        other:
-      map:
-        other:
-      medical_safety_alert:
-        other:
-      national:
-        other:
-      national_statistics:
-        other:
-      national_statistics_announcement:
-        other:
-      news_article:
-        other: 뉴스 기사
-      news_story:
-        other: 뉴스 스토리
-      notice:
-        other:
-      official:
-        other:
-      official_statistics:
-        other:
-      official_statistics_announcement:
-        other:
-      open_consultation:
-        other:
-      oral_statement:
-        other: 의회로 구두 성명
-      policy:
-        other:
-      policy_paper:
-        other:
-      press_release:
-        other: 보도자료
-      product-safety-alert-report-recall:
-        other:
-      promotional:
-        other:
-      publication:
-        other:
-      raib_report:
-        other:
-      regulation:
-        other:
-      research:
-        other:
-      residential_property_tribunal_decision:
-        other:
-      service_sign_in:
-        other:
-      service_standard_report:
-        other:
-      speaking_notes:
-        other:
-      speech:
-        other: 연설문
-      standard:
-        other:
-      statement_to_parliament:
-        other:
-      statistical_data_set:
-        other:
-      statistics_announcement:
-        other:
-      statutory_guidance:
-        other:
-      take_part:
-        other: 참여하기
-      tax_tribunal_decision:
-        other:
-      transcript:
-        other:
-      transparency:
-        other:
-      utaac_decision:
-        other:
-      world_news_story:
-        other: 세계 뉴스 스토리
-      written_statement:
-        other: 의회로 서면 성명
   electoral:
     registration:
       description:
@@ -315,12 +168,36 @@ ko:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        other:
+    announcement:
+      name:
+        other:
+    asylum_support_decision:
+      name:
+        other:
     authored_article:
       name:
         other: 저작물
+    business_finance_support_scheme:
+      name:
+        other:
     case_study:
       name:
         other: 사례 연구
+    closed_consultation:
+      name:
+        other:
+    cma_case:
+      name:
+        other:
+    consultation:
+      name:
+        other:
+    consultation_outcome:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} 를 찾아보십시오."
       corporate_information: 대사관 정보
@@ -330,6 +207,42 @@ ko:
       publication_scheme_html: 정기적으로 공개되는 %{link} 정보에 대한 안내.
       social_media_use_html: "%{link} 에서 정책 정보 확인"
       welsh_language_scheme_html: "%{link} 에서 정보 공개에 대한 내용."
+    corporate_report:
+      name:
+        other:
+    correspondence:
+      name:
+        other:
+    countryside_stewardship_grant:
+      name:
+        other:
+    decision:
+      name:
+        other:
+    detailed_guide:
+      name:
+        other:
+    dfid_research_output:
+      name:
+        other:
+    document_collection:
+      name:
+        other:
+    draft_text:
+      name:
+        other:
+    drug_safety_update:
+      name:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        other:
+    employment_tribunal_decision:
+      name:
+        other:
+    esi_fund:
+      name:
+        other:
     fatality_notice:
       alt_text: 국방부 문장
       field_of_operation: 운영 현장
@@ -344,6 +257,12 @@ ko:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        other:
+    form:
+      name:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -387,6 +306,24 @@ ko:
     government_response:
       name:
         other: 정부 대응
+    guidance:
+      name:
+        other:
+    impact_assessment:
+      name:
+        other:
+    imported:
+      name:
+        other:
+    independent_report:
+      name:
+        other:
+    international_development_fund:
+      name:
+        other:
+    international_treaty:
+      name:
+        other:
     licence:
       change:
     local_transaction:
@@ -440,12 +377,45 @@ ko:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        other:
+    map:
+      name:
+        other:
+    medical_safety_alert:
+      name:
+        other:
+    national:
+      name:
+        other:
+    national_statistics:
+      name:
+        other:
+    national_statistics_announcement:
+      name:
+        other:
     news_article:
       name:
         other: 뉴스 기사
     news_story:
       name:
         other: 뉴스 스토리
+    notice:
+      name:
+        other:
+    official:
+      name:
+        other:
+    official_statistics:
+      name:
+        other:
+    official_statistics_announcement:
+      name:
+        other:
+    open_consultation:
+      name:
+        other:
     oral_statement:
       name:
         other: 의회로 구두 성명
@@ -454,15 +424,51 @@ ko:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        other:
+    policy_paper:
+      name:
+        other:
     press_release:
       name:
         other: 보도자료
+    product-safety-alert-report-recall:
+      name:
+        other:
+    promotional:
+      name:
+        other:
+    publication:
+      name:
+        other:
+    raib_report:
+      name:
+        other:
+    regulation:
+      name:
+        other:
+    research:
+      name:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        other:
+    service_sign_in:
+      name:
+        other:
+    service_standard_report:
+      name:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: 정책 로고는 Designated Origin UK Protected라는 글자가 담긴 검정색 도장입니다
@@ -474,10 +480,28 @@ ko:
       name:
         other: 연설문
       written_on: 작성 날짜
+    standard:
+      name:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        other:
+    statistical_data_set:
+      name:
+        other:
+    statistics_announcement:
+      name:
+        other:
+    statutory_guidance:
+      name:
+        other:
     take_part:
       name:
         other: 참여하기
+    tax_tribunal_decision:
+      name:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -485,6 +509,12 @@ ko:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        other:
+    transparency:
+      name:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가의 각지를 여행하지 말라고 권고합니다.
@@ -496,6 +526,9 @@ ko:
       still_current_at: 최신 상태
       summary: 요약
       updated: 업데이트
+    utaac_decision:
+      name:
+        other:
     world_news_story:
       name:
         other: 세계 뉴스 스토리

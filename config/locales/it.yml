@@ -151,226 +151,6 @@ it:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one: Articolo d’autore
-        other: Articoli d’autore
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one: Caso di studio
-        other: Casi di studio
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one: Pagina informativa
-        other: Pagine informative
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one: Avviso di morte
-        other: Avvisi di morte
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one: Risposta del governo
-        other: Risposte del governo
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one: Articolo di notizie
-        other: Articoli di notizie
-      news_story:
-        one: Storia di notizie
-        other: Storie di notizie
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one: Dichiarazione orale al Parlamento
-        other: Dichiarazioni orali al Parlamento
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one: Comunicato stampa
-        other: Comunicati stampa
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one: Discorso
-        other: Discorsi
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one: Prendere parte
-        other: Prendere parte
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one: Storia di notizie dal mondo
-        other: Storie di notizie dal mondo
-      written_statement:
-        one: Dichiarazione scritta al Parlamento
-        other: Dichiarazioni scritte al Parlamento
   electoral:
     registration:
       description:
@@ -388,14 +168,46 @@ it:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         one: Articolo d’autore
         other: Articoli d’autore
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: Caso di studio
         other: Casi di studio
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Trova %{link}.
       corporate_information: Informazioni aziendali
@@ -406,6 +218,54 @@ it:
       publication_scheme_html: Leggi i tipi di informazioni che pubblichiamo abitualmente nel nostro %{link}.
       social_media_use_html: Leggi la nostra informativa su %{link}.
       welsh_language_scheme_html: Scopri il nostro impegno per %{link}.
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Stemma del Ministero della Difesa
       field_of_operation: Campo operativo
@@ -421,6 +281,14 @@ it:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -465,6 +333,30 @@ it:
       name:
         one: Risposta del governo
         other: Risposte del governo
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -518,6 +410,30 @@ it:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         one: Articolo di notizie
@@ -526,6 +442,26 @@ it:
       name:
         one: Storia di notizie
         other: Storie di notizie
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         one: Dichiarazione orale al Parlamento
@@ -535,16 +471,64 @@ it:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         one: Comunicato stampa
         other: Comunicati stampa
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Il logo dello schema è un timbro nero con le parole Designated Origin UK Protected
@@ -557,11 +541,35 @@ it:
         one: Discorso
         other: Discorsi
       written_on: Scritto il
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         one: Prendere parte
         other: Prendere parte
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -569,6 +577,14 @@ it:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: L’<abbr title="Foreign and Commonwealth Office">FCO</abbr> sconsiglia tutti i viaggi tranne quelli essenziali in alcune parti del paese.
@@ -580,6 +596,10 @@ it:
       still_current_at: Ancora in corso il
       summary: Riepilogo
       updated: Aggiornato
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         one: Storia di notizie dal mondo

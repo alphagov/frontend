@@ -151,153 +151,6 @@ id:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        other:
-      announcement:
-        other:
-      asylum_support_decision:
-        other:
-      authored_article:
-        other: Artikel bersumber
-      business_finance_support_scheme:
-        other:
-      case_study:
-        other: Studi kasus
-      closed_consultation:
-        other:
-      cma_case:
-        other:
-      consultation:
-        other:
-      consultation_outcome:
-        other:
-      corporate_information_page:
-        other: Halaman informasi
-      corporate_report:
-        other:
-      correspondence:
-        other:
-      countryside_stewardship_grant:
-        other:
-      decision:
-        other:
-      detailed_guide:
-        other:
-      dfid_research_output:
-        other:
-      document_collection:
-        other:
-      draft_text:
-        other:
-      drug_safety_update:
-        other:
-      employment_appeal_tribunal_decision:
-        other:
-      employment_tribunal_decision:
-        other:
-      esi_fund:
-        other:
-      fatality_notice:
-        other: Pemberitahuan fatalitas
-      foi_release:
-        other:
-      form:
-        other:
-      government_response:
-        other: Respons pemerintah
-      guidance:
-        other:
-      impact_assessment:
-        other:
-      imported:
-        other:
-      independent_report:
-        other:
-      international_development_fund:
-        other:
-      international_treaty:
-        other:
-      maib_report:
-        other:
-      map:
-        other:
-      medical_safety_alert:
-        other:
-      national:
-        other:
-      national_statistics:
-        other:
-      national_statistics_announcement:
-        other:
-      news_article:
-        other: Artikel berita
-      news_story:
-        other: Cerita berita
-      notice:
-        other:
-      official:
-        other:
-      official_statistics:
-        other:
-      official_statistics_announcement:
-        other:
-      open_consultation:
-        other:
-      oral_statement:
-        other: Pernyataan lisan kepada Parlemen
-      policy:
-        other:
-      policy_paper:
-        other:
-      press_release:
-        other: Siaran pers
-      product-safety-alert-report-recall:
-        other:
-      promotional:
-        other:
-      publication:
-        other:
-      raib_report:
-        other:
-      regulation:
-        other:
-      research:
-        other:
-      residential_property_tribunal_decision:
-        other:
-      service_sign_in:
-        other:
-      service_standard_report:
-        other:
-      speaking_notes:
-        other:
-      speech:
-        other: Pidato
-      standard:
-        other:
-      statement_to_parliament:
-        other:
-      statistical_data_set:
-        other:
-      statistics_announcement:
-        other:
-      statutory_guidance:
-        other:
-      take_part:
-        other: Ikut serta
-      tax_tribunal_decision:
-        other:
-      transcript:
-        other:
-      transparency:
-        other:
-      utaac_decision:
-        other:
-      world_news_story:
-        other: Cerita berita dunia
-      written_statement:
-        other: Pernyataan tertulis kepada Parlemen
   electoral:
     registration:
       description:
@@ -315,12 +168,36 @@ id:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        other:
+    announcement:
+      name:
+        other:
+    asylum_support_decision:
+      name:
+        other:
     authored_article:
       name:
         other: Artikel bersumber
+    business_finance_support_scheme:
+      name:
+        other:
     case_study:
       name:
         other: Studi kasus
+    closed_consultation:
+      name:
+        other:
+    cma_case:
+      name:
+        other:
+    consultation:
+      name:
+        other:
+    consultation_outcome:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: Temukan %{link}.
       corporate_information: Informasi korporat
@@ -330,6 +207,42 @@ id:
       publication_scheme_html: Bacalah jenis-jenis informasi yang kami terbitkan secara rutin di %{link} kami.
       social_media_use_html: Baca kebijakan kami di %{link}.
       welsh_language_scheme_html: Cari tahu komitmen kami kepada %{link}.
+    corporate_report:
+      name:
+        other:
+    correspondence:
+      name:
+        other:
+    countryside_stewardship_grant:
+      name:
+        other:
+    decision:
+      name:
+        other:
+    detailed_guide:
+      name:
+        other:
+    dfid_research_output:
+      name:
+        other:
+    document_collection:
+      name:
+        other:
+    draft_text:
+      name:
+        other:
+    drug_safety_update:
+      name:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        other:
+    employment_tribunal_decision:
+      name:
+        other:
+    esi_fund:
+      name:
+        other:
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Bidang operasi
@@ -344,6 +257,12 @@ id:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        other:
+    form:
+      name:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -387,6 +306,24 @@ id:
     government_response:
       name:
         other: Respons pemerintah
+    guidance:
+      name:
+        other:
+    impact_assessment:
+      name:
+        other:
+    imported:
+      name:
+        other:
+    independent_report:
+      name:
+        other:
+    international_development_fund:
+      name:
+        other:
+    international_treaty:
+      name:
+        other:
     licence:
       change:
     local_transaction:
@@ -440,12 +377,45 @@ id:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        other:
+    map:
+      name:
+        other:
+    medical_safety_alert:
+      name:
+        other:
+    national:
+      name:
+        other:
+    national_statistics:
+      name:
+        other:
+    national_statistics_announcement:
+      name:
+        other:
     news_article:
       name:
         other: Artikel berita
     news_story:
       name:
         other: Cerita berita
+    notice:
+      name:
+        other:
+    official:
+      name:
+        other:
+    official_statistics:
+      name:
+        other:
+    official_statistics_announcement:
+      name:
+        other:
+    open_consultation:
+      name:
+        other:
     oral_statement:
       name:
         other: Pernyataan lisan kepada Parlemen
@@ -454,15 +424,51 @@ id:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        other:
+    policy_paper:
+      name:
+        other:
     press_release:
       name:
         other: Siaran pers
+    product-safety-alert-report-recall:
+      name:
+        other:
+    promotional:
+      name:
+        other:
+    publication:
+      name:
+        other:
+    raib_report:
+      name:
+        other:
+    regulation:
+      name:
+        other:
+    research:
+      name:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        other:
+    service_sign_in:
+      name:
+        other:
+    service_standard_report:
+      name:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Logo skema adalah cap hitam dengan kata-kata Designated Origin UK Protected
@@ -474,10 +480,28 @@ id:
       name:
         other: Pidato
       written_on: Ditulis pada
+    standard:
+      name:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        other:
+    statistical_data_set:
+      name:
+        other:
+    statistics_announcement:
+      name:
+        other:
+    statutory_guidance:
+      name:
+        other:
     take_part:
       name:
         other: Ikut serta
+    tax_tribunal_decision:
+      name:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -485,6 +509,12 @@ id:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        other:
+    transparency:
+      name:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> melarang semua perjalanan yang tidak esensial ke bagian-bagian dari negara itu.
@@ -496,6 +526,9 @@ id:
       still_current_at: Masih berlaku di
       summary: Rangkuman
       updated: Diperbarui
+    utaac_decision:
+      name:
+        other:
     world_news_story:
       name:
         other: Cerita berita dunia

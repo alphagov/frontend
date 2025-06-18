@@ -219,6 +219,19 @@ RSpec.describe ContentItemLoader do
           expect(item_request).not_to have_been_made
         end
       end
+
+      context "given a response from graphql containing errors" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
+        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article", "errors" => [ { "message" => "some_error" } ] } }  }) }
+        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
+
+        it "reports the presence of errors as a prometheus label" do 
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["contains_errors"]).to eq(true)
+        end
+      end
     end
 
     context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do

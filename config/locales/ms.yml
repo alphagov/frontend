@@ -441,6 +441,9 @@ ms:
       other: Artikel berita
     news_story:
       other: Berita
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: Kenyataan lisan kepada Parlimen
     place:

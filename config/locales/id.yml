@@ -441,6 +441,9 @@ id:
       other: Artikel berita
     news_story:
       other: Cerita berita
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: Pernyataan lisan kepada Parlemen
     place:

@@ -522,6 +522,10 @@ bg:
     news_story:
       one: Репортаж
       other: Репортажи
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Устно изявление в Парламента
       other: Устни изявления в Парламента

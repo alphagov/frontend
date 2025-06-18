@@ -527,6 +527,10 @@ en:
     news_story:
       one: News story
       other: News stories
+    open_call_for_evidence:
+      name:
+        one: Open call for evidence
+        other: Open calls for evidence
     oral_statement:
       one: Oral statement to Parliament
       other: Oral statements to Parliament

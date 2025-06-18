@@ -522,6 +522,10 @@ yi:
     news_story:
       one:
       other:
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one:
       other:

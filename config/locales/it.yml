@@ -522,6 +522,10 @@ it:
     news_story:
       one: Storia di notizie
       other: Storie di notizie
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Dichiarazione orale al Parlamento
       other: Dichiarazioni orali al Parlamento

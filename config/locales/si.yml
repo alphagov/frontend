@@ -522,6 +522,10 @@ si:
     news_story:
       one: පුවත් කතාව
       other: පුවත් කතා
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
       other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ

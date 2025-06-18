@@ -441,6 +441,9 @@ zh-tw:
       other: 新聞文章
     news_story:
       other: 新聞報導
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: 對議會的口頭聲明
     place:

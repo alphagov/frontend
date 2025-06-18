@@ -522,6 +522,10 @@ hu:
     news_story:
       one: Hír
       other: Hírek
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Parlamenti felszólalás
       other: Parlamenti felszólalások

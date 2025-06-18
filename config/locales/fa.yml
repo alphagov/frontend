@@ -522,6 +522,10 @@ fa:
     news_story:
       one: گزارش خبری
       other: گزارشات خبری
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: بیانیه شفاهی به پارلمان
       other: بیانیه‌های شفاهی به پارلمان

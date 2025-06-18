@@ -684,6 +684,12 @@ mt:
       many:
       one: Storja aħbar
       other: Stejjer aħbar
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     oral_statement:
       few:
       many:

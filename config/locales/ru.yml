@@ -684,6 +684,12 @@ ru:
       many:
       one: Новостной сюжет
       other: Новостные сюжеты
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     oral_statement:
       few:
       many:

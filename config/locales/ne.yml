@@ -522,6 +522,10 @@ ne:
     news_story:
       one: समाचार कथा
       other: समाचार कथाहरु
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: संसदमा मौखिक वक्तव्य
       other: 'संसदमा मौखिक वक्तव्यहरू '

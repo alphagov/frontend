@@ -522,6 +522,10 @@
     news_story:
       one: Nyhetssak
       other: Nyheter
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Muntlig uttalelse til Stortinget
       other: Muntlige uttalelser til Stortinget

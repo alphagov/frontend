@@ -702,26 +702,27 @@ ar:
       download_outcome:
       either:
       email_to:
-      few:
       is_being:
-      many:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
       not_open_yet:
       'on':
-      one:
       open_another_website_html:
       opens:
       or:
       original_call_for_evidence:
-      other:
       ran_from:
       respond_online:
       response_form:
       summary:
-      two:
       was:
       ways_to_respond:
       write_to:
-      zero:
     call_for_evidence_outcome:
       name:
         few:

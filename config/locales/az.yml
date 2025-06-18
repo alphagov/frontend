@@ -407,14 +407,15 @@ az:
       either:
       email_to:
       is_being:
+      name:
+        one:
+        other:
       not_open_yet:
       'on':
-      one:
       open_another_website_html:
       opens:
       or:
       original_call_for_evidence:
-      other:
       ran_from:
       respond_online:
       response_form:

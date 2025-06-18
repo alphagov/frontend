@@ -333,13 +333,14 @@ zh-hk:
       either:
       email_to:
       is_being:
+      name:
+        other:
       not_open_yet:
       'on':
       open_another_website_html:
       opens:
       or:
       original_call_for_evidence:
-      other:
       ran_from:
       respond_online:
       response_form:

@@ -550,6 +550,12 @@ gd:
         one:
         other:
         two:
+    open_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     open_consultation:
       name:
         few:

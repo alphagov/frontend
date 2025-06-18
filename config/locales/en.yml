@@ -463,6 +463,10 @@ en:
       name:
         one: Official statistics announcement
         other: Official statistics announcements
+    open_call_for_evidence:
+      name:
+        one: Open call for evidence
+        other: Open calls for evidence
     open_consultation:
       name:
         one: Open consultation

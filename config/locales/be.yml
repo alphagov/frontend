@@ -550,6 +550,12 @@ be:
         many:
         one:
         other:
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     open_consultation:
       name:
         few:

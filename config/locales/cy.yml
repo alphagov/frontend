@@ -647,6 +647,14 @@ cy:
         other: Cyhoeddiadau o ystadegau swyddogol
         two:
         zero:
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one: Galwad agored am dystiolaeth
+        other:
+        two:
+        zero:
     open_consultation:
       name:
         few:

@@ -189,6 +189,9 @@ id:
     case_study:
       name:
         other: Studi kasus
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:

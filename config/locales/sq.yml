@@ -196,6 +196,10 @@ sq:
       name:
         one: Rast studimi
         other: Raste studimi
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

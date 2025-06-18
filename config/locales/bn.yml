@@ -196,6 +196,10 @@ bn:
       name:
         one: কেস স্টাডি
         other: কেস স্টাডিসমূহ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

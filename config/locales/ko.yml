@@ -189,6 +189,9 @@ ko:
     case_study:
       name:
         other: 사례 연구
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:

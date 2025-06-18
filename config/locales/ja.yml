@@ -189,6 +189,9 @@ ja:
     case_study:
       name:
         other: ケーススタディ
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:

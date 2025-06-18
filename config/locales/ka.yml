@@ -196,6 +196,10 @@ ka:
       name:
         one: შემთხვევის კვლევა
         other: შემთხვევის კვლევები
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     closed_consultation:
       name:
         one:

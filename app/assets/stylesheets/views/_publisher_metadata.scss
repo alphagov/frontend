@@ -11,3 +11,14 @@
     padding-top: govuk-spacing(3);
   }
 }
+
+.metadata-logo {
+  max-height: 90px;
+  max-width: 100%;
+  padding-bottom: govuk-spacing(3);
+  padding-top: govuk-spacing(3);
+
+    @include govuk-media-query($from: tablet) {
+    float: right;
+    }
+  }

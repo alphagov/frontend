@@ -409,14 +409,15 @@ en:
       either: either
       email_to: 'Email to:'
       is_being: is being
+      name:
+        one: Call for evidence
+        other: Calls for evidence
       not_open_yet: This call for evidence isn't open yet
       'on': 'on'
-      one: Call for evidence
       open_another_website_html: This call for evidence is being held on <a href="%{url}">another website</a>
       opens: This call for evidence opens
       or: or
       original_call_for_evidence: Original call for evidence
-      other: Calls for evidence
       ran_from: This call for evidence ran from
       respond_online: Respond online
       response_form: response form

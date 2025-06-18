@@ -549,6 +549,12 @@ gd:
       one: Cás-staidéir
       other: Tuarascálacha staidéir
       two:
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     corporate_information_page:
       about_our_services_html: Amharc ar %{link}.
       corporate_information: Faisnéis cuideachta

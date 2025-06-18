@@ -549,6 +549,12 @@ mt:
       many:
       one: Studju ta' Każ
       other: Studju ta' Każijiet
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Kun af %{link}.
       corporate_information: Informazzjoni korporattiva

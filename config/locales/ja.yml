@@ -321,6 +321,9 @@ ja:
       other:
     case_study:
       other: ケーススタディ
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} をご覧ください。"
       corporate_information: 各種情報

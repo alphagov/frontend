@@ -549,6 +549,12 @@ uk:
       many:
       one: Аналіз ситуації
       other: Аналізи ситуації
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Дізнатися %{link}.
       corporate_information: Корпоративна інформація

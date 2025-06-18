@@ -473,6 +473,11 @@ cs:
       few:
       one: Případová studie
       other: Případové studie
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Zjistěte %{link}.
       corporate_information: Firemní informace

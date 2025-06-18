@@ -473,6 +473,11 @@ sk:
       few:
       one: Prípadová štúdia
       other: Prípadové štúdie
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Zistite %{link}.
       corporate_information: Firemné informácie

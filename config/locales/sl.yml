@@ -549,6 +549,12 @@ sl:
       one: Študija primera
       other: Študije primera
       two:
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     corporate_information_page:
       about_our_services_html: Izvedite več %{link}.
       corporate_information: Informacije o podjetju

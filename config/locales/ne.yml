@@ -397,6 +397,10 @@ ne:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: पत्ता लगाउनुहोस् %{link}।
       corporate_information: निगम जानकारी

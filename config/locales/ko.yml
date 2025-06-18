@@ -321,6 +321,9 @@ ko:
       other:
     case_study:
       other: 사례 연구
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} 를 찾아보십시오."
       corporate_information: 대사관 정보

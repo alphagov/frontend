@@ -473,6 +473,11 @@ ro:
       few:
       one: Studiu de caz
       other: Studii de caz
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Aflați %{link}.
       corporate_information: Informații despre corporație

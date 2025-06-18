@@ -397,6 +397,10 @@ uz:
     case_study:
       one: Ҳолатларнинг таҳлили
       other: Ҳолатларнинг таҳлиллари
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Билиб олиш %{link}.
       corporate_information: Корпоратив маълумотлар

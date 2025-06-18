@@ -549,6 +549,12 @@ pl:
       many:
       one: Studium przypadku
       other: Studia przypadku
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Dowiedz się %{link}.
       corporate_information: Informacje korporacyjne

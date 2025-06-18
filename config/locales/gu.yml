@@ -397,6 +397,10 @@ gu:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} શોધી કાઢો."
       corporate_information: કોર્પોરેટ માહિતી

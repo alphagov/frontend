@@ -549,6 +549,12 @@ ru:
       many:
       one: Причинный анализ
       other: Причинные анализы
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Узнайте %{link}.
       corporate_information: Корпоративная информация

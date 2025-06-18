@@ -397,6 +397,10 @@ si:
     case_study:
       one: සිද්ධි අධ්යයනය
       other: සිද්ධි අධ්යයන
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} සොයන්න."
       corporate_information: ආයතනික තොරතුරු

@@ -397,6 +397,10 @@ pa-pk:
     case_study:
       one: کیس دی پڑھائی
       other: کیس دی پڑھائی
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: اینوں لبھو %{link}.
       corporate_information: کاروبار دی معلومات

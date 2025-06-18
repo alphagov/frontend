@@ -321,6 +321,9 @@ th:
       other:
     case_study:
       other: กรณีศึกษา
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: ดูข้อมูลเพิ่มเติมที่ %{link}
       corporate_information: ข้อมูลองค์กร

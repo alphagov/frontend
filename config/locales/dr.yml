@@ -397,6 +397,10 @@ dr:
     case_study:
       one: مطالعه موردی
       other: مطالعات موردی
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: دریابید%{link}.
       corporate_information: اطلاعات شرکت

@@ -397,6 +397,10 @@ lv:
     case_study:
       one: Piemērs
       other: Piemēri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Uzziniet vairāk %{link}.
       corporate_information: Korporatīva informācija

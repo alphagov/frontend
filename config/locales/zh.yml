@@ -321,6 +321,9 @@ zh:
       other:
     case_study:
       other: 案例研究
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: 查找 %{link}。
       corporate_information: 公司信息

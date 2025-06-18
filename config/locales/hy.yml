@@ -397,6 +397,10 @@ hy:
     case_study:
       one: Մասնավոր դեպքի ուսումնասիրություն
       other: Մասնավոր դեպքի ուսումնասիրություններ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Տեղեկանալ %{link}։
       corporate_information: Կորպորատիվ տեղեկություն

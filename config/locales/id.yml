@@ -321,6 +321,9 @@ id:
       other:
     case_study:
       other: Studi kasus
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: Temukan %{link}.
       corporate_information: Informasi korporat

@@ -397,6 +397,10 @@ da:
     case_study:
       one: Casestudie
       other: Casestudie
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Find ud af %{link}.
       corporate_information: Virksomhedsoplysninger

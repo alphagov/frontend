@@ -168,12 +168,44 @@ zh:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         other: 撰写文章
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         other: 案例研究
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: 查找 %{link}。
       corporate_information: 公司信息
@@ -183,6 +215,54 @@ zh:
       publication_scheme_html: 阅读我们在 %{link} 中例行发布的信息类型。
       social_media_use_html: 阅读我们在 %{link} 的政策。
       welsh_language_scheme_html: 查看我们对 %{link} 的承诺。
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: 国防部徽章
       field_of_operation: 经营领域
@@ -197,6 +277,14 @@ zh:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -240,6 +328,30 @@ zh:
     government_response:
       name:
         other: 政府回应
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -293,12 +405,56 @@ zh:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         other: 新闻报道
     news_story:
       name:
         other: 新闻故事
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         other: 议会口头声明
@@ -307,15 +463,63 @@ zh:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         other: 新闻稿
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: 该计划的标志是一个黑色的印章，上面写着“受特定来源国英国保护”
@@ -327,10 +531,34 @@ zh:
       name:
         other: 演讲
       written_on: 书写日期
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         other: 参加
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -338,6 +566,14 @@ zh:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: '<abbr title="Foreign and Commonwealth Office">FCO</abbr> 建议除非必要，否则不要前往该国部分地区。  '
@@ -349,6 +585,10 @@ zh:
       still_current_at: 有效范围
       summary: 总结
       updated: 已更新
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         other: 世界新闻故事

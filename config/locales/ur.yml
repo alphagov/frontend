@@ -168,14 +168,46 @@ ur:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         one: مصنف کے نام کے ساتھ لکھا مضمون
         other: مصنف کے نام کے ساتھ لکھے مضامین
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: کیس اسٹڈی
         other: کیس اسٹڈیز
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} کو جانیے۔"
       corporate_information: کارپوریٹ معلومات
@@ -186,6 +218,54 @@ ur:
       publication_scheme_html: ہماری %{link} میں ہماری جانب سے معمول کے حساب سے شائع کی جانے والی معلومات کی اقسام کے بارے میں پڑھیں۔
       social_media_use_html: "%{link} پر ہماری پالیسی کو پڑھیں۔"
       welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: وزارت دفاع کا کریسنٹ
       field_of_operation: کارروائی کی فیلڈ
@@ -201,6 +281,14 @@ ur:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -245,6 +333,30 @@ ur:
       name:
         one: حکومت کا جواب
         other: حکومت کے جوابات
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -298,6 +410,30 @@ ur:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         one: خبروں کا مضمون
@@ -306,6 +442,26 @@ ur:
       name:
         one: خبروں کی کہانی
         other: خبروں کی کہانیاں
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         one: پارلیمان کے لیے زبانی بیان
@@ -315,16 +471,64 @@ ur:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         one: پریس ریلیز
         other: پریس ریلیزز
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: سکیم کا لوگو متعین کردہ اصل UK سے محفوظ شدہ (Designated Origin UK Protected) کے ساتھ سیاہ اسٹام پر مشتمل ہے
@@ -337,11 +541,35 @@ ur:
         one: تقریر
         other: تقاریر
       written_on: تحریر کردہ بتاریخ
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         one: شرکت کریں
         other: شرکت کریں
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -349,6 +577,14 @@ ur:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> سوائے ملک کے کچھ حصوں میں ضروری سفر کرنے کے ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔
@@ -360,6 +596,10 @@ ur:
       still_current_at: ابھی تک حالیہ ہے از
       summary: خلاصہ
       updated: اپ ڈیٹ کردہ
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         one: دنیا کی خبروں کی کہانی

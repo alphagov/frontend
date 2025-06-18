@@ -168,16 +168,48 @@ sk:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         few:
         one: Autor článku
         other: Autorské články
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         few:
         one: Prípadová štúdia
         other: Prípadové štúdie
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Zistite %{link}.
       corporate_information: Firemné informácie
@@ -189,6 +221,54 @@ sk:
       publication_scheme_html: Prečítajte si o typoch informácií, ktoré bežne zverejňujeme v našom %{link}.
       social_media_use_html: Prečítajte si naše zásady na %{link}.
       welsh_language_scheme_html: Prečítajte si o našom záväzku voči %{link}.
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Erb ministerstva obrany
       field_of_operation: Oblasť činnosti
@@ -205,6 +285,14 @@ sk:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -250,6 +338,30 @@ sk:
         few:
         one: Odpoveď vlády
         other: Odpovede vlády
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -303,6 +415,30 @@ sk:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         few:
@@ -313,6 +449,26 @@ sk:
         few:
         one: Spravodajský príbeh
         other: Spravodajské príbehy
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         few:
@@ -323,17 +479,65 @@ sk:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         few:
         one: Tlačová správa
         other: Tlačové správy
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Logo schémy je čierna pečiatka s nápisom Designated Origin UK Protected
@@ -347,12 +551,36 @@ sk:
         one: Prejav
         other: Prejay
       written_on: Napísané dňa
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         few:
         one: Zúčastniť sa
         other: Zúčastniť sa
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -360,6 +588,14 @@ sk:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Ministerstvo zahraničných vecí a Commonwealthu <abbr title="Foreign and Commonwealth Office">FCO</abbr> neodporúča cestovať do niektorých častí krajiny okrem nevyhnutných prípadov.
@@ -371,6 +607,10 @@ sk:
       still_current_at: Stále aktuálne na
       summary: Zhrnutie
       updated: Aktualizované
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         few:

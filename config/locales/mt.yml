@@ -168,18 +168,50 @@ mt:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         few:
         many:
         one: Artiklu miktub
         other: Artikli miktuba
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         few:
         many:
         one: Studju ta' Każ
         other: Studju ta' Każijiet
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Kun af %{link}.
       corporate_information: Informazzjoni korporattiva
@@ -192,6 +224,54 @@ mt:
       publication_scheme_html: Aqra dwar it-tipi ta' informazzjoni li aħna nippubblikaw regolarment fuq %{link}.
       social_media_use_html: Aqra l-politika tagħna fuq %{link}.
       welsh_language_scheme_html: Kun af dwar l-impenn tagħna lejn %{link}.
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Il-Ministeru tad-Difiża
       field_of_operation: Qasam tal-operazzjoni
@@ -209,6 +289,14 @@ mt:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -255,6 +343,30 @@ mt:
         many:
         one: Risposta tal-Gvern
         other: Risposti tal-Gvern
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -308,6 +420,30 @@ mt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         few:
@@ -320,6 +456,26 @@ mt:
         many:
         one: Storja aħbar
         other: Stejjer aħbar
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         few:
@@ -331,18 +487,66 @@ mt:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         few:
         many:
         one: Stqarrija għall-istampa
         other: Stqarrijiet għall-istampa
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Il-logo tal-iskema huwa timbru iswed bil-kliem Oriġini Magħżula Protetta mir-RU
@@ -357,13 +561,37 @@ mt:
         one: Diskors
         other: Diskorsi
       written_on: Miktub nhar
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         few:
         many:
         one: Ħu sehem
         other: Ħu sehem
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -371,6 +599,14 @@ mt:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Il- <abbr title="Foreign and Commonwealth Office">FCO</abbr> jirrakkomanda li ma jsiru l-ebda vjaġġi ħlief dawk essenzjali.
@@ -382,6 +618,10 @@ mt:
       still_current_at: Għadu jeżisti fuq
       summary: Sommarju
       updated: Aġġornat
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         few:

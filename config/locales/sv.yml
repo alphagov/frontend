@@ -397,6 +397,10 @@ sv:
     case_study:
       one: Fallstudie
       other: Fallstudier
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Ta reda på %{link}.
       corporate_information: Företagsinformation

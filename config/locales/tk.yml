@@ -397,6 +397,10 @@ tk:
     case_study:
       one: Ýagdaý seljermesi
       other: Ýagdaý seljermeleri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Öwreniň %{link}.
       corporate_information: Korporatiw maglumatlar

@@ -473,6 +473,11 @@ lt:
       few:
       one: Atvejo analizė
       other: Atvejų analizės
+    closed_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Sužinokite %{link}.
       corporate_information: Korporatyvinė informacija

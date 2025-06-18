@@ -397,6 +397,10 @@ bn:
     case_study:
       one: কেস স্টাডি
       other: কেস স্টাডিসমূহ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} খুঁজুন।"
       corporate_information: কর্পোরেট তথ্য

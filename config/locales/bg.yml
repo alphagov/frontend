@@ -397,6 +397,10 @@ bg:
     case_study:
       one: Казус
       other: Казуси
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Научете повече за %{link}.
       corporate_information: Фирмена информация

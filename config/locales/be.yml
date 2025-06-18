@@ -549,6 +549,12 @@ be:
       many:
       one: Тэматычнае даследаванне
       other: Тэматычныя даследаванні
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Даведайцеся %{link}.
       corporate_information: Карпаратыўная іфармацыя

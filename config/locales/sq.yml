@@ -397,6 +397,10 @@ sq:
     case_study:
       one: Rast studimi
       other: Raste studimi
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Mësoni %{link}.
       corporate_information: Informacioni i korporatës

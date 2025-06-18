@@ -397,6 +397,10 @@ az:
     case_study:
       one: Nümunə üzrə araşdırma
       other: Nümunə üzrə araşdırmalar
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Öyrənin %{link}.
       corporate_information: Korporativ məlumat

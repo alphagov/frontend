@@ -397,6 +397,10 @@ el:
     case_study:
       one: Μελέτη περίπτωσης
       other: Μελέτες περιπτώσεων
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Μάθετε %{link}.
       corporate_information: Εταιρικές πληροφορίες

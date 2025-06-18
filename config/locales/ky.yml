@@ -409,6 +409,10 @@ ky:
     case_study:
       one: Окуяны изилдөө
       other: Окуяларды изилдөө
+    closed_call_for_evidence:
+      name:
+        one: Далилдерди жабык түрдө талап кылуу
+        other: Далилдерди жабык түрдө талап кылуулар
     corporate_information_page:
       about_our_services_html: Аныктоо %{link}.
       corporate_information: Корпоративдик маалымат

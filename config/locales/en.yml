@@ -399,6 +399,10 @@ en:
     case_study:
       one: Case study
       other: Case studies
+    closed_call_for_evidence:
+      name:
+        one: Closed call for evidence
+        other: Closed calls for evidence
     corporate_information_page:
       about_our_services_html: Find out %{link}.
       corporate_information: Corporate information

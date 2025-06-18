@@ -701,6 +701,14 @@ ar:
       other: دراسات الحالة
       two:
       zero:
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     corporate_information_page:
       about_our_services_html: تعرف على %{link}.
       corporate_information: معلومات الشركة

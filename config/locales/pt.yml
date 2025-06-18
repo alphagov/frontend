@@ -397,6 +397,10 @@ pt:
     case_study:
       one: Estudo de caso
       other: Estudos de caso
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Saiba mais %{link}.
       corporate_information: Informações da empresa

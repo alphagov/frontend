@@ -397,6 +397,10 @@ tr:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} bağlantısını keşfedin."
       corporate_information: Kurumsal bilgiler

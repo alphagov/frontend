@@ -321,6 +321,9 @@ ms:
       other:
     case_study:
       other: Kajian kes
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: Ketahui %{link}.
       corporate_information: Maklumat korporat

@@ -321,6 +321,9 @@ vi:
       other:
     case_study:
       other: Nghiên cứu điển hình
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: Tìm hiểu %{link}.
       corporate_information: Thông tin doanh nghiệp

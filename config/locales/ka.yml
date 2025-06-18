@@ -397,6 +397,10 @@ ka:
     case_study:
       one: შემთხვევის კვლევა
       other: შემთხვევის კვლევები
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: შეიტყვეთ %{link}.
       corporate_information: კორპორატიული ინფორმაცია

@@ -703,6 +703,14 @@ cy:
       other: Astudiaethau achos
       two:
       zero:
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one: Galwad gaeedig am dystiolaeth
+        other: Galwadau caeedig am dystiolaeth
+        two:
+        zero:
     corporate_information_page:
       about_our_services_html: Dysgu %{link}.
       corporate_information: Gwybodaeth gorfforaethol

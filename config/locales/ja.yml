@@ -159,11 +159,11 @@ ja:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: 執筆記事
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: ケーススタディ
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ ja:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: 情報ページ
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ ja:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: 死亡通知
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: 政府の対応
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ ja:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: ニュース記事
       news_story:
-        other:
+        other: ニュースストーリー
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ ja:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: 議会への口頭声明
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: プレスリリース
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ ja:
       speaking_notes:
         other:
       speech:
-        other:
+        other: スピーチ
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ ja:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: 参加する
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ ja:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: 世界のニュース記事
       written_statement:
-        other:
+        other: 議会への書面による声明
   electoral:
     registration:
       description:

@@ -162,14 +162,14 @@ hy:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Հեղինակային հոդված
+        other: Հեղինակային հոդվածներ
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Մասնավոր դեպքի ուսումնասիրություն
+        other: Մասնավոր դեպքի ուսումնասիրություններ
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ hy:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Տեղեկատվական էջ
+        other: Տեղեկատվական էջեր
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ hy:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Դժբախտ պատահարի ծանուցում
+        other: Դժբախտ պատահարի ծանուցումներ
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ hy:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Կառավարության արձագանք
+        other: Կառավարության արձագանքներ
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ hy:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Տեղեկատվական հոդված
+        other: Տեղեկատվական հոդվածներ
       news_story:
-        one:
-        other:
+        one: Տեղեկատվական նյութ
+        other: Տեղեկատվական նյութեր
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ hy:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Խորհրդարանին ուղղված բանավոր հայտարարություն
+        other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ hy:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Կոմյունիկե
+        other: Կոմյունիկեներ
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ hy:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Հրապարակային խոսք
+        other: Հրապարակային խոսքեր
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ hy:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Մասնակցություն
+        other: Մասնակցություն
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ hy:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Համաշխարհային տեղեկատվական նյութ
+        other: Համաշխարհային տեղեկատվական նյութեր
       written_statement:
-        one:
-        other:
+        one: Խորհրդարանին ուղղված գրավոր հայտարարություն
+        other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
   electoral:
     registration:
       description:

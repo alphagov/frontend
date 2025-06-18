@@ -162,14 +162,14 @@ hu:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Publicisztika
+        other: Publicisztikák
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Esettanulmány
+        other: Esettanulmányok
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ hu:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Információs oldal
+        other: Információs oldalak
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ hu:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Halálesettel kapcsolatos értesítés
+        other: Halálesettel kapcsolatos értesítések
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ hu:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Kormányválasz
+        other: Kormányválaszok
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ hu:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Cikk
+        other: Cikkek
       news_story:
-        one:
-        other:
+        one: Hír
+        other: Hírek
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ hu:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Parlamenti felszólalás
+        other: Parlamenti felszólalások
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ hu:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Sajtóközlemény
+        other: Sajtóközlemények
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ hu:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Beszéd
+        other: Beszédek
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ hu:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Részvétel
+        other: Részvétel
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ hu:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Nemzetközi hír
+        other: Nemzetközi hírek
       written_statement:
-        one:
-        other:
+        one: Írásbeli parlamenti nyilatkozat
+        other: Írásbeli parlamenti nyilatkozatok
   electoral:
     registration:
       description:

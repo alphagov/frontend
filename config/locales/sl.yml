@@ -169,8 +169,8 @@ sl:
         two:
       authored_article:
         few:
-        one:
-        other:
+        one: Avtorski članek
+        other: Avtorski članki
         two:
       business_finance_support_scheme:
         few:
@@ -179,8 +179,8 @@ sl:
         two:
       case_study:
         few:
-        one:
-        other:
+        one: Študija primera
+        other: Študije primera
         two:
       closed_consultation:
         few:
@@ -204,8 +204,8 @@ sl:
         two:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Stran z informacijami
+        other: Strani z informacijami
         two:
       corporate_report:
         few:
@@ -269,8 +269,8 @@ sl:
         two:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Obvestilo o smrti
+        other: Obvestila o smrti
         two:
       foi_release:
         few:
@@ -284,8 +284,8 @@ sl:
         two:
       government_response:
         few:
-        one:
-        other:
+        one: Odziv vlade
+        other: Odzivi vlade
         two:
       guidance:
         few:
@@ -349,13 +349,13 @@ sl:
         two:
       news_article:
         few:
-        one:
-        other:
+        one: Časopisni članek
+        other: Časopisni članki
         two:
       news_story:
         few:
-        one:
-        other:
+        one: Časopisna zgodba
+        other: Časopisne zgodbe
         two:
       notice:
         few:
@@ -384,8 +384,8 @@ sl:
         two:
       oral_statement:
         few:
-        one:
-        other:
+        one: Ustna izjava za parlament
+        other: Ustne izjave za parlament
         two:
       policy:
         few:
@@ -399,8 +399,8 @@ sl:
         two:
       press_release:
         few:
-        one:
-        other:
+        one: Sporočilo za javnost
+        other: Sporočila za javnost
         two:
       product-safety-alert-report-recall:
         few:
@@ -454,8 +454,8 @@ sl:
         two:
       speech:
         few:
-        one:
-        other:
+        one: Govor
+        other: Govori
         two:
       standard:
         few:
@@ -484,8 +484,8 @@ sl:
         two:
       take_part:
         few:
-        one:
-        other:
+        one: Sodelujte
+        other: Sodelujte
         two:
       tax_tribunal_decision:
         few:
@@ -509,13 +509,13 @@ sl:
         two:
       world_news_story:
         few:
-        one:
-        other:
+        one: Novica s sveta
+        other: Novice s celega sveta
         two:
       written_statement:
         few:
-        one:
-        other:
+        one: Pisna izjava za parlament
+        other: Pisne izjave za parlament
         two:
   electoral:
     registration:

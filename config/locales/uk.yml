@@ -170,8 +170,8 @@ uk:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: Авторська стаття
+        other: Авторські статті
       business_finance_support_scheme:
         few:
         many:
@@ -180,8 +180,8 @@ uk:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: Аналіз ситуації
+        other: Аналізи ситуації
       closed_consultation:
         few:
         many:
@@ -205,8 +205,8 @@ uk:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: Інформаційна сторінка
+        other: Інформаційні сторінки
       corporate_report:
         few:
         many:
@@ -270,8 +270,8 @@ uk:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: Повідомлення про нещасний випадок зі смертельним наслідком
+        other: Повідомлення про нещасний випадок зі смертельним наслідком
       foi_release:
         few:
         many:
@@ -285,8 +285,8 @@ uk:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: Відповідь уряду
+        other: Відповіді уряду
       guidance:
         few:
         many:
@@ -350,13 +350,13 @@ uk:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: Новини
+        other: Новини
       news_story:
         few:
         many:
-        one:
-        other:
+        one: Сюжет новин
+        other: Сюжети новин
       notice:
         few:
         many:
@@ -385,8 +385,8 @@ uk:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: Усна заява до Парламенту
+        other: Усні заяви до Парламенту
       policy:
         few:
         many:
@@ -400,8 +400,8 @@ uk:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: Пресреліз
+        other: Пресрелізи
       product-safety-alert-report-recall:
         few:
         many:
@@ -455,8 +455,8 @@ uk:
       speech:
         few:
         many:
-        one:
-        other:
+        one: Виступ
+        other: Виступи
       standard:
         few:
         many:
@@ -485,8 +485,8 @@ uk:
       take_part:
         few:
         many:
-        one:
-        other:
+        one: Взяти участь
+        other: Взяти участь
       tax_tribunal_decision:
         few:
         many:
@@ -510,13 +510,13 @@ uk:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: Сюжет міжнародних новин
+        other: Сюжети міжнародних новин
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: Письмова заява до Парламенту
+        other: Письмові заяви до Парламенту
   electoral:
     registration:
       description:

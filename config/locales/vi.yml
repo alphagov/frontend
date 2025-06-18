@@ -159,11 +159,11 @@ vi:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: Bài viết có tác giả
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: Nghiên cứu điển hình
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ vi:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: Trang thông tin
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ vi:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: Thông báo tử vong
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: Phản hồi của chính phủ
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ vi:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: Bài viết thời sự
       news_story:
-        other:
+        other: Bài phóng sự
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ vi:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: Tuyên bố bằng lời trước Quốc hội
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: Thông cáo báo chí
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ vi:
       speaking_notes:
         other:
       speech:
-        other:
+        other: Bài phát biểu
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ vi:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: Tham gia
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ vi:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: Bài phóng sự thế giới
       written_statement:
-        other:
+        other: Tuyên bố bằng văn bản trước Quốc hội
   electoral:
     registration:
       description:

@@ -162,14 +162,14 @@ pt:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Artigo de autor
+        other: Artigos de autor
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Estudo de caso
+        other: Estudos de caso
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ pt:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Página de informação
+        other: Páginas de informação
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ pt:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Aviso de fatalidade
+        other: Avisos de fatalidade
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ pt:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Resposta do governo
+        other: Respostas do governo
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ pt:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Artigo noticioso
+        other: Artigos noticiosos
       news_story:
-        one:
-        other:
+        one: Reportagem
+        other: Reportagens
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ pt:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Declaração oral ao Parlamento
+        other: Declarações orais ao Parlamento
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ pt:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Comunicado de imprensa
+        other: Comunicados de imprensa
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ pt:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Discurso
+        other: Discursos
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ pt:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Participar
+        other: Participar
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ pt:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Reportagem do mundo
+        other: Reportagens do mundo
       written_statement:
-        one:
-        other:
+        one: Declaração escrita ao Parlamento
+        other: Declarações escritas ao Parlamento
   electoral:
     registration:
       description:

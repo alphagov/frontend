@@ -170,8 +170,8 @@ mt:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: Artiklu miktub
+        other: Artikli miktuba
       business_finance_support_scheme:
         few:
         many:
@@ -180,8 +180,8 @@ mt:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: Studju ta' Każ
+        other: Studju ta' Każijiet
       closed_consultation:
         few:
         many:
@@ -205,8 +205,8 @@ mt:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: Paġna ta' informazzjoni
+        other: Paġni ta' informazzjoni
       corporate_report:
         few:
         many:
@@ -270,8 +270,8 @@ mt:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: Avviż dwar fatalità
+        other: Avviżi dwar fatalitajiet
       foi_release:
         few:
         many:
@@ -285,8 +285,8 @@ mt:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: Risposta tal-Gvern
+        other: Risposti tal-Gvern
       guidance:
         few:
         many:
@@ -350,13 +350,13 @@ mt:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: Artiklu bl-aħbarijiet
+        other: Artikli bl-aħbarijiet
       news_story:
         few:
         many:
-        one:
-        other:
+        one: Storja aħbar
+        other: Stejjer aħbar
       notice:
         few:
         many:
@@ -385,8 +385,8 @@ mt:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: Dikjarazzjoni verbali lill-Parlament
+        other: Dikjarazzjonijiet verbali lill-Parlament
       policy:
         few:
         many:
@@ -400,8 +400,8 @@ mt:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: Stqarrija għall-istampa
+        other: Stqarrijiet għall-istampa
       product-safety-alert-report-recall:
         few:
         many:
@@ -455,8 +455,8 @@ mt:
       speech:
         few:
         many:
-        one:
-        other:
+        one: Diskors
+        other: Diskorsi
       standard:
         few:
         many:
@@ -485,8 +485,8 @@ mt:
       take_part:
         few:
         many:
-        one:
-        other:
+        one: Ħu sehem
+        other: Ħu sehem
       tax_tribunal_decision:
         few:
         many:
@@ -510,13 +510,13 @@ mt:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: Storja b'aħbarijiet mid-dinja
+        other: Stejjer b'aħbarijiet mid-dinja
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: Dikjarazzjoni bil-miktub lill-Parlament
+        other: Dikjarazzjonijiet bil-miktub lill-Parlament
   electoral:
     registration:
       description:

@@ -162,14 +162,14 @@ pa:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: ਲੇਖਕ ਲੇਖ
+        other: ਲੇਖਕ ਲੇਖ
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: ਕੇਸ ਅਧਿਐਨ
+        other: ਕੇਸ ਅਧਿਐਨ
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ pa:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: ਜਾਣਕਾਰੀ ਪੰਨਾ
+        other: ਜਾਣਕਾਰੀ ਪੰਨੇ
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ pa:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: ਘਾਤਕ ਸੂਚਨਾ
+        other: ਘਾਤਕ ਸੂਚਨਾ
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ pa:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: ਸਰਕਾਰ ਦਾ ਜਵਾਬ
+        other: ਸਰਕਾਰ ਦੇ ਜਵਾਬ
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ pa:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: ਖਬਰ ਲੇਖ
+        other: ਖਬਰ ਲੇਖ
       news_story:
-        one:
-        other:
+        one: ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
+        other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ pa:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
+        other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ pa:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: ਪੱਤਰਕਾਰਾਂ ਨੂੰ ਦਿੱਤੀ ਗਈ ਅਧਕਾਰਿਤ ਰਿਪੋਰਟ
+        other: ਪ੍ਰੈਸ ਰਿਲੀਜ਼
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ pa:
         one:
         other:
       speech:
-        one:
-        other:
+        one: ਭਾਸ਼ਣ
+        other: ਭਾਸ਼ਣ
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ pa:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: ਹਿੱਸਾ ਲੈਣਾ
+        other: ਹਿੱਸਾ ਲੈਣਾ
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ pa:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: ਵਿਸ਼ਵ ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ
+        other: ਵਿਸ਼ਵ ਖ਼ਬਰਾਂ
       written_statement:
-        one:
-        other:
+        one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
+        other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ
   electoral:
     registration:
       description:

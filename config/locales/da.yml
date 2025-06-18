@@ -162,14 +162,14 @@ da:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Forfattet artikel
+        other: Forfatterartikler
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Casestudie
+        other: Casestudie
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ da:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informationsside
+        other: Informationssider
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ da:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Meddelelse om dødsfald
+        other: Meddelelser om dødsfald
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ da:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Regeringens reaktion
+        other: Regeringens reaktioner
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ da:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Nyhedsartikel
+        other: Nyhedsartikler
       news_story:
-        one:
-        other:
+        one: Nyhedshistorie
+        other: Nyhedshistorier
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ da:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Mundtlig erklæring til Parlamentet
+        other: Mundtlige erklæring til Parlamentet
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ da:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Pressemeddelelse
+        other: Pressemeddelelser
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ da:
         one:
         other:
       speech:
-        one:
-        other:
+        one: tale
+        other: taler
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ da:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Deltage
+        other: Deltage
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ da:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Verdensomspændende nyhedshistorie
+        other: Verdensomspændende nyhedshistorier
       written_statement:
-        one:
-        other:
+        one: Mundtlig erklæring til Parlamentet
+        other: Mundtlige erklæring til Parlamentet
   electoral:
     registration:
       description:

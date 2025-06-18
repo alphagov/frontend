@@ -162,14 +162,14 @@ kk:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Мақала авторы
+        other: Мақала авторлары
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Тақырыптық зерттеу
+        other: Тақырыптық зерттеулер
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ kk:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Ақпараттық бет
+        other: Ақпараттық беттер
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ kk:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Өлім туралы хабарлама
+        other: Өлім туралы хабарламалар
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ kk:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Мемлекет жауабы
+        other: Мемлекет жауаптары
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ kk:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Жаңалықтар мақаласы
+        other: Жаңалықтар мақалалары
       news_story:
-        one:
-        other:
+        one: Жаңалықтар оқиғасы
+        other: Жаңалықтар оқиғалары
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ kk:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Парламентке ауызша мәлімдеме
+        other: Парламентке ауызша мәлімдемелер
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ kk:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Пресс-релиз
+        other: Пресс-релиздер
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ kk:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Сөйлеу
+        other: Сөйлеулер
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ kk:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Қатысу
+        other: Қатысу
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ kk:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Әлемдегі жаңалықтар оқиғасы
+        other: Әлемдегі жаңалықтар оқиғалары
       written_statement:
-        one:
-        other:
+        one: Парламентке жазбаша мәлімдеме
+        other: Парламентке жазбаша мәлімдемелер
   electoral:
     registration:
       description:

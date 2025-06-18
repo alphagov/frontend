@@ -162,14 +162,14 @@ es-419:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Artículo de autoría
+        other: Artículos de autoría
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Estudio de caso
+        other: Estudios de caso
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ es-419:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Página de información
+        other: Páginas de información
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ es-419:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Aviso de fallecimiento
+        other: Avisos de fallecimiento
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ es-419:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Respuesta gubernamental
+        other: Respuestas gubernamentales
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ es-419:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Artículo de prensa
+        other: Artículos de prensa
       news_story:
-        one:
-        other:
+        one: Reportaje de noticias
+        other: Reportajes de noticias
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ es-419:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Declaracion oral ante el Parlamento
+        other: Declaraciones orales ante el Parlamento
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ es-419:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Comunicado de prensa
+        other: Comunicados de prensa
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ es-419:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Discurso
+        other: Discursos
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ es-419:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Participe
+        other: Participe
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ es-419:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Noticia del mundo
+        other: Noticias mundiales
       written_statement:
-        one:
-        other:
+        one: Declaración escrita ante el Parlamento
+        other: Declaraciones escritas ante el Parlamento
   electoral:
     registration:
       description:

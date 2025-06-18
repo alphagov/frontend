@@ -162,14 +162,14 @@ is:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Samin grein
+        other: Samdar greinar
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Ferilsathugun
+        other: Ferilsathuganir
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ is:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Upplýsingasíða
+        other: Upplýsingasíður
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ is:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Tilkynning um dauðsfall
+        other: Tilkynningar um dauðsfall
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ is:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Viðbrögð stjórnvalda
+        other: Viðbrögð stjórnvalda
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ is:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Fréttagrein
+        other: Fréttagreinar
       news_story:
-        one:
-        other:
+        one: Frétt
+        other: Fréttir
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ is:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Munnleg yfirlýsing til Þingsins
+        other: Munnlegar yfirlýsingar til Þingsins
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ is:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Fréttatilkynning
+        other: Fréttatilkynningar
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ is:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Ræða
+        other: Ræður
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ is:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Taka þátt
+        other: Taka þátt
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ is:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Heimsfrétt
+        other: Heimsfréttir
       written_statement:
-        one:
-        other:
+        one: Skrifleg yfirlýsing til Þingsins
+        other: Skriflegar yfirlýsingar til Þingsins
   electoral:
     registration:
       description:

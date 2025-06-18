@@ -162,14 +162,14 @@ he:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: מאמר מאושר
+        other: מאמרים מאושרים
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: מקרה בוחן
+        other: מקרי בוחן
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ he:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: דף מידע
+        other: דפי מידע
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ he:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: הודעת פטירה
+        other: הודעות פטירה
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ he:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: תגובה ממשלתית
+        other: תגובות ממשלתיות
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ he:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: מאמר חדשות
+        other: מאמרי חדשות
       news_story:
-        one:
-        other:
+        one: חדשות
+        other: חדשות
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ he:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: הצהרה בעל פה לפרלמנט
+        other: הצהרות בעל פה לפרלמנט
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ he:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: הודעה לעיתונות
+        other: הודעות לעיתונות
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ he:
         one:
         other:
       speech:
-        one:
-        other:
+        one: נאום
+        other: נאומים
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ he:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: קח חלק
+        other: קח חלק
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ he:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: חדשות עולמי
+        other: 'חדשות עולמיים '
       written_statement:
-        one:
-        other:
+        one: הצהרה בכתב לפרלמנט
+        other: הצהרות בכתב לפרלמנט
   electoral:
     registration:
       description:

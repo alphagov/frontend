@@ -166,16 +166,16 @@ sk:
         other:
       authored_article:
         few:
-        one:
-        other:
+        one: Autor článku
+        other: Autorské články
       business_finance_support_scheme:
         few:
         one:
         other:
       case_study:
         few:
-        one:
-        other:
+        one: Prípadová štúdia
+        other: Prípadové štúdie
       closed_consultation:
         few:
         one:
@@ -194,8 +194,8 @@ sk:
         other:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Informačná stránka
+        other: Informačné stránky
       corporate_report:
         few:
         one:
@@ -246,8 +246,8 @@ sk:
         other:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Oznámenie o úmrtí
+        other: Oznámenia o úmrtí
       foi_release:
         few:
         one:
@@ -258,8 +258,8 @@ sk:
         other:
       government_response:
         few:
-        one:
-        other:
+        one: Odpoveď vlády
+        other: Odpovede vlády
       guidance:
         few:
         one:
@@ -310,12 +310,12 @@ sk:
         other:
       news_article:
         few:
-        one:
-        other:
+        one: Spravodajský článok
+        other: Spravodajské články
       news_story:
         few:
-        one:
-        other:
+        one: Spravodajský príbeh
+        other: Spravodajské príbehy
       notice:
         few:
         one:
@@ -338,8 +338,8 @@ sk:
         other:
       oral_statement:
         few:
-        one:
-        other:
+        one: Ústne vyhlásenie pred Parlamentom
+        other: Ústne vyhlásenia pred Parlamentom
       policy:
         few:
         one:
@@ -350,8 +350,8 @@ sk:
         other:
       press_release:
         few:
-        one:
-        other:
+        one: Tlačová správa
+        other: Tlačové správy
       product-safety-alert-report-recall:
         few:
         one:
@@ -394,8 +394,8 @@ sk:
         other:
       speech:
         few:
-        one:
-        other:
+        one: Prejav
+        other: Prejay
       standard:
         few:
         one:
@@ -418,8 +418,8 @@ sk:
         other:
       take_part:
         few:
-        one:
-        other:
+        one: Zúčastniť sa
+        other: Zúčastniť sa
       tax_tribunal_decision:
         few:
         one:
@@ -438,12 +438,12 @@ sk:
         other:
       world_news_story:
         few:
-        one:
-        other:
+        one: Svetové spravodajstvo
+        other: Svetové spravodajstvá
       written_statement:
         few:
-        one:
-        other:
+        one: Písomné vyhlásenie pre Parlament
+        other: Písomné vyhlásenia pre Parlament
   electoral:
     registration:
       description:

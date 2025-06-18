@@ -162,14 +162,14 @@ nl:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Geschreven artikel
+        other: Geschreven artikelen
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Casestudy
+        other: Casestudies
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ nl:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informatie pagina
+        other: Informatie pagina's
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ nl:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Kennisgeving van overlijden
+        other: Kennisgevingen van overlijden
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ nl:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Overheidsantwoord
+        other: Overheidsantwoorden
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ nl:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Nieuwsartikel
+        other: Nieuwsartikel
       news_story:
-        one:
-        other:
+        one: Nieuwsbericht
+        other: Nieuwsberichten
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ nl:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Mondelinge verklaring voor het Parlement
+        other: Mondelinge verklaringen aan het Parlement
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ nl:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Persbericht
+        other: Persberichten
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ nl:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Toespraak
+        other: Toespraken
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ nl:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Neem deel
+        other: Deelnemen
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ nl:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Wereldnieuwsbericht
+        other: Wereldnieuwsberichten
       written_statement:
-        one:
-        other:
+        one: Schriftelijke verklaring aan het Parlement
+        other: Schriftelijke verklaringen aan het Parlement
   electoral:
     registration:
       description:

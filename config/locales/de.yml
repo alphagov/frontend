@@ -162,14 +162,14 @@ de:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Namensartikel
+        other: Namensartikel
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Fallstudie
+        other: Fallstudien
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ de:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informationsseite
+        other: Informationsseiten
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ de:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Todesanzeige
+        other: Todesanzeigen
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ de:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Antwort der Regierung
+        other: Antworten der Regierung
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ de:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Nachrichtenartikel
+        other: Nachrichtenartikel
       news_story:
-        one:
-        other:
+        one: Meldung
+        other: Meldungen
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ de:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Mündliche Erklärung vor dem Parlament
+        other: Mündliche Erklärungen vor dem Parlament
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ de:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Pressemitteilung
+        other: Pressemitteilungen
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ de:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Rede
+        other: Reden
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ de:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Teilnehmen
+        other: Teilnehmen
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ de:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Weltnachrichten Geschichte
+        other: Weltnachrichten Geschichten
       written_statement:
-        one:
-        other:
+        one: Schriftliche Erklärung vor dem Parlament
+        other: Schriftliche Erklärungen vor dem Parlament
   electoral:
     registration:
       description:

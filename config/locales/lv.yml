@@ -162,14 +162,14 @@ lv:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Autora raksts
+        other: Autora raksti
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Piemērs
+        other: Piemēri
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ lv:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informācijas lapa
+        other: Informācijas lapas
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ lv:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Nāves paziņojums
+        other: Nāves paziņojumi
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ lv:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Valdības atbilde
+        other: Valdības atbildes
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ lv:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Raksts
+        other: Raksti
       news_story:
-        one:
-        other:
+        one: Ziņa
+        other: Ziņas
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ lv:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Mutisks paziņojums parlamentam
+        other: Mutiski paziņojumi parlamentam
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ lv:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Paziņojums presei
+        other: Paziņojumi presei
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ lv:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Runa
+        other: Runas
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ lv:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Piedalīties
+        other: Piedalīties
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ lv:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Pasaules ziņa
+        other: Pasaules ziņas
       written_statement:
-        one:
-        other:
+        one: Rakstisks ziņojums parlamentam
+        other: Rakstiski ziņojumi parlamentam
   electoral:
     registration:
       description:

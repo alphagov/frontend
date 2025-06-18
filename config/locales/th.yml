@@ -159,11 +159,11 @@ th:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: บทความที่มีผู้เขียน
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: กรณีศึกษา
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ th:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: หน้าข้อมูล
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ th:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: การแจ้งตาย
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: คำตอบของรัฐบาล
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ th:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: บทความข่าว
       news_story:
-        other:
+        other: เนื้อหาข่าว
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ th:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: ข่าวประชาสัมพันธ์
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ th:
       speaking_notes:
         other:
       speech:
-        other:
+        other: สุนทรพจน์
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ th:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: มีส่วนร่วม
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ th:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: ข่าวสารรอบโลก
       written_statement:
-        other:
+        other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
   electoral:
     registration:
       description:

@@ -162,14 +162,14 @@ so:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Qodob laqoray
+        other: Qodobada laqoray
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Daraasad
+        other: Daraasado
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ so:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Boga macluumaadka
+        other: Bogaga macluumaadka
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ so:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Ogeysiiska masiibooyinka
+        other: Ogeysiisyada masiibooyinka
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ so:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Jawaabta dawlada
+        other: Jawaabaha dawlada
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ so:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Maqaal war ah
+        other: Maqaalo war ah
       news_story:
-        one:
-        other:
+        one: War
+        other: Warar
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ so:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Bayaanka loogu talogalay Baarlamaanka
+        other: Bayaanada loogu talogalay Baarlamaanka
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ so:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: War-saxaafadeed
+        other: War-saxaafadeedyo
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ so:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Khudbad
+        other: Khudbado
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ so:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Ka qeybgal
+        other: Ka qeybgal
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ so:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Warka caalamka
+        other: Wararka caalamka
       written_statement:
-        one:
-        other:
+        one: Bayaan qoran oo loogu talogalay Baarlamaanka
+        other: Bayaanada qoran ee loogu talogalay Baarlamaanka
   electoral:
     registration:
       description:

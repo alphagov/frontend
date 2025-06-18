@@ -162,14 +162,14 @@ bn:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: লেখকের উৎস সহ নিবন্ধ
+        other: লেখকের উৎস সহ নিবন্ধসমূহ
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: কেস স্টাডি
+        other: কেস স্টাডিসমূহ
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ bn:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: তথ্য পেইজ
+        other: তথ্য পেইজসমূহ
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ bn:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
+        other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ bn:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: সরকারের সাড়া
+        other: সরকারের সাড়া
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ bn:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: সংবাদের নিবন্ধ
+        other: সংবাদের নিবন্ধসমূহ
       news_story:
-        one:
-        other:
+        one: সংবাদের বিষয়
+        other: সংবাদের বিষয়াবলী
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ bn:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: সংসদে মৌখিক বিবৃতি
+        other: সংসদে মৌখিক বিবৃতিসমূহ
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ bn:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: প্রেস বিজ্ঞপ্তি
+        other: প্রেস বিজ্ঞপ্তিসমূহ
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ bn:
         one:
         other:
       speech:
-        one:
-        other:
+        one: বক্তব্য
+        other: বক্তব্যসমূহ
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ bn:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: অংশ নিন
+        other: অংশ নিন
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ bn:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: বিশ্ব সংবাদের বিষয়বস্তু
+        other: বিশ্ব সংবাদের বিষয়বস্তুসমূহ
       written_statement:
-        one:
-        other:
+        one: সংসদে লিখিত বিবৃতি
+        other: সংসদে লিখিত বিবৃতিসমূহ
   electoral:
     registration:
       description:

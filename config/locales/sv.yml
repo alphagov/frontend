@@ -162,14 +162,14 @@ sv:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: Författad artikel
+        other: Författade artiklar
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: Fallstudie
+        other: Fallstudier
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ sv:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: Informationssida
+        other: Informationssidor
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ sv:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: Meddelande om dödsfall
+        other: Meddelanden om dödsfall
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ sv:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: Regeringens svar
+        other: Regeringens svar
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ sv:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: Nyhetsartikel
+        other: Nyhetsartiklar
       news_story:
-        one:
-        other:
+        one: Nyhet
+        other: Nyheter
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ sv:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: Muntligt uttalande till parlamentet
+        other: Muntliga uttalanden till parlamentet
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ sv:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: Pressmeddelande
+        other: Pressmeddelanden
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ sv:
         one:
         other:
       speech:
-        one:
-        other:
+        one: Tal
+        other: Tal
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ sv:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: Delta
+        other: Delta
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ sv:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: Världsnyheter
+        other: Världsnyheter
       written_statement:
-        one:
-        other:
+        one: Skriftligt uttalande till parlamentet
+        other: Skriftliga uttalanden till parlamentet
   electoral:
     registration:
       description:

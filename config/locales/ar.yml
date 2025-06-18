@@ -176,8 +176,8 @@ ar:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: مقال مؤلَّف
+        other: مقالات مؤلَّفة
         two:
         zero:
       business_finance_support_scheme:
@@ -190,8 +190,8 @@ ar:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: دراسة الحالة
+        other: دراسات الحالة
         two:
         zero:
       closed_consultation:
@@ -225,8 +225,8 @@ ar:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: صفحة المعلومات
+        other: صفحات المعلومات
         two:
         zero:
       corporate_report:
@@ -316,8 +316,8 @@ ar:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: إشعار حول الوفيات
+        other: إشعارات حول الوفيات
         two:
         zero:
       foi_release:
@@ -337,8 +337,8 @@ ar:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: استجابة الحكومة
+        other: استجابات الحكومة
         two:
         zero:
       guidance:
@@ -428,15 +428,15 @@ ar:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: مقال إخباري
+        other: مقالات إخبارية
         two:
         zero:
       news_story:
         few:
         many:
-        one:
-        other:
+        one: قصة إخبارية
+        other: قصص إخبارية
         two:
         zero:
       notice:
@@ -477,8 +477,8 @@ ar:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: بيان شفوي للبرلمان
+        other: بيانات شفوية للبرلمان
         two:
         zero:
       policy:
@@ -498,8 +498,8 @@ ar:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: بيان صحفي
+        other: بيانات صحفية
         two:
         zero:
       product-safety-alert-report-recall:
@@ -575,8 +575,8 @@ ar:
       speech:
         few:
         many:
-        one:
-        other:
+        one: خطاب
+        other: خطابات
         two:
         zero:
       standard:
@@ -618,7 +618,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: شارك
         two:
         zero:
       tax_tribunal_decision:
@@ -652,15 +652,15 @@ ar:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: قصة إخبارية عالمية
+        other: قصص إخبارية عالمية
         two:
         zero:
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: بيان خطي للبرلمان
+        other: بيانات خطية للبرلمان
         two:
         zero:
   electoral:

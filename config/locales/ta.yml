@@ -162,14 +162,14 @@ ta:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: எழுதிய கட்டுரை
+        other: எழுதிய கட்டுரைகள்
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: நிகழ்வு ஆய்வு
+        other: நிகழ்வு ஆய்வுகள்
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ ta:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: தகவல் பக்கம்
+        other: தகவல் பக்கங்கள்
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ ta:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: இறப்பு அறிவிப்பு
+        other: இறப்பு அறிவிப்புகள்
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ ta:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: அரசாங்க பதில்
+        other: அரசாங்க பதில்கள்
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ ta:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: செய்திக் கட்டுரை
+        other: செய்திக் கட்டுரைகள்
       news_story:
-        one:
-        other:
+        one: செய்தி
+        other: செய்திகள்
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ ta:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
+        other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ ta:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: செய்திக் குறிப்பு
+        other: செய்திக் குறிப்புகள்
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ ta:
         one:
         other:
       speech:
-        one:
-        other:
+        one: பேச்சு
+        other: பேச்சுகள்
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ ta:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: பங்கெடுத்தல்
+        other: பங்கெடுத்தல்
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ ta:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: உலகச் செய்தி
+        other: உலகச் செய்திகள்
       written_statement:
-        one:
-        other:
+        one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
+        other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்
   electoral:
     registration:
       description:

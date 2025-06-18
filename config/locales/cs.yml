@@ -166,16 +166,16 @@ cs:
         other:
       authored_article:
         few:
-        one:
-        other:
+        one: Autorský článek
+        other: Autorské články
       business_finance_support_scheme:
         few:
         one:
         other:
       case_study:
         few:
-        one:
-        other:
+        one: Případová studie
+        other: Případové studie
       closed_consultation:
         few:
         one:
@@ -194,8 +194,8 @@ cs:
         other:
       corporate_information_page:
         few:
-        one:
-        other:
+        one: Informační stránka
+        other: Informační stránky
       corporate_report:
         few:
         one:
@@ -246,8 +246,8 @@ cs:
         other:
       fatality_notice:
         few:
-        one:
-        other:
+        one: Oznámení o úmrtí
+        other: Oznámení o úmrtí
       foi_release:
         few:
         one:
@@ -258,8 +258,8 @@ cs:
         other:
       government_response:
         few:
-        one:
-        other:
+        one: Reakce vlády
+        other: Reakce vlády
       guidance:
         few:
         one:
@@ -310,12 +310,12 @@ cs:
         other:
       news_article:
         few:
-        one:
-        other:
+        one: Zpravodajský článek
+        other: Zpravodajské články
       news_story:
         few:
-        one:
-        other:
+        one: Zpravodajský příběh
+        other: Zpravodajské příběhy
       notice:
         few:
         one:
@@ -338,8 +338,8 @@ cs:
         other:
       oral_statement:
         few:
-        one:
-        other:
+        one: Ústní prohlášení pro Parlament
+        other: Ústní prohlášení pro Parlament
       policy:
         few:
         one:
@@ -350,8 +350,8 @@ cs:
         other:
       press_release:
         few:
-        one:
-        other:
+        one: Tisková zpráva
+        other: Tiskové zprávy
       product-safety-alert-report-recall:
         few:
         one:
@@ -394,8 +394,8 @@ cs:
         other:
       speech:
         few:
-        one:
-        other:
+        one: Projev
+        other: Projevy
       standard:
         few:
         one:
@@ -418,8 +418,8 @@ cs:
         other:
       take_part:
         few:
-        one:
-        other:
+        one: Zúčastněte se
+        other: Zúčastněte se
       tax_tribunal_decision:
         few:
         one:
@@ -438,12 +438,12 @@ cs:
         other:
       world_news_story:
         few:
-        one:
-        other:
+        one: Zprávy ze světa
+        other: Zprávy ze světa
       written_statement:
         few:
-        one:
-        other:
+        one: Písemné prohlášení pro Parlament
+        other: Písemná prohlášení pro Parlament
   electoral:
     registration:
       description:

@@ -159,11 +159,11 @@ zh-tw:
       asylum_support_decision:
         other:
       authored_article:
-        other:
+        other: 授權文章
       business_finance_support_scheme:
         other:
       case_study:
-        other:
+        other: 案例分析
       closed_consultation:
         other:
       cma_case:
@@ -173,7 +173,7 @@ zh-tw:
       consultation_outcome:
         other:
       corporate_information_page:
-        other:
+        other: 資訊頁
       corporate_report:
         other:
       correspondence:
@@ -199,13 +199,13 @@ zh-tw:
       esi_fund:
         other:
       fatality_notice:
-        other:
+        other: 死亡通知
       foi_release:
         other:
       form:
         other:
       government_response:
-        other:
+        other: 政府回應
       guidance:
         other:
       impact_assessment:
@@ -231,9 +231,9 @@ zh-tw:
       national_statistics_announcement:
         other:
       news_article:
-        other:
+        other: 新聞文章
       news_story:
-        other:
+        other: 新聞報導
       notice:
         other:
       official:
@@ -245,13 +245,13 @@ zh-tw:
       open_consultation:
         other:
       oral_statement:
-        other:
+        other: 對議會的口頭聲明
       policy:
         other:
       policy_paper:
         other:
       press_release:
-        other:
+        other: 新聞稿
       product-safety-alert-report-recall:
         other:
       promotional:
@@ -273,7 +273,7 @@ zh-tw:
       speaking_notes:
         other:
       speech:
-        other:
+        other: 演說
       standard:
         other:
       statement_to_parliament:
@@ -285,7 +285,7 @@ zh-tw:
       statutory_guidance:
         other:
       take_part:
-        other:
+        other: 參與
       tax_tribunal_decision:
         other:
       transcript:
@@ -295,9 +295,9 @@ zh-tw:
       utaac_decision:
         other:
       world_news_story:
-        other:
+        other: 世界新聞報導
       written_statement:
-        other:
+        other: 對議會的書面聲明
   electoral:
     registration:
       description:

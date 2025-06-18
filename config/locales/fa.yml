@@ -162,14 +162,14 @@ fa:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: مقاله تألیف شده
+        other: مقالات تألیف شده
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: مطالعه موردی
+        other: مطالعات موردی
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ fa:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: صفحه اطلاعاتی
+        other: صفحات اطلاعاتی
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ fa:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: اطلاعیه مرگ‌و‌میر
+        other: اطلاعیه‌های مرگ‌و‌میر
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ fa:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: پاسخ دولتی
+        other: پاسخ‌های دولتی
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ fa:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: مقاله خبری
+        other: مقالات خبری
       news_story:
-        one:
-        other:
+        one: گزارش خبری
+        other: گزارشات خبری
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ fa:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: بیانیه شفاهی به پارلمان
+        other: بیانیه‌های شفاهی به پارلمان
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ fa:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: بیانیه مطبوعاتی
+        other: بیانیه‌های مطبوعاتی
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ fa:
         one:
         other:
       speech:
-        one:
-        other:
+        one: سخنرانی
+        other: سخنرانی‌ها
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ fa:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: مشارکت
+        other: مشارکت
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ fa:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: گزارش خبری جهانی
+        other: گزارشات خبری جهانی
       written_statement:
-        one:
-        other:
+        one: بیانیه کتبی به پارلمان
+        other: بیانیه‌های کتبی به پارلمان
   electoral:
     registration:
       description:

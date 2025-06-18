@@ -162,14 +162,14 @@ ne:
         one:
         other:
       authored_article:
-        one:
-        other:
+        one: लेखिएको लेख
+        other: लेखिएको लेखहरू
       business_finance_support_scheme:
         one:
         other:
       case_study:
-        one:
-        other:
+        one: मामिला अध्ययन
+        other: मामिला अध्ययनहरू
       closed_consultation:
         one:
         other:
@@ -183,8 +183,8 @@ ne:
         one:
         other:
       corporate_information_page:
-        one:
-        other:
+        one: जानकारी पृष्ठ
+        other: जानकारी पृष्ठहरू
       corporate_report:
         one:
         other:
@@ -222,8 +222,8 @@ ne:
         one:
         other:
       fatality_notice:
-        one:
-        other:
+        one: मृत्युको सूचना
+        other: मृत्युका सूचनाहरू
       foi_release:
         one:
         other:
@@ -231,8 +231,8 @@ ne:
         one:
         other:
       government_response:
-        one:
-        other:
+        one: सरकारको प्रतिक्रिया
+        other: सरकारको प्रतिक्रियाहरू
       guidance:
         one:
         other:
@@ -270,11 +270,11 @@ ne:
         one:
         other:
       news_article:
-        one:
-        other:
+        one: समाचार लेख
+        other: समाचार लेखहरू
       news_story:
-        one:
-        other:
+        one: समाचार कथा
+        other: समाचार कथाहरु
       notice:
         one:
         other:
@@ -291,8 +291,8 @@ ne:
         one:
         other:
       oral_statement:
-        one:
-        other:
+        one: संसदमा मौखिक वक्तव्य
+        other: 'संसदमा मौखिक वक्तव्यहरू '
       policy:
         one:
         other:
@@ -300,8 +300,8 @@ ne:
         one:
         other:
       press_release:
-        one:
-        other:
+        one: प्रेस विज्ञप्ति
+        other: प्रेस विज्ञप्तिहरू
       product-safety-alert-report-recall:
         one:
         other:
@@ -333,8 +333,8 @@ ne:
         one:
         other:
       speech:
-        one:
-        other:
+        one: भाषण
+        other: भाषणहरु
       standard:
         one:
         other:
@@ -351,8 +351,8 @@ ne:
         one:
         other:
       take_part:
-        one:
-        other:
+        one: सहभागी हुनु
+        other: सहभागी हुनु
       tax_tribunal_decision:
         one:
         other:
@@ -366,11 +366,11 @@ ne:
         one:
         other:
       world_news_story:
-        one:
-        other:
+        one: विश्व समाचार कथा
+        other: विश्व समाचार कथाहरु
       written_statement:
-        one:
-        other:
+        one: संसदमा लिखित वक्तव्य
+        other: संसदमा लिखित वक्तव्यहरू
   electoral:
     registration:
       description:

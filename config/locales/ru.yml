@@ -170,8 +170,8 @@ ru:
       authored_article:
         few:
         many:
-        one:
-        other:
+        one: Авторская статья
+        other: Авторские статьи
       business_finance_support_scheme:
         few:
         many:
@@ -180,8 +180,8 @@ ru:
       case_study:
         few:
         many:
-        one:
-        other:
+        one: Причинный анализ
+        other: Причинные анализы
       closed_consultation:
         few:
         many:
@@ -205,8 +205,8 @@ ru:
       corporate_information_page:
         few:
         many:
-        one:
-        other:
+        one: Информационная страница
+        other: Информационные страницы
       corporate_report:
         few:
         many:
@@ -270,8 +270,8 @@ ru:
       fatality_notice:
         few:
         many:
-        one:
-        other:
+        one: Уведомление о несчастном случае
+        other: Уведомления о несчастных случаях
       foi_release:
         few:
         many:
@@ -285,8 +285,8 @@ ru:
       government_response:
         few:
         many:
-        one:
-        other:
+        one: Ответ правительства
+        other: Ответы правительства
       guidance:
         few:
         many:
@@ -350,13 +350,13 @@ ru:
       news_article:
         few:
         many:
-        one:
-        other:
+        one: Новостная статья
+        other: Новостные статьи
       news_story:
         few:
         many:
-        one:
-        other:
+        one: Новостной сюжет
+        other: Новостные сюжеты
       notice:
         few:
         many:
@@ -385,8 +385,8 @@ ru:
       oral_statement:
         few:
         many:
-        one:
-        other:
+        one: Устное заявление парламенту
+        other: Устные заявления парламенту
       policy:
         few:
         many:
@@ -400,8 +400,8 @@ ru:
       press_release:
         few:
         many:
-        one:
-        other:
+        one: Пресс-релиз
+        other: Пресс-релизы
       product-safety-alert-report-recall:
         few:
         many:
@@ -455,8 +455,8 @@ ru:
       speech:
         few:
         many:
-        one:
-        other:
+        one: Текст выступления
+        other: Тексты выступлений
       standard:
         few:
         many:
@@ -485,8 +485,8 @@ ru:
       take_part:
         few:
         many:
-        one:
-        other:
+        one: Принять участие
+        other: Принять участие
       tax_tribunal_decision:
         few:
         many:
@@ -510,13 +510,13 @@ ru:
       world_news_story:
         few:
         many:
-        one:
-        other:
+        one: Международные новости
+        other: Международные новости
       written_statement:
         few:
         many:
-        one:
-        other:
+        one: Письменное заявление парламенту
+        other: Письменные заявления парламенту
   electoral:
     registration:
       description:

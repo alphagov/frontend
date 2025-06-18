@@ -603,6 +603,11 @@ hr:
       few:
       one: Novosti
       other: Novosti
+    open_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     oral_statement:
       few:
       one: Usmena izjava Parlamentu

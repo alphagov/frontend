@@ -522,6 +522,10 @@ ta:
     news_story:
       one: செய்தி
       other: செய்திகள்
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
       other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்

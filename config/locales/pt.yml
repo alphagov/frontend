@@ -522,6 +522,10 @@ pt:
     news_story:
       one: Reportagem
       other: Reportagens
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Declaração oral ao Parlamento
       other: Declarações orais ao Parlamento

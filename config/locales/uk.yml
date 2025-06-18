@@ -684,6 +684,12 @@ uk:
       many:
       one: Сюжет новин
       other: Сюжети новин
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
     oral_statement:
       few:
       many:

@@ -851,6 +851,14 @@ cy:
       other: Straeon newyddion
       two:
       zero:
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one: Galwad agored am dystiolaeth
+        other:
+        two:
+        zero:
     oral_statement:
       few:
       many:

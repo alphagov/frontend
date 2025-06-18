@@ -441,6 +441,9 @@ ko:
       other: 뉴스 기사
     news_story:
       other: 뉴스 스토리
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: 의회로 구두 성명
     place:

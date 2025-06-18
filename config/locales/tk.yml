@@ -522,6 +522,10 @@ tk:
     news_story:
       one: Habar
       other: Habarlar
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Mejlise dilden beýan
       other: Mejlise dilden beýanlar

@@ -441,6 +441,9 @@ vi:
       other: Bài viết thời sự
     news_story:
       other: Bài phóng sự
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: Tuyên bố bằng lời trước Quốc hội
     place:

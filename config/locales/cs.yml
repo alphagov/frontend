@@ -603,6 +603,11 @@ cs:
       few:
       one: Zpravodajský příběh
       other: Zpravodajské příběhy
+    open_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     oral_statement:
       few:
       one: Ústní prohlášení pro Parlament

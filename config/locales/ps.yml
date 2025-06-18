@@ -522,6 +522,10 @@ ps:
     news_story:
       one: د خبر کیسه
       other: د خبرونو کیسې
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: پارلماني غونډې ته وینا
       other: پارلمان ته شفاهي څرګندونې

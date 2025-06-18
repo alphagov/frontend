@@ -522,6 +522,10 @@ he:
     news_story:
       one: חדשות
       other: חדשות
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: הצהרה בעל פה לפרלמנט
       other: הצהרות בעל פה לפרלמנט

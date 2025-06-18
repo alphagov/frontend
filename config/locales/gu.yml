@@ -522,6 +522,10 @@ gu:
     news_story:
       one: ન્યૂઝ સ્ટોરી
       other: ન્યૂઝ સ્ટોરીઝ
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: સંસદમાં મૌખિક નિવેદન
       other: સંસદમાં મૌખિક નિવેદનો

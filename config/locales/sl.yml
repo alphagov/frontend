@@ -684,6 +684,12 @@ sl:
       one: Časopisna zgodba
       other: Časopisne zgodbe
       two:
+    open_call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     oral_statement:
       few:
       one: Ustna izjava za parlament

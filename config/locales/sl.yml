@@ -151,372 +151,6 @@ sl:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        few:
-        one:
-        other:
-        two:
-      announcement:
-        few:
-        one:
-        other:
-        two:
-      asylum_support_decision:
-        few:
-        one:
-        other:
-        two:
-      authored_article:
-        few:
-        one: Avtorski članek
-        other: Avtorski članki
-        two:
-      business_finance_support_scheme:
-        few:
-        one:
-        other:
-        two:
-      case_study:
-        few:
-        one: Študija primera
-        other: Študije primera
-        two:
-      closed_consultation:
-        few:
-        one:
-        other:
-        two:
-      cma_case:
-        few:
-        one:
-        other:
-        two:
-      consultation:
-        few:
-        one:
-        other:
-        two:
-      consultation_outcome:
-        few:
-        one:
-        other:
-        two:
-      corporate_information_page:
-        few:
-        one: Stran z informacijami
-        other: Strani z informacijami
-        two:
-      corporate_report:
-        few:
-        one:
-        other:
-        two:
-      correspondence:
-        few:
-        one:
-        other:
-        two:
-      countryside_stewardship_grant:
-        few:
-        one:
-        other:
-        two:
-      decision:
-        few:
-        one:
-        other:
-        two:
-      detailed_guide:
-        few:
-        one:
-        other:
-        two:
-      dfid_research_output:
-        few:
-        one:
-        other:
-        two:
-      document_collection:
-        few:
-        one:
-        other:
-        two:
-      draft_text:
-        few:
-        one:
-        other:
-        two:
-      drug_safety_update:
-        few:
-        one:
-        other:
-        two:
-      employment_appeal_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      employment_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      esi_fund:
-        few:
-        one:
-        other:
-        two:
-      fatality_notice:
-        few:
-        one: Obvestilo o smrti
-        other: Obvestila o smrti
-        two:
-      foi_release:
-        few:
-        one:
-        other:
-        two:
-      form:
-        few:
-        one:
-        other:
-        two:
-      government_response:
-        few:
-        one: Odziv vlade
-        other: Odzivi vlade
-        two:
-      guidance:
-        few:
-        one:
-        other:
-        two:
-      impact_assessment:
-        few:
-        one:
-        other:
-        two:
-      imported:
-        few:
-        one:
-        other:
-        two:
-      independent_report:
-        few:
-        one:
-        other:
-        two:
-      international_development_fund:
-        few:
-        one:
-        other:
-        two:
-      international_treaty:
-        few:
-        one:
-        other:
-        two:
-      maib_report:
-        few:
-        one:
-        other:
-        two:
-      map:
-        few:
-        one:
-        other:
-        two:
-      medical_safety_alert:
-        few:
-        one:
-        other:
-        two:
-      national:
-        few:
-        one:
-        other:
-        two:
-      national_statistics:
-        few:
-        one:
-        other:
-        two:
-      national_statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      news_article:
-        few:
-        one: Časopisni članek
-        other: Časopisni članki
-        two:
-      news_story:
-        few:
-        one: Časopisna zgodba
-        other: Časopisne zgodbe
-        two:
-      notice:
-        few:
-        one:
-        other:
-        two:
-      official:
-        few:
-        one:
-        other:
-        two:
-      official_statistics:
-        few:
-        one:
-        other:
-        two:
-      official_statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      open_consultation:
-        few:
-        one:
-        other:
-        two:
-      oral_statement:
-        few:
-        one: Ustna izjava za parlament
-        other: Ustne izjave za parlament
-        two:
-      policy:
-        few:
-        one:
-        other:
-        two:
-      policy_paper:
-        few:
-        one:
-        other:
-        two:
-      press_release:
-        few:
-        one: Sporočilo za javnost
-        other: Sporočila za javnost
-        two:
-      product-safety-alert-report-recall:
-        few:
-        one:
-        other:
-        two:
-      promotional:
-        few:
-        one:
-        other:
-        two:
-      publication:
-        few:
-        one:
-        other:
-        two:
-      raib_report:
-        few:
-        one:
-        other:
-        two:
-      regulation:
-        few:
-        one:
-        other:
-        two:
-      research:
-        few:
-        one:
-        other:
-        two:
-      residential_property_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      service_sign_in:
-        few:
-        one:
-        other:
-        two:
-      service_standard_report:
-        few:
-        one:
-        other:
-        two:
-      speaking_notes:
-        few:
-        one:
-        other:
-        two:
-      speech:
-        few:
-        one: Govor
-        other: Govori
-        two:
-      standard:
-        few:
-        one:
-        other:
-        two:
-      statement_to_parliament:
-        few:
-        one:
-        other:
-        two:
-      statistical_data_set:
-        few:
-        one:
-        other:
-        two:
-      statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      statutory_guidance:
-        few:
-        one:
-        other:
-        two:
-      take_part:
-        few:
-        one: Sodelujte
-        other: Sodelujte
-        two:
-      tax_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      transcript:
-        few:
-        one:
-        other:
-        two:
-      transparency:
-        few:
-        one:
-        other:
-        two:
-      utaac_decision:
-        few:
-        one:
-        other:
-        two:
-      world_news_story:
-        few:
-        one: Novica s sveta
-        other: Novice s celega sveta
-        two:
-      written_statement:
-        few:
-        one: Pisna izjava za parlament
-        other: Pisne izjave za parlament
-        two:
   electoral:
     registration:
       description:
@@ -534,17 +168,65 @@ sl:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    asylum_support_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
     authored_article:
       name:
         few:
         one: Avtorski članek
         other: Avtorski članki
         two:
+    business_finance_support_scheme:
+      name:
+        few:
+        one:
+        other:
+        two:
     case_study:
       name:
         few:
         one: Študija primera
         other: Študije primera
+        two:
+    closed_consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    cma_case:
+      name:
+        few:
+        one:
+        other:
+        two:
+    consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    consultation_outcome:
+      name:
+        few:
+        one:
+        other:
         two:
     corporate_information_page:
       about_our_services_html: Izvedite več %{link}.
@@ -558,6 +240,78 @@ sl:
       publication_scheme_html: Več o vrstah informacij, ki jih redno objavljamo, preberite v naši %{link}.
       social_media_use_html: Preberite si našo politiko na %{link}.
       welsh_language_scheme_html: Izvedite več o naši zavezanosti %{link}.
+    corporate_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    correspondence:
+      name:
+        few:
+        one:
+        other:
+        two:
+    countryside_stewardship_grant:
+      name:
+        few:
+        one:
+        other:
+        two:
+    decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    detailed_guide:
+      name:
+        few:
+        one:
+        other:
+        two:
+    dfid_research_output:
+      name:
+        few:
+        one:
+        other:
+        two:
+    document_collection:
+      name:
+        few:
+        one:
+        other:
+        two:
+    draft_text:
+      name:
+        few:
+        one:
+        other:
+        two:
+    drug_safety_update:
+      name:
+        few:
+        one:
+        other:
+        two:
+    employment_appeal_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    employment_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    esi_fund:
+      name:
+        few:
+        one:
+        other:
+        two:
     fatality_notice:
       alt_text: Grb Ministrstva za obrambo
       field_of_operation: Področje delovanja
@@ -575,6 +329,18 @@ sl:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        few:
+        one:
+        other:
+        two:
+    form:
+      name:
+        few:
+        one:
+        other:
+        two:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -620,6 +386,42 @@ sl:
         few:
         one: Odziv vlade
         other: Odzivi vlade
+        two:
+    guidance:
+      name:
+        few:
+        one:
+        other:
+        two:
+    impact_assessment:
+      name:
+        few:
+        one:
+        other:
+        two:
+    imported:
+      name:
+        few:
+        one:
+        other:
+        two:
+    independent_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    international_development_fund:
+      name:
+        few:
+        one:
+        other:
+        two:
+    international_treaty:
+      name:
+        few:
+        one:
+        other:
         two:
     licence:
       change:
@@ -674,6 +476,42 @@ sl:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    map:
+      name:
+        few:
+        one:
+        other:
+        two:
+    medical_safety_alert:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national_statistics:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
     news_article:
       name:
         few:
@@ -686,6 +524,36 @@ sl:
         one: Časopisna zgodba
         other: Časopisne zgodbe
         two:
+    notice:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official_statistics:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    open_consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
     oral_statement:
       name:
         few:
@@ -697,11 +565,77 @@ sl:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        few:
+        one:
+        other:
+        two:
+    policy_paper:
+      name:
+        few:
+        one:
+        other:
+        two:
     press_release:
       name:
         few:
         one: Sporočilo za javnost
         other: Sporočila za javnost
+        two:
+    product-safety-alert-report-recall:
+      name:
+        few:
+        one:
+        other:
+        two:
+    promotional:
+      name:
+        few:
+        one:
+        other:
+        two:
+    publication:
+      name:
+        few:
+        one:
+        other:
+        two:
+    raib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    regulation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    research:
+      name:
+        few:
+        one:
+        other:
+        two:
+    residential_property_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    service_sign_in:
+      name:
+        few:
+        one:
+        other:
+        two:
+    service_standard_report:
+      name:
+        few:
+        one:
+        other:
         two:
     simple_smart_answer:
       change:
@@ -709,6 +643,12 @@ sl:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        few:
+        one:
+        other:
+        two:
     specialist_document:
       protection_image:
         pdo_alt_text: Logotip sheme je črni žig z besedami Designated Origin UK Protected
@@ -723,12 +663,48 @@ sl:
         other: Govori
         two:
       written_on: Napisano dne
+    standard:
+      name:
+        few:
+        one:
+        other:
+        two:
     start_now:
+    statement_to_parliament:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statutory_guidance:
+      name:
+        few:
+        one:
+        other:
+        two:
     take_part:
       name:
         few:
         one: Sodelujte
         other: Sodelujte
+        two:
+    tax_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
         two:
     transaction:
       before_you_start:
@@ -737,6 +713,18 @@ sl:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        few:
+        one:
+        other:
+        two:
+    transparency:
+      name:
+        few:
+        one:
+        other:
+        two:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> odsvetuje vsa nenujna potovanja v dele države.
@@ -748,6 +736,12 @@ sl:
       still_current_at: Še vedno aktualno ob
       summary: Povzetek
       updated: Posodobljeno
+    utaac_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
     world_news_story:
       name:
         few:

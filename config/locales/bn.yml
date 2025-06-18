@@ -151,226 +151,6 @@ bn:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one: লেখকের উৎস সহ নিবন্ধ
-        other: লেখকের উৎস সহ নিবন্ধসমূহ
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one: কেস স্টাডি
-        other: কেস স্টাডিসমূহ
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one: তথ্য পেইজ
-        other: তথ্য পেইজসমূহ
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তি
-        other: বিপর্যয় সম্পর্কিত বিজ্ঞপ্তিসমূহ
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one: সরকারের সাড়া
-        other: সরকারের সাড়া
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one: সংবাদের নিবন্ধ
-        other: সংবাদের নিবন্ধসমূহ
-      news_story:
-        one: সংবাদের বিষয়
-        other: সংবাদের বিষয়াবলী
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one: সংসদে মৌখিক বিবৃতি
-        other: সংসদে মৌখিক বিবৃতিসমূহ
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one: প্রেস বিজ্ঞপ্তি
-        other: প্রেস বিজ্ঞপ্তিসমূহ
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one: বক্তব্য
-        other: বক্তব্যসমূহ
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one: অংশ নিন
-        other: অংশ নিন
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one: বিশ্ব সংবাদের বিষয়বস্তু
-        other: বিশ্ব সংবাদের বিষয়বস্তুসমূহ
-      written_statement:
-        one: সংসদে লিখিত বিবৃতি
-        other: সংসদে লিখিত বিবৃতিসমূহ
   electoral:
     registration:
       description:
@@ -388,14 +168,46 @@ bn:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         one: লেখকের উৎস সহ নিবন্ধ
         other: লেখকের উৎস সহ নিবন্ধসমূহ
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: কেস স্টাডি
         other: কেস স্টাডিসমূহ
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} খুঁজুন।"
       corporate_information: কর্পোরেট তথ্য
@@ -406,6 +218,54 @@ bn:
       publication_scheme_html: আমরা নিয়মিতভাবে যে প্রকারের সংবাদ প্রকাশ করি তা আমাদের %{link}-এ পড়ুন।
       social_media_use_html: "%{link}-এ আমাদের নীতিমালা পড়ুন।"
       welsh_language_scheme_html: "%{link}-এ আপনার আমাদের অঙ্গীকার সম্পর্কে জানুন।"
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: প্রতিরক্ষা মন্ত্রণালয়ের ক্রেস্ট
       field_of_operation: কার্যক্রমের ক্ষেত্র
@@ -421,6 +281,14 @@ bn:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -465,6 +333,30 @@ bn:
       name:
         one: সরকারের সাড়া
         other: সরকারের সাড়া
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -518,6 +410,30 @@ bn:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         one: সংবাদের নিবন্ধ
@@ -526,6 +442,26 @@ bn:
       name:
         one: সংবাদের বিষয়
         other: সংবাদের বিষয়াবলী
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         one: সংসদে মৌখিক বিবৃতি
@@ -535,16 +471,64 @@ bn:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         one: প্রেস বিজ্ঞপ্তি
         other: প্রেস বিজ্ঞপ্তিসমূহ
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: স্কিমের লোগোতে কালো স্ট্যাম্পের সাথে Designated Origin UK Protected শব্দগুলো রয়েছে
@@ -557,11 +541,35 @@ bn:
         one: বক্তব্য
         other: বক্তব্যসমূহ
       written_on: যখন লেখা হয়েছে
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         one: অংশ নিন
         other: অংশ নিন
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -569,6 +577,14 @@ bn:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> দেশের কিছু অংশে শুধু প্রয়োজনীয় ভ্রমণ ছাড়া সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।
@@ -580,6 +596,10 @@ bn:
       still_current_at: এখানে এখনও চলমান
       summary: সারসংক্ষেপ
       updated: হালনাগাদ করা হয়েছে
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         one: বিশ্ব সংবাদের বিষয়বস্তু

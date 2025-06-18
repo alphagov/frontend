@@ -151,299 +151,6 @@ lt:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        few:
-        one:
-        other:
-      announcement:
-        few:
-        one:
-        other:
-      asylum_support_decision:
-        few:
-        one:
-        other:
-      authored_article:
-        few:
-        one: Autoriaus straipsnis
-        other: Autorių straipsniai
-      business_finance_support_scheme:
-        few:
-        one:
-        other:
-      case_study:
-        few:
-        one: Atvejo analizė
-        other: Atvejų analizės
-      closed_consultation:
-        few:
-        one:
-        other:
-      cma_case:
-        few:
-        one:
-        other:
-      consultation:
-        few:
-        one:
-        other:
-      consultation_outcome:
-        few:
-        one:
-        other:
-      corporate_information_page:
-        few:
-        one: Informacinis puslapis
-        other: Informaciniai puslapiai
-      corporate_report:
-        few:
-        one:
-        other:
-      correspondence:
-        few:
-        one:
-        other:
-      countryside_stewardship_grant:
-        few:
-        one:
-        other:
-      decision:
-        few:
-        one:
-        other:
-      detailed_guide:
-        few:
-        one:
-        other:
-      dfid_research_output:
-        few:
-        one:
-        other:
-      document_collection:
-        few:
-        one:
-        other:
-      draft_text:
-        few:
-        one:
-        other:
-      drug_safety_update:
-        few:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        few:
-        one:
-        other:
-      employment_tribunal_decision:
-        few:
-        one:
-        other:
-      esi_fund:
-        few:
-        one:
-        other:
-      fatality_notice:
-        few:
-        one: Pranešimas apie nelaimę
-        other: Pranešimas apie nelaimes
-      foi_release:
-        few:
-        one:
-        other:
-      form:
-        few:
-        one:
-        other:
-      government_response:
-        few:
-        one: Vyriausybės atsakas
-        other: Vyriausybės atsakai
-      guidance:
-        few:
-        one:
-        other:
-      impact_assessment:
-        few:
-        one:
-        other:
-      imported:
-        few:
-        one:
-        other:
-      independent_report:
-        few:
-        one:
-        other:
-      international_development_fund:
-        few:
-        one:
-        other:
-      international_treaty:
-        few:
-        one:
-        other:
-      maib_report:
-        few:
-        one:
-        other:
-      map:
-        few:
-        one:
-        other:
-      medical_safety_alert:
-        few:
-        one:
-        other:
-      national:
-        few:
-        one:
-        other:
-      national_statistics:
-        few:
-        one:
-        other:
-      national_statistics_announcement:
-        few:
-        one:
-        other:
-      news_article:
-        few:
-        one: Straipsnis
-        other: Straipsniai
-      news_story:
-        few:
-        one: Naujiena
-        other: Naujienos
-      notice:
-        few:
-        one:
-        other:
-      official:
-        few:
-        one:
-        other:
-      official_statistics:
-        few:
-        one:
-        other:
-      official_statistics_announcement:
-        few:
-        one:
-        other:
-      open_consultation:
-        few:
-        one:
-        other:
-      oral_statement:
-        few:
-        one: Žodinis kreipimasis į parlamentą
-        other: Žodiniai kreipimaisi į parlamentą
-      policy:
-        few:
-        one:
-        other:
-      policy_paper:
-        few:
-        one:
-        other:
-      press_release:
-        few:
-        one: Pranešimas spaudai
-        other: Pranešimai spaudai
-      product-safety-alert-report-recall:
-        few:
-        one:
-        other:
-      promotional:
-        few:
-        one:
-        other:
-      publication:
-        few:
-        one:
-        other:
-      raib_report:
-        few:
-        one:
-        other:
-      regulation:
-        few:
-        one:
-        other:
-      research:
-        few:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        few:
-        one:
-        other:
-      service_sign_in:
-        few:
-        one:
-        other:
-      service_standard_report:
-        few:
-        one:
-        other:
-      speaking_notes:
-        few:
-        one:
-        other:
-      speech:
-        few:
-        one: Kalba
-        other: Kalbos
-      standard:
-        few:
-        one:
-        other:
-      statement_to_parliament:
-        few:
-        one:
-        other:
-      statistical_data_set:
-        few:
-        one:
-        other:
-      statistics_announcement:
-        few:
-        one:
-        other:
-      statutory_guidance:
-        few:
-        one:
-        other:
-      take_part:
-        few:
-        one: Dalyvauti
-        other: Dalyvauti
-      tax_tribunal_decision:
-        few:
-        one:
-        other:
-      transcript:
-        few:
-        one:
-        other:
-      transparency:
-        few:
-        one:
-        other:
-      utaac_decision:
-        few:
-        one:
-        other:
-      world_news_story:
-        few:
-        one: Pasaulio naujienos
-        other: Pasaulio naujienos
-      written_statement:
-        few:
-        one: Rašytinis kreipimasis į parlamentą
-        other: Rašytiniai kreipimaisi į parlamentą
   electoral:
     registration:
       description:
@@ -461,16 +168,56 @@ lt:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        few:
+        one:
+        other:
+    announcement:
+      name:
+        few:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        few:
+        one:
+        other:
     authored_article:
       name:
         few:
         one: Autoriaus straipsnis
         other: Autorių straipsniai
+    business_finance_support_scheme:
+      name:
+        few:
+        one:
+        other:
     case_study:
       name:
         few:
         one: Atvejo analizė
         other: Atvejų analizės
+    closed_consultation:
+      name:
+        few:
+        one:
+        other:
+    cma_case:
+      name:
+        few:
+        one:
+        other:
+    consultation:
+      name:
+        few:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Sužinokite %{link}.
       corporate_information: Korporatyvinė informacija
@@ -482,6 +229,66 @@ lt:
       publication_scheme_html: Sužinokite, kokią informaciją mes pastoviai pateikiame puslapyje %{link}.
       social_media_use_html: Perskaitykite mūsų strategiją %{link}.
       welsh_language_scheme_html: Sužinokite apie mūsų įsipareigojimą skelbti %{link}.
+    corporate_report:
+      name:
+        few:
+        one:
+        other:
+    correspondence:
+      name:
+        few:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        few:
+        one:
+        other:
+    decision:
+      name:
+        few:
+        one:
+        other:
+    detailed_guide:
+      name:
+        few:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        few:
+        one:
+        other:
+    document_collection:
+      name:
+        few:
+        one:
+        other:
+    draft_text:
+      name:
+        few:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        few:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    esi_fund:
+      name:
+        few:
+        one:
+        other:
     fatality_notice:
       alt_text: Apsaugos ministerijos herbas
       field_of_operation: Veiklos sritis
@@ -498,6 +305,16 @@ lt:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        few:
+        one:
+        other:
+    form:
+      name:
+        few:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -543,6 +360,36 @@ lt:
         few:
         one: Vyriausybės atsakas
         other: Vyriausybės atsakai
+    guidance:
+      name:
+        few:
+        one:
+        other:
+    impact_assessment:
+      name:
+        few:
+        one:
+        other:
+    imported:
+      name:
+        few:
+        one:
+        other:
+    independent_report:
+      name:
+        few:
+        one:
+        other:
+    international_development_fund:
+      name:
+        few:
+        one:
+        other:
+    international_treaty:
+      name:
+        few:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -596,6 +443,36 @@ lt:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        few:
+        one:
+        other:
+    map:
+      name:
+        few:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        few:
+        one:
+        other:
+    national:
+      name:
+        few:
+        one:
+        other:
+    national_statistics:
+      name:
+        few:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
     news_article:
       name:
         few:
@@ -606,6 +483,31 @@ lt:
         few:
         one: Naujiena
         other: Naujienos
+    notice:
+      name:
+        few:
+        one:
+        other:
+    official:
+      name:
+        few:
+        one:
+        other:
+    official_statistics:
+      name:
+        few:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+    open_consultation:
+      name:
+        few:
+        one:
+        other:
     oral_statement:
       name:
         few:
@@ -616,17 +518,77 @@ lt:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        few:
+        one:
+        other:
+    policy_paper:
+      name:
+        few:
+        one:
+        other:
     press_release:
       name:
         few:
         one: Pranešimas spaudai
         other: Pranešimai spaudai
+    product-safety-alert-report-recall:
+      name:
+        few:
+        one:
+        other:
+    promotional:
+      name:
+        few:
+        one:
+        other:
+    publication:
+      name:
+        few:
+        one:
+        other:
+    raib_report:
+      name:
+        few:
+        one:
+        other:
+    regulation:
+      name:
+        few:
+        one:
+        other:
+    research:
+      name:
+        few:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    service_sign_in:
+      name:
+        few:
+        one:
+        other:
+    service_standard_report:
+      name:
+        few:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        few:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: 'Plano logotipas yra juodas spaudas su užrašu „JK saugoma kilmės vietos nuoroda“ '
@@ -640,12 +602,42 @@ lt:
         one: Kalba
         other: Kalbos
       written_on: Parašymo data
+    standard:
+      name:
+        few:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        few:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        few:
+        one:
+        other:
     take_part:
       name:
         few:
         one: Dalyvauti
         other: Dalyvauti
+    tax_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -653,6 +645,16 @@ lt:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        few:
+        one:
+        other:
+    transparency:
+      name:
+        few:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> pataria keliauti į skirtingas šalies vietas tik būtinais tikslais.
@@ -664,6 +666,11 @@ lt:
       still_current_at: Vis dar
       summary: Santrauka
       updated: Atnaujinta
+    utaac_decision:
+      name:
+        few:
+        one:
+        other:
     world_news_story:
       name:
         few:

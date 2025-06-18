@@ -153,226 +153,6 @@ en:
     access_limited:
       body: You are not authorised to see the preview of this CSV file because it is attached to an access limited draft document. It is not possible to preview CSVs attached to access limited draft documents. You can download the CSV file if you belong to the same organisation as the person who is publishing it.
       title: Access Forbidden
-    document_type:
-      aaib_report:
-        one: Air Accidents Investigation Branch report
-        other: Air Accidents Investigation Branch reports
-      announcement:
-        one: Announcement
-        other: Announcements
-      asylum_support_decision:
-        one: Asylum support tribunal decision
-        other: Asylum support tribunal decisions
-      authored_article:
-        one: Authored article
-        other: Authored articles
-      business_finance_support_scheme:
-        one: Business finance support scheme
-        other: Business finance support schemes
-      case_study:
-        one: Case study
-        other: Case studies
-      closed_consultation:
-        one: Closed consultation
-        other: Closed consultations
-      cma_case:
-        one: Competition and Markets Authority case
-        other: Competition and Markets Authority cases
-      consultation:
-        one: Consultation
-        other: Consultations
-      consultation_outcome:
-        one: Consultation outcome
-        other: Consultation outcomes
-      corporate_information_page:
-        one: Information page
-        other: Information pages
-      corporate_report:
-        one: Corporate report
-        other: Corporate reports
-      correspondence:
-        one: Correspondence
-        other: Correspondences
-      countryside_stewardship_grant:
-        one: Countryside Stewardship grant
-        other: Countryside Stewardship grants
-      decision:
-        one: Decision
-        other: Decisions
-      detailed_guide:
-        one: Guidance
-        other: Guidance
-      dfid_research_output:
-        one: Research for Development Output
-        other: Research for Development Outputs
-      document_collection:
-        one: Collection
-        other: Collections
-      draft_text:
-        one: Draft text
-        other: Draft texts
-      drug_safety_update:
-        one: Drug Safety Update
-        other: Drug Safety Updates
-      employment_appeal_tribunal_decision:
-        one: Employment appeal tribunal decision
-        other: Employment appeal tribunal decisions
-      employment_tribunal_decision:
-        one: Employment tribunal decision
-        other: Employment tribunal decisions
-      esi_fund:
-        one: European Structural and Investment Fund (ESIF)
-        other: European Structural and Investment Funds (ESIF)
-      fatality_notice:
-        one: Fatality notice
-        other: Fatality notices
-      foi_release:
-        one: FOI release
-        other: FOI releases
-      form:
-        one: Form
-        other: Forms
-      government_response:
-        one: Government response
-        other: Government responses
-      guidance:
-        one: Guidance
-        other: Guidance
-      impact_assessment:
-        one: Impact assessment
-        other: Impact assessments
-      imported:
-        one: imported - awaiting type
-        other: imported - awaiting type
-      independent_report:
-        one: Independent report
-        other: Independent reports
-      international_development_fund:
-        one: International development funding
-        other: International development funding
-      international_treaty:
-        one: International treaty
-        other: International treaties
-      maib_report:
-        one: Marine Accident Investigation Branch report
-        other: Marine Accident Investigation Branch reports
-      map:
-        one: Map
-        other: Maps
-      medical_safety_alert:
-        one: Alerts and recalls for drugs and medical devices
-        other: Alerts and recalls for drugs and medical devices
-      national:
-        one: National statistics announcement
-        other: National statistics announcements
-      national_statistics:
-        one: National statistics
-        other: National statistics
-      national_statistics_announcement:
-        one: National statistics announcement
-        other: National statistics announcements
-      news_article:
-        one: News article
-        other: News articles
-      news_story:
-        one: News story
-        other: News stories
-      notice:
-        one: Notice
-        other: Notices
-      official:
-        one: Official statistics announcement
-        other: Official statistics announcements
-      official_statistics:
-        one: Official Statistics
-        other: Official statistics
-      official_statistics_announcement:
-        one: Official statistics announcement
-        other: Official statistics announcements
-      open_consultation:
-        one: Open consultation
-        other: Open consultations
-      oral_statement:
-        one: Oral statement to Parliament
-        other: Oral statements to Parliament
-      policy:
-        one: Policy
-        other: Policies
-      policy_paper:
-        one: Policy paper
-        other: Policy papers
-      press_release:
-        one: Press release
-        other: Press releases
-      product-safety-alert-report-recall:
-        one: Product Safety Alerts, Reports and Recalls
-        other: Product Safety Alerts, Reports and Recalls
-      promotional:
-        one: Promotional material
-        other: Promotional material
-      publication:
-        one: Publication
-        other: Publications
-      raib_report:
-        one: Rail Accident Investigation Branch report
-        other: Rail Accident Investigation Branch reports
-      regulation:
-        one: Regulation
-        other: Regulations
-      research:
-        one: Research and analysis
-        other: Research and analysis
-      residential_property_tribunal_decision:
-        one: Residential property tribunal decision
-        other: Residential property tribunal decisions
-      service_sign_in:
-        one: Service sign in
-        other: Service sign in
-      service_standard_report:
-        one: Service Standard Report
-        other: Service Standard Reports
-      speaking_notes:
-        one: Speaking notes
-        other: Speaking notes
-      speech:
-        one: Speech
-        other: Speeches
-      standard:
-        one: Standard
-        other: Standards
-      statement_to_parliament:
-        one: Statement to Parliament
-        other: Statements to Parliament
-      statistical_data_set:
-        one: Statistical data set
-        other: Statistical data sets
-      statistics_announcement:
-        one: Statistics release announcement
-        other: Statistics release announcements
-      statutory_guidance:
-        one: Statutory guidance
-        other: Statutory guidance
-      take_part:
-        one: Take part
-        other: Take part
-      tax_tribunal_decision:
-        one: Tax and Chancery tribunal decision
-        other: Tax and Chancery tribunal decisions
-      transcript:
-        one: Transcript
-        other: Transcripts
-      transparency:
-        one: Transparency data
-        other: Transparency data
-      utaac_decision:
-        one: Administrative appeals tribunal decision
-        other: Administrative appeals tribunal decisions
-      world_news_story:
-        one: World news story
-        other: World news stories
-      written_statement:
-        one: Written statement to Parliament
-        other: Written statements to Parliament
   electoral:
     registration:
       description: Need help? Get in touch with your local electoral registration team. They can tell you if you’re on the electoral register, or if you’ve registered for a postal or proxy vote.
@@ -390,14 +170,46 @@ en:
   error: Error
   find: Find
   formats:
+    aaib_report:
+      name:
+        one: Air Accidents Investigation Branch report
+        other: Air Accidents Investigation Branch reports
+    announcement:
+      name:
+        one: Announcement
+        other: Announcements
+    asylum_support_decision:
+      name:
+        one: Asylum support tribunal decision
+        other: Asylum support tribunal decisions
     authored_article:
       name:
         one: Authored article
         other: Authored articles
+    business_finance_support_scheme:
+      name:
+        one: Business finance support scheme
+        other: Business finance support schemes
     case_study:
       name:
         one: Case study
         other: Case studies
+    closed_consultation:
+      name:
+        one: Closed consultation
+        other: Closed consultations
+    cma_case:
+      name:
+        one: Competition and Markets Authority case
+        other: Competition and Markets Authority cases
+    consultation:
+      name:
+        one: Consultation
+        other: Consultations
+    consultation_outcome:
+      name:
+        one: Consultation outcome
+        other: Consultation outcomes
     corporate_information_page:
       about_our_services_html: Find out %{link}.
       corporate_information: Corporate information
@@ -408,6 +220,54 @@ en:
       publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
       social_media_use_html: Read our policy on %{link}.
       welsh_language_scheme_html: Find out about our commitment to %{link}.
+    corporate_report:
+      name:
+        one: Corporate report
+        other: Corporate reports
+    correspondence:
+      name:
+        one: Correspondence
+        other: Correspondences
+    countryside_stewardship_grant:
+      name:
+        one: Countryside Stewardship grant
+        other: Countryside Stewardship grants
+    decision:
+      name:
+        one: Decision
+        other: Decisions
+    detailed_guide:
+      name:
+        one: Guidance
+        other: Guidance
+    dfid_research_output:
+      name:
+        one: Research for Development Output
+        other: Research for Development Outputs
+    document_collection:
+      name:
+        one: Collection
+        other: Collections
+    draft_text:
+      name:
+        one: Draft text
+        other: Draft texts
+    drug_safety_update:
+      name:
+        one: Drug Safety Update
+        other: Drug Safety Updates
+    employment_appeal_tribunal_decision:
+      name:
+        one: Employment appeal tribunal decision
+        other: Employment appeal tribunal decisions
+    employment_tribunal_decision:
+      name:
+        one: Employment tribunal decision
+        other: Employment tribunal decisions
+    esi_fund:
+      name:
+        one: European Structural and Investment Fund (ESIF)
+        other: European Structural and Investment Funds (ESIF)
     fatality_notice:
       alt_text: Ministry of Defence crest
       field_of_operation: Field of operation
@@ -423,6 +283,14 @@ en:
       context: British fatalities
     find_my_nearest:
       valid_postcode_no_locations: We couldn't find any results for this postcode.
+    foi_release:
+      name:
+        one: FOI release
+        other: FOI releases
+    form:
+      name:
+        one: Form
+        other: Forms
     get_involved:
       civil_service: Civil Service
       civil_service_quarterly: Civil Service Quarterly
@@ -467,6 +335,30 @@ en:
       name:
         one: Government response
         other: Government responses
+    guidance:
+      name:
+        one: Guidance
+        other: Guidance
+    impact_assessment:
+      name:
+        one: Impact assessment
+        other: Impact assessments
+    imported:
+      name:
+        one: imported - awaiting type
+        other: imported - awaiting type
+    independent_report:
+      name:
+        one: Independent report
+        other: Independent reports
+    international_development_fund:
+      name:
+        one: International development funding
+        other: International development funding
+    international_treaty:
+      name:
+        one: International treaty
+        other: International treaties
     licence:
       change: Change
     local_transaction:
@@ -523,6 +415,30 @@ en:
       valid_uprn_no_match_sub_html: Check it and enter the postcode again.
       website: You can get information on their website.
       what_you_need_to_know: What you need to know
+    maib_report:
+      name:
+        one: Marine Accident Investigation Branch report
+        other: Marine Accident Investigation Branch reports
+    map:
+      name:
+        one: Map
+        other: Maps
+    medical_safety_alert:
+      name:
+        one: Alerts and recalls for drugs and medical devices
+        other: Alerts and recalls for drugs and medical devices
+    national:
+      name:
+        one: National statistics announcement
+        other: National statistics announcements
+    national_statistics:
+      name:
+        one: National statistics
+        other: National statistics
+    national_statistics_announcement:
+      name:
+        one: National statistics announcement
+        other: National statistics announcements
     news_article:
       name:
         one: News article
@@ -531,6 +447,26 @@ en:
       name:
         one: News story
         other: News stories
+    notice:
+      name:
+        one: Notice
+        other: Notices
+    official:
+      name:
+        one: Official statistics announcement
+        other: Official statistics announcements
+    official_statistics:
+      name:
+        one: Official Statistics
+        other: Official statistics
+    official_statistics_announcement:
+      name:
+        one: Official statistics announcement
+        other: Official statistics announcements
+    open_consultation:
+      name:
+        one: Open consultation
+        other: Open consultations
     oral_statement:
       name:
         one: Oral statement to Parliament
@@ -540,16 +476,64 @@ en:
       find_results: Find results near you
       postcode: Postcode
       select_address: Select an address
+    policy:
+      name:
+        one: Policy
+        other: Policies
+    policy_paper:
+      name:
+        one: Policy paper
+        other: Policy papers
     press_release:
       name:
         one: Press release
         other: Press releases
+    product-safety-alert-report-recall:
+      name:
+        one: Product Safety Alerts, Reports and Recalls
+        other: Product Safety Alerts, Reports and Recalls
+    promotional:
+      name:
+        one: Promotional material
+        other: Promotional material
+    publication:
+      name:
+        one: Publication
+        other: Publications
+    raib_report:
+      name:
+        one: Rail Accident Investigation Branch report
+        other: Rail Accident Investigation Branch reports
+    regulation:
+      name:
+        one: Regulation
+        other: Regulations
+    research:
+      name:
+        one: Research and analysis
+        other: Research and analysis
+    residential_property_tribunal_decision:
+      name:
+        one: Residential property tribunal decision
+        other: Residential property tribunal decisions
+    service_sign_in:
+      name:
+        one: Service sign in
+        other: Service sign in
+    service_standard_report:
+      name:
+        one: Service Standard Report
+        other: Service Standard Reports
     simple_smart_answer:
       change: Change
       next_step: Next step
       please_answer: Please answer this question
       start_again: Start again
       your_answers: Your answers
+    speaking_notes:
+      name:
+        one: Speaking notes
+        other: Speaking notes
     specialist_document:
       protection_image:
         pdo_alt_text: The scheme logo is a black stamp with the words Designated Origin UK Protected
@@ -562,11 +546,35 @@ en:
         one: Speech
         other: Speeches
       written_on: Written on
+    standard:
+      name:
+        one: Standard
+        other: Standards
     start_now: Start now
+    statement_to_parliament:
+      name:
+        one: Statement to Parliament
+        other: Statements to Parliament
+    statistical_data_set:
+      name:
+        one: Statistical data set
+        other: Statistical data sets
+    statistics_announcement:
+      name:
+        one: Statistics release announcement
+        other: Statistics release announcements
+    statutory_guidance:
+      name:
+        one: Statutory guidance
+        other: Statutory guidance
     take_part:
       name:
         one: Take part
         other: Take part
+    tax_tribunal_decision:
+      name:
+        one: Tax and Chancery tribunal decision
+        other: Tax and Chancery tribunal decisions
     transaction:
       before_you_start: Before you start
       more_information: More information
@@ -574,6 +582,14 @@ en:
       other_ways_to_apply: Other ways to apply
       sign_in: Sign in
       what_you_need_to_know: What you need to know
+    transcript:
+      name:
+        one: Transcript
+        other: Transcripts
+    transparency:
+      name:
+        one: Transparency data
+        other: Transparency data
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> advises against all but essential travel to parts of %{country}.
@@ -585,6 +601,10 @@ en:
       still_current_at: Still current at
       summary: Summary
       updated: Updated
+    utaac_decision:
+      name:
+        one: Administrative appeals tribunal decision
+        other: Administrative appeals tribunal decisions
     world_news_story:
       name:
         one: World news story

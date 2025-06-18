@@ -151,518 +151,6 @@ ar:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      announcement:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      asylum_support_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      authored_article:
-        few:
-        many:
-        one: مقال مؤلَّف
-        other: مقالات مؤلَّفة
-        two:
-        zero:
-      business_finance_support_scheme:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      case_study:
-        few:
-        many:
-        one: دراسة الحالة
-        other: دراسات الحالة
-        two:
-        zero:
-      closed_consultation:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      cma_case:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      consultation:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      consultation_outcome:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      corporate_information_page:
-        few:
-        many:
-        one: صفحة المعلومات
-        other: صفحات المعلومات
-        two:
-        zero:
-      corporate_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      correspondence:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      countryside_stewardship_grant:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      detailed_guide:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      dfid_research_output:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      document_collection:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      draft_text:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      drug_safety_update:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      employment_appeal_tribunal_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      employment_tribunal_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      esi_fund:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      fatality_notice:
-        few:
-        many:
-        one: إشعار حول الوفيات
-        other: إشعارات حول الوفيات
-        two:
-        zero:
-      foi_release:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      form:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      government_response:
-        few:
-        many:
-        one: استجابة الحكومة
-        other: استجابات الحكومة
-        two:
-        zero:
-      guidance:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      impact_assessment:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      imported:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      independent_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      international_development_fund:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      international_treaty:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      maib_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      map:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      medical_safety_alert:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      national:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      national_statistics:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      national_statistics_announcement:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      news_article:
-        few:
-        many:
-        one: مقال إخباري
-        other: مقالات إخبارية
-        two:
-        zero:
-      news_story:
-        few:
-        many:
-        one: قصة إخبارية
-        other: قصص إخبارية
-        two:
-        zero:
-      notice:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      official:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      official_statistics:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      official_statistics_announcement:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      open_consultation:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      oral_statement:
-        few:
-        many:
-        one: بيان شفوي للبرلمان
-        other: بيانات شفوية للبرلمان
-        two:
-        zero:
-      policy:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      policy_paper:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      press_release:
-        few:
-        many:
-        one: بيان صحفي
-        other: بيانات صحفية
-        two:
-        zero:
-      product-safety-alert-report-recall:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      promotional:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      publication:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      raib_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      regulation:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      research:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      residential_property_tribunal_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      service_sign_in:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      service_standard_report:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      speaking_notes:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      speech:
-        few:
-        many:
-        one: خطاب
-        other: خطابات
-        two:
-        zero:
-      standard:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      statement_to_parliament:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      statistical_data_set:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      statistics_announcement:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      statutory_guidance:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      take_part:
-        few:
-        many:
-        one:
-        other: شارك
-        two:
-        zero:
-      tax_tribunal_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      transcript:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      transparency:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      utaac_decision:
-        few:
-        many:
-        one:
-        other:
-        two:
-        zero:
-      world_news_story:
-        few:
-        many:
-        one: قصة إخبارية عالمية
-        other: قصص إخبارية عالمية
-        two:
-        zero:
-      written_statement:
-        few:
-        many:
-        one: بيان خطي للبرلمان
-        other: بيانات خطية للبرلمان
-        two:
-        zero:
   electoral:
     registration:
       description:
@@ -680,6 +168,30 @@ ar:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    announcement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    asylum_support_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     authored_article:
       name:
         few:
@@ -688,12 +200,52 @@ ar:
         other: مقالات مؤلَّفة
         two:
         zero:
+    business_finance_support_scheme:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     case_study:
       name:
         few:
         many:
         one: دراسة الحالة
         other: دراسات الحالة
+        two:
+        zero:
+    closed_consultation:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    cma_case:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    consultation:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    consultation_outcome:
+      name:
+        few:
+        many:
+        one:
+        other:
         two:
         zero:
     corporate_information_page:
@@ -710,6 +262,102 @@ ar:
       publication_scheme_html: اقرأ عن أنواع المعلومات التي ننشرها بشكل روتيني في %{link}.
       social_media_use_html: اقرأ سياستنا على %{link}.
       welsh_language_scheme_html: تعرف على التزامنا بشأن %{link}.
+    corporate_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    correspondence:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    countryside_stewardship_grant:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    detailed_guide:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    dfid_research_output:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    document_collection:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    draft_text:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    drug_safety_update:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    employment_appeal_tribunal_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    employment_tribunal_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    esi_fund:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     fatality_notice:
       alt_text: شعار وزارة الدفاع
       field_of_operation: ساحة العمليات
@@ -729,6 +377,22 @@ ar:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    form:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -775,6 +439,54 @@ ar:
         many:
         one: استجابة الحكومة
         other: استجابات الحكومة
+        two:
+        zero:
+    guidance:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    impact_assessment:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    imported:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    independent_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    international_development_fund:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    international_treaty:
+      name:
+        few:
+        many:
+        one:
+        other:
         two:
         zero:
     licence:
@@ -830,6 +542,54 @@ ar:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    map:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    medical_safety_alert:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    national:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    national_statistics:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    national_statistics_announcement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     news_article:
       name:
         few:
@@ -846,6 +606,46 @@ ar:
         other: قصص إخبارية
         two:
         zero:
+    notice:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    official:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    official_statistics:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    official_statistics_announcement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    open_consultation:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     oral_statement:
       name:
         few:
@@ -859,6 +659,22 @@ ar:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    policy_paper:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     press_release:
       name:
         few:
@@ -867,12 +683,92 @@ ar:
         other: بيانات صحفية
         two:
         zero:
+    product-safety-alert-report-recall:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    promotional:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    publication:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    raib_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    regulation:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    research:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    residential_property_tribunal_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    service_sign_in:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    service_standard_report:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     specialist_document:
       protection_image:
         pdo_alt_text: شعار المخطط عبارة عن ختم أسود يحمل الكلمات Designated Origin UK Protected
@@ -889,13 +785,61 @@ ar:
         two:
         zero:
       written_on: تاريخ الكتابة
+    standard:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     start_now:
+    statement_to_parliament:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    statistical_data_set:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    statistics_announcement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    statutory_guidance:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     take_part:
       name:
         few:
         many:
         one:
         other: شارك
+        two:
+        zero:
+    tax_tribunal_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
         two:
         zero:
     transaction:
@@ -905,6 +849,22 @@ ar:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    transparency:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: ينصح <abbr title="Foreign and Commonwealth Office">FCO</abbr> بعدم السفر إلى بعض أجزاء البلد إلا للضرورة.
@@ -916,6 +876,14 @@ ar:
       still_current_at: لا يزال ساريًا في
       summary: ملخص
       updated: تاريخ التحديث
+    utaac_decision:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     world_news_story:
       name:
         few:

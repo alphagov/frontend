@@ -151,226 +151,6 @@ uz:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one: Муаллифлик мақоласи
-        other: Муаллифлик мақолалари
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one: Ҳолатларнинг таҳлили
-        other: Ҳолатларнинг таҳлиллари
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one: Маълумотлар саҳифаси
-        other: Маълумотлар саҳифалари
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарнома
-        other: Ўлим оқибатли бахтсиз ҳодиса ҳақида хабарномалар
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one: Ҳукумат жавоби
-        other: Ҳукумат жавоблари
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one: Янгилик мақоласи
-        other: Янгилик мақолалари
-      news_story:
-        one: Янгилик сюжети
-        other: Янгилик сюжетлари
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one: Парламентга оғзаки баёнот
-        other: Парламентга оғзаки баёнотлар
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one: Матбуот-релизи
-        other: Матбуот-релизлари
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one: Нутқ
-        other: Нутқлар
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one: Иштирок этиш
-        other: Иштирок этиш
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one: Янгилик сюжетлари
-        other: Халқаро янги тарихлар
-      written_statement:
-        one: Парламентга ёзма баёнот
-        other: Парламентга ёзма баёнотлар
   electoral:
     registration:
       description:
@@ -388,14 +168,46 @@ uz:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
       name:
         one: Муаллифлик мақоласи
         other: Муаллифлик мақолалари
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: Ҳолатларнинг таҳлили
         other: Ҳолатларнинг таҳлиллари
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Билиб олиш %{link}.
       corporate_information: Корпоратив маълумотлар
@@ -406,6 +218,54 @@ uz:
       publication_scheme_html: Биз мунтазам нашр қилаётган маълумотларнинг турлари ҳақида, бизнинг %{link} да ўқинг.
       social_media_use_html: "%{link} да бизнинг сиёсатимиз билан танишинг."
       welsh_language_scheme_html: "%{link} да бизнинг содиқлилигимиз ҳақида билиб олинг ."
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Мудофаа вазирлигининг эмблемаси
       field_of_operation: Фаолият соҳаси
@@ -421,6 +281,14 @@ uz:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -465,6 +333,30 @@ uz:
       name:
         one: Ҳукумат жавоби
         other: Ҳукумат жавоблари
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -518,6 +410,30 @@ uz:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
       name:
         one: Янгилик мақоласи
@@ -526,6 +442,26 @@ uz:
       name:
         one: Янгилик сюжети
         other: Янгилик сюжетлари
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
       name:
         one: Парламентга оғзаки баёнот
@@ -535,16 +471,64 @@ uz:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
       name:
         one: Матбуот-релизи
         other: Матбуот-релизлари
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Схема логотипи ўзи билан “Махсус мўлжалланиш. Буюк Британия. Ҳимояланган” сўзлари билан қора штампни тақдим этади.
@@ -557,11 +541,35 @@ uz:
         one: Нутқ
         other: Нутқлар
       written_on: Ёзилган
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
       name:
         one: Иштирок этиш
         other: Иштирок этиш
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -569,6 +577,14 @@ uz:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">Ташқи ишлар ва Ҳамдўстлик ишлари бўйича вазирлиги</abbr> ўта заруратсиз мамлакатнинг муайян минтақаларига сафарларни амалга оширишни тавсия этмайди.
@@ -580,6 +596,10 @@ uz:
       still_current_at: Ҳанузгача кучда
       summary: Жамланма маълумот
       updated: Янгиланган
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
       name:
         one: Янгилик сюжетлари

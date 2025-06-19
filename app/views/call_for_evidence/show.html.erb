@@ -115,15 +115,13 @@
     <% call_for_evidence_desc = capture do %>
       <%= content_item.description %>
       <% if content_item.held_on_another_website? %>
-        <p class="gem-c-summary-banner__text">
-          <strong>
-            <% if content_item.closed? %>
-              <%= t("formats.call_for_evidence.closed_another_website_html", url: content_item.held_on_another_website_url) %>.
-            <% else %>
-              <%= t("formats.call_for_evidence.open_another_website_html", url: content_item.held_on_another_website_url) %>.
-            <% end %>
-          </strong>
-        </p>
+        <strong>
+          <% if content_item.closed? %>
+            <%= t("formats.call_for_evidence.closed_another_website_html", url: content_item.held_on_another_website_url) %>.
+          <% else %>
+            <%= t("formats.call_for_evidence.open_another_website_html", url: content_item.held_on_another_website_url) %>.
+          <% end %>
+        </strong>
       <% end %>
     <% end %>
     <%= render "govuk_publishing_components/components/summary_banner", {

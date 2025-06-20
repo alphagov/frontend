@@ -151,372 +151,6 @@ gd:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        few:
-        one:
-        other:
-        two:
-      announcement:
-        few:
-        one:
-        other:
-        two:
-      asylum_support_decision:
-        few:
-        one:
-        other:
-        two:
-      authored_article:
-        few:
-        one:
-        other:
-        two:
-      business_finance_support_scheme:
-        few:
-        one:
-        other:
-        two:
-      case_study:
-        few:
-        one:
-        other:
-        two:
-      closed_consultation:
-        few:
-        one:
-        other:
-        two:
-      cma_case:
-        few:
-        one:
-        other:
-        two:
-      consultation:
-        few:
-        one:
-        other:
-        two:
-      consultation_outcome:
-        few:
-        one:
-        other:
-        two:
-      corporate_information_page:
-        few:
-        one:
-        other:
-        two:
-      corporate_report:
-        few:
-        one:
-        other:
-        two:
-      correspondence:
-        few:
-        one:
-        other:
-        two:
-      countryside_stewardship_grant:
-        few:
-        one:
-        other:
-        two:
-      decision:
-        few:
-        one:
-        other:
-        two:
-      detailed_guide:
-        few:
-        one:
-        other:
-        two:
-      dfid_research_output:
-        few:
-        one:
-        other:
-        two:
-      document_collection:
-        few:
-        one:
-        other:
-        two:
-      draft_text:
-        few:
-        one:
-        other:
-        two:
-      drug_safety_update:
-        few:
-        one:
-        other:
-        two:
-      employment_appeal_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      employment_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      esi_fund:
-        few:
-        one:
-        other:
-        two:
-      fatality_notice:
-        few:
-        one:
-        other:
-        two:
-      foi_release:
-        few:
-        one:
-        other:
-        two:
-      form:
-        few:
-        one:
-        other:
-        two:
-      government_response:
-        few:
-        one:
-        other:
-        two:
-      guidance:
-        few:
-        one:
-        other:
-        two:
-      impact_assessment:
-        few:
-        one:
-        other:
-        two:
-      imported:
-        few:
-        one:
-        other:
-        two:
-      independent_report:
-        few:
-        one:
-        other:
-        two:
-      international_development_fund:
-        few:
-        one:
-        other:
-        two:
-      international_treaty:
-        few:
-        one:
-        other:
-        two:
-      maib_report:
-        few:
-        one:
-        other:
-        two:
-      map:
-        few:
-        one:
-        other:
-        two:
-      medical_safety_alert:
-        few:
-        one:
-        other:
-        two:
-      national:
-        few:
-        one:
-        other:
-        two:
-      national_statistics:
-        few:
-        one:
-        other:
-        two:
-      national_statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      news_article:
-        few:
-        one:
-        other:
-        two:
-      news_story:
-        few:
-        one:
-        other:
-        two:
-      notice:
-        few:
-        one:
-        other:
-        two:
-      official:
-        few:
-        one:
-        other:
-        two:
-      official_statistics:
-        few:
-        one:
-        other:
-        two:
-      official_statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      open_consultation:
-        few:
-        one:
-        other:
-        two:
-      oral_statement:
-        few:
-        one:
-        other:
-        two:
-      policy:
-        few:
-        one:
-        other:
-        two:
-      policy_paper:
-        few:
-        one:
-        other:
-        two:
-      press_release:
-        few:
-        one:
-        other:
-        two:
-      product-safety-alert-report-recall:
-        few:
-        one:
-        other:
-        two:
-      promotional:
-        few:
-        one:
-        other:
-        two:
-      publication:
-        few:
-        one:
-        other:
-        two:
-      raib_report:
-        few:
-        one:
-        other:
-        two:
-      regulation:
-        few:
-        one:
-        other:
-        two:
-      research:
-        few:
-        one:
-        other:
-        two:
-      residential_property_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      service_sign_in:
-        few:
-        one:
-        other:
-        two:
-      service_standard_report:
-        few:
-        one:
-        other:
-        two:
-      speaking_notes:
-        few:
-        one:
-        other:
-        two:
-      speech:
-        few:
-        one:
-        other:
-        two:
-      standard:
-        few:
-        one:
-        other:
-        two:
-      statement_to_parliament:
-        few:
-        one:
-        other:
-        two:
-      statistical_data_set:
-        few:
-        one:
-        other:
-        two:
-      statistics_announcement:
-        few:
-        one:
-        other:
-        two:
-      statutory_guidance:
-        few:
-        one:
-        other:
-        two:
-      take_part:
-        few:
-        one:
-        other:
-        two:
-      tax_tribunal_decision:
-        few:
-        one:
-        other:
-        two:
-      transcript:
-        few:
-        one:
-        other:
-        two:
-      transparency:
-        few:
-        one:
-        other:
-        two:
-      utaac_decision:
-        few:
-        one:
-        other:
-        two:
-      world_news_story:
-        few:
-        one:
-        other:
-        two:
-      written_statement:
-        few:
-        one:
-        other:
-        two:
   electoral:
     registration:
       description:
@@ -534,36 +168,160 @@ gd:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    asylum_support_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
     authored_article:
-      few:
-      one: Ailt scríofa
-      other: Téacsanna scríofa
-      two:
+      name:
+        few:
+        one: Ailt scríofa
+        other: Téacsanna scríofa
+        two:
+    business_finance_support_scheme:
+      name:
+        few:
+        one:
+        other:
+        two:
     case_study:
-      few:
-      one: Cás-staidéir
-      other: Tuarascálacha staidéir
-      two:
+      name:
+        few:
+        one: Cás-staidéir
+        other: Tuarascálacha staidéir
+        two:
+    closed_consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    cma_case:
+      name:
+        few:
+        one:
+        other:
+        two:
+    consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    consultation_outcome:
+      name:
+        few:
+        one:
+        other:
+        two:
     corporate_information_page:
       about_our_services_html: Amharc ar %{link}.
       corporate_information: Faisnéis cuideachta
-      few:
-      one: Leathanach faisnéise
-      other: Leathanaigh faisnéise
+      name:
+        few:
+        one: Leathanach faisnéise
+        other: Leathanaigh faisnéise
+        two:
       personal_information_charter_html: Míníonn ár %{link} conas a dhéanaimid do chuid smaointe pearsanta a rianú.
       publication_scheme_html: Faigh amach na príomhchineálacha faisnéise a ndéanaimid cumarsáid rialta inár %{link}.
       social_media_use_html: Léigh ár mbeartas ar %{link}.
-      two:
       welsh_language_scheme_html: Faigh amach ár gcomhréiteach ar an %{link}.
+    corporate_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    correspondence:
+      name:
+        few:
+        one:
+        other:
+        two:
+    countryside_stewardship_grant:
+      name:
+        few:
+        one:
+        other:
+        two:
+    decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    detailed_guide:
+      name:
+        few:
+        one:
+        other:
+        two:
+    dfid_research_output:
+      name:
+        few:
+        one:
+        other:
+        two:
+    document_collection:
+      name:
+        few:
+        one:
+        other:
+        two:
+    draft_text:
+      name:
+        few:
+        one:
+        other:
+        two:
+    drug_safety_update:
+      name:
+        few:
+        one:
+        other:
+        two:
+    employment_appeal_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    employment_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    esi_fund:
+      name:
+        few:
+        one:
+        other:
+        two:
     fatality_notice:
       alt_text: Suaitheantas rialtais Chónaidhme
-      few:
       field_of_operation: Réimse oibríochta
+      name:
+        few:
+        one: Obituary
+        other: Obituary
+        two:
       none_added: Níor cuireadh aon fhógra báis leis an réimse gníomhaíochta seo.
-      one: Obituary
       operations_in: Idirbhearta I %{location}
-      other: Obituary
-      two:
     field_of_operation:
       context:
       title:
@@ -571,6 +329,18 @@ gd:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        few:
+        one:
+        other:
+        two:
+    form:
+      name:
+        few:
+        one:
+        other:
+        two:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -612,10 +382,47 @@ gd:
       updated:
       your_views:
     government_response:
-      few:
-      one: Freagra an Rialtais
-      other: Freagraí an Rialtais
-      two:
+      name:
+        few:
+        one: Freagra an Rialtais
+        other: Freagraí an Rialtais
+        two:
+    guidance:
+      name:
+        few:
+        one:
+        other:
+        two:
+    impact_assessment:
+      name:
+        few:
+        one:
+        other:
+        two:
+    imported:
+      name:
+        few:
+        one:
+        other:
+        two:
+    independent_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    international_development_fund:
+      name:
+        few:
+        one:
+        other:
+        two:
+    international_treaty:
+      name:
+        few:
+        one:
+        other:
+        two:
     licence:
       change:
     local_transaction:
@@ -669,37 +476,179 @@ gd:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    map:
+      name:
+        few:
+        one:
+        other:
+        two:
+    medical_safety_alert:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national_statistics:
+      name:
+        few:
+        one:
+        other:
+        two:
+    national_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
     news_article:
-      few:
-      one: Airteagal Nuachta
-      other: Airteagal Nuachta
-      two:
+      name:
+        few:
+        one: Airteagal Nuachta
+        other: Airteagal Nuachta
+        two:
     news_story:
-      few:
-      one: Airteagal Nuachta
-      other: Nua
-      two:
+      name:
+        few:
+        one: Airteagal Nuachta
+        other: Nua
+        two:
+    notice:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official_statistics:
+      name:
+        few:
+        one:
+        other:
+        two:
+    official_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    open_consultation:
+      name:
+        few:
+        one:
+        other:
+        two:
     oral_statement:
-      few:
-      one: Ráiteas ó bhéal don Pharlaimint
-      other: Ráitis ó bhéal sa Pharlaimint
-      two:
+      name:
+        few:
+        one: Ráiteas ó bhéal don Pharlaimint
+        other: Ráitis ó bhéal sa Pharlaimint
+        two:
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        few:
+        one:
+        other:
+        two:
+    policy_paper:
+      name:
+        few:
+        one:
+        other:
+        two:
     press_release:
-      few:
-      one: Preaseisiúint
-      other: Preaseisiúintí
-      two:
+      name:
+        few:
+        one: Preaseisiúint
+        other: Preaseisiúintí
+        two:
+    product-safety-alert-report-recall:
+      name:
+        few:
+        one:
+        other:
+        two:
+    promotional:
+      name:
+        few:
+        one:
+        other:
+        two:
+    publication:
+      name:
+        few:
+        one:
+        other:
+        two:
+    raib_report:
+      name:
+        few:
+        one:
+        other:
+        two:
+    regulation:
+      name:
+        few:
+        one:
+        other:
+        two:
+    research:
+      name:
+        few:
+        one:
+        other:
+        two:
+    residential_property_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
+    service_sign_in:
+      name:
+        few:
+        one:
+        other:
+        two:
+    service_standard_report:
+      name:
+        few:
+        one:
+        other:
+        two:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        few:
+        one:
+        other:
+        two:
     specialist_document:
       protection_image:
         pdo_alt_text: Is é atá i lógó an chláir ná lógó dubh marcáilte Bunús Ainmnithe atá faoi chosaint na RA
@@ -707,18 +656,56 @@ gd:
         tsg_alt_text: Tá stampa dubh ar lógó an chláir leis na focail Traditional Specialty UK Protected
     speech:
       delivered_on: Seachadadh ar
-      few:
       location: Suíomh
-      one: Óráid
-      other: Óráid
-      two:
+      name:
+        few:
+        one: Óráid
+        other: Óráid
+        two:
       written_on: Scríobh an
+    standard:
+      name:
+        few:
+        one:
+        other:
+        two:
     start_now:
+    statement_to_parliament:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statutory_guidance:
+      name:
+        few:
+        one:
+        other:
+        two:
     take_part:
-      few:
-      one: Chun páirt a ghlacadh
-      other: Chun páirt a ghlacadh
-      two:
+      name:
+        few:
+        one: Chun páirt a ghlacadh
+        other: Chun páirt a ghlacadh
+        two:
+    tax_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
     transaction:
       before_you_start:
       more_information:
@@ -726,6 +713,18 @@ gd:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        few:
+        one:
+        other:
+        two:
+    transparency:
+      name:
+        few:
+        one:
+        other:
+        two:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Molann an <abbr title="Foreign and Commonwealth Office">FCO</abbr> gach taisteal ach an taisteal is riachtanaí chuig áiteanna áirithe sa tír a sheachaint.
@@ -737,16 +736,24 @@ gd:
       still_current_at: Bailí i gcónaí ar
       summary: Coimriú
       updated: Athnuachan
+    utaac_decision:
+      name:
+        few:
+        one:
+        other:
+        two:
     world_news_story:
-      few:
-      one: Alt nuachta domhanda
-      other: Nuacht domhanda
-      two:
+      name:
+        few:
+        one: Alt nuachta domhanda
+        other: Nuacht domhanda
+        two:
     written_statement:
-      few:
-      one: Dearbhú i scríbhinn don Pharlaimint
-      other: Ráitis i scríbhinn don Pharlaimint
-      two:
+      name:
+        few:
+        one: Dearbhú i scríbhinn don Pharlaimint
+        other: Ráitis i scríbhinn don Pharlaimint
+        two:
   help:
     index:
       about:

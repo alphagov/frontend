@@ -151,226 +151,6 @@
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one:
-        other:
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one:
-        other:
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one:
-        other:
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one:
-        other:
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one:
-        other:
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one:
-        other:
-      news_story:
-        one:
-        other:
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one:
-        other:
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one:
-        other:
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one:
-        other:
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one:
-        other:
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one:
-        other:
-      written_statement:
-        one:
-        other:
   electoral:
     registration:
       description:
@@ -388,28 +168,112 @@
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
-      one: Forfatterartikkel
-      other: Forfatterartikler
+      name:
+        one: Forfatterartikkel
+        other: Forfatterartikler
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
-      one: Casestudie
-      other: Casestudier
+      name:
+        one: Casestudie
+        other: Casestudier
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Finn ut %{link}.
       corporate_information: Bedriftsinformasjon
-      one: Informasjonsside
-      other: Informasjonssider
+      name:
+        one: Informasjonsside
+        other: Informasjonssider
       personal_information_charter_html: Vår %{link} forklarer hvordan vi behandler dine personopplysninger.
       publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i vår %{link}.
       social_media_use_html: Les retningslinjene våre på %{link}.
       welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Forsvarsdepartementets crest
       field_of_operation: Operasjonsfelt
+      name:
+        one: Melding om dødsfall
+        other: Meldinger om dødsfall
       none_added: Det har ikke blitt lagt til noen meldinger om dødsfall for dette operasjonsfeltet ennå.
-      one: Melding om dødsfall
       operations_in: Operasjoner i %{location}
-      other: Meldinger om dødsfall
     field_of_operation:
       context:
       title:
@@ -417,6 +281,14 @@
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -458,8 +330,33 @@
       updated:
       your_views:
     government_response:
-      one: Myndighetenes svar
-      other: Myndighetenes svar
+      name:
+        one: Myndighetenes svar
+        other: Myndighetenes svar
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -513,29 +410,125 @@
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
-      one: Nyhetsartikkel
-      other: Nyhetsartikler
+      name:
+        one: Nyhetsartikkel
+        other: Nyhetsartikler
     news_story:
-      one: Nyhetssak
-      other: Nyheter
+      name:
+        one: Nyhetssak
+        other: Nyheter
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
-      one: Muntlig uttalelse til Stortinget
-      other: Muntlige uttalelser til Stortinget
+      name:
+        one: Muntlig uttalelse til Stortinget
+        other: Muntlige uttalelser til Stortinget
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
-      one: Pressemelding
-      other: Pressemeldinger
+      name:
+        one: Pressemelding
+        other: Pressemeldinger
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Skjemalogoen er et svart stempel med ordene Designated Origin UK Protected
@@ -544,13 +537,39 @@
     speech:
       delivered_on: Levert på
       location: Plassering
-      one: Tale
-      other: Taler
+      name:
+        one: Tale
+        other: Taler
       written_on: Skrevet på
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
-      one: Delta
-      other: Delta
+      name:
+        one: Delta
+        other: Delta
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -558,6 +577,14 @@
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråder alle reiser, unntatt viktige reiser, til deler av landet.
@@ -569,12 +596,18 @@
       still_current_at: Fortsatt aktuell
       summary: Sammendrag
       updated: Oppdatert
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
-      one: Verdensnyhet
-      other: Verdensnyheter
+      name:
+        one: Verdensnyhet
+        other: Verdensnyheter
     written_statement:
-      one: Skriftlig uttalelse til Stortinget
-      other: Skriftlige uttalelser til Stortinget
+      name:
+        one: Skriftlig uttalelse til Stortinget
+        other: Skriftlige uttalelser til Stortinget
   help:
     index:
       about:

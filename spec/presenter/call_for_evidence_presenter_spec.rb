@@ -37,17 +37,51 @@ RSpec.describe CallForEvidencePresenter do
     end
   end
 
-  describe "#opening_date_midnight?" do
-    it "returns true if the opening time is 12am" do
+  describe "#on_or_at" do
+    it "returns 'on' if the opening time is 12am" do
       content_item.content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"
 
-      expect(presenter.opening_date_midnight?).to be(true)
+      expect(presenter.on_or_at).to eq("on")
     end
 
-    it "returns false if the opening time is not 12am" do
+    it "returns 'at' if the opening time is not 12am" do
       content_item.content_store_response["details"]["opening_date"] = "2016-04-16T13:01:57.000+00:00"
 
-      expect(presenter.opening_date_midnight?).to be(false)
+      expect(presenter.on_or_at).to eq("at")
+    end
+  end
+
+  describe "#opens_closes_or_ran" do
+    context "when document type is closed_call_for_evidence" do
+      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "closed_call_for_evidence") }
+
+      it "returns ran_from text" do
+        expect(presenter.opens_closes_or_ran).to eq("This call for evidence ran from")
+      end
+    end
+
+    context "when document type is call_for_evidence_outcome" do
+      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "call_for_evidence_outcome") }
+
+      it "returns ran_from text" do
+        expect(presenter.opens_closes_or_ran).to eq("This call for evidence ran from")
+      end
+    end
+
+    context "when document type is open_call_for_evidence" do
+      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence") }
+
+      it "returns closes_at text if document type is open_call_for_evidence" do
+        expect(presenter.opens_closes_or_ran).to eq("This call for evidence closes at")
+      end
+    end
+
+    context "when document type is call_for_evidence" do
+      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "unopened_call_for_evidence") }
+
+      it "returns opens at text if document type is call_for_evidence" do
+        expect(presenter.opens_closes_or_ran).to eq("This call for evidence opens at")
+      end
     end
   end
 end

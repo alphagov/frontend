@@ -391,9 +391,49 @@ ne:
     authored_article:
       one: लेखिएको लेख
       other: लेखिएको लेखहरू
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: मामिला अध्ययन
       other: मामिला अध्ययनहरू
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: पत्ता लगाउनुहोस् %{link}।
       corporate_information: निगम जानकारी
@@ -519,6 +559,10 @@ ne:
     news_story:
       one: समाचार कथा
       other: समाचार कथाहरु
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: संसदमा मौखिक वक्तव्य
       other: 'संसदमा मौखिक वक्तव्यहरू '

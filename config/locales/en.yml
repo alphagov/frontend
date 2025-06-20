@@ -393,9 +393,49 @@ en:
     authored_article:
       one: Authored article
       other: Authored articles
+    call_for_evidence:
+      and: and
+      another_website_html: This call for evidence %{closed} held on <a href="%{url}">another website</a>
+      at: at
+      closed: This call for evidence has closed
+      closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>
+      closes: It closes at
+      closes_at: This call for evidence closes at
+      complete_a: Complete a
+      description: Call for evidence description
+      detail_of_outcome: Detail of outcome
+      documents: Documents
+      download_outcome: Read the full outcome
+      either: either
+      email_to: 'Email to:'
+      is_being: is being
+      name:
+        one: Call for evidence
+        other: Calls for evidence
+      not_open_yet: This call for evidence isn't open yet
+      'on': 'on'
+      open_another_website_html: This call for evidence is being held on <a href="%{url}">another website</a>
+      opens: This call for evidence opens
+      or: or
+      original_call_for_evidence: Original call for evidence
+      ran_from: This call for evidence ran from
+      respond_online: Respond online
+      response_form: response form
+      summary: Summary
+      was: was
+      ways_to_respond: Ways to respond
+      write_to: 'Write to:'
+    call_for_evidence_outcome:
+      name:
+        one: Call for evidence outcome
+        other: Call for evidence outcomes
     case_study:
       one: Case study
       other: Case studies
+    closed_call_for_evidence:
+      name:
+        one: Closed call for evidence
+        other: Closed calls for evidence
     corporate_information_page:
       about_our_services_html: Find out %{link}.
       corporate_information: Corporate information
@@ -524,6 +564,10 @@ en:
     news_story:
       one: News story
       other: News stories
+    open_call_for_evidence:
+      name:
+        one: Open call for evidence
+        other: Open calls for evidence
     oral_statement:
       one: Oral statement to Parliament
       other: Oral statements to Parliament

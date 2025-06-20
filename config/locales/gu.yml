@@ -391,9 +391,49 @@ gu:
     authored_article:
       one: લેખિત લેખ
       other: લેખિત લેખો
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: કેસ સ્ટડી
       other: કેસ સ્ટડીઝ
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} શોધી કાઢો."
       corporate_information: કોર્પોરેટ માહિતી
@@ -519,6 +559,10 @@ gu:
     news_story:
       one: ન્યૂઝ સ્ટોરી
       other: ન્યૂઝ સ્ટોરીઝ
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: સંસદમાં મૌખિક નિવેદન
       other: સંસદમાં મૌખિક નિવેદનો

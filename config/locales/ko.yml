@@ -317,8 +317,45 @@ ko:
   formats:
     authored_article:
       other: 저작물
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       other: 사례 연구
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} 를 찾아보십시오."
       corporate_information: 대사관 정보
@@ -439,6 +476,9 @@ ko:
       other: 뉴스 기사
     news_story:
       other: 뉴스 스토리
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: 의회로 구두 성명
     place:

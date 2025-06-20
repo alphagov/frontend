@@ -317,8 +317,45 @@ zh:
   formats:
     authored_article:
       other: 撰写文章
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       other: 案例研究
+    closed_call_for_evidence:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: 查找 %{link}。
       corporate_information: 公司信息
@@ -439,6 +476,9 @@ zh:
       other: 新闻报道
     news_story:
       other: 新闻故事
+    open_call_for_evidence:
+      name:
+        other:
     oral_statement:
       other: 议会口头声明
     place:

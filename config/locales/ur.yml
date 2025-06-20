@@ -391,9 +391,49 @@ ur:
     authored_article:
       one: مصنف کے نام کے ساتھ لکھا مضمون
       other: مصنف کے نام کے ساتھ لکھے مضامین
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: کیس اسٹڈی
       other: کیس اسٹڈیز
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} کو جانیے۔"
       corporate_information: کارپوریٹ معلومات
@@ -519,6 +559,10 @@ ur:
     news_story:
       one: خبروں کی کہانی
       other: خبروں کی کہانیاں
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: پارلیمان کے لیے زبانی بیان
       other: پارلیمان کے لیے زبانی بیانات

@@ -391,9 +391,49 @@ ta:
     authored_article:
       one: எழுதிய கட்டுரை
       other: எழுதிய கட்டுரைகள்
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: நிகழ்வு ஆய்வு
       other: நிகழ்வு ஆய்வுகள்
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: கண்டறியுங்கள் %{link}.
       corporate_information: குழுமத் தகவல்கள்
@@ -519,6 +559,10 @@ ta:
     news_story:
       one: செய்தி
       other: செய்திகள்
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
       other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்

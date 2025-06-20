@@ -391,9 +391,49 @@ tr:
     authored_article:
       one: Yazılı makale
       other: Yazılı makaleler
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
     case_study:
       one: Vaka incelemesi
       other: Vaka incelemeleri
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} bağlantısını keşfedin."
       corporate_information: Kurumsal bilgiler
@@ -519,6 +559,10 @@ tr:
     news_story:
       one: Haber makalesi
       other: Haber hikayeleri
+    open_call_for_evidence:
+      name:
+        one:
+        other:
     oral_statement:
       one: Parlamentoya sözlü açıklama
       other: Parlamentoya sözlü açıklamalar

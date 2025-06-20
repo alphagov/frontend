@@ -687,6 +687,50 @@ ar:
       other: مقالات مؤلَّفة
       two:
       zero:
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     case_study:
       few:
       many:
@@ -694,6 +738,14 @@ ar:
       other: دراسات الحالة
       two:
       zero:
+    closed_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     corporate_information_page:
       about_our_services_html: تعرف على %{link}.
       corporate_information: معلومات الشركة
@@ -839,6 +891,14 @@ ar:
       other: قصص إخبارية
       two:
       zero:
+    open_call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     oral_statement:
       few:
       many:

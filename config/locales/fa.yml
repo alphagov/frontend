@@ -403,6 +403,9 @@ fa:
       publication_scheme_html: درباره انواع اطلاعاتی که معمولاً در %{link} خود منتشر می‌کنیم، اطلاعات بیشتری کسب کنید.
       social_media_use_html: سیاست ما را درباره %{link} مطالعه کنید.
       welsh_language_scheme_html: درباره تعهد ما نسبت به %{link} اطلاعات کسب کنید.
+    detailed_guide:
+      one: راهنمایی
+      other: راهنمایی
     fatality_notice:
       alt_text: تاج وزارت دفاع
       field_of_operation: زمینه فعالیت

@@ -403,6 +403,9 @@ da:
       publication_scheme_html: Læs om de typer af oplysninger, som vi rutinemæssigt offentliggør i vores %{link}.
       social_media_use_html: Læs vores politik om %{link}.
       welsh_language_scheme_html: Learn more about our commitment to% {link}.
+    detailed_guide:
+      one: Vejledning
+      other: Vejledning
     fatality_notice:
       alt_text: Forsvarsministeriets kam
       field_of_operation: Operationsområde

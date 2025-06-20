@@ -327,6 +327,8 @@ id:
       publication_scheme_html: Bacalah jenis-jenis informasi yang kami terbitkan secara rutin di %{link} kami.
       social_media_use_html: Baca kebijakan kami di %{link}.
       welsh_language_scheme_html: Cari tahu komitmen kami kepada %{link}.
+    detailed_guide:
+      other: Panduan
     fatality_notice:
       alt_text: Lambang Kementerian Pertahanan
       field_of_operation: Bidang operasi

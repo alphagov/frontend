@@ -327,6 +327,8 @@ th:
       publication_scheme_html: อ่านเกี่ยวกับประเภทข้อมูลที่เราเผยแพร่เป็นประจำใน %{link} ของเรา
       social_media_use_html: อ่านนโยบายของเราที่ %{link}
       welsh_language_scheme_html: ดูข้อมูลเพิ่มเติมเกี่ยวกับพันธกิจของเราสำหรับ %{link}
+    detailed_guide:
+      other: คำแนะนำ
     fatality_notice:
       alt_text: ตรากระทรวงกลาโหม
       field_of_operation: พื้นที่ปฏิบัติการ

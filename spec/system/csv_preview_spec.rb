@@ -178,6 +178,19 @@ RSpec.describe "CsvPreview" do
     end
   end
 
+  context "when the asset does not have a parent document url" do
+    before do
+      asset_manager_response = { id: "https://asset-manager.dev.gov.uk/assets/foo" }
+      stub_asset_manager_has_an_asset(asset_manager_id, asset_manager_response, "/#{filename}.csv")
+      setup_content_item("/csv-preview/#{asset_manager_id}/#{filename}/", parent_document_base_path)
+      visit "http://www.dev.gov.uk/csv-preview/#{asset_manager_id}/#{filename}/"
+    end
+
+    it "returns a 404 response" do
+      expect(page.status_code).to eq(404)
+    end
+  end
+
   context "when asset manager returns a 403 response" do
     before do
       filename = "filename-2"

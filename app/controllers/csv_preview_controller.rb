@@ -13,6 +13,8 @@ class CsvPreviewController < ApplicationController
     end
 
     parent_document_uri = @asset["parent_document_url"]
+    return cacheable_404 unless parent_document_uri
+
     parent_document_path = URI(parent_document_uri).request_uri
     @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
     @attachment_metadata = @content_item.dig("details", "attachments").find do |attachment|

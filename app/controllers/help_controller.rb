@@ -25,5 +25,7 @@ class HelpController < ContentItemsController
         value: "guidance_and_regulation",
       },
     ]
+
+    @service_list_presenter = ServiceListPresenter.new
   end
 end

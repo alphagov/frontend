@@ -206,6 +206,14 @@ ar:
         other:
         two:
         zero:
+    call_for_evidence:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     case_study:
       name:
         few:

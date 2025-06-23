@@ -181,6 +181,9 @@ id:
     business_finance_support_scheme:
       name:
         other:
+    call_for_evidence:
+      name:
+        other:
     case_study:
       name:
         other: Studi kasus

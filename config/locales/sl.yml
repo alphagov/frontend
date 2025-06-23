@@ -196,6 +196,12 @@ sl:
         one:
         other:
         two:
+    call_for_evidence:
+      name:
+        few:
+        one:
+        other:
+        two:
     case_study:
       name:
         few:

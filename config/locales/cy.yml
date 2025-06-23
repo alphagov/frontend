@@ -208,6 +208,14 @@ cy:
         other: Cynlluniau cymorth cyllid busnes
         two:
         zero:
+    call_for_evidence:
+      name:
+        few:
+        many:
+        one: Galwad am dystiolaeth
+        other: Galwadau am dystiolaeth
+        two:
+        zero:
     case_study:
       name:
         few:

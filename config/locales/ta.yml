@@ -186,6 +186,10 @@ ta:
       name:
         one:
         other:
+    call_for_evidence:
+      name:
+        one:
+        other:
     case_study:
       name:
         one: நிகழ்வு ஆய்வு

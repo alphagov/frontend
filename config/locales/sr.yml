@@ -191,6 +191,11 @@ sr:
         few:
         one:
         other:
+    call_for_evidence:
+      name:
+        few:
+        one:
+        other:
     case_study:
       name:
         few:

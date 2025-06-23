@@ -188,6 +188,10 @@ en:
       name:
         one: Business finance support scheme
         other: Business finance support schemes
+    call_for_evidence:
+      name:
+        one: Call for evidence
+        other: Calls for evidence
     case_study:
       name:
         one: Case study

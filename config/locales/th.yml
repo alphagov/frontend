@@ -513,8 +513,12 @@ th:
       vulnerability:
       vulnerability_description:
     sign_in:
+      choose_service:
+      explanation:
+      most_viewed:
       search_for_a_service:
       search_for_a_service_button:
+      service_list_items:
       service_not_listed_heading:
       service_not_listed_text:
   homepage:

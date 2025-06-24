@@ -1,9 +1,20 @@
 RSpec.describe "Document Collection" do
-  # test "document collection with no body" do
-  #   setup_and_visit_content_item("document_collection")
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-  # end
+  context "when visiting a document collection" do
+    let(:base_path) { "/government/collections/national-driving-and-riding-standards" }
+    let!(:content_item) { content_store_has_example_item(base_path, schema: :document_collection, example: "document_collection") }
+
+    it "displays the title" do
+      visit base_path
+
+      expect(page).to have_title(content_item["title"])
+    end
+
+    it "includes the description" do
+      visit base_path
+
+      expect(page).to have_text(content_item["description"])
+    end
+  end
 
   # test "renders metadata and document footer" do
   #   setup_and_visit_content_item("document_collection")

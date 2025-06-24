@@ -1,4 +1,6 @@
 RSpec.describe "Document Collection" do
+  it_behaves_like "it has meta tags", "document_collection", "document_collection"
+
   context "when visiting a document collection" do
     let(:base_path) { "/government/collections/national-driving-and-riding-standards" }
     let!(:content_item) { content_store_has_example_item(base_path, schema: :document_collection, example: "document_collection") }
@@ -14,19 +16,18 @@ RSpec.describe "Document Collection" do
 
       expect(page).to have_text(content_item["description"])
     end
+
+    it "renders metadata and document footer" do
+      visit base_path
+
+      within("[class*='metadata-column']") do
+        expect(page).to have_text("Driver and Vehicle Standards Agency")
+        expect(page).to have_text("Published 29 February 2016")
+      end
+
+      expect(page).to have_selector(".gem-c-published-dates", text: "Published 29 February 2016")
+    end
   end
-
-  # test "renders metadata and document footer" do
-  #   setup_and_visit_content_item("document_collection")
-
-  #   assert_has_metadata({
-  #     published: "29 February 2016",
-  #     from: {
-  #       "Driver and Vehicle Standards Agency": "/government/organisations/driver-and-vehicle-standards-agency",
-  #     },
-  #   })
-  #   assert_footer_has_published_dates("Published 29 February 2016")
-  # end
 
   # test "renders body when provided" do
   #   setup_and_visit_content_item("document_collection_with_body")

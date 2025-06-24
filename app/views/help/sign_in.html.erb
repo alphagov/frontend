@@ -18,7 +18,24 @@
       margin_bottom: 8,
     } %>
 
-    <%= sanitize(content_item.body) %>
+    <p class="govuk-body"><%= t("help.sign_in.choose_service") %></p>
+
+    <%= render "govuk_publishing_components/components/inset_text", {
+      text: t("help.sign_in.explanation"),
+    } %>
+
+    <%= tag.div class: "govuk-!-margin-bottom-9 govuk-!-margin-top-7" do %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("help.sign_in.most_viewed"),
+        heading_level: 2,
+        font_size: "m",
+        margin_bottom: 4,
+      } %>
+
+      <%= render "govuk_publishing_components/components/document_list", {
+        items: @service_list_presenter.items_for_document_list,
+      } %>
+    <% end %>
 
     <%= render "govuk_publishing_components/components/heading", {
       text: t("help.sign_in.service_not_listed_heading"),

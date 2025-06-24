@@ -18,7 +18,7 @@ class DocumentCollectionPresenter < ContentItemPresenter
         metadata: {
           public_updated_at: sanitised_updated_at(document),
           document_type: I18n.t(
-            "formats.#{document.document_type}",
+            "formats.#{document.document_type}.name",
             count: 1,
             default: nil,
           ),

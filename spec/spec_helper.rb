@@ -33,6 +33,8 @@ RSpec.configure do |config|
 
   config.include ComponentHelpers, type: :view
 
+  config.include ActiveSupport::Testing::TimeHelpers
+
   config.before(:each, type: :system) do
     driven_by :rack_test
   end

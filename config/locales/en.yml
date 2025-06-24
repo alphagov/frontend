@@ -604,6 +604,9 @@ en:
       vulnerability: Report a vulnerability on a GOV.UK domain or subdomain
       vulnerability_description: How to report a vulnerability on GOV.UK
     sign_in:
+      choose_service: Choose the service you want to sign in to.
+      explanation: At the moment, there are separate accounts for signing in to different government services.
+      most_viewed: Sign in to one of the most viewed services
       search_for_a_service: Search GOV.UK for a service
       search_for_a_service_button: Search
       service_list_items:

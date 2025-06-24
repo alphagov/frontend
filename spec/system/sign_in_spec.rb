@@ -27,5 +27,17 @@ RSpec.describe "Sign in" do
 
       expect(page).to have_field("content_purpose_supergroup[]", type: :hidden, with: "services")
     end
+
+    it "includes the most viewed header" do
+      visit "/sign-in"
+
+      expect(page).to have_text("Sign in to one of the most viewed services")
+    end
+
+    it "includes the most-viewed links" do
+      visit "/sign-in"
+
+      expect(page).to have_link("HMRC services", href: "/log-in-register-hmrc-online-services")
+    end
   end
 end

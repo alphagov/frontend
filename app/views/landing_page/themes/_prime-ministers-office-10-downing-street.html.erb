@@ -7,9 +7,6 @@
 <% content_for :before_content do %>
 <div class="landing-page-header">
   <div class="govuk-width-container">
-    <div class="landing-page-header__blue-bar">
-    </div>
-
     <% if @content_item.breadcrumbs.present? %>
       <%= render "govuk_publishing_components/components/breadcrumbs", {
         collapse_on_mobile: true,

@@ -2,9 +2,10 @@ RSpec.describe "Document Collection" do
   it_behaves_like "it has meta tags", "document_collection", "document_collection"
 
   context "when visiting a document collection" do
-    let(:base_path) { "/government/collections/national-driving-and-riding-standards" }
+    let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection") }
+    let(:base_path) { content_item["base_path"] }
 
-    before { content_store_has_example_item(base_path, schema: :document_collection, example: "document_collection") }
+    before { stub_content_store_has_item(base_path, content_item) }
 
     it "displays the title" do
       visit base_path
@@ -30,7 +31,7 @@ RSpec.describe "Document Collection" do
     end
 
     context "when a body is provided" do
-      before { content_store_has_example_item(base_path, schema: :document_collection, example: "document_collection_with_body") }
+      let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection_with_body") }
 
       it "renders the provided body" do
         visit base_path
@@ -38,16 +39,19 @@ RSpec.describe "Document Collection" do
         expect(page).to have_text("Each regime page provides a current list of asset freeze targets designated by the United Nations")
       end
     end
+
+    it "renders a contents list, with one list item per document collection group" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-contents-list", text: "Contents")
+
+      expect(page).to have_selector(".gem-c-contents-list__list-item", count: 6)
+
+      content_item["details"]["collection_groups"].each do |group|
+        expect(page).to have_selector("nav a", text: group["title"])
+      end
+    end
   end
-
-  # test "adds a contents list, with one list item per document collection group, if the group contains documents" do
-  #   setup_and_visit_content_item("document_collection")
-  #   assert_equal 6, @content_item["details"]["collection_groups"].size
-
-  #   @content_item["details"]["collection_groups"].each do |group|
-  #     assert page.has_css?("nav a", text: group["title"])
-  #   end
-  # end
 
   # test "ignores document collection groups that have no documents when presenting the contents list" do
   #   setup_and_visit_content_item("document_collection")

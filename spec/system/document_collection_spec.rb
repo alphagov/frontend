@@ -28,12 +28,17 @@ RSpec.describe "Document Collection" do
 
       expect(page).to have_selector(".gem-c-published-dates", text: "Published 29 February 2016")
     end
-  end
 
-  # test "renders body when provided" do
-  #   setup_and_visit_content_item("document_collection_with_body")
-  #   assert page.has_text?("Each regime page provides a current list of asset freeze targets designated by the United Nations (UN), European Union and United Kingdom, under legislation relating to current financial sanctions regimes.")
-  # end
+    context "when a body is provided" do
+      before { content_store_has_example_item(base_path, schema: :document_collection, example: "document_collection_with_body") }
+
+      it "renders the provided body" do
+        visit base_path
+
+        expect(page).to have_text("Each regime page provides a current list of asset freeze targets designated by the United Nations")
+      end
+    end
+  end
 
   # test "adds a contents list, with one list item per document collection group, if the group contains documents" do
   #   setup_and_visit_content_item("document_collection")

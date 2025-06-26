@@ -29,17 +29,19 @@ private
       Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
       load_json_file(base_path)
     elsif use_graphql?
-      graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
-        graphql_response
-      else
-        GdsApi.content_store.content_item(base_path)
-      end
+      load_from_graphql(base_path) || GdsApi.content_store.content_item(base_path)
     else
       GdsApi.content_store.content_item(base_path)
     end
   rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
     e
+  end
+
+  def load_from_graphql(base_path)
+    graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
+    if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
+      graphql_response
+    end
   end
 
   def use_graphql?

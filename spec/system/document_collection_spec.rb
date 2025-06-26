@@ -67,62 +67,68 @@ RSpec.describe "Document Collection" do
         expect(page).not_to have_selector("nav a", text: "Empty Group")
       end
     end
+
+    context "when all document collection groups are empty" do
+      context "when the body is long but has no h2s" do
+        let(:content_item) do
+          item = GovukSchemas::Example.find(:document_collection, example_name: "document_collection")
+
+          item["details"]["body"] = <<~HTML
+            <div class="empty group">
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+            </div>
+          HTML
+
+          item["details"]["collection_groups"] = [
+            {
+              "body" => "<div class=\"empty group\">\n</div>",
+              "documents" => [],
+              "title" => "Empty Group",
+            },
+          ]
+        end
+
+        it "does not render a contents list" do
+          visit base_path
+
+          expect(page).not_to have_selector(".gem-c-contents-list")
+        end
+      end
+
+      context "when the body is long and has h2s" do
+        let(:content_item) do
+          item = GovukSchemas::Example.find(:document_collection, example_name: "document_collection")
+
+          item["details"]["body"] = <<~HTML
+            <div class="empty group">
+              <h2 id="one">One</h2>
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+              <h2 id="two">Two</h2>
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+              <h2 id="three">Three</h2>
+              <p>#{Faker::Lorem.characters(number: 200)}</p>
+            </div>
+          HTML
+
+          item["details"]["collection_groups"] = [
+            {
+              "body" => "<div class=\"empty group\">\n</div>",
+              "documents" => [],
+              "title" => "Empty Group",
+            },
+          ]
+        end
+
+        it "renders a contents list" do
+          visit base_path
+
+          expect(page).to have_selector(".gem-c-contents-list")
+        end
+      end
+    end
   end
-
-  # test "renders no contents list if body has no h2s and is long and collection groups are empty" do
-  #   content_item = get_content_example("document_collection")
-
-  #   content_item["details"]["body"] = <<~HTML
-  #     <div class="empty group">
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #     </div>
-  #   HTML
-
-  #   content_item["details"]["collection_groups"] = [
-  #     {
-  #       "body" => "<div class=\"empty group\">\n</div>",
-  #       "documents" => [],
-  #       "title" => "Empty Group",
-  #     },
-  #   ]
-
-  #   content_item["base_path"] += "-no-h2s"
-
-  #   stub_content_store_has_item(content_item["base_path"], content_item.to_json)
-  #   visit(content_item["base_path"])
-  #   assert_not page.has_css?(".gem-c-contents-list")
-  # end
-
-  # test "renders contents list if body has h2s and collection groups are empty" do
-  #   content_item = get_content_example("document_collection")
-
-  #   content_item["details"]["body"] = <<~HTML
-  #     <div class="empty group">
-  #       <h2 id="one">One</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <h2 id="two">Two</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <h2 id="three">Three</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #     </div>
-  #   HTML
-
-  #   content_item["details"]["collection_groups"] = [
-  #     {
-  #       "body" => "<div class=\"empty group\">\n</div>",
-  #       "documents" => [],
-  #       "title" => "Empty Group",
-  #     },
-  #   ]
-
-  #   content_item["base_path"] += "-h2s"
-
-  #   stub_content_store_has_item(content_item["base_path"], content_item.to_json)
-  #   visit(content_item["base_path"])
-  #   assert page.has_css?(".gem-c-contents-list")
-  # end
 
   # test "renders each collection group" do
   #   setup_and_visit_content_item("document_collection")

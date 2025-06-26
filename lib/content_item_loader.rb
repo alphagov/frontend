@@ -39,7 +39,9 @@ private
 
   def load_from_graphql(base_path)
     graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-    if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
+    if graphql_response.to_hash.key?("errors")
+      nil
+    elsif GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
       graphql_response
     end
   end

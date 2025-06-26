@@ -54,9 +54,9 @@ RSpec.describe "Document Collection" do
 
     context "when a document collection group is empty" do
       let(:content_item) do
-        item = GovukSchemas::Example.find(:document_collection, example_name: "document_collection")
-        item["details"]["collection_groups"] << { "title" => "Empty Group", "documents" => [] }
-        item
+        GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+          item["details"]["collection_groups"] << { "title" => "Empty Group", "documents" => [] }
+        end
       end
 
       it "does not present the empty group in the contents list" do

@@ -43,6 +43,8 @@ RSpec.describe "Document Collection" do
     it "renders a contents list, with one list item per document collection group" do
       visit base_path
 
+      expect(page).to have_selector(".gem-c-contents-list", text: "Contents")
+
       expect(page).to have_selector(".gem-c-contents-list__list-item", count: 6)
 
       content_item["details"]["collection_groups"].each do |group|

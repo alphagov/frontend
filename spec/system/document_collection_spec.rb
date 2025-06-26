@@ -71,23 +71,23 @@ RSpec.describe "Document Collection" do
     context "when all document collection groups are empty" do
       context "when the body is long but has no h2s" do
         let(:content_item) do
-          item = GovukSchemas::Example.find(:document_collection, example_name: "document_collection")
+          GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+            item["details"]["body"] = <<~HTML
+              <div class="empty group">
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+              </div>
+            HTML
 
-          item["details"]["body"] = <<~HTML
-            <div class="empty group">
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-            </div>
-          HTML
-
-          item["details"]["collection_groups"] = [
-            {
-              "body" => "<div class=\"empty group\">\n</div>",
-              "documents" => [],
-              "title" => "Empty Group",
-            },
-          ]
+            item["details"]["collection_groups"] = [
+              {
+                "body" => "<div class=\"empty group\">\n</div>",
+                "documents" => [],
+                "title" => "Empty Group",
+              },
+            ]
+          end
         end
 
         it "does not render a contents list" do
@@ -99,26 +99,26 @@ RSpec.describe "Document Collection" do
 
       context "when the body is long and has h2s" do
         let(:content_item) do
-          item = GovukSchemas::Example.find(:document_collection, example_name: "document_collection")
+          GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+            item["details"]["body"] = <<~HTML
+              <div class="empty group">
+                <h2 id="one">One</h2>
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+                <h2 id="two">Two</h2>
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+                <h2 id="three">Three</h2>
+                <p>#{Faker::Lorem.characters(number: 200)}</p>
+              </div>
+            HTML
 
-          item["details"]["body"] = <<~HTML
-            <div class="empty group">
-              <h2 id="one">One</h2>
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-              <h2 id="two">Two</h2>
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-              <h2 id="three">Three</h2>
-              <p>#{Faker::Lorem.characters(number: 200)}</p>
-            </div>
-          HTML
-
-          item["details"]["collection_groups"] = [
-            {
-              "body" => "<div class=\"empty group\">\n</div>",
-              "documents" => [],
-              "title" => "Empty Group",
-            },
-          ]
+            item["details"]["collection_groups"] = [
+              {
+                "body" => "<div class=\"empty group\">\n</div>",
+                "documents" => [],
+                "title" => "Empty Group",
+              },
+            ]
+          end
         end
 
         it "renders a contents list" do

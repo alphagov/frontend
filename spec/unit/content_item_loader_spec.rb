@@ -232,6 +232,12 @@ RSpec.describe ContentItemLoader do
           expect(graphql_request).to have_been_made
           expect(item_request).to have_been_made
         end
+
+        it "reports the presence of errors as a prometheus label" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_contains_errors"]).to be(true)
+        end
       end
 
       context "when given a bad response code from publishing-api" do
@@ -245,6 +251,12 @@ RSpec.describe ContentItemLoader do
 
           expect(graphql_request).to have_been_made
           expect(item_request).to have_been_made
+        end
+
+        it "reports bad status codes for graphql requests" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_status_code"]).to eq(404)
         end
       end
 
@@ -264,6 +276,12 @@ RSpec.describe ContentItemLoader do
           content_item_loader.load("/my-random-item")
 
           expect(item_request).to have_been_made
+        end
+
+        it "reports bad status codes for graphql requests" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_api_timeout"]).to be(true)
         end
       end
     end

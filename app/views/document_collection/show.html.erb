@@ -2,8 +2,7 @@
   <meta name="description" content="<%= content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
-    content_item: content_item.to_h
-  %>
+    content_item: content_item.to_h %>
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
@@ -16,8 +15,7 @@
       heading_level: 1,
       font_size: "l",
       margin_bottom: 8,
-      text: content_item.title
-    %>
+      text: content_item.title %>
   </div>
 
   <%= render "shared/translations", content_item: %>
@@ -42,19 +40,18 @@
   <div
     data-module="ga4-link-tracker"
     data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'
-    data-ga4-track-links-only
-  >
+    data-ga4-track-links-only>
     <%= render "govuk_publishing_components/components/signup_link", {
       link_text: "Get emails about this topic",
       link_href: "/email-signup/confirm?topic=#{content_item.taxonomy_topic_email_override_base_path}",
-      margin_bottom: 6
+      margin_bottom: 6,
     } %>
   </div>
 <% elsif content_item.display_single_page_notification_button? %>
-  <%= render 'shared/single_page_notification_button', {
+  <%= render "shared/single_page_notification_button", {
     content_item: content_item,
-    skip_account: @has_govuk_account ? "false" : "true"
-    } %>
+    skip_account: @has_govuk_account ? "false" : "true",
+  } %>
 <% end %>
 
 <div class="govuk-grid-row">
@@ -64,7 +61,7 @@
 
         <% if content_item.body.present? %>
           <div class="govuk-!-margin-bottom-8">
-          <%= render 'govuk_publishing_components/components/govspeak', { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
+          <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
           </div>
         <% end %>
 
@@ -73,14 +70,14 @@
           <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 
           <% if group.body.present? %>
-            <%= render 'govuk_publishing_components/components/govspeak', {
+            <%= render "govuk_publishing_components/components/govspeak", {
                 content: group.body.html_safe,
                 direction: page_text_direction,
               } %>
           <% end %>
 
           <div class="govuk-!-margin-bottom-8">
-            <%= render 'govuk_publishing_components/components/document_list', items: @presenter.group_as_document_list(group) %>
+            <%= render "govuk_publishing_components/components/document_list", items: @presenter.group_as_document_list(group) %>
           </div>
         <% end %>
       </div>

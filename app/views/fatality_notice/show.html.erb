@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <%= @presenter.page_title %> - <%= t("formats.fatality_notice", count: 1) %> - GOV.UK
+  <%= @presenter.page_title %> - <%= t("formats.fatality_notice.name", count: 1) %> - GOV.UK
 <% end %>
 
 <% content_for :extra_headers do %>
@@ -32,7 +32,7 @@
 <% if content_item.withdrawn? %>
   <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
   <%= render "govuk_publishing_components/components/notice", {
-    title: t("withdrawn_notice.title", schema_name: t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    title: t("withdrawn_notice.title", schema_name: t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
     description_govspeak: content_item.withdrawn_explanation.html_safe,
     time: withdrawn_time_tag,
     lang: I18n.locale.to_s == "en" ? false : "en",

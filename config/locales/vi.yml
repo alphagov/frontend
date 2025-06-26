@@ -151,153 +151,6 @@ vi:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        other:
-      announcement:
-        other:
-      asylum_support_decision:
-        other:
-      authored_article:
-        other:
-      business_finance_support_scheme:
-        other:
-      case_study:
-        other:
-      closed_consultation:
-        other:
-      cma_case:
-        other:
-      consultation:
-        other:
-      consultation_outcome:
-        other:
-      corporate_information_page:
-        other:
-      corporate_report:
-        other:
-      correspondence:
-        other:
-      countryside_stewardship_grant:
-        other:
-      decision:
-        other:
-      detailed_guide:
-        other:
-      dfid_research_output:
-        other:
-      document_collection:
-        other:
-      draft_text:
-        other:
-      drug_safety_update:
-        other:
-      employment_appeal_tribunal_decision:
-        other:
-      employment_tribunal_decision:
-        other:
-      esi_fund:
-        other:
-      fatality_notice:
-        other:
-      foi_release:
-        other:
-      form:
-        other:
-      government_response:
-        other:
-      guidance:
-        other:
-      impact_assessment:
-        other:
-      imported:
-        other:
-      independent_report:
-        other:
-      international_development_fund:
-        other:
-      international_treaty:
-        other:
-      maib_report:
-        other:
-      map:
-        other:
-      medical_safety_alert:
-        other:
-      national:
-        other:
-      national_statistics:
-        other:
-      national_statistics_announcement:
-        other:
-      news_article:
-        other:
-      news_story:
-        other:
-      notice:
-        other:
-      official:
-        other:
-      official_statistics:
-        other:
-      official_statistics_announcement:
-        other:
-      open_consultation:
-        other:
-      oral_statement:
-        other:
-      policy:
-        other:
-      policy_paper:
-        other:
-      press_release:
-        other:
-      product-safety-alert-report-recall:
-        other:
-      promotional:
-        other:
-      publication:
-        other:
-      raib_report:
-        other:
-      regulation:
-        other:
-      research:
-        other:
-      residential_property_tribunal_decision:
-        other:
-      service_sign_in:
-        other:
-      service_standard_report:
-        other:
-      speaking_notes:
-        other:
-      speech:
-        other:
-      standard:
-        other:
-      statement_to_parliament:
-        other:
-      statistical_data_set:
-        other:
-      statistics_announcement:
-        other:
-      statutory_guidance:
-        other:
-      take_part:
-        other:
-      tax_tribunal_decision:
-        other:
-      transcript:
-        other:
-      transparency:
-        other:
-      utaac_decision:
-        other:
-      world_news_story:
-        other:
-      written_statement:
-        other:
   electoral:
     registration:
       description:
@@ -315,24 +168,88 @@ vi:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        other:
+    announcement:
+      name:
+        other:
+    asylum_support_decision:
+      name:
+        other:
     authored_article:
-      other: Bài viết có tác giả
+      name:
+        other: Bài viết có tác giả
+    business_finance_support_scheme:
+      name:
+        other:
     case_study:
-      other: Nghiên cứu điển hình
+      name:
+        other: Nghiên cứu điển hình
+    closed_consultation:
+      name:
+        other:
+    cma_case:
+      name:
+        other:
+    consultation:
+      name:
+        other:
+    consultation_outcome:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: Tìm hiểu %{link}.
       corporate_information: Thông tin doanh nghiệp
-      other: Trang thông tin
+      name:
+        other: Trang thông tin
       personal_information_charter_html: "%{link} của chúng tôi giải thích cách chúng tôi xử lý thông tin cá nhân của bạn."
       publication_scheme_html: Tìm hiểu về các loại thông tin chúng tôi thường xuyên xuất bản trong %{link} của chúng tôi.
       social_media_use_html: Đọc chính sách của chúng tôi trên %{link}.
       welsh_language_scheme_html: Tìm hiểu về cam kết của chúng tôi đối với %{link}.
+    corporate_report:
+      name:
+        other:
+    correspondence:
+      name:
+        other:
+    countryside_stewardship_grant:
+      name:
+        other:
+    decision:
+      name:
+        other:
+    detailed_guide:
+      name:
+        other:
+    dfid_research_output:
+      name:
+        other:
+    document_collection:
+      name:
+        other:
+    draft_text:
+      name:
+        other:
+    drug_safety_update:
+      name:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        other:
+    employment_tribunal_decision:
+      name:
+        other:
+    esi_fund:
+      name:
+        other:
     fatality_notice:
       alt_text: Huy hiệu Bộ trưởng Quốc phòng
       field_of_operation: Lĩnh vực hoạt động
+      name:
+        other: Thông báo tử vong
       none_added: Chưa có thông báo tử vong nào được thêm vào cho lĩnh vực hoạt động này.
       operations_in: Hoạt động ở %{location}
-      other: Thông báo tử vong
     field_of_operation:
       context:
       title:
@@ -340,6 +257,12 @@ vi:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        other:
+    form:
+      name:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -381,7 +304,26 @@ vi:
       updated:
       your_views:
     government_response:
-      other: Phản hồi của chính phủ
+      name:
+        other: Phản hồi của chính phủ
+    guidance:
+      name:
+        other:
+    impact_assessment:
+      name:
+        other:
+    imported:
+      name:
+        other:
+    independent_report:
+      name:
+        other:
+    international_development_fund:
+      name:
+        other:
+    international_treaty:
+      name:
+        other:
     licence:
       change:
     local_transaction:
@@ -435,25 +377,98 @@ vi:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        other:
+    map:
+      name:
+        other:
+    medical_safety_alert:
+      name:
+        other:
+    national:
+      name:
+        other:
+    national_statistics:
+      name:
+        other:
+    national_statistics_announcement:
+      name:
+        other:
     news_article:
-      other: Bài viết thời sự
+      name:
+        other: Bài viết thời sự
     news_story:
-      other: Bài phóng sự
+      name:
+        other: Bài phóng sự
+    notice:
+      name:
+        other:
+    official:
+      name:
+        other:
+    official_statistics:
+      name:
+        other:
+    official_statistics_announcement:
+      name:
+        other:
+    open_consultation:
+      name:
+        other:
     oral_statement:
-      other: Tuyên bố bằng lời trước Quốc hội
+      name:
+        other: Tuyên bố bằng lời trước Quốc hội
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        other:
+    policy_paper:
+      name:
+        other:
     press_release:
-      other: Thông cáo báo chí
+      name:
+        other: Thông cáo báo chí
+    product-safety-alert-report-recall:
+      name:
+        other:
+    promotional:
+      name:
+        other:
+    publication:
+      name:
+        other:
+    raib_report:
+      name:
+        other:
+    regulation:
+      name:
+        other:
+    research:
+      name:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        other:
+    service_sign_in:
+      name:
+        other:
+    service_standard_report:
+      name:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Biểu trưng của kế hoạch là một con tem màu đen với dòng chữ “Designated Origin UK Protected”
@@ -462,11 +477,31 @@ vi:
     speech:
       delivered_on: Ngày giao
       location: Vị trí
-      other: Bài phát biểu
+      name:
+        other: Bài phát biểu
       written_on: Ngày viết
+    standard:
+      name:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        other:
+    statistical_data_set:
+      name:
+        other:
+    statistics_announcement:
+      name:
+        other:
+    statutory_guidance:
+      name:
+        other:
     take_part:
-      other: Tham gia
+      name:
+        other: Tham gia
+    tax_tribunal_decision:
+      name:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -474,6 +509,12 @@ vi:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        other:
+    transparency:
+      name:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> khuyến cáo chỉ nên đi đến một số nơi ở quốc gia này khi thật cần thiết.
@@ -485,10 +526,15 @@ vi:
       still_current_at: Vẫn đang ở
       summary: Tóm tắt
       updated: Đã cập nhật
+    utaac_decision:
+      name:
+        other:
     world_news_story:
-      other: Bài phóng sự thế giới
+      name:
+        other: Bài phóng sự thế giới
     written_statement:
-      other: Tuyên bố bằng văn bản trước Quốc hội
+      name:
+        other: Tuyên bố bằng văn bản trước Quốc hội
   help:
     index:
       about:

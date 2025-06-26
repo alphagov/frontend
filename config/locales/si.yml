@@ -151,226 +151,6 @@ si:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one:
-        other:
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one:
-        other:
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one:
-        other:
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one:
-        other:
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one:
-        other:
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one:
-        other:
-      news_story:
-        one:
-        other:
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one:
-        other:
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one:
-        other:
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one:
-        other:
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one:
-        other:
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one:
-        other:
-      written_statement:
-        one:
-        other:
   electoral:
     registration:
       description:
@@ -388,28 +168,112 @@ si:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
-      one: රචනා කළ ලිපිය
-      other: රචනා කළ ලිපි
+      name:
+        one: රචනා කළ ලිපිය
+        other: රචනා කළ ලිපි
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
-      one: සිද්ධි අධ්යයනය
-      other: සිද්ධි අධ්යයන
+      name:
+        one: සිද්ධි අධ්යයනය
+        other: සිද්ධි අධ්යයන
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: "%{link} සොයන්න."
       corporate_information: ආයතනික තොරතුරු
-      one: තොරතුරු පිටුව
-      other: තොරතුරු පිටු
+      name:
+        one: තොරතුරු පිටුව
+        other: තොරතුරු පිටු
       personal_information_charter_html: අගේ %{link} අපි ඔබගේ පුද්ගලික තොරතුරු හසුරුවන ආකාරය විස්තර කරයි.
       publication_scheme_html: අපේ %{link} තුල අපි ආකාරික ලෙස ප්රකාශයට පත් කරන තොරතුරු වර්ග ගැන කියවන්න.
       social_media_use_html: අපේ ප්රතිපත්තිය කියවන්න %{link}.
       welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: ආරක්ෂක අමාත්යාංශ ලාංඡනය
       field_of_operation: මෙහෙයුම් ක්ෂේත්රය
+      name:
+        one: මරණ දැන්වීම
+        other: මරණ දැන්වීම්
       none_added: මෙම මෙහෙයුම් ක්ෂේත්රයට තවමත් මරණ දැන්වීම් එකතු කර නොමැත.
-      one: මරණ දැන්වීම
       operations_in: "%{location} තුළ මෙහෙයුම්"
-      other: මරණ දැන්වීම්
     field_of_operation:
       context:
       title:
@@ -417,6 +281,14 @@ si:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -458,8 +330,33 @@ si:
       updated:
       your_views:
     government_response:
-      one: රජයේ ප්රතිචාරය
-      other: රජයේ ප්රතිචාර
+      name:
+        one: රජයේ ප්රතිචාරය
+        other: රජයේ ප්රතිචාර
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -513,29 +410,125 @@ si:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
-      one: පුවත් ලිපිය
-      other: පුවත් ලිපි
+      name:
+        one: පුවත් ලිපිය
+        other: පුවත් ලිපි
     news_story:
-      one: පුවත් කතාව
-      other: පුවත් කතා
+      name:
+        one: පුවත් කතාව
+        other: පුවත් කතා
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
-      one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
-      other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
+      name:
+        one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+        other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
-      one: මාධ්ය නිවේදනය
-      other: මාධ්ය නිවේදන
+      name:
+        one: මාධ්ය නිවේදනය
+        other: මාධ්ය නිවේදන
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: මෙම යෝජනා ක්රම ලාංඡනය Designated Origin UK Protected යන වචන සහිත කළු මුද්දරයක් වේ
@@ -544,13 +537,39 @@ si:
     speech:
       delivered_on: බෙදාහරින ලද දිනය
       location: ස්ථානය
-      one: කථාව
-      other: කථා
+      name:
+        one: කථාව
+        other: කථා
       written_on: ලියන ලද දිනය
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
-      one: සහභාගී වන්න
-      other: සහභාගී වන්න
+      name:
+        one: සහභාගී වන්න
+        other: සහභාගී වන්න
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -558,6 +577,14 @@ si:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> රටේ කොටස් වලට සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙන නමුත් අත්‍යවශ්‍ය සංවාරයක යෙදිය හැකිය.
@@ -569,12 +596,18 @@ si:
       still_current_at: තවමත් වත්මන්
       summary: සාරාංශය
       updated: යාවත්කාලීන කෙරිණි
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
-      one: ලෝක පුවත් කතාව
-      other: ලෝක පුවත් කතා
+      name:
+        one: ලෝක පුවත් කතාව
+        other: ලෝක පුවත් කතා
     written_statement:
-      one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
-      other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
+      name:
+        one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+        other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
   help:
     index:
       about:

@@ -9,8 +9,8 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading", {
       text: content_item.title,
-      context: I18n.t("formats.#{content_item.document_type}", count: 1),
-      context_locale: t_locale_fallback("formats.#{content_item.document_type}", count: 1),
+      context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
       heading_level: 1,
       font_size: "l",
       margin_bottom: 8,
@@ -35,7 +35,7 @@
   <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
   <%= render "govuk_publishing_components/components/notice", {
-    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
     description_govspeak: content_item.withdrawn_explanation&.html_safe,
     time: withdrawn_time_tag,
     lang: "en",

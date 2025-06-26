@@ -151,226 +151,6 @@ sw:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one:
-        other:
-      announcement:
-        one:
-        other:
-      asylum_support_decision:
-        one:
-        other:
-      authored_article:
-        one:
-        other:
-      business_finance_support_scheme:
-        one:
-        other:
-      case_study:
-        one:
-        other:
-      closed_consultation:
-        one:
-        other:
-      cma_case:
-        one:
-        other:
-      consultation:
-        one:
-        other:
-      consultation_outcome:
-        one:
-        other:
-      corporate_information_page:
-        one:
-        other:
-      corporate_report:
-        one:
-        other:
-      correspondence:
-        one:
-        other:
-      countryside_stewardship_grant:
-        one:
-        other:
-      decision:
-        one:
-        other:
-      detailed_guide:
-        one:
-        other:
-      dfid_research_output:
-        one:
-        other:
-      document_collection:
-        one:
-        other:
-      draft_text:
-        one:
-        other:
-      drug_safety_update:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        one:
-        other:
-      employment_tribunal_decision:
-        one:
-        other:
-      esi_fund:
-        one:
-        other:
-      fatality_notice:
-        one:
-        other:
-      foi_release:
-        one:
-        other:
-      form:
-        one:
-        other:
-      government_response:
-        one:
-        other:
-      guidance:
-        one:
-        other:
-      impact_assessment:
-        one:
-        other:
-      imported:
-        one:
-        other:
-      independent_report:
-        one:
-        other:
-      international_development_fund:
-        one:
-        other:
-      international_treaty:
-        one:
-        other:
-      maib_report:
-        one:
-        other:
-      map:
-        one:
-        other:
-      medical_safety_alert:
-        one:
-        other:
-      national:
-        one:
-        other:
-      national_statistics:
-        one:
-        other:
-      national_statistics_announcement:
-        one:
-        other:
-      news_article:
-        one:
-        other:
-      news_story:
-        one:
-        other:
-      notice:
-        one:
-        other:
-      official:
-        one:
-        other:
-      official_statistics:
-        one:
-        other:
-      official_statistics_announcement:
-        one:
-        other:
-      open_consultation:
-        one:
-        other:
-      oral_statement:
-        one:
-        other:
-      policy:
-        one:
-        other:
-      policy_paper:
-        one:
-        other:
-      press_release:
-        one:
-        other:
-      product-safety-alert-report-recall:
-        one:
-        other:
-      promotional:
-        one:
-        other:
-      publication:
-        one:
-        other:
-      raib_report:
-        one:
-        other:
-      regulation:
-        one:
-        other:
-      research:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        one:
-        other:
-      service_sign_in:
-        one:
-        other:
-      service_standard_report:
-        one:
-        other:
-      speaking_notes:
-        one:
-        other:
-      speech:
-        one:
-        other:
-      standard:
-        one:
-        other:
-      statement_to_parliament:
-        one:
-        other:
-      statistical_data_set:
-        one:
-        other:
-      statistics_announcement:
-        one:
-        other:
-      statutory_guidance:
-        one:
-        other:
-      take_part:
-        one:
-        other:
-      tax_tribunal_decision:
-        one:
-        other:
-      transcript:
-        one:
-        other:
-      transparency:
-        one:
-        other:
-      utaac_decision:
-        one:
-        other:
-      world_news_story:
-        one:
-        other:
-      written_statement:
-        one:
-        other:
   electoral:
     registration:
       description:
@@ -388,28 +168,112 @@ sw:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one:
+        other:
+    announcement:
+      name:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        one:
+        other:
     authored_article:
-      one: Makala ya maelezo ya mwandishi
-      other: Makala ya maelezo ya mwandishi
+      name:
+        one: Makala ya maelezo ya mwandishi
+        other: Makala ya maelezo ya mwandishi
+    business_finance_support_scheme:
+      name:
+        one:
+        other:
     case_study:
-      one: Uchunguzi kifani
-      other: Uchunguzi kifani
+      name:
+        one: Uchunguzi kifani
+        other: Uchunguzi kifani
+    closed_consultation:
+      name:
+        one:
+        other:
+    cma_case:
+      name:
+        one:
+        other:
+    consultation:
+      name:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Pata maelezo kuhusu %{link}.
       corporate_information: Maelezo ya shirika
-      one: Ukurasa wa maelezo
-      other: Kurasa za maelezo
+      name:
+        one: Ukurasa wa maelezo
+        other: Kurasa za maelezo
       personal_information_charter_html: "%{link} yetu inafafanua jinsi tunavyoshughulikia maelezo yako ya kibinafsi."
       publication_scheme_html: Soma maelezo kuhusu aina za maelezo tunayochapisha kila wakati kwenye %{link} yetu.
       social_media_use_html: Soma sera yetu kwenye %{link}.
       welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
+    corporate_report:
+      name:
+        one:
+        other:
+    correspondence:
+      name:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        one:
+        other:
+    decision:
+      name:
+        one:
+        other:
+    detailed_guide:
+      name:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        one:
+        other:
+    document_collection:
+      name:
+        one:
+        other:
+    draft_text:
+      name:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        one:
+        other:
+    esi_fund:
+      name:
+        one:
+        other:
     fatality_notice:
       alt_text: Eneo la Wizara ya Ulinzi
       field_of_operation: Sehemu ya kazi
+      name:
+        one: Notisi ya idadi ya vifo
+        other: Notisi za idadi ya vifo
       none_added: Bado hakuna notisi za idadi ya vifo zilizowekwa kwenye sehemu hii ya kazi.
-      one: Notisi ya idadi ya vifo
       operations_in: Shughuli zinazofanywa katika %{location}
-      other: Notisi za idadi ya vifo
     field_of_operation:
       context:
       title:
@@ -417,6 +281,14 @@ sw:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one:
+        other:
+    form:
+      name:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -458,8 +330,33 @@ sw:
       updated:
       your_views:
     government_response:
-      one: Hatua iliyochukuliwa na serikali
-      other: Hatua zilizochukuliwa na serikali
+      name:
+        one: Hatua iliyochukuliwa na serikali
+        other: Hatua zilizochukuliwa na serikali
+    guidance:
+      name:
+        one:
+        other:
+    impact_assessment:
+      name:
+        one:
+        other:
+    imported:
+      name:
+        one:
+        other:
+    independent_report:
+      name:
+        one:
+        other:
+    international_development_fund:
+      name:
+        one:
+        other:
+    international_treaty:
+      name:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -513,29 +410,125 @@ sw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one:
+        other:
+    map:
+      name:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        one:
+        other:
+    national:
+      name:
+        one:
+        other:
+    national_statistics:
+      name:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        one:
+        other:
     news_article:
-      one: Makala ya habari
-      other: Makala ya habari
+      name:
+        one: Makala ya habari
+        other: Makala ya habari
     news_story:
-      one: Taarifa ya habari
-      other: Taarifa za habari
+      name:
+        one: Taarifa ya habari
+        other: Taarifa za habari
+    notice:
+      name:
+        one:
+        other:
+    official:
+      name:
+        one:
+        other:
+    official_statistics:
+      name:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one:
+        other:
     oral_statement:
-      one: Taarifa ya Matamshi kwa Bunge
-      other: Taarifa za Matamshi kwa Bunge
+      name:
+        one: Taarifa ya Matamshi kwa Bunge
+        other: Taarifa za Matamshi kwa Bunge
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one:
+        other:
+    policy_paper:
+      name:
+        one:
+        other:
     press_release:
-      one: Taarifa kwa vyombo vya habari
-      other: Taarifa kwa vyombo vya habari
+      name:
+        one: Taarifa kwa vyombo vya habari
+        other: Taarifa kwa vyombo vya habari
+    product-safety-alert-report-recall:
+      name:
+        one:
+        other:
+    promotional:
+      name:
+        one:
+        other:
+    publication:
+      name:
+        one:
+        other:
+    raib_report:
+      name:
+        one:
+        other:
+    regulation:
+      name:
+        one:
+        other:
+    research:
+      name:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        one:
+        other:
+    service_sign_in:
+      name:
+        one:
+        other:
+    service_standard_report:
+      name:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Nembo ya mpango ni muhuri mweusi wenye maneno Designated Origin UK Protected
@@ -544,13 +537,39 @@ sw:
     speech:
       delivered_on: Iliwasilishwa mnamo
       location: Mahali
-      one: Hotuba
-      other: Hotuba
+      name:
+        one: Hotuba
+        other: Hotuba
       written_on: Iliandikwa mnamo
+    standard:
+      name:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        one:
+        other:
     take_part:
-      one: Shiriki
-      other: Shiriki
+      name:
+        one: Shiriki
+        other: Shiriki
+    tax_tribunal_decision:
+      name:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -558,6 +577,14 @@ sw:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one:
+        other:
+    transparency:
+      name:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote isipokuwa usafiri muhimu katika sehemu fulani za nchi.
@@ -569,12 +596,18 @@ sw:
       still_current_at: Bado unapatikana katika
       summary: Muhtasari
       updated: Ulisasishwa
+    utaac_decision:
+      name:
+        one:
+        other:
     world_news_story:
-      one: Taarifa ya habari za kimataifa
-      other: Taarifa za habari za kimataifa
+      name:
+        one: Taarifa ya habari za kimataifa
+        other: Taarifa za habari za kimataifa
     written_statement:
-      one: Taarifa ya Maandishi kwa Bunge
-      other: Taarifa za Maandishi kwa Bunge
+      name:
+        one: Taarifa ya Maandishi kwa Bunge
+        other: Taarifa za Maandishi kwa Bunge
   help:
     index:
       about:

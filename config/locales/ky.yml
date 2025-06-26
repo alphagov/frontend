@@ -151,226 +151,6 @@ ky:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        one: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчету
-        other: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчеттору
-      announcement:
-        one: Кулактандыруу
-        other: Кулактандыруулар
-      asylum_support_decision:
-        one: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечими
-        other: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечимдери
-      authored_article:
-        one: Макаланын автору
-        other: Макалалардын автору
-      business_finance_support_scheme:
-        one: Бизнести каржылоону колдоочу схема
-        other: Бизнести каржылоону колдоочу схемалар
-      case_study:
-        one: Окуяны изилдөө
-        other: Окуяларды изилдөө
-      closed_consultation:
-        one: Жабык түрдө консультация
-        other: Жабык түрдө консультациялар
-      cma_case:
-        one: Атаандаштыкты жана рынокту башкаруу иши
-        other: Атаандаштыкты жана рынокту башкаруу иштери
-      consultation:
-        one: Консультация
-        other: Консультациялар
-      consultation_outcome:
-        one: Консультациянын натыйжасы
-        other: Консультациянын натыйжалары
-      corporate_information_page:
-        one: Маалымат баракчасы
-        other: Маалымат баракчалары
-      corporate_report:
-        one: Корпоративдик отчет
-        other: Корпоративдик отчеттор
-      correspondence:
-        one: Корреспонденция
-        other: Корреспонденциялар
-      countryside_stewardship_grant:
-        one: Айылдык аймактарды башкаруу боюнча грант
-        other: Айылдык аймактарды башкаруу боюнча гранттар
-      decision:
-        one: Чечим
-        other: Чечимдер
-      detailed_guide:
-        one: Жетектеме
-        other: Жетектеме
-      dfid_research_output:
-        one: Өнүгүү үчүн изилдөөнүн натыйжасы
-        other: Өнүгүү үчүн изилдөөнүн натыйжалары
-      document_collection:
-        one: Жыйнак
-        other: Жыйнактар
-      draft_text:
-        one: Сомдомо тексти
-        other: Сомдомо тексттери
-      drug_safety_update:
-        one: Дары каражаттарынын коопсуздугу боюнча жаңыртуу
-        other: Дары каражаттарынын коопсуздугу боюнча жаңыртуулар
-      employment_appeal_tribunal_decision:
-        one: Эмгек арыздары боюнча апелляциялык соттун чечими
-        other: Эмгек арыздары боюнча апелляциялык соттун чечимдери
-      employment_tribunal_decision:
-        one: Эмгек боюнча апелляциялык соттун чечими
-        other: Эмгек боюнча апелляциялык соттун чечимдери
-      esi_fund:
-        one: Европалык структуралык жана инвестиция фонду (ESIF)
-        other: Европалык структуралык жана инвестиция фонддору (ESIF)
-      fatality_notice:
-        one: Өлүм тууралуу билдирүү
-        other: Өлүм тууралуу билдирүүлөр
-      foi_release:
-        one: FOI чыгарылышы
-        other: FOI чыгарылыштары
-      form:
-        one: Форма
-        other: Формалар
-      government_response:
-        one: Өкмөттүн реакциясы
-        other: Өкмөттүн реакциялары
-      guidance:
-        one: Жетектеме
-        other: Жетектеме
-      impact_assessment:
-        one: Таасирдин баалоосу
-        other: Таасирдин баалоолору
-      imported:
-        one: импорттолгон - күтүүчү түр
-        other: импорттолгон - күтүүчү түр
-      independent_report:
-        one: Көз карандысыз отчет
-        other: Көз карандысыз отчеттор
-      international_development_fund:
-        one: Өнүгүүнүн эл аралык каржылоосу
-        other: Өнүгүүнүн эл аралык каржылоосу
-      international_treaty:
-        one: Эл аралык келишим
-        other: Эл аралык келишимдер
-      maib_report:
-        one: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчету
-        other: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
-      map:
-        one: Карта
-        other: Карталар
-      medical_safety_alert:
-        one: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
-        other: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
-      national:
-        one: Аккредиттелген расмий статистикалык кулактандыруу
-        other: Аккредиттелген расмий статистикалык кулактандыруулар
-      national_statistics:
-        one: Аккредиттелген расмий статистика
-        other: Аккредиттелген расмий статистика
-      national_statistics_announcement:
-        one: Аккредиттелген расмий статистикалык кулактандыруу
-        other: Аккредиттелген расмий статистикалык кулактандыруулар
-      news_article:
-        one: Жаңылыктар макаласы
-        other: Жаңылыктар макалалар
-      news_story:
-        one: Жаңылыктар тарыхчасы
-        other: Жаңылыктар тарыхчалары
-      notice:
-        one: Эскертүү
-        other: Эскертүүлөр
-      official:
-        one: Расмий статистикалык кулактандыруу
-        other: Расмий статистикалык кулактандыруулар
-      official_statistics:
-        one: Расмий статистика
-        other: Расмий статистикалар
-      official_statistics_announcement:
-        one: Расмий статистикалык кулактандыруу
-        other: Расмий статистикалык кулактандыруулар
-      open_consultation:
-        one: Ачык консультация
-        other: Ачык консультациялар
-      oral_statement:
-        one: Парламентте ооз эки арыз
-        other: Парламентте ооз эки арыздар
-      policy:
-        one: Саясат
-        other: Саясаттар
-      policy_paper:
-        one: Саясий документ
-        other: Саясий документтер
-      press_release:
-        one: Пресс-релиз
-        other: Пресс-релиздер
-      product-safety-alert-report-recall:
-        one: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
-        other: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
-      promotional:
-        one: Жарнама материалдары
-        other: Жарнама материалдары
-      publication:
-        one: Жарыялоо
-        other: Жарыялоолор
-      raib_report:
-        one: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчету
-        other: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчеттору
-      regulation:
-        one: Жөнгө салуу
-        other: Жөнгө салуулар
-      research:
-        one: Изилдөө жана талдоо
-        other: Изилдөө жана талдоо
-      residential_property_tribunal_decision:
-        one: Турак-жай менчиги боюнча соттун чечими
-        other: Турак-жай менчиги боюнча соттун чечимдери
-      service_sign_in:
-        one: Кызматка кирүү
-        other: Кызматка кирүү
-      service_standard_report:
-        one: Кызмат көрсөтүү стандарттары боюнча отчет
-        other: Кызмат көрсөтүү стандарттары боюнча отчеттор
-      speaking_notes:
-        one: Чыгып сүйлөө боюнча эскертүүлөр
-        other: Чыгып сүйлөө боюнча эскертүүлөр
-      speech:
-        one: Сөз
-        other: Сөздөр
-      standard:
-        one: Стандарт
-        other: Стандарттар
-      statement_to_parliament:
-        one: Парламентте арыз
-        other: Парламентте арыздар
-      statistical_data_set:
-        one: Статистикалык дайындардын топтому
-        other: Статистикалык дайындардын топтомдору
-      statistics_announcement:
-        one: Статистиканы чыгаруу кулактандыруусу
-        other: Статистиканы чыгаруу кулактандыруулары
-      statutory_guidance:
-        one: Нормативдик жетектеме
-        other: Нормативдик жетектеме
-      take_part:
-        one:
-        other:
-      tax_tribunal_decision:
-        one: Салык жана канцелярия трибуналынын чечими
-        other: Салык жана канцелярия трибуналынын чечимдери
-      transcript:
-        one: Стенограмма
-        other: Стенограммалар
-      transparency:
-        one: Дайындардын тунуктугу
-        other: Дайындардын тунуктугу
-      utaac_decision:
-        one: Административдик аппелляция трибуналынын чечими
-        other: Административдик аппелляция трибуналынын чечимдери
-      world_news_story:
-        one: Дүйнөлүк жаңылыктар тарыхчасы
-        other: Дүйнөлүк жаңылыктар тарыхчалары
-      written_statement:
-        one: Парламентте жазуу түрүндө арыз
-        other: Парламентте жазуу түрүндө арыздар
   electoral:
     registration:
       description:
@@ -388,26 +168,112 @@ ky:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        one: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчету
+        other: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчеттору
+    announcement:
+      name:
+        one: Кулактандыруу
+        other: Кулактандыруулар
+    asylum_support_decision:
+      name:
+        one: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечими
+        other: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечимдери
     authored_article:
-      one: Макаланын автору
-      other: Макалалардын автору
+      name:
+        one: Макаланын автору
+        other: Макалалардын автору
+    business_finance_support_scheme:
+      name:
+        one: Бизнести каржылоону колдоочу схема
+        other: Бизнести каржылоону колдоочу схемалар
     case_study:
-      one: Окуяны изилдөө
-      other: Окуяларды изилдөө
+      name:
+        one: Окуяны изилдөө
+        other: Окуяларды изилдөө
+    closed_consultation:
+      name:
+        one: Жабык түрдө консультация
+        other: Жабык түрдө консультациялар
+    cma_case:
+      name:
+        one: Атаандаштыкты жана рынокту башкаруу иши
+        other: Атаандаштыкты жана рынокту башкаруу иштери
+    consultation:
+      name:
+        one: Консультация
+        other: Консультациялар
+    consultation_outcome:
+      name:
+        one: Консультациянын натыйжасы
+        other: Консультациянын натыйжалары
     corporate_information_page:
       about_our_services_html: Аныктоо %{link}.
       corporate_information: Корпоративдик маалымат
+      name:
+        one: Маалымат баракчасы
+        other: Маалымат баракчалары
       personal_information_charter_html: Биздин %{link} жеке маалыматыңызга кандай мамиле кылганыбызды түшүндүрөт.
       publication_scheme_html: Биз дайыма жарыялап турган маалыматтын түрлөрү жөнүндө %{link} баракчабыздан окуңуз.
       social_media_use_html: Саясатыбызды %{link} сайтынан окуп чыгыңыз.
       welsh_language_scheme_html: "%{link} боюнча милдеттенмебиз жөнүндө билип алыңыз."
+    corporate_report:
+      name:
+        one: Корпоративдик отчет
+        other: Корпоративдик отчеттор
+    correspondence:
+      name:
+        one: Корреспонденция
+        other: Корреспонденциялар
+    countryside_stewardship_grant:
+      name:
+        one: Айылдык аймактарды башкаруу боюнча грант
+        other: Айылдык аймактарды башкаруу боюнча гранттар
+    decision:
+      name:
+        one: Чечим
+        other: Чечимдер
+    detailed_guide:
+      name:
+        one: Жетектеме
+        other: Жетектеме
+    dfid_research_output:
+      name:
+        one: Өнүгүү үчүн изилдөөнүн натыйжасы
+        other: Өнүгүү үчүн изилдөөнүн натыйжалары
+    document_collection:
+      name:
+        one: Жыйнак
+        other: Жыйнактар
+    draft_text:
+      name:
+        one: Сомдомо тексти
+        other: Сомдомо тексттери
+    drug_safety_update:
+      name:
+        one: Дары каражаттарынын коопсуздугу боюнча жаңыртуу
+        other: Дары каражаттарынын коопсуздугу боюнча жаңыртуулар
+    employment_appeal_tribunal_decision:
+      name:
+        one: Эмгек арыздары боюнча апелляциялык соттун чечими
+        other: Эмгек арыздары боюнча апелляциялык соттун чечимдери
+    employment_tribunal_decision:
+      name:
+        one: Эмгек боюнча апелляциялык соттун чечими
+        other: Эмгек боюнча апелляциялык соттун чечимдери
+    esi_fund:
+      name:
+        one: Европалык структуралык жана инвестиция фонду (ESIF)
+        other: Европалык структуралык жана инвестиция фонддору (ESIF)
     fatality_notice:
       alt_text:
       field_of_operation:
+      name:
+        one: Өлүм тууралуу билдирүү
+        other: Өлүм тууралуу билдирүүлөр
       none_added:
-      one: Өлүм тууралуу билдирүү
       operations_in:
-      other: Өлүм тууралуу билдирүүлөр
     field_of_operation:
       context:
       title:
@@ -415,6 +281,14 @@ ky:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        one: FOI чыгарылышы
+        other: FOI чыгарылыштары
+    form:
+      name:
+        one: Форма
+        other: Формалар
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -456,8 +330,33 @@ ky:
       updated:
       your_views:
     government_response:
-      one: Өкмөттүн реакциясы
-      other: Өкмөттүн реакциялары
+      name:
+        one: Өкмөттүн реакциясы
+        other: Өкмөттүн реакциялары
+    guidance:
+      name:
+        one: Жетектеме
+        other: Жетектеме
+    impact_assessment:
+      name:
+        one: Таасирдин баалоосу
+        other: Таасирдин баалоолору
+    imported:
+      name:
+        one: импорттолгон - күтүүчү түр
+        other: импорттолгон - күтүүчү түр
+    independent_report:
+      name:
+        one: Көз карандысыз отчет
+        other: Көз карандысыз отчеттор
+    international_development_fund:
+      name:
+        one: Өнүгүүнүн эл аралык каржылоосу
+        other: Өнүгүүнүн эл аралык каржылоосу
+    international_treaty:
+      name:
+        one: Эл аралык келишим
+        other: Эл аралык келишимдер
     licence:
       change:
     local_transaction:
@@ -511,29 +410,125 @@ ky:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        one: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчету
+        other: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
+    map:
+      name:
+        one: Карта
+        other: Карталар
+    medical_safety_alert:
+      name:
+        one: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
+        other: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
+    national:
+      name:
+        one: Аккредиттелген расмий статистикалык кулактандыруу
+        other: Аккредиттелген расмий статистикалык кулактандыруулар
+    national_statistics:
+      name:
+        one: Аккредиттелген расмий статистика
+        other: Аккредиттелген расмий статистика
+    national_statistics_announcement:
+      name:
+        one: Аккредиттелген расмий статистикалык кулактандыруу
+        other: Аккредиттелген расмий статистикалык кулактандыруулар
     news_article:
-      one: Жаңылыктар макаласы
-      other: Жаңылыктар макалалары
+      name:
+        one: Жаңылыктар макаласы
+        other: Жаңылыктар макалалары
     news_story:
-      one: Жаңылыктар тарыхчасы
-      other: Жаңылыктар тарыхчалары
+      name:
+        one: Жаңылыктар тарыхчасы
+        other: Жаңылыктар тарыхчалары
+    notice:
+      name:
+        one: Эскертүү
+        other: Эскертүүлөр
+    official:
+      name:
+        one: Расмий статистикалык кулактандыруу
+        other: Расмий статистикалык кулактандыруулар
+    official_statistics:
+      name:
+        one: Расмий статистика
+        other: Расмий статистикалар
+    official_statistics_announcement:
+      name:
+        one: Расмий статистикалык кулактандыруу
+        other: Расмий статистикалык кулактандыруулар
+    open_consultation:
+      name:
+        one: Ачык консультация
+        other: Ачык консультациялар
     oral_statement:
-      one: Парламентте ооз эки арыз
-      other: Парламентте ооз эки арыздар
+      name:
+        one: Парламентте ооз эки арыз
+        other: Парламентте ооз эки арыздар
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        one: Саясат
+        other: Саясаттар
+    policy_paper:
+      name:
+        one: Саясий документ
+        other: Саясий документтер
     press_release:
-      one: Пресс-релиз
-      other: Пресс-релиздер
+      name:
+        one: Пресс-релиз
+        other: Пресс-релиздер
+    product-safety-alert-report-recall:
+      name:
+        one: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
+        other: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
+    promotional:
+      name:
+        one: Жарнама материалдары
+        other: Жарнама материалдары
+    publication:
+      name:
+        one: Жарыялоо
+        other: Жарыялоолор
+    raib_report:
+      name:
+        one: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчету
+        other: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчеттору
+    regulation:
+      name:
+        one: Жөнгө салуу
+        other: Жөнгө салуулар
+    research:
+      name:
+        one: Изилдөө жана талдоо
+        other: Изилдөө жана талдоо
+    residential_property_tribunal_decision:
+      name:
+        one: Турак-жай менчиги боюнча соттун чечими
+        other: Турак-жай менчиги боюнча соттун чечимдери
+    service_sign_in:
+      name:
+        one: Кызматка кирүү
+        other: Кызматка кирүү
+    service_standard_report:
+      name:
+        one: Кызмат көрсөтүү стандарттары боюнча отчет
+        other: Кызмат көрсөтүү стандарттары боюнча отчеттор
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        one: Чыгып сүйлөө боюнча эскертүүлөр
+        other: Чыгып сүйлөө боюнча эскертүүлөр
     specialist_document:
       protection_image:
         pdo_alt_text: Схема логотиби деген жазуусу бар кара мөөр болуп саналат
@@ -542,13 +537,39 @@ ky:
     speech:
       delivered_on: Жеткирилген күнү
       location: Жайгашкан жер
-      one: Сөз
-      other: Сөздөр
+      name:
+        one: Сөз
+        other: Сөздөр
       written_on: Жазылган күн
+    standard:
+      name:
+        one: Стандарт
+        other: Стандарттар
     start_now:
+    statement_to_parliament:
+      name:
+        one: Парламентте арыз
+        other: Парламентте арыздар
+    statistical_data_set:
+      name:
+        one: Статистикалык дайындардын топтому
+        other: Статистикалык дайындардын топтомдору
+    statistics_announcement:
+      name:
+        one: Статистиканы чыгаруу кулактандыруусу
+        other: Статистиканы чыгаруу кулактандыруулары
+    statutory_guidance:
+      name:
+        one: Нормативдик жетектеме
+        other: Нормативдик жетектеме
     take_part:
-      one:
-      other:
+      name:
+        one:
+        other:
+    tax_tribunal_decision:
+      name:
+        one: Салык жана канцелярия трибуналынын чечими
+        other: Салык жана канцелярия трибуналынын чечимдери
     transaction:
       before_you_start:
       more_information:
@@ -556,6 +577,14 @@ ky:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        one: Стенограмма
+        other: Стенограммалар
+    transparency:
+      name:
+        one: Дайындардын тунуктугу
+        other: Дайындардын тунуктугу
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html:
@@ -567,12 +596,18 @@ ky:
       still_current_at:
       summary:
       updated:
+    utaac_decision:
+      name:
+        one: Административдик аппелляция трибуналынын чечими
+        other: Административдик аппелляция трибуналынын чечимдери
     world_news_story:
-      one: Дүйнөлүк жаңылыктар тарыхчасы
-      other: Дүйнөлүк жаңылыктар тарыхчалары
+      name:
+        one: Дүйнөлүк жаңылыктар тарыхчасы
+        other: Дүйнөлүк жаңылыктар тарыхчалары
     written_statement:
-      one: Парламентте жазуу түрүндө арыз
-      other: Парламентте жазуу түрүндө арыздар
+      name:
+        one: Парламентте жазуу түрүндө арыз
+        other: Парламентте жазуу түрүндө арыздар
   help:
     index:
       about:

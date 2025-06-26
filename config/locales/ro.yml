@@ -151,299 +151,6 @@ ro:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        few:
-        one:
-        other:
-      announcement:
-        few:
-        one:
-        other:
-      asylum_support_decision:
-        few:
-        one:
-        other:
-      authored_article:
-        few:
-        one:
-        other:
-      business_finance_support_scheme:
-        few:
-        one:
-        other:
-      case_study:
-        few:
-        one:
-        other:
-      closed_consultation:
-        few:
-        one:
-        other:
-      cma_case:
-        few:
-        one:
-        other:
-      consultation:
-        few:
-        one:
-        other:
-      consultation_outcome:
-        few:
-        one:
-        other:
-      corporate_information_page:
-        few:
-        one:
-        other:
-      corporate_report:
-        few:
-        one:
-        other:
-      correspondence:
-        few:
-        one:
-        other:
-      countryside_stewardship_grant:
-        few:
-        one:
-        other:
-      decision:
-        few:
-        one:
-        other:
-      detailed_guide:
-        few:
-        one:
-        other:
-      dfid_research_output:
-        few:
-        one:
-        other:
-      document_collection:
-        few:
-        one:
-        other:
-      draft_text:
-        few:
-        one:
-        other:
-      drug_safety_update:
-        few:
-        one:
-        other:
-      employment_appeal_tribunal_decision:
-        few:
-        one:
-        other:
-      employment_tribunal_decision:
-        few:
-        one:
-        other:
-      esi_fund:
-        few:
-        one:
-        other:
-      fatality_notice:
-        few:
-        one:
-        other:
-      foi_release:
-        few:
-        one:
-        other:
-      form:
-        few:
-        one:
-        other:
-      government_response:
-        few:
-        one:
-        other:
-      guidance:
-        few:
-        one:
-        other:
-      impact_assessment:
-        few:
-        one:
-        other:
-      imported:
-        few:
-        one:
-        other:
-      independent_report:
-        few:
-        one:
-        other:
-      international_development_fund:
-        few:
-        one:
-        other:
-      international_treaty:
-        few:
-        one:
-        other:
-      maib_report:
-        few:
-        one:
-        other:
-      map:
-        few:
-        one:
-        other:
-      medical_safety_alert:
-        few:
-        one:
-        other:
-      national:
-        few:
-        one:
-        other:
-      national_statistics:
-        few:
-        one:
-        other:
-      national_statistics_announcement:
-        few:
-        one:
-        other:
-      news_article:
-        few:
-        one:
-        other:
-      news_story:
-        few:
-        one:
-        other:
-      notice:
-        few:
-        one:
-        other:
-      official:
-        few:
-        one:
-        other:
-      official_statistics:
-        few:
-        one:
-        other:
-      official_statistics_announcement:
-        few:
-        one:
-        other:
-      open_consultation:
-        few:
-        one:
-        other:
-      oral_statement:
-        few:
-        one:
-        other:
-      policy:
-        few:
-        one:
-        other:
-      policy_paper:
-        few:
-        one:
-        other:
-      press_release:
-        few:
-        one:
-        other:
-      product-safety-alert-report-recall:
-        few:
-        one:
-        other:
-      promotional:
-        few:
-        one:
-        other:
-      publication:
-        few:
-        one:
-        other:
-      raib_report:
-        few:
-        one:
-        other:
-      regulation:
-        few:
-        one:
-        other:
-      research:
-        few:
-        one:
-        other:
-      residential_property_tribunal_decision:
-        few:
-        one:
-        other:
-      service_sign_in:
-        few:
-        one:
-        other:
-      service_standard_report:
-        few:
-        one:
-        other:
-      speaking_notes:
-        few:
-        one:
-        other:
-      speech:
-        few:
-        one:
-        other:
-      standard:
-        few:
-        one:
-        other:
-      statement_to_parliament:
-        few:
-        one:
-        other:
-      statistical_data_set:
-        few:
-        one:
-        other:
-      statistics_announcement:
-        few:
-        one:
-        other:
-      statutory_guidance:
-        few:
-        one:
-        other:
-      take_part:
-        few:
-        one:
-        other:
-      tax_tribunal_decision:
-        few:
-        one:
-        other:
-      transcript:
-        few:
-        one:
-        other:
-      transparency:
-        few:
-        one:
-        other:
-      utaac_decision:
-        few:
-        one:
-        other:
-      world_news_story:
-        few:
-        one:
-        other:
-      written_statement:
-        few:
-        one:
-        other:
   electoral:
     registration:
       description:
@@ -461,32 +168,136 @@ ro:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        few:
+        one:
+        other:
+    announcement:
+      name:
+        few:
+        one:
+        other:
+    asylum_support_decision:
+      name:
+        few:
+        one:
+        other:
     authored_article:
-      few:
-      one: Articol publicat
-      other: Articole publicate
+      name:
+        few:
+        one: Articol publicat
+        other: Articole publicate
+    business_finance_support_scheme:
+      name:
+        few:
+        one:
+        other:
     case_study:
-      few:
-      one: Studiu de caz
-      other: Studii de caz
+      name:
+        few:
+        one: Studiu de caz
+        other: Studii de caz
+    closed_consultation:
+      name:
+        few:
+        one:
+        other:
+    cma_case:
+      name:
+        few:
+        one:
+        other:
+    consultation:
+      name:
+        few:
+        one:
+        other:
+    consultation_outcome:
+      name:
+        few:
+        one:
+        other:
     corporate_information_page:
       about_our_services_html: Aflați %{link}.
       corporate_information: Informații despre corporație
-      few:
-      one: Pagina de informații
-      other: Pagini de informații
+      name:
+        few:
+        one: Pagina de informații
+        other: Pagini de informații
       personal_information_charter_html: "%{link} explică cum tratăm informațiile dvs. cu caracter personal."
       publication_scheme_html: Citiți despre tipurile de informații pe care le publicăm de obicei în %{link}.
       social_media_use_html: Citiți politica noastră pe %{link}.
       welsh_language_scheme_html: Aflați mai multe despre angajamentul nostru pentru %{link}.
+    corporate_report:
+      name:
+        few:
+        one:
+        other:
+    correspondence:
+      name:
+        few:
+        one:
+        other:
+    countryside_stewardship_grant:
+      name:
+        few:
+        one:
+        other:
+    decision:
+      name:
+        few:
+        one:
+        other:
+    detailed_guide:
+      name:
+        few:
+        one:
+        other:
+    dfid_research_output:
+      name:
+        few:
+        one:
+        other:
+    document_collection:
+      name:
+        few:
+        one:
+        other:
+    draft_text:
+      name:
+        few:
+        one:
+        other:
+    drug_safety_update:
+      name:
+        few:
+        one:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    employment_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    esi_fund:
+      name:
+        few:
+        one:
+        other:
     fatality_notice:
       alt_text: Emblema Ministerului Apărării
-      few:
       field_of_operation: Domeniul de activitate
+      name:
+        few:
+        one: Notificare accident mortal
+        other: Notificări accident mortal
       none_added: Încă nu au fost adăugate notificări de accidente mortale în acest domeniu de activitate.
-      one: Notificare accident mortal
       operations_in: Operațiuni în %{location}
-      other: Notificări accident mortal
     field_of_operation:
       context:
       title:
@@ -494,6 +305,16 @@ ro:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        few:
+        one:
+        other:
+    form:
+      name:
+        few:
+        one:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -535,9 +356,40 @@ ro:
       updated:
       your_views:
     government_response:
-      few:
-      one: Răspunsul guvernului
-      other: Răspunsurile guvernului
+      name:
+        few:
+        one: Răspunsul guvernului
+        other: Răspunsurile guvernului
+    guidance:
+      name:
+        few:
+        one:
+        other:
+    impact_assessment:
+      name:
+        few:
+        one:
+        other:
+    imported:
+      name:
+        few:
+        one:
+        other:
+    independent_report:
+      name:
+        few:
+        one:
+        other:
+    international_development_fund:
+      name:
+        few:
+        one:
+        other:
+    international_treaty:
+      name:
+        few:
+        one:
+        other:
     licence:
       change:
     local_transaction:
@@ -591,33 +443,152 @@ ro:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        few:
+        one:
+        other:
+    map:
+      name:
+        few:
+        one:
+        other:
+    medical_safety_alert:
+      name:
+        few:
+        one:
+        other:
+    national:
+      name:
+        few:
+        one:
+        other:
+    national_statistics:
+      name:
+        few:
+        one:
+        other:
+    national_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
     news_article:
-      few:
-      one: Articol de știri
-      other: Articole de știri
+      name:
+        few:
+        one: Articol de știri
+        other: Articole de știri
     news_story:
-      few:
-      one: Reportaj de știri
-      other: Reportaje de știri
+      name:
+        few:
+        one: Reportaj de știri
+        other: Reportaje de știri
+    notice:
+      name:
+        few:
+        one:
+        other:
+    official:
+      name:
+        few:
+        one:
+        other:
+    official_statistics:
+      name:
+        few:
+        one:
+        other:
+    official_statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+    open_consultation:
+      name:
+        few:
+        one:
+        other:
     oral_statement:
-      few:
-      one: Expunere orală către Parlament
-      other: Expuneri orale către Parlament
+      name:
+        few:
+        one: Expunere orală către Parlament
+        other: Expuneri orale către Parlament
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        few:
+        one:
+        other:
+    policy_paper:
+      name:
+        few:
+        one:
+        other:
     press_release:
-      few:
-      one: Comunicat de presă
-      other: Comunicate de presă
+      name:
+        few:
+        one: Comunicat de presă
+        other: Comunicate de presă
+    product-safety-alert-report-recall:
+      name:
+        few:
+        one:
+        other:
+    promotional:
+      name:
+        few:
+        one:
+        other:
+    publication:
+      name:
+        few:
+        one:
+        other:
+    raib_report:
+      name:
+        few:
+        one:
+        other:
+    regulation:
+      name:
+        few:
+        one:
+        other:
+    research:
+      name:
+        few:
+        one:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
+    service_sign_in:
+      name:
+        few:
+        one:
+        other:
+    service_standard_report:
+      name:
+        few:
+        one:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        few:
+        one:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: Logoul schemei este un timbru negru cu cuvintele Designated Origin UK Protected
@@ -625,16 +596,48 @@ ro:
         tsg_alt_text: Logoul schemei este un timbru negru cu cuvintele Traditional Speciality UK Protected
     speech:
       delivered_on: Livrat pe
-      few:
       location: Locație
-      one: Discurs
-      other: Discursuri
+      name:
+        few:
+        one: Discurs
+        other: Discursuri
       written_on: Scris pe
+    standard:
+      name:
+        few:
+        one:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        few:
+        one:
+        other:
+    statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+    statistics_announcement:
+      name:
+        few:
+        one:
+        other:
+    statutory_guidance:
+      name:
+        few:
+        one:
+        other:
     take_part:
-      few:
-      one: Participă
-      other: Participă
+      name:
+        few:
+        one: Participă
+        other: Participă
+    tax_tribunal_decision:
+      name:
+        few:
+        one:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -642,6 +645,16 @@ ro:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        few:
+        one:
+        other:
+    transparency:
+      name:
+        few:
+        one:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile neesențiale în anumite părți ale țării.
@@ -653,14 +666,21 @@ ro:
       still_current_at: În acest moment la
       summary: Rezumat
       updated: Actualizat
+    utaac_decision:
+      name:
+        few:
+        one:
+        other:
     world_news_story:
-      few:
-      one: Reportaj de știri global
-      other: Reportaje de știri globale
+      name:
+        few:
+        one: Reportaj de știri global
+        other: Reportaje de știri globale
     written_statement:
-      few:
-      one: Declarație scrisă către Parlament
-      other: Declarații scrise către Parlament
+      name:
+        few:
+        one: Declarație scrisă către Parlament
+        other: Declarații scrise către Parlament
   help:
     index:
       about:

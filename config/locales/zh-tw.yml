@@ -151,153 +151,6 @@ zh-tw:
     access_limited:
       body:
       title:
-    document_type:
-      aaib_report:
-        other:
-      announcement:
-        other:
-      asylum_support_decision:
-        other:
-      authored_article:
-        other:
-      business_finance_support_scheme:
-        other:
-      case_study:
-        other:
-      closed_consultation:
-        other:
-      cma_case:
-        other:
-      consultation:
-        other:
-      consultation_outcome:
-        other:
-      corporate_information_page:
-        other:
-      corporate_report:
-        other:
-      correspondence:
-        other:
-      countryside_stewardship_grant:
-        other:
-      decision:
-        other:
-      detailed_guide:
-        other:
-      dfid_research_output:
-        other:
-      document_collection:
-        other:
-      draft_text:
-        other:
-      drug_safety_update:
-        other:
-      employment_appeal_tribunal_decision:
-        other:
-      employment_tribunal_decision:
-        other:
-      esi_fund:
-        other:
-      fatality_notice:
-        other:
-      foi_release:
-        other:
-      form:
-        other:
-      government_response:
-        other:
-      guidance:
-        other:
-      impact_assessment:
-        other:
-      imported:
-        other:
-      independent_report:
-        other:
-      international_development_fund:
-        other:
-      international_treaty:
-        other:
-      maib_report:
-        other:
-      map:
-        other:
-      medical_safety_alert:
-        other:
-      national:
-        other:
-      national_statistics:
-        other:
-      national_statistics_announcement:
-        other:
-      news_article:
-        other:
-      news_story:
-        other:
-      notice:
-        other:
-      official:
-        other:
-      official_statistics:
-        other:
-      official_statistics_announcement:
-        other:
-      open_consultation:
-        other:
-      oral_statement:
-        other:
-      policy:
-        other:
-      policy_paper:
-        other:
-      press_release:
-        other:
-      product-safety-alert-report-recall:
-        other:
-      promotional:
-        other:
-      publication:
-        other:
-      raib_report:
-        other:
-      regulation:
-        other:
-      research:
-        other:
-      residential_property_tribunal_decision:
-        other:
-      service_sign_in:
-        other:
-      service_standard_report:
-        other:
-      speaking_notes:
-        other:
-      speech:
-        other:
-      standard:
-        other:
-      statement_to_parliament:
-        other:
-      statistical_data_set:
-        other:
-      statistics_announcement:
-        other:
-      statutory_guidance:
-        other:
-      take_part:
-        other:
-      tax_tribunal_decision:
-        other:
-      transcript:
-        other:
-      transparency:
-        other:
-      utaac_decision:
-        other:
-      world_news_story:
-        other:
-      written_statement:
-        other:
   electoral:
     registration:
       description:
@@ -315,24 +168,88 @@ zh-tw:
   error:
   find:
   formats:
+    aaib_report:
+      name:
+        other:
+    announcement:
+      name:
+        other:
+    asylum_support_decision:
+      name:
+        other:
     authored_article:
-      other: 授權文章
+      name:
+        other: 授權文章
+    business_finance_support_scheme:
+      name:
+        other:
     case_study:
-      other: 案例分析
+      name:
+        other: 案例分析
+    closed_consultation:
+      name:
+        other:
+    cma_case:
+      name:
+        other:
+    consultation:
+      name:
+        other:
+    consultation_outcome:
+      name:
+        other:
     corporate_information_page:
       about_our_services_html: 了解 %{link}。
       corporate_information: 公司資訊
-      other: 資訊頁
+      name:
+        other: 資訊頁
       personal_information_charter_html: 我們的 %{link} 說明了我們是如何處理你的個資。
       publication_scheme_html: 閱讀我們在 %{link} 中定期發布的資訊類型。
       social_media_use_html: 在 %{link} 上閱讀我們政策。
       welsh_language_scheme_html: 了解我們對 %{link} 的承諾。
+    corporate_report:
+      name:
+        other:
+    correspondence:
+      name:
+        other:
+    countryside_stewardship_grant:
+      name:
+        other:
+    decision:
+      name:
+        other:
+    detailed_guide:
+      name:
+        other:
+    dfid_research_output:
+      name:
+        other:
+    document_collection:
+      name:
+        other:
+    draft_text:
+      name:
+        other:
+    drug_safety_update:
+      name:
+        other:
+    employment_appeal_tribunal_decision:
+      name:
+        other:
+    employment_tribunal_decision:
+      name:
+        other:
+    esi_fund:
+      name:
+        other:
     fatality_notice:
       alt_text: 國防部紋章
       field_of_operation: 經營領域
+      name:
+        other: 死亡通知
       none_added: 尚未為該操作領域新增死亡通知。
       operations_in: 在 %{location} 的領域
-      other: 死亡通知
     field_of_operation:
       context:
       title:
@@ -340,6 +257,12 @@ zh-tw:
       context:
     find_my_nearest:
       valid_postcode_no_locations:
+    foi_release:
+      name:
+        other:
+    form:
+      name:
+        other:
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -381,7 +304,26 @@ zh-tw:
       updated:
       your_views:
     government_response:
-      other: 政府回應
+      name:
+        other: 政府回應
+    guidance:
+      name:
+        other:
+    impact_assessment:
+      name:
+        other:
+    imported:
+      name:
+        other:
+    independent_report:
+      name:
+        other:
+    international_development_fund:
+      name:
+        other:
+    international_treaty:
+      name:
+        other:
     licence:
       change:
     local_transaction:
@@ -435,25 +377,98 @@ zh-tw:
       valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
+    maib_report:
+      name:
+        other:
+    map:
+      name:
+        other:
+    medical_safety_alert:
+      name:
+        other:
+    national:
+      name:
+        other:
+    national_statistics:
+      name:
+        other:
+    national_statistics_announcement:
+      name:
+        other:
     news_article:
-      other: 新聞文章
+      name:
+        other: 新聞文章
     news_story:
-      other: 新聞報導
+      name:
+        other: 新聞報導
+    notice:
+      name:
+        other:
+    official:
+      name:
+        other:
+    official_statistics:
+      name:
+        other:
+    official_statistics_announcement:
+      name:
+        other:
+    open_consultation:
+      name:
+        other:
     oral_statement:
-      other: 對議會的口頭聲明
+      name:
+        other: 對議會的口頭聲明
     place:
       change:
       find_results:
       postcode:
       select_address:
+    policy:
+      name:
+        other:
+    policy_paper:
+      name:
+        other:
     press_release:
-      other: 新聞稿
+      name:
+        other: 新聞稿
+    product-safety-alert-report-recall:
+      name:
+        other:
+    promotional:
+      name:
+        other:
+    publication:
+      name:
+        other:
+    raib_report:
+      name:
+        other:
+    regulation:
+      name:
+        other:
+    research:
+      name:
+        other:
+    residential_property_tribunal_decision:
+      name:
+        other:
+    service_sign_in:
+      name:
+        other:
+    service_standard_report:
+      name:
+        other:
     simple_smart_answer:
       change:
       next_step:
       please_answer:
       start_again:
       your_answers:
+    speaking_notes:
+      name:
+        other:
     specialist_document:
       protection_image:
         pdo_alt_text: 項目標識為黑色印章，上面寫著「指定的原產地受英國保護」
@@ -462,11 +477,31 @@ zh-tw:
     speech:
       delivered_on: 運送
       location: 地點
-      other: 演說
+      name:
+        other: 演說
       written_on: 寫在
+    standard:
+      name:
+        other:
     start_now:
+    statement_to_parliament:
+      name:
+        other:
+    statistical_data_set:
+      name:
+        other:
+    statistics_announcement:
+      name:
+        other:
+    statutory_guidance:
+      name:
+        other:
     take_part:
-      other: 參與
+      name:
+        other: 參與
+    tax_tribunal_decision:
+      name:
+        other:
     transaction:
       before_you_start:
       more_information:
@@ -474,6 +509,12 @@ zh-tw:
       other_ways_to_apply:
       sign_in:
       what_you_need_to_know:
+    transcript:
+      name:
+        other:
+    transparency:
+      name:
+        other:
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議非必要的旅行，不要前往該國部分地區。
@@ -485,10 +526,15 @@ zh-tw:
       still_current_at: 目前仍
       summary: 概括
       updated: 更新
+    utaac_decision:
+      name:
+        other:
     world_news_story:
-      other: 世界新聞報導
+      name:
+        other: 世界新聞報導
     written_statement:
-      other: 對議會的書面聲明
+      name:
+        other: 對議會的書面聲明
   help:
     index:
       about:

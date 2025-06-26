@@ -51,24 +51,23 @@ RSpec.describe "Document Collection" do
         expect(page).to have_selector("nav a", text: group["title"])
       end
     end
+
+    context "when a document collection group is empty" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+          item["details"]["collection_groups"] << { "title" => "Empty Group", "documents" => [] }
+        end
+      end
+
+      it "does not present the empty group in the contents list" do
+        visit base_path
+
+        expect(page).to have_selector(".gem-c-contents-list__list-item", count: 6)
+
+        expect(page).not_to have_selector("nav a", text: "Empty Group")
+      end
+    end
   end
-
-  # test "ignores document collection groups that have no documents when presenting the contents list" do
-  #   setup_and_visit_content_item("document_collection")
-  #   @content_item["details"]["collection_groups"] << { "title" => "Empty Group", "documents" => [] }
-  #   assert_equal 7, @content_item["details"]["collection_groups"].size
-
-  #   content_list_items = all("nav.gem-c-contents-list .gem-c-contents-list__list-item")
-  #   assert_equal 6, content_list_items.size
-
-  #   @content_item["details"]["collection_groups"].each do |group|
-  #     next if group["documents"].empty?
-
-  #     assert page.has_css?("nav a", text: group["title"])
-  #   end
-
-  #   assert page.has_css?(".gem-c-contents-list", text: "Contents")
-  # end
 
   # test "renders no contents list if body has no h2s and is long and collection groups are empty" do
   #   content_item = get_content_example("document_collection")

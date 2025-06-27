@@ -312,8 +312,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Szczegółowe wskazówki
+        other: Szczegółowe wskazówki
     dfid_research_output:
       name:
         few:

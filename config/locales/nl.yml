@@ -274,8 +274,8 @@ nl:
         other:
     detailed_guide:
       name:
-        one:
-        other:
+        one: Richtsnoer
+        other: Begeleiding
     dfid_research_output:
       name:
         one:

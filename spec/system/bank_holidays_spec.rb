@@ -8,6 +8,7 @@ RSpec.describe "BankHolidays" do
     end
     content_item = { base_path: "/bank-holidays", schema_name: "calendar", document_type: "calendar" }
     stub_content_store_has_item("/bank-holidays", content_item)
+    graphql_has_schema_name_for_content_item(content_item)
     mock_calendar_fixtures
   end
 

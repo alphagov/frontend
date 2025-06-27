@@ -13,7 +13,11 @@ RSpec.shared_examples "it has meta tags" do |schema, example|
   end
 
   it "renders the correct meta tags for the title" do
-    visit path
+    if schema == "news_article"
+      visit "#{path}?graphql=false"
+    else
+      visit path
+    end
 
     expect(page).to have_css("meta[property='og:title'][content='Zhe title']", visible: :hidden)
   end

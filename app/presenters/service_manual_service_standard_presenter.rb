@@ -18,8 +18,4 @@ class ServiceManualServiceStandardPresenter
   def email_alert_signup_link
     "/email-signup?link=#{@content_item.base_path}"
   end
-
-  def show_default_breadcrumbs?
-    false
-  end
 end

@@ -75,19 +75,24 @@ RSpec.describe "News Article" do
 
   context "when content item is from Publishing API's GraphQL" do
     let(:content_item) { graphql_has_example_item("news_article") }
-    let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
+    let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
+    let(:path) { "#{base_path}?graphql=true" }
+
+    before do
+      stub_content_store_has_item(base_path, { "schema_name" => "news_article" })
+    end
 
     it_behaves_like "a news article page"
 
     context "when content item has an image caption" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations?graphql=true" }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with an image caption"
     end
 
     context "when content item has a high resolution image" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations?graphql=true" }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with a high resolution image"

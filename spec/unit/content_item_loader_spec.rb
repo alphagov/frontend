@@ -71,6 +71,7 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is in GRAPHQL_ALLOWED_SCHEMAS" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
+      let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }) }
       let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
 
       context "when there are no headers" do
@@ -81,6 +82,24 @@ RSpec.describe ContentItemLoader do
             env: {},
             params: {},
             headers: nil,
+          )
+        end
+
+        it "calls the content store only" do
+          content_item_loader.load(request.path)
+
+          expect(graphql_request).not_to have_been_made
+          expect(item_request).to have_been_made
+        end
+      end
+
+      context "with graphql param=false" do
+        let(:request) do
+          instance_double(
+            ActionDispatch::Request,
+            path: "/my-random-item",
+            env: {},
+            params: { "graphql" => "false" },
           )
         end
 
@@ -144,8 +163,8 @@ RSpec.describe ContentItemLoader do
         it "calls the graphql endpoint instead of the content store" do
           content_item_loader.load(request.path)
 
+          expect(item_request).to have_been_made
           expect(graphql_request).to have_been_made
-          expect(item_request).not_to have_been_made
         end
 
         context "and with graphql param=false" do
@@ -212,11 +231,11 @@ RSpec.describe ContentItemLoader do
         let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
-        it "calls the graphql endpoint instead of the content store" do
+        it "checks the schema_name from content store and then gets the content item from graphql" do
           content_item_loader.load("/my-random-item")
 
+          expect(item_request).to have_been_made
           expect(graphql_request).to have_been_made
-          expect(item_request).not_to have_been_made
         end
 
         it "sets the appropriate prometheus labels" do
@@ -299,6 +318,7 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
+      let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "guide" }) }
       let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "some_other_schema" } } }) }
 
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
@@ -365,6 +385,24 @@ RSpec.describe ContentItemLoader do
         end
       end
 
+      context "with graphql param=true" do
+        let(:request) do
+          instance_double(
+            ActionDispatch::Request,
+            path: "/my-random-item",
+            env: {},
+            params: { "graphql" => "true" },
+          )
+        end
+
+        it "checks the schema_name from content store and doesn't call graphql" do
+          content_item_loader.load(request.path)
+
+          expect(item_request).to have_been_made
+          expect(graphql_request).not_to have_been_made
+        end
+      end
+
       context "when the GraphQL A/B A variant is selected" do
         let(:request) do
           instance_double(
@@ -395,11 +433,11 @@ RSpec.describe ContentItemLoader do
           )
         end
 
-        it "calls the graphql endpoint but loads from the content store" do
+        it "checks the schema_name from content store and doesn't call graphql" do
           content_item_loader.load(request.path)
 
-          expect(graphql_request).to have_been_made
           expect(item_request).to have_been_made
+          expect(graphql_request).not_to have_been_made
         end
       end
 

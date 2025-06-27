@@ -28,10 +28,14 @@ private
     elsif use_local_file? && File.exist?(json_filename(base_path))
       Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
       load_json_file(base_path)
-    elsif use_graphql?
-      load_from_graphql(base_path) || GdsApi.content_store.content_item(base_path)
     else
-      GdsApi.content_store.content_item(base_path)
+      content_item = GdsApi.content_store.content_item(base_path)
+
+      if use_graphql?(content_item["schema_name"])
+        load_from_graphql(base_path) || content_item
+      else
+        content_item
+      end
     end
   rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
     e
@@ -42,7 +46,7 @@ private
     if graphql_response.to_hash.blank?
       set_prometheus_labels(graphql_contains_errors: true)
       nil
-    elsif GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
+    else
       set_prometheus_labels
       graphql_response
     end
@@ -54,8 +58,10 @@ private
     nil
   end
 
-  def use_graphql?
+  def use_graphql?(schema_name)
     return false unless request
+
+    return false unless GRAPHQL_ALLOWED_SCHEMAS.include?(schema_name)
 
     if request.params["graphql"] == "true"
       return true

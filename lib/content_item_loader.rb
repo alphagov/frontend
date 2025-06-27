@@ -29,7 +29,7 @@ private
     elsif use_local_file? && File.exist?(json_filename(base_path))
       Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
       load_json_file(base_path)
-    elsif use_graphql?
+    elsif use_graphql?(base_path)
       load_from_graphql(base_path) || GdsApi.content_store.content_item(base_path)
     else
       GdsApi.content_store.content_item(base_path)
@@ -54,7 +54,7 @@ private
     nil
   end
 
-  def use_graphql?
+  def use_graphql?(base_path)
     return false unless request
 
     if request.params["graphql"] == "true"
@@ -63,8 +63,19 @@ private
       return false
     end
 
+    graphql_response = GdsApi.publishing_api.graphql_content_item(
+      Graphql::SchemaNameQuery.new(base_path).query
+    )
+    return false if graphql_response.to_hash.blank?
+
+    if !GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
+      return false
+    end
+
     random_number = Random.rand(1.0)
     random_number < GRAPHQL_TRAFFIC_RATE
+  rescue GdsApi::HTTPErrorResponse, GdsApi::TimedOutException
+    false
   end
 
   def use_local_file?

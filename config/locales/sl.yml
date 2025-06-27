@@ -311,8 +311,8 @@ sl:
     detailed_guide:
       name:
         few:
-        one:
-        other:
+        one: Smernice
+        other: Smernice
         two:
     dfid_research_output:
       name:

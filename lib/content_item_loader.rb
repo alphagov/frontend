@@ -3,6 +3,7 @@ require "ostruct"
 class ContentItemLoader
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
   GRAPHQL_ALLOWED_SCHEMAS = %w[news_article].freeze
+  GRAPHQL_TRAFFIC_RATE = 0.0 # This is a decimal version of a percentage, so can be between 0 and 1
 
   def self.for_request(request)
     request.env[:loader] ||= ContentItemLoader.new(request:)
@@ -69,18 +70,8 @@ private
       return false
     end
 
-    if request.headers
-      ab_test = GovukAbTesting::AbTest.new(
-        "GraphQLNewsArticles",
-        allowed_variants: %w[A B Z],
-        control_variant: "Z",
-      )
-      @requested_variant = ab_test.requested_variant(request.headers)
-
-      return true if @requested_variant.variant?("B")
-    end
-
-    false
+    random_number = Random.rand(1.0)
+    random_number < GRAPHQL_TRAFFIC_RATE
   end
 
   def use_local_file?

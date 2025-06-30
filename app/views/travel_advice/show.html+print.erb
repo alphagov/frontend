@@ -28,7 +28,6 @@
 
     <%= render "govuk_publishing_components/components/print_link", {
       margin_bottom: 8,
-      text: t("components.print_link.text"),
     } %>
 
     <% @content_item.parts.each_with_index do |part, i| %>
@@ -45,8 +44,6 @@
       </section>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/print_link", {
-      text: t("components.print_link.text"),
-    } %>
+    <%= render "govuk_publishing_components/components/print_link" %>
   </div>
 </div>

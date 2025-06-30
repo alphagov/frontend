@@ -349,8 +349,6 @@ hr:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -626,11 +624,6 @@ hr:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Sudjelovati
-        other: Sudjelovati
     tax_tribunal_decision:
       name:
         few:

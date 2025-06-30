@@ -375,8 +375,6 @@ pl:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -692,12 +690,6 @@ pl:
         many:
         one:
         other:
-    take_part:
-      name:
-        few:
-        many:
-        one: Weź udział
-        other: Weź udział
     tax_tribunal_decision:
       name:
         few:

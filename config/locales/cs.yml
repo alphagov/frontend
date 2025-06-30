@@ -349,8 +349,6 @@ cs:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -626,11 +624,6 @@ cs:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Zúčastněte se
-        other: Zúčastněte se
     tax_tribunal_decision:
       name:
         few:

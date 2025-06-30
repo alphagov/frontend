@@ -323,8 +323,6 @@ fa:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -560,10 +558,6 @@ fa:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: مشارکت
-        other: مشارکت
     tax_tribunal_decision:
       name:
         one:

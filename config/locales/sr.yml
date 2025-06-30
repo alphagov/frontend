@@ -349,8 +349,6 @@ sr:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -626,11 +624,6 @@ sr:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Učešće
-        other: Učešće
     tax_tribunal_decision:
       name:
         few:

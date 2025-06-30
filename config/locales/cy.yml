@@ -429,8 +429,6 @@ cy:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -827,14 +825,6 @@ cy:
         many:
         one: Canllawiau statudol
         other: Canllawiau statudol
-        two:
-        zero:
-    take_part:
-      name:
-        few:
-        many:
-        one: Cymryd rhan
-        other: Cymryd rhan
         two:
         zero:
     tax_tribunal_decision:

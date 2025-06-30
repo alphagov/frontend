@@ -427,8 +427,6 @@ ar:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -822,14 +820,6 @@ ar:
         many:
         one:
         other:
-        two:
-        zero:
-    take_part:
-      name:
-        few:
-        many:
-        one:
-        other: شارك
         two:
         zero:
     tax_tribunal_decision:

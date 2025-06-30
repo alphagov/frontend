@@ -96,10 +96,7 @@ Rails.application.routes.draw do
       get "/:slug", to: "field_of_operation#show"
     end
 
-    scope "/get-involved" do
-      get "/", to: "get_involved#show"
-      get "/take-part/:slug", to: "take_part#show"
-    end
+    get "/get-involved", to: "get_involved#show"
 
     get "/news/:slug(.:locale)", to: "news_article#show"
 

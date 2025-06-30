@@ -323,8 +323,6 @@ yi:
       search_all:
       see_all_dept:
       start_a_petition:
-      take_part:
-      take_part_suggestions:
       updated:
       your_views:
     government_response:
@@ -557,10 +555,6 @@ yi:
         one:
         other:
     statutory_guidance:
-      name:
-        one:
-        other:
-    take_part:
       name:
         one:
         other:

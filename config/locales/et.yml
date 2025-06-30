@@ -562,10 +562,6 @@ et:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Osa võtma
-        other: Osa võtma
     tax_tribunal_decision:
       name:
         one:

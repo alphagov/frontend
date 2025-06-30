@@ -694,12 +694,6 @@ gd:
         one:
         other:
         two:
-    take_part:
-      name:
-        few:
-        one: Chun páirt a ghlacadh
-        other: Chun páirt a ghlacadh
-        two:
     tax_tribunal_decision:
       name:
         few:

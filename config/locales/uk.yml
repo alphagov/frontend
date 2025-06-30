@@ -694,12 +694,6 @@ uk:
         many:
         one:
         other:
-    take_part:
-      name:
-        few:
-        many:
-        one: Взяти участь
-        other: Взяти участь
     tax_tribunal_decision:
       name:
         few:

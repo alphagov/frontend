@@ -628,11 +628,6 @@ sk:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Zúčastniť sa
-        other: Zúčastniť sa
     tax_tribunal_decision:
       name:
         few:

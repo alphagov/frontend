@@ -628,11 +628,6 @@ cs:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Zúčastněte se
-        other: Zúčastněte se
     tax_tribunal_decision:
       name:
         few:

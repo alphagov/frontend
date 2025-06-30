@@ -694,12 +694,6 @@ mt:
         many:
         one:
         other:
-    take_part:
-      name:
-        few:
-        many:
-        one: Ħu sehem
-        other: Ħu sehem
     tax_tribunal_decision:
       name:
         few:

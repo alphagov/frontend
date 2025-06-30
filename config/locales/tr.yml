@@ -562,10 +562,6 @@ tr:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Katıl
-        other: Katıl
     tax_tribunal_decision:
       name:
         one:

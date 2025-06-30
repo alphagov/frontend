@@ -562,10 +562,6 @@ hu:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Részvétel
-        other: Részvétel
     tax_tribunal_decision:
       name:
         one:

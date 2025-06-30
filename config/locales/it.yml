@@ -562,10 +562,6 @@ it:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Prendere parte
-        other: Prendere parte
     tax_tribunal_decision:
       name:
         one:

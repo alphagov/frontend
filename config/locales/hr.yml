@@ -628,11 +628,6 @@ hr:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Sudjelovati
-        other: Sudjelovati
     tax_tribunal_decision:
       name:
         few:

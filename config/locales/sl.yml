@@ -694,12 +694,6 @@ sl:
         one:
         other:
         two:
-    take_part:
-      name:
-        few:
-        one: Sodelujte
-        other: Sodelujte
-        two:
     tax_tribunal_decision:
       name:
         few:

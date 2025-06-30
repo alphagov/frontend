@@ -562,10 +562,6 @@ el:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Συμμετοχή
-        other: Συμμετοχή
     tax_tribunal_decision:
       name:
         one:

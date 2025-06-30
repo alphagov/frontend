@@ -562,10 +562,6 @@ sv:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Delta
-        other: Delta
     tax_tribunal_decision:
       name:
         one:

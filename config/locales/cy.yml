@@ -831,14 +831,6 @@ cy:
         other: Canllawiau statudol
         two:
         zero:
-    take_part:
-      name:
-        few:
-        many:
-        one: Cymryd rhan
-        other: Cymryd rhan
-        two:
-        zero:
     tax_tribunal_decision:
       name:
         few:

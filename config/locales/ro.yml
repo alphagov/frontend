@@ -628,11 +628,6 @@ ro:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Participă
-        other: Participă
     tax_tribunal_decision:
       name:
         few:

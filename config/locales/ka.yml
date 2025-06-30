@@ -562,10 +562,6 @@ ka:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: მონაწილეობის მიღება
-        other: მონაწილეობის მიღება
     tax_tribunal_decision:
       name:
         one:

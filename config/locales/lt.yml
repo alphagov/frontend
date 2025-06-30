@@ -628,11 +628,6 @@ lt:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Dalyvauti
-        other: Dalyvauti
     tax_tribunal_decision:
       name:
         few:

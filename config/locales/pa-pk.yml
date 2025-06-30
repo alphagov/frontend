@@ -562,10 +562,6 @@ pa-pk:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: حصہ لوؤ
-        other: حصہ لوؤ
     tax_tribunal_decision:
       name:
         one:

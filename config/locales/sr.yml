@@ -628,11 +628,6 @@ sr:
         few:
         one:
         other:
-    take_part:
-      name:
-        few:
-        one: Učešće
-        other: Učešće
     tax_tribunal_decision:
       name:
         few:

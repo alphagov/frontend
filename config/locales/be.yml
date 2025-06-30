@@ -694,12 +694,6 @@ be:
         many:
         one:
         other:
-    take_part:
-      name:
-        few:
-        many:
-        one: Прыняць удзел
-        other: Прыняць удзел
     tax_tribunal_decision:
       name:
         few:

@@ -562,10 +562,6 @@ ta:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: பங்கெடுத்தல்
-        other: பங்கெடுத்தல்
     tax_tribunal_decision:
       name:
         one:

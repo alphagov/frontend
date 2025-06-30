@@ -694,12 +694,6 @@ ru:
         many:
         one:
         other:
-    take_part:
-      name:
-        few:
-        many:
-        one: Принять участие
-        other: Принять участие
     tax_tribunal_decision:
       name:
         few:

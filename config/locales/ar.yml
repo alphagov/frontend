@@ -826,14 +826,6 @@ ar:
         other:
         two:
         zero:
-    take_part:
-      name:
-        few:
-        many:
-        one:
-        other: شارك
-        two:
-        zero:
     tax_tribunal_decision:
       name:
         few:

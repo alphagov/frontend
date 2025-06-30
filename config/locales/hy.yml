@@ -562,10 +562,6 @@ hy:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Մասնակցություն
-        other: Մասնակցություն
     tax_tribunal_decision:
       name:
         one:

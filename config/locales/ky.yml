@@ -562,10 +562,6 @@ ky:
       name:
         one: Нормативдик жетектеме
         other: Нормативдик жетектеме
-    take_part:
-      name:
-        one:
-        other:
     tax_tribunal_decision:
       name:
         one: Салык жана канцелярия трибуналынын чечими

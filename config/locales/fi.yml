@@ -562,10 +562,6 @@ fi:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Osallistu
-        other: Osallistu
     tax_tribunal_decision:
       name:
         one:

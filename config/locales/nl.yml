@@ -562,10 +562,6 @@ nl:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Neem deel
-        other: Deelnemen
     tax_tribunal_decision:
       name:
         one:

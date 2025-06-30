@@ -562,10 +562,6 @@ es-419:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Participe
-        other: Participe
     tax_tribunal_decision:
       name:
         one:

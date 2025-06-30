@@ -562,10 +562,6 @@ da:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Deltage
-        other: Deltage
     tax_tribunal_decision:
       name:
         one:

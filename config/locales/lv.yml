@@ -562,10 +562,6 @@ lv:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Piedalīties
-        other: Piedalīties
     tax_tribunal_decision:
       name:
         one:

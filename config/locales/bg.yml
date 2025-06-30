@@ -562,10 +562,6 @@ bg:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: Вземете участие
-        other: Вземете участие
     tax_tribunal_decision:
       name:
         one:

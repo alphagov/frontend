@@ -562,10 +562,6 @@ ne:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: सहभागी हुनु
-        other: सहभागी हुनु
     tax_tribunal_decision:
       name:
         one:

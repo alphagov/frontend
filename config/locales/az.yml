@@ -562,10 +562,6 @@ az:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: İştirak edin
-        other: İştirak edin
     tax_tribunal_decision:
       name:
         one:

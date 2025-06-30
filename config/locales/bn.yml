@@ -562,10 +562,6 @@ bn:
       name:
         one:
         other:
-    take_part:
-      name:
-        one: অংশ নিন
-        other: অংশ নিন
     tax_tribunal_decision:
       name:
         one:

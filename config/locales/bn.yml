@@ -103,8 +103,6 @@ bn:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    print_link:
-      text:
     share_links:
       share_this_page: এই পেজটি শেয়ার করুন
   continue:

@@ -103,8 +103,6 @@ cy:
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
   components:
-    print_link:
-      text:
     share_links:
       share_this_page: Rhannu'r dudalen hon
   continue: Parhau

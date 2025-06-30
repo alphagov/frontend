@@ -103,8 +103,6 @@ es-419:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    print_link:
-      text:
     share_links:
       share_this_page: Compartir esta página
   continue:

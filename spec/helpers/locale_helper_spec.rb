@@ -28,7 +28,7 @@ RSpec.describe LocaleHelper do
 
   describe "#t_locale_fallback" do
     it "returns nil if a value of the key is present" do
-      expect(t_locale_fallback("formats.take_part.name", count: 1)).to be_nil
+      expect(t_locale_fallback("formats.statutory_guidance.name", count: 1)).to be_nil
     end
 
     it "returns default locale for a string with no locale translation" do

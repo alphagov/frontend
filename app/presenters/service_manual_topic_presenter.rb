@@ -12,7 +12,11 @@ class ServiceManualTopicPresenter
     ]
   end
 
-  def sections
+  def display_as_accordion?
+    @content_item.groups.count > 2 && @content_item.visually_collapsed?
+  end
+
+  def accordion_sections
     @content_item.groups_with_links.map do |group|
       {
         heading: {
@@ -24,6 +28,16 @@ class ServiceManualTopicPresenter
         content: {
           html: list_of_links(group[:items]),
         },
+      }
+    end
+  end
+
+  def sections
+    @content_item.groups_with_links.map do |group|
+      {
+        heading: group[:name],
+        summary: group[:description],
+        html: list_of_links(group[:items]),
       }
     end
   end

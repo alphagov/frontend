@@ -218,6 +218,16 @@ RSpec.describe ContentItemLoader do
           expect(graphql_request).to have_been_made
           expect(item_request).not_to have_been_made
         end
+
+        it "sets the appropriate prometheus labels" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]).to include({
+            "graphql_status_code" => 200,
+            "graphql_contains_errors" => false,
+            "graphql_api_timeout" => false,
+          })
+        end
       end
 
       context "when given a response from graphql containing errors" do

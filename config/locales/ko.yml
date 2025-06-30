@@ -103,8 +103,6 @@ ko:
     united-kingdom_slug:
     upcoming_bank_holidays:
   components:
-    print_link:
-      text:
     share_links:
       share_this_page: 이 페이지 공유하기
   continue:

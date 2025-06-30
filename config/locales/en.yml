@@ -103,8 +103,6 @@ en:
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
   components:
-    print_link:
-      text: Print this page
     share_links:
       share_this_page: Share this page
   continue: Continue

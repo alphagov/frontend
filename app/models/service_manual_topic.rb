@@ -3,6 +3,10 @@ class ServiceManualTopic < ContentItem
     content_store_response.dig("details", "groups")
   end
 
+  def visually_collapsed?
+    content_store_response.dig("details", "visually_collapsed")
+  end
+
   def groups_with_links
     topic_groups = Array(groups).map do |group_data|
       {
@@ -12,6 +16,7 @@ class ServiceManualTopic < ContentItem
       }
     end
     topic_groups.select(&:present?)
+    topic_groups.select { |t| t[:items].present? }
   end
 
 private

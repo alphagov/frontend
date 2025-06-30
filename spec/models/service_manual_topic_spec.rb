@@ -6,8 +6,9 @@ RSpec.describe ServiceManualTopic do
       GovukSchemas::Example.find("service_manual_topic", example_name: "service_manual_topic")
     end
 
-    it "returns the expected response" do
+    it "returns the expected responses" do
       expect(service_manual_topic.groups).to eq(content_store_response.dig("details", "groups"))
+      expect(service_manual_topic.visually_collapsed?).to eq(content_store_response.dig("details", "visually_collapsed"))
     end
 
     it "combines linked items into groups" do

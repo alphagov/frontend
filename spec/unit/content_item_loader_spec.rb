@@ -11,9 +11,7 @@ RSpec.describe ContentItemLoader do
   let(:graphql_query) { Graphql::EditionQuery.new("/my-random-item").query }
 
   before do
-    GovukAbTesting.configure do |config|
-      config.acceptance_test_framework = :active_support
-    end
+    allow(Random).to receive(:rand).with(1.0).and_return(1) # always use Content Store unless we override in a spec
   end
 
   describe ".for_request" do
@@ -92,15 +90,28 @@ RSpec.describe ContentItemLoader do
         end
       end
 
-      context "when the GraphQL A/B A variant is selected" do
+      context "when the GraphQL A/B Content Store variant is selected and the schema_name is news_article" do
         let(:request) do
           instance_double(
             ActionDispatch::Request,
             path: "/my-random-item",
             env: {},
             params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "A" },
+            headers: nil,
           )
+        end
+
+        let!(:item_request) do
+          stub_content_store_has_item(
+            "/my-random-item",
+            content_item_for_base_path("/my-random-item").merge({
+              "schema_name": "news_article",
+            }),
+          )
+        end
+
+        before do
+          allow(Random).to receive(:rand).with(1.0).and_return(1)
         end
 
         it "calls the content store only" do
@@ -117,7 +128,7 @@ RSpec.describe ContentItemLoader do
               path: "/my-random-item",
               env: {},
               params: { "graphql" => "false" },
-              headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "B" },
+              headers: nil,
             )
           end
 
@@ -130,22 +141,35 @@ RSpec.describe ContentItemLoader do
         end
       end
 
-      context "when the GraphQL A/B B variant is selected" do
+      context "when the GraphQL A/B GraphQL variant is selected and the schema_name is news_article" do
         let(:request) do
           instance_double(
             ActionDispatch::Request,
             path: "/my-random-item",
             env: {},
             params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "B" },
+            headers: nil,
           )
         end
 
-        it "calls the graphql endpoint instead of the content store" do
+        let!(:item_request) do
+          stub_content_store_has_item(
+            "/my-random-item",
+            content_item_for_base_path("/my-random-item").merge({
+              "schema_name": "news_article",
+            }),
+          )
+        end
+
+        before do
+          allow(Random).to receive(:rand).with(1.0).and_return(ContentItemLoader::GRAPHQL_TRAFFIC_RATE - 0.000001)
+        end
+
+        it "calls the graphql endpoint in addition to content store" do
           content_item_loader.load(request.path)
 
           expect(graphql_request).to have_been_made
-          expect(item_request).not_to have_been_made
+          expect(item_request).to have_been_made
         end
 
         context "and with graphql param=false" do
@@ -155,49 +179,11 @@ RSpec.describe ContentItemLoader do
               path: "/my-random-item",
               env: {},
               params: { "graphql" => "false" },
-              headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "B" },
+              headers: nil,
             )
           end
 
           it "calls the content store instead of the graphql endpoint" do
-            content_item_loader.load(request.path)
-
-            expect(graphql_request).not_to have_been_made
-            expect(item_request).to have_been_made
-          end
-        end
-      end
-
-      context "when the GraphQL A/B Z variant is selected" do
-        let(:request) do
-          instance_double(
-            ActionDispatch::Request,
-            path: "/my-random-item",
-            env: {},
-            params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "Z" },
-          )
-        end
-
-        it "calls the content store only" do
-          content_item_loader.load(request.path)
-
-          expect(graphql_request).not_to have_been_made
-          expect(item_request).to have_been_made
-        end
-
-        context "and with graphql param=false" do
-          let(:request) do
-            instance_double(
-              ActionDispatch::Request,
-              path: "/my-random-item",
-              env: {},
-              params: { "graphql" => "false" },
-              headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "B" },
-            )
-          end
-
-          it "calls the content store only" do
             content_item_loader.load(request.path)
 
             expect(graphql_request).not_to have_been_made
@@ -212,11 +198,20 @@ RSpec.describe ContentItemLoader do
         let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
-        it "calls the graphql endpoint instead of the content store" do
+        let!(:item_request) do
+          stub_content_store_has_item(
+            "/my-random-item",
+            content_item_for_base_path("/my-random-item").merge({
+              "schema_name": "news_article",
+            }),
+          )
+        end
+
+        it "calls the graphql endpoint in addition to content store" do
           content_item_loader.load("/my-random-item")
 
           expect(graphql_request).to have_been_made
-          expect(item_request).not_to have_been_made
+          expect(item_request).to have_been_made
         end
       end
     end
@@ -290,15 +285,19 @@ RSpec.describe ContentItemLoader do
         end
       end
 
-      context "when the GraphQL A/B A variant is selected" do
+      context "when the GraphQL A/B Content Store variant is selected" do
         let(:request) do
           instance_double(
             ActionDispatch::Request,
             path: "/my-random-item",
             env: {},
             params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "A" },
+            headers: nil,
           )
+        end
+
+        before do
+          allow(Random).to receive(:rand).with(1.0).and_return(1)
         end
 
         it "loads from the content store" do
@@ -309,40 +308,34 @@ RSpec.describe ContentItemLoader do
         end
       end
 
-      context "when the GraphQL A/B B variant is selected" do
+      context "when the GraphQL A/B GraphQL variant is selected" do
         let(:request) do
           instance_double(
             ActionDispatch::Request,
             path: "/my-random-item",
             env: {},
             params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "B" },
+            headers: nil,
           )
+        end
+
+        let!(:item_request) do
+          stub_content_store_has_item(
+            "/my-random-item",
+            content_item_for_base_path("/my-random-item").merge({
+              "schema_name": "news_article",
+            }),
+          )
+        end
+
+        before do
+          allow(Random).to receive(:rand).with(1.0).and_return(ContentItemLoader::GRAPHQL_TRAFFIC_RATE - 0.000001)
         end
 
         it "calls the graphql endpoint but loads from the content store" do
           content_item_loader.load(request.path)
 
           expect(graphql_request).to have_been_made
-          expect(item_request).to have_been_made
-        end
-      end
-
-      context "when the GraphQL A/B Z variant is selected" do
-        let(:request) do
-          instance_double(
-            ActionDispatch::Request,
-            path: "/my-random-item",
-            env: {},
-            params: {},
-            headers: { "HTTP_GOVUK_ABTEST_GRAPHQLNEWSARTICLES" => "Z" },
-          )
-        end
-
-        it "loads from the content store" do
-          content_item_loader.load(request.path)
-
-          expect(graphql_request).not_to have_been_made
           expect(item_request).to have_been_made
         end
       end

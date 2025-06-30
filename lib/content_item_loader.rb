@@ -3,6 +3,7 @@ require "ostruct"
 class ContentItemLoader
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
   GRAPHQL_ALLOWED_SCHEMAS = %w[news_article].freeze
+  GRAPHQL_TRAFFIC_RATE = 0.5 # This is a decimal version of a percentage, so can be between 0 and 1
 
   def self.for_request(request)
     request.env[:loader] ||= ContentItemLoader.new(request:)
@@ -28,18 +29,33 @@ private
     elsif use_local_file? && File.exist?(json_filename(base_path))
       Rails.logger.debug("Loading content item #{base_path} from #{json_filename(base_path)}")
       load_json_file(base_path)
-    elsif use_graphql?
-      graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-      if GRAPHQL_ALLOWED_SCHEMAS.include?(graphql_response["schema_name"])
-        graphql_response
-      else
-        GdsApi.content_store.content_item(base_path)
-      end
     else
-      GdsApi.content_store.content_item(base_path)
+      content_item = GdsApi.content_store.content_item(base_path)
+
+      if GRAPHQL_ALLOWED_SCHEMAS.include?(content_item["schema_name"]) && use_graphql?
+        load_from_graphql(base_path)
+      else
+        content_item
+      end
     end
   rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
     e
+  end
+
+  def load_from_graphql(base_path)
+    graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
+    if graphql_response.to_hash.blank?
+      set_prometheus_labels("graphql_contains_errors" => true)
+      nil
+    else
+      graphql_response
+    end
+  rescue GdsApi::HTTPErrorResponse => e
+    set_prometheus_labels("graphql_status_code" => e.code)
+    nil
+  rescue GdsApi::TimedOutException
+    set_prometheus_labels("graphql_api_timeout" => true)
+    nil
   end
 
   def use_graphql?
@@ -51,18 +67,8 @@ private
       return false
     end
 
-    if request.headers
-      ab_test = GovukAbTesting::AbTest.new(
-        "GraphQLNewsArticles",
-        allowed_variants: %w[A B Z],
-        control_variant: "Z",
-      )
-      @requested_variant = ab_test.requested_variant(request.headers)
-
-      return true if @requested_variant.variant?("B")
-    end
-
-    false
+    random_number = Random.rand(1.0)
+    random_number < GRAPHQL_TRAFFIC_RATE
   end
 
   def use_local_file?
@@ -87,5 +93,11 @@ private
 
   def headers
     { cache_control: "max-age=0, public", expires: "" }
+  end
+
+  def set_prometheus_labels(hash)
+    prometheus_labels = request.env.fetch("govuk.prometheus_labels", {})
+
+    request.env["govuk.prometheus_labels"] = prometheus_labels.merge(hash)
   end
 end

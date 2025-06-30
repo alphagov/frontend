@@ -3,6 +3,10 @@ require "gds_api/test_helpers/publishing_api"
 RSpec.describe "News Article" do
   include Capybara::RSpecMatchers
 
+  before do
+    allow(Random).to receive(:rand).with(1.0).and_return(1) # always use Content Store unless we override in a spec
+  end
+
   describe "GET show" do
     context "when loaded from content store" do
       before do
@@ -31,6 +35,7 @@ RSpec.describe "News Article" do
 
       before do
         base_path = content_item.fetch("base_path")
+        stub_content_store_has_item(base_path, content_item)
 
         get base_path, params: { graphql: true }
       end

@@ -218,6 +218,81 @@ RSpec.describe ContentItemLoader do
           expect(graphql_request).to have_been_made
           expect(item_request).not_to have_been_made
         end
+
+        it "sets the appropriate prometheus labels" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]).to include({
+            "graphql_status_code" => 200,
+            "graphql_contains_errors" => false,
+            "graphql_api_timeout" => false,
+          })
+        end
+      end
+
+      context "when given a response from graphql containing errors" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
+        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { "errors" => [{ "message" => "some_error" }] }) }
+        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
+
+        it "falls back to loading from Content Store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(graphql_request).to have_been_made
+          expect(item_request).to have_been_made
+        end
+
+        it "reports the presence of errors as a prometheus label" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_contains_errors"]).to be(true)
+        end
+      end
+
+      context "when given a bad response code from publishing-api" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
+        let!(:graphql_request) { stub_any_publishing_api_call_to_return_not_found }
+        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
+
+        it "falls back to loading from Content Store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(graphql_request).to have_been_made
+          expect(item_request).to have_been_made
+        end
+
+        it "reports bad status codes for graphql requests" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_status_code"]).to eq(404)
+        end
+      end
+
+      context "when GDS API Adapters times-out the request" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
+        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
+
+        before do
+          publishing_api_adapter = instance_double(GdsApi::PublishingApi)
+          allow(GdsApi).to receive(:publishing_api).and_return(publishing_api_adapter)
+          allow(publishing_api_adapter).to receive(:graphql_content_item)
+            .and_raise(GdsApi::TimedOutException)
+        end
+
+        it "falls back to loading from Content Store" do
+          content_item_loader.load("/my-random-item")
+
+          expect(item_request).to have_been_made
+        end
+
+        it "reports bad status codes for graphql requests" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]["graphql_api_timeout"]).to be(true)
+        end
       end
     end
 

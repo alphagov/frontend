@@ -1,9 +1,14 @@
 RSpec.describe "Get Involved" do
   before do
-    content_store_has_example_item("/government/get-involved", schema: :get_involved)
+    content_item = GovukSchemas::Example.find(:special_route, example_name: :special_route)
+    content_item["base_path"] = "/government/get-involved"
+    content_item["title"] = "Get involved"
+    stub_content_store_has_item("/government/get-involved", content_item)
+
     stub_search_query(query: hash_including(filter_content_store_document_type: "open_consultation"), response: { "results" => [], "total" => 83 })
     stub_search_query(query: hash_including(filter_content_store_document_type: "closed_consultation"), response: { "results" => [], "total" => 110 })
     stub_search_query(query: hash_including(filter_content_store_document_type: "consultation_outcome"), response: { "results" => [consultation_result] })
+
     visit "/government/get-involved"
   end
 

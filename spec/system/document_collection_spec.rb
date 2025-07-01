@@ -69,16 +69,10 @@ RSpec.describe "Document Collection" do
     end
 
     context "when all document collection groups are empty" do
-      context "when the body is long but has no h2s" do
+      context "when no headers are supplied" do
         let(:content_item) do
           GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
-            item["details"]["body"] = <<~HTML
-              <div class="empty group">
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-              </div>
-            HTML
+            item["details"]["headers"] = []
 
             item["details"]["collection_groups"] = [
               {
@@ -97,19 +91,14 @@ RSpec.describe "Document Collection" do
         end
       end
 
-      context "when the body is long and has h2s" do
+      context "when h2 headers are supplied" do
         let(:content_item) do
           GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
-            item["details"]["body"] = <<~HTML
-              <div class="empty group">
-                <h2 id="one">One</h2>
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-                <h2 id="two">Two</h2>
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-                <h2 id="three">Three</h2>
-                <p>#{Faker::Lorem.characters(number: 200)}</p>
-              </div>
-            HTML
+            item["details"]["headers"] = [
+              { "id" => "one", "level" => 2, "text" => "One" },
+              { "id" => "two", "level" => 2, "text" => "Two" },
+              { "id" => "three", "level" => 2, "text" => "Three" },
+            ]
 
             item["details"]["collection_groups"] = [
               {

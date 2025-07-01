@@ -2,7 +2,7 @@ class DocumentCollection < ContentItem
   include Political
   include Updatable
 
-  attr_reader :groups
+  attr_reader :headers, :groups
 
   Group = Data.define(:body, :documents, :id, :title)
 
@@ -17,6 +17,8 @@ class DocumentCollection < ContentItem
         title: group_details["title"],
       )
     end
+
+    @headers = content_store_response.dig("details", "headers") || []
   end
 
   def show_email_signup_link?

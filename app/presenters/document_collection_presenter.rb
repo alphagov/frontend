@@ -1,11 +1,10 @@
 class DocumentCollectionPresenter < ContentItemPresenter
-  def groups_as_content_list
-    content_item.groups_with_items.map do |group|
-      {
-        href: "##{group.id}",
-        text: group.title,
-      }
-    end
+  def headers_for_contents_list_component
+    headers = contents_list_headings_with_group_headings
+
+    return [] unless headers.present? && headers.level_two_headers?
+
+    ContentsOutlinePresenter.new(headers).for_contents_list_component
   end
 
   def group_as_document_list(group)
@@ -28,6 +27,25 @@ class DocumentCollectionPresenter < ContentItemPresenter
   end
 
 private
+
+  def contents_list_headings_with_group_headings
+    exclude_nested_headings
+    all_headers = content_item.headers + content_item.groups_with_items.map do |group|
+      {
+        "id" => group.id,
+        "level" => 2,
+        "text" => group.title,
+      }
+    end
+
+    ContentsOutline.new(all_headers) if all_headers.any?
+  end
+
+  def exclude_nested_headings
+    content_item.headers.each do |header|
+      header.delete("headers") unless header["headers"].nil?
+    end
+  end
 
   def sanitised_updated_at(document)
     disallowed_document_types = %w[answer

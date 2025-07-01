@@ -117,22 +117,20 @@ RSpec.describe "Document Collection" do
         end
       end
     end
+
+    it "renders each collection group" do
+      visit base_path
+
+      content_item["details"]["collection_groups"].each do |group|
+        expect(page).to have_selector(".govuk-heading-m.govuk-\\!-font-size-27", text: group["title"])
+      end
+
+      within ".gem-c-contents-list-with-body" do
+        expect(page).to have_selector(".gem-c-govspeak", count: 6)
+        expect(page).to have_selector(".gem-c-document-list", count: 6)
+      end
+    end
   end
-
-  # test "renders each collection group" do
-  #   setup_and_visit_content_item("document_collection")
-  #   groups = @content_item["details"]["collection_groups"]
-  #   group_count = groups.count
-
-  #   groups.each do |group|
-  #     assert page.has_css?(".govuk-heading-m.govuk-\\!-font-size-27", text: group["title"])
-  #   end
-
-  #   within ".gem-c-contents-list-with-body" do
-  #     assert page.has_css?(".gem-c-govspeak", count: group_count)
-  #     assert page.has_css?(".gem-c-document-list", count: group_count)
-  #   end
-  # end
 
   # test "renders all collection documents" do
   #   setup_and_visit_content_item("document_collection")

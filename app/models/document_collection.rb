@@ -1,6 +1,7 @@
 class DocumentCollection < ContentItem
   include Political
   include Updatable
+  include Withdrawable
 
   attr_reader :headers, :groups
 

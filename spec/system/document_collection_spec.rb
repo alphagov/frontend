@@ -130,29 +130,29 @@ RSpec.describe "Document Collection" do
         expect(page).to have_selector(".gem-c-document-list", count: 6)
       end
     end
-  end
 
-  # test "renders all collection documents" do
-  #   setup_and_visit_content_item("document_collection")
-  #   documents = @content_item["links"]["documents"]
+    it "renders all collection documents" do
+      visit base_path
 
-  #   documents.each do |doc|
-  #     assert page.has_css?(".gem-c-document-list__item-title", text: doc["title"])
-  #   end
+      documents = content_item["links"]["documents"]
 
-  #   assert page.has_css?(".gem-c-document-list .gem-c-document-list__item", count: documents.count)
+      documents.each do |doc|
+        expect(page).to have_selector(".gem-c-document-list__item-title", text: doc["title"])
+      end
 
-  #   document_lists = page.all(".gem-c-document-list")
+      expect(page).to have_selector(".gem-c-document-list .gem-c-document-list__item", count: documents.count)
 
-  #   within document_lists[0] do
-  #     list_items = page.all(".gem-c-document-list__item")
-  #     within list_items[0] do
-  #       assert page.has_text?("16 March 2007"), "has properly formatted date"
-  #       assert page.has_css?('[datetime="2007-03-16T15:00:02+00:00"]'), "has iso8601 datetime attribute"
-  #       assert page.has_text?("Guidance"), "has formatted document_type"
-  #     end
-  #   end
-  # end
+      document_lists = page.all(".gem-c-document-list")
+
+      within document_lists[0] do
+        list_items = page.all(".gem-c-document-list__item")
+        within list_items[0] do
+          expect(page).to have_text("16 March 2007")
+          expect(page).to have_selector('[datetime="2007-03-16T15:00:02+00:00"]')
+          expect(page).to have_text("Guidance")
+        end
+      end
+    end
 
   # test "withdrawn collection" do
   #   setup_and_visit_content_item("document_collection_withdrawn")

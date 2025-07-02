@@ -1,5 +1,6 @@
 class DocumentCollection < ContentItem
   include Political
+  include SinglePageNotificationButton
   include Updatable
   include Withdrawable
 
@@ -22,12 +23,12 @@ class DocumentCollection < ContentItem
     @headers = content_store_response.dig("details", "headers") || []
   end
 
-  def show_email_signup_link?
-    false
-  end
-
   def display_single_page_notification_button?
     true
+  end
+
+  def taxonomy_topic_email_override_base_path
+    linked("taxonomy_topic_email_override").first&.base_path
   end
 
   def groups_with_items

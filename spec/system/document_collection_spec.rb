@@ -173,13 +173,17 @@ RSpec.describe "Document Collection" do
         end
       end
     end
+
+    context "with a historically political collection" do
+      let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection_political") }
+
+      it "shows the historical/political banner" do
+        visit base_path
+
+        within ".govuk-notification-banner__content" do
+          expect(page).to have_text("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        end
+      end
+    end
   end
-
-  # test "historically political collection" do
-  #   setup_and_visit_content_item("document_collection_political")
-
-  #   within ".govuk-notification-banner__content" do
-  #     assert page.has_text?("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
-  #   end
-  # end
 end

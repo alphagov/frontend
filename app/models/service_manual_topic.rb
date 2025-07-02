@@ -19,6 +19,10 @@ class ServiceManualTopic < ContentItem
     topic_groups.select { |t| t[:items].present? }
   end
 
+  def content_owners
+    linked("content_owners")
+  end
+
 private
 
   def content(group_data)

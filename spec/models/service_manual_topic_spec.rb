@@ -11,6 +11,14 @@ RSpec.describe ServiceManualTopic do
       expect(service_manual_topic.visually_collapsed?).to eq(content_store_response.dig("details", "visually_collapsed"))
     end
 
+    it "returns content owners correctly" do
+      expect(service_manual_topic.content_owners[0].title).to eq(content_store_response.dig("links", "content_owners")[0]["title"])
+      expect(service_manual_topic.content_owners[0].base_path).to eq(content_store_response.dig("links", "content_owners")[0]["base_path"])
+
+      expect(service_manual_topic.content_owners[1].title).to eq(content_store_response.dig("links", "content_owners")[1]["title"])
+      expect(service_manual_topic.content_owners[1].base_path).to eq(content_store_response.dig("links", "content_owners")[1]["base_path"])
+    end
+
     it "combines linked items into groups" do
       name = content_store_response.dig("details", "groups", 0, "name")
       description = content_store_response.dig("details", "groups", 0, "description")

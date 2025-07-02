@@ -160,7 +160,7 @@ RSpec.describe "Document Collection" do
       it "displays the withdrawn title" do
         visit base_path
 
-        expect(page).to have_selector("title", text: "[Withdrawn]", visible: false)
+        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
       end
 
       it "displays the withdrawn notice" do

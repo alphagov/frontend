@@ -1,0 +1,2 @@
+class DocumentCollection < ContentItem
+end

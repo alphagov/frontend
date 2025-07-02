@@ -23,6 +23,10 @@ class ServiceManualTopic < ContentItem
     topic_groups.select { |t| t[:items].present? }
   end
 
+  def content_owners
+    content_store_response["links"]["content_owners"]
+  end
+
 private
 
   def content(group_data)

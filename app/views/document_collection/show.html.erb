@@ -78,7 +78,7 @@
           </div>
         <% end %>
 
-        <% content_item.groups_with_items.each do |group| %>
+        <% @presenter.displayable_collection_groups.each do |group| %>
 
           <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 

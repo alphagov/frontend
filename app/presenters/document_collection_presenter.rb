@@ -26,11 +26,15 @@ class DocumentCollectionPresenter < ContentItemPresenter
     end
   end
 
+  def displayable_collection_groups
+    content_item.collection_groups.select { |group| group.documents.any? }
+  end
+
 private
 
   def contents_list_headings_with_group_headings
     exclude_nested_headings
-    all_headers = content_item.headers + content_item.groups_with_items.map do |group|
+    all_headers = content_item.headers + displayable_collection_groups.map do |group|
       {
         "id" => group.id,
         "level" => 2,

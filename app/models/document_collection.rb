@@ -4,15 +4,15 @@ class DocumentCollection < ContentItem
   include Updatable
   include Withdrawable
 
-  attr_reader :headers, :groups
+  attr_reader :collection_groups, :headers
 
-  Group = Data.define(:body, :documents, :id, :title)
+  CollectionGroup = Data.define(:body, :documents, :id, :title)
 
   def initialize(content_store_response)
     super
 
-    @groups = content_store_response.dig("details", "collection_groups").map do |group_details|
-      Group.new(
+    @collection_groups = content_store_response.dig("details", "collection_groups").map do |group_details|
+      CollectionGroup.new(
         body: group_details["body"],
         documents: group_details["documents"].map { |id| linked("documents").find { |d| d.content_id == id } }.compact,
         id: group_details["title"].tr(" ", "-").downcase,
@@ -23,15 +23,7 @@ class DocumentCollection < ContentItem
     @headers = content_store_response.dig("details", "headers") || []
   end
 
-  def display_single_page_notification_button?
-    true
-  end
-
   def taxonomy_topic_email_override_base_path
     linked("taxonomy_topic_email_override").first&.base_path
-  end
-
-  def groups_with_items
-    groups.select { |group| group.documents.any? }
   end
 end

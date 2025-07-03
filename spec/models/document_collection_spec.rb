@@ -9,6 +9,21 @@ RSpec.describe DocumentCollection do
   it_behaves_like "it has no updates", "document_collection", "document_collection"
   it_behaves_like "it can be withdrawn", "document_collection", "document_collection_withdrawn"
 
+  describe "#headers" do
+    it "returns an empty array" do
+      expect(document_collection.headers).to eq([])
+    end
+
+    context "when there are headers in the content item" do
+      let(:content_store_response) { GovukSchemas::Example.find("document_collection", example_name: "document_collection_with_body") }
+
+      it "returns the content item details/headers element" do
+        expect(document_collection.headers).not_to be_empty
+        expect(document_collection.headers).to eq(content_store_response["details"]["headers"])
+      end
+    end
+  end
+
   describe "taxonomy_topic_email_override_base_path" do
     it "returns nil" do
       expect(document_collection.taxonomy_topic_email_override_base_path).to be_nil

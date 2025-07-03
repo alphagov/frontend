@@ -70,7 +70,7 @@
       <div class="responsive-bottom-margin">
         <% if content_item.body.present? %>
           <div class="govuk-!-margin-bottom-8">
-          <%= render "govuk_publishing_components/components/govspeak", content_item.govspeak_body %>
+          <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
           </div>
         <% end %>
 

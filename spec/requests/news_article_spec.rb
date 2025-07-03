@@ -10,7 +10,7 @@ RSpec.describe "News Article" do
         base_path = content_item.fetch("base_path")
         stub_content_store_has_item(base_path, content_item)
 
-        get base_path
+        get base_path, params: { graphql: false }
       end
 
       it "succeeds" do
@@ -31,6 +31,8 @@ RSpec.describe "News Article" do
 
       before do
         base_path = content_item.fetch("base_path")
+
+        stub_content_store_has_item(base_path, { "schema_name" => "news_article" })
 
         get base_path, params: { graphql: true }
       end

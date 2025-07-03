@@ -1,7 +1,14 @@
 RSpec.describe "News Article" do
   let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
 
-  it_behaves_like "it has meta tags", "news_article", "news_article"
+  describe "rendering meta tags" do
+    before do
+      # Ensure we request the Content Store version of the page
+      stub_const("ContentItemLoader::GRAPHQL_TRAFFIC_RATE", 0)
+    end
+
+    it_behaves_like "it has meta tags", "news_article", "news_article"
+  end
 
   shared_examples "a news article page" do
     before { visit path }
@@ -53,21 +60,22 @@ RSpec.describe "News Article" do
   end
 
   context "when content item is from Content Store" do
-    let(:content_item) { content_store_has_example_item(path, schema: :news_article) }
-    let(:path) { "/government/news/christmas-2016-prime-ministers-message" }
+    let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
+    let(:path) { "#{base_path}?graphql=false" }
+    let(:content_item) { content_store_has_example_item(base_path, schema: :news_article) }
 
     it_behaves_like "a news article page"
 
     context "when content item has an image caption" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
-      let(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_with_image_caption) }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
+      let(:content_item) { content_store_has_example_item(base_path, schema: :news_article, example: :news_article_with_image_caption) }
 
       it_behaves_like "a news article page with an image caption"
     end
 
     context "when content item has a high resolution image" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
-      let(:content_item) { content_store_has_example_item(path, schema: :news_article, example: :news_article_with_image_caption) }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
+      let(:content_item) { content_store_has_example_item(base_path, schema: :news_article, example: :news_article_with_image_caption) }
 
       it_behaves_like "a news article page with a high resolution image"
     end
@@ -75,19 +83,24 @@ RSpec.describe "News Article" do
 
   context "when content item is from Publishing API's GraphQL" do
     let(:content_item) { graphql_has_example_item("news_article") }
-    let(:path) { "/government/news/christmas-2016-prime-ministers-message?graphql=true" }
+    let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
+    let(:path) { "#{base_path}?graphql=true" }
+
+    before do
+      stub_content_store_has_item(base_path, { "schema_name" => "news_article" })
+    end
 
     it_behaves_like "a news article page"
 
     context "when content item has an image caption" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations?graphql=true" }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with an image caption"
     end
 
     context "when content item has a high resolution image" do
-      let(:path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations?graphql=true" }
+      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
       let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
 
       it_behaves_like "a news article page with a high resolution image"
@@ -97,7 +110,7 @@ RSpec.describe "News Article" do
   context "when visiting a page in history mode" do
     let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published", schema: :news_article, example: :news_article_history_mode) }
 
-    before { visit "/government/news/final-care-act-guidance-published" }
+    before { visit "/government/news/final-care-act-guidance-published?graphql=false" }
 
     it "displays the history notice text" do
       expect(page).to have_text("This was published under the #{content_item['links']['government'][0]['title']}")
@@ -107,7 +120,7 @@ RSpec.describe "News Article" do
   context "when visiting an RTL page in history mode" do
     let!(:content_item) { content_store_has_example_item("/government/news/final-care-act-guidance-published.ar", schema: :news_article, example: :news_article_history_mode_translated_arabic) }
 
-    before { visit "/government/news/final-care-act-guidance-published.ar" }
+    before { visit "/government/news/final-care-act-guidance-published.ar?graphql=false" }
 
     it "marks up the government name correctly" do
       expect(page).to have_css("span[lang='en'][dir='ltr']", text: content_item["links"]["government"][0]["title"])

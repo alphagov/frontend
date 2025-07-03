@@ -71,14 +71,14 @@
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
       <div class="responsive-bottom-margin">
-        <% if @content_item.body.present? %>
+        <% if content_item.body.present? %>
           <div class="govuk-!-margin-bottom-8">
-          <%= render 'govuk_publishing_components/components/govspeak', @content_item.govspeak_body %>
+          <%= render 'govuk_publishing_components/components/govspeak', content_item.govspeak_body %>
           </div>
         <% end %>
 
-        <% @content_item.groups.each do |group| %>
-          <%= @content_item.group_heading(group) %>
+        <% content_item.groups.each do |group| %>
+          <%= content_item.group_heading(group) %>
 
           <% if group["body"].present? %>
             <%= render 'govuk_publishing_components/components/govspeak', {
@@ -89,7 +89,7 @@
           <% end %>
 
           <div class="govuk-!-margin-bottom-8">
-            <%= render 'govuk_publishing_components/components/document_list', items: @content_item.group_document_links(group) %>
+            <%= render 'govuk_publishing_components/components/document_list', items: content_item.group_document_links(group) %>
           </div>
         <% end %>
       </div>

@@ -1,5 +1,6 @@
 class DocumentCollection < ContentItem
   include Political
+  include SinglePageNotificationButton
   include Updatable
   include Withdrawable
 

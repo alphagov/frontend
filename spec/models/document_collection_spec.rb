@@ -9,6 +9,13 @@ RSpec.describe DocumentCollection do
   it_behaves_like "it has no updates", "document_collection", "document_collection"
   it_behaves_like "it can be withdrawn", "document_collection", "document_collection_withdrawn"
 
+  describe "#collection_groups" do
+    it "returns an array of collection_group data mapped to data objects" do
+      expect(document_collection.collection_groups.count).to eq(6)
+      expect(document_collection.collection_groups.first).to be_instance_of(DocumentCollection::CollectionGroup)
+    end
+  end
+
   describe "#headers" do
     it "returns an empty array" do
       expect(document_collection.headers).to eq([])

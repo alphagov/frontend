@@ -1,6 +1,8 @@
 RSpec.describe GovukPersonalisationHelper do
   include described_class
 
+  let(:account_session_header) { nil }
+
   describe "#email_subscription_success_banner_heading" do
     it "displays the subscription success banner when the 'email-subscription-success' flash is present" do
       account_flash = GovukPersonalisation::Flash.encode_session("session-id", %w[email-subscription-success])
@@ -42,6 +44,22 @@ RSpec.describe GovukPersonalisationHelper do
     it "returns false when a flash is not present" do
       account_flash = GovukPersonalisation::Flash.encode_session("session-id", [])
       expect(show_email_subscription_success_banner?(account_flash)).to be(false)
+    end
+  end
+
+  describe "#has_govuk_account?" do
+    context "when the user isn't logged in" do
+      it "returns false" do
+        expect(has_govuk_account?).to be false
+      end
+    end
+
+    context "when the user is logged in" do
+      let(:account_session_header) { GovukPersonalisation::Flash.encode_session("placeholder", nil) }
+
+      it "returns true" do
+        expect(has_govuk_account?).to be true
+      end
     end
   end
 end

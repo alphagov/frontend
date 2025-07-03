@@ -181,9 +181,46 @@ vi:
     business_finance_support_scheme:
       name:
         other:
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        other:
     case_study:
       name:
         other: Nghiên cứu điển hình
+    closed_call_for_evidence:
+      name:
+        other:
     closed_consultation:
       name:
         other:
@@ -407,6 +444,9 @@ vi:
       name:
         other:
     official_statistics_announcement:
+      name:
+        other:
+    open_call_for_evidence:
       name:
         other:
     open_consultation:

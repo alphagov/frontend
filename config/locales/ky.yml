@@ -186,10 +186,50 @@ ky:
       name:
         one: Бизнести каржылоону колдоочу схема
         other: Бизнести каржылоону колдоочу схемалар
+    call_for_evidence:
+      and: жана
+      another_website_html: Бул далилдерди талап кылуу %{closed} <a href="%{url}">башка вебсайтта</a> суралган
+      at: бул жерде
+      closed: Бул далилдерди талап кылуу жабылган
+      closed_another_website_html:
+      closes: Ал жабылат
+      closes_at: Бул далилдерди талап кылуу жабылат
+      complete_a: Толтуруу
+      description: Далилдерди талап кылуу сүрөттөмөсү
+      detail_of_outcome: Натыйжанын чоо-жайы
+      documents: Документтер
+      download_outcome: Натыйжаны толугу менен окуу
+      either: же
+      email_to: 'Бул жерге электрондук кат жөнөтүңүз:'
+      is_being: ал
+      name:
+        one: Далилдерди талап кылуу
+        other: Далилдерди талап кылуулар
+      not_open_yet: Бул далилдерди талап кылуу ачыла элек
+      'on': күнү
+      open_another_website_html:
+      opens: Бул далилдерди талап кылуу ачылат
+      or: же
+      original_call_for_evidence: Далилдерди талап кылуунун түпнускасы
+      ran_from: Бул далилдерди талап кылуу аткарылды
+      respond_online: Онлайн жооп берүү
+      response_form: жооп формасы
+      summary: Кыскача
+      was: болгон
+      ways_to_respond: Жооп берүү жолдору
+      write_to: 'Бул жерге жазуу:'
+    call_for_evidence_outcome:
+      name:
+        one: Натыйжанын далилдөөсүн талап кылуу
+        other: Натыйжанын далилдөөлөрүн талап кылуу
     case_study:
       name:
         one: Окуяны изилдөө
         other: Окуяларды изилдөө
+    closed_call_for_evidence:
+      name:
+        one: Далилдерди жабык түрдө талап кылуу
+        other: Далилдерди жабык түрдө талап кылуулар
     closed_consultation:
       name:
         one: Жабык түрдө консультация
@@ -454,6 +494,10 @@ ky:
       name:
         one: Расмий статистикалык кулактандыруу
         other: Расмий статистикалык кулактандыруулар
+    open_call_for_evidence:
+      name:
+        one: Далилдерди ачык түрдө талап кылуу
+        other: Далилдерди ачык түрдө талап кылуулар
     open_consultation:
       name:
         one: Ачык консультация

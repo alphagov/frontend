@@ -4,6 +4,34 @@ RSpec.describe DocumentCollectionPresenter do
   let(:content_item) { DocumentCollection.new(content_store_response) }
   let(:content_store_response) { GovukSchemas::Example.find("document_collection", example_name: "document_collection") }
 
+  describe "#displayable_collection_groups" do
+    context "with empty collection groups" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["details"]["collection_groups"][0]["documents"] = []
+        end
+      end
+
+      it "returns only collection groups with items" do
+        expect(content_item.collection_groups.count).to eq(6)
+        expect(presenter.displayable_collection_groups.count).to eq(5)
+      end
+    end
+
+    context "with collection groups that only contain withdrawn documents" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["links"]["documents"][3]["withdrawn"] = true
+        end
+      end
+
+      it "returns only collection groups with non-withdrawn items" do
+        expect(content_item.collection_groups.count).to eq(6)
+        expect(presenter.displayable_collection_groups.count).to eq(5)
+      end
+    end
+  end
+
   describe "#headers_for_contents_list_component" do
     context "with no headers present in the body" do
       it "returns an empty array" do

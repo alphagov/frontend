@@ -1,4 +1,10 @@
 class DocumentCollectionPresenter < ContentItemPresenter
+  def displayable_collection_groups
+    content_item.collection_groups.select do |group|
+      group.documents.reject { |doc| doc.content_store_response["withdrawn"] }.any?
+    end
+  end
+
   def headers_for_contents_list_component
     return [] unless contents_outline.level_two_headers?
 

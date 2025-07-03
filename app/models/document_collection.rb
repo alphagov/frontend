@@ -1,5 +1,6 @@
 class DocumentCollection < ContentItem
   include Political
+  include SinglePageNotificationButton
   include Updatable
 
   def taxonomy_topic_email_override_base_path

@@ -66,16 +66,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <% if content_item.important_metadata.any? %>
-      <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
-        <%= render "govuk_publishing_components/components/metadata", {
-          inverse: true,
-          other: content_item.important_metadata,
-          margin_bottom: 0,
-        } %>
-      <% end %>
-    <% end %>
-
     <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item.contents do %>
       <div class="responsive-bottom-margin">
         <%= render "document_collection_body" %>

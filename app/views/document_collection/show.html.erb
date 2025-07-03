@@ -49,7 +49,18 @@
     see_updates_link: true,
   } %>
 
-<%= render "shared/document_collections_email_signup", content_item: content_item %>
+<% if @presenter.show_email_signup_link? %>
+  <div
+    data-module="ga4-link-tracker"
+    data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'
+    data-ga4-track-links-only>
+    <%= render "govuk_publishing_components/components/signup_link", {
+      link_text: "Get emails about this topic",
+      link_href: "/email-signup/confirm?topic=#{content_item.taxonomy_topic_email_override_base_path}",
+      margin_bottom: 6,
+    } %>
+  </div>
+<% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

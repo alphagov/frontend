@@ -760,6 +760,9 @@ ko:
   shared:
     historically_political: 이 문서는 %{government} 산하에 출판되었습니다
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

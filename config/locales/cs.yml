@@ -912,6 +912,9 @@ cs:
   shared:
     historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

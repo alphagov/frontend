@@ -836,6 +836,9 @@ ka:
   shared:
     historically_political: ეს გამოქვეყნდა %{government}
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

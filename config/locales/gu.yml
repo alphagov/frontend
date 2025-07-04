@@ -836,6 +836,9 @@ gu:
   shared:
     historically_political: આ %{government} હેઠળ પ્રકાશિત કરવામાં આવ્યું હતું.
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

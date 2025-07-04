@@ -19,7 +19,7 @@
       margin_bottom: 8,
     } %>
   </div>
-  <%= render 'shared/translations' %>
+  <%= render "shared/translations" %>
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
   </div>
@@ -57,13 +57,13 @@
         margin_bottom: 6,
       } %>
 
-      <%= render 'govuk_publishing_components/components/govspeak', {} do %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
         <%= raw(@content_item.govspeak_body[:content]) %>
       <% end %>
 
-      <%= render 'shared/published_dates_with_notification_button' %>
+      <%= render "shared/published_dates_with_notification_button" %>
     <% end %>
   </div>
-  <%= render 'shared/sidebar_navigation' %>
+  <%= render "shared/sidebar_navigation" %>
 </div>
-<%= render 'shared/footer_navigation' %>
+<%= render "shared/footer_navigation" %>

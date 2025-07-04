@@ -68,7 +68,10 @@ RSpec.describe ServiceManualTopicPresenter do
         {
           heading: "My group 1",
           summary: "A summary of group 1",
-          html: '<ul class="govuk-list"><li><a class="govuk-link" href="/link-href-def">link title 2</a></li><li><a class="govuk-link" href="/link-href-abc">link title 1</a></li></ul>',
+          list: [
+            '<a class="govuk-link" href="/link-href-def">link title 2</a>',
+            '<a class="govuk-link" href="/link-href-abc">link title 1</a>',
+          ],
         },
       ]
       expect(described_class.new(content_item).sections).to eq(expected)

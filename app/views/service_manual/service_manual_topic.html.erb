@@ -1,3 +1,4 @@
+<% add_view_stylesheet("service-manual-topic") %>
 <%= content_for :title, "#{@content_item.title} - Service Manual" %>
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
@@ -29,6 +30,7 @@
           <%= render "govuk_publishing_components/components/heading", {
             text: section[:heading],
             margin_bottom: 2,
+            font_size: "m",
           } %>
         <% end %>
         <% unless section[:summary].empty? %>
@@ -36,8 +38,11 @@
             <%= section[:summary] %>
           </p>
         <% end %>
-        <% if section[:html] %>
-          <%= section[:html] %>
+        <% if section[:list] %>
+          <%= render "govuk_publishing_components/components/list", {
+            items: section[:list],
+            margin_bottom: 8,
+          } %>
         <% end %>
       <% end %>
     <% end %>

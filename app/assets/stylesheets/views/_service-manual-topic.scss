@@ -1,0 +1,9 @@
+@import "govuk_publishing_components/govuk_frontend_support";
+
+.related-item {
+  padding-top: govuk-spacing(4);
+
+  @include govuk-media-query($from: tablet) {
+    border-top: 1px solid $govuk-border-colour;
+  }
+}

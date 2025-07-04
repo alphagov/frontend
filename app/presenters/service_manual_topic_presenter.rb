@@ -26,7 +26,7 @@ class ServiceManualTopicPresenter
           text: group[:description],
         },
         content: {
-          html: list_of_links(group[:items]),
+          html: accordion_links(group[:items]),
         },
       }
     end
@@ -37,7 +37,7 @@ class ServiceManualTopicPresenter
       {
         heading: group[:name],
         summary: group[:description],
-        html: list_of_links(group[:items]),
+        list: list_of_links(group[:items]),
       }
     end
   end
@@ -67,11 +67,17 @@ class ServiceManualTopicPresenter
 
 private
 
-  def list_of_links(items)
+  def accordion_links(items)
     content_tag(:ul, class: "govuk-list") do
       items.each do |i|
         concat content_tag(:li, link_to(i["title"], i["base_path"], class: "govuk-link"))
       end
+    end
+  end
+
+  def list_of_links(items)
+    items.map do |i|
+      link_to(i["title"], i["base_path"], class: "govuk-link")
     end
   end
 

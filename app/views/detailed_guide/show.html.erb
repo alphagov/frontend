@@ -58,7 +58,7 @@
       } %>
 
       <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= raw(@content_item.govspeak_body[:content]) %>
+        <%= raw(content_item.body.html_safe) %>
       <% end %>
 
       <%= render "shared/published_dates_with_notification_button" %>

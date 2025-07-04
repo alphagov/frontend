@@ -1,4 +1,4 @@
-# Frontend
+  # Frontend
 
 Frontend renders the citizen-facing part of content items stored in the Content Store, and
 some hard-coded routes.
@@ -41,6 +41,9 @@ some hard-coded routes.
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
 |Service Manual homepage|[service_manual_homepage](https://docs.publishing.service.gov.uk/content-schemas/service_manual_homepage.html)|https://www.gov.uk/service-manual|
 |Service Manual service standard page|[service_manual_service_standard](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_standard.html)|https://www.gov.uk/service-manual/service-standard|
+|Service Manual topic   |[service_manual_topic](https://docs.publishing.service.gov.uk/content-schemas/service_manual_topic.html)|https://www.gov.uk/service-manual/agile-delivery|
+|                       ||https://www.gov.uk/service-manual/user-research|
+|                       ||https://www.gov.uk/service-manual/helping-people-to-use-your-service|
 |Service toolkit page   |[service_toolkit_page](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_toolkit.html)|https://www.gov.uk/service-toolkit|
 |Simple smart answer    |[simple_smart_answer](https://docs.publishing.service.gov.uk/content-schemas/simple_smart_answer.html)|https://www.gov.uk/sold-bought-vehicle|
 |                       ||https://www.gov.uk/contact-the-dvla|

@@ -12,4 +12,8 @@ module GovukPersonalisationHelper
   def show_email_subscription_success_banner?(account_flash)
     account_flash.include?("email-subscription-success") || account_flash.include?("email-unsubscribe-success") || account_flash.include?("email-subscription-already-subscribed")
   end
+
+  def has_govuk_account?
+    account_session_header.present?
+  end
 end

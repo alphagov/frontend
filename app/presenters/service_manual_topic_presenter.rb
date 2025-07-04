@@ -9,11 +9,11 @@ class ServiceManualTopicPresenter < ContentItemPresenter
   end
 
   def display_as_accordion?
-    @content_item.groups.count > 2 && @content_item.visually_collapsed?
+    content_item.groups.count > 2 && content_item.visually_collapsed?
   end
 
   def accordion_sections
-    @content_item.groups_with_links.map do |group|
+    content_item.groups_with_links.map do |group|
       {
         heading: {
           text: group[:name],
@@ -22,24 +22,24 @@ class ServiceManualTopicPresenter < ContentItemPresenter
           text: group[:description],
         },
         content: {
-          html: list_of_links(group[:items]),
+          html: accordion_links(group[:items]),
         },
       }
     end
   end
 
   def sections
-    @content_item.groups_with_links.map do |group|
+    content_item.groups_with_links.map do |group|
       {
         heading: group[:name],
         summary: group[:description],
-        html: list_of_links(group[:items]),
+        list: list_of_links(group[:items]),
       }
     end
   end
 
   def content_owners
-    Array(@content_item.content_owners).map do |data|
+    Array(content_item.content_owners).map do |data|
       {
         title: data.title,
         href: data.base_path,
@@ -48,7 +48,7 @@ class ServiceManualTopicPresenter < ContentItemPresenter
   end
 
   def community_title
-    topic_related_communities_title(@content_item.content_owners)
+    topic_related_communities_title(content_item.content_owners)
   end
 
   def community_links
@@ -58,16 +58,22 @@ class ServiceManualTopicPresenter < ContentItemPresenter
   end
 
   def email_alert_signup_link
-    "/email-signup?link=#{@content_item.base_path}"
+    "/email-signup?link=#{content_item.base_path}"
   end
 
 private
 
-  def list_of_links(items)
+  def accordion_links(items)
     content_tag(:ul, class: "govuk-list") do
       items.each do |i|
-        concat content_tag(:li, link_to(i["title"], i["base_path"], class: "govuk-link"))
+        concat content_tag(:li, link_to(i.title, i.base_path, class: "govuk-link"))
       end
+    end
+  end
+
+  def list_of_links(items)
+    items.map do |i|
+      link_to(i.title, i.base_path, class: "govuk-link")
     end
   end
 

@@ -1,18 +1,22 @@
-<%= content_for :title, "#{@content_item.title} - Service Manual" %>
+<% add_view_stylesheet("service-manual-topic") %>
+<%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
 <% content_for :extra_headers do %>
-  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
+<% end %>
+<% content_for :before_content do %>
+  <%= render partial: "service_manual/service_manual_breadcrumbs", breadcrumbs: @presenter.breadcrumbs %>
 <% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading", {
-      text: @content_item.title,
+      text: content_item.title,
       heading_level: 1,
       font_size: "xl",
-      margin_bottom: 7,
+      margin_bottom: 8,
     } %>
     <p class="govuk-body-l">
-      <%= @content_item.description %>
+      <%= content_item.description %>
     </p>
   </div>
 </div>
@@ -29,6 +33,7 @@
           <%= render "govuk_publishing_components/components/heading", {
             text: section[:heading],
             margin_bottom: 2,
+            font_size: "m",
           } %>
         <% end %>
         <% unless section[:summary].empty? %>
@@ -36,8 +41,11 @@
             <%= section[:summary] %>
           </p>
         <% end %>
-        <% if section[:html] %>
-          <%= section[:html] %>
+        <% if section[:list] %>
+          <%= render "govuk_publishing_components/components/list", {
+            items: section[:list],
+            margin_bottom: 8,
+          } %>
         <% end %>
       <% end %>
     <% end %>
@@ -58,6 +66,7 @@
         <nav role="navigation" aria-labelledby="related-communities" class="related-communities">
           <%= render "govuk_publishing_components/components/list", {
             items: @presenter.community_links,
+            margin_bottom: 8,
           } %>
         </nav>
       <% end %>

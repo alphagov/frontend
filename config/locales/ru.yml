@@ -312,8 +312,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Подробное руководство
+        other: Руководство
     dfid_research_output:
       name:
         few:

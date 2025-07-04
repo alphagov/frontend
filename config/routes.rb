@@ -55,6 +55,11 @@ Rails.application.routes.draw do
     get "/home", to: "account_home#show", as: :account_home
   end
 
+  # Detailed guidance pages
+  scope "/guidance" do
+    get "/:slug(.:locale)", to: "detailed_guide#show", as: :detailed_guide
+  end
+
   # Help pages
   scope "/help" do
     get "/:slug", to: "help_page#show", constraints: { slug: /(?!(ab-testing|cookies)$).*/ }

@@ -274,8 +274,8 @@ fi:
         other:
     detailed_guide:
       name:
-        one:
-        other:
+        one: Ohjaus
+        other: Ohjaus
     dfid_research_output:
       name:
         one:

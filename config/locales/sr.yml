@@ -293,8 +293,8 @@ sr:
     detailed_guide:
       name:
         few:
-        one:
-        other:
+        one: Detaljno uputstvo
+        other: Detaljno uputstvo
     dfid_research_output:
       name:
         few:

@@ -3,7 +3,7 @@ require "ostruct"
 class ContentItemLoader
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
   GRAPHQL_ALLOWED_SCHEMAS = %w[news_article].freeze
-  GRAPHQL_TRAFFIC_RATE = 0.05 # This is a decimal version of a percentage, so can be between 0 and 1
+  GRAPHQL_TRAFFIC_RATE = 0.1 # This is a decimal version of a percentage, so can be between 0 and 1
 
   def self.for_request(request)
     request.env[:loader] ||= ContentItemLoader.new(request:)

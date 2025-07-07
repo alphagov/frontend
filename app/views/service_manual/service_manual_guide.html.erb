@@ -7,64 +7,61 @@
 <% end %>
 
 <% content_for :before_content do %>
-  <div class="govuk-width-container">
-    <%= render partial: "service_manual/service_manual_breadcrumbs" %>
-  </div>
+  <%= render partial: "service_manual/service_manual_breadcrumbs" %>
 <% end %>
 
-<div class="govuk-width-container">
-  <!-- Page title and contact -->
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="app-page-header">
-        <%= render "govuk_publishing_components/components/heading", {
-          context: @presenter.category_title,
-          text: content_item.title,
-          heading_level: 1,
-          font_size: "xl",
-          margin_bottom: 8,
-        } %>
-        <% if @presenter.show_description? %>
-          <p class="govuk-body-l app-page-header__summary">
-            <%= content_item.description %>
-          </p>
-        <% end %>
-      </div>
-    </div>
-    <div class="govuk-grid-column-one-third app-community-contact govuk-!-padding-bottom-5">
-      <p>
-        <%= link_to "Give feedback about this page", "/contact/govuk", class: "govuk-link" %>
-      </p>
+<!-- Page title and contact -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="app-page-header">
+      <%= render "govuk_publishing_components/components/heading", {
+        context: @presenter.category_title,
+        text: content_item.title,
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 8,
+      } %>
+      <% if @presenter.show_description? %>
+        <p class="govuk-body-l app-page-header__summary">
+          <%= content_item.description %>
+        </p>
+      <% end %>
     </div>
   </div>
-
-  <!-- Metadata-->
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds app-metadata--heading">
-      <%= render "govuk_publishing_components/components/metadata", {
-        from: @presenter.content_owners.map do |content_owner|
-          link_to(content_owner.title, content_owner.href)
-        end,
-      } %>
-    </div>
+  <div class="govuk-grid-column-one-third app-community-contact">
+    <p>
+      <%= link_to "Give feedback about this page", "/contact/govuk", class: "govuk-link" %>
+    </p>
   </div>
+</div>
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third app-sticky-element">
-      <!--  Page contents -->
-      <%= render "govuk_publishing_components/components/contents_list", {
-        underline_links: true,
-        contents: @presenter.header_links,
-        id: "contents",
-      } %>
-    </div>
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/govspeak", content: content_item.body.html_safe %>
-      <%= render "govuk_publishing_components/components/published_dates", {
-        published: display_date(content_item.initial_publication_date),
-        last_updated: display_date(content_item.updated),
-        history: formatted_history(content_item.history),
-      } %>
-    </div>
+<!-- Metadata-->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds app-metadata--heading">
+    <%= render "govuk_publishing_components/components/metadata", {
+      from: @presenter.content_owners.map do |content_owner|
+        link_to(content_owner.title, content_owner.href)
+      end,
+    } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third app-sticky-element">
+    <!--  Page contents -->
+    <%= render "govuk_publishing_components/components/contents_list", {
+      underline_links: true,
+      contents: @presenter.header_links,
+      id: "contents",
+      margin_bottom: 8,
+    } %>
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", content: content_item.body.html_safe, margin_bottom: 8 %>
+    <%= render "govuk_publishing_components/components/published_dates", {
+      published: display_date(content_item.initial_publication_date),
+      last_updated: display_date(content_item.updated),
+      history: formatted_history(content_item.history),
+    } %>
   </div>
 </div>

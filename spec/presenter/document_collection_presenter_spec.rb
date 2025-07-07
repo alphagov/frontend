@@ -32,6 +32,62 @@ RSpec.describe DocumentCollectionPresenter do
     end
   end
 
+  describe "#group_as_document_list" do
+    let(:group) { content_item.collection_groups.first }
+
+    it "returns an array suitable for passing to a documents_list component" do
+      expected_first = {
+        link: {
+          text: "National standard for driving cars and light vans",
+          path: "/government/publications/national-standard-for-driving-cars-and-light-vans",
+        },
+        metadata: {
+          public_updated_at: Time.zone.parse("2007-03-16 15:00:02.000000000 +0000"),
+          document_type: "Guidance",
+        },
+      }
+
+      expect(presenter.group_as_document_list(group).count).to eq(3)
+      expect(presenter.group_as_document_list(group).first).to eq(expected_first)
+    end
+
+    context "when a document in the group is withdrawn" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["links"]["documents"][8]["withdrawn"] = true
+        end
+      end
+
+      it "returns only the non-withdrawn documents" do
+        expect(presenter.group_as_document_list(group).count).to eq(2)
+      end
+    end
+
+    context "when a document in the group is of a type without allowed public updates" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["links"]["documents"][8]["document_type"] = "simple_smart_answer"
+        end
+      end
+
+      it "returns nil for public_updated_at metadata" do
+        expect(presenter.group_as_document_list(group).first[:metadata][:public_updated_at]).to be_nil
+      end
+    end
+
+    context "when a document in the group doesn't have a public_updated_at value" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["links"]["documents"][8]["public_updated_at"] = nil
+        end
+      end
+
+      it "returns nil for public_updated_at metadata" do
+        expect(presenter.group_as_document_list(group).first[:metadata][:public_updated_at]).to be_nil
+      end
+    end
+  end
+
   describe "#headers_for_contents_list_component" do
     context "with no headers present in the body" do
       it "returns an empty array" do

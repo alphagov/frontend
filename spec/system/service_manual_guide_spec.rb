@@ -13,16 +13,6 @@ RSpec.describe "Service Manual guide" do
         expect(page.status_code).to eq(200)
       end
 
-      it "shows the time it was published if it has been published" do
-        travel_to Time.zone.local(2015, 10, 10, 0, 0, 0) do
-          visit base_path
-
-          within(".app-change-history") do
-            expect(page).to have_text("about 15 hours ago")
-          end
-        end
-      end
-
       it "service manual guide shows content owners" do
         within(".app-metadata--heading") do
           expect(page).to have_link("Agile delivery community")
@@ -43,40 +33,51 @@ RSpec.describe "Service Manual guide" do
       it "displays a link to give feedback" do
         expect(page).to have_link("Give feedback about this page")
       end
-
-      it "displays the published date of the most recent change" do
-        within(".app-change-history") do
-          expect { page.has_text?("Last update:\n9 October 2015") }.not_to raise_error
-        end
-      end
-
-      it "displays the most recent change history for a guide" do
-        within(".app-change-history") do
-          expect(page).to have_content("This is our latest change")
-        end
-      end
-
-      it "displays the change history for a guide" do
-        within(".app-change-history__past") do
-          expect(page).to have_content("This is another change")
-          expect(page).to have_content("Guidance first published")
-        end
-      end
     end
 
     describe "with non-default content_store_response state" do
-      it "shows the time it was saved if it hasn't been published yet" do
-        now = "2015-10-10T09:00:00+00:00"
-        last_saved_at = "2015-10-10T08:55:00+00:00"
+      context "when rendering the published dates component" do
+        let(:content_store_response) { GovukSchemas::Example.find("service_manual_guide", example_name: "service_manual_guide") }
 
-        travel_to(now) do
-          content_store_response["public_updated_at"] = nil
-          content_store_response["updated_at"] = last_saved_at
+        before do
+          content_store_response["details"]["first_public_at"] = "2015-01-01T15:00:00Z"
+          stub_content_store_has_item(base_path, content_store_response)
+          visit base_path
+        end
+
+        it "shows the time it was published if it has been published" do
+          within(".gem-c-published-dates") do
+            expect(page).to have_text("Published 1 January 2015")
+          end
+        end
+
+        it "displays the published date of the most recent change" do
+          within(".gem-c-published-dates") do
+            expect(page).to have_text("Last updated 9 October 2015")
+          end
+        end
+
+        it "displays the most recent change history for a guide" do
+          within(".gem-c-published-dates") do
+            expect(page).to have_content("This is our latest change")
+          end
+        end
+
+        it "displays the change history for a guide" do
+          within(".gem-c-published-dates") do
+            expect(page).to have_content("This is another change")
+            expect(page).to have_content("Guidance first published")
+          end
+        end
+
+        it "omits the latest change and previous change if the guide has no history" do
+          content_store_response["details"]["change_history"] = []
           stub_content_store_has_item(base_path, content_store_response)
           visit base_path
 
-          within(".app-change-history") do
-            expect(page).to have_text("5 minutes ago")
+          within(".gem-c-published-dates") do
+            expect(page).not_to have_content("show all updates")
+            expect(page).not_to have_css(".gem-c-published-dates__toggle")
           end
         end
       end
@@ -99,30 +100,6 @@ RSpec.describe "Service Manual guide" do
         within(".app-page-header__summary") do
           expect(page).to have_content("Research to develop a deep knowledge of who the service users are")
         end
-      end
-
-      it "omits the previous history if there is only one change" do
-        content_store_response["details"]["change_history"] = [
-          {
-            "public_timestamp" => "2015-09-01T08:17:10+00:00",
-            "note" => "Guidance first published",
-          },
-        ]
-        stub_content_store_has_item(base_path, content_store_response)
-        visit base_path
-
-        expect(page).not_to have_content("Show all page updates")
-        expect(page).not_to have_css(".app-change-history__past")
-      end
-
-      it "omits the latest change and previous change if the guide has no history" do
-        content_store_response["details"]["change_history"] = []
-        stub_content_store_has_item(base_path, content_store_response)
-        visit base_path
-
-        expect(page).not_to have_content("Last update:")
-        expect(page).not_to have_content("Show all page updates")
-        expect(page).not_to have_css(".app-change-history__past")
       end
     end
   end

@@ -3,29 +3,6 @@
 @import "_service_manual/service_standard_point";
 @import "_service_manual/related";
 
-.govuk-frontend-supported {
-  .app-change-history__past {
-    &.govuk-list {
-      // stylelint-disable-next-line max-nesting-depth
-      &.js-hidden {
-        display: none;
-      }
-    }
-  }
-}
-
-.app-change-history__latest-change {
-  dd {
-    margin: 0;
-    padding: 0;
-  }
-}
-
-.app-change-history__change-note {
-  color: $govuk-secondary-text-colour;
-  white-space: pre-line;
-}
-
 .app-community-contact {
   @include govuk-media-query($from: tablet) {
     text-align: right;

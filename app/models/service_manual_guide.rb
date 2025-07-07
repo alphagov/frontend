@@ -1,4 +1,6 @@
 class ServiceManualGuide < ContentItem
+  include Updatable
+
   def content_owners
     linked("content_owners")
   end

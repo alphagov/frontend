@@ -77,7 +77,7 @@
           </div>
         <% end %>
 
-        <% content_item.groups.each do |group| %>
+        <% @presenter.displayable_collection_groups.each do |group| %>
           <%= content_item.group_heading(group) %>
 
           <% if group["body"].present? %>

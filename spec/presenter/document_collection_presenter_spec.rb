@@ -90,20 +90,34 @@ RSpec.describe DocumentCollectionPresenter do
 
   describe "#headers_for_contents_list_component" do
     context "with no headers present in the body" do
-      it "returns an empty array" do
-        expect(presenter.headers_for_contents_list_component).to eq([])
+      it "returns the headers of the collection groups" do
+        expected = {
+          href: "#car-and-light-van",
+          items: [],
+          text: "Car and light van",
+        }
+
+        expect(presenter.headers_for_contents_list_component.count).to eq(6)
+        expect(presenter.headers_for_contents_list_component.first).to eq(expected)
       end
     end
 
     context "with a body with h2 headers present" do
       let(:content_store_response) { GovukSchemas::Example.find("document_collection", example_name: "document_collection_with_body") }
 
-      it "returns the h2 headers (without nested headers) in a format suitable for a Contents List component" do
+      it "returns the headers of the collection groups and the level 2 body headers in a format suitable for a Contents List component" do
+        expect(presenter.headers_for_contents_list_component.count).to eq(2)
+
         expect(presenter.headers_for_contents_list_component).to eq([
           {
             href: "#consolidated-list",
             items: [],
             text: "Consolidated list",
+          },
+          {
+            href: "#documents",
+            items: [],
+            text: "Documents",
           },
         ])
       end

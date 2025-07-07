@@ -78,12 +78,11 @@
 
           <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 
-          <% if group["body"].present? %>
+          <% if group.body.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {
+                content: group.body.html_safe,
                 direction: page_text_direction,
-              } do %>
-              <%= raw(group["body"]) %>
-            <% end %>
+              } %>
           <% end %>
 
           <div class="govuk-!-margin-bottom-8">

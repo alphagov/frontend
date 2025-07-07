@@ -78,7 +78,8 @@
         <% end %>
 
         <% @presenter.displayable_collection_groups.each do |group| %>
-          <%= content_item.group_heading(group) %>
+
+          <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 
           <% if group["body"].present? %>
             <%= render "govuk_publishing_components/components/govspeak", {

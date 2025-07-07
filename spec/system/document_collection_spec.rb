@@ -154,16 +154,26 @@ RSpec.describe "Document Collection" do
       end
     end
 
-  # test "withdrawn collection" do
-  #   setup_and_visit_content_item("document_collection_withdrawn")
-  #   assert page.has_css?("title", text: "[Withdrawn]", visible: false)
+    context "with a withdrawn collection" do
+      let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection_withdrawn") }
 
-  #   within ".gem-c-notice" do
-  #     assert page.has_text?("This collection was withdrawn"), "is withdrawn"
-  #     assert page.has_text?("This information is now out of date.")
-  #     assert page.has_css?("time[datetime='#{@content_item['withdrawn_notice']['withdrawn_at']}']")
-  #   end
-  # end
+      it "displays the withdrawn title" do
+        visit base_path
+
+        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+      end
+
+      it "displays the withdrawn notice" do
+        visit base_path
+
+        within ".gem-c-notice" do
+          expect(page).to have_text("This collection was withdrawn"), "is withdrawn"
+          expect(page).to have_text("This information is now out of date.")
+          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+        end
+      end
+    end
+  end
 
   # test "historically political collection" do
   #   setup_and_visit_content_item("document_collection_political")

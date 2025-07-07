@@ -67,62 +67,57 @@ RSpec.describe "Document Collection" do
         expect(page).not_to have_selector("nav a", text: "Empty Group")
       end
     end
+
+    context "when all document collection groups are empty" do
+      context "when no headers are supplied" do
+        let(:content_item) do
+          GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+            item["details"]["headers"] = []
+
+            item["details"]["collection_groups"] = [
+              {
+                "body" => "<div class=\"empty group\">\n</div>",
+                "documents" => [],
+                "title" => "Empty Group",
+              },
+            ]
+          end
+        end
+
+        it "does not render a contents list" do
+          visit base_path
+
+          expect(page).not_to have_selector(".gem-c-contents-list")
+        end
+      end
+
+      context "when h2 headers are supplied" do
+        let(:content_item) do
+          GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+            item["details"]["headers"] = [
+              { "id" => "one", "level" => 2, "text" => "One" },
+              { "id" => "two", "level" => 2, "text" => "Two" },
+              { "id" => "three", "level" => 2, "text" => "Three" },
+            ]
+
+            item["details"]["collection_groups"] = [
+              {
+                "body" => "<div class=\"empty group\">\n</div>",
+                "documents" => [],
+                "title" => "Empty Group",
+              },
+            ]
+          end
+        end
+
+        it "renders a contents list" do
+          visit base_path
+
+          expect(page).to have_selector(".gem-c-contents-list")
+        end
+      end
+    end
   end
-
-  # test "renders no contents list if body has no h2s and is long and collection groups are empty" do
-  #   content_item = get_content_example("document_collection")
-
-  #   content_item["details"]["body"] = <<~HTML
-  #     <div class="empty group">
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #     </div>
-  #   HTML
-
-  #   content_item["details"]["collection_groups"] = [
-  #     {
-  #       "body" => "<div class=\"empty group\">\n</div>",
-  #       "documents" => [],
-  #       "title" => "Empty Group",
-  #     },
-  #   ]
-
-  #   content_item["base_path"] += "-no-h2s"
-
-  #   stub_content_store_has_item(content_item["base_path"], content_item.to_json)
-  #   visit(content_item["base_path"])
-  #   assert_not page.has_css?(".gem-c-contents-list")
-  # end
-
-  # test "renders contents list if body has h2s and collection groups are empty" do
-  #   content_item = get_content_example("document_collection")
-
-  #   content_item["details"]["body"] = <<~HTML
-  #     <div class="empty group">
-  #       <h2 id="one">One</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <h2 id="two">Two</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #       <h2 id="three">Three</h2>
-  #       <p>#{Faker::Lorem.characters(number: 200)}</p>
-  #     </div>
-  #   HTML
-
-  #   content_item["details"]["collection_groups"] = [
-  #     {
-  #       "body" => "<div class=\"empty group\">\n</div>",
-  #       "documents" => [],
-  #       "title" => "Empty Group",
-  #     },
-  #   ]
-
-  #   content_item["base_path"] += "-h2s"
-
-  #   stub_content_store_has_item(content_item["base_path"], content_item.to_json)
-  #   visit(content_item["base_path"])
-  #   assert page.has_css?(".gem-c-contents-list")
-  # end
 
   # test "renders each collection group" do
   #   setup_and_visit_content_item("document_collection")

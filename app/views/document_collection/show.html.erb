@@ -60,6 +60,11 @@
       margin_bottom: 6,
     } %>
   </div>
+<% elsif content_item.display_single_page_notification_button? %>
+  <%= render "shared/single_page_notification_button", {
+      content_item:,
+      skip_account: !logged_in?,
+    } %>
 <% end %>
 
 <div class="govuk-grid-row">

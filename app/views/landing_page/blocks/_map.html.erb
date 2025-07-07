@@ -17,12 +17,17 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Use our interactive map to help locate your nearest CDC or surgical hub",
+        margin_bottom: 4,
+      } %>
       <%= render "govuk_publishing_components/components/checkboxes", {
         name: "filter_map_layers[]",
-        heading: "Use our interactive map to help locate your nearest CDC or surgical hub",
+        heading: "Filter items shown on the map",
         description: "Our interactive map shows the new, local NHS services this government is delivering to improve access in your area. This will cut waiting lists and build an NHS fit for the future.",
         hint_text: "Filter by",
         id: "mapfilter",
+        visually_hide_heading: true,
         small: true,
         items: [
           {

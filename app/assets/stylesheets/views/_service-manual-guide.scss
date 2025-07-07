@@ -26,26 +26,6 @@
   white-space: pre-line;
 }
 
-.app-collection {
-  border-bottom: 1px solid $govuk-border-colour;
-  margin-bottom: govuk-spacing(3);
-  padding-bottom: govuk-spacing(3);
-
-  @include govuk-media-query($from: tablet) {
-    margin-bottom: govuk-spacing(9);
-    padding-bottom: govuk-spacing(6);
-  }
-
-  &:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-
-  &__description {
-    color: $govuk-secondary-text-colour;
-  }
-}
-
 .app-community-contact {
   @include govuk-media-query($from: tablet) {
     text-align: right;
@@ -59,51 +39,6 @@
   @include govuk-media-query($from: tablet) {
     padding-top: 1.875em;
   }
-}
-
-.app-hero {
-  background-color: $govuk-brand-colour;
-  color: govuk-colour("white");
-  margin-bottom: govuk-spacing(3);
-  position: relative;
-  top: -1px;
-
-  @include govuk-media-query($from: tablet) {
-    margin-bottom: govuk-spacing(6);
-  }
-
-  a:link,
-  a:visited {
-    @include govuk-typography-weight-bold;
-  }
-}
-
-.app-hero__body--inverse {
-  color: govuk-colour("white");
-}
-
-.notice {
-  clear: both;
-  padding: govuk-spacing(3);
-  border: 5px solid $govuk-brand-colour;
-  @include responsive-bottom-margin;
-
-  @include govuk-media-query($from: tablet) {
-    padding: govuk-spacing(4);
-  }
-
-  &__title {
-    margin-bottom: govuk-spacing(2);
-    @include govuk-font(36, $weight: bold);
-  }
-
-  &__description {
-    @include govuk-font(19);
-  }
-}
-
-.panel {
-  border-top: 1px solid $govuk-border-colour;
 }
 
 .app-sticky-element {

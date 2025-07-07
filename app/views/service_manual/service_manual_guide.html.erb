@@ -59,9 +59,7 @@
       } %>
     </div>
     <div class="govuk-grid-column-two-thirds">
-      <div class="govspeak-wrapper govuk-!-padding-top-2">
-        <%= render "govuk_publishing_components/components/govspeak", content: content_item.body.html_safe %>
-      </div>
+      <%= render "govuk_publishing_components/components/govspeak", content: content_item.body.html_safe %>
       <%= render "govuk_publishing_components/components/published_dates", {
         published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),

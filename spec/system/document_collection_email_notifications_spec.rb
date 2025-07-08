@@ -1,13 +1,26 @@
 RSpec.describe "Document Collection Email Notifications" do
   include GovukPersonalisation::TestHelpers::Features
 
-  # def schema_type
-  #   "document_collection"
-  # end
+  let(:base_path) { content_item["base_path"] }
+  let(:taxonomy_topic_base_path) { "/taxonomy_topic_base_path" }
 
-  # def taxonomy_topic_base_path
-  #   "/taxonomy_topic_base_path"
-  # end
+  before { stub_content_store_has_item(base_path, content_item) }
+
+  context "when a taxonomy topic email override is present and the page is in English" do
+    let(:content_item) do
+      GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+        item["links"]["taxonomy_topic_email_override"] = [{ "base_path" => taxonomy_topic_base_path.to_s }]
+      end
+    end
+
+    it "renders a signup link" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-signup-link")
+      expect(page).to have_link(href: "/email-signup/confirm?topic=#{taxonomy_topic_base_path}")
+      expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+    end
+  end
 
   # def email_alert_frontend_signup_endpoint_no_account
   #   "/email-signup"
@@ -15,17 +28,6 @@ RSpec.describe "Document Collection Email Notifications" do
 
   # def email_alert_frontend_signup_endpoint_enforce_account
   #   "/email/subscriptions/single-page/new"
-  # end
-
-  # test "renders a signup link if the document collection has a taxonomy topic email override and the page is in English" do
-  #   content_item = get_content_example("document_collection")
-  #   content_item["locale"] = "en"
-  #   content_item["links"]["taxonomy_topic_email_override"] = [{ "base_path" => taxonomy_topic_base_path.to_s }]
-  #   stub_content_store_has_item(content_item["base_path"], content_item)
-  #   visit_with_cachebust(content_item["base_path"])
-  #   assert page.has_css?(".gem-c-signup-link")
-  #   assert page.has_link?(href: "/email-signup/confirm?topic=#{taxonomy_topic_base_path}")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
   # end
 
   # test "renders the single page notification button with a form action of email-alert-frontend's non account signup endpoint" do

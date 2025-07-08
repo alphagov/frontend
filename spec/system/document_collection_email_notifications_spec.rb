@@ -22,33 +22,37 @@ RSpec.describe "Document Collection Email Notifications" do
     end
   end
 
-  # def email_alert_frontend_signup_endpoint_no_account
-  #   "/email-signup"
-  # end
+  context "when a taxonomy topic email override is not present and the page is in English" do
+    let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection") }
+
+    it "renders a single page notification button with the /email-signup endpoint" do
+      visit base_path
+
+      form = page.find(".gem-c-single-page-notification-button > form")
+
+      expect(form["action"]).to eq("/email-signup")
+    end
+
+    it "renders GA4 tracking for the button" do
+      visit base_path
+
+      expected_tracking = {
+        "event_name" => "navigation",
+        "type" => "subscribe",
+        "index_link" => 1,
+        "index_total" => 2,
+        "section" => "Top",
+        "url" => "/email-signup",
+      }
+
+      button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
+
+      expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
+    end
+  end
 
   # def email_alert_frontend_signup_endpoint_enforce_account
   #   "/email/subscriptions/single-page/new"
-  # end
-
-  # test "renders the single page notification button with a form action of email-alert-frontend's non account signup endpoint" do
-  #   setup_and_visit_content_item("document_collection", "locale" => "en")
-
-  #   form = page.find(".gem-c-single-page-notification-button > form")
-  #   assert_match(email_alert_frontend_signup_endpoint_no_account, form["action"])
-
-  #   button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
-
-  #   expected_tracking = {
-  #     "event_name" => "navigation",
-  #     "type" => "subscribe",
-  #     "index_link" => 1,
-  #     "index_total" => 2,
-  #     "section" => "Top",
-  #     "url" => email_alert_frontend_signup_endpoint_no_account,
-  #   }
-  #   actual_tracking = JSON.parse(button["data-ga4-link"])
-
-  #   assert_equal expected_tracking, actual_tracking
   # end
 
   # test "renders the single page notification button with a form action of EmailAlertAPI's account-only endpoint for users logged into their gov.uk account" do

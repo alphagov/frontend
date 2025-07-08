@@ -45,10 +45,10 @@
   <% end %>
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
-    <% if @content_item.national_applicability.present? %>
+    <% if content_item.national_applicability.present? %>
       <%= render "govuk_publishing_components/components/devolved_nations", {
-        national_applicability: @content_item.national_applicability,
-        content_type: @content_item.schema_name,
+        national_applicability: content_item.national_applicability,
+        content_type: content_item.schema_name,
       } %>
     <% end %>
 

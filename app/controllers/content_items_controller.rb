@@ -6,6 +6,8 @@ class ContentItemsController < ApplicationController
 
   attr_reader :content_item
 
+  helper_method :logged_in?
+
 private
 
   def set_content_item_and_cache_control

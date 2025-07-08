@@ -39,6 +39,7 @@ some hard-coded routes.
 |Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|http://www.gov.uk/register-offices|
 |                       ||http://www.gov.uk/register-offices|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
+|Service Manual guide|[service_manual_guide](https://docs.publishing.service.gov.uk/content-schemas/service_manual_guide.html)|https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works|
 |Service Manual homepage|[service_manual_homepage](https://docs.publishing.service.gov.uk/content-schemas/service_manual_homepage.html)|https://www.gov.uk/service-manual|
 |Service Manual service standard page|[service_manual_service_standard](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_standard.html)|https://www.gov.uk/service-manual/service-standard|
 |Service toolkit page   |[service_toolkit_page](https://docs.publishing.service.gov.uk/content-schemas/service_manual_service_toolkit.html)|https://www.gov.uk/service-toolkit|

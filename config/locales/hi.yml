@@ -836,6 +836,9 @@ hi:
   shared:
     historically_political: यह %{government} के तहत प्रकाशित किया गया था
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

@@ -836,6 +836,9 @@ pt:
   shared:
     historically_political: Isto foi publicado no âmbito do %{government}
   sign_up:
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   website:
   when_do_the_clocks_change:
     calendar:

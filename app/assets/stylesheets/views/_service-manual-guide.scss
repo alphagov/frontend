@@ -1,0 +1,19 @@
+@import "govuk_publishing_components/individual_component_support";
+@import "_service_manual/page_header";
+@import "_service_manual/service_standard_point";
+@import "_service_manual/related";
+
+.app-community-contact {
+  @include govuk-media-query($from: tablet) {
+    text-align: right;
+    padding-top: govuk-spacing(8);
+  }
+  margin-bottom: govuk-spacing(4);
+}
+
+.app-sticky-element {
+  @include govuk-media-query($from: tablet) {
+    position: sticky;
+    top: govuk-spacing(4);
+  }
+}

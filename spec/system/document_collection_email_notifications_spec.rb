@@ -6,7 +6,7 @@ RSpec.describe "Document Collection Email Notifications" do
 
   before { stub_content_store_has_item(base_path, content_item) }
 
-  context "when a taxonomy topic email override is present and the page is in English" do
+  context "when a taxonomy topic email override is present" do
     let(:content_item) do
       GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
         item["links"]["taxonomy_topic_email_override"] = [{ "base_path" => taxonomy_topic_base_path.to_s }]
@@ -19,6 +19,21 @@ RSpec.describe "Document Collection Email Notifications" do
       expect(page).to have_selector(".gem-c-signup-link")
       expect(page).to have_link(href: "/email-signup/confirm?topic=#{taxonomy_topic_base_path}")
       expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+    end
+
+    context "and when the page is not in english" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+          item["links"]["taxonomy_topic_email_override"] = [{ "base_path" => taxonomy_topic_base_path.to_s }]
+          item["locale"] = "es"
+        end
+      end
+
+      it "does not render the signup link" do
+        visit base_path
+
+        expect(page).not_to have_selector(".gem-c-signup-link")
+      end
     end
   end
 
@@ -93,13 +108,4 @@ RSpec.describe "Document Collection Email Notifications" do
       end
     end
   end
-
-  # test "does not render the email signup link if the page is in a foreign language" do
-  #   content_item = get_content_example("document_collection")
-  #   content_item["links"]["taxonomy_topic_email_override"] = [{ "base_path" => taxonomy_topic_base_path.to_s }]
-  #   content_item["locale"] = "cy"
-  #   stub_content_store_has_item(content_item["base_path"], content_item)
-  #   visit_with_cachebust(content_item["base_path"])
-  #   assert_not page.has_css?(".gem-c-signup-link")
-  # end
 end

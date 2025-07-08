@@ -22,7 +22,7 @@ RSpec.describe "Document Collection Email Notifications" do
     end
   end
 
-  context "when a taxonomy topic email override is not present and the page is in English" do
+  context "when a taxonomy topic email override is not present" do
     let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection") }
 
     it "renders a single page notification button with the /email-signup endpoint" do
@@ -78,12 +78,21 @@ RSpec.describe "Document Collection Email Notifications" do
         expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
       end
     end
-  end
 
-  # test "does not render the single page notification button if the page is in a foreign language" do
-  #   setup_and_visit_content_item("document_collection", "locale" => "cy")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
-  # end
+    context "but when the page is not in english" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:document_collection, example_name: "document_collection").tap do |item|
+          item["locale"] = "cy"
+        end
+      end
+
+      it "does not render the single page notification button" do
+        visit base_path
+
+        expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+      end
+    end
+  end
 
   # test "does not render the email signup link if the page is in a foreign language" do
   #   content_item = get_content_example("document_collection")

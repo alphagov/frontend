@@ -33,7 +33,7 @@ RSpec.describe "Document Collection Email Notifications" do
       expect(form["action"]).to eq("/email-signup")
     end
 
-    it "renders GA4 tracking for the button" do
+    it "renders GA4 tracking with the /email-signup endpoint" do
       visit base_path
 
       expected_tracking = {
@@ -49,39 +49,36 @@ RSpec.describe "Document Collection Email Notifications" do
 
       expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
     end
+
+    context "and when the user is logged in" do
+      before { mock_logged_in_session }
+
+      it "renders the single page notification button with the account-only endpoint" do
+        visit base_path
+
+        form = page.find(".gem-c-single-page-notification-button > form")
+
+        expect(form["action"]).to eq("/email/subscriptions/single-page/new")
+      end
+
+      it "renders GA4 tracking with the account-only endpoint" do
+        visit base_path
+
+        expected_tracking = {
+          "event_name" => "navigation",
+          "type" => "subscribe",
+          "index_link" => 1,
+          "index_total" => 2,
+          "section" => "Top",
+          "url" => "/email/subscriptions/single-page/new",
+        }
+
+        button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
+
+        expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
+      end
+    end
   end
-
-  # def email_alert_frontend_signup_endpoint_enforce_account
-  #   "/email/subscriptions/single-page/new"
-  # end
-
-  # test "renders the single page notification button with a form action of EmailAlertAPI's account-only endpoint for users logged into their gov.uk account" do
-  #   # Need to use Rack as Selenium, the default driver, doesn't provide header access, and we need to set a govuk_account_session header
-  #   Capybara.current_driver = :rack_test
-  #   mock_logged_in_session
-  #   setup_and_visit_content_item("document_collection", "locale" => "en")
-
-  #   form = page.find(".gem-c-single-page-notification-button > form")
-  #   assert_match(email_alert_frontend_signup_endpoint_enforce_account, form["action"])
-
-  #   button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
-
-  #   expected_tracking = {
-  #     "event_name" => "navigation",
-  #     "type" => "subscribe",
-  #     "index_link" => 1,
-  #     "index_total" => 2,
-  #     "section" => "Top",
-  #     "url" => "/email/subscriptions/single-page/new",
-  #   }
-
-  #   actual_tracking = JSON.parse(button["data-ga4-link"])
-
-  #   assert_equal expected_tracking, actual_tracking
-
-  #   # reset back to default driver
-  #   Capybara.use_default_driver
-  # end
 
   # test "does not render the single page notification button if the page is in a foreign language" do
   #   setup_and_visit_content_item("document_collection", "locale" => "cy")

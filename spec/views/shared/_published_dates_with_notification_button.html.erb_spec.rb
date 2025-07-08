@@ -5,6 +5,7 @@ RSpec.describe "published dates with notification button" do
 
   before do
     assign(:content_item, content_item)
+    allow(view).to receive(:logged_in?).and_return(false)
   end
 
   context "when there is single page notification button" do

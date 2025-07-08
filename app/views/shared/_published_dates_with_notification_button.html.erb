@@ -1,6 +1,4 @@
 <% add_view_stylesheet("published-dates-button-group") %>
-<% skip_account = skip_account || "false" %>
-<% user_account_present = local_assigns.fetch(:user_account, false) %>
 
 <%= render "govuk_publishing_components/components/published_dates", {
     published: display_date(content_item.initial_publication_date),
@@ -20,10 +18,10 @@
 
   <%= render "govuk_publishing_components/components/single_page_notification_button", {
     base_path: content_item.base_path,
-    js_enhancement: user_account_present,
+    js_enhancement: logged_in?,
     button_location: "bottom",
     margin_bottom: 3,
-    skip_account: skip_account,
+    skip_account: logged_in? ? "false" : "true",
     ga4_data_attributes: {
       module: "ga4-link-tracker",
       ga4_link: {

@@ -25,9 +25,11 @@ class DocumentCollectionPresenter < ContentItemPresenter
   end
 
   def headers_for_contents_list_component
-    return [] unless contents_outline.level_two_headers?
+    outline = contents_outline
 
-    ContentsOutlinePresenter.new(contents_outline).for_contents_list_component
+    return [] unless outline.level_two_headers?
+
+    ContentsOutlinePresenter.new(outline).for_contents_list_component
   end
 
   def show_email_signup_link?
@@ -41,7 +43,15 @@ private
   end
 
   def contents_outline
-    @contents_outline ||= ContentsOutline.new(valid_outline_headers)
+    all_headers = valid_outline_headers + displayable_collection_groups.map do |group|
+      {
+        "id" => group.id,
+        "level" => 2,
+        "text" => group.title,
+      }
+    end
+
+    ContentsOutline.new(all_headers)
   end
 
   def valid_outline_headers

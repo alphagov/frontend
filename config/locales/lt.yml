@@ -293,8 +293,8 @@ lt:
     detailed_guide:
       name:
         few:
-        one:
-        other:
+        one: Detalesnė informacija
+        other: Detalesnė informacija
     dfid_research_output:
       name:
         few:

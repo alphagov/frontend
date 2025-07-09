@@ -312,8 +312,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Керівництво
+        other: Керівництво
     dfid_research_output:
       name:
         few:

@@ -20,6 +20,6 @@
     ga4_data_attributes: ga4_data_attributes,
     margin_bottom: 6,
     button_location: "top",
-    skip_account: logged_in? ? "false" : "true",
+    skip_account: local_assigns[:skip_account] || "false",
   } %>
 <% end %>

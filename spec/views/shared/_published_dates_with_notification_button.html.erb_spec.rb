@@ -9,12 +9,26 @@ RSpec.describe "published dates with notification button" do
   end
 
   context "when there is single page notification button" do
-    it "renders the email and print link text" do
-      allow(content_item).to receive(:display_single_page_notification_button?).and_return(true)
+    before { allow(content_item).to receive(:display_single_page_notification_button?).and_return(true) }
 
+    it "renders the email and print link text" do
       render partial: "shared/published_dates_with_notification_button", locals: { content_item: content_item }
 
       expect(rendered).to include(I18n.t("common.email_and_print_link"))
+    end
+
+    it "renders an email pointing to the account-only signup endpoint" do
+      render partial: "shared/published_dates_with_notification_button", locals: { content_item: content_item }
+
+      expect(rendered).to include("/email/subscriptions/single-page/new")
+    end
+
+    context "and when skip_account is set to \"true\"" do
+      it "renders an email pointing to the simple signup endpoint" do
+        render partial: "shared/published_dates_with_notification_button", locals: { content_item: content_item, skip_account: "true" }
+
+        expect(rendered).to include("/email-signup")
+      end
     end
   end
 

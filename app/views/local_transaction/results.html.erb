@@ -30,9 +30,7 @@
       </section>
     <% end %>
 
-    <p class="govuk-body">
-      <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
-    </p>
+
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
         <%= t("formats.local_transaction.info_on_website") %>
@@ -80,6 +78,10 @@
         <%= render partial: "no_local_authority_url" %>
       <% end %>
     <% end %>
+
+    <p class="govuk-body">
+      <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
+    </p>
   </div>
 
   <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>

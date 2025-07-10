@@ -30,7 +30,7 @@
       action: "information click",
     }.to_json
   %>
-  <div data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
+  <div class="govuk-!-margin-bottom-6" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
     <% if @presenter.use_electoral_services_contact_details? %>
       <%= render partial: "contact_details",
         locals: {

@@ -23,6 +23,7 @@
         <%= render "govuk_publishing_components/components/button", {
           href: @local_authority.homepage_url,
           text: t("formats.local_transaction.local_authority_website", local_authority_name: @local_authority.name),
+          margin_bottom: 6,
           data_attributes: {
             module: "ga4-link-tracker",
             ga4_link: {

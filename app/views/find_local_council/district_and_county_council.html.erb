@@ -11,12 +11,8 @@
     <%= t("formats.local_transaction.different_local_authorities") %>
   </p>
 
-  <p class="govuk-body govuk-!-margin-bottom-8">
-    <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), find_local_council_path, class: "govuk-link" %>
-  </p>
-
   <% ga4_type = content_item.document_type.gsub("_", " ") %>
-  <div class="local-authority-results"
+  <div class="local-authority-results govuk-!-margin-bottom-8"
        data-module="ga4-auto-tracker"
        data-ga4-auto="<%= {
          event_name: "form_complete",
@@ -26,7 +22,7 @@
          tool_name: t("formats.local_transaction.find_council", locale: :en),
       }.to_json %>">
 
-    <div class="county-result group govuk-!-margin-bottom-8">
+    <div class="county-result group govuk-!-margin-bottom-6">
       <%= render "govuk_publishing_components/components/heading", {
         text: @county.name,
         heading_level: 3,
@@ -37,7 +33,7 @@
         <%= t("formats.local_transaction.county_council_services") %>:
       </p>
 
-      <ul class="govuk-list govuk-list--bullet">
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-3">
         <% t("formats.local_transaction.county_council_services_list").each do |service| %>
           <li><%= service %></li>
         <% end %>
@@ -76,7 +72,7 @@
         <%= t("formats.local_transaction.district_council_services") %>:
       </p>
 
-      <ul class="govuk-list govuk-list--bullet">
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-3">
         <li><%= t("formats.local_transaction.rubbish_recycling_collection") %></li>
         <li><%= t("formats.local_transaction.council_tax") %></li>
         <li><%= t("formats.local_transaction.housing") %></li>
@@ -104,4 +100,8 @@
       </p>
     </div>
   </div>
+
+  <p class="govuk-body">
+    <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), find_local_council_path, class: "govuk-link" %>
+  </p>
 <% end %>

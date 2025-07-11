@@ -18,6 +18,7 @@ APP_STYLESHEETS = {
   "views/_roadmap.scss" => "views/_roadmap.css",
   "views/_service-manual-guide.scss" => "views/_service-manual-guide.css",
   "views/_service-manual-service-standard.scss" => "views/_service-manual-service-standard.css",
+  "views/_service-manual-topic.scss" => "views/_service-manual-topic.css",
   "views/_service-toolkit.scss" => "views/_service-toolkit.css",
   "views/_sidebar-navigation.scss" => "views/_sidebar-navigation.css",
   "views/_specialist-document.scss" => "views/_specialist-document.css",

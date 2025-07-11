@@ -1,0 +1,76 @@
+<% add_view_stylesheet("service-manual-topic") %>
+<%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
+<% end %>
+<% content_for :before_content do %>
+  <%= render partial: "service_manual/service_manual_breadcrumbs", breadcrumbs: @presenter.breadcrumbs %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
+    <p class="govuk-body-l">
+      <%= content_item.description %>
+    </p>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% if @presenter.display_as_accordion? %>
+      <%= render "govuk_publishing_components/components/accordion", {
+        items: @presenter.accordion_sections,
+      } %>
+    <% else %>
+      <% @presenter.sections.each do |section| %>
+        <% unless section[:heading].empty? %>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: section[:heading],
+            margin_bottom: 2,
+            font_size: "m",
+          } %>
+        <% end %>
+        <% unless section[:summary].empty? %>
+          <p class="govuk-body">
+            <%= section[:summary] %>
+          </p>
+        <% end %>
+        <% if section[:list] %>
+          <%= render "govuk_publishing_components/components/list", {
+            items: section[:list],
+            margin_bottom: 8,
+          } %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <aside class="related-item">
+      <% if @presenter.content_owners.any? %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: @presenter.community_title,
+          font_size: "s",
+          margin_bottom: 2,
+          id: "related-communities",
+        } %>
+        <p class="govuk-body">
+          Find out what the cross-government community does and how to get involved.
+        </p>
+        <nav role="navigation" aria-labelledby="related-communities" class="related-communities">
+          <%= render "govuk_publishing_components/components/list", {
+            items: @presenter.community_links,
+            margin_bottom: 8,
+          } %>
+        </nav>
+      <% end %>
+      <%= render partial: "email_signup", locals: { email_alert_signup_link: @presenter.email_alert_signup_link } %>
+    </aside>
+  </div>
+</div>

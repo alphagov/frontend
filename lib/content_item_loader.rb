@@ -1,6 +1,8 @@
 require "ostruct"
 
 class ContentItemLoader
+  include DraftHelper
+
   LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
   GRAPHQL_ALLOWED_SCHEMAS = %w[news_article].freeze
   GRAPHQL_TRAFFIC_RATE = 0.0 # This is a decimal version of a percentage, so can be between 0 and 1
@@ -61,6 +63,8 @@ private
 
   def use_graphql?(schema_name)
     return false unless request
+
+    return false if draft_host?
 
     return false unless GRAPHQL_ALLOWED_SCHEMAS.include?(schema_name)
 

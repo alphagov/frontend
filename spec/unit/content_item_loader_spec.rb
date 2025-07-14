@@ -79,6 +79,28 @@ RSpec.describe ContentItemLoader do
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }) }
       let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
 
+      context "when the request is made to the draft deployment" do
+        let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }, draft: true) }
+
+        let(:request) do
+          instance_double(
+            ActionDispatch::Request,
+            path: "/my-random-item",
+            env: {},
+            params: {},
+          )
+        end
+
+        it "calls the content store only" do
+          ClimateControl.modify(PLEK_HOSTNAME_PREFIX: "draft-") do
+            content_item_loader.load(request.path)
+
+            expect(graphql_request).not_to have_been_made
+            expect(item_request).to have_been_made
+          end
+        end
+      end
+
       context "with graphql param=false" do
         let(:request) do
           instance_double(

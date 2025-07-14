@@ -9,6 +9,35 @@ RSpec.describe ContentItemLoader do
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
   let(:graphql_query) { Graphql::EditionQuery.new("/my-random-item").query }
 
+  shared_examples "rendered from Content Store" do
+    it "calls the Content Store only" do
+      content_item_loader.load(request.path)
+
+      expect(graphql_request).not_to have_been_made
+      expect(item_request).to have_been_made
+    end
+  end
+
+  shared_examples "rendered from Draft Content Store" do
+    it "calls the Draft Content Store only" do
+      ClimateControl.modify(PLEK_HOSTNAME_PREFIX: "draft-") do
+        content_item_loader.load(request.path)
+
+        expect(graphql_request).not_to have_been_made
+        expect(item_request).to have_been_made
+      end
+    end
+  end
+
+  shared_examples "rendered from GraphQL" do
+    it "calls the GraphQL endpoint in additon to Content Store" do
+      content_item_loader.load(request.path)
+
+      expect(item_request).to have_been_made
+      expect(graphql_request).to have_been_made
+    end
+  end
+
   describe ".for_request" do
     it "returns a new object per request" do
       request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
@@ -79,6 +108,21 @@ RSpec.describe ContentItemLoader do
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }) }
       let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
 
+      context "when the request is made to the draft deployment" do
+        let(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }, draft: true) }
+
+        let(:request) do
+          instance_double(
+            ActionDispatch::Request,
+            path: "/my-random-item",
+            env: {},
+            params: {},
+          )
+        end
+
+        include_examples "rendered from Draft Content Store"
+      end
+
       context "with graphql param=false" do
         let(:request) do
           instance_double(
@@ -89,12 +133,7 @@ RSpec.describe ContentItemLoader do
           )
         end
 
-        it "calls the content store only" do
-          content_item_loader.load(request.path)
-
-          expect(graphql_request).not_to have_been_made
-          expect(item_request).to have_been_made
-        end
+        include_examples "rendered from Content Store"
       end
 
       context "when the GraphQL A/B test selects the Content Store variant" do
@@ -111,12 +150,7 @@ RSpec.describe ContentItemLoader do
           allow(Random).to receive(:rand).with(1.0).and_return(1)
         end
 
-        it "calls the content store only" do
-          content_item_loader.load(request.path)
-
-          expect(graphql_request).not_to have_been_made
-          expect(item_request).to have_been_made
-        end
+        include_examples "rendered from Content Store"
 
         context "and with graphql param=false" do
           let(:request) do
@@ -128,12 +162,7 @@ RSpec.describe ContentItemLoader do
             )
           end
 
-          it "calls the content store only" do
-            content_item_loader.load(request.path)
-
-            expect(graphql_request).not_to have_been_made
-            expect(item_request).to have_been_made
-          end
+          include_examples "rendered from Content Store"
         end
       end
 
@@ -151,12 +180,7 @@ RSpec.describe ContentItemLoader do
           allow(Random).to receive(:rand).with(1.0).and_return(0)
         end
 
-        it "calls the graphql endpoint instead of the content store", pending: "AB test temporarily disabled" do
-          content_item_loader.load(request.path)
-
-          expect(item_request).to have_been_made
-          expect(graphql_request).to have_been_made
-        end
+        include_examples "rendered from GraphQL"
 
         context "and with graphql param=false" do
           let(:request) do
@@ -168,27 +192,17 @@ RSpec.describe ContentItemLoader do
             )
           end
 
-          it "calls the content store instead of the graphql endpoint" do
-            content_item_loader.load(request.path)
-
-            expect(graphql_request).not_to have_been_made
-            expect(item_request).to have_been_made
-          end
+          include_examples "rendered from Content Store"
         end
       end
 
       context "with graphql param=true" do
         subject(:content_item_loader) { described_class.for_request(request) }
 
-        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
+        let(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
-        it "checks the schema_name from content store and then gets the content item from graphql" do
-          content_item_loader.load("/my-random-item")
-
-          expect(item_request).to have_been_made
-          expect(graphql_request).to have_been_made
-        end
+        include_examples "rendered from GraphQL"
 
         it "sets the appropriate prometheus labels" do
           content_item_loader.load("/my-random-item")
@@ -271,7 +285,7 @@ RSpec.describe ContentItemLoader do
       subject(:content_item_loader) { described_class.for_request(request) }
 
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "guide" }) }
-      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "some_other_schema" } } }) }
+      let(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "some_other_schema" } } }) }
 
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
         subject(:content_item_loader) { described_class.new }
@@ -328,12 +342,7 @@ RSpec.describe ContentItemLoader do
           )
         end
 
-        it "checks the schema_name from content store and doesn't call graphql" do
-          content_item_loader.load(request.path)
-
-          expect(item_request).to have_been_made
-          expect(graphql_request).not_to have_been_made
-        end
+        include_examples "rendered from Content Store"
       end
 
       context "when the GraphQL A/B test selects the Content Store variant" do
@@ -350,12 +359,7 @@ RSpec.describe ContentItemLoader do
           allow(Random).to receive(:rand).with(1.0).and_return(1)
         end
 
-        it "loads from the content store" do
-          content_item_loader.load(request.path)
-
-          expect(graphql_request).not_to have_been_made
-          expect(item_request).to have_been_made
-        end
+        include_examples "rendered from Content Store"
       end
 
       context "when the GraphQL A/B test selects the GraphQL variant" do
@@ -372,12 +376,7 @@ RSpec.describe ContentItemLoader do
           allow(Random).to receive(:rand).with(1.0).and_return(0)
         end
 
-        it "checks the schema_name from content store and doesn't call graphql" do
-          content_item_loader.load(request.path)
-
-          expect(item_request).to have_been_made
-          expect(graphql_request).not_to have_been_made
-        end
+        include_examples "rendered from Content Store"
       end
     end
   end

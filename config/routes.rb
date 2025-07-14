@@ -114,6 +114,7 @@ Rails.application.routes.draw do
     get "/", to: "service_manual#index"
     get "/service-standard", to: "service_manual#service_standard"
     get "/:slug/:document", to: "service_manual#service_manual_guide"
+    get "/:topic", to: "service_manual#service_manual_topic"
   end
 
   # Service toolkit page

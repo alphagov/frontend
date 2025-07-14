@@ -173,7 +173,7 @@ RSpec.describe ContentItemLoader do
           allow(Random).to receive(:rand).with(1.0).and_return(0)
         end
 
-        it "calls the graphql endpoint instead of the content store", pending: "AB test temporarily disabled" do
+        it "calls the graphql endpoint instead of the content store" do
           content_item_loader.load(request.path)
 
           expect(item_request).to have_been_made

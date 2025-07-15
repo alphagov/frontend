@@ -232,7 +232,7 @@ cy:
         two:
         zero:
       not_open_yet: Nid yw'r alwad am dystiolaeth hon ar agor eto
-      'on':
+      'on': ar
       open_another_website_html: Cedwir yr alwad hon am dystiolaeth ar <a href="%{url}">wefan arall</a>
       opens: Mae'r alwad am dystiolaeth yn agor
       or:

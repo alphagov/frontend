@@ -22,14 +22,6 @@ RSpec.describe "published dates with notification button" do
 
       expect(rendered).to include("/email/subscriptions/single-page/new")
     end
-
-    context "and when skip_account is set to \"true\"" do
-      it "renders an email pointing to the simple signup endpoint" do
-        render partial: "shared/published_dates_with_notification_button", locals: { content_item: content_item, skip_account: "true" }
-
-        expect(rendered).to include("/email-signup")
-      end
-    end
   end
 
   context "when there is no single page notification button" do

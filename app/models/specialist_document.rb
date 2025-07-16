@@ -8,7 +8,7 @@ class SpecialistDocument < ContentItem
     super(content_store_response)
 
     @continuation_link = content_store_response.dig("details", "metadata", "continuation_link")
-    @metadata = content_store_response["details"]["metadata"]
+    @metadata = content_store_response.dig("details", "metadata")
     @protection_type = content_store_response.dig("details", "metadata", "protection_type")
     @will_continue_on = content_store_response.dig("details", "metadata", "will_continue_on")
 

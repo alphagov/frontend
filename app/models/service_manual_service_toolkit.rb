@@ -4,6 +4,6 @@ class ServiceManualServiceToolkit < ContentItem
   def initialize(content_store_response)
     super(content_store_response)
 
-    @collections = content_store_response["details"].fetch("collections", [])
+    @collections = content_store_response.dig("details", "collections") || []
   end
 end

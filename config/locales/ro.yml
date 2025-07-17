@@ -293,8 +293,8 @@ ro:
     detailed_guide:
       name:
         few:
-        one:
-        other:
+        one: Orientări
+        other: Orientări
     dfid_research_output:
       name:
         few:

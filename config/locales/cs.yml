@@ -293,8 +293,8 @@ cs:
     detailed_guide:
       name:
         few:
-        one:
-        other:
+        one: Směrnice
+        other: Směrnice
     dfid_research_output:
       name:
         few:

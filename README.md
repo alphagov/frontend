@@ -19,6 +19,7 @@ some hard-coded routes.
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
 |Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|
 |                             |                                   |https://www.gov.uk/government/organisations/forensic-science-regulator/about/accessible-documents-policy|
+|Detailed Guide        |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/guidance-on-devolution|
 |Document collection    |[document_collection](https://docs.publishing.service.gov.uk/content-schemas/document_collection.html)|https://www.gov.uk/government/collections/statutory-guidance-schools|
 |Fatality notice        |[fatality_notice](https://docs.publishing.service.gov.uk/content-schemas/fatality_notice.html)|https://www.gov.uk/government/fatalities/corporal-lee-churcher-dies-in-iraq|
 |Field of operation     |[field_of_operation](https://docs.publishing.service.gov.uk/document-types/field_of_operation.html)|https://www.gov.uk/government/fields-of-operation/united-kingdom|

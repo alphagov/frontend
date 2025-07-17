@@ -1,0 +1,69 @@
+<% content_for :title, "#{@presenter.page_title} - GOV.UK" %>
+
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :faq } %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
+<% end %>
+
+<%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
+
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: content_item.title,
+      context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
+      average_title_length: "long",
+      heading_level: 1,
+      font_size: "l",
+      margin_bottom: 8,
+    } %>
+  </div>
+  <%= render "shared/translations" %>
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+  </div>
+</div>
+
+<%= render "shared/publisher_metadata", locals: {
+  from: govuk_styled_links_list(@presenter.contributor_links),
+  first_published: display_date(content_item.first_public_at || content_item.first_published_at),
+  last_updated: display_date(content_item.updated),
+  see_updates_link: true,
+  } %>
+<%= render "shared/single_page_notification_button", content_item: content_item %>
+<%= render "shared/history_notice", content_item: content_item %>
+<% if content_item.withdrawn? %>
+    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+    <%= render "govuk_publishing_components/components/notice", {
+      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+      description_govspeak: content_item.withdrawn_explanation&.html_safe,
+      time: withdrawn_time_tag,
+      lang: "en",
+    } %>
+  <% end %>
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
+    <% if content_item.national_applicability.present? %>
+      <%= render "govuk_publishing_components/components/devolved_nations", {
+        national_applicability: content_item.national_applicability,
+        content_type: content_item.schema_name,
+      } %>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
+      <%= render "govuk_publishing_components/components/print_link", {
+        margin_bottom: 6,
+      } %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw(content_item.body.html_safe) %>
+      <% end %>
+
+      <%= render "shared/published_dates_with_notification_button" %>
+    <% end %>
+  </div>
+  <%= render "shared/sidebar_navigation" %>
+</div>
+<%= render "shared/footer_navigation" %>

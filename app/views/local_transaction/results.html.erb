@@ -8,7 +8,7 @@
   publication: content_item,
   edition: @edition,
 } do %>
-  <div class="interaction">
+  <div class="interaction govuk-!-margin-bottom-8">
     <p class="govuk-body"
        data-module="ga4-auto-tracker"
        data-ga4-auto="<%= {
@@ -30,9 +30,6 @@
       </section>
     <% end %>
 
-    <p class="govuk-body">
-      <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
-    </p>
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
         <%= t("formats.local_transaction.info_on_website") %>
@@ -57,7 +54,7 @@
         <%= render "govuk_publishing_components/components/button", {
           text: link_text,
           rel: "external",
-          margin_bottom: true,
+          margin_bottom: false,
           href: @interaction_details["local_interaction"]["url"],
         } %>
       </p>
@@ -80,7 +77,12 @@
         <%= render partial: "no_local_authority_url" %>
       <% end %>
     <% end %>
+
   </div>
+
+  <p class="govuk-body">
+    <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
+  </p>
 
   <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>
     <section class="more">

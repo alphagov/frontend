@@ -113,6 +113,8 @@ Rails.application.routes.draw do
     get "/placeholder", to: "placeholder#show"
 
     get "/speeches/:slug(.:locale)", to: "speech#show"
+
+    get "/statistical-data-sets/:slug", to: "statistical_data_set#show"
   end
 
   # Service manuals

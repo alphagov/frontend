@@ -42,7 +42,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.494692, 51.215736]
+        coordinates: [-1.1092, 51.2797462]
       },
       properties: {
         name: 'Basingstoke General Hospital Elective Surgical Hub',
@@ -114,7 +114,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [0.51, 51.8749]
+        coordinates: [0.5404309, 51.8800956]
       },
       properties: {
         name: 'Braintree Community Hospital Elective Surgical Hub',
@@ -354,7 +354,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.0871, 51.2666]
+        coordinates: [1.087113, 51.266593]
       },
       properties: {
         name: 'East Kent Orthopaedic Centre Elective Surgical Hub',
@@ -390,7 +390,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [0.9315, 51.9005]
+        coordinates: [0.8992289, 51.9101928]
       },
       properties: {
         name: 'Essex and Suffolk Elective Orthopaedic Centre ESEOC',
@@ -570,7 +570,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.005123, 51.549142]
+        coordinates: [-0.0474941, 51.551104]
       },
       properties: {
         name: 'Homerton University Hospital - New Elective Centre',
@@ -582,7 +582,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.48576, 53.3918]
+        coordinates: [-1.8163392, 53.6554891]
       },
       properties: {
         name: 'Huddersfield Royal Infirmary Elective Surgical Hub',
@@ -606,7 +606,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [1.1865, 52.0535]
+        coordinates: [1.1979449, 52.0568633]
       },
       properties: {
         name: 'Ipswich Hospital - Elective Surgical Hub',
@@ -714,7 +714,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-2.712195, 53.590145]
+        coordinates: [-2.5108087, 53.5055154]
       },
       properties: {
         name: 'Leigh Infirmary Elective Hub',
@@ -726,7 +726,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.435104, 50.933018]
+        coordinates: [-1.5454655, 50.7690885]
       },
       properties: {
         name: 'Lymington Hospital Elective Surgical Hub',
@@ -822,11 +822,11 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [1.2358, 52.6269]
+        coordinates: [1.2201164, 52.6164156]
       },
       properties: {
         name: 'Norfolk & Norwich University Hospital Orthopaedic Centre',
-        address: 'Nether Mayne, Basildon, NR4 7UY',
+        address: 'Colney lane, Colney, NR4 7UY',
         icbCode: 'E54000022'
       }
     },
@@ -834,7 +834,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [0.002861, 51.578304]
+        coordinates: [-0.0737247, 51.6130962]
       },
       properties: {
         name: 'North Middlesex Hospital - Day Surgery Unit',
@@ -918,7 +918,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.32619, 51.474079]
+        coordinates: [0.0951765, 51.3625034]
       },
       properties: {
         name: 'Orpington Hospital Elective Surgical Hub',
@@ -954,7 +954,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.241744, 51.45554]
+        coordinates: [0.1016868, 51.4190412]
       },
       properties: {
         name: "Queen Mary's Hospital Sidcup Elective Surgical Hub",
@@ -1038,7 +1038,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.443503, 52.421425]
+        coordinates: [-1.2572615, 52.3651239]
       },
       properties: {
         name: 'Rugby St Cross Elective Surgical Hub',
@@ -1110,7 +1110,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-3.506694, 50.71669]
+        coordinates: [-3.4630143, 50.723301]
       },
       properties: {
         name: 'South West Ambulatory Orthopaedic Centre (SWAOC) Elective Hub',
@@ -1182,7 +1182,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.138175, 51.566681]
+        coordinates: [-0.24256, 51.4539256]
       },
       properties: {
         name: "St Georges at Queen Mary's Hospital Elective Surgical Hub",
@@ -1326,7 +1326,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.073642, 51.61343]
+        coordinates: [-0.1390665, 51.5664822]
       },
       properties: {
         name: 'The Whittington Hospital Elective Surgical Hub',
@@ -1386,7 +1386,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.163044, 51.521062]
+        coordinates: [-0.0179166, 51.4530225]
       },
       properties: {
         name: 'University Hospital Lewisham - LGT Elective Facility',
@@ -1410,7 +1410,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-2.034747, 52.606983]
+        coordinates: [-1.9989167, 52.5823457]
       },
       properties: {
         name: 'Walsall Manor Hospital Elective Surgical Hub',
@@ -1470,7 +1470,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [0.103269, 51.418594]
+        coordinates: [-0.3244105, 51.4736458]
       },
       properties: {
         name: 'West Middlesex Elective Hub Elective Surgical Hub',
@@ -1482,7 +1482,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.046099, 51.550632]
+        coordinates: [-0.1633052, 51.5207049]
       },
       properties: {
         name: 'Western Eye Hospital Hub',
@@ -1518,7 +1518,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-0.017051, 51.45433]
+        coordinates: [0.00347, 51.5774342]
       },
       properties: {
         name: 'Whipps Cross Plane Tree Elective Surgical Hub',
@@ -1542,7 +1542,7 @@ window.GOVUK.hubGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-1.494692, 51.215736]
+        coordinates: [-1.3291587, 51.0617004]
       },
       properties: {
         name: 'Winchester County Hospital Elective Surgical Hub',

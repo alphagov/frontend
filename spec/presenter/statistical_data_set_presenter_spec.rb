@@ -1,0 +1,2 @@
+RSpec.describe StatisticalDataSetPresenter do
+end

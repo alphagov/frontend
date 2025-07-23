@@ -1,0 +1,2 @@
+class StatisticalDataSet < ContentItem
+end

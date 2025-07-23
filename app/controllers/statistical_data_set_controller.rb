@@ -2,6 +2,6 @@ class StatisticalDataSetController < ContentItemsController
   include Cacheable
 
   def show
-    @presenter = ContentItemPresenter.new(content_item)
+    @presenter = StatisticalDataSetPresenter.new(content_item)
   end
 end

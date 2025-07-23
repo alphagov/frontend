@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/alphagov/govuk_publishing_components.git
-  revision: 63ee75d99907c20ea8a57b5e96473bc946af4756
-  branch: override-browser-default-for-address-element-for-govspeak
+  revision: a7ae0101a0c63e5601597026d996078e914e6c40
+  branch: copy-of-4923
   specs:
     govuk_publishing_components (59.0.1)
       govuk_app_config
@@ -110,7 +110,7 @@ GEM
       debug_inspector (>= 1.2.0)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
-    brakeman (7.0.2)
+    brakeman (7.1.0)
       racc
     builder (3.3.0)
     byebug (12.0.0)
@@ -131,7 +131,7 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    csv (3.3.2)
+    csv (3.3.5)
     dalli (3.2.8)
     dartsass-rails (0.5.1)
       railties (>= 6.0.0)
@@ -164,9 +164,9 @@ GEM
     factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
-    faker (3.5.1)
+    faker (3.5.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.1)
+    ffi (1.17.2)
     find_a_port (1.0.1)
     gds-api-adapters (99.2.0)
       addressable
@@ -211,21 +211,21 @@ GEM
       govuk_publishing_components
       rails (>= 7)
       redis
-    hashdiff (1.1.2)
+    hashdiff (1.2.0)
     highline (3.1.2)
       reline
     htmlentities (4.3.4)
     http-accept (1.7.0)
     http-cookie (1.0.8)
       domain_name (~> 0.5)
-    httparty (0.22.0)
+    httparty (0.23.1)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     i18n-coverage (0.2.0)
-    i18n-tasks (1.0.14)
+    i18n-tasks (1.0.15)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
@@ -234,6 +234,7 @@ GEM
       parser (>= 3.2.2.1)
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.8, >= 1.8.1)
       terminal-table (>= 1.5.1)
     io-console (0.8.1)
     irb (1.15.2)
@@ -267,18 +268,18 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    matrix (0.4.2)
+    matrix (0.4.3)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0507)
+    mime-types-data (3.2025.0722)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.25.5)
     msgpack (1.8.0)
-    multi_json (1.15.0)
-    multi_xml (0.7.1)
+    multi_json (1.17.0)
+    multi_xml (0.7.2)
       bigdecimal (~> 3.1)
     net-imap (0.5.9)
       date
@@ -632,7 +633,7 @@ GEM
     rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-    redis (5.4.0)
+    redis (5.4.1)
       redis-client (>= 0.22.0)
     redis-client (0.25.1)
       connection_pool
@@ -648,11 +649,11 @@ GEM
       netrc (~> 0.8)
     rexml (3.4.1)
     rouge (4.6.0)
-    rspec (3.13.0)
+    rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.4)
+    rspec-core (3.13.5)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -707,11 +708,11 @@ GEM
       rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
-    sass-embedded (1.85.1)
-      google-protobuf (~> 4.29)
+    sass-embedded (1.89.2)
+      google-protobuf (~> 4.31)
       rake (>= 13)
     securerandom (0.4.1)
-    selenium-webdriver (4.32.0)
+    selenium-webdriver (4.34.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -727,7 +728,7 @@ GEM
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
-    simplecov-html (0.13.1)
+    simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
     slimmer (18.7.0)
       json

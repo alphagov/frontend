@@ -1,4 +1,6 @@
 RSpec.describe "Statistical Data Set" do
+  it_behaves_like "it has meta tags", "statistical_data_set", "statistical_data_set"
+
   context "when visiting a statistical data set" do
     let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set") }
     let(:base_path) { content_item["base_path"] }
@@ -23,10 +25,20 @@ RSpec.describe "Statistical Data Set" do
       expect(page).to have_text("This is not intended to be a comprehensive review of transport performance in London or Great Britain during the Games")
     end
 
+    it "renders metadata" do
+      visit base_path
 
-  #   test "renders withdrawn notification" do
-  #     setup_and_visit_content_item("statistical_data_set_withdrawn")
+      within("[class*='metadata-column']") do
+        expect(page).to have_text("Department for Transport")
+        expect(page).to have_text("Published 13 December 2012")
+      end
+    end
 
+    it "shows the published date in the footer" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-published-dates", text: "Published 13 December 2012")
+    end
   end
   #   test "historically political statistical data set" do
   #     setup_and_visit_content_item("statistical_data_set_political")

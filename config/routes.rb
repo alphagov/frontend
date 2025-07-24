@@ -193,6 +193,10 @@ Rails.application.routes.draw do
     get "*path", to: "specialist_document#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("gone") do
+    get "*path", to: "gone#show"
+  end
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

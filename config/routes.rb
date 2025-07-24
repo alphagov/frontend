@@ -29,6 +29,10 @@ Rails.application.routes.draw do
     end
   end
 
+  constraints FullPathFormatRoutingConstraint.new("gone") do
+    get "*path", to: "gone#show"
+  end
+
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"
   get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"

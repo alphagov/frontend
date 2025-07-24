@@ -39,6 +39,26 @@ RSpec.describe "Statistical Data Set" do
 
       expect(page).to have_selector(".gem-c-published-dates", text: "Published 13 December 2012")
     end
+
+    context "with a withdrawn statistical data set" do
+      let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set_withdrawn") }
+
+      it "displays the withdrawn title" do
+        visit base_path
+
+        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+      end
+
+      it "displays the withdrawn notice" do
+        visit base_path
+
+        within ".gem-c-notice" do
+          expect(page).to have_text("This statistical data set was withdrawn"), "is withdrawn"
+          expect(page).to have_text("Local area walking and cycling in England: 2014 to 2015")
+          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+        end
+      end
+    end
   end
   #   test "historically political statistical data set" do
   #     setup_and_visit_content_item("statistical_data_set_political")

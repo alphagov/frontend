@@ -85,9 +85,4 @@ RSpec.describe "Statistical Data Set" do
       end
     end
   end
-
-  #   test "does not render with the single page notification button" do
-  #     setup_and_visit_content_item("statistical_data_set")
-  #     assert_not page.has_css?(".gem-c-single-page-notification-button")
-  #   end
 end

@@ -116,6 +116,26 @@ RSpec.describe "LocalTransactions" do
           expect(page).to have_button("Find your local council or their regional recruitment hub")
         end
       end
+
+      context "when the slug matches find-registered-childminder" do
+        before do
+          payload[:base_path] = "/find-a-registered-childminder-test"
+          stub_content_store_has_item("/find-a-registered-childminder-test", payload)
+          visit "/find-a-registered-childminder-test"
+        end
+
+        it "includes before results text" do
+          expect(page).to have_text("Find a registered childminder through your local council")
+        end
+
+        it "includes after results text" do
+          expect(page).to have_text("Find a childminder through a registered childminding agency")
+        end
+
+        it "has the correct postcode finder button text" do
+          expect(page).to have_button("Find a registered childminder in your area")
+        end
+      end
     end
 
     context "when visiting the local transaction with a valid postcode" do

@@ -1,7 +1,7 @@
 class LocalTransaction < ContentItem
   attr_reader :country_name, :introduction,
-              :lgil_code, :lgil_override, :lgsl_code,
-              :more_information, :need_to_know
+              :lgil_code, :lgil_override, :lgsl_code, :cta_text,
+              :more_information, :need_to_know, :before_results, :after_results
 
   def initialize(content_store_response)
     super(content_store_response)
@@ -10,8 +10,11 @@ class LocalTransaction < ContentItem
     @lgil_code = content_store_response.dig("details", "lgil_code")
     @lgil_override = content_store_response.dig("details", "lgil_override")
     @lgsl_code = content_store_response.dig("details", "lgsl_code")
+    @cta_text = content_store_response.dig("details", "cta_text")
     @more_information = content_store_response.dig("details", "more_information")
     @need_to_know = content_store_response.dig("details", "need_to_know")
+    @before_results = content_store_response.dig("details", "before_results")
+    @after_results = content_store_response.dig("details", "after_results")
   end
 
   def unavailable?

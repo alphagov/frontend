@@ -59,14 +59,19 @@ RSpec.describe "Statistical Data Set" do
         end
       end
     end
-  end
-  #   test "historically political statistical data set" do
-  #     setup_and_visit_content_item("statistical_data_set_political")
 
-  #     within ".govuk-notification-banner__content" do
-  #       assert page.has_text?("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
-  #     end
-  #   end
+    context "with a historically political data set" do
+      let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set_political") }
+
+      it "shows the historical/political banner" do
+        visit base_path
+
+        within ".govuk-notification-banner__content" do
+          expect(page).to have_text("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        end
+      end
+    end
+  end
 
   #   test "renders with contents list" do
   #     setup_and_visit_content_item("statistical_data_set")

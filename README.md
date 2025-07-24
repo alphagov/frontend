@@ -33,6 +33,7 @@ some hard-coded routes.
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
 |Homepage               |[homepage](https://docs.publishing.service.gov.uk/content-schemas/homepage.html)|https://www.gov.uk/|
 |Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
+|Gone                   |[gone](https://docs.publishing.service.gov.uk/content-schemas/gone.html)|https://www.gov.uk/government/collections/greenhouse-gas-conversion-factors-for-company-reporting|
 |Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|
 |                       |document_type: [licence_transaction](https://docs.publishing.service.gov.uk/document-types/licence_transaction.html)|https://www.gov.uk/find-licences/zoo-licence|
 |Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|http://www.gov.uk/school-term-holiday-dates|

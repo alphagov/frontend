@@ -1,37 +1,33 @@
 RSpec.describe "Statistical Data Set" do
-  #   test "renders title, description and body" do
-  #     setup_and_visit_content_item("statistical_data_set")
+  context "when visiting a statistical data set" do
+    let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set") }
+    let(:base_path) { content_item["base_path"] }
 
-  #     assert_has_component_title(@content_item["title"])
-  #     assert page.has_text?(@content_item["description"])
-  #     assert page.has_text?("This is not intended to be a comprehensive review of transport performance in London or Great Britain during the Games, but supplements evidence from other sources.")
-  #   end
+    before { stub_content_store_has_item(base_path, content_item) }
 
-  #   test "renders metadata and document footer" do
-  #     setup_and_visit_content_item("statistical_data_set")
+    it "displays the title" do
+      visit base_path
 
-  #     assert_has_metadata({
-  #       published: "13 December 2012",
-  #       from: { "Department for Transport": "/government/organisations/department-for-transport" },
-  #     }, context_selector: ".metadata-column")
+      expect(page).to have_title("Olympics (TSGB10)")
+    end
 
-  #     assert_footer_has_published_dates("Published 13 December 2012")
-  #   end
+    it "includes the description" do
+      visit base_path
+
+      expect(page).to have_text("Statistics focusing on transport data relating to the 2012 Olympic and Paralympic period, compared to the same period in the previous year.")
+    end
+
+    it "includes the body" do
+      visit base_path
+
+      expect(page).to have_text("This is not intended to be a comprehensive review of transport performance in London or Great Britain during the Games")
+    end
+
 
   #   test "renders withdrawn notification" do
   #     setup_and_visit_content_item("statistical_data_set_withdrawn")
 
-  #     assert page.has_css?("title", text: "[Withdrawn]", visible: false)
-
-  #     withdrawn_at = @content_item["withdrawn_notice"]["withdrawn_at"]
-
-  #     within ".gem-c-notice" do
-  #       assert page.has_text?("This statistical data set was withdrawn"), "is withdrawn"
-  #       assert page.has_text?("Local area walking and cycling in England: 2014 to 2015")
-  #       assert page.has_css?("time[datetime='#{withdrawn_at}']")
-  #     end
-  #   end
-
+  end
   #   test "historically political statistical data set" do
   #     setup_and_visit_content_item("statistical_data_set_political")
 

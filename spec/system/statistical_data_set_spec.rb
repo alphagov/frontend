@@ -40,6 +40,19 @@ RSpec.describe "Statistical Data Set" do
       expect(page).to have_selector(".gem-c-published-dates", text: "Published 13 December 2012")
     end
 
+    it "renders with contents list" do
+      visit base_path
+
+      expect(page).to have_contents_list([
+        { text: "Olympics", id: "olympics" },
+        { text: "Table TSGB1001", id: "table-tsgb1001" },
+        { text: "Table TSGB1002", id: "table-tsgb1002" },
+        { text: "Table TSGB1003", id: "table-tsgb1003" },
+        { text: "Table TSGB1004", id: "table-tsgb1004" },
+        { text: "Table TSGB1005", id: "table-tsgb1005" },
+      ])
+    end
+
     context "with a withdrawn statistical data set" do
       let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set_withdrawn") }
 
@@ -72,19 +85,6 @@ RSpec.describe "Statistical Data Set" do
       end
     end
   end
-
-  #   test "renders with contents list" do
-  #     setup_and_visit_content_item("statistical_data_set")
-
-  #     assert_has_contents_list([
-  #       { text: "Olympics", id: "olympics" },
-  #       { text: "Table TSGB1001", id: "table-tsgb1001" },
-  #       { text: "Table TSGB1002", id: "table-tsgb1002" },
-  #       { text: "Table TSGB1003", id: "table-tsgb1003" },
-  #       { text: "Table TSGB1004", id: "table-tsgb1004" },
-  #       { text: "Table TSGB1005", id: "table-tsgb1005" },
-  #     ])
-  #   end
 
   #   test "does not render with the single page notification button" do
   #     setup_and_visit_content_item("statistical_data_set")

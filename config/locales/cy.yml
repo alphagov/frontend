@@ -102,6 +102,7 @@ cy:
     today: heddiw
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
+    visit: 'Ymweld:'
   components:
     share_links:
       share_this_page: Rhannu'r dudalen hon
@@ -961,6 +962,10 @@ cy:
         other: Datganiadau ysgrifenedig i'r Senedd
         two:
         zero:
+  gone:
+    page_title: Ddim ar gael mwyach
+    published_in_error: Mae'r wybodaeth ar y dudalen hon wedi'i thynnu am ei bod wedi'i chyhoeddi ar gam.
+    title: Dydy'r dudalen rydych chi'n chwilio amdani ddim ar gael mwyach
   help:
     index:
       about: Ynghylch GOV.UK

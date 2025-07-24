@@ -102,6 +102,7 @@ pa:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ਮੁਲਾਕਾਤ:'
   components:
     share_links:
       share_this_page: ਇਸ ਪੇਜ ਨੂੰ ਸ਼ੇਅਰ ਕਰੋ
@@ -648,6 +649,10 @@ pa:
       name:
         one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
         other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ
+  gone:
+    page_title: ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ
+    published_in_error: ਇਸ ਪੰਨੇ 'ਤੇ ਜਾਣਕਾਰੀ ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ ਕਿਉਂਕਿ ਇਹ ਗਲਤੀ ਨਾਲ ਪ੍ਰਕਾਸ਼ਤ ਕੀਤਾ ਗਿਆ ਸੀ।
+    title: ਜਿਸ ਪੰਨੇ ਨੂੰ ਤੁਸੀਂ ਲੱਭ ਰਹੇ ਹੋ ਉਹ ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ
   help:
     index:
       about:

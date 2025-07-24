@@ -102,6 +102,7 @@ hi:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'इस पर जाएं:'
   components:
     share_links:
       share_this_page: यह पेज शेयर करें
@@ -648,6 +649,10 @@ hi:
       name:
         one: संसद में लिखित बयान
         other: संसद में लिखित बयान
+  gone:
+    page_title: अब उपलब्ध नहीं है
+    published_in_error: इस पेज की जानकारी गलती से प्रकाशित होने की वज़ह से हटा दी गई है।
+    title: आप जो पेज खोज रहे हैं वह अब उपलब्ध नहीं है
   help:
     index:
       about:

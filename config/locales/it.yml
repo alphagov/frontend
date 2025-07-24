@@ -102,6 +102,7 @@ it:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Visita:'
   components:
     share_links:
       share_this_page: Condividi questa pagina
@@ -648,6 +649,10 @@ it:
       name:
         one: Dichiarazione scritta al Parlamento
         other: Dichiarazioni scritte al Parlamento
+  gone:
+    page_title: Non più disponibile
+    published_in_error: Le informazioni in questa pagina sono state rimosse perché pubblicate per errore.
+    title: La pagina che stai cercando non è più disponibile
   help:
     index:
       about:

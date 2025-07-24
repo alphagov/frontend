@@ -102,6 +102,7 @@ uk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Відвідайте:'
   components:
     share_links:
       share_this_page: Поділіться цією сторінкою
@@ -802,6 +803,10 @@ uk:
         many:
         one: Письмова заява до Парламенту
         other: Письмові заяви до Парламенту
+  gone:
+    page_title: Більше не доступно
+    published_in_error: Інформацію на цій сторінці видалено, оскільки вона була опублікована помилково.
+    title: Сторінка, яку ви шукаєте, більше не доступна
   help:
     index:
       about:

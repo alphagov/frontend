@@ -102,6 +102,7 @@ el:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Επίσκεψη:'
   components:
     share_links:
       share_this_page: Κοινοποιήστε αυτή τη σελίδα
@@ -648,6 +649,10 @@ el:
       name:
         one: Γραπτή δήλωση στη Βουλή
         other: Γραπτές δηλώσεις στη Βουλή
+  gone:
+    page_title: Δεν είναι πλέον διαθέσιμο
+    published_in_error: Οι πληροφορίες σε αυτήν τη σελίδα έχουν καταργηθεί επειδή δημοσιεύθηκαν κατά λάθος.
+    title: Η σελίδα που αναζητάτε δεν είναι πλέον διαθέσιμη
   help:
     index:
       about:

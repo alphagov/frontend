@@ -102,6 +102,7 @@ he:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'בקר:'
   components:
     share_links:
       share_this_page: שתף דף זה
@@ -648,6 +649,10 @@ he:
       name:
         one: הצהרה בכתב לפרלמנט
         other: הצהרות בכתב לפרלמנט
+  gone:
+    page_title: כבר לא זמין
+    published_in_error: המידע בדף זה הוסר מכיוון שהוא פורסם בטעות.
+    title: הדף שאתה מחפש אינו זמין יותר
   help:
     index:
       about:

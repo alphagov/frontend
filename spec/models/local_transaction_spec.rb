@@ -11,6 +11,12 @@ RSpec.describe LocalTransaction do
     end
   end
 
+  describe "#cta_text" do
+    it "gets cta_text from the content store response" do
+      expect(local_transaction.cta_text).to eq(content_store_response["details"]["cta_text"])
+    end
+  end
+
   describe "#more_information" do
     it "gets more_information from the content store response" do
       expect(local_transaction.more_information).to eq(content_store_response["details"]["more_information"])
@@ -20,6 +26,18 @@ RSpec.describe LocalTransaction do
   describe "#need_to_know" do
     it "gets need_to_know from the content store response" do
       expect(local_transaction.need_to_know).to eq(content_store_response["details"]["need_to_know"])
+    end
+  end
+
+  describe "#before_results" do
+    it "gets before results from the content store response" do
+      expect(local_transaction.before_results).to eq(content_store_response["details"]["before_results"])
+    end
+  end
+
+  describe "#after_results" do
+    it "gets after results from the content store response" do
+      expect(local_transaction.after_results).to eq(content_store_response["details"]["after_results"])
     end
   end
 

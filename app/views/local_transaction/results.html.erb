@@ -8,6 +8,13 @@
   publication: content_item,
   edition: @edition,
 } do %>
+  <% if content_item.before_results.present? %>
+      <section>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw content_item.before_results %>
+        <% end %>
+      </section>
+  <% end %>
   <div class="interaction govuk-!-margin-bottom-8">
     <p class="govuk-body"
        data-module="ga4-auto-tracker"
@@ -84,6 +91,13 @@
     <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
   </p>
 
+  <% if content_item.after_results.present? %>
+    <section>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.after_results %>
+      <% end %>
+    </section>
+  <% end %>
   <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>
     <section class="more">
       <%= render "govuk_publishing_components/components/govspeak", {} do %>

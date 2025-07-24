@@ -102,6 +102,7 @@ ka:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ეწვიეთ:'
   components:
     share_links:
       share_this_page: ამ გვერდის გაზიარება
@@ -648,6 +649,10 @@ ka:
       name:
         one: წერილობითი განცხადება პარლამენტში
         other: წერილობითი განცხადებები პარლამენტში
+  gone:
+    page_title: აღარ არის ხელმისაწვდომი
+    published_in_error: ამ გვერდზე არსებული ინფორმაცია ამოღებულია, რადგან ის გამოქვეყნდა შეცდომით.
+    title: გვერდი, რომელსაც თქვენ ეძებთ, აღარ არის ხელმისაწვდომი
   help:
     index:
       about:

@@ -102,6 +102,7 @@ ru:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Посетите:'
   components:
     share_links:
       share_this_page: 'Поделиться данной страницей '
@@ -802,6 +803,10 @@ ru:
         many:
         one: Письменное заявление парламенту
         other: Письменные заявления парламенту
+  gone:
+    page_title: Более не доступен
+    published_in_error: Информация на данной странице была удалена так как была опубликована по ошибке.
+    title: Страница, которую Вы ищите более не доступна
   help:
     index:
       about:

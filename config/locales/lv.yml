@@ -102,6 +102,7 @@ lv:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Apmeklējiet:'
   components:
     share_links:
       share_this_page: Kopīgot šo lapu
@@ -648,6 +649,10 @@ lv:
       name:
         one: Rakstisks ziņojums parlamentam
         other: Rakstiski ziņojumi parlamentam
+  gone:
+    page_title: Vairs nav pieejams
+    published_in_error: Informācija šajā lapā ir noņemta, jo tā tika publicēta kļūdas dēļ.
+    title: Lapa, kuru meklējat, vairs nav pieejama
   help:
     index:
       about:

@@ -102,6 +102,7 @@ ta:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'வருகை:'
   components:
     share_links:
       share_this_page: இந்தப் பக்கத்தைப் பகிர்க
@@ -648,6 +649,10 @@ ta:
       name:
         one: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்பு
         other: பாராளுமன்றத்துக்கு எழுத்துப்பூர்வ அறிவிப்புகள்
+  gone:
+    page_title: இனி கிடைக்காது
+    published_in_error: இந்தப் பக்கத்திலிருந்த தகவல்கள் நீக்கப்பட்டுள்ளன. காரணம் அது பிழையாக வெளியிடப்பட்டது.
+    title: நீங்கள் தேடும் பக்கம் இனி கிடைக்காது
   help:
     index:
       about:

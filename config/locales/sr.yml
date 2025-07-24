@@ -102,6 +102,7 @@ sr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Posetite:'
   components:
     share_links:
       share_this_page: Podeli ovu stranicu
@@ -725,6 +726,10 @@ sr:
         few:
         one: Pismena predstavka Parlamentu
         other: Pismene predstavke Parlamentu
+  gone:
+    page_title: Nije više dostupno
+    published_in_error: Informacije sa ove stranice su uklonjene jer su bile objavljene greškom.
+    title: Stranica koju tražite nije više dostupna
   help:
     index:
       about:

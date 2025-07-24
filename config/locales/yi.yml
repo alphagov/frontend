@@ -102,6 +102,7 @@ yi:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit:
   components:
     share_links:
       share_this_page:
@@ -648,6 +649,10 @@ yi:
       name:
         one:
         other:
+  gone:
+    page_title:
+    published_in_error:
+    title:
   help:
     index:
       about:

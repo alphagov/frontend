@@ -102,6 +102,7 @@ es-419:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Visite:'
   components:
     share_links:
       share_this_page: Compartir esta página
@@ -648,6 +649,10 @@ es-419:
       name:
         one: Declaración escrita ante el Parlamento
         other: Declaraciones escritas ante el Parlamento
+  gone:
+    page_title: No disponible
+    published_in_error: La información de esta página se ha eliminado porque se publicó erróneamente.
+    title: La página que busca ya no está disponible
   help:
     index:
       about:

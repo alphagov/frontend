@@ -102,6 +102,7 @@ ms:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Lawati:'
   components:
     share_links:
       share_this_page: Kongsi laman ini
@@ -571,6 +572,10 @@ ms:
     written_statement:
       name:
         other: Kenyataan bertulis kepada Parlimen
+  gone:
+    page_title: Sudah tiada
+    published_in_error: Maklumat dalam laman ini telah dikeluarkan kerana ia telah diterbitkan secara salah.
+    title: Laman yang anda cari sudah tiada
   help:
     index:
       about:

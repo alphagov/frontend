@@ -102,6 +102,7 @@ id:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Kunjungan:'
   components:
     share_links:
       share_this_page: Bagikan halaman ini
@@ -571,6 +572,10 @@ id:
     written_statement:
       name:
         other: Pernyataan tertulis kepada Parlemen
+  gone:
+    page_title: Tidak lagi tersedia
+    published_in_error: Informasi di halaman ini telah dihapus karena diterbitkan karena kesalahan.
+    title: Halaman yang dicari tidak lagi tersedia
   help:
     index:
       about:

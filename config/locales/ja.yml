@@ -102,6 +102,7 @@ ja:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 訪問：
   components:
     share_links:
       share_this_page: このページを共有
@@ -571,6 +572,10 @@ ja:
     written_statement:
       name:
         other: 議会への書面による声明
+  gone:
+    page_title: ご利用いただけません
+    published_in_error: このページの情報は、誤って公開されたため削除されました。
+    title: お探しのページはご利用いただけなくなりました
   help:
     index:
       about:

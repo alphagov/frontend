@@ -102,6 +102,7 @@
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Besøk:'
   components:
     share_links:
       share_this_page: Del denne siden
@@ -648,6 +649,10 @@
       name:
         one: Skriftlig uttalelse til Stortinget
         other: Skriftlige uttalelser til Stortinget
+  gone:
+    page_title: Ikke lenger tilgjengelig
+    published_in_error: Informasjonen på denne siden er fjernet fordi den ble publisert ved en feil.
+    title: Siden du leter etter er ikke lenger tilgjengelig
   help:
     index:
       about:

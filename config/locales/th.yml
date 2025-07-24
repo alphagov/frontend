@@ -102,6 +102,7 @@ th:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'เยี่ยมชม:'
   components:
     share_links:
       share_this_page: แชร์หน้านี้
@@ -571,6 +572,10 @@ th:
     written_statement:
       name:
         other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
+  gone:
+    page_title: ไม่มีแล้ว
+    published_in_error: ข้อมูลในหน้านี้ถูกนำออกเนื่องจากมีการเผยแพร่โดยความผิดพลาด
+    title: ไม่มีหน้าที่คุณกำลังค้นหาอีกต่อไป
   help:
     index:
       about:

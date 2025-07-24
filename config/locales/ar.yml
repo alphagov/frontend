@@ -102,6 +102,7 @@ ar:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'تفضّل بزيارة:'
   components:
     share_links:
       share_this_page: شارك هذه الصفحة
@@ -956,6 +957,10 @@ ar:
         other: بيانات خطية للبرلمان
         two:
         zero:
+  gone:
+    page_title: لم تعد متاحة
+    published_in_error: تمت إزالة المعلومات الموجودة في هذه الصفحة لأنها قد نُشِرت عن طريق الخطأ.
+    title: الصفحة التي تبحث عنها لم تعد متاحة
   help:
     index:
       about:

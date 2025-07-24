@@ -102,6 +102,7 @@ en:
     today: today
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
+    visit: 'Visit:'
   components:
     share_links:
       share_this_page: Share this page
@@ -653,6 +654,10 @@ en:
       name:
         one: Written statement to Parliament
         other: Written statements to Parliament
+  gone:
+    page_title: No longer available
+    published_in_error: The information on this page has been removed because it was published in error.
+    title: The page you're looking for is no longer available
   help:
     index:
       about: About GOV.UK

@@ -102,6 +102,7 @@ zh-hk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 訪問：
   components:
     share_links:
       share_this_page: 轉載此一頁面
@@ -571,6 +572,10 @@ zh-hk:
     written_statement:
       name:
         other: 提交國會的書面聲明
+  gone:
+    page_title: 不再提供
+    published_in_error: 本頁面之資訊可移除，因其發佈錯誤。
+    title: 您搜尋之頁面不再可用
   help:
     index:
       about:

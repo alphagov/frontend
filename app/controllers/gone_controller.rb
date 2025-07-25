@@ -4,6 +4,7 @@ class GoneController < ContentItemsController
   skip_before_action :reroute_to_gone
 
   def show
+    I18n.locale = @content_item.locale
     render status :gone
   end
 end

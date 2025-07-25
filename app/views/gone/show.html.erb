@@ -12,7 +12,7 @@
     </p>
 
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= raw(@content_item.explanation) %>
+      <%= @content_item.explanation.html_safe %>
     <% end %>
 
     <% if @content_item.alternative_path.present? %>

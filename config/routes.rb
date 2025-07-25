@@ -88,10 +88,6 @@ Rails.application.routes.draw do
   get "/csv-preview/:id/:filename", to: "csv_preview#show", filename: /[^\/]+/, defaults: { format: "html" }
 
   scope "/government" do
-    # Placeholder for attachments being virus-scanned
-    get "/placeholder", to: "placeholder#show"
-    get "/speeches/:slug(.:locale)", to: "speech#show"
-
     # Calls for evidence pages
     get "/calls-for-evidence/:slug(.:locale)", to: "call_for_evidence#show"
 
@@ -112,6 +108,13 @@ Rails.application.routes.draw do
 
     get "/organisations/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"
     get "/organisations/:organisation_slug/about/:slug(.:locale)", to: "corporate_information_page#show"
+
+    # Placeholder for attachments being virus-scanned
+    get "/placeholder", to: "placeholder#show"
+
+    get "/speeches/:slug(.:locale)", to: "speech#show"
+
+    get "/statistical-data-sets/:slug", to: "statistical_data_set#show"
   end
 
   # Service manuals
@@ -134,16 +137,14 @@ Rails.application.routes.draw do
     get ":slug", to: "answer#show", as: "answer"
   end
 
-  # Simple Smart Answer pages
-  constraints FormatRoutingConstraint.new("simple_smart_answer") do
-    get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
-    get ":slug", to: "simple_smart_answers#show", as: "simple_smart_answer"
-    get ":slug/:part", to: redirect("/%{slug}") # Support for simple smart answers that were once a format with parts
+  # Calendar pages
+  constraints(format: /(json|ics)/) do
+    get "/bank-holidays/ni", to: redirect("/bank-holidays/northern-ireland.%{format}")
   end
 
-  # Transaction pages
-  constraints FormatRoutingConstraint.new("transaction") do
-    get ":slug(/:variant)", to: "transaction#show"
+  constraints FormatRoutingConstraint.new("calendar") do
+    get ":slug", to: "calendar#show_calendar", as: :calendar
+    get ":slug/:division", to: "calendar#division", as: :division
   end
 
   # Local Transaction pages
@@ -161,18 +162,16 @@ Rails.application.routes.draw do
     get ":slug/:part", to: redirect("/%{slug}") # Support for places that were once a format with parts
   end
 
-  # Calendar pages
-  constraints(format: /(json|ics)/) do
-    get "/bank-holidays/ni", to: redirect("/bank-holidays/northern-ireland.%{format}")
+  # Simple Smart Answer pages
+  constraints FormatRoutingConstraint.new("simple_smart_answer") do
+    get ":slug/y(/*responses)" => "simple_smart_answers#flow", :as => :smart_answer_flow
+    get ":slug", to: "simple_smart_answers#show", as: "simple_smart_answer"
+    get ":slug/:part", to: redirect("/%{slug}") # Support for simple smart answers that were once a format with parts
   end
 
-  constraints FormatRoutingConstraint.new("calendar") do
-    get ":slug", to: "calendar#show_calendar", as: :calendar
-    get ":slug/:division", to: "calendar#division", as: :division
-  end
-
-  constraints FullPathFormatRoutingConstraint.new("specialist_document") do
-    get "*path", to: "specialist_document#show"
+  # Transaction pages
+  constraints FormatRoutingConstraint.new("transaction") do
+    get ":slug(/:variant)", to: "transaction#show"
   end
 
   constraints FullPathFormatRoutingConstraint.new("landing_page") do
@@ -181,6 +180,10 @@ Rails.application.routes.draw do
 
   constraints FullPathFormatRoutingConstraint.new("flexible_page") do
     get "*path", to: "flexible_page#show"
+  end
+
+  constraints FullPathFormatRoutingConstraint.new("specialist_document") do
+    get "*path", to: "specialist_document#show"
   end
 
   # route API errors to the error handler

@@ -5,9 +5,10 @@
       heading_level: 1,
       font_size: "xl",
       margin_bottom: 8,
+      lang: "#{I18n.locale}",
     } %>
 
-    <p class="summary govuk-!-font-size-19 govuk-!-margin-bottom-3">
+    <p class="summary govuk-!-font-size-19 govuk-!-margin-bottom-3" lang="<%= I18n.locale %>">
       <%= t("gone.published_in_error") %>
     </p>
 

@@ -13,12 +13,11 @@
     </p>
 
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= content_item.explanation.html_safe %>
+      <%= content_item.explanation.html_safe if content_item.explanation %>
     <% end %>
-
     <% if content_item.alternative_path.present? %>
       <p class="alternative govuk-!-font-size-19 govuk-!-margin-bottom-3">
-        <%= t("common.visit") %> <%= link_to(content_item.alternative_path) %>
+        <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path) %>
       </p>
     <% end %>
   </div>

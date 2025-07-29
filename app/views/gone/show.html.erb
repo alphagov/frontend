@@ -17,7 +17,7 @@
     <% end %>
     <% if content_item.alternative_path.present? %>
       <p class="govuk-body">
-        <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path) %>
+        <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path, class: "govuk-link") %>
       </p>
     <% end %>
   </div>

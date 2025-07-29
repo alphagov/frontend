@@ -11,11 +11,12 @@
     <p class="govuk-body" lang="<%= I18n.locale %>">
       <%= t("gone.published_in_error") %>
     </p>
-
-    <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= content_item.explanation.html_safe if content_item.explanation %>
+    <% if !content_item.explanation.blank? %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= content_item.explanation.html_safe %>
+      <% end %>
     <% end %>
-    <% if content_item.alternative_path.present? %>
+    <% if !content_item.alternative_path.blank? %>
       <p class="govuk-body">
         <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path, class: "govuk-link") %>
       </p>

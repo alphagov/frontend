@@ -8,7 +8,7 @@
       lang: "#{I18n.locale}",
     } %>
 
-    <p class="summary govuk-!-font-size-19 govuk-!-margin-bottom-3" lang="<%= I18n.locale %>">
+    <p class="govuk-body" lang="<%= I18n.locale %>">
       <%= t("gone.published_in_error") %>
     </p>
 
@@ -16,7 +16,7 @@
       <%= content_item.explanation.html_safe if content_item.explanation %>
     <% end %>
     <% if content_item.alternative_path.present? %>
-      <p class="alternative govuk-!-font-size-19 govuk-!-margin-bottom-3">
+      <p class="govuk-body">
         <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path) %>
       </p>
     <% end %>

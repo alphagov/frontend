@@ -101,22 +101,6 @@ RSpec.describe "LocalTransactions" do
         expect(page).to have_text("More information about bears")
       end
 
-      context "when the slug matches apply-foster-child-council" do
-        before do
-          payload[:base_path] = "/apply-foster-child-council"
-          stub_content_store_has_item("/apply-foster-child-council", payload)
-          visit "/apply-foster-child-council"
-        end
-
-        it "does not include more information" do
-          expect(page).not_to have_text("More information about bears")
-        end
-
-        it "has the correct postcode finder button text" do
-          expect(page).to have_button("Find your local council or their regional recruitment hub")
-        end
-      end
-
       context "when the slug matches find-registered-childminder" do
         let(:childminder_payload) do
           payload.merge({
@@ -259,24 +243,6 @@ RSpec.describe "LocalTransactions" do
         expect(page).to have_text("More information about bears")
         expect(elements[0]["id"]).to eq("get-started")
         expect(elements[1]["class"]).to eq("more")
-      end
-
-      context "when the slug matches apply-foster-child-council" do
-        before do
-          payload[:base_path] = "/apply-foster-child-council"
-          stub_content_store_has_item("/apply-foster-child-council", payload)
-          visit "/apply-foster-child-council"
-          fill_in("postcode", with: "SW1A 1AA")
-          click_on("Find your local council")
-        end
-
-        it "includes more information before the get-started control" do
-          elements = all(".more, #get-started")
-
-          expect(page).to have_text("More information about bears")
-          expect(elements[0]["class"]).to eq("more")
-          expect(elements[1]["id"]).to eq("get-started")
-        end
       end
 
       it "does not show the transaction information" do

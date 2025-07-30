@@ -77,9 +77,13 @@
 }
 
 // Temp override to increase action link icon size
-.homepage .gem-c-action-link::before {
-  width: 56px;
+.homepage .gem-c-action-link__icon {
   height: 40px;
-  background-size: 40px auto;
-  background-position: 0 50%;
+  vertical-align: middle;
+  width: 56px;
+
+  svg {
+    height: 40px;
+    width: 40px;
+  }
 }

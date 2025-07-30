@@ -8,6 +8,13 @@
   publication: content_item,
   edition: @edition,
 } do %>
+  <% if content_item.before_results.present? %>
+      <section>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw content_item.before_results %>
+        <% end %>
+      </section>
+  <% end %>
   <div class="interaction govuk-!-margin-bottom-8">
     <p class="govuk-body"
        data-module="ga4-auto-tracker"
@@ -20,15 +27,6 @@
        }.to_json %>">
       <%= t("formats.local_transaction.matched_postcode_html", local_authority: @local_authority.name) %>
     </p>
-
-    <%# for /apply-foster-child-council we want the more information up here to highlight it, otherwise it's at the end %>
-    <% if content_item.more_information.present? && content_item.apply_foster_child_council? %>
-      <section class="more">
-        <%= render "govuk_publishing_components/components/govspeak", {} do %>
-          <%= raw content_item.more_information %>
-        <% end %>
-      </section>
-    <% end %>
 
     <% if @interaction_details['local_interaction'] %>
       <p class="govuk-body">
@@ -80,11 +78,18 @@
 
   </div>
 
-  <p class="govuk-body">
+  <p class="govuk-body govuk-!-margin-bottom-8">
     <%= link_to t("formats.local_transaction.search_for_a_different_postcode"), local_transaction_search_path(content_item.slug), class: "govuk-link" %>
   </p>
 
-  <% if content_item.more_information.present? && !content_item.apply_foster_child_council? %>
+  <% if content_item.after_results.present? %>
+    <section>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.after_results %>
+      <% end %>
+    </section>
+  <% end %>
+  <% if content_item.more_information.present? %>
     <section class="more">
       <%= render "govuk_publishing_components/components/govspeak", {} do %>
         <%= raw content_item.more_information %>

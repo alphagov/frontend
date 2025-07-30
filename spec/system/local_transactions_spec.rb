@@ -101,19 +101,67 @@ RSpec.describe "LocalTransactions" do
         expect(page).to have_text("More information about bears")
       end
 
-      context "when the slug matches apply-foster-child-council" do
-        before do
-          payload[:base_path] = "/apply-foster-child-council"
-          stub_content_store_has_item("/apply-foster-child-council", payload)
-          visit "/apply-foster-child-council"
+      context "when the slug matches find-registered-childminder" do
+        let(:childminder_payload) do
+          payload.merge({
+            base_path: "/find-registered-childminder",
+            title: "Find a registered childminder",
+            description: "Find childminding services in your area",
+            details: payload[:details].merge({
+              introduction: "Find a registered childminder in your local area.",
+              cta_text: "Find a registered childminder in your area",
+              before_results: "Find a registered childminder through your local council",
+              after_results: "Find a childminder through a registered childminding agency",
+            }),
+          })
         end
 
-        it "does not include more information" do
-          expect(page).not_to have_text("More information about bears")
+        before do
+          stub_content_store_has_item("/find-registered-childminder", childminder_payload)
+          visit "/find-registered-childminder"
+        end
+
+        it "has the correct postcode finder button text" do
+          expect(page).to have_button("Find a registered childminder in your area")
+        end
+
+        it "includes before results and after results text" do
+          fill_in("postcode", with: "SW1A 1AA")
+          click_on("Find a registered childminder in your area")
+
+          expect(page).to have_text("Find a registered childminder through your local council")
+          expect(page).to have_text("Find a childminder through a registered childminding agency")
+        end
+      end
+
+      context "when the slug matches apply foster child council" do
+        let(:fosterchild_payload) do
+          payload.merge({
+            base_path: "/apply-foster-child-council",
+            title: "Apply to foster a child through your council",
+            description: "Apply to foster a child through the social services department of your local council.",
+            details: payload[:details].merge({
+              introduction: "Contact your local council if you’re interested in becoming a foster carer.",
+              cta_text: "Find your local council or their regional recruitment hub",
+              before_results: "Some local councils recruit foster carers jointly through a regional recruitment hub.",
+            }),
+          })
+        end
+
+        before do
+          stub_content_store_has_item("/apply-foster-child-council", fosterchild_payload)
+          visit "/apply-foster-child-council"
         end
 
         it "has the correct postcode finder button text" do
           expect(page).to have_button("Find your local council or their regional recruitment hub")
+        end
+
+        it "includes before results text" do
+          fill_in("postcode", with: "SW1A 1AA")
+          click_on("Find your local council or their regional recruitment hub")
+
+          expect(page).to have_text("Some local councils recruit foster carers jointly through a regional recruitment hub.")
         end
       end
     end
@@ -195,24 +243,6 @@ RSpec.describe "LocalTransactions" do
         expect(page).to have_text("More information about bears")
         expect(elements[0]["id"]).to eq("get-started")
         expect(elements[1]["class"]).to eq("more")
-      end
-
-      context "when the slug matches apply-foster-child-council" do
-        before do
-          payload[:base_path] = "/apply-foster-child-council"
-          stub_content_store_has_item("/apply-foster-child-council", payload)
-          visit "/apply-foster-child-council"
-          fill_in("postcode", with: "SW1A 1AA")
-          click_on("Find your local council")
-        end
-
-        it "includes more information before the get-started control" do
-          elements = all(".more, #get-started")
-
-          expect(page).to have_text("More information about bears")
-          expect(elements[0]["class"]).to eq("more")
-          expect(elements[1]["id"]).to eq("get-started")
-        end
       end
 
       it "does not show the transaction information" do

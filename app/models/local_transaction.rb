@@ -1,11 +1,15 @@
 class LocalTransaction < ContentItem
-  attr_reader :country_name, :introduction,
+  attr_reader :after_results, :before_results, :country_name,
+              :cta_text, :introduction,
               :lgil_code, :lgil_override, :lgsl_code,
               :more_information, :need_to_know
 
   def initialize(content_store_response)
     super(content_store_response)
 
+    @after_results = content_store_response.dig("details", "after_results")
+    @before_results = content_store_response.dig("details", "before_results")
+    @cta_text = content_store_response.dig("details", "cta_text")
     @introduction = content_store_response.dig("details", "introduction")
     @lgil_code = content_store_response.dig("details", "lgil_code")
     @lgil_override = content_store_response.dig("details", "lgil_override")
@@ -34,12 +38,6 @@ class LocalTransaction < ContentItem
 
   def slug
     URI.parse(base_path).path.sub(%r{\A/}, "")
-  end
-
-  # the apply to foster page has a few hard-coded exceptions to its
-  # layout, so add a method to detect it.
-  def apply_foster_child_council?
-    slug == "apply-foster-child-council"
   end
 
 private

@@ -175,12 +175,12 @@ Rails.application.routes.draw do
     get ":slug(/:variant)", to: "transaction#show"
   end
 
-  constraints FullPathFormatRoutingConstraint.new("landing_page") do
-    get "*path", to: "landing_page#show"
-  end
-
   constraints FullPathFormatRoutingConstraint.new("flexible_page") do
     get "*path", to: "flexible_page#show"
+  end
+
+  constraints FullPathFormatRoutingConstraint.new("landing_page") do
+    get "*path", to: "landing_page#show"
   end
 
   # Publications - these are all under /government/publications or /government/statistics

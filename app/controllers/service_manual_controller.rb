@@ -2,7 +2,6 @@ class ServiceManualController < ContentItemsController
   include Cacheable
 
   def index
-    slimmer_template "gem_layout_full_width"
     @presenter = ServiceManualHomepagePresenter.new(content_item)
   end
 

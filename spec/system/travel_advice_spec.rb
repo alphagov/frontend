@@ -52,12 +52,6 @@ RSpec.describe "TravelAdvice" do
       expect(page.title).to eq("Foreign travel advice - GOV.UK")
     end
 
-    it "sets the slimmer #wrapper classes" do
-      visit "/foreign-travel-advice"
-
-      expect(page.find("#wrapper")["class"]).to include("travel-advice")
-    end
-
     it "displays breadcrumbs" do
       visit "/foreign-travel-advice"
 

@@ -1,8 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Slimmer::Headers
-  include Slimmer::Template
-  slimmer_template "gem_layout"
-
   before_action do
     I18n.locale = I18n.default_locale
   end

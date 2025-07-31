@@ -21,7 +21,8 @@
       margin_bottom: 8,
       text: content_item.title %>
   </div>
-  <%= render "shared/translations" %>
+
+  <%= render "shared/translations", content_item: %>
 
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>

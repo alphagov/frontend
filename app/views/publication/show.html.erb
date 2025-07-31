@@ -14,12 +14,12 @@
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading",
-      context: t("content_item.schema_name.#{content_item.document_type}", count: 1),
-      context_locale: t_locale_fallback("content_item.schema_name.#{content_item.document_type}", count: 1),
-      text: content_item.title,
+      context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+      context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
       heading_level: 1,
       font_size: "l",
-      margin_bottom: 8 %>
+      margin_bottom: 8,
+      text: content_item.title %>
   </div>
   <%= render "shared/translations" %>
 

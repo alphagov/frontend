@@ -1,3 +1,4 @@
+<% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
 <% content_for :body do %>
   <% if @is_account && local_assigns %>
     <main id="content">
@@ -21,19 +22,30 @@
     <% end %>
   <% end %>
 <% end %>
+<%= content_for :head do %>
+  <%= csp_meta_tag %>
+  <%= render_component_stylesheets %>
+<% end %>
+<% page_title = yield :title
+      if page_title.present?
+        new_page_title = page_title
+      elsif content_item
+        new_page_title = page_title(content_item)
+      else
+        new_page_title = "GOV.UK"
+      end %>
+<%= render "govuk_publishing_components/components/layout_for_public", {
+      title: new_page_title,
+  } do %>
+  <%= yield :body %>
+  <%= javascript_include_tag 'test-dependencies' if Rails.env.test? %>
+<% end %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title <%= lang_attribute %>><%=
-      page_title = yield :title
-      if page_title.present?
-        page_title
-      elsif content_item
-        page_title(content_item)
-      else
-        "GOV.UK"
-      end
+      
                                  %></title>
     <%= yield :extra_stylesheets %>
 
@@ -60,7 +72,7 @@
   </head>
 
   <body class="mainstream <%= yield :body_classes %>">
-    <div id="wrapper" class="<%= wrapper_class(content_item) %> direction-<%= page_text_direction %>">
+    <div class="<%= wrapper_class(content_item) %> direction-<%= page_text_direction %>">
       <%= yield :body %>
     </div>
   </body>

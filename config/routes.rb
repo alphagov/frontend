@@ -183,6 +183,12 @@ Rails.application.routes.draw do
     get "*path", to: "flexible_page#show"
   end
 
+  # Publications - these are all under /government/publications or /government/statistics
+  # but they are not the _only_ things in those routes, so we need a full pathformat constraint
+  constraints FullPathFormatRoutingConstraint.new("publication") do
+    get "*path(.:locale)", to: "publication#show"
+  end
+
   constraints FullPathFormatRoutingConstraint.new("specialist_document") do
     get "*path", to: "specialist_document#show"
   end

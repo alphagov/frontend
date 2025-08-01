@@ -29,9 +29,9 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints FullPathFormatRoutingConstraint.new("gone") do
-    get "*path", to: "gone#show"
-  end
+  # constraints FullPathFormatRoutingConstraint.new("gone") do
+  #   get "*path", to: "gone#show"
+  # end
 
   get "/find-local-council" => "find_local_council#index"
   post "/find-local-council" => "find_local_council#find"

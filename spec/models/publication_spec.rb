@@ -3,6 +3,9 @@ RSpec.describe Publication do
 
   let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "publication") }
 
+  it_behaves_like "it has updates", "publication", "withdrawn_publication"
+  it_behaves_like "it has no updates", "publication", "publication"
+
   describe "#dataset?" do
     it "returns false" do
       expect(publication.dataset?).to be false

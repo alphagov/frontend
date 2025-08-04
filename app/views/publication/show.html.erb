@@ -37,7 +37,8 @@
     logo: @presenter.logo,
   } %>
 
-<%= render "shared/single_page_notification_button", content_item: content_item %>
+<%= render "shared/single_page_notification_button", content_item: %>
+
 <%= render "shared/history_notice", content_item: content_item %>
 
 <% if content_item.withdrawn? %>

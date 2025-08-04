@@ -69,7 +69,7 @@
       <div class="responsive-bottom-margin">
         <%= render "shared/attachments_list",
           title: t("formats.publication.documents", count: 5), # This should always be pluralised.
-          attachments_for_components: content_item.attachments_for_components %>
+          attachments_for_components: content_item.featured_attachments %>
 
         <section id="details">
           <%= render "govuk_publishing_components/components/heading", {

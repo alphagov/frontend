@@ -41,15 +41,16 @@ RSpec.shared_examples "it can have attachments" do |document_type, example_name|
     end
 
     it "updates the preview_url based on asset_manager_id and matching filename" do
-      attachment["assets"] = [{ "asset_manager_id" => "some-attachment-data-id", "filename" => "Setting_grade_standards_part_2.pdf" }]
+      content_store_response["details"]["attachments"].first["filename"] = "some-file.pdf"
+      attachment["assets"] = [{ "asset_manager_id" => "some-attachment-data-id", "filename" => "some-file.pdf" }]
       attachment["content_type"] = "text/csv"
 
-      expected_preview_url = "/csv-preview/some-attachment-data-id/Setting_grade_standards_part_2.pdf"
-
+      expected_preview_url = "/csv-preview/some-attachment-data-id/some-file.pdf"
       expect(described_class.new(content_store_response).attachments.first["preview_url"]).to eq(expected_preview_url)
     end
 
     it "does not update the preview_url if the filename does not match" do
+      content_store_response["details"]["attachments"].first["filename"] = "some-other-file.pdf"
       attachment["assets"] = [{ "asset_manager_id" => "some-attachment-data-id", "filename" => "some-filename" }]
       attachment["content_type"] = "text/csv"
 

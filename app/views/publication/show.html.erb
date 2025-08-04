@@ -1,9 +1,9 @@
-<% content_for :extra_head_content do %>
-  <%= machine_readable_metadata(
+<% content_for :extra_headers do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: (content_item.dataset? ? :dataset : :article),
-  ) %>
+    content_item: content_item.to_h %>
 
-  <% if content_item.hide_from_search_engines? %>
+  <% if @presenter.hide_from_search_engines? %>
     <meta name="robots" content="noindex">
   <% end %>
 <% end %>

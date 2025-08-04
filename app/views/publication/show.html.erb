@@ -80,7 +80,7 @@
           <%= render "govuk_publishing_components/components/govspeak", {
             direction: page_text_direction,
           } do %>
-            <%= raw(content_item.details) %>
+            <%= content_item.body.html_safe %>
           <% end %>
         </section>
       </div>

@@ -1,8 +1,4 @@
 RSpec.describe "Publication" do
-  # test "random but valid items do not error" do
-  #   assert_nothing_raised { setup_and_visit_random_content_item(document_type: "statutory_guidance") }
-  # end
-
   # test "publication" do
   #   setup_and_visit_content_item("publication")
 

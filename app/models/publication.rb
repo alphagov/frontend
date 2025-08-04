@@ -1,4 +1,5 @@
 class Publication < ContentItem
+  include Attachments
   include EmphasisedOrganisations
   include NationalApplicability
   include People

@@ -3,6 +3,7 @@ RSpec.describe Publication do
 
   let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "publication") }
 
+  it_behaves_like "it can have attachments", "publication", "publication-with-featured-attachments"
   it_behaves_like "it can have emphasised organisations", "publication", "publication"
   it_behaves_like "it can have national applicability", "publication", "statistics_publication"
   it_behaves_like "it can have people", "publication", "publication"

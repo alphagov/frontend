@@ -1,3 +1,5 @@
+<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
+<% global_banner = render("govuk_web_banners/global_banner") %>
 <% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
 <% content_for :body do %>
   <% if @is_account && local_assigns %>
@@ -36,6 +38,8 @@
       end %>
 <%= render "govuk_publishing_components/components/layout_for_public", {
       title: new_page_title,
+      emergency_banner:,
+      global_banner:,
   } do %>
   <%= yield :body %>
   <%= javascript_include_tag 'test-dependencies' if Rails.env.test? %>

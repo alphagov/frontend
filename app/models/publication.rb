@@ -1,6 +1,7 @@
 class Publication < ContentItem
   include EmphasisedOrganisations
   include People
+  include Political
   include SinglePageNotificationButton
   include Updatable
 

@@ -11,6 +11,10 @@ class Publication < ContentItem
     (organisations_ordered_by_emphasis + people).uniq
   end
 
+  def attachments_with_details_count
+    featured_attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }.count
+  end
+
   def dataset?
     %w[national_statistics official_statistics transparency].include? document_type
   end

@@ -22,6 +22,24 @@ RSpec.describe Publication do
     end
   end
 
+  describe "#attachments_with_details_count" do
+    it "returns 0" do
+      expect(publication.attachments_with_details_count).to eq(0)
+    end
+
+    context "when alternative_format_contact_email are present but accessible is false" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("publication", example_name: "publication-with-featured-attachments").tap do |example|
+          example["details"]["attachments"].first["accessible"] = false
+        end
+      end
+
+      it "returns the number of matching attachments" do
+        expect(publication.attachments_with_details_count).to eq(1)
+      end
+    end
+  end
+
   describe "#dataset?" do
     it "returns false" do
       expect(publication.dataset?).to be false

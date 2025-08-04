@@ -532,6 +532,10 @@ fa:
         one:
         other:
     publication:
+      details: جزئیات
+      documents:
+        one: سند
+        other: اسناد
       name:
         one:
         other:

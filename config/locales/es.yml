@@ -532,6 +532,10 @@ es:
         one:
         other:
     publication:
+      details: Detalles
+      documents:
+        one: Documento
+        other: Documentos
       name:
         one:
         other:

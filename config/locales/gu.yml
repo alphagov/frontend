@@ -532,6 +532,10 @@ gu:
         one:
         other:
     publication:
+      details: વિગતો
+      documents:
+        one: દસ્તાવેજ
+        other: દસ્તાવેજો
       name:
         one:
         other:

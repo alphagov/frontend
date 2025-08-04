@@ -756,6 +756,14 @@ ar:
         two:
         zero:
     publication:
+      details: التفاصيل
+      documents:
+        few:
+        many:
+        one: المستند
+        other: المستندات
+        two:
+        zero:
       name:
         few:
         many:

@@ -476,6 +476,9 @@ ko:
       name:
         other:
     publication:
+      details: 세부 정보
+      documents:
+        other: 문서
       name:
         other:
     raib_report:

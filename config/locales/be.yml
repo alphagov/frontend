@@ -644,6 +644,12 @@ be:
         one:
         other:
     publication:
+      details: Дэталi
+      documents:
+        few:
+        many:
+        one: Дакумент
+        other: Дакументы
       name:
         few:
         many:

@@ -588,6 +588,11 @@ sk:
         one:
         other:
     publication:
+      details: Podrobnosti na
+      documents:
+        few:
+        one: Dokument
+        other: Dokumenty
       name:
         few:
         one:

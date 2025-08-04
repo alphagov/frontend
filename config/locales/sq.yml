@@ -532,6 +532,10 @@ sq:
         one:
         other:
     publication:
+      details: Detajet
+      documents:
+        one: Dokument
+        other: Dokumente
       name:
         one:
         other:

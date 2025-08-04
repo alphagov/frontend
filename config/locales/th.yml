@@ -476,6 +476,9 @@ th:
       name:
         other:
     publication:
+      details: รายละเอียด
+      documents:
+        other: เอกสาร
       name:
         other:
     raib_report:

@@ -532,6 +532,10 @@ ur:
         one:
         other:
     publication:
+      details: تفصیلات
+      documents:
+        one: دستاویز
+        other: دستاویزات
       name:
         one:
         other:

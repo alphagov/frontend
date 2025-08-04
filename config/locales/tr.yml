@@ -532,6 +532,10 @@ tr:
         one:
         other:
     publication:
+      details: Ayrıntılar
+      documents:
+        one: Belge
+        other: Belgeler
       name:
         one:
         other:

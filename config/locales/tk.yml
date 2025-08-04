@@ -532,6 +532,10 @@ tk:
         one:
         other:
     publication:
+      details: Içgin maglumatlar
+      documents:
+        one: Resminama
+        other: Resminamalar
       name:
         one:
         other:

@@ -532,6 +532,10 @@ it:
         one:
         other:
     publication:
+      details: Dettagli
+      documents:
+        one: Documento
+        other: Documenti
       name:
         one:
         other:

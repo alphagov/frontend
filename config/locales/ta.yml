@@ -532,6 +532,10 @@ ta:
         one:
         other:
     publication:
+      details: விபரங்கள்
+      documents:
+        one: ஆவணம்
+        other: ஆவணங்கள்
       name:
         one:
         other:

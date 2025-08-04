@@ -532,6 +532,10 @@ ky:
         one: Жарнама материалдары
         other: Жарнама материалдары
     publication:
+      details: Чоо-жайы
+      documents:
+        one: Документ
+        other: Документтер
       name:
         one: Жарыялоо
         other: Жарыялоолор

@@ -476,6 +476,9 @@ zh-hk:
       name:
         other:
     publication:
+      details: 詳情
+      documents:
+        other: 文件
       name:
         other:
     raib_report:

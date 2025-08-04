@@ -532,6 +532,10 @@ da:
         one:
         other:
     publication:
+      details: Detaljer
+      documents:
+        one: Dokument
+        other: Dokumenter
       name:
         one:
         other:

@@ -532,6 +532,10 @@ pa:
         one:
         other:
     publication:
+      details: ਵੇਰਵੇ
+      documents:
+        one: ਦਸਤਾਵੇਜ਼
+        other: ਦਸਤਾਵੇਜ਼
       name:
         one:
         other:

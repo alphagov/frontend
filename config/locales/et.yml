@@ -532,6 +532,10 @@ et:
         one:
         other:
     publication:
+      details: Üksikasjad
+      documents:
+        one: Dokument
+        other: Dokumendid
       name:
         one:
         other:

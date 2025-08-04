@@ -532,6 +532,10 @@ bg:
         one:
         other:
     publication:
+      details: Подробности
+      documents:
+        one: Документ
+        other: Документи
       name:
         one:
         other:

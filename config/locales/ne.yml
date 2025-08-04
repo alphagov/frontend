@@ -532,6 +532,10 @@ ne:
         one:
         other:
     publication:
+      details: विवरण
+      documents:
+        one: कागजात
+        other: कागजातहरु
       name:
         one:
         other:

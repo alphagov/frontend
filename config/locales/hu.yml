@@ -532,6 +532,10 @@ hu:
         one:
         other:
     publication:
+      details: Részletek
+      documents:
+        one: Dokumentum
+        other: Dokumentumok
       name:
         one:
         other:

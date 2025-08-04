@@ -644,6 +644,12 @@ pl:
         one:
         other:
     publication:
+      details: Szczegóły
+      documents:
+        few:
+        many:
+        one: Dokument
+        other: Dokumenty
       name:
         few:
         many:

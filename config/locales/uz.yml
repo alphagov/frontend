@@ -532,6 +532,10 @@ uz:
         one:
         other:
     publication:
+      details: Батафсил маълумотлар
+      documents:
+        one: Ҳужжат
+        other: Ҳужжатлар
       name:
         one:
         other:

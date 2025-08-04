@@ -532,6 +532,10 @@ sw:
         one:
         other:
     publication:
+      details: Maelezo
+      documents:
+        one: Hati
+        other: Hati
       name:
         one:
         other:

@@ -1,14 +1,28 @@
 RSpec.describe "Publication" do
-  # test "publication" do
-  #   setup_and_visit_content_item("publication")
+  context "when visiting a publication" do
+    let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "publication") }
+    let(:base_path) { content_item["base_path"] }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
+    before { stub_content_store_has_item(base_path, content_item) }
 
-  #   within "#details" do
-  #     assert page.has_text?("Installation name: Leeming Biogas Facility")
-  #   end
-  # end
+    it "displays the title" do
+      visit base_path
+
+      expect(page).to have_title("D17 9LY, Veolia ES (UK) Limited: environmental permit issued")
+    end
+
+    it "includes the description" do
+      visit base_path
+
+      expect(page).to have_text("View the permit issued for Leeming Biogas Facility, Leeming under the Industrial Emissions Directive.")
+    end
+
+    it "includes the body" do
+      visit base_path
+
+      expect(page).to have_text("The Environment Agency publish permits that they issue under the Industrial Emissions Directive (IED).")
+    end
+  end
 
   # test "renders metadata and document footer" do
   #   setup_and_visit_content_item("publication")

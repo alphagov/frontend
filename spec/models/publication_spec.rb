@@ -5,6 +5,7 @@ RSpec.describe Publication do
 
   it_behaves_like "it can have emphasised organisations", "publication", "publication"
   it_behaves_like "it can have people", "publication", "publication"
+  it_behaves_like "it can have single page notifications", "publication", "publication"
   it_behaves_like "it has updates", "publication", "withdrawn_publication"
   it_behaves_like "it has no updates", "publication", "publication"
 

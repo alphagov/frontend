@@ -1,6 +1,7 @@
 class Publication < ContentItem
   include EmphasisedOrganisations
   include People
+  include SinglePageNotificationButton
   include Updatable
 
   def contributors

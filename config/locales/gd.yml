@@ -644,6 +644,12 @@ gd:
         other:
         two:
     publication:
+      details: Sonraí
+      documents:
+        few:
+        one: Tuarascáil
+        other: Doiciméid
+        two:
       name:
         few:
         one:

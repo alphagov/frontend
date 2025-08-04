@@ -532,6 +532,10 @@ bn:
         one:
         other:
     publication:
+      details: বিস্তারিত
+      documents:
+        one: নথিপত্র
+        other: নথিপত্র
       name:
         one:
         other:

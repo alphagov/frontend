@@ -532,6 +532,10 @@ sv:
         one:
         other:
     publication:
+      details: Detaljer
+      documents:
+        one: Dokument
+        other: Dokument
       name:
         one:
         other:

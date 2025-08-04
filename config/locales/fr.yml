@@ -532,6 +532,10 @@ fr:
         one:
         other:
     publication:
+      details: Détails
+      documents:
+        one: Document
+        other: Documents
       name:
         one:
         other:

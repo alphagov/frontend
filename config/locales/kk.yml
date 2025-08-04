@@ -532,6 +532,10 @@ kk:
         one:
         other:
     publication:
+      details: Толық мәліметтер
+      documents:
+        one: Құжат
+        other: Құжаттар
       name:
         one:
         other:

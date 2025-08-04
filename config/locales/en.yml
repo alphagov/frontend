@@ -537,6 +537,10 @@ en:
         one: Promotional material
         other: Promotional material
     publication:
+      details: Details
+      documents:
+        one: Document
+        other: Documents
       name:
         one: Publication
         other: Publications

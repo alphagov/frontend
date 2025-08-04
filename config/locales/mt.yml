@@ -644,6 +644,12 @@ mt:
         one:
         other:
     publication:
+      details: Dettalji
+      documents:
+        few:
+        many:
+        one: Dokument
+        other: Dokumenti tal-Politika
       name:
         few:
         many:

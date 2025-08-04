@@ -588,6 +588,11 @@ ro:
         one:
         other:
     publication:
+      details: Detalii
+      documents:
+        few:
+        one: Document
+        other: Documente
       name:
         few:
         one:

@@ -532,6 +532,10 @@ dr:
         one:
         other:
     publication:
+      details: جزیٔیات
+      documents:
+        one: سند
+        other: اسناد
       name:
         one:
         other:

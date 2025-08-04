@@ -532,6 +532,10 @@ nl:
         one:
         other:
     publication:
+      details: Details
+      documents:
+        one: Document
+        other: Documenten
       name:
         one:
         other:

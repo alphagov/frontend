@@ -476,6 +476,9 @@ id:
       name:
         other:
     publication:
+      details: Detail
+      documents:
+        other: Dokumen
       name:
         other:
     raib_report:

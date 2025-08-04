@@ -532,6 +532,10 @@ si:
         one:
         other:
     publication:
+      details: විස්තර
+      documents:
+        one: ලේඛණය
+        other: ලේඛන
       name:
         one:
         other:

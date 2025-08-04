@@ -532,6 +532,10 @@ fi:
         one:
         other:
     publication:
+      details: Yksityiskohdat
+      documents:
+        one: Asiakirja
+        other: Asiakirjat
       name:
         one:
         other:

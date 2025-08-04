@@ -644,6 +644,12 @@ uk:
         one:
         other:
     publication:
+      details: Деталі
+      documents:
+        few:
+        many:
+        one: Документ
+        other: Документи
       name:
         few:
         many:

@@ -532,6 +532,10 @@ ps:
         one:
         other:
     publication:
+      details: جزیات
+      documents:
+        one: اسناد
+        other: اسناد
       name:
         one:
         other:

@@ -476,6 +476,9 @@ ja:
       name:
         other:
     publication:
+      details: 詳細
+      documents:
+        other: ドキュメント
       name:
         other:
     raib_report:

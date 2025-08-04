@@ -644,6 +644,12 @@ sl:
         other:
         two:
     publication:
+      details: Podrobnosti
+      documents:
+        few:
+        one: Dokument
+        other: Dokumenti
+        two:
       name:
         few:
         one:

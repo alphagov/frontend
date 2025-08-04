@@ -532,6 +532,10 @@ az:
         one:
         other:
     publication:
+      details: Təəffüratlar
+      documents:
+        one: Sənəd
+        other: Sənədlər
       name:
         one:
         other:

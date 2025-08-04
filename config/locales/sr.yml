@@ -588,6 +588,11 @@ sr:
         one:
         other:
     publication:
+      details: Detalji
+      documents:
+        few:
+        one: Dokument
+        other: Dokumenti
       name:
         few:
         one:

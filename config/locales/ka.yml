@@ -532,6 +532,10 @@ ka:
         one:
         other:
     publication:
+      details: დეტალები
+      documents:
+        one: დოკუმენტი
+        other: დოკუმენტები
       name:
         one:
         other:

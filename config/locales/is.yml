@@ -532,6 +532,10 @@ is:
         one:
         other:
     publication:
+      details: Nánari upplýsingar
+      documents:
+        one: Skjal
+        other: Skjöl
       name:
         one:
         other:

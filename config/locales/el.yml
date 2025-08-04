@@ -532,6 +532,10 @@ el:
         one:
         other:
     publication:
+      details: Λεπτομέρειες
+      documents:
+        one: Έγγραφο
+        other: Έγγραφα
       name:
         one:
         other:

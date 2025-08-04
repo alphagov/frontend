@@ -588,6 +588,11 @@ lt:
         one:
         other:
     publication:
+      details: Informacija
+      documents:
+        few:
+        one: Dokumentas
+        other: Dokumentai
       name:
         few:
         one:

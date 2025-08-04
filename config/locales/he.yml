@@ -532,6 +532,10 @@ he:
         one:
         other:
     publication:
+      details: פרטים
+      documents:
+        one: מסמך
+        other: מסמכים
       name:
         one:
         other:

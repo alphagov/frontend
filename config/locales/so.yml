@@ -532,6 +532,10 @@ so:
         one:
         other:
     publication:
+      details: Faah-faahin
+      documents:
+        one: Dukumenti
+        other: Dukumentiyada
       name:
         one:
         other:

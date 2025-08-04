@@ -644,6 +644,12 @@ ru:
         one:
         other:
     publication:
+      details: Детали
+      documents:
+        few:
+        many:
+        one: Документ
+        other: Документы
       name:
         few:
         many:

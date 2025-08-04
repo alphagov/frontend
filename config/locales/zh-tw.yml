@@ -476,6 +476,9 @@ zh-tw:
       name:
         other:
     publication:
+      details: 細節
+      documents:
+        other: 文檔
       name:
         other:
     raib_report:

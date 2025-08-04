@@ -9,6 +9,7 @@ RSpec.describe Publication do
   it_behaves_like "it can have single page notifications", "publication", "publication"
   it_behaves_like "it has updates", "publication", "withdrawn_publication"
   it_behaves_like "it has no updates", "publication", "publication"
+  it_behaves_like "it can be withdrawn", "statistical_data_set", "statistical_data_set_withdrawn"
 
   describe "#contributors" do
     it "returns a list of organisations followed by people" do

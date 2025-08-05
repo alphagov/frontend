@@ -71,16 +71,17 @@ RSpec.describe "Publication" do
 
         expect(page).not_to have_text("Permit: Veolia ES (UK) Limited")
       end
+
+      it "renders featured document attachments using components" do
+        visit base_path
+
+        within "#documents" do
+          expect(page).to have_text("Number of ex-regular service personnel now part of FR20")
+          expect(page).to have_selector(".gem-c-attachment")
+        end
+      end
     end
   end
-
-  # test "renders featured document attachments using components" do
-  #   setup_and_visit_content_item("publication-with-featured-attachments")
-  #   within "#documents" do
-  #     assert page.has_text?("Number of ex-regular service personnel now part of FR20")
-  #     assert page.has_css?(".gem-c-attachment")
-  #   end
-  # end
 
   # test "doesn't render the documents section if no documents" do
   #   overrides = {

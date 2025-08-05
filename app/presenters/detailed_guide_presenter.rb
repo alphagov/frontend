@@ -6,6 +6,12 @@ class DetailedGuidePresenter < ContentItemPresenter
     ContentsOutlinePresenter.new(@headers).for_contents_list_component
   end
 
+  def logo
+    return unless content_item.image
+
+    { path: content_item.image["url"], alt_text: "European structural investment funds" }
+  end
+
 private
 
   def show_contents_list?

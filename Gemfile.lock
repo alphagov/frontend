@@ -200,7 +200,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.5.1)
+    govuk_web_banners (1.6.0)
       govuk_app_config
       govuk_publishing_components
       rails (>= 7)
@@ -562,7 +562,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.0)
+    puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.0)

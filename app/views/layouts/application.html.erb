@@ -42,7 +42,7 @@
       global_banner:,
   } do %>
   <%= yield :body %>
-  <%= javascript_include_tag 'test-dependencies' if Rails.env.test? %>
+  <%= javascript_include_tag "test-dependencies" if Rails.env.test? %>
 <% end %>
 <!DOCTYPE html>
 <html lang="en">

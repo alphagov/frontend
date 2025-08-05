@@ -1,4 +1,5 @@
 class Publication < ContentItem
+  include People
   include Updatable
 
   def dataset?

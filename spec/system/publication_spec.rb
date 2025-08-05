@@ -81,39 +81,37 @@ RSpec.describe "Publication" do
         end
       end
     end
+
+    context "when there are no featured attachments" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication-with-featured-attachments").tap do |example|
+          example["details"]["featured_attachments"] = []
+        end
+      end
+
+      it "doesn't render the documents section" do
+        visit base_path
+
+        expect(page).not_to have_text("Documents")
+      end
+    end
+
+    context "when the featured attachment is not accessible but an email is supplied" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication-with-featured-attachments").tap do |example|
+          example["details"]["attachments"].first["accessible"] = false
+        end
+      end
+
+      it "renders the accessible format option" do
+        visit base_path
+
+        within "#documents" do
+          expect(page).to have_text("Request an accessible format")
+        end
+      end
+    end
   end
-
-  # test "doesn't render the documents section if no documents" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [{}],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("publication-with-featured-attachments", overrides)
-  #   assert page.has_no_text?("Documents")
-  # end
-
-  # test "renders accessible format option when accessible is false and email is supplied" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [{
-  #         "accessible" => false,
-  #         "alternative_format_contact_email" => "ddc-modinternet@mod.gov.uk",
-  #         "attachment_type" => "file",
-  #         "id" => "PUBLIC_1392629965.pdf",
-  #         "title" => "Number of ex-regular service personnel now part of FR20",
-  #         "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-  #         "content_type" => "application/pdf",
-  #         "filename" => "PUBLIC_1392629965.pdf",
-  #         "locale" => "en",
-  #       }],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("publication-with-featured-attachments", overrides)
-  #   within "#documents" do
-  #     assert page.has_text?("Request an accessible format")
-  #   end
-  # end
 
   # test "doesn't render accessible format option when accessible is false and email is not supplied" do
   #   overrides = {

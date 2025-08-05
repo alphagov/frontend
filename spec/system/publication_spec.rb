@@ -48,29 +48,31 @@ RSpec.describe "Publication" do
 
       expect(page).to have_selector(".gem-c-published-dates", text: "Published 3 May 2016")
     end
+
+    context "when there are featured and non-featured attachments" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication-with-featured-attachments").tap do |example|
+          example["details"]["attachments"] << {
+            "accessible" => false,
+            "alternative_format_contact_email" => "customerservices@publicguardian.gov.uk",
+            "attachment_type" => "file",
+            "content_type" => "application/pdf",
+            "filename" => "veolia-permit.pdf",
+            "id" => "violia-permit",
+            "locale" => "en",
+            "title" => "Permit: Veolia ES (UK) Limited",
+            "url" => "https://assets.publishing.service.gov.uk/media/123abc/veolia-permit.zip",
+          }
+        end
+      end
+
+      it "does not render non-featured attachments" do
+        visit base_path
+
+        expect(page).not_to have_text("Permit: Veolia ES (UK) Limited")
+      end
+    end
   end
-
-  # test "does not render non-featured attachments" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [{
-  #         "accessible" => false,
-  #         "alternative_format_contact_email" => "customerservices@publicguardian.gov.uk",
-  #         "attachment_type" => "file",
-  #         "content_type" => "application/pdf",
-  #         "filename" => "veolia-permit.pdf",
-  #         "id" => "violia-permit",
-  #         "locale" => "en",
-  #         "title" => "Permit: Veolia ES (UK) Limited",
-  #         "url" => "https://assets.publishing.service.gov.uk/media/123abc/veolia-permit.zip",
-  #       }],
-  #       "featured_attachments" => [],
-  #     },
-  #   }
-
-  #   setup_and_visit_content_item("publication", overrides)
-  #   assert page.has_no_text?("Permit: Veolia ES (UK) Limited")
-  # end
 
   # test "renders featured document attachments using components" do
   #   setup_and_visit_content_item("publication-with-featured-attachments")

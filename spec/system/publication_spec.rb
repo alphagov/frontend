@@ -172,18 +172,27 @@ RSpec.describe "Publication" do
         end
       end
     end
+
+    context "with a withdrawn publication" do
+      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "withdrawn_publication") }
+
+      it "displays the withdrawn title" do
+        visit base_path
+
+        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+      end
+
+      it "displays the withdrawn notice" do
+        visit base_path
+
+        within ".gem-c-notice" do
+          expect(page).to have_text("This publication was withdrawn")
+          expect(page).to have_text("This information is now out of date.")
+          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+        end
+      end
+    end
   end
-
-  # test "withdrawn publication" do
-  #   setup_and_visit_content_item("withdrawn_publication")
-  #   assert page.has_css?("title", text: "[Withdrawn]", visible: false)
-
-  #   within ".gem-c-notice" do
-  #     assert page.has_text?("This publication was withdrawn"), "is withdrawn"
-  #     assert page.has_text?("guidance for keepers of sheep, goats and pigs")
-  #     assert page.has_css?("time[datetime='#{@content_item['withdrawn_notice']['withdrawn_at']}']")
-  #   end
-  # end
 
   # test "historically political publication" do
   #   setup_and_visit_content_item("political_publication")

@@ -1,4 +1,5 @@
 class Publication < ContentItem
+  include EmphasisedOrganisations
   include People
   include Updatable
 

@@ -1,4 +1,6 @@
 RSpec.describe "Publication" do
+  it_behaves_like "it has meta tags", "statistical_data_set", "statistical_data_set"
+
   context "when visiting a publication" do
     let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "publication") }
     let(:base_path) { content_item["base_path"] }
@@ -22,23 +24,36 @@ RSpec.describe "Publication" do
 
       expect(page).to have_text("The Environment Agency publish permits that they issue under the Industrial Emissions Directive (IED).")
     end
+
+    it "renders metadata" do
+      visit base_path
+
+      within("[class*='metadata-column']") do
+        expect(page).to have_link("Environment Agency", href: "/government/organisations/environment-agency")
+        expect(page).to have_link("The Rt Hon Sir Eric Pickles MP", href: "/government/people/eric-pickles")
+        expect(page).to have_text("Published 3 May 2016")
+      end
+    end
+
+    it "has structured data for an Article" do
+      visit base_path
+
+      expect(find_structured_data(page, "Article")).not_to be_nil
+    end
+
+    it "shows the published date in the footer" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-published-dates", text: "Published 3 May 2016")
+    end
   end
 
-  # test "renders metadata and document footer" do
-  #   setup_and_visit_content_item("publication")
+  def find_structured_data(page, schema_name)
+    schema_sections = page.find_all("script[type='application/ld+json']", visible: false)
+    schemas = schema_sections.map { |section| JSON.parse(section.text(:all)) }
 
-  #   assert_has_metadata({
-  #     published: "3 May 2016",
-  #     from: {
-  #       "Environment Agency": "/government/organisations/environment-agency",
-  #       "The Rt Hon Sir Eric Pickles MP": "/government/people/eric-pickles",
-  #     },
-  #   }, context_selector: ".metadata-column")
-
-  #   assert_has_structured_data(page, "Article")
-
-  #   assert_footer_has_published_dates("Published 3 May 2016")
-  # end
+    schemas.detect { |schema| schema["@type"] == schema_name }
+  end
 
   # test "does not render non-featured attachments" do
   #   overrides = {

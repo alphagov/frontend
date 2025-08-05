@@ -154,30 +154,25 @@ RSpec.describe "Publication" do
         end
       end
     end
-  end
 
-  # test "renders external links correctly" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [{
-  #         "accessible" => true,
-  #         "alternative_format_contact_email" => "ddc-modinternet@mod.gov.uk",
-  #         "attachment_type" => "external",
-  #         "id" => "PUBLIC_1392629965.pdf",
-  #         "title" => "Number of ex-regular service personnel now part of FR20",
-  #         "url" => "https://not-a-real-website-hopefully",
-  #         "content_type" => "application/pdf",
-  #         "filename" => "PUBLIC_1392629965.pdf",
-  #         "locale" => "en",
-  #       }],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("publication-with-featured-attachments", overrides)
-  #   within "#documents" do
-  #     assert page.has_text?("https://not-a-real-website-hopefully")
-  #     assert page.has_no_text?("HTML")
-  #   end
-  # end
+    context "when attachments are external links" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication-with-featured-attachments").tap do |example|
+          example["details"]["attachments"].first["url"] = "https://example.com"
+          example["details"]["attachments"].first["attachment_type"] = "external"
+        end
+      end
+
+      it "renders them as external links, not files" do
+        visit base_path
+
+        within "#documents" do
+          expect(page).to have_link("Number of ex-regular service personnel now part of FR20", href: "https://example.com")
+          expect(page).not_to have_text("PDF")
+        end
+      end
+    end
+  end
 
   # test "withdrawn publication" do
   #   setup_and_visit_content_item("withdrawn_publication")

@@ -204,17 +204,23 @@ RSpec.describe "Publication" do
         end
       end
     end
+
+    context "when viewing a national statistics publication" do
+      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "statistics_publication") }
+
+      it "shows a logo" do
+        visit base_path
+
+        expect(page).to have_selector('img[alt="Accredited official statistics"]')
+      end
+
+      it "has structured data for a Dataset" do
+        visit base_path
+
+        expect(find_schema_of_type("Dataset")).not_to be_nil
+      end
+    end
   end
-
-  # test "national statistics publication shows a logo" do
-  #   setup_and_visit_content_item("statistics_publication")
-  #   assert page.has_css?('img[alt="Accredited official statistics"]')
-  # end
-
-  # test "national statistics publication has correct structured data" do
-  #   setup_and_visit_content_item("statistics_publication")
-  #   assert_has_structured_data(page, "Dataset")
-  # end
 
   # test "renders 'Applies to' block in important metadata when there are excluded nations" do
   #   setup_and_visit_content_item("statistics_publication")

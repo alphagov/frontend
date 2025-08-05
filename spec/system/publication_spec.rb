@@ -190,6 +190,18 @@ RSpec.describe "Publication" do
         end
       end
     end
+
+    context "with a historically political publication" do
+      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "political_publication") }
+
+      it "shows the historical/political banner" do
+        visit base_path
+
+        within ".govuk-notification-banner__content" do
+          expect(page).to have_text("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        end
+      end
+    end
   end
 
   def find_structured_data(page, schema_name)
@@ -198,14 +210,6 @@ RSpec.describe "Publication" do
 
     schemas.detect { |schema| schema["@type"] == schema_name }
   end
-
-  # test "historically political publication" do
-  #   setup_and_visit_content_item("political_publication")
-
-  #   within ".govuk-notification-banner__content" do
-  #     assert page.has_text?("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
-  #   end
-  # end
 
   # test "national statistics publication shows a logo" do
   #   setup_and_visit_content_item("statistics_publication")

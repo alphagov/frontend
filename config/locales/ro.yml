@@ -863,6 +863,8 @@ ro:
     previous_page: Înapoi
     print_entire_guide: Imprimați întreg ghidul
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -787,6 +787,8 @@ et:
     previous_page: Eelmine
     print_entire_guide: Printige kogu juhend
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

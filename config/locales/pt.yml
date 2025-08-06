@@ -787,6 +787,8 @@ pt:
     previous_page: Anterior
     print_entire_guide: Imprimir guia completo
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

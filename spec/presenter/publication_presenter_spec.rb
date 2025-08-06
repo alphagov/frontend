@@ -3,6 +3,8 @@ RSpec.describe PublicationPresenter do
 
   let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "publication") }
 
+  it_behaves_like "it supports the national statistics logo", Publication
+
   describe "#hide_from_search_engines?" do
     it "returns false" do
       expect(publication_presenter.hide_from_search_engines?).to be false

@@ -1,5 +1,6 @@
 RSpec.describe "Publication" do
   include SchemaOrgHelpers
+  include SinglePageNotificationHelpers
 
   it_behaves_like "it has meta tags", "statistical_data_set", "statistical_data_set"
 
@@ -241,27 +242,24 @@ RSpec.describe "Publication" do
         ])
       end
     end
+
+    it "renders with the single page notification button on English language pages" do
+      visit base_path
+
+      expect(page).to have_css(".gem-c-single-page-notification-button")
+
+      buttons = page.all("button[data-ga4-link]")
+      expected_tracking_top = single_page_notification_button_ga4_tracking(1, "Top")
+      actual_tracking_top = JSON.parse(buttons.first["data-ga4-link"])
+
+      expect(actual_tracking_top).to eq(expected_tracking_top)
+
+      expected_tracking_bottom = single_page_notification_button_ga4_tracking(2, "Footer")
+      actual_tracking_bottom = JSON.parse(buttons.last["data-ga4-link"])
+
+      expect(actual_tracking_bottom).to eq(expected_tracking_bottom)
+    end
   end
-
-  # test "renders with the single page notification button on English language pages" do
-  #   setup_and_visit_content_item("publication")
-  #   assert page.has_css?(".gem-c-single-page-notification-button")
-
-  #   buttons = page.find_all(:button)
-
-  #   expected_tracking_top = single_page_notification_button_ga4_tracking(1, "Top")
-  #   actual_tracking_top = JSON.parse(buttons.first["data-ga4-link"])
-  #   assert_equal expected_tracking_top, actual_tracking_top
-
-  #   expected_tracking_bottom = single_page_notification_button_ga4_tracking(2, "Footer")
-  #   actual_tracking_bottom = JSON.parse(buttons.last["data-ga4-link"])
-  #   assert_equal expected_tracking_bottom, actual_tracking_bottom
-  # end
-
-  # test "does not render the single page notification button on exempt pages" do
-  #   setup_and_visit_notification_exempt_page("publication")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
-  # end
 
   # test "does not render the single page notification button on foreign language pages" do
   #   setup_and_visit_content_item("publication", "locale" => "cy")

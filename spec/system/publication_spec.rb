@@ -220,25 +220,28 @@ RSpec.describe "Publication" do
         expect(find_schema_of_type("Dataset")).not_to be_nil
       end
     end
-  end
 
-  # test "renders 'Applies to' block in important metadata when there are excluded nations" do
-  #   setup_and_visit_content_item("statistics_publication")
-  #   assert_has_devolved_nations_component("Applies to England", [
-  #     {
-  #       text: "Publication for Northern Ireland",
-  #       alternative_url: "http://www.dsdni.gov.uk/index/stats_and_research/stats-publications/stats-housing-publications/housing_stats.htm",
-  #     },
-  #     {
-  #       text: "Publication for Scotland",
-  #       alternative_url: "http://www.scotland.gov.uk/Topics/Statistics/Browse/Housing-Regeneration/HSfS",
-  #     },
-  #     {
-  #       text: "Publication for Wales",
-  #       alternative_url: "http://wales.gov.uk/topics/statistics/headlines/housing2012/121025/?lang=en",
-  #     },
-  #   ])
-  # end
+    context "when visiting a publication that applies to a set of nations with alternative URLs" do
+      let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "statistics_publication") }
+
+      it "displays a devolved nations component with links to alternative URLs" do
+        expect(page).to have_devolved_nations_component("Applies to England", [
+          {
+            text: "Publication for Northern Ireland",
+            alternative_url: "http://www.dsdni.gov.uk/index/stats_and_research/stats-publications/stats-housing-publications/housing_stats.htm",
+          },
+          {
+            text: "Publication for Scotland",
+            alternative_url: "http://www.scotland.gov.uk/Topics/Statistics/Browse/Housing-Regeneration/HSfS",
+          },
+          {
+            text: "Publication for Wales",
+            alternative_url: "http://wales.gov.uk/topics/statistics/headlines/housing2012/121025/?lang=en",
+          },
+        ])
+      end
+    end
+  end
 
   # test "renders with the single page notification button on English language pages" do
   #   setup_and_visit_content_item("publication")

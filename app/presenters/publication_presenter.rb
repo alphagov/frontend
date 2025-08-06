@@ -1,4 +1,6 @@
 class PublicationPresenter < ContentItemPresenter
+  include NationalStatisticsLogo
+
   PATHS_TO_HIDE = %w[
     /government/publications/govuk-app-testing-privacy-notice-how-we-use-your-data
     /government/publications/pension-credit-claim-form--2

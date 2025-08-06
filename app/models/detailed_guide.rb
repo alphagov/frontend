@@ -16,11 +16,4 @@ class DetailedGuide < ContentItem
   def contributors
     organisations_ordered_by_emphasis.uniq(&:content_id)
   end
-
-  def logo
-    image = content_store_response.dig("details", "image")
-    return unless image
-
-    { path: image["url"], alt_text: "European structural investment funds" }
-  end
 end

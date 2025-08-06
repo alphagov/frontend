@@ -1,9 +1,10 @@
 <%
   add_view_stylesheet("publisher_metadata")
+  logo = locals[:logo]
 %>
 
 <div class="govuk-grid-row">
-  <div class="metadata-wrapper gem-print-columns-none <%= "responsive-bottom-margin" if content_item.try(:logo) %>">
+  <div class="metadata-wrapper gem-print-columns-none <%= "responsive-bottom-margin" if logo %>">
     <div class="govuk-grid-column-two-thirds metadata-column">
       <%= render "govuk_publishing_components/components/metadata", {
         from: locals[:from],
@@ -13,9 +14,9 @@
       } %>
     </div>
     <div class="govuk-grid-column-one-third">
-      <% if content_item.try(:logo) %>
-        <%= image_tag content_item.logo[:path],
-          alt: content_item.logo[:alt_text],
+      <% if logo %>
+        <%= image_tag logo[:path],
+          alt: logo[:alt_text],
           class: "metadata-logo" %>
       <% end %>
     </div>

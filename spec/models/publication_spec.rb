@@ -30,4 +30,18 @@ RSpec.describe Publication do
       end
     end
   end
+
+  describe "#national_statistics?" do
+    it "returns false" do
+      expect(publication.national_statistics?).to be false
+    end
+
+    context "when the document_type is national_statistics" do
+      let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "statistics_publication") }
+
+      it "returns true" do
+        expect(publication.national_statistics?).to be true
+      end
+    end
+  end
 end

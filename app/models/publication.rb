@@ -10,4 +10,8 @@ class Publication < ContentItem
   def dataset?
     %w[national_statistics official_statistics transparency].include? document_type
   end
+
+  def national_statistics?
+    document_type == "national_statistics"
+  end
 end

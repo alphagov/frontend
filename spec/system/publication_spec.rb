@@ -272,20 +272,20 @@ RSpec.describe "Publication" do
 
         expect(page).not_to have_selector(".gem-c-single-page-notification-button")
       end
+
+      it "renders metadata date in Welsh" do
+        visit base_path
+
+        within("[class*='metadata-column']") do
+          expect(page).to have_text("3 Mai 2016")
+        end
+      end
+
+      it "shows the published date in the footer in Welsh" do
+        visit base_path
+
+        expect(page).to have_selector(".gem-c-published-dates", text: "Cyhoeddwyd ar 3 Mai 2016")
+      end
     end
   end
-
-  # test "translates Welsh published date correctly" do
-  #   setup_and_visit_content_item("publication", { "locale" => "cy" })
-
-  #   assert_has_metadata({
-  #     published: "3 Mai 2016",
-  #     from: {
-  #       "Environment Agency": "/government/organisations/environment-agency",
-  #       "The Rt Hon Sir Eric Pickles MP": "/government/people/eric-pickles",
-  #     },
-  #   })
-
-  #   assert_footer_has_published_dates("Cyhoeddwyd ar 3 Mai 2016")
-  # end
 end

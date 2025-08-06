@@ -787,6 +787,8 @@ lv:
     previous_page: Atpakaļ
     print_entire_guide: Drukāt visu ceļvedi
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

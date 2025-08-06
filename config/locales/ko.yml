@@ -711,6 +711,8 @@ ko:
     previous_page: 이전
     print_entire_guide: 전체 지침 출력하기
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -28,6 +28,16 @@ RSpec.describe "Publication Data Set" do
           expect(response).to have_http_status(:ok)
         end
       end
+
+      context "when the path should be hidden from search engines" do
+        let(:base_path) { "/government/publications/govuk-app-testing-privacy-notice-how-we-use-your-data" }
+
+        it "returns the page with noindex meta tags" do
+          get base_path
+
+          expect(response.body).to include('<meta name="robots" content="noindex">')
+        end
+      end
     end
   end
 end

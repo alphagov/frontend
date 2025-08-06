@@ -718,7 +718,7 @@ window.GOVUK.hubGeojson = {
       },
       properties: {
         name: 'Leigh Infirmary Elective Hub',
-        address: 'Hall Lane, Appley Bridge, Wigan, WN7 1HS',
+        address: 'The Avenue, Leigh, WN7 1HS',
         icbCode: 'E54000048'
       }
     },
@@ -862,7 +862,7 @@ window.GOVUK.hubGeojson = {
       },
       properties: {
         name: 'North West London Elective Orthopaedic Centre (EOC)',
-        address: 'Acton Lane, Park Royal, London, NW10 7NS',
+        address: 'Sterling Way, London, N18 1QX',
         icbCode: 'E54000027'
       }
     },

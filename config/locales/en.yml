@@ -465,16 +465,16 @@ en:
         other: Alerts and recalls for drugs and medical devices
     national:
       name:
-        one: National statistics announcement
-        other: National statistics announcements
+        one: Accredited official statistics announcement
+        other: Accredited official statistics announcements
     national_statistics:
       name:
-        one: National statistics
-        other: National statistics
+        one: Accredited official statistics
+        other: Accredited official statistics
     national_statistics_announcement:
       name:
-        one: National statistics announcement
-        other: National statistics announcements
+        one: Accredited official statistics announcement
+        other: Accredited official statistics announcements
     news_article:
       name:
         one: News article

@@ -258,6 +258,20 @@ RSpec.describe "Publication" do
 
       expect(actual_tracking_bottom).to eq(expected_tracking_bottom)
     end
+
+    context "when the publication is in Welsh" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication").tap do |example|
+          example["locale"] = "cy"
+        end
+      end
+
+      it "does not render the single page notification button" do
+        visit base_path
+
+        expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+      end
+    end
   end
 
   def find_structured_data(page, schema_name)
@@ -266,11 +280,6 @@ RSpec.describe "Publication" do
 
     schemas.detect { |schema| schema["@type"] == schema_name }
   end
-
-  # test "does not render the single page notification button on foreign language pages" do
-  #   setup_and_visit_content_item("publication", "locale" => "cy")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
-  # end
 
   # test "adds the noindex meta tag to '/government/publications/pension-credit-claim-form--2'" do
   #   overrides = { "base_path" => "/government/publications/pension-credit-claim-form--2" }

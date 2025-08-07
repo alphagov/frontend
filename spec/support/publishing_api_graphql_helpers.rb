@@ -5,21 +5,14 @@ module PublishingApiGraphqlHelpers
 
   def graphql_has_example_item(filename)
     graphql_response = fetch_graphql_fixture(filename)
-    content_item = graphql_response.dig("data", "edition")
 
-    stub_publishing_api_graphql_content_item(
-      Graphql::EditionQuery.new(content_item.fetch("base_path")).query,
+    stub_publishing_api_graphql_has_item(
+      graphql_response.fetch("base_path"),
       graphql_response,
     )
 
-    content_item
+    graphql_response
   end
-
-  def fetch_graphql_content_item(fixture_filename)
-    fetch_graphql_fixture(fixture_filename).dig("data", "edition")
-  end
-
-private
 
   def fetch_graphql_fixture(filename)
     json = File.read(

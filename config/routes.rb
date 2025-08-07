@@ -135,6 +135,7 @@ Rails.application.routes.draw do
   # Answer pages
   constraints FormatRoutingConstraint.new("answer") do
     get ":slug", to: "answer#show", as: "answer"
+    get ":slug/:part", to: redirect("/%{slug}") # Support for answers that were once a format with parts
   end
 
   # Calendar pages

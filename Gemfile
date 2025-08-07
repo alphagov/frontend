@@ -5,6 +5,7 @@ gem "rails", "8.0.2"
 
 gem "addressable"
 gem "bootsnap", require: false
+gem "content_block_tools"
 gem "dalli"
 gem "dartsass-rails"
 gem "gds-api-adapters"

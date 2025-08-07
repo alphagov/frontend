@@ -7,7 +7,6 @@ RSpec.describe ContentItemLoader do
   subject(:content_item_loader) { described_class.new }
 
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
-  let(:graphql_query) { Graphql::EditionQuery.new("/my-random-item").query }
 
   shared_examples "rendered from Content Store" do
     it "calls the Content Store only" do
@@ -106,7 +105,12 @@ RSpec.describe ContentItemLoader do
       subject(:content_item_loader) { described_class.for_request(request) }
 
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }) }
-      let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
+      let!(:graphql_request) do
+        stub_publishing_api_graphql_has_item(
+          "/my-random-item",
+          { data: { edition: { schema_name: "news_article" } } },
+        )
+      end
 
       context "when the request is made to the draft deployment" do
         let(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }, draft: true) }
@@ -199,7 +203,12 @@ RSpec.describe ContentItemLoader do
       context "with graphql param=true" do
         subject(:content_item_loader) { described_class.for_request(request) }
 
-        let(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "news_article" } } }) }
+        let(:graphql_request) do
+          stub_publishing_api_graphql_has_item(
+            "/my-random-item",
+            { data: { edition: { schema_name: "news_article" } } },
+          )
+        end
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
         include_examples "rendered from GraphQL"
@@ -209,36 +218,15 @@ RSpec.describe ContentItemLoader do
 
           expect(request.env["govuk.prometheus_labels"]).to include({
             "graphql_status_code" => 200,
-            "graphql_contains_errors" => false,
             "graphql_api_timeout" => false,
           })
-        end
-      end
-
-      context "when given a response from graphql containing errors" do
-        subject(:content_item_loader) { described_class.for_request(request) }
-
-        let!(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { "errors" => [{ "message" => "some_error" }] }) }
-        let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
-
-        it "falls back to loading from Content Store" do
-          content_item_loader.load("/my-random-item")
-
-          expect(graphql_request).to have_been_made
-          expect(item_request).to have_been_made
-        end
-
-        it "reports the presence of errors as a prometheus label" do
-          content_item_loader.load("/my-random-item")
-
-          expect(request.env["govuk.prometheus_labels"]["graphql_contains_errors"]).to be(true)
         end
       end
 
       context "when given a bad response code from publishing-api" do
         subject(:content_item_loader) { described_class.for_request(request) }
 
-        let!(:graphql_request) { stub_any_publishing_api_call_to_return_not_found }
+        let!(:graphql_request) { stub_publishing_api_graphql_does_not_have_item("/my-random-item") }
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
         it "falls back to loading from Content Store" do
@@ -263,7 +251,7 @@ RSpec.describe ContentItemLoader do
         before do
           publishing_api_adapter = instance_double(GdsApi::PublishingApi)
           allow(GdsApi).to receive(:publishing_api).and_return(publishing_api_adapter)
-          allow(publishing_api_adapter).to receive(:graphql_content_item)
+          allow(publishing_api_adapter).to receive(:graphql_live_content_item)
             .and_raise(GdsApi::TimedOutException)
         end
 
@@ -285,7 +273,12 @@ RSpec.describe ContentItemLoader do
       subject(:content_item_loader) { described_class.for_request(request) }
 
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "guide" }) }
-      let(:graphql_request) { stub_publishing_api_graphql_query(graphql_query, { data: { edition: { schema_name: "some_other_schema" } } }) }
+      let(:graphql_request) do
+        stub_publishing_api_graphql_has_item(
+          "/my-random-item",
+          { data: { edition: { schema_name: "some_other_schema" } } },
+        )
+      end
 
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
         subject(:content_item_loader) { described_class.new }

@@ -532,6 +532,10 @@ it:
         one:
         other:
     publication:
+      details: Dettagli
+      documents:
+        one: Documento
+        other: Documenti
       name:
         one:
         other:
@@ -787,6 +791,8 @@ it:
     previous_page: Precedente
     print_entire_guide: Stampa l'intera guida
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

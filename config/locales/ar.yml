@@ -756,6 +756,14 @@ ar:
         two:
         zero:
     publication:
+      details: التفاصيل
+      documents:
+        few:
+        many:
+        one: المستند
+        other: المستندات
+        two:
+        zero:
       name:
         few:
         many:
@@ -1091,6 +1099,8 @@ ar:
     previous_page: السابق
     print_entire_guide: طباعة الدليل بأكمله
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -532,6 +532,10 @@ fi:
         one:
         other:
     publication:
+      details: Yksityiskohdat
+      documents:
+        one: Asiakirja
+        other: Asiakirjat
       name:
         one:
         other:
@@ -787,6 +791,8 @@ fi:
     previous_page: Edellinen
     print_entire_guide: Tulosta koko opas
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

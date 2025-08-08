@@ -644,6 +644,12 @@ mt:
         one:
         other:
     publication:
+      details: Dettalji
+      documents:
+        few:
+        many:
+        one: Dokument
+        other: Dokumenti tal-Politika
       name:
         few:
         many:
@@ -939,6 +945,8 @@ mt:
     previous_page: Ta' qabel
     print_entire_guide: Stampa l-gwida kollu
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

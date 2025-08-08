@@ -588,6 +588,11 @@ cs:
         one:
         other:
     publication:
+      details: Podrobnosti
+      documents:
+        few:
+        one: Odkaz na dokument
+        other: Dokumenty
       name:
         few:
         one:
@@ -863,6 +868,8 @@ cs:
     previous_page: Předchozí
     print_entire_guide: Vytisknout celou příručku
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

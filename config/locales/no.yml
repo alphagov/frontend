@@ -532,6 +532,10 @@
         one:
         other:
     publication:
+      details: Detaljer
+      documents:
+        one: Dokument
+        other: Dokumenter
       name:
         one:
         other:
@@ -787,6 +791,8 @@
     previous_page: Forrige
     print_entire_guide: Skriv ut hele guiden
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

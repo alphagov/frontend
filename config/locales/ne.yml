@@ -532,6 +532,10 @@ ne:
         one:
         other:
     publication:
+      details: विवरण
+      documents:
+        one: कागजात
+        other: कागजातहरु
       name:
         one:
         other:
@@ -787,6 +791,8 @@ ne:
     previous_page: अघिल्लो
     print_entire_guide: सम्पूर्ण गाइड छाप्नुहोस्
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -35,7 +35,7 @@ private
       content_item = GdsApi.content_store.content_item(base_path)
 
       if use_graphql?(content_item["schema_name"])
-        load_from_graphql(base_path) || content_item
+        load_from_graphql(base_path)
       else
         content_item
       end
@@ -45,14 +45,8 @@ private
   end
 
   def load_from_graphql(base_path)
-    graphql_response = GdsApi.publishing_api.graphql_content_item(Graphql::EditionQuery.new(base_path).query)
-    if graphql_response.to_hash.blank?
-      set_prometheus_labels(graphql_contains_errors: true)
-      nil
-    else
-      set_prometheus_labels
-      graphql_response
-    end
+    set_prometheus_labels
+    GdsApi.publishing_api.graphql_live_content_item(base_path)
   rescue GdsApi::HTTPErrorResponse => e
     set_prometheus_labels(graphql_status_code: e.code)
     nil
@@ -102,12 +96,11 @@ private
     { cache_control: "max-age=0, public", expires: "" }
   end
 
-  def set_prometheus_labels(graphql_status_code: 200, graphql_contains_errors: false, graphql_api_timeout: false)
+  def set_prometheus_labels(graphql_status_code: 200, graphql_api_timeout: false)
     prometheus_labels = request.env.fetch("govuk.prometheus_labels", {})
 
     hash = {
       "graphql_status_code" => graphql_status_code,
-      "graphql_contains_errors" => graphql_contains_errors,
       "graphql_api_timeout" => graphql_api_timeout,
     }
 

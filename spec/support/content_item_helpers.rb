@@ -8,7 +8,7 @@ module ContentItemHelpers
     when :content_store
       GovukSchemas::Example.find(document_type, example_name:)
     when :publishing_api_graphql
-      fetch_graphql_content_item(example_name)
+      fetch_graphql_fixture(example_name)
     end
   end
 end

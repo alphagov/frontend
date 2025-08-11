@@ -1,5 +1,6 @@
 <% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
-
+<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
+<% global_banner = render("govuk_web_banners/global_banner") %>
 <% content_for :body do %>
   <%= yield :before_content %>
   <div class="govuk-width-container">
@@ -18,6 +19,8 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", {
     title: yield(:title),
+    emergency_banner:,
+    global_banner:,
   } do %>
   <%= yield :body %>
 <% end %>

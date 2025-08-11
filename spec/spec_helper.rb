@@ -33,5 +33,10 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system) do
     driven_by :rack_test
+    Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
+  end
+
+  config.before(:each, type: :request) do
+    Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
   end
 end

@@ -1,5 +1,5 @@
-RSpec.shared_examples "it has historical government information" do |document_type, example_name, data_source: :content_store|
-  let(:content_item) { fetch_content_item(document_type, example_name, data_source:) }
+RSpec.shared_examples "it has historical government information" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   it "knows it is part of historical government if it is not the current government" do
     content_item["links"]["government"][0]["details"]["current"] = false

@@ -1,5 +1,5 @@
-RSpec.shared_examples "it has updates" do |document_type, example_name, data_source: :content_store|
-  let(:content_item) { fetch_content_item(document_type, example_name, data_source:) }
+RSpec.shared_examples "it has updates" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   context "when first_public_at or first_published_at does not match public_updated_at" do
     it "knows its updated" do
@@ -20,8 +20,8 @@ RSpec.shared_examples "it has updates" do |document_type, example_name, data_sou
   end
 end
 
-RSpec.shared_examples "it has no updates" do |document_type, example_name, data_source: :content_store|
-  let(:content_item) { fetch_content_item(document_type, example_name, data_source:) }
+RSpec.shared_examples "it has no updates" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   context "when first_public_at or first_published_at does match public_updated_at" do
     it "returns nil for updated" do

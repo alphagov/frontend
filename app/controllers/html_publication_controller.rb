@@ -1,5 +1,7 @@
 class HtmlPublicationController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @presenter = HtmlPublicationPresenter.new(content_item)
+  end
 end

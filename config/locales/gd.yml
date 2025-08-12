@@ -644,6 +644,12 @@ gd:
         other:
         two:
     publication:
+      details: Sonraí
+      documents:
+        few:
+        one: Tuarascáil
+        other: Doiciméid
+        two:
       name:
         few:
         one:
@@ -939,6 +945,8 @@ gd:
     previous_page: Roimhe seo
     print_entire_guide: Priontáil an treoir iomlán
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

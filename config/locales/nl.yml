@@ -532,6 +532,10 @@ nl:
         one:
         other:
     publication:
+      details: Details
+      documents:
+        one: Document
+        other: Documenten
       name:
         one:
         other:
@@ -787,6 +791,8 @@ nl:
     previous_page: Vorige
     print_entire_guide: Volledige gids afdrukken
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

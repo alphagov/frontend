@@ -532,6 +532,10 @@ fa:
         one:
         other:
     publication:
+      details: جزئیات
+      documents:
+        one: سند
+        other: اسناد
       name:
         one:
         other:
@@ -787,6 +791,8 @@ fa:
     previous_page: قبلی
     print_entire_guide: چاپ کل راهنما
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

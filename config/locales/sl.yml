@@ -644,6 +644,12 @@ sl:
         other:
         two:
     publication:
+      details: Podrobnosti
+      documents:
+        few:
+        one: Dokument
+        other: Dokumenti
+        two:
       name:
         few:
         one:
@@ -939,6 +945,8 @@ sl:
     previous_page: Prejšnji
     print_entire_guide: Natisni cel vodič
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -644,6 +644,12 @@ be:
         one:
         other:
     publication:
+      details: Дэталi
+      documents:
+        few:
+        many:
+        one: Дакумент
+        other: Дакументы
       name:
         few:
         many:
@@ -939,6 +945,8 @@ be:
     previous_page: Папярэдні
     print_entire_guide: Надрукаваць усё кіраўніцтва
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

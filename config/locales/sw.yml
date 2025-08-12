@@ -532,6 +532,10 @@ sw:
         one:
         other:
     publication:
+      details: Maelezo
+      documents:
+        one: Hati
+        other: Hati
       name:
         one:
         other:
@@ -787,6 +791,8 @@ sw:
     previous_page: Uliotangulia
     print_entire_guide: Chapisha mwongozo wote
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

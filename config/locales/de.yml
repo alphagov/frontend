@@ -532,6 +532,10 @@ de:
         one:
         other:
     publication:
+      details: Einzelheiten
+      documents:
+        one: Dokument
+        other: Dokumente
       name:
         one:
         other:
@@ -787,6 +791,8 @@ de:
     previous_page: Zurück
     print_entire_guide: Kompletten Leitfaden ausdrucken
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

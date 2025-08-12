@@ -532,6 +532,10 @@ uz:
         one:
         other:
     publication:
+      details: Батафсил маълумотлар
+      documents:
+        one: Ҳужжат
+        other: Ҳужжатлар
       name:
         one:
         other:
@@ -787,6 +791,8 @@ uz:
     previous_page: Олдинги
     print_entire_guide: Бутун қўлланмани чоп этишга чиқариш
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

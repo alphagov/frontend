@@ -532,6 +532,10 @@ sq:
         one:
         other:
     publication:
+      details: Detajet
+      documents:
+        one: Dokument
+        other: Dokumente
       name:
         one:
         other:
@@ -787,6 +791,8 @@ sq:
     previous_page: I mëparshëm
     print_entire_guide: Printo komplet udhëzimin
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

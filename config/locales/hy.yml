@@ -532,6 +532,10 @@ hy:
         one:
         other:
     publication:
+      details: Մանրամասներ
+      documents:
+        one: Փաստաթուղթ
+        other: Փաստաթղթեր
       name:
         one:
         other:
@@ -787,6 +791,8 @@ hy:
     previous_page: Նախորդ
     print_entire_guide: Տպել ամբողջ ուղեցույցը
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

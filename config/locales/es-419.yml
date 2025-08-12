@@ -532,6 +532,10 @@ es-419:
         one:
         other:
     publication:
+      details: Detalles
+      documents:
+        one: Documento
+        other: Documentos
       name:
         one:
         other:
@@ -787,6 +791,8 @@ es-419:
     previous_page: Anterior
     print_entire_guide: Imprimir la guía completa
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

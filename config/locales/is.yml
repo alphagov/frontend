@@ -532,6 +532,10 @@ is:
         one:
         other:
     publication:
+      details: Nánari upplýsingar
+      documents:
+        one: Skjal
+        other: Skjöl
       name:
         one:
         other:
@@ -787,6 +791,8 @@ is:
     previous_page: Fyrri
     print_entire_guide: Prenta allar leiðbeiningarnar
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -532,6 +532,10 @@ kk:
         one:
         other:
     publication:
+      details: Толық мәліметтер
+      documents:
+        one: Құжат
+        other: Құжаттар
       name:
         one:
         other:
@@ -787,6 +791,8 @@ kk:
     previous_page: Алдыңғы
     print_entire_guide: Нұсқаулықты толығымен басып шығару
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

@@ -532,6 +532,10 @@ et:
         one:
         other:
     publication:
+      details: Üksikasjad
+      documents:
+        one: Dokument
+        other: Dokumendid
       name:
         one:
         other:
@@ -787,6 +791,8 @@ et:
     previous_page: Eelmine
     print_entire_guide: Printige kogu juhend
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

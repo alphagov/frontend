@@ -532,6 +532,10 @@ he:
         one:
         other:
     publication:
+      details: פרטים
+      documents:
+        one: מסמך
+        other: מסמכים
       name:
         one:
         other:
@@ -787,6 +791,8 @@ he:
     previous_page: הקודם
     print_entire_guide: הדפס את כל המדריך
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

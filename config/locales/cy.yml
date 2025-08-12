@@ -623,24 +623,24 @@ cy:
       name:
         few:
         many:
-        one: Cyhoeddiad o ystadegau gwladol
-        other: Cyhoeddiadau o ystadegau gwladol
+        one: Cyhoeddiad ystadegau swyddogol achrededig
+        other: Cyhoeddiadau ystadegau swyddogol achrededig
         two:
         zero:
     national_statistics:
       name:
         few:
         many:
-        one: Ystadegau Gwladol
-        other: Ystadegau Gwladol
+        one: Ystadegau swyddogol achrededig
+        other: Ystadegau swyddogol achrededig
         two:
         zero:
     national_statistics_announcement:
       name:
         few:
         many:
-        one: Cyhoeddiad o ystadegau gwladol
-        other: Cyhoeddiadau o ystadegau gwladol
+        one: Cyhoeddiad ystadegau swyddogol achrededig
+        other: Cyhoeddiadau ystadegau swyddogol achrededig
         two:
         zero:
     news_article:
@@ -761,6 +761,14 @@ cy:
         two:
         zero:
     publication:
+      details: Manylion
+      documents:
+        few:
+        many:
+        one: Dogfen
+        other: Dogfennau
+        two:
+        zero:
       name:
         few:
         many:
@@ -1096,6 +1104,8 @@ cy:
     previous_page: Blaenorol
     print_entire_guide: Argraffu'r canllaw cyfan
     printable_version:
+  national_statistics:
+    logo_alt_text: Ystadegau swyddogol achrededig
   'no': Na
   or:
   place:

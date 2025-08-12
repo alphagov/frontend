@@ -588,6 +588,11 @@ sr:
         one:
         other:
     publication:
+      details: Detalji
+      documents:
+        few:
+        one: Dokument
+        other: Dokumenti
       name:
         few:
         one:
@@ -863,6 +868,8 @@ sr:
     previous_page: Prethodno
     print_entire_guide: Odštampaj ceo vodič
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

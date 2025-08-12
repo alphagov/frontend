@@ -644,6 +644,12 @@ ru:
         one:
         other:
     publication:
+      details: Детали
+      documents:
+        few:
+        many:
+        one: Документ
+        other: Документы
       name:
         few:
         many:
@@ -939,6 +945,8 @@ ru:
     previous_page: Предыдущий
     print_entire_guide: Распечатать всё руководство
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

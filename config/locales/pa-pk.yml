@@ -532,6 +532,10 @@ pa-pk:
         one:
         other:
     publication:
+      details: تفصیلات
+      documents:
+        one: دستاویز
+        other: دستاویزات
       name:
         one:
         other:
@@ -787,6 +791,8 @@ pa-pk:
     previous_page: پچھلا
     print_entire_guide: سارا ورقہ چھاپو
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

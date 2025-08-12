@@ -532,6 +532,10 @@ ky:
         one: Жарнама материалдары
         other: Жарнама материалдары
     publication:
+      details: Чоо-жайы
+      documents:
+        one: Документ
+        other: Документтер
       name:
         one: Жарыялоо
         other: Жарыялоолор
@@ -787,6 +791,8 @@ ky:
     previous_page: Мурунку
     print_entire_guide: Колдонмонун бүтүн басып чыгарыла турган версиясын көрүңүз
     printable_version:
+  national_statistics:
+    logo_alt_text: Аккредиттелген расмий статистика
   'no':
   or: же
   place:

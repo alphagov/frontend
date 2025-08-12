@@ -532,6 +532,10 @@ hu:
         one:
         other:
     publication:
+      details: Részletek
+      documents:
+        one: Dokumentum
+        other: Dokumentumok
       name:
         one:
         other:
@@ -787,6 +791,8 @@ hu:
     previous_page: Előző
     print_entire_guide: Teljes útmutató nyomtatása
     printable_version:
+  national_statistics:
+    logo_alt_text:
   'no':
   or:
   place:

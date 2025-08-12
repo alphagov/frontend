@@ -3,7 +3,7 @@
     schema: :html_publication,
     content_item: content_item.to_h %>
 
-  <% if @content_item.hide_from_search_engines? %>
+  <% if content_item.hide_from_search_engines? %>
     <meta name="robots" content="noindex">
   <% end %>
   <%= stylesheet_link_tag "views/_html-publication" %>
@@ -14,11 +14,11 @@
   content_for :simple_header, true
 %>
 
-<% if @content_item.organisations %>
+<% if content_item.organisations %>
   <div class="publication-external">
     <ul class="organisation-logos">
-      <% @content_item.organisations.each do |organisation| %>
-        <% logo_attributes = @content_item.organisation_logo(organisation) %>
+      <% content_item.organisations.each do |organisation| %>
+        <% logo_attributes = content_item.organisation_logo(organisation) %>
         <% next unless logo_attributes %>
         <li class="organisation-logos__logo">
           <%= render "govuk_publishing_components/components/organisation_logo", logo_attributes %>
@@ -31,11 +31,11 @@
 <%= render "govuk_publishing_components/components/inverse_header", {
   padding_top: 6,
   padding_bottom: 6,
-  subtext: @content_item.last_changed,
+  subtext: content_item.last_changed,
 } do %>
   <%= render "govuk_publishing_components/components/heading", {
-    text: @content_item.title,
-    context: I18n.t("content_item.schema_name.#{@content_item.format_sub_type}", count: 1),
+    text: content_item.title,
+    context: I18n.t("content_item.schema_name.#{content_item.format_sub_type}", count: 1),
     inverse: true,
     margin_bottom: 0,
     font_size: "xl",
@@ -43,22 +43,22 @@
   } %>
 <% end %>
 
-<%= render "shared/history_notice", content_item: @content_item %>
-<% if @content_item.withdrawn? %>
-  <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>
+<%= render "shared/history_notice", content_item: content_item %>
+<% if content_item.withdrawn? %>
+  <%= render "govuk_publishing_components/components/notice", content_item.withdrawal_notice_component %>
 <% end %>
-<% if @content_item.national_applicability.present? %>
+<% if content_item.national_applicability.present? %>
   <%= render "govuk_publishing_components/components/devolved_nations", {
-    national_applicability: @content_item.national_applicability,
-    content_type: @content_item.schema_name,
+    national_applicability: content_item.national_applicability,
+    content_type: content_item.schema_name,
   } %>
 <% end %>
 
 <div id="contents">
   <div class="govuk-grid-row gem-print-columns-none">
-    <% if @content_item.contents.any? %>
+    <% if content_item.contents.any? %>
       <div class="govuk-grid-column-one-quarter-from-desktop contents-list-container">
-        <%= render "govuk_publishing_components/components/contents_list", contents: @content_item.contents, format_numbers: true %>
+        <%= render "govuk_publishing_components/components/contents_list", contents: content_item.contents, format_numbers: true %>
 
         <%= render "govuk_publishing_components/components/print_link", {
           margin_bottom: 6,
@@ -72,9 +72,9 @@
       </div>
     </div>
 
-    <div class="govuk-grid-column-three-quarters-from-desktop contents-container<% unless @content_item.contents.any? %> offset-empty-contents-list<% end %>">
+    <div class="govuk-grid-column-three-quarters-from-desktop contents-container<% unless content_item.contents.any? %> offset-empty-contents-list<% end %>">
       <%= render "govuk_publishing_components/components/govspeak_html_publication", { direction: page_text_direction } do %>
-        <%= raw(@content_item.govspeak_body[:content]) %>
+        <%= raw(content_item.govspeak_body[:content]) %>
       <% end %>
     </div>
   </div>

@@ -3,7 +3,7 @@
     schema: :html_publication,
     content_item: content_item.to_h %>
 
-  <% if content_item.hide_from_search_engines? %>
+  <% if @presenter.hide_from_search_engines? %>
     <meta name="robots" content="noindex">
   <% end %>
   <%= stylesheet_link_tag "views/_html-publication" %>

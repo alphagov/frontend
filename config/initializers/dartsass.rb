@@ -10,6 +10,7 @@ APP_STYLESHEETS = {
   "views/_homepage_header.scss" => "views/_homepage_header.css",
   "views/_homepage_more_on_govuk.scss" => "views/_homepage_more_on_govuk.css",
   "views/_homepage.scss" => "views/_homepage.css",
+  "views/_html-publication.scss" => "views/_html-publication.css",
   "views/_local-transaction.scss" => "views/_local-transaction.css",
   "views/_location_form.scss" => "views/_location_form.css",
   "views/_place-list.scss" => "views/_place-list.css",

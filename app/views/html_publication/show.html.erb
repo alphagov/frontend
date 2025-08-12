@@ -1,7 +1,7 @@
 <% add_view_stylesheet("html-publication") %>
 <% content_for :extra_head_content do %>
   <%= machine_readable_metadata(
-    schema: :html_publication
+    schema: :html_publication,
   ) %>
 
   <% if @content_item.hide_from_search_engines? %>
@@ -20,17 +20,17 @@
         <% logo_attributes = @content_item.organisation_logo(organisation) %>
         <% next unless logo_attributes %>
         <li class="organisation-logos__logo">
-          <%= render 'govuk_publishing_components/components/organisation_logo', logo_attributes %>
+          <%= render "govuk_publishing_components/components/organisation_logo", logo_attributes %>
         </li>
       <% end %>
     </ul>
   </div>
 <% end %>
 
-<%= render 'govuk_publishing_components/components/inverse_header', {
+<%= render "govuk_publishing_components/components/inverse_header", {
   padding_top: 6,
   padding_bottom: 6,
-  subtext: @content_item.last_changed
+  subtext: @content_item.last_changed,
 } do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: @content_item.title,
@@ -42,9 +42,9 @@
   } %>
 <% end %>
 
-<%= render 'shared/history_notice', content_item: @content_item %>
+<%= render "shared/history_notice", content_item: @content_item %>
 <% if @content_item.withdrawn? %>
-  <%= render 'govuk_publishing_components/components/notice', @content_item.withdrawal_notice_component  %>
+  <%= render "govuk_publishing_components/components/notice", @content_item.withdrawal_notice_component %>
 <% end %>
 <% if @content_item.national_applicability.present? %>
   <%= render "govuk_publishing_components/components/devolved_nations", {
@@ -57,9 +57,9 @@
   <div class="govuk-grid-row gem-print-columns-none">
     <% if @content_item.contents.any? %>
       <div class="govuk-grid-column-one-quarter-from-desktop contents-list-container">
-        <%= render 'govuk_publishing_components/components/contents_list', contents: @content_item.contents, format_numbers: true %>
+        <%= render "govuk_publishing_components/components/contents_list", contents: @content_item.contents, format_numbers: true %>
 
-        <%= render 'govuk_publishing_components/components/print_link', {
+        <%= render "govuk_publishing_components/components/print_link", {
           margin_bottom: 6,
         } %>
       </div>
@@ -79,6 +79,6 @@
   </div>
 
   <div class="govuk-grid-row">
-    <%= render 'govuk_publishing_components/components/back_to_top_link', href: "#contents", text: "Back to top" %>
+    <%= render "govuk_publishing_components/components/back_to_top_link", href: "#contents", text: "Back to top" %>
   </div>
 </div>

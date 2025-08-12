@@ -206,6 +206,10 @@ Rails.application.routes.draw do
     get "*path", to: "gone#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("html_publication") do
+    get "*path(.:locale)", to: "html_publication#show"
+  end
+
   # route API errors to the error handler
   constraints ApiErrorRoutingConstraint.new do
     get "*any", to: "error#handler"

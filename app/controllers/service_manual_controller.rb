@@ -3,6 +3,7 @@ class ServiceManualController < ContentItemsController
 
   def index
     @presenter = ServiceManualHomepagePresenter.new(content_item)
+    render layout: "full_width"
   end
 
   def service_standard

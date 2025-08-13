@@ -18,13 +18,14 @@ class Calendar
     slug == "gwyliau-banc" ? "bank-holidays" : slug
   end
 
-  attr_reader :slug, :title, :type, :description
+  attr_reader :slug, :title, :type, :description, :last_updated
 
   def initialize(slug, data = {})
     @slug = slug
     @data = data
     @title = I18n.t(data["title"])
     @description = I18n.t(data["description"])
+    @last_updated = data["last_updated"] ? Date.parse(data["last_updated"]) : Time.zone.today
     @type = Calendar.slug_to_type(slug)
   end
 

@@ -27,9 +27,13 @@
     },
   } %>
 <% end %>
-
+<%
+  page_title = yield :title
+  content_title = page_title(content_item) || "GOV.UK"
+  page_title = page_title.presence || content_title
+%>
 <%= render "govuk_publishing_components/components/layout_for_public", {
-    title: yield(:title),
+    title: page_title,
     emergency_banner:,
     global_banner:,
   } do %>

@@ -9,6 +9,7 @@ RSpec.describe "When Do The Clocks Change" do
 
   it "displays the clocks change page" do
     visit "/when-do-the-clocks-change"
+
     within("head", visible: :hidden) do
       expect(page).to have_selector("title", text: "When do the clocks change? - GOV.UK", visible: :hidden)
       desc = page.find("meta[name=description]", visible: :hidden)
@@ -43,6 +44,7 @@ RSpec.describe "When Do The Clocks Change" do
   it "displays the correct upcoming event" do
     Timecop.travel(Date.parse("2012-11-15")) do
       visit "/when-do-the-clocks-change"
+
       within(".govuk-panel") do
         expect(page).to have_content("The clocks go forward")
         expect(page).to have_content("31 March")
@@ -51,6 +53,7 @@ RSpec.describe "When Do The Clocks Change" do
 
     Timecop.travel(Date.parse("2013-04-01")) do
       visit "/when-do-the-clocks-change"
+
       within(".govuk-panel") do
         expect(page).to have_content("The clocks go back")
         expect(page).to have_content("27 October")

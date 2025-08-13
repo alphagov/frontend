@@ -14,6 +14,7 @@ if defined?(GovukPublishingComponents)
       search
       search-with-autocomplete
       skip-link
+      feedback
     ]
   end
 end

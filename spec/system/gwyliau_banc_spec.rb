@@ -199,12 +199,10 @@ RSpec.describe "GwyliauBanc" do
 
   describe "last updated" do
     it "is translated and localised" do
-      Timecop.travel(Date.parse("25th Dec 2012")) do
-        visit "/gwyliau-banc"
+      visit "/gwyliau-banc"
 
-        within(".gem-c-metadata") do
-          expect(page).to have_content("Diweddarwyd ddiwethaf 25 Rhagfyr 2012")
-        end
+      within(".gem-c-metadata") do
+        expect(page).to have_content("Diweddarwyd ddiwethaf 12 Rhagfyr 2023")
       end
     end
   end

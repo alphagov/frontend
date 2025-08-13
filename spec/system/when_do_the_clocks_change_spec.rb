@@ -60,4 +60,12 @@ RSpec.describe "When Do The Clocks Change" do
       end
     end
   end
+
+  it "displays the current updated_at text" do
+    visit "/when-do-the-clocks-change"
+
+    within(".gem-c-metadata") do
+      expect(page).to have_content("Last updated 1 January 2024")
+    end
+  end
 end

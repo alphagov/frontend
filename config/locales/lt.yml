@@ -102,6 +102,7 @@ lt:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Apsilankykite:'
   components:
     share_links:
       share_this_page: Bendrinti šį puslapį
@@ -725,6 +726,10 @@ lt:
         few:
         one: Rašytinis kreipimasis į parlamentą
         other: Rašytiniai kreipimaisi į parlamentą
+  gone:
+    page_title: Nebepasiekiama
+    published_in_error: Šio puslapio informacija buvo pašalinta, kadangi ji buvo publikuota per klaidą.
+    title: Jūsų ieškomas puslapis nebepasiekiamas
   help:
     index:
       about:

@@ -102,6 +102,7 @@ hu:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Látogassa meg:'
   components:
     share_links:
       share_this_page: Oldal megosztása
@@ -648,6 +649,10 @@ hu:
       name:
         one: Írásbeli parlamenti nyilatkozat
         other: Írásbeli parlamenti nyilatkozatok
+  gone:
+    page_title: Már nem elérhető
+    published_in_error: Az ezen az oldalon található információ eltávolításra került, mivel közzététele hiba volt.
+    title: Az Ön által keresett oldal már nem elérhető
   help:
     index:
       about:

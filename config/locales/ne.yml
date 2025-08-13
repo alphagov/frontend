@@ -102,6 +102,7 @@ ne:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'भ्रमण:'
   components:
     share_links:
       share_this_page: यो पृष्ठ साझा गर्नुहोस्
@@ -648,6 +649,10 @@ ne:
       name:
         one: संसदमा लिखित वक्तव्य
         other: संसदमा लिखित वक्तव्यहरू
+  gone:
+    page_title: अब उपलब्ध छैन
+    published_in_error: यस पृष्ठमा रहेको जानकारी हटाइएको छ किनभने त्यो त्रुटीपूर्ण तरिकाले प्रकाशित भएको थियो।
+    title: तपाईंले खोज्नु भएको पृष्ठ अब उपलब्ध छैन
   help:
     index:
       about:

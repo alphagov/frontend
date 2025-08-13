@@ -102,6 +102,7 @@ so:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Booqo:'
   components:
     share_links:
       share_this_page: Lawadaag bogan
@@ -648,6 +649,10 @@ so:
       name:
         one: Bayaan qoran oo loogu talogalay Baarlamaanka
         other: Bayaanada qoran ee loogu talogalay Baarlamaanka
+  gone:
+    page_title: Lama hali karo
+    published_in_error: Macluumaadka kujiray bogan waa laga saaray waayo waxa loo daabacay si qaldan.
+    title: Boga aad doon doonaysaa lama heli karo
   help:
     index:
       about:

@@ -102,6 +102,7 @@ sv:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Besök:'
   components:
     share_links:
       share_this_page: Dela den här sidan
@@ -648,6 +649,10 @@ sv:
       name:
         one: Skriftligt uttalande till parlamentet
         other: Skriftliga uttalanden till parlamentet
+  gone:
+    page_title: Inte längre tillgänglig
+    published_in_error: Informationen på den här sidan har tagits bort eftersom den publicerades felaktigt.
+    title: Sidan du letar efter är inte längre tillgänglig.
   help:
     index:
       about:

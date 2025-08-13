@@ -102,6 +102,7 @@ zh-tw:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 探訪：
   components:
     share_links:
       share_this_page: 分享此頁面
@@ -571,6 +572,10 @@ zh-tw:
     written_statement:
       name:
         other: 對議會的書面聲明
+  gone:
+    page_title: 不再適用
+    published_in_error: 此頁面上的資訊已被刪除，因為發佈有誤。
+    title: 正在尋找的頁面不再適用
   help:
     index:
       about:

@@ -102,6 +102,7 @@ ro:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Accesați:'
   components:
     share_links:
       share_this_page: Distribuiți această pagină
@@ -725,6 +726,10 @@ ro:
         few:
         one: Declarație scrisă către Parlament
         other: Declarații scrise către Parlament
+  gone:
+    page_title: Nu mai este disponibil
+    published_in_error: Informațiile de pe această pagină au fost șterse deoarece au fost publicate din greșeală.
+    title: Pagina pe care o căutați nu mai este disponibilă.
   help:
     index:
       about:

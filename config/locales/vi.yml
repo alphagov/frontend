@@ -102,6 +102,7 @@ vi:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Truy cập:'
   components:
     share_links:
       share_this_page: Chia sẻ trang này
@@ -571,6 +572,10 @@ vi:
     written_statement:
       name:
         other: Tuyên bố bằng văn bản trước Quốc hội
+  gone:
+    page_title: Không khả dụng
+    published_in_error: Thông tin trên trang này đã bị xóa vì đã được xuất bản do nhầm lẫn.
+    title: Trang bạn đang tìm không có sẵn
   help:
     index:
       about:

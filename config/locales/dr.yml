@@ -102,6 +102,7 @@ dr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'بازدید:'
   components:
     share_links:
       share_this_page: این صفحه را به اشتراک بگذارید
@@ -648,6 +649,10 @@ dr:
       name:
         one: بیانیهء کتبی به پارلمان
         other: بیانیه هایی کتبی به پارلمان
+  gone:
+    page_title: دیگر در دسترس نیست
+    published_in_error: اطلاعات این صفحه حذف شده است چونکه اشتباهاً منتشر شده بود.
+    title: صفحه مورد نظر شما دیگر در دسترس نیست
   help:
     index:
       about:

@@ -102,6 +102,7 @@ gd:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Cuairt:'
   components:
     share_links:
       share_this_page: Comhroinn an leathanach seo
@@ -802,6 +803,10 @@ gd:
         one: Dearbhú i scríbhinn don Pharlaimint
         other: Ráitis i scríbhinn don Pharlaimint
         two:
+  gone:
+    page_title: Níl sé ar fáil
+    published_in_error: Baineadh an fhaisnéis ar an leathanach seo toisc gur cuireadh trí phost í trí dhearmad.
+    title: Níl an leathanach iarrtha ar fáil a thuilleadh
   help:
     index:
       about:

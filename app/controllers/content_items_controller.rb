@@ -2,6 +2,7 @@ class ContentItemsController < ApplicationController
   include GovukPersonalisation::ControllerConcern
 
   before_action :set_content_item_and_cache_control
+  before_action :reroute_to_gone, if: -> { content_item.schema_name == "gone" }
   before_action :set_locale, if: -> { request.format.html? }
 
   attr_reader :content_item
@@ -20,6 +21,10 @@ private
 
   def content_item_path
     request.path
+  end
+
+  def reroute_to_gone
+    GoneController.dispatch(:show, request, response)
   end
 
   # NOTE: Frontend honours the max-age directive  provided

@@ -2,7 +2,7 @@
   add_view_stylesheet("travel-advice")
 %>
 
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <%= javascript_include_tag "views/travel-advice.js", integrity: false %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
@@ -93,7 +93,7 @@
 
 <% content_for :title, page_title(@presenter) %>
 
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <% if @presenter.description %>
     <meta name="description" content="<%= @presenter.description %>">
   <% end %>

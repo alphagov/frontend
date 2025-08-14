@@ -1,5 +1,5 @@
 <% content_for :title, "#{calendar.title} - GOV.UK" %>
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <meta name="description" content="<%= calendar.description %>">
 
   <link rel="alternate" type="application/json" href="<%= calendar_path(calendar, :format => :json) %>">

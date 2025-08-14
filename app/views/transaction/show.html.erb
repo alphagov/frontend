@@ -1,4 +1,4 @@
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>

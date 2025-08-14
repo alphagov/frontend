@@ -121,7 +121,7 @@
       </article>
 
       <%= render "govuk_publishing_components/components/metadata", {
-        last_updated: format_date(last_updated_date),
+        last_updated: format_date(@calendar.last_updated),
       } %>
     </section>
   </div>

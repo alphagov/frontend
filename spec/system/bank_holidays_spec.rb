@@ -258,15 +258,11 @@ RSpec.describe "BankHolidays" do
     end
   end
 
-  describe "last updated" do
-    it "is formatted correctly" do
-      Timecop.travel(Date.parse("5th Dec 2012")) do
-        visit "/bank-holidays"
+  it "displays the current updated_at text" do
+    visit "/bank-holidays"
 
-        within(".gem-c-metadata") do
-          expect(page).to have_content("Last updated 5 December 2012")
-        end
-      end
+    within(".gem-c-metadata") do
+      expect(page).to have_content("Last updated 12 December 2023")
     end
   end
 

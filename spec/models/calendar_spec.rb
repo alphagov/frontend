@@ -27,6 +27,14 @@ RSpec.describe Calendar do
     expect(described_class.new("a-slug", {}).to_param).to eq("a-slug")
   end
 
+  it "returns the parsed last_updated value as a date" do
+    expect(described_class.new("a-slug", { "last_updated" => "12/12/2025" }).last_updated).to eq(Date.new(2025, 12, 12))
+  end
+
+  it "returns an empty last_updated value as today's date" do
+    expect(described_class.new("a-slug", {}).last_updated).to eq(Time.zone.today)
+  end
+
   describe "#divisions" do
     subject(:calendar) do
       described_class.new(

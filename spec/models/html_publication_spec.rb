@@ -6,4 +6,9 @@ RSpec.describe HtmlPublication do
   it "returns a parent" do
     expect(html_publication.parent.content_id).to eq("8b19c238-54e3-4e27-b0d7-60f8e2a677c9")
   end
+
+  it "returns organisations" do
+    expect(html_publication.organisations.length).to eq(1)
+    expect(html_publication.organisations[0].title).to eq("Environment Agency")
+  end
 end

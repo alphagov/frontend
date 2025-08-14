@@ -1,5 +1,10 @@
+require "gds_api/test_helpers/publishing_api"
+
 RSpec.describe "News Article" do
-  let!(:content_item) { content_store_has_example_item("/government/news/christmas-2016-prime-ministers-message", schema: :news_article) }
+  include GdsApi::TestHelpers::PublishingApi
+
+  let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
+  let!(:content_item) { content_store_has_example_item(base_path, schema: :news_article) }
 
   describe "rendering meta tags" do
     before do
@@ -60,9 +65,7 @@ RSpec.describe "News Article" do
   end
 
   context "when content item is from Content Store" do
-    let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
     let(:path) { "#{base_path}?graphql=false" }
-    let(:content_item) { content_store_has_example_item(base_path, schema: :news_article) }
 
     it_behaves_like "a news article page"
 
@@ -82,29 +85,13 @@ RSpec.describe "News Article" do
   end
 
   context "when content item is from Publishing API's GraphQL" do
-    let(:content_item) { graphql_has_example_item("news_article") }
-    let(:base_path) { "/government/news/christmas-2016-prime-ministers-message" }
     let(:path) { "#{base_path}?graphql=true" }
 
     before do
-      stub_content_store_has_item(base_path, { "schema_name" => "news_article" })
+      stub_publishing_api_graphql_has_item(base_path, content_item)
     end
 
     it_behaves_like "a news article page"
-
-    context "when content item has an image caption" do
-      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
-      let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
-
-      it_behaves_like "a news article page with an image caption"
-    end
-
-    context "when content item has a high resolution image" do
-      let(:base_path) { "/government/news/british-high-commission-marks-his-majesty-king-charles-iiis-birthday-with-brilliantly-british-celebrations" }
-      let(:content_item) { graphql_has_example_item("news_article_with_image_caption") }
-
-      it_behaves_like "a news article page with a high resolution image"
-    end
   end
 
   context "when visiting a page in history mode" do

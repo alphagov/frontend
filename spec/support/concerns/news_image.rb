@@ -1,5 +1,5 @@
-RSpec.shared_examples "it has news image" do |document_type, example_name, data_source: :content_store|
-  let(:content_item) { fetch_content_item(document_type, example_name, data_source:) }
+RSpec.shared_examples "it has news image" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   before do
     content_item["details"]["image"] = nil

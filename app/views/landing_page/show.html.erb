@@ -2,7 +2,7 @@
   add_view_stylesheet("landing_page")
 %>
 
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <meta name="description" content="<%= @content_item.description %>">
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata", {

@@ -4,7 +4,7 @@
 <% end %>
 <% content_for :simple_header, true %>
 
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <%= auto_discovery_link_tag :atom, feed_link(@content_item.base_path), title: "Recent updates for #{@content_item.country_name}" %>
 
   <meta name="description" content="<%= @content_item.description %>">

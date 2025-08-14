@@ -179,6 +179,10 @@ Rails.application.routes.draw do
     get "*path", to: "flexible_page#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("gone") do
+    get "*path", to: "gone#show"
+  end
+
   constraints FullPathFormatRoutingConstraint.new("landing_page") do
     get "*path", to: "landing_page#show"
   end

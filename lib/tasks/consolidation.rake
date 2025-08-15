@@ -1,6 +1,17 @@
 # We don't care much about the coverage of scaffolding files that are just used on the desktop during
 # consolidation and are going to be removed.
 # :nocov:
+
+desc "Set up a logger"
+task log_stdout: :environment do
+  logger = ActiveSupport::Logger.new($stdout)
+  logger.formatter = ::Logger::Formatter.new
+  Rails.logger = ActiveSupport::TaggedLogging.new(logger)
+  Rails.application.config.log_level = "info"
+
+  Rails.logger.error "This logging works"
+end
+
 namespace :consolidation do
   desc <<~END_DESC
     Copy a locale key for all locales from government-frontend to frontend

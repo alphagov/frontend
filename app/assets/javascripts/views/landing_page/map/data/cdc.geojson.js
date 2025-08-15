@@ -235,7 +235,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bridgewater CDC',
         address: 'Bridgewater, TA6 4GU',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000038'
       }
@@ -543,7 +543,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Dorset Health Village, Weymouth CDC',
         address: 'Weymouth, DT4 7TB',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000041'
       }
@@ -1845,7 +1845,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'South Birmingham CDC',
         address: 'Maypole, B14 5JF',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000055'
       }
@@ -1999,7 +1999,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Swale CDC',
         address: 'Sheerness, ME12 3LT',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy',
         icbCode: 'E54000032'
       }
@@ -2223,7 +2223,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'West Kent CDC',
         address: 'Maidstone, ME16 9NT',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000032'
       }
@@ -2335,7 +2335,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Willesden CDC',
         address: 'Southall, NW10 3RY',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Other Tests',
         icbCode: 'E54000027'
       }

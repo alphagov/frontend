@@ -81,7 +81,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Barking Community Hospital CDC',
         address: 'Barking, IG11 9LX',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000029'
       }
@@ -109,7 +109,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Beeston Village Health Centre CDC',
         address: 'Beeston, LS11 8PN',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences',
         icbCode: 'E54000054'
       }
@@ -151,7 +151,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bishops Stortford CDC',
         address: "Bishop's Stortford, CM23 5JH",
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000025'
       }
@@ -165,7 +165,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bognor Regis War Memorial Hospital CDC',
         address: 'Bognor Regis, PO22 9PP',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000064'
       }
@@ -207,7 +207,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bradford District & Craven CDC',
         address: 'Bradford, BD10 0JE',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences, Other Tests',
         icbCode: 'E54000054'
       }
@@ -221,7 +221,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Braintree CDC',
         address: 'Braintree, CM7 2QU',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging',
         icbCode: 'E54000026'
       }
@@ -235,7 +235,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bridgewater CDC',
         address: 'Bridgewater, TA6 4GU',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000038'
       }
@@ -249,7 +249,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Brierley Hill CDC',
         address: 'Brierley Hill, DY5 1RU',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000062'
       }
@@ -263,7 +263,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Brighton CDC',
         address: 'Brighton, BN1 9BL',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000064'
       }
@@ -291,7 +291,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Burnley CDC',
         address: 'Burnley, BB10 2PQ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000048'
       }
@@ -333,7 +333,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Camborne and Redruth CDC',
         address: 'Redruth, TR15 3ER',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000036'
       }
@@ -389,7 +389,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Congleton War Memorial CDC',
         address: 'Congleton, CW12 3AR',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000008'
       }
@@ -403,7 +403,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Corbett CDC',
         address: 'Stourbridge, DY8 4AP',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000062'
       }
@@ -445,7 +445,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Crawley Collaborative CDC',
         address: 'Crawley, RH11 7DH',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000064'
       }
@@ -473,7 +473,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Devon Exeter Nightingale CDC',
         address: 'Exeter, EX2 7JG',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000037'
       }
@@ -501,7 +501,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Dorset Health Village, Boscombe, AECC CDC',
         address: 'Boscombe, BH5 2DF',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology',
         icbCode: 'E54000041'
       }
@@ -529,7 +529,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Dorset Health Village, South Walks CDC',
         address: 'Dorchester, DT1 1EE',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000041'
       }
@@ -543,7 +543,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Dorset Health Village, Weymouth CDC',
         address: 'Weymouth, DT4 7TB',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000041'
       }
@@ -571,7 +571,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'East Riding Community Hospital CDC',
         address: 'Beverley, HU17 0FA',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000051'
       }
@@ -599,7 +599,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Eltham Community Hospital CDC',
         address: 'London, SE9 5DQ',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000030'
       }
@@ -627,7 +627,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Fareham Community Hospital CDC',
         address: 'Southampton, SO31 7DQ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences',
         icbCode: 'E54000042'
       }
@@ -641,7 +641,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Finchley Memorial Hospital CDC',
         address: 'London, N12 0JE',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000028'
       }
@@ -753,7 +753,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Hartlepool CDC',
         address: 'Hartlepool, TS24 9AH',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences',
         icbCode: 'E54000050'
       }
@@ -767,7 +767,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Heatherwood CDC',
         address: 'Ascot, SL5 7GB',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000034'
       }
@@ -795,7 +795,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Hereford City CDC',
         address: 'Hereford, HR4 9SB',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',
         icbCode: 'E54000019'
       }
@@ -823,7 +823,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Hinckley CDC',
         address: 'Hinckley, LE10 1AG',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000015'
       }
@@ -851,7 +851,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Hull and East Riding CDC',
         address: 'Kingston Upon Hull, HU1 3QX',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000051'
       }
@@ -879,7 +879,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Ilkeston Community Hospital CDC',
         address: 'Ilkeston, DE7 8LN',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000058'
       }
@@ -893,7 +893,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Ipswich CDC',
         address: 'Ipswich , IP1 1HT',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Physiological Sciences, Other Tests',
         icbCode: 'E54000023'
       }
@@ -921,7 +921,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'James Paget CDC',
         address: 'Great Yarmouth, NR31 6LA',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000022'
       }
@@ -977,7 +977,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Leeds CDC',
         address: 'Leeds, LS14 6UH',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000054'
       }
@@ -1047,7 +1047,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Lloyds Court CDC',
         address: 'Milton Keynes, MK9 3AP',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000024'
       }
@@ -1075,7 +1075,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Manchester and Trafford CDC',
         address: 'Withington, M20 2LR',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000057'
       }
@@ -1089,7 +1089,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Mansfield CDC',
         address: 'Mansfield, NG18 5QJ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000060'
       }
@@ -1103,7 +1103,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Medway CDC',
         address: 'Rochester, ME1 2EL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000032'
       }
@@ -1159,7 +1159,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Montagu Hospital CDC',
         address: 'Mexborough, S64 0AZ',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000061'
       }
@@ -1173,7 +1173,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'New Addington CDC',
         address: 'Croydon, CR0 0JB ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000031'
       }
@@ -1187,7 +1187,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'New QEII Hospital CDC',
         address: 'Welwyn Garden City, AL7 4HQ',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000025'
       }
@@ -1201,7 +1201,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Newmarket CDC',
         address: 'Newmarket, CB8 7JG',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000023'
       }
@@ -1215,7 +1215,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Norfolk and Norwich CDC',
         address: 'Norwich, NR4 7UY',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000022'
       }
@@ -1229,7 +1229,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North Bedfordshire CDC',
         address: 'Bedford, MK40 2NU',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000024'
       }
@@ -1243,7 +1243,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North Bristol CDC',
         address: 'Bristol, BS34 5TL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000039'
       }
@@ -1257,7 +1257,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North Cumbria CDC',
         address: 'Workington, CA14 3GS',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Other Tests',
         icbCode: 'E54000050'
       }
@@ -1397,7 +1397,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Nottingham City CDC',
         address: 'Nottingham City, NG1 7DD',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000060'
       }
@@ -1411,7 +1411,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Oak Park CDC',
         address: 'Havant, PO9 2AW',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000042'
       }
@@ -1425,7 +1425,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Oxford CDC',
         address: 'Oxford, OX4 2LL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000044'
       }
@@ -1467,7 +1467,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Pitsea CDC',
         address: 'Pitsea, SS13 3DU',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000026'
       }
@@ -1551,7 +1551,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: "Queen Mary's Hospital Roehampton CDC",
         address: 'London, SW15 5PN',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000031'
       }
@@ -1565,7 +1565,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: "Queen Mary's Sidcup CDC",
         address: 'Kent, DA14 6LT',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000030'
       }
@@ -1579,7 +1579,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Queen Victoria Hospital CDC',
         address: 'East Grinstead, RH19 3DZ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Physiological Sciences',
         icbCode: 'E54000064'
       }
@@ -1593,7 +1593,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Redcar CDC',
         address: 'Redcar, TS10 4NW',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000050'
       }
@@ -1635,7 +1635,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Romsey CDC',
         address: 'Romsey, SO51 7ZA',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology',
         icbCode: 'E54000042'
       }
@@ -1649,7 +1649,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Rossendale CDC',
         address: 'Rossendale, BB4 7PL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000048'
       }
@@ -1677,7 +1677,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Royal South Hants CDC',
         address: 'Southampton, SO14 0YG',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',
         icbCode: 'E54000042'
       }
@@ -1719,7 +1719,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Salisbury CDC',
         address: 'Salisbury, SP1 3SL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000040'
       }
@@ -1761,7 +1761,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Shopping City CDC',
         address: 'Halton, WA7 2BY',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000008'
       }
@@ -1789,7 +1789,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Skegness CDC',
         address: 'Skegness, PE25 3RR',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000013'
       }
@@ -1803,7 +1803,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Slough CDC',
         address: 'Slough, SL1 2BJ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000034'
       }
@@ -1817,7 +1817,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Somerset East CDC',
         address: 'Yeovil, BA21 4AT',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology',
         icbCode: 'E54000038'
       }
@@ -1831,7 +1831,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Somerset West CDC',
         address: 'Taunton, TA1 2PX',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000038'
       }
@@ -1873,7 +1873,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'South Petherton CDC',
         address: 'South Petherton, TA24 6DF',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000038'
       }
@@ -1887,7 +1887,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'South Warwickshire CDC',
         address: 'Stratford-upon-Avon, CV37 6NX',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000018'
       }
@@ -1929,7 +1929,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Southport CDC',
         address: 'Southport, PR8 6PN',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000008'
       }
@@ -1971,7 +1971,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'St Helens CDC',
         address: 'St Helens, WA9 3DA',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',
         icbCode: 'E54000008'
       }
@@ -2013,7 +2013,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Taunton Central CDC',
         address: 'Taunton, TA1 1NW',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000038'
       }
@@ -2027,7 +2027,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Tees Valley CDC',
         address: 'Stockton, TS18 1AF',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000050'
       }
@@ -2069,7 +2069,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'University of Chichester Bognor CDC',
         address: 'Bognor Regis, PO21 1HR',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000064'
       }
@@ -2111,7 +2111,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Walton CDC',
         address: 'Chesterfield, S40 3HW',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000058'
       }
@@ -2139,7 +2139,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Warwickshire North CDC',
         address: 'Nuneaton, CV10 7DJ',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000018'
       }
@@ -2223,7 +2223,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'West Kent CDC',
         address: 'Maidstone, ME16 9NT',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences',
         icbCode: 'E54000032'
       }
@@ -2237,7 +2237,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'West Mendip CDC',
         address: 'West Mendip, TA1 2PX',
-        isOpen12_7: 'N/A',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000038'
       }
@@ -2321,7 +2321,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Whitworth Hospital CDC',
         address: 'Matlock, DE4 2JD',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000058'
       }
@@ -2349,7 +2349,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Wisbech CDC',
         address: 'Wisbech, PE13 3AB',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000056'
       }
@@ -2363,7 +2363,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Woking Community Hospital CDC',
         address: 'Woking, GU22 7HS ',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000063'
       }

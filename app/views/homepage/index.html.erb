@@ -1,5 +1,5 @@
 <% add_view_stylesheet("homepage") %>
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <link rel="canonical" href="<%= Frontend.govuk_website_root + root_path %>">
   <meta name="title" property="og:title" content="<%= t("homepage.index.intro_title.text") %>">
   <meta name="description" property="og:description" content="<%= t("homepage.index.meta_description_new") %>">

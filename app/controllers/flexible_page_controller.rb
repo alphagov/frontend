@@ -1,3 +1,3 @@
 class FlexiblePageController < ContentItemsController
-  slimmer_template "gem_layout_full_width"
+  layout "full_width"
 end

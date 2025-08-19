@@ -15,19 +15,20 @@
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
 
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row gem-print-columns-none translation-nav-header">
+  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
     <%= render "govuk_publishing_components/components/heading",
       context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
       context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
       heading_level: 1,
       font_size: "l",
-      margin_bottom: 8,
+      margin_bottom: 0,
       text: content_item.title %>
   </div>
-
   <%= render "shared/translations", content_item: %>
+</div>
 
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
   </div>

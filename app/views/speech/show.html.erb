@@ -7,41 +7,44 @@
    <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
 
-  <div class="govuk-grid-row gem-print-columns-none">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-          text: content_item.title,
-          context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
-          context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
-          average_title_length: "long",
-          heading_level: 1,
-          font_size: "l",
-          margin_bottom: 8,
-        } %>
-    </div>
-    <%= render "shared/translations" %>
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
-    </div>
+<div class="govuk-grid-row gem-print-columns-none translation-nav-header">
+  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
+    <%= render "govuk_publishing_components/components/heading", {
+        text: content_item.title,
+        context: I18n.t("formats.#{content_item.document_type}.name", count: 1),
+        context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", count: 1),
+        average_title_length: "long",
+        heading_level: 1,
+        font_size: "l",
+        margin_bottom: 0,
+      } %>
   </div>
+  <%= render "shared/translations" %>
+</div>
 
- <%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(@presenter.speech_contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    see_updates_link: true,
-    } %>
-  <%= render "shared/history_notice", content_item: content_item %>
-  <% if content_item.withdrawn? %>
-    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+  </div>
+</div>
 
-    <%= render "govuk_publishing_components/components/notice", {
-      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
-      description_govspeak: content_item.withdrawn_explanation&.html_safe,
-      time: withdrawn_time_tag,
-      lang: "en",
-    } %>
-  <% end %>
+<%= render "shared/publisher_metadata", locals: {
+  from: govuk_styled_links_list(@presenter.speech_contributor_links),
+  first_published: display_date(content_item.initial_publication_date),
+  last_updated: display_date(content_item.updated),
+  see_updates_link: true,
+  } %>
+<%= render "shared/history_notice", content_item: content_item %>
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+  <%= render "govuk_publishing_components/components/notice", {
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation&.html_safe,
+    time: withdrawn_time_tag,
+    lang: "en",
+  } %>
+<% end %>
 
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">

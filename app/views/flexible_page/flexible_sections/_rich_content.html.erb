@@ -1,6 +1,6 @@
 <nav class="govuk-grid-column-one-third">
   <% if flexible_section.image %>
-    <%= image_tag(flexible_section.image.src, alt: flexible_section.image.alt, class: "card__image", loading: "lazy") %>
+    <%= image_tag(flexible_section.image.src, alt: flexible_section.image.alt, class: "card__image govuk-!-width-full", loading: "lazy") %>
   <% end %>
 
   <%= render "govuk_publishing_components/components/contents_list", {

@@ -1,0 +1,58 @@
+{
+  "analytics_identifier": null,
+  "base_path": "/government/history/admin-title-for-history-page",
+  "content_id": "21e7a223-f931-45e6-97f6-87c4c4526b26",
+  "description": "This is the history of 10 Downing Street",
+  "details": {
+    "body": "<h2 id=\"this-is-a-heading\">This is a heading</h2><p>Some stuff about History</p><h2 id=\"another-heading\">Another heading</h2><p>Some other stuff about History</p>",
+    "headers": [
+      {
+        "id": "this-is-a-heading",
+        "level": 2,
+        "text": "This is a heading"
+      },
+      {
+        "id": "another-heading",
+        "level": 2,
+        "text": "Another heading"
+      }
+    ],
+    "sidebar_image": {
+      "alt_text": null,
+      "caption": "text",
+      "src": "https://www.gov.uk/assets/government-frontend/history/buildings/number-10-300-00aa6cc4623aff497a924d2742fa5087533221bb81c65b88fa1d11a1fc942567.jpg"
+    }
+  },
+  "document_type": "history",
+  "first_published_at": null,
+  "links": {
+    "available_translations": [
+      {
+        "api_path": "/api/content/government/history/admin-title-for-history-page",
+        "api_url": "https://www.integration.publishing.service.gov.uk/api/content/government/history/admin-title-for-history-page",
+        "base_path": "/government/history/admin-title-for-history-page",
+        "content_id": "21e7a223-f931-45e6-97f6-87c4c4526b26",
+        "document_type": "history",
+        "links": {},
+        "locale": "en",
+        "public_updated_at": "2025-07-28T17:48:13Z",
+        "schema_name": "history",
+        "title": "admin title for history page",
+        "web_url": "https://www.integration.publishing.service.gov.uk/government/history/admin-title-for-history-page",
+        "withdrawn": false
+      }
+    ]
+  },
+  "locale": "en",
+  "phase": "live",
+  "public_updated_at": "2025-07-28T18:48:13+01:00",
+  "publishing_app": "whitehall",
+  "publishing_request_id": null,
+  "publishing_scheduled_at": null,
+  "rendering_app": "frontend",
+  "scheduled_publishing_delay_seconds": null,
+  "schema_name": "history",
+  "title": "10 Downing Street",
+  "updated_at": "2025-07-28T18:48:15+01:00",
+  "withdrawn_notice": {}
+}

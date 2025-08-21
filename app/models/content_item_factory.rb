@@ -11,7 +11,7 @@ class ContentItemFactory
 
   def self.content_item_class(schema_name)
     klass = schema_name.camelize.constantize
-    klass.superclass == ContentItem ? klass : ContentItem
+    klass <= ContentItem ? klass : ContentItem
   rescue StandardError
     ContentItem
   end

@@ -1,0 +1,862 @@
+---
+ti:
+  a: ኤ
+  ab_testing:
+    explanation:
+    two_versions:
+    version:
+    visit_govuk_html:
+  account:
+    cookies_and_feedback:
+      cookie_consent:
+        description:
+        field:
+          heading:
+        heading:
+      feedback_consent:
+        description:
+        field:
+          heading:
+        heading:
+      heading:
+      success:
+    your_account:
+      about_description_html:
+      about_detail_description_html:
+      about_detail_title:
+      about_heading:
+      emails:
+        heading:
+        manage_emails_link_text:
+        no_emails_description:
+        no_emails_inset:
+        see_and_manage:
+      heading:
+  and: ከምኡ ውን
+  attachment:
+    virus_check:
+      intro: እዚ ኣታችመንት/ጥብቆ ካብ ቫይረስ ነጻ ሙኻኑን ዘይሙኻኑን ይምርመር ኣሎ።
+      message: ኣብዚ ሕጂ እዋን እዚ ኣታችመንት/ጥብቆ ክሳብ ካብ ቫይረስ ነጻ ሙኻኑን ዘይሙኻኑን ዝምርመር ኣብ መወሸቢ ሒዝናዮ ኣለና። እቲ ኣታችመንት ኣብ ቀረባ እዋን ኣብቲ ቀንዲ ቦታ ክቐርብ እዩ።
+  b: ቢ
+  bank-holidays:
+  bank_holidays:
+    2nd_january:
+    add_clock_changes_to_calendar:
+    bank_holiday:
+    battle_boyne:
+    boxing_day:
+    bst_explanation:
+    calendar:
+      description:
+      title:
+    christmas:
+    clock_change_explanation:
+    clocks_backward:
+    clocks_forward:
+    date:
+    day_of_week:
+    download_clock_changes:
+    early_may:
+    early_may_ve:
+    easter_monday:
+    gmt_explanation:
+    good_friday:
+    kings_coronation:
+    late_august:
+    new_year:
+    queen_diamond:
+    queen_platinum:
+    queens_bank_holiday:
+    spring:
+    st_andrew:
+    st_patrick:
+    summer:
+    year:
+  cancel: ሰርዝ
+  common:
+    add_holiday_ics:
+    bank_holiday_benefits_html:
+    bank_holiday_on_wkend:
+    bank_holiday_translation_html:
+    download_ics:
+    email_and_print_link: 'ነዚ ገጽ ፕሪንት ንምባል ወይ ውን ንኢመይላት ተመዝገቡ '
+    extra_bank_holiday:
+    holiday_entitlement_html:
+    nations:
+      england-and-wales:
+      england-and-wales_for:
+      england-and-wales_in:
+      england-and-wales_slug:
+      northern-ireland:
+      northern-ireland_for:
+      northern-ireland_in:
+      northern-ireland_slug:
+      scotland:
+      scotland_for:
+      scotland_in:
+      scotland_slug:
+    next_holiday_in_is:
+    past_bank_holidays:
+    print_link: ነዚ ገጽ ሕተሞ
+    substitute_day:
+    today: ሎሚመዓልቲ
+    united-kingdom_slug: ዩናይትድ ኪንንግደም
+    upcoming_bank_holidays:
+  components:
+    share_links:
+      share_this_page: ነዚ ፔጅ ሼር ግበርዎ
+  continue: ቀጽል
+  cookies:
+    always_on:
+    clicks:
+    confirmation_message:
+    confirmation_previous_referrer_link:
+    confirmation_title:
+    cookie_settings:
+    cookies_on_govuk:
+    essential_explanation:
+    explanation:
+    explanation_html:
+    four_types:
+    google_collection:
+    google_info:
+    google_share:
+    how_we_use:
+    how_you_got:
+    javascript:
+    javascript_extra:
+    javascript_list:
+    lux_explain:
+    lux_info:
+    off-campaigns:
+    off-settings:
+    off-usage:
+    on-campaigns:
+    on-settings:
+    on-usage:
+    pages_visited:
+    save_changes:
+    services:
+    services_additional:
+    third_parties:
+    types:
+      campaigns:
+      essential:
+      settings:
+      usage:
+    usage_info:
+  csv_preview:
+    access_limited:
+      body: እዚ ሲ.ኤስ.ቪ/(CSV) ፋይል ኣካል ናይ ሓደ ዝተገደበ መእተዊ ዘለዎ ንድፊ ሰነድ ስለዝኾነ ቅድመ-ምርኢት ክትገብረሉ ወይ ከይከፈትካ ክትርእዮ ፍቓድ የብልካን። ምስ ከምዚኦም ዝኣመሰሉ ንድፊ ዝተተሓሓዙ ሲ.ኤስ.ቪ/(CSV) ፋይላት ቅድመ-ምርኢት ኣይፍቀድን እዩ። ይኹን እምበር፡ ምስቲ ነቲ ሰነድ ዘሕትሞ ሰብ ኣካል ናይ ሓደ ትካል እንተ ዄንካ፡ ነቲ ፋይል ከተውርዶ ትኽእል ኢኻ።
+      title: ምእታው ክልኩል እዩ።
+  electoral:
+    registration:
+      description:
+      title:
+    service:
+      description:
+      matched_postcode_html:
+      search_postcode_html:
+      title:
+  email:
+    already_subscribed_title: ድሮ’ውን ብዛዕባ’ዚ ገጽ’ዚ ኢመይላት ይመጸካ ኣሎ
+    description: ኩሉ ናይ GOV.UK ኢመይል ሳብስክራይባትካ ርኣይን ኣመሓድርን።
+    subscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ኢመይላት ሳብስክራይብ ጌርካ ኣለኻ
+    unsubscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ዝመጽእ ኢመይላት ወጺእካ/አንሳብስክራይብ ጌርካ ኣለኻ
+  error: ጌጋ
+  find: ርኸብ
+  formats:
+    aaib_report:
+      name:
+        one: ጸብጻብ ናይ ጨንፈር መርመራ ሓደጋታት ኣየር
+        other: ጸብጻባት ናይ ጨንፈር መርመራ ሓደጋታት ኣየር
+    announcement:
+      name:
+        one: ምልክታ
+        other: ምልክታታት
+    asylum_support_decision:
+      name:
+        one: ናይ ቤት ፍርዲ ውሳነ ኣብ ናይ ዑቕባ ደገፍ
+        other: ናይ ቤት ፍርዲ ውሳነታት ኣብ ናይ ዑቕባ ደገፍ
+    authored_article:
+      name:
+        one: ወግዓዊ ዓንቀጽ
+        other: ወግዓዊ ዓንቀጽ
+    business_finance_support_scheme:
+      name:
+        one: ናይ ቢዝነስ ፋይናንስ ደገፍ መደብ
+        other: ናይ ቢዝነስ ፋይናንስ ደገፍ መደባት
+    call_for_evidence:
+      and:
+      another_website_html:
+      at:
+      closed:
+      closed_another_website_html:
+      closes:
+      closes_at:
+      complete_a:
+      description:
+      detail_of_outcome:
+      documents:
+      download_outcome:
+      either:
+      email_to:
+      is_being:
+      name:
+        one:
+        other:
+      not_open_yet:
+      'on':
+      open_another_website_html:
+      opens:
+      or:
+      original_call_for_evidence:
+      ran_from:
+      respond_online:
+      response_form:
+      summary:
+      was:
+      ways_to_respond:
+      write_to:
+    call_for_evidence_outcome:
+      name:
+        one:
+        other:
+    case_study:
+      name:
+        one: ናይቲ ጉዳይ መጽናዕቲ / (ኬዝ ስታዲ)
+        other: ናይቲ ጉዳይ መጽናዕቲታት / (ኬዝ ስታዲ)
+    closed_call_for_evidence:
+      name:
+        one:
+        other:
+    closed_consultation:
+      name:
+        one: ዕጹው ምምኽኻር / (ክሎዝድ ኮንሳልቴሽን)
+        other: ዕጹዋት ምምኽኻራት / (ክሎዝድ ኮንሳልቴሽንስ)
+    cma_case:
+      name:
+        one: ጉዳይ በዓል መዚ ውድድርን ዕዳጋታትን
+        other: ጉዳያት በዓል መዚ ውድድርን ዕዳጋታትን
+    consultation:
+      name:
+        one: ምምኽኻር
+        other: ምምኽኻራት
+    consultation_outcome:
+      name:
+        one: ውጽኢት ምምኽኻር
+        other: ውጽኢት ምምኽኻራት
+    corporate_information_page:
+      about_our_services_html: "%{link} ኣብ ዚ ሊንክ ተወከስ"
+      corporate_information: ናይ ትካላት ሓበሬታ
+      name:
+        one: ናይ ሓበሬታ ገጽ
+        other: ናይ ሓበሬታ ገጻት
+      personal_information_charter_html: "%{link} እዚ መላግቦና ንውልቃዊ ሓበሬታኻ ብኸመይ ከም እንሕዞ ይገልጽ።"
+      publication_scheme_html: ብዛዕባ እቶም ብስሩዕ እንዝርግሖም ዓይነታት ሓበሬታ ኣብ %{link} ኣንብብ።
+      social_media_use_html: ኣብ %{link} ፖሊሲና ኣንብብ።
+      welsh_language_scheme_html: ብዛዕባ %{link} ዘለና ተወፋይነት ፍለጥ።
+    corporate_report:
+      name:
+        one: ጸብጻብ ትካል
+        other: ጸብጻባት ትካላት
+    correspondence:
+      name:
+        one: ደብዳቤ / (ክሮስፖንደንስ)
+        other: ደብዳቤታት / (ክሮስፖንደንስስ)
+    countryside_stewardship_grant:
+      name:
+        one: ንዕቃበ ገጠር ዝኸውን ደገፍ
+        other: ንዕቃበ ገጠር ዝኸውን ድጋፋት
+    decision:
+      name:
+        one: ውሳነ
+        other: ውሳነታት
+    detailed_guide:
+      name:
+        one: መምርሒ
+        other: ምምርሒታት
+    dfid_research_output:
+      name:
+        one: ንውጽኢት ልምዓት ዝኸውን መጽናዕቲ
+        other: ንውጽኢት ልምዓት ዝኸውን መጽናዕትታት
+    document_collection:
+      name:
+        one: እኩብ
+        other: እኩባት
+    draft_text:
+      name:
+        one: ንድፊ ጽሑፍ
+        other: ንድፊ ጽሑፋት
+    drug_safety_update:
+      name:
+        one: እዋናዊ ሓበሬታ ድሕነት መድሃኒት
+        other: እዋናዊ ሓበሬታ ድሕነት መድሃኒታት
+    employment_appeal_tribunal_decision:
+      name:
+        one: ውሳኔ ናይ ስራሕ ናይ ይግባይ ቤት ፍርዲ
+        other: ውሳኔታት ናይ ስራሕ ናይ ይግባይ ቤት ፍርዲ
+    employment_tribunal_decision:
+      name:
+        one: ውሳነ ቤት ፍርዲ ናይ ስራሕ
+        other: ውሳነታት ቤት ፍርዲ ናይ ስራሕ
+    esi_fund:
+      name:
+        one: ኤውሮጳዊ መዋቕራውን ወፍርን ሓገዝ (ኢ.ኤስ.ኣይ.ኤፍ/ESIF)
+        other: ኤውሮጳዊ መዋቕራውን ወፍርን ሓገዛት (ኢ.ኤስ.ኣይ.ኤፍ/ESIF)
+    fatality_notice:
+      alt_text:
+      field_of_operation:
+      name:
+        one: ናይ ጉድኣት ምልክታታት
+        other: ናይ ጉድኣት ምልክታታት
+      none_added:
+      operations_in:
+    field_of_operation:
+      context:
+      title:
+    fields_of_operation:
+      context:
+    find_my_nearest:
+      valid_postcode_no_locations:
+    foi_release:
+      name:
+        one: 'ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)  '
+        other: 'ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI) '
+    form:
+      name:
+        one: ቅጥዒ
+        other: ቅጥዕታት
+    get_involved:
+      civil_service:
+      civil_service_quarterly:
+      closed:
+      closed_consultations:
+      closes:
+      closing_today:
+      closing_tomorrow:
+      days_left:
+      engage_with_gov:
+      fcdo_bloggers:
+      follow:
+      follow_links:
+      follow_paragraph:
+      gds_blog:
+      gov_past:
+      intro_paragraph:
+        body_html:
+      join_ics:
+      make_donation:
+      more_ways:
+      neighbourhood_watch:
+      open_consultations:
+      page_heading:
+      page_title:
+      petition_paragraph:
+        body_html:
+        create_a_petition:
+      read_respond:
+      recent_outcomes:
+      recently_opened:
+      respond_to_consultations:
+      school_overseas:
+      search_all:
+      see_all_dept:
+      start_a_petition:
+      updated:
+      your_views:
+    government_response:
+      name:
+        one: ናይ መንግስቲ ግብረ መልሲ
+        other: ናይ መንግስቲ ግብረ መልስታት
+    guidance:
+      name:
+        one: መምርሒ
+        other: ምምርሒታት
+    impact_assessment:
+      name:
+        one: ናይ ጽልዋ ገምጋም
+        other: ናይ ጽልዋ ገምጋማት
+    imported:
+      name:
+        one: ብደገ ዝመጽአ - ኣብ ምጽባይ ዝርከብ  ዓይነት
+        other: ብደገ ዝመጽአ - ኣብ ምጽባይ ዝርከብ  ዓይነት
+    independent_report:
+      name:
+        one: ነጻ ጸብጻብ
+        other: ነጻ ጸብጻባት
+    international_development_fund:
+      name:
+        one: ዓለም ለኸ ልምዓታዊ ደገፍ
+        other: ዓለም ለኸ ልምዓታዊ ደገፋት
+    international_treaty:
+      name:
+        one: ኣህጉራዊ ውዕል
+        other: ኣህጉራዊ ውዕላት
+    licence:
+      change: ለውጢ
+    local_transaction:
+      change:
+      choose_address:
+      contact_council:
+      council_tax:
+      county_council_services:
+      county_council_services_list:
+      county_district_council:
+      different_local_authorities:
+      district_council_services:
+      electoral_service_not_available:
+      enter_postcode:
+      error_summary_title:
+      find_adoption_hub:
+      find_council:
+      find_council_website:
+      find_info_for:
+      find_other_services:
+      find_postcode_royal_mail:
+      housing:
+      info_on_country_website:
+        northern_ireland:
+        scotland:
+        wales:
+      info_on_website:
+      invalid_postcode:
+      invalid_postcode_sub:
+      invalid_uprn:
+      invalid_uprn_sub:
+      local_authority_html:
+      local_authority_website:
+      matched_postcode_html:
+      no_local_authority:
+      no_local_authority_url_html:
+      no_website:
+      postcode:
+      postcode_hint:
+      postcode_lookup:
+      rubbish_recycling_collection:
+      search_for_a_different_postcode:
+      search_result:
+      select_address:
+      service_not_available:
+      titled_link:
+      unknown_service:
+      valid_postcode_no_match:
+      valid_postcode_no_match_sub_html:
+      valid_uprn_no_match:
+      valid_uprn_no_match_sub_html:
+      website:
+      what_you_need_to_know:
+    maib_report:
+      name:
+        one: ጸብጻብ ጨንፈር መርመራ ሓደጋ ባሕሪ
+        other: ጸብጻባት ጨንፈር መርመራ ሓደጋ ባሕሪ
+    map:
+      name:
+        one: ካርታ
+        other: ካርታታት
+    medical_safety_alert:
+      name:
+        one: ን መድሃኒታትን ሕክምናዊ መሳርሒታት ዝምልከት መጠንቀቕታን መጸዋዕታን
+        other: ን መድሃኒታትን ሕክምናዊ መሳርሒታት ዝምልከት መጠንቀቕታን መጸዋዕታን
+    national:
+      name:
+        one: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታ
+        other: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታታት
+    national_statistics:
+      name:
+        one: ተፈላጥነት ዘለዎ ወግዓዊ ስታቲስቲክስ
+        other: ተፈላጥነት ዘለዎ ወግዓዊ ስታቲስቲክስ
+    national_statistics_announcement:
+      name:
+        one: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታ
+        other: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታታት
+    news_article:
+      name:
+        one: ናይ ጽሑፍ ዜና
+        other: ናይ ጽሑፍ ዜናታት
+    news_story:
+      name:
+        one: ዜናዊ ዛንታ
+        other: ዜናዊ ዛንታታት
+    notice:
+      name:
+        one: ምልክታ
+        other: ምልክታታት
+    official:
+      name:
+        one: ወግዓዊ ምልክታ ናይ ስታቲስቲክስ
+        other: ወግዓዊ ምልክታታት ናይ ስታቲስቲክስ
+    official_statistics:
+      name:
+        one: ወግዓዊ ስታቲስቲክስ
+        other: ወግዓዊ ስታቲስቲክስ
+    official_statistics_announcement:
+      name:
+        one: ወግዓዊ ምልክታ ናይ ስታቲስቲክስ
+        other: ወግዓዊ ምልክታታት ናይ ስታቲስቲክስ
+    open_call_for_evidence:
+      name:
+        one:
+        other:
+    open_consultation:
+      name:
+        one: ክፉት ምምኽኻር
+        other: ክፉት ምምኽኻራት
+    oral_statement:
+      name:
+        one: ኣፋዊ መግለጺ ናብ ባይቶ
+        other: ኣፋዊ መግለጺታት ናብ ባይቶ
+    place:
+      change: ለውጢ
+      find_results: ኣብ ጥቓኻ ውጽኢት ርኸብ
+      postcode: ፖስታ ኮድ
+      select_address: ኣድራሻ ምረጽ
+    policy:
+      name:
+        one: ፖሊሲ
+        other: ፖሊሲታት
+    policy_paper:
+      name:
+        one: ናይ ፖሊሲ ወረቐት
+        other: ናይ ፖሊሲ ወረቓቕቲ
+    press_release:
+      name:
+        one: ጋዜጣዊ መግለጺ
+        other: ጋዜጣዊ መግለጺታት
+    product-safety-alert-report-recall:
+      name:
+        one: መጠንቀቕታታት ድሕነት ፍርያት፣ ጸብጻባትን ዳግማይ መጸዋዕታን
+        other: መጠንቀቕታታት ድሕነት ፍርያት፣ ጸብጻባትን ዳግማይ መጸዋዕታን
+    promotional:
+      name:
+        one: ናይ ምውዕዋዕ ንብረት
+        other: ናይ ምውዕዋዕ ንብረት
+    publication:
+      details:
+      documents:
+        one:
+        other:
+      name:
+        one: ሕታም
+        other: ሕታማት
+    raib_report:
+      name:
+        one: ጸብጻብ ጨንፈር መርመራ ሓደጋ ባቡር
+        other: ጸብጻባት ጨንፈር መርመራ ሓደጋ ባቡር
+    regulation:
+      name:
+        one: ደንቢ
+        other: ደንቢታት
+    research:
+      name:
+        one: መጽናዕትን ትንተናን
+        other: መጽናዕትን ትንተናን
+    residential_property_tribunal_decision:
+      name:
+        one: ውሳነ ቤት ፍርዲ ናይ መንበሪ ገዛ
+        other: ውሳነታት ቤት ፍርዲ ናይ መንበሪ ገዛ
+    service_sign_in:
+      name:
+        one: ናብ ኣገልግሎት ምእታው
+        other: ናብ ኣገልግሎት ምእታው
+    service_standard_report:
+      name:
+        one: ጸብጻብ ደረጃ ኣገልግሎት
+        other: ጸብጻባት ደረጃ ኣገልግሎት
+    simple_smart_answer:
+      change: ለውጥ
+      next_step: ዝቕጽል ስጉምቲ
+      please_answer: ብኽብረትካ እዛ ሕቶ እዚኣ መልስ
+      start_again: እንደገና ጀምር
+      your_answers: መልስታትካ
+    speaking_notes:
+      name:
+        one: ናይ ዘረባ መዘኻኸሪታት
+        other: ናይ ዘረባ መዘኻኸሪታት
+    specialist_document:
+      protection_image:
+        pdo_alt_text: እቲ ናይ ስኬም ኣርማ ጸሊም ማሕተም ኮይኑ፡ ደዚግኔትድ ኦሪጅን ዩኬ ፕሮቴክትድ (Designated Origin UK Protected) ዝብል ጽሑፍ ኣለዎ።
+        pgi_alt_text: እቲ ናይ ስኬም ኣርማ ጸሊም ማሕተም ኮይኑ፡ ጂኦግራፊክ ኦሪጅን ዩኬ ፕሮቴክትድ ዝብል ጽሑፍ ኣለዎ።
+        tsg_alt_text: እቲ ናይ ስኬም ኣርማ ጸሊም ማሕተም ኮይኑ፡ ትራዲሽናል ስፔሻሊቲ  ዩኬ ፕሮቴክትድ(Traditional Speciality UK Protected) ዝብል ጽሑፍ ኣለዎ።
+    speech:
+      delivered_on: ዝበጽሓሉ እዋን
+      location: ቦታ
+      name:
+        one: መደረ
+        other: መደረታት
+      written_on: ዝተጻሕፈሉ
+    standard:
+      name:
+        one: መለክዒ
+        other: መለክዒታት
+    start_now: ሕጂ ጀምር
+    statement_to_parliament:
+      name:
+        one: መግለጺ ናብ ባይቶ
+        other: መግለጺታት ናብ ባይቶ
+    statistical_data_set:
+      name:
+        one: ስታቲስቲካዊ  እኩብ ዳታ/ሓበሬታ
+        other: ስታቲስቲካዊ  እኩብ ዳታታት/ሓበሬታታት
+    statistics_announcement:
+      name:
+        one: ን ስታቲስቲክስ መግለጺ ዝምልከት ምልክታ
+        other: ን ስታቲስቲክስ መግለጺ ዝምልከት ምልክታ
+    statutory_guidance:
+      name:
+        one: ሕጋዊ መምርሒ
+        other: ሕጋዊ መምርሒታት
+    tax_tribunal_decision:
+      name:
+        one: ውሳነ ቤት ፍርዲ ግብሪን ቻንስለርን
+        other: ውሳነታት ቤት ፍርዲ ግብሪን ቻንስለርን
+    transaction:
+      before_you_start: ቅድሚ ምጅማርካ
+      more_information: ተወሳኺ ሓበሬታ
+      'on': አብ
+      other_ways_to_apply: ካልእ መገድታት ንምምልካት
+      sign_in: ሳይን ኢን ግበር
+      what_you_need_to_know: ክትፈልጦ ዘለካ
+    transcript:
+      name:
+        one: ትራንስክሪፕት
+        other: ትራንስክሪፕትታት
+    transparency:
+      name:
+        one: ናይ ግሉጽነት ዳታ/ሓበሬታ
+        other: ናይ ግሉጽነት ዳታ/ሓበሬታ
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="ቤት ጽሕፈት ወጻኢ፡ ኮመንዌልዝን ልምዓትን">FCDO</abbr> ብዘይካ ኣገዳሲ ዝኾነ ኩሉ ናብ ክፋላት %{country} ዝግበር ጉዕዞ ከይግበር ይመክር።
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="ቤት ጽሕፈት ወጻኢ፡ ኮመንዌልዝን ልምዓትን">FCDO</abbr> ብዘይካ ኣገዳሲ ዝኾነ ናብ %{country} ዝግበር ጉዕዞታት ከይከውን ይመክር።
+        avoid_all_travel_to_parts_html: <abbr title="ቤት ጽሕፈት ወጻኢ፡ ኮመንዌልዝን ልምዓትን">FCDO</abbr> ኩሉ ናብ ክፋላት %{country} ዝግበር ጉዕዞ ከይከውን ይመክር።
+        avoid_all_travel_to_whole_country_html: <abbr title="ቤት ጽሕፈት ወጻኢ፡ ኮመንዌልዝን ልምዓትን">FCDO</abbr> ኩሉ ናብ %{country} ዝግበር ጉዕዞ ከይከውን ይመክር።
+      context: ናይ ወጻኢ ሃገር ጉዕዞ ምኽሪ
+      pages: ገጻት ምኽሪ ጉዕዞ
+      still_current_at: ሕጂ ውን እዋናዊ ኣብ
+      summary: መጠቃለሊ
+      updated: ዝተመሓየሸ
+    utaac_decision:
+      name:
+        one: ውሳኔ ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ
+        other: 'ውሳኔታት ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ '
+    world_news_story:
+      name:
+        one: ዜና ዓለም
+        other: ዜናታት ዓለም
+    written_statement:
+      name:
+        one: ብጽሑፍ ናብ ባይቶ ዝተዋህበ መግለጺ
+        other: ንባይቶ ዝቐረበ ናይ ጽሑፍ መግለጺታት
+  help:
+    index:
+      about: ብዛዕባ GOV.UK
+      about_description: ብዛዕባ እቲ መርበብ ሓበሬታን እታ ትሃንጾ ዘላ ጋንታን ዝምልከት ሓበሬታ
+      accessibility: ተበጻሕነት
+      accessibility_description: ዝርዝር ተበጻሕነትን ሓገዝ ምጥቃም ኢንተርነትን
+      beta: ናይ ቤታ ኣገልግሎት ኣብ GOV.UK
+      beta_description: ኣብ GOV.UK ሓደስቲ ኣገልግሎታት ብኸመይ ይምዕብሉን ንተጠቀምቲ እንታይ ትርጉም ከም ዘለዎን
+      browsers: ዳህሰስቲ
+      browsers_description: ሓበሬታ ብዛዕባ መርበብ ሓበሬታን ከመይ ጌርካ ከም እተሐድሶን
+      cookies: ኩኪስ
+      cookies_description: ኩኪስ ኣብ GOV.UK ከመይ ይጥቀሙን ዕላማ ነፍሲ ወከፍ ኩኪን
+      email: GOV.UK ናይ ኢመይል ኖቲፊኬሽን
+      email_description: ከመይ ጌርና ኣብ GOV.UK ናይ ኢመይል ኖቲፊኬሽን ኣካውንት ንፈጥርን ናይ ምዝገባ ምርጫታትና ነሐድስን
+      find_out: ብዛዕባ GOV.UK ፣ ኣጠቓቕማ ኩኪስ፣ ተበጻሕነት ናይቲ መርበብ ሓበሬታ፣ ምልክታ ብሕታዊነትን ውዕላትን ቅጥዕታትን ኣጠቓቕማን ዝምልከት ፍለጥ።
+      privacy_notice: ናይ ብሕትውና ምልክታ
+      privacy_notice_description: ናይ GOV.UK ኣቀራርባ ንብሕታዊነት ተጠቀምቲ
+      reuse_content: ትሕዝቶ GOV.UK ዳግማይ ተጠቐም
+      reuse_content_description: ከመይ ጌርና ትሕዝቶ GOV.UK ብ ኤ.ፒ.ኣይ/(API) ን ከምኡ ውን ብ ሳይት ስክራፒንግ/(site scraping)ን ዳግማይ ንጥቀመሉ
+      terms: ውዕላትን ቅጥዕታትን
+      terms_description: ሓበሬታ ብዛዕባ ኣጠቓቕማ GOV.UKን ተሓታትነትን
+      vulnerability: ኣብ ናይ GOV.UK ዶመይን ወይ ንኡስ ዶመይን ንዝተፈጥረ ተቓላዕነት ጸብጽብ
+      vulnerability_description: ከመይ ጌርና ኣብ GOV.UK ንዝተፈጥረ ተቓላዕነት ንሕብር
+    sign_in:
+      choose_service:
+      explanation:
+      most_viewed:
+      search_for_a_service: ንኣገልግሎት GOV.UK ሰርች ግበር / ድለ
+      search_for_a_service_button: ምድላይ / ሰርች ምግባር
+      service_list_items:
+      service_not_listed_heading: እቲ ትደልዮ ኣገልግሎት እንተዘይተዘርዚሩ
+      service_not_listed_text: ካልእ ኣገልግሎት ትደሊ እንተኾንካ፡ ክትደልዮ ትኽእል ኢኻ።
+  homepage:
+    categories:
+    government_activity:
+    index:
+      brexit:
+      covid:
+      featured:
+      government_activity:
+      government_activity_description:
+      intro_html:
+      intro_simpler:
+      intro_title:
+        html:
+        text:
+      job_search:
+      jobseekers_allowance:
+      merged_websites_html:
+      meta_description:
+      meta_description_new:
+      ministerial_departments:
+      ministerial_departments_count:
+      more:
+      more_links:
+      other_agencies:
+      other_agencies_count:
+      popular:
+      popular_links_heading:
+      promotion_slots:
+      running_limited_company:
+      search_button:
+      search_label:
+      services_and_information:
+      tax_account:
+      uk_bank_holidays:
+      universal_credit:
+    most_active:
+  i18n:
+    direction: ltr
+  language_names:
+    ar:
+    az:
+    be:
+    bg:
+    bn:
+    cs:
+    cy:
+    da:
+    de:
+    dr:
+    el:
+    en:
+    es:
+    es-419:
+    et:
+    fa:
+    fi:
+    fr:
+    gd:
+    gu:
+    he:
+    hi:
+    hr:
+    hu:
+    hy:
+    id:
+    is:
+    it:
+    ja:
+    ka:
+    kk:
+    ko:
+    ku:
+    ky:
+    lt:
+    lv:
+    ms:
+    mt:
+    ne:
+    nl:
+    'no':
+    pa:
+    pa-pk:
+    pl:
+    ps:
+    pt:
+    ro:
+    ru:
+    si:
+    sk:
+    sl:
+    so:
+    sq:
+    sr:
+    sv:
+    sw:
+    ta:
+    th:
+    ti: ትግሪኛ
+    tk:
+    tr:
+    uk:
+    ur:
+    uz:
+    vi:
+    yi:
+    zh:
+    zh-hk:
+    zh-tw:
+  multi_page:
+    next_page: ዝቅጽል
+    previous_page: ዝሓለፈ
+    print_entire_guide: ናይቲ ምሉእ መምርሒ ክሕተም ዝኽእል ኣማራጺ ርአ
+    printable_version: ክሕተም ዝኽእል ኣማራጺ
+  national_statistics:
+    logo_alt_text:
+  'no': አይኮንን
+  or: ወይ
+  place:
+    children_social_care: ኣብቲ ቤት ምኽሪ ንዘሎ ናይ ህጻናት ማሕበራዊ ክንክን ጉጅለ ክትድውል ትኽእል ኢኻ
+    go_to_website: ናብ መርበብ ሓበሬታኦም ኪድ
+  roadmap:
+    actions_section:
+      heading:
+      items:
+    hero:
+      description:
+      heading:
+    numbers_section:
+      footnote:
+      heading_large:
+      heading_small:
+      last_updated:
+      numbers_columns:
+        column_one_count:
+        column_one_text:
+        column_two_count:
+        column_two_text:
+    page_title:
+    updates_section:
+      heading:
+      items:
+  save: መዝግብ/ዓቅብ
+  sessions:
+    first_time:
+      cookie_consent:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+        heading:
+      description_html:
+      feedback_consent:
+        description_html:
+        field:
+          heading:
+          hint:
+          invalid:
+        heading:
+      invalid:
+      title:
+  shared:
+    historically_political: እዚ ኣብ ትሕቲ %{government} ዝተሓትመ እዩ።
+  sign_up: ተመዝገብ
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
+  website: መርበብ ሓበሬታ/ዌብሳይት
+  when_do_the_clocks_change:
+    calendar:
+      body: ኣብ ዓባይ ብሪጣንያ፡ ሰዓታት ናይ መዓልቲ ኣብ እታ መወዳእታ ሰንበት ናይ ወርሒ መጋቢት ሰዓት 1 ናይ ለይቲ ምስ ኮነ ብ1 ሰዓት ንቕድሚት ይሓልፍ፡ ኣብ እታ መወዳእታ ሰንበት ናይ ወርሒ ጥቅምቲ ድማ ሰዓት 2 ናይ ለይቲ ምስ ኮነ ብ1 ሰዓት ንድሕሪት ይምለስ። \n እተን ሰዓታት ብ1 ሰዓት ንቕድሚት ዝሓልፈሉ  እዋን፡ ሰዓት ክረምቲ ብሪጣንያ (BST)(ብሪቲሽ ሳመር ታይም) ተባሂሉ ይፍለጥ፡ እዚ ማለት ድማ ኣብዚ ግዜ እዚ ኣብ ናይ ኣጋ ምሸት/ድሕሪ ቀትሪ ብርሃን መዓልቲ ንነዊሕ ሰዓት ይጸንሕ ኣብ ናይ ንግሆ ድማ ብርሃን መዓልቲ ይውሕድ (እዚ ሓንሳብ ሓንሳብ ደይላይት ሴቪንግ ተባሂሉ ይጽዋዕ።)። \n ሰዓታት ንድሕሪት ምስ ተመልሰ ድማ፣ ዓባይ ብሪጣንያ ናብ ግሪንዊች ሚን ታይም (GMT) ትምለስ።
+      description: ሰዓታት ንድሕሪት ወይ ንቕድሚት ዝኸዳሉ ዕለታት - ናይ ብሪጣንያ ናይ ክረምቲ ሰዓት፡ ግሪንዊች ማእከላይ ሰዓት የጠቓልል
+      title: ሰዓታት መዓስ ይቕየር?
+    end_notes: ሰዓታት ሓደ ሰዓት ንድሕሪት ይምለስ
+    end_title: መወዳእታ ናይ እንግሊዝ ናይ ክረምቲ ግዜ
+    start_notes: ሰዓታት ሓደ ሰዓት ንቕድሚት ይኸይድ
+    start_title: ምጅማር ናይ እንግሊዝ ናይ ክረምቲ ግዜ
+  withdrawn_notice:
+    title: እዚ %{schema_name} ኣብ %{withdrawn_time} ተሳሒቡ።
+  'yes': እወ

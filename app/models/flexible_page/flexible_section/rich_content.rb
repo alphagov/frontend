@@ -12,7 +12,7 @@ module FlexiblePage::FlexibleSection
 
       if flexible_section_hash["image"].present?
         alt, src = flexible_section_hash.fetch("image").values_at("alt", "src")
-        @image = ContentImage.new(alt:, src:)
+        @image = ContentImage.new(alt:, src:) if src
       end
     end
   end

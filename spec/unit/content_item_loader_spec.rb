@@ -91,6 +91,12 @@ RSpec.describe ContentItemLoader do
       expect(item_request).to have_been_made.twice
     end
 
+    context "when the path uses traversal tricks" do
+      it "returns (but does not raise) an InvalidUrl exception" do
+        expect(content_item_loader.load("/../my-missing-item")).to be_a(GdsApi::InvalidUrl)
+      end
+    end
+
     context "with a missing content item" do
       before do
         stub_content_store_does_not_have_item("/my-missing-item")
@@ -285,7 +291,7 @@ RSpec.describe ContentItemLoader do
 
         before do
           ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
-          stub_const("ContentItemLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
+          stub_const("ContentItemLoaders::LocalFileLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
         end
 
         after do

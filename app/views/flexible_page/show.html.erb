@@ -4,7 +4,9 @@
 
 <% content_for :before_content do %>
   <div class="govuk-width-container">
-    <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+    <%= render "govuk_publishing_components/components/breadcrumbs",
+      collapse_on_mobile: true,
+      breadcrumbs: content_item.breadcrumbs %>
   </div>
 <% end %>
 

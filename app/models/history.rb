@@ -1,4 +1,11 @@
 class History < FlexiblePage
+  def breadcrumbs
+    super << {
+      title: "History of the UK Government",
+      url: "/government/history",
+    }
+  end
+
 private
 
   def default_flexible_sections

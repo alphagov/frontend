@@ -8,6 +8,15 @@ class FlexiblePage < ContentItem
     @flexible_sections = flexible_section_array.map { |hash| FlexiblePage::FlexibleSectionFactory.build(hash.deep_stringify_keys, self) }
   end
 
+  def breadcrumbs
+    [
+      {
+        title: "Home",
+        url: "/",
+      },
+    ]
+  end
+
 private
 
   def default_flexible_sections

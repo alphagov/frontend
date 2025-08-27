@@ -39,4 +39,16 @@ RSpec.describe History do
       end
     end
   end
+
+  describe "#breadcrumbs" do
+    it "extends the base breadcrumbs to add /government/history" do
+      expect(history.breadcrumbs.count).to eq(2)
+      expect(history.breadcrumbs.last).to eq(
+        {
+          title: "History of the UK Government",
+          url: "/government/history",
+        },
+      )
+    end
+  end
 end

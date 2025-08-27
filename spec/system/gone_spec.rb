@@ -18,7 +18,7 @@ RSpec.describe "Gone page" do
       end
 
       it "has the correct title" do
-        expect(page.title).to eq("GOV.UK")
+        expect(page.title).to eq("No longer available - GOV.UK")
       end
 
       it "has the correct heading" do

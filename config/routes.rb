@@ -104,6 +104,9 @@ Rails.application.routes.draw do
 
     get "/get-involved", to: "get_involved#show"
 
+    get "/history", to: "flexible_page#show"
+    get "/history/:slug", to: "flexible_page#show"
+
     get "/news/:slug(.:locale)", to: "news_article#show"
 
     get "/organisations/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"

@@ -378,5 +378,15 @@ RSpec.describe ContentItemLoader do
         include_examples "rendered from Content Store"
       end
     end
+
+    context "when asked to load /government/history" do
+      let!(:item_request) { stub_content_store_has_item("/government/history/history-of-the-uk-government") }
+
+      it "loads the content item from /government/history/history-of-the-uk-government" do
+        content_item_loader.load("/government/history")
+
+        expect(item_request).to have_been_made
+      end
+    end
   end
 end

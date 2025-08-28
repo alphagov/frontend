@@ -155,7 +155,7 @@ RSpec.describe "Local Transactions" do
 
       it "responds successfully with an error message" do
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match(I18n.t!("formats.local_transaction.invalid_postcode"))
+        expect(response.body).to match(ERB::Util.html_escape(I18n.t!("formats.local_transaction.invalid_postcode")))
       end
     end
 
@@ -167,7 +167,7 @@ RSpec.describe "Local Transactions" do
 
       it "responds successfully with an error message" do
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match(I18n.t!("formats.local_transaction.valid_postcode_no_match"))
+        expect(response.body).to match(ERB::Util.html_escape(I18n.t!("formats.local_transaction.valid_postcode_no_match")))
       end
     end
 
@@ -180,7 +180,7 @@ RSpec.describe "Local Transactions" do
 
       it "responds successfully with an error message" do
         expect(response).to have_http_status(:ok)
-        expect(response.body).to match(I18n.t!("formats.local_transaction.no_local_authority"))
+        expect(response.body).to match(ERB::Util.html_escape(I18n.t!("formats.local_transaction.no_local_authority")))
       end
     end
 

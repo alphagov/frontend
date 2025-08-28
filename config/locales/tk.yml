@@ -102,6 +102,7 @@ tk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Serediň:'
   components:
     share_links:
       share_this_page: Bu sahypany paýlaşyň
@@ -648,6 +649,10 @@ tk:
       name:
         one: Mejlise ýazmaça beýan
         other: Mejlise ýazmaça beýanlar
+  gone:
+    page_title: Indi elýeter däl
+    published_in_error: Bu sahypadaky maglumatlar ýalňyş çap edilendigi üçin aýryldy.
+    title: Gözleýän sahypaňyz indi elýeterli däl
   help:
     index:
       about:

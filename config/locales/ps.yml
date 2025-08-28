@@ -102,6 +102,7 @@ ps:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'لیدنه:'
   components:
     share_links:
       share_this_page: دا پاه شریکه کړئ
@@ -648,6 +649,10 @@ ps:
       name:
         one: پارلمان ته لیکلې وینا
         other: پارلمان ته لیکلي بیانونه
+  gone:
+    page_title: نور شتون نلري
+    published_in_error: پدې پاڼه کې معلومات حذف شوي ځکه چې دا په غلطۍ کې خپور شوی.
+    title: هغه پاڼه چې تاسو یې په لټه کې یاست نور شتون نلري
   help:
     index:
       about:

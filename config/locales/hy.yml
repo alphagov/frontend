@@ -102,6 +102,7 @@ hy:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: Այցելել՝
   components:
     share_links:
       share_this_page: Կիսվել այս էջով
@@ -648,6 +649,10 @@ hy:
       name:
         one: Խորհրդարանին ուղղված գրավոր հայտարարություն
         other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
+  gone:
+    page_title: Այլևս հասանելի չէ
+    published_in_error: 'Այս էջի տեղեկությունը հեռացվել է, քանի որ սխալմամբ էր հրապարակվել:'
+    title: Ձեր փնտրած էջն այլևս հասանելի չէ
   help:
     index:
       about:

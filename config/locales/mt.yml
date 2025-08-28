@@ -102,6 +102,7 @@ mt:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Żur:'
   components:
     share_links:
       share_this_page: Aqsam din il-paġna ma'
@@ -802,6 +803,10 @@ mt:
         many:
         one: Dikjarazzjoni bil-miktub lill-Parlament
         other: Dikjarazzjonijiet bil-miktub lill-Parlament
+  gone:
+    page_title: Mhuwiex iktar disponibbli
+    published_in_error: L-informazzjoni fuq din il-paġna tneħħiet għax ġiet ippubblikata bi żball.
+    title: Il-paġna li qed tfittex mhijiex disponibbli iktar
   help:
     index:
       about:

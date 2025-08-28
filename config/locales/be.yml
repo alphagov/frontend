@@ -102,6 +102,7 @@ be:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Наведайце:'
   components:
     share_links:
       share_this_page: Падзяліцца гэтай старонкай
@@ -802,6 +803,10 @@ be:
         many:
         one: Пісьмовая заява ў парламенце
         other: Пісьмовыя заявы ў парламенце
+  gone:
+    page_title: Больш няма ў наяўнасці
+    published_in_error: Інфармацыя на гэтай старонцы была выдалена, бо была апублікавана з памылкай.
+    title: Старонка, якую вы шукаеце, больш не даступная
   help:
     index:
       about:

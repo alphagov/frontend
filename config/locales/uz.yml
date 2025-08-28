@@ -102,6 +102,7 @@ uz:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Ташриф буюринг:'
   components:
     share_links:
       share_this_page: Саҳифа билан бўлишиш
@@ -648,6 +649,10 @@ uz:
       name:
         one: Парламентга ёзма баёнот
         other: Парламентга ёзма баёнотлар
+  gone:
+    page_title: Бундан буён йўқ
+    published_in_error: Ушбу саҳифадаги маълумот ўчириб юборилган, чунки у хато бўлган.
+    title: Сиз излаётган саҳифа бундан буён йўқ.
   help:
     index:
       about:

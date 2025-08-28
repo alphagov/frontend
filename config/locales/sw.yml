@@ -102,6 +102,7 @@ sw:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Tembelea:'
   components:
     share_links:
       share_this_page: Shiriki ukurasa huu
@@ -648,6 +649,10 @@ sw:
       name:
         one: Taarifa ya Maandishi kwa Bunge
         other: Taarifa za Maandishi kwa Bunge
+  gone:
+    page_title: Hayapatikani tena
+    published_in_error: Maelezo yaliyo kwenye ukurasa huu yameondolewa kwa sababu yalichapishwa kimakosa.
+    title: Ukurasa unaotafuta haupatikani tena
   help:
     index:
       about:

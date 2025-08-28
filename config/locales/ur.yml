@@ -102,6 +102,7 @@ ur:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ملاحظہ کریں:'
   components:
     share_links:
       share_this_page: اس صفحے کو شیئر کریں
@@ -648,6 +649,10 @@ ur:
       name:
         one: پالیمان کے لیے تحریری بیان
         other: پالیمان کے لیے تحریری بیانات
+  gone:
+    page_title: مزید دستیاب نہیں
+    published_in_error: اس صفحے سے معلومات ہٹا دی گئی ہیں کیونکہ اسے نقص کے ساتھ شائع کیا گیا تھا۔
+    title: جس صفحے کی آپ کو تلاش ہے وہ مزید دستیاب نہیں ہے
   help:
     index:
       about:

@@ -102,6 +102,7 @@ tr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Ziyaret et:'
   components:
     share_links:
       share_this_page: Bu sayfayı paylaş
@@ -648,6 +649,10 @@ tr:
       name:
         one: Parlamentoya yazılı açıklama
         other: Parlamentoya yazılı açıklamalar
+  gone:
+    page_title: Artık mevcut değil
+    published_in_error: Bu sayfadaki bilgiler hatalı yayınlandığından kaldırıldı.
+    title: Aradığınız sayfa artık mevcut değil
   help:
     index:
       about:

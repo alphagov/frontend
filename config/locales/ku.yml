@@ -102,6 +102,7 @@ ku:
     today: ئەمڕۆ
     united-kingdom_slug: شانشینی یەکگرتوو
     upcoming_bank_holidays:
+    visit: 'سەردانی : '
   components:
     share_links:
       share_this_page: ئەم په‌یجه‌ هاوبه‌ش بکەن
@@ -648,6 +649,10 @@ ku:
       name:
         one: بەیاننامەی نووسراو بۆ پەرلەمان
         other: بەیاننامە نووسراوه‌كان بۆ پەرلەمان
+  gone:
+    page_title: ئیتر بەردەست نییە
+    published_in_error: زانیارییەکانی ئەم لاپەڕەیە لابراون چونکە بە هەڵە بڵاوکراوەتەوە.
+    title: ئەو پەیجەی کە بەدوایدا دەگەڕێیت ئێستا بەردەست نییە
   help:
     index:
       about: دەربارەی GOV.UK

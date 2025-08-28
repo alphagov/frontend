@@ -102,6 +102,7 @@ bn:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ভিজিট করুন:'
   components:
     share_links:
       share_this_page: এই পেজটি শেয়ার করুন
@@ -648,6 +649,10 @@ bn:
       name:
         one: সংসদে লিখিত বিবৃতি
         other: সংসদে লিখিত বিবৃতিসমূহ
+  gone:
+    page_title: আর উপলভ্য নেই
+    published_in_error: এই পেজের তথ্য সরিয়ে নেওয়া হয়েছে, কারণ এটি ভুলক্রমে প্রকাশিত হয়েছিল।
+    title: আপনি যে পেজটি খুঁজছেন তা আর উপলভ্য নেই
   help:
     index:
       about:

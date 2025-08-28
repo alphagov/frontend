@@ -102,6 +102,7 @@ da:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Besøge:'
   components:
     share_links:
       share_this_page: Del denne side
@@ -648,6 +649,10 @@ da:
       name:
         one: Mundtlig erklæring til Parlamentet
         other: Mundtlige erklæring til Parlamentet
+  gone:
+    page_title: Ikke længere tilgængelig
+    published_in_error: Oplysningerne på denne side er blevet fjernet, fordi de er udgivet ved en fejl.
+    title: Den side, du leder efter, er ikke længere tilgængelig
   help:
     index:
       about:

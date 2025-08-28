@@ -102,6 +102,7 @@ sk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Navštívte:'
   components:
     share_links:
       share_this_page: Zdieľať túto stránku
@@ -725,6 +726,10 @@ sk:
         few:
         one: Písomné vyhlásenie pre Parlament
         other: Písomné vyhlásenia pre Parlament
+  gone:
+    page_title: Už nie je k dispozícii
+    published_in_error: Informácie na tejto stránke boli odstránené, pretože boli uverejnené omylom.
+    title: Stránka, ktorú hľadáte, už nie je k dispozícii
   help:
     index:
       about:

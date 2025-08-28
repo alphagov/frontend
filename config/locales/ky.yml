@@ -102,6 +102,7 @@ ky:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Баш багыңыз:'
   components:
     share_links:
       share_this_page: Бул баракчаны бөлүшүү
@@ -648,6 +649,10 @@ ky:
       name:
         one: Парламентте жазуу түрүндө арыз
         other: Парламентте жазуу түрүндө арыздар
+  gone:
+    page_title: Жеткиликсиз
+    published_in_error: Бул баракчадагы маалымат ката менен жарыялангандыктан өчүрүлдү.
+    title: Сиз карап жаткан баракча мындан ары жеткиликсиз
   help:
     index:
       about:

@@ -102,6 +102,7 @@ de:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Besuchen Sie:'
   components:
     share_links:
       share_this_page: Diese Seite teilen
@@ -648,6 +649,10 @@ de:
       name:
         one: Schriftliche Erklärung vor dem Parlament
         other: Schriftliche Erklärungen vor dem Parlament
+  gone:
+    page_title: Nicht mehr verfügbar
+    published_in_error: Die Informationen auf dieser Seite wurden entfernt, da sie fälschlich veröffentlicht wurden.
+    title: Die von Ihnen gesuchte Seite ist nicht mehr verfügbar
   help:
     index:
       about:

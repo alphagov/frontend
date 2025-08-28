@@ -17,9 +17,10 @@
   </div>
   <%= yield :after_content %>
 <% end %>
-
 <%= content_for :head do %>
   <%= csp_meta_tag %>
+  <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
+  <%= yield :extra_javascript %>
   <%= render_component_stylesheets %>
   <% if content_item.to_h %>
     <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>

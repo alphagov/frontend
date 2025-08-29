@@ -79,6 +79,205 @@ ti:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: ትሕዝቶ
+      metadata:
+        published: ተሓቲሙ
+        updated: ዝተመሓየሸ
+      schema_name:
+        aaib_report:
+          one: ጸብጻብ ናይ ጨንፈር መርመራ ሓደጋታት ኣየር
+          other: ጸብጻባት ናይ ጨንፈር መርመራ ሓደጋታት ኣየር
+        announcement:
+          one: ምልክታ
+          other: ምልክታታት
+        asylum_support_decision:
+          one: ናይ ቤት ፍርዲ ውሳነ ኣብ ናይ ዑቕባ ደገፍ
+          other: ናይ ቤት ፍርዲ ውሳነታት ኣብ ናይ ዑቕባ ደገፍ
+        authored_article:
+          one: ወግዓዊ ዓንቀጽ
+          other: ወግዓዊ ዓንቀጽ
+        business_finance_support_scheme:
+          one: ናይ ቢዝነስ ፋይናንስ ደገፍ መደብ
+          other: ናይ ቢዝነስ ፋይናንስ ደገፍ መደባት
+        case_study:
+          one: ናይቲ ጉዳይ መጽናዕቲ / (ኬዝ ስታዲ)
+          other: ናይቲ ጉዳይ መጽናዕቲታት / (ኬዝ ስታዲ)
+        closed_consultation:
+          one: ዕጹው ምምኽኻር / (ክሎዝድ ኮንሳልቴሽን)
+          other: ዕጹዋት ምምኽኻራት / (ክሎዝድ ኮንሳልቴሽንስ)
+        cma_case:
+          one: ጉዳይ በዓል መዚ ውድድርን ዕዳጋታትን
+          other: ጉዳያት በዓል መዚ ውድድርን ዕዳጋታትን
+        consultation:
+          one: ምምኽኻር
+          other: ምምኽኻራት
+        consultation_outcome:
+          one: ውጽኢት ምምኽኻር
+          other: ውጽኢት ምምኽኻራት
+        corporate_information_page:
+          one: ናይ ሓበሬታ ገጽ
+          other: ናይ ሓበሬታ ገጻት
+        corporate_report:
+          one: ጸብጻብ ትካል
+          other: ጸብጻባት ትካላት
+        correspondence:
+          one: ደብዳቤ / (ክሮስፖንደንስ)
+          other: ደብዳቤታት / (ክሮስፖንደንስስ)
+        countryside_stewardship_grant:
+          one: ንዕቃበ ገጠር ዝኸውን ደገፍ
+          other: ንዕቃበ ገጠር ዝኸውን ድጋፋት
+        decision:
+          one: ውሳነ
+          other: ውሳነታት
+        detailed_guide:
+          one: መምርሒ
+          other: ምምርሒታት
+        dfid_research_output:
+          one: ንውጽኢት ልምዓት ዝኸውን መጽናዕቲ
+          other: ንውጽኢት ልምዓት ዝኸውን መጽናዕትታት
+        document_collection:
+          one: እኩብ
+          other: እኩባት
+        draft_text:
+          one: ንድፊ ጽሑፍ
+          other: ንድፊ ጽሑፋት
+        drug_safety_update:
+          one: እዋናዊ ሓበሬታ ድሕነት መድሃኒት
+          other: እዋናዊ ሓበሬታ ድሕነት መድሃኒታት
+        employment_appeal_tribunal_decision:
+          one: ውሳኔ ናይ ስራሕ ናይ ይግባይ ቤት ፍርዲ
+          other: ውሳኔታት ናይ ስራሕ ናይ ይግባይ ቤት ፍርዲ
+        employment_tribunal_decision:
+          one: ውሳነ ቤት ፍርዲ ናይ ስራሕ
+          other: ውሳነታት ቤት ፍርዲ ናይ ስራሕ
+        esi_fund:
+          one: ኤውሮጳዊ መዋቕራውን ወፍርን ሓገዝ (ኢ.ኤስ.ኣይ.ኤፍ/ESIF)
+          other: ኤውሮጳዊ መዋቕራውን ወፍርን ሓገዛት (ኢ.ኤስ.ኣይ.ኤፍ/ESIF)
+        foi_release:
+          one: ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)
+          other: ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)
+        form:
+          one: ቅጥዒ
+          other: ቅጥዕታት
+        guidance:
+          one: መምርሒ
+          other: ምምርሒታት
+        impact_assessment:
+          one: ናይ ጽልዋ ገምጋም
+          other: ናይ ጽልዋ ገምጋማት
+        imported:
+          one: ብደገ ዝመጽአ - ኣብ ምጽባይ ዝርከብ  ዓይነት
+          other: ብደገ ዝመጽአ - ኣብ ምጽባይ ዝርከብ  ዓይነት
+        independent_report:
+          one: ነጻ ጸብጻብ
+          other: ነጻ ጸብጻባት
+        international_development_fund:
+          one: ዓለም ለኸ ልምዓታዊ ደገፍ
+          other: ዓለም ለኸ ልምዓታዊ ደገፋት
+        international_treaty:
+          one: ኣህጉራዊ ውዕል
+          other: ኣህጉራዊ ውዕላት
+        maib_report:
+          one: ጸብጻብ ጨንፈር መርመራ ሓደጋ ባሕሪ
+          other: ጸብጻባት ጨንፈር መርመራ ሓደጋ ባሕሪ
+        map:
+          one: ካርታ
+          other: ካርታታት
+        medical_safety_alert:
+          one: ን መድሃኒታትን ሕክምናዊ መሳርሒታት ዝምልከት መጠንቀቕታን መጸዋዕታን
+          other: ን መድሃኒታትን ሕክምናዊ መሳርሒታት ዝምልከት መጠንቀቕታን መጸዋዕታን
+        national:
+          one: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታ
+          other: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታታት
+        national_statistics:
+          one: ተፈላጥነት ዘለዎ ወግዓዊ ስታቲስቲክስ
+          other: ተፈላጥነት ዘለዎ ወግዓዊ ስታቲስቲክስ
+        national_statistics_announcement:
+          one: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታ
+          other: ተፈላጥነት ዘለዎ ወግዓዊ ናይ ስታቲስቲክስ ምልክታታት
+        news_article:
+          one: ምልክታ
+          other: ምልክታታት
+        notice:
+        official:
+          one: ወግዓዊ ምልክታ ናይ ስታቲስቲክስ
+          other: ወግዓዊ ምልክታታት ናይ ስታቲስቲክስ
+        official_statistics:
+          one: ወግዓዊ ስታቲስቲክስ
+          other: ወግዓዊ ስታቲስቲክስ
+        official_statistics_announcement:
+          one: ወግዓዊ ምልክታ ናይ ስታቲስቲክስ
+          other: ወግዓዊ ምልክታታት ናይ ስታቲስቲክስ
+        open_consultation:
+          one: ክፉት ምምኽኻር
+          other: ክፉት ምምኽኻራት
+        oral_statement:
+          one: ኣፋዊ መግለጺ ናብ ባይቶ
+          other: ኣፋዊ መግለጺታት ናብ ባይቶ
+        policy:
+          one: ፖሊሲ
+          other: ፖሊሲታት
+        policy_paper:
+          one: ናይ ፖሊሲ ወረቐት
+          other: ናይ ፖሊሲ ወረቓቕቲ
+        product-safety-alert-report-recall:
+          one: መጠንቀቕታታት ድሕነት ፍርያት፣ ጸብጻባትን ዳግማይ መጸዋዕታን
+          other: መጠንቀቕታታት ድሕነት ፍርያት፣ ጸብጻባትን ዳግማይ መጸዋዕታን
+        promotional:
+          one: ናይ ምውዕዋዕ ንብረት
+          other: ናይ ምውዕዋዕ ንብረት
+        publication:
+          one: ሕታም
+          other: ሕታማት
+        raib_report:
+          one: ጸብጻብ ጨንፈር መርመራ ሓደጋ ባቡር
+          other: ጸብጻባት ጨንፈር መርመራ ሓደጋ ባቡር
+        regulation:
+          one: ደንቢ
+          other: ደንቢታት
+        research:
+          one: መጽናዕትን ትንተናን
+          other: መጽናዕትን ትንተናን
+        residential_property_tribunal_decision:
+          one: ውሳነ ቤት ፍርዲ ናይ መንበሪ ገዛ
+          other: ውሳነታት ቤት ፍርዲ ናይ መንበሪ ገዛ
+        service_sign_in:
+          one: ናብ ኣገልግሎት ምእታው
+          other: ናብ ኣገልግሎት ምእታው
+        service_standard_report:
+          one: ጸብጻብ ደረጃ ኣገልግሎት
+          other: ጸብጻባት ደረጃ ኣገልግሎት
+        speaking_notes:
+          one: ናይ ዘረባ መዘኻኸሪታት
+          other: ናይ ዘረባ መዘኻኸሪታት
+        standard:
+          one: መለክዒ
+          other: መለክዒታት
+        statement_to_parliament:
+          one: መግለጺ ናብ ባይቶ
+          other: መግለጺታት ናብ ባይቶ
+        statistics_announcement:
+          one: ን ስታቲስቲክስ መግለጺ ዝምልከት ምልክታ
+          other: ን ስታቲስቲክስ መግለጺ ዝምልከት ምልክታ
+        statutory_guidance:
+          one: ሕጋዊ መምርሒ
+          other: ሕጋዊ መምርሒታት
+        tax_tribunal_decision:
+          one: ውሳነ ቤት ፍርዲ ግብሪን ቻንስለርን
+          other: ውሳነታት ቤት ፍርዲ ግብሪን ቻንስለርን
+        transcript:
+          one: ትራንስክሪፕት
+          other: ትራንስክሪፕትታት
+        transparency:
+          one: ናይ ግሉጽነት ዳታ/ሓበሬታ
+          other: ናይ ግሉጽነት ዳታ/ሓበሬታ
+        utaac_decision:
+          one: ውሳኔ ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ
+          other: 'ውሳኔታት ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ '
+        written_statement:
+          one: ብጽሑፍ ናብ ባይቶ ዝተዋህበ መግለጺ
+          other: ንባይቶ ዝቐረበ ናይ ጽሑፍ መግለጺታት
     download_ics:
     email_and_print_link: 'ነዚ ገጽ ፕሪንት ንምባል ወይ ውን ንኢመይላት ተመዝገቡ '
     extra_bank_holiday:

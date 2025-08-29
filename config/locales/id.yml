@@ -79,6 +79,152 @@ id:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Konten
+      metadata:
+        published: Diterbitkan
+        updated: Diperbarui
+      schema_name:
+        aaib_report:
+          other: Laporan Cabang Investigasi Kecelakaan Udara
+        announcement:
+          other: Pengumuman
+        asylum_support_decision:
+          other: Keputusan persidangan dukungan suaka
+        authored_article:
+          other: Artikel bersumber
+        business_finance_support_scheme:
+          other: Skema dukungan keuangan bisnis
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: Studi kasus
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: Konsultasi tertutup
+        cma_case:
+          other: Kasus Otoritas Persaingan dan Pasar
+        consultation:
+          other: Konsultasi
+        consultation_outcome:
+          other: Hasil konsultasi
+        corporate_information_page:
+          other: Halaman informasi
+        corporate_report:
+          other: Laporan korporat
+        correspondence:
+          other: Korespondensi
+        countryside_stewardship_grant:
+          other: Hibah Countryside Stewardship
+        decision:
+          other: Keputusan
+        detailed_guide:
+          other: Panduan
+        dfid_research_output:
+          other: Hasil Riset untuk Pembangunan
+        document_collection:
+          other: Koleksi
+        draft_text:
+          other: Teks rancangan
+        drug_safety_update:
+          other: Pembaruan Keselamatan Obat
+        employment_appeal_tribunal_decision:
+          other: Keputusan persidangan banding ketenagakerjaan
+        employment_tribunal_decision:
+          other: Keputusan persidangan ketenagakerjaan
+        esi_fund:
+          other: Dana Struktur dan Investasi Eropa (ESIF)
+        foi_release:
+          other: Rilis Kebebasan Informasi
+        form:
+          other: Formulir
+        guidance:
+          other: Panduan
+        impact_assessment:
+          other: Penilaian dampak
+        imported:
+          other: diimpor- menunggu jenis
+        independent_report:
+          other: Laporan independen
+        international_development_fund:
+          other: Pendanaan pembangunan internasional
+        international_treaty:
+          other: Pakta internasional
+        maib_report:
+          other: Laporan Cabang Investigasi Kecelakaan Maritim
+        map:
+          other: Peta
+        medical_safety_alert:
+          other: Peringatan dan panggilan ulang untuk obat-obatan dan perangkat medis
+        national:
+          other: Pengumuman statistik nasional
+        national_statistics:
+          other: Statistik Nasional
+        national_statistics_announcement:
+          other: Pengumuman statistik nasional
+        news_article:
+          other: Artikel berita
+        notice:
+          other: Pemberitahuan
+        official:
+          other: Pengumuman statistik resmi
+        official_statistics:
+          other: Statistik Resmi
+        official_statistics_announcement:
+          other: Pengumuman statistik resmi
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: Konsultasi terbuka
+        oral_statement:
+          other: Pernyataan lisan kepada Parlemen
+        policy:
+          other: Kebijakan
+        policy_paper:
+          other: Kertas kebijakan
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: Bahan promosi
+        publication:
+          other: Publikasi
+        raib_report:
+          other: Laporan Cabang Investigasi Kecelakaan Kereta
+        regulation:
+          other: Regulasi
+        research:
+          other: Riset dan analisis
+        residential_property_tribunal_decision:
+          other: Keputusan persidangan properti permukiman
+        service_sign_in:
+          other: Masuk layanan
+        service_standard_report:
+          other: Laporan Standar Layanan
+        speaking_notes:
+          other: Catatan bicara
+        standard:
+          other: Standar
+        statement_to_parliament:
+          other: Pernyataan kepada Parlemen
+        statistical_data_set:
+          other: Set data statistik
+        statistics_announcement:
+          other: Pengumuman rilis statistik
+        statutory_guidance:
+          other: Panduan perundang-undangan
+        tax_tribunal_decision:
+          other: Keputusan persidangan Pajak dan Perbendaharaan
+        transcript:
+          other: Transkrip
+        transparency:
+          other: Data transparansi
+        utaac_decision:
+          other: Keputusan persidangan banding administratif
+        written_statement:
+          other: Pernyataan tertulis kepada Parlemen
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

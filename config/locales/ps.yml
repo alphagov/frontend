@@ -79,6 +79,222 @@ ps:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: منځپانګې
+      metadata:
+        published: خپور شوی
+        updated: تازه شوی
+      schema_name:
+        aaib_report:
+          one: د هوایي پیښو د تحقیقاتو د څانګې راپور
+          other: د هوایي پیښو د تحقیقاتو د څانګې راپور وګورئ
+        announcement:
+          one: اعلان
+          other: اعلانونه
+        asylum_support_decision:
+          one: د پناه غوښتنې د ملاتړ محکمې پریکړه
+          other: د پناه غوښتنې د ملاتړ محکمې پریکړې
+        authored_article:
+          one: لیکل شوې مقاله
+          other: لیکل شوي مقالې
+        business_finance_support_scheme:
+          one: د سوداګرۍ د مالي ملاتړ طرحه
+          other: د سوداګرۍ د مالي ملاتړ طرحې
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: موردي مطالعه
+          other: موردي مطالعات
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: له نيژدې مشوره
+          other: له نيژدې مشورې
+        cma_case:
+          one: د سیالۍ او بازارونو ادارې قضیه
+          other: د سیالۍ او بازارونو ادارې قضیې
+        consultation:
+          one: مشوره
+          other: مشورې
+        consultation_outcome:
+          one: د مشورې پایله
+          other: د مشورې پایلې
+        corporate_information_page:
+          one: د معلوماتو پاڼه
+          other: د معلوماتو پاڼې
+        corporate_report:
+          one: د کارپوریټ راپور
+          other: د شرکت راپورونه
+        correspondence:
+          one: لیکنه
+          other: لیکنې
+        countryside_stewardship_grant:
+          one: د کلیوالي چارو سرپرستي مرسته
+          other: د کلیو د ساتنې بورسونه
+        decision:
+          one: پریکړه
+          other: پریکړې
+        detailed_guide:
+          one: لارښود
+          other: لارښود
+        dfid_research_output:
+          one: د پرمختیایی محصول لپاره څیړنه
+          other: د پراختیا محصولاتو لپاره څیړنه
+        document_collection:
+          one: ټولګه
+          other: ټولګه
+        draft_text:
+          one: مسوده متن
+          other: د متن مسوده
+        drug_safety_update:
+          one: د مخدره توکو خوندیتوب تازه کول
+          other: د مخدره توکو خوندیتوب تازه معلومات
+        employment_appeal_tribunal_decision:
+          one: د کار موندنې اپیل محکمه پریکړه
+          other: د کار موندنې اپیل محکمه پریکړې
+        employment_tribunal_decision:
+          one: د کار موندنې محکمې پریکړه
+          other: د کارموندنې محکمې پریکړې
+        esi_fund:
+          one: د اروپا ساختماني او پانګوونې فنډ (ESIF)
+          other: د اروپا ساختماني او پانګوونې فنډونه (ESIF)
+        foi_release:
+          one: د د معلوماتو د آزادۍ قانون خوشې کول
+          other: د معلوماتو د آزادۍ قانون خپروي
+        form:
+          one: فورمه
+          other: فورمې
+        guidance:
+          one: لارښود
+          other: لارښود
+        impact_assessment:
+          one: د اغیز ارزونه
+          other: د اغیزو ارزونه
+        imported:
+          one: وارد شوی - په تمه ډول
+          other: وارد شوی - په تمه ډول
+        independent_report:
+          one: خپلواک راپور
+          other: خپلواک راپورونه
+        international_development_fund:
+          one: د نړیوالې پراختیا تمویل
+          other: د نړیوالې پراختیا تمویل
+        international_treaty:
+          one: نړیوال تړون
+          other: نړیوال تړونونه
+        maib_report:
+          one: د سمندري پیښو د تحقیقاتو د څانګې راپور
+          other: د سمندري پېښو د تحقیقاتو څانګې راپورونه
+        map:
+          one: نقشه
+          other: نقشې
+        medical_safety_alert:
+          one: د درملو او طبي وسایلو لپاره خبرتیا او بیا بلنه
+          other: د درملو او طبي وسایلو لپاره خبرتیا او بیل بلنې
+        national:
+          one: د ملي احصایې اعلان
+          other: د ملي احصایې اعلانونه
+        national_statistics:
+          one: ملي احصایې
+          other: ملي احصایې
+        national_statistics_announcement:
+          one: د ملي احصایې اعلان
+          other: د ملي احصایې اعلانونه
+        news_article:
+          one: د خبر مقاله
+          other: د خبر مقالې
+        notice:
+          one: خبرتیا
+          other: خبرتیاوې
+        official:
+          one: د رسمي احصایې اعلان
+          other: د رسمي احصایې اعلانونه
+        official_statistics:
+          one: رسمي احصایې
+          other: رسمي احصایې
+        official_statistics_announcement:
+          one: د رسمي احصایې اعلان
+          other: د رسمي احصایې اعلانونه
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: خلاص مشوره
+          other: مشورې خلاص کړئ
+        oral_statement:
+          one: پارلماني غونډې ته وینا
+          other: پارلمان ته شفاهي څرګندونې
+        policy:
+          one: پالیسي
+          other: پالیسۍ
+        policy_paper:
+          one: د پالیسۍ پاڼه
+          other: د پالیسۍ ڼې
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: تشویقي مواد
+          other: تشویقي مواد
+        publication:
+          one: خپرونه
+          other: خپرونې
+        raib_report:
+          one: د ریل د پېښو د تحقیقاتو د څانګې راپور
+          other: د ریل د پېښود د تحقیقاتو د څانګې راپورونه
+        regulation:
+          one: مقررات
+          other: مقررات
+        research:
+          one: څیړنه او تحلیل
+          other: څیړنه او تحلیل
+        residential_property_tribunal_decision:
+          one: د استوګنې د ملکیت د محکمې پریکړه
+          other: د استوګنې د ملکیت د محکمې پریکړې
+        service_sign_in:
+          one: د خدمت ننوتل
+          other: د خدمت ننوتل
+        service_standard_report:
+          one: د خدمت معیاري راپور
+          other: د خدمت معیاري راپورونه
+        speaking_notes:
+          one: د وینا یادونه
+          other: د وینا یادونه
+        standard:
+          one: معیاري
+          other: معیارونه
+        statement_to_parliament:
+          one: پارلمان ته وینا
+          other: پارلمان ته وینا
+        statistical_data_set:
+          one: د احصایوي معلوماتو سیټ
+          other: د احصایوي معلوماتو سیټونه
+        statistics_announcement:
+          one: د احصایې خپریدو اعلان
+          other: احصایې اعلانات خپروي
+        statutory_guidance:
+          one: قانوني لارښود
+          other: قانوني لارښود
+        tax_tribunal_decision:
+          one: د مالیې او چانسري محکمې پریکړه
+          other: د مالیې او چانسري محکمې پریکړې
+        transcript:
+          one: نقل
+          other: نقلونه
+        transparency:
+          one: د شفافیت معلومات
+          other: د شفافیت معلومات
+        utaac_decision:
+          one: اداري استیناف د محکمې پریکړه
+          other: د اداري استیناف د محکمې پریکړې
+        written_statement:
+          one: پارلمان ته لیکلې وینا
+          other: پارلمان ته لیکلي بیانونه
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

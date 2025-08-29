@@ -79,6 +79,222 @@ so:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Waxyaabaha uu ka koobanyahay
+      metadata:
+        published: Daabacaada
+        updated: La cusboonaysiiyay
+      schema_name:
+        aaib_report:
+          one: Warbixinta Qeybta Baadhitaanada Shilalka Hawada
+          other: Warbixinaha Qeybta Baadhitaanada Shilalka Hawada
+        announcement:
+          one: Ogeysiis
+          other: Ogeysiisyo
+        asylum_support_decision:
+          one: Go'aanka maxkamada ee taageerada magan-galyo doonka
+          other: Go'aamada maxkamada ee taageerada magan-galyo doonka
+        authored_article:
+          one: Qodob laqoray
+          other: Qodobada laqoray
+        business_finance_support_scheme:
+          one: Qorshaha caawimada maaliyada ganacsi
+          other: Qorshayaasha caawimada maaliyada ganacsi
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Daraasad
+          other: Daraasado
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Latalin xidhan
+          other: Latalino xidhan
+        cma_case:
+          one: Tartanka iyo kiiska Masuuliyada Suuqyada
+          other: Tartanka iyo kiisas ka Masuuliyada Suuqyada
+        consultation:
+          one: Latalin
+          other: Latalino
+        consultation_outcome:
+          one: Natiijada latalinta
+          other: Natiijooyinka latalinta
+        corporate_information_page:
+          one: Boga macluumaadka
+          other: Bogaga macluumaadka
+        corporate_report:
+          one: Warbixinta shirkada
+          other: Warbixinaha shirkada
+        correspondence:
+          one: Xidhiidhka
+          other: Xidhiidhada
+        countryside_stewardship_grant:
+          one: Maalgalinta Maamulka Miyiga
+          other: Maalgalinaha Maamulka Miyiga
+        decision:
+          one: Go'aan
+          other: Go'aamo
+        detailed_guide:
+          one: Tilmaam
+          other: Tilmaam
+        dfid_research_output:
+          one: Cilmi-baadhista Natiijada Horumarinta
+          other: Cilmi-baadhista Natiijooyinka Horumarinta
+        document_collection:
+          one: Xidhmo
+          other: Xidhmooyin
+        draft_text:
+          one: Qabyo qoraal
+          other: Qabyo qoraalo
+        drug_safety_update:
+          one: Warbixinta Badqabka Daroogada
+          other: Warbixinaha Badqabka Daroogada
+        employment_appeal_tribunal_decision:
+          one: Go'aanka rafcaanka maxkamada ee shaqaaleysiinta
+          other: Go'aamada rafcaanka maxkamada ee shaqaaleysiinta
+        employment_tribunal_decision:
+          one: Go'aanka maxkamada ee shaqaaleysiinta
+          other: Go'aamada maxkamada ee shaqaaleysiinta
+        esi_fund:
+          one: Maalgalinta Dhismaha iyo Maalgashiga Yurub (ESIF)
+          other: Maalgalinaha Qaabka iyo Maalgashiga Yurub (ESIF)
+        foi_release:
+          one: Baahinta FOI
+          other: Warbixinaha FOI
+        form:
+          one: Foomka
+          other: Foomamka
+        guidance:
+          one: Tilmaam
+          other: Tilmaam
+        impact_assessment:
+          one: Qiimeynta Saamenta
+          other: Qiimeynta Saamaynaha
+        imported:
+          one: lasoo-dajiyey - nooca sugitaanka
+          other: lasoo-dajiyey - nooca sugitaanka
+        independent_report:
+          one: Warbixin madax banaan
+          other: Warbixino madax banaan
+        international_development_fund:
+          one: Maalgalinta horumarinta calaamiga ah
+          other: Maalgalinta horumarinta calaamiga ah
+        international_treaty:
+          one: Heshiis caalamiya
+          other: Heshiisyo caalamiya
+        maib_report:
+          one: Warbixinta Qeybta Baadhitaanada Shilka Bada
+          other: Warbixinaha Qeybta Baadhitaanada Shilalka Bada
+        map:
+          one: Maab
+          other: Maabab
+        medical_safety_alert:
+          one: Wargelinaha iyo xasuusiyayaasha daroogooyinka iyo agabka caafimaad
+          other: Wargelinaha iyo xasuusiyayaasha daroogooyinka iyo agabka caafimaad
+        national:
+          one: Ogeysiiska tirokoobka qaranka
+          other: Ogeysiisyada tirokoobka qaranka
+        national_statistics:
+          one: Tirokoobka qaranka
+          other: Tirokoobka qaranka
+        national_statistics_announcement:
+          one: Ogeysiiska tirokoobka qaranka
+          other: Ogeysiisyada tirokoobka qaranka
+        news_article:
+          one: Maqaal war ah
+          other: Maqaalo war ah
+        notice:
+          one: Ogeysiis
+          other: Ogeysiisyo
+        official:
+          one: Ogeysiiska tirokoobka rasmiga ah
+          other: Ogeysiisyada tirokoobka rasmiga ah
+        official_statistics:
+          one: Tirokoobka rasmiga ah
+          other: Tirokoobka rasmiga ah
+        official_statistics_announcement:
+          one: Ogeysiiska tirokoobka rasmiga ah
+          other: Ogeysiisyada tirokoobka rasmiga ah
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Latalin furan
+          other: Latalino furan
+        oral_statement:
+          one: Bayaanka loogu talogalay Baarlamaanka
+          other: Bayaanada loogu talogalay Baarlamaanka
+        policy:
+          one: Siyaasada
+          other: Siyaasadaha
+        policy_paper:
+          one: Warqada siyaasada
+          other: Waraaqaha siyaasada
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Agab xayeysiis
+          other: Agab xayeysiis
+        publication:
+          one: Daabacaad
+          other: Daabacaado
+        raib_report:
+          one: Warbixinta Qeybta Baadhitaanada Shilka Tareenka
+          other: Warbixinaha Qeybta Baadhitaanada Shilalka Tareenka
+        regulation:
+          one: Sharci
+          other: Shuruuc
+        research:
+          one: Cilmi-baadhis iyo falanqeyn
+          other: Cilmi-baadhis iyo falanqeyn
+        residential_property_tribunal_decision:
+          one: Go'aanka maxkamada ee hantida guriga
+          other: Go'aamada maxkamada ee hantida guriga
+        service_sign_in:
+          one: Galitaanka adeega
+          other: Galitaanka adeega
+        service_standard_report:
+          one: Warbixinta Adeega
+          other: Warbixinaha Adeega
+        speaking_notes:
+          one: Qoraalada khudbadaha
+          other: Qoraalada khudbadaha
+        standard:
+          one: Heerka
+          other: Heerarka
+        statement_to_parliament:
+          one: Bayaanka loogu talogalay Baarlamaanka
+          other: Bayaanada loogu talogalay Baarlamaanka
+        statistical_data_set:
+          one: Xogta tirokoobka
+          other: Xogaha tirokoobka
+        statistics_announcement:
+          one: Ogeysiiska warbixinta tirokoobka
+          other: Ogeysiisyada warbixinta tirokoobka
+        statutory_guidance:
+          one: Tilmaamta sharciga
+          other: Tilmaamta sharciga
+        tax_tribunal_decision:
+          one: Cashuur iyo go'aanka Qeybta maxkamada
+          other: Cashuur iyo go'aamada Qeybta maxkamada
+        transcript:
+          one: Qoraal
+          other: Qoraalo
+        transparency:
+          one: Xog daah furan
+          other: Xog daah furan
+        utaac_decision:
+          one: Go'aanka rafcaanka maxkamada ee maamulka
+          other: Go'aamada rafcaanka maxkamada ee maamulka
+        written_statement:
+          one: Bayaan qoran oo loogu talogalay Baarlamaanka
+          other: Bayaanada qoran ee loogu talogalay Baarlamaanka
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

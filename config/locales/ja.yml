@@ -79,6 +79,152 @@ ja:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: コンテンツ
+      metadata:
+        published: 掲載日
+        updated: 更新済み
+      schema_name:
+        aaib_report:
+          other: 航空事故調査局報告書
+        announcement:
+          other: お知らせ
+        asylum_support_decision:
+          other: 難民支援審判所（Asylum support tribunal）の決定
+        authored_article:
+          other: 執筆記事
+        business_finance_support_scheme:
+          other: 企業金融支援制度
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: ケーススタディ
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: 非公開審議
+        cma_case:
+          other: 競争市場庁の事例
+        consultation:
+          other: 審議
+        consultation_outcome:
+          other: 審議結果
+        corporate_information_page:
+          other: 情報ページ
+        corporate_report:
+          other: 企業報告書
+        correspondence:
+          other: 対応
+        countryside_stewardship_grant:
+          other: カントリーサイドスチュワードシップ助成金
+        decision:
+          other: 決定
+        detailed_guide:
+          other: ガイダンス
+        dfid_research_output:
+          other: 開発成果の研究
+        document_collection:
+          other: コレクション
+        draft_text:
+          other: 下書きテキスト
+        drug_safety_update:
+          other: 医薬品安全性の最新情報
+        employment_appeal_tribunal_decision:
+          other: 雇用上訴審判所（Employment appeal tribunal）の決定
+        employment_tribunal_decision:
+          other: 雇用審判所（Employment tribunal decision）の決定
+        esi_fund:
+          other: 欧州構造投資基金 (ESIF)
+        foi_release:
+          other: FOI（情報公開）発表
+        form:
+          other: フォーム
+        guidance:
+          other: ガイダンス
+        impact_assessment:
+          other: 影響評価
+        imported:
+          other: インポート済み - 待機中の種別
+        independent_report:
+          other: 第三者による報告
+        international_development_fund:
+          other: 国際開発資金
+        international_treaty:
+          other: 国際条約
+        maib_report:
+          other: 海難調査支部報告書
+        map:
+          other: 地図
+        medical_safety_alert:
+          other: 医薬品・医療機器の注意喚起及び回収
+        national:
+          other: 全国統計発表
+        national_statistics:
+          other: 国家統計
+        national_statistics_announcement:
+          other: 全国統計発表
+        news_article:
+          other: ニュース記事
+        notice:
+          other: お知らせ
+        official:
+          other: 公式統計発表
+        official_statistics:
+          other: 公式統計
+        official_statistics_announcement:
+          other: 公式統計発表
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: 公開審議
+        oral_statement:
+          other: 議会への口頭声明
+        policy:
+          other: 方針
+        policy_paper:
+          other: 方針書
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: 販促資料
+        publication:
+          other: 出版物
+        raib_report:
+          other: 鉄道事故調査委員会報告書
+        regulation:
+          other: 規則
+        research:
+          other: 調査と分析
+        residential_property_tribunal_decision:
+          other: 居住用財産審判所（Residential property tribunal）の決定
+        service_sign_in:
+          other: サービスサインイン
+        service_standard_report:
+          other: サービス標準報告書
+        speaking_notes:
+          other: 発言ノート
+        standard:
+          other: 標準
+        statement_to_parliament:
+          other: 議会への声明
+        statistical_data_set:
+          other: 統計データセット
+        statistics_announcement:
+          other: 統計リリースの発表
+        statutory_guidance:
+          other: 法定ガイダンス
+        tax_tribunal_decision:
+          other: 租税及び衡平審判所（Tax and Chancery tribunal）の決定
+        transcript:
+          other: 口述記録
+        transparency:
+          other: 透明性データ
+        utaac_decision:
+          other: 行政控訴審判所（Administrative appeals tribunal decision）の決定
+        written_statement:
+          other: 議会への書面による声明
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

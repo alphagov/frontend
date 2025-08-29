@@ -79,6 +79,222 @@ et:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Sisu
+      metadata:
+        published: Avaldatud
+        updated: Uuendatud
+      schema_name:
+        aaib_report:
+          one: Lennuõnnetuste uurimise haru aruanne
+          other: Lennuõnnetuste uurimise haru aruanded
+        announcement:
+          one: Teadaanne
+          other: Teadaanded
+        asylum_support_decision:
+          one: Varjupaigatoetuse kohtuotsus
+          other: Varjupaigatoetuse kohtuotsused
+        authored_article:
+          one: Kirjutatud artikkel
+          other: Kirjutatud artiklid
+        business_finance_support_scheme:
+          one: Ettevõtte rahastamise toetusskeem
+          other: Ettevõtte rahastamise toetusskeemid
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Juhtumiuuring
+          other: Juhtumiuuringud
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Suletud konsultatsioon
+          other: Suletud konsultatsioonid
+        cma_case:
+          one: Konkurentsi- ja turuameti juhtum
+          other: Konkurentsi- ja turuameti juhtumid
+        consultation:
+          one: Konsultatsioon
+          other: Konsultatsioonid
+        consultation_outcome:
+          one: Konsultatsiooni tulemus
+          other: Konsultatsiooni tulemused
+        corporate_information_page:
+          one: Teabeleht
+          other: Teabelehed
+        corporate_report:
+          one: Ettevõtte aruanne
+          other: Ettevõtte aruanded
+        correspondence:
+          one: Korrespondents
+          other: Korrespondentsid
+        countryside_stewardship_grant:
+          one: Paikkondade alalhoidmise toetus
+          other: Paikkondade alalhoidmise toetused
+        decision:
+          one: Otsus
+          other: Otsused
+        detailed_guide:
+          one: Juhised
+          other: Juhised
+        dfid_research_output:
+          one: Arenguväljundi uurimine
+          other: Arenguväljundite uurimine
+        document_collection:
+          one: Kogu
+          other: Kogud
+        draft_text:
+          one: Teksti mustand
+          other: Teksti mustandid
+        drug_safety_update:
+          one: Uimastiohutuse ajakohatamine
+          other: Uimastiohutuse ajakohastamised
+        employment_appeal_tribunal_decision:
+          one: Töökaebuse kohtuotsus
+          other: Töökaebuse kohtuotsused
+        employment_tribunal_decision:
+          one: Töökohtu otsus
+          other: Töökohtu otsused
+        esi_fund:
+          one: Euroopa struktuuri- ja investeerimisfond (ESIF)
+          other: Euroopa struktuuri- ja investeerimisfondid (ESIF)
+        foi_release:
+          one: FOI väljaanne
+          other: FOI väljaanded
+        form:
+          one: Vorm
+          other: Vormid
+        guidance:
+          one: Juhised
+          other: Juhised
+        impact_assessment:
+          one: Mõju hindamine
+          other: Mõju hindamised
+        imported:
+          one: imporditud - ootel tüüp
+          other: imporditud - ootel tüüp
+        independent_report:
+          one: Sõltumatu aruanne
+          other: Sõltumatud aruanded
+        international_development_fund:
+          one: Rahvusvaheline arengu rahastamine
+          other: Rahvusvaheline arengu rahastamine
+        international_treaty:
+          one: Rahvusvaheline leping
+          other: Rahvusvahelised lepingud
+        maib_report:
+          one: Mereõnnetuste uurimise haru aruanne
+          other: Mereõnnetuste uurimise haru aruanded
+        map:
+          one: Kaart
+          other: Kaardid
+        medical_safety_alert:
+          one: Uimastite ja meditsiiniseadmete hoiatused ja tagasikutsumised
+          other: Uimastite ja meditsiiniseadmete hoiatused ja tagasikutsumised
+        national:
+          one: Riiklik statistikateade
+          other: Riiklikud statistikateated
+        national_statistics:
+          one: Riiklik statistika
+          other: Riiklik statistika
+        national_statistics_announcement:
+          one: Riiklik statistikateade
+          other: Riiklikud statistikateated
+        news_article:
+          one: Uudiste artikkel
+          other: Uudiste artiklid
+        notice:
+          one: Märkus
+          other: Märkused
+        official:
+          one: Ametlik statistikateade
+          other: Ametlikud statistikateated
+        official_statistics:
+          one: Ametlik statistika
+          other: Ametlik statistika
+        official_statistics_announcement:
+          one: Ametlik statistikateade
+          other: Ametlikud statistikateated
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Avatud konsultatsioon
+          other: Avatud konsultatsioonid
+        oral_statement:
+          one: Suuline avaldus parlamendile
+          other: Suulised avaldused parlamendile
+        policy:
+          one: Eeskirjad
+          other: Eeskirjad
+        policy_paper:
+          one: Eeskirjade dokument
+          other: Eeskirjade dokumendid
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Reklaammaterjal
+          other: Reklaammaterjal
+        publication:
+          one: Publikatsioon
+          other: Publikatsioonid
+        raib_report:
+          one: Raudteeõnnetuste uurimise haru aruanne
+          other: Raudteeõnnetuste uurimise haru aruanded
+        regulation:
+          one: Määrus
+          other: Määrused
+        research:
+          one: Uurimine ja analüüs
+          other: Uurimine ja analüüs
+        residential_property_tribunal_decision:
+          one: Elamukinnisvara kohtuotsus
+          other: Elamukinnisvara kohtuotsused
+        service_sign_in:
+          one: Teenusesse sisselogimine
+          other: Teenusesse sisselogimine
+        service_standard_report:
+          one: Teenuse standardaruanne
+          other: Teenuse standardaruanded
+        speaking_notes:
+          one: Kõnemärkmed
+          other: Kõnemärkmed
+        standard:
+          one: Standard
+          other: Standardid
+        statement_to_parliament:
+          one: Avaldus parlamendile
+          other: Avaldused parlamendile
+        statistical_data_set:
+          one: Statistiline andmekogum
+          other: Statistilised andmekogumid
+        statistics_announcement:
+          one: Teade statistika avaldamisest
+          other: Teated statistika avaldamisest
+        statutory_guidance:
+          one: Seadusjärgsed juhised
+          other: Seadusjärgsed juhised
+        tax_tribunal_decision:
+          one: Maksu- ja õigluskohtu otsus
+          other: Maksu- ja õigluskohtu otsused
+        transcript:
+          one: Transkriptsioon
+          other: Transkriptsioonid
+        transparency:
+          one: Läbipaistvuse andmed
+          other: Läbipaistvuse andmed
+        utaac_decision:
+          one: Halduskaebuste kohtuotsus
+          other: Halduskaebuste kohtuotsus
+        written_statement:
+          one: Kirjalik avaldus parlamendile
+          other: Kirjalikud avaldused parlamendile
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

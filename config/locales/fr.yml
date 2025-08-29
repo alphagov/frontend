@@ -79,6 +79,222 @@ fr:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Contenu
+      metadata:
+        published: Publié
+        updated: Mis à jour
+      schema_name:
+        aaib_report:
+          one: Rapport de la Division des enquêtes sur les accidents aériens
+          other: Rapports de la Division des enquêtes sur les accidents aériens
+        announcement:
+          one: Annonce
+          other: Annonces
+        asylum_support_decision:
+          one: Décision du tribunal d'aide à l'asile
+          other: Décisions du tribunal d'aide à l'asile
+        authored_article:
+          one: Article signé
+          other: Articles signés
+        business_finance_support_scheme:
+          one: Programme d'aide au financement des entreprises
+          other: Programmes d'aide au financement des entreprises
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Etude de cas
+          other: Etudes de cas
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Consultation fermée
+          other: Consultations fermées
+        cma_case:
+          one: Affaire relative à l'autorité de la concurrence et des marchés
+          other: Affaires relatives à l'autorité de la concurrence et des marchés
+        consultation:
+          one: Consultation
+          other: Consultations
+        consultation_outcome:
+          one: Résultat de la consultation
+          other: Résultats de la consultation
+        corporate_information_page:
+          one: Page d'information
+          other: Pages d'information
+        corporate_report:
+          one: Rapport de l'entreprise
+          other: Rapports de l'entreprise
+        correspondence:
+          one: Correspondance
+          other: Correspondances
+        countryside_stewardship_grant:
+          one: Subvention pour la gestion des zones rurales
+          other: Subventions pour la gestion des zones rurales
+        decision:
+          one: Décision
+          other: Décisions
+        detailed_guide:
+          one: Orientations
+          other: Orientations
+        dfid_research_output:
+          one: Résultat de la recherche pour le développement
+          other: Résultats de la recherche pour le développement
+        document_collection:
+          one: Collection
+          other: Collections
+        draft_text:
+          one: Projet de texte
+          other: Projets de texte
+        drug_safety_update:
+          one: Mise à jour de la sécurité des médicaments
+          other: Mises à jour de la sécurité des médicaments
+        employment_appeal_tribunal_decision:
+          one: Décision du tribunal d'appel du travail
+          other: Décisions du tribunal d'appel du travail
+        employment_tribunal_decision:
+          one: Décision du tribunal du travail
+          other: Décisions du tribunal du travail
+        esi_fund:
+          one: Fonds européens structurels d'investissement (FESI)
+          other: Fonds européens structurels d'investissement (FESI)
+        foi_release:
+          one: Communiqué d'accès à l'information
+          other: Communiqués d'accès à l'information
+        form:
+          one: Formulaire
+          other: Formulaires
+        guidance:
+          one: Orientation
+          other: Orientation
+        impact_assessment:
+          one: Évaluation de l'impact
+          other: Évaluations de l'impact
+        imported:
+          one: importé - en attente du type
+          other: importé - en attente du type
+        independent_report:
+          one: Rapport indépendant
+          other: Rapports indépendants
+        international_development_fund:
+          one: Financement du développement international
+          other: Financement du développement international
+        international_treaty:
+          one: Traité international
+          other: Traités internationaux
+        maib_report:
+          one: Rapport de la division des enquêtes sur les accidents maritimes
+          other: Rapports de la division des enquêtes sur les accidents maritimes
+        map:
+          one: Carte
+          other: Cartes
+        medical_safety_alert:
+          one: Alertes et rappels de médicaments et de dispositifs médicaux
+          other: Alertes et rappels de médicaments et de dispositifs médicaux
+        national:
+          one: Annonce des statistiques nationales
+          other: Annonces des statistiques nationales
+        national_statistics:
+          one: Statistiques nationales
+          other: Statistiques nationales
+        national_statistics_announcement:
+          one: Annonce des statistiques nationales
+          other: Annonces des statistiques nationales
+        news_article:
+          one: Article d'actualité
+          other: Articles d'actualité
+        notice:
+          one: Notification
+          other: Notifications
+        official:
+          one: Annonce des statistiques officielles
+          other: Annonces des statistiques officielles
+        official_statistics:
+          one: Statistiques officielles
+          other: Statistiques officielles
+        official_statistics_announcement:
+          one: Annonce des statistiques officielles
+          other: Annonces des statistiques officielles
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Consultation ouverte
+          other: Consultations ouvertes
+        oral_statement:
+          one: Déclaration orale au Parlement
+          other: Déclarations orales au Parlement
+        policy:
+          one: Politique générale
+          other: Politiques générales
+        policy_paper:
+          one: Document de politique générale
+          other: Documents de politique générale
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Matériel promotionnel
+          other: Matériel promotionnel
+        publication:
+          one: Publication
+          other: Publications
+        raib_report:
+          one: Rapport de la Division des enquêtes sur les accidents ferroviaires
+          other: Rapports de la Division des enquêtes sur les accidents ferroviaires
+        regulation:
+          one: Règlement
+          other: Règlements
+        research:
+          one: Recherche et analyse
+          other: Recherche et analyse
+        residential_property_tribunal_decision:
+          one: Décision du tribunal chargé du logement résidentiel
+          other: Décisions du tribunal chargé du logement résidentiel
+        service_sign_in:
+          one: Connexion au service
+          other: Connexion au service
+        service_standard_report:
+          one: Rapport sur les normes de service
+          other: Rapports sur les normes de service
+        speaking_notes:
+          one: Notes d'allocution
+          other: Notes d'allocution
+        standard:
+          one: norme
+          other: normes
+        statement_to_parliament:
+          one: Déclaration au parlement
+          other: Déclarations au parlement
+        statistical_data_set:
+          one: Ensemble de données statistiques
+          other: Ensembles de données statistiques
+        statistics_announcement:
+          one: Annonce de la publication de statistiques
+          other: Annonces de la publication de statistiques
+        statutory_guidance:
+          one: Orientation statutaire
+          other: Orientation statutaire
+        tax_tribunal_decision:
+          one: Décision du tribunal chargé des impôts et de la chancellerie
+          other: Décisions du tribunal chargé des impôts et de la chancellerie
+        transcript:
+          one: Transcription
+          other: Transcriptions
+        transparency:
+          one: Transparence des données
+          other: Transparence des données
+        utaac_decision:
+          one: Décision du tribunal administratif d'appel
+          other: Décisions du tribunal administratif d'appel
+        written_statement:
+          one: Déclaration écrite au Parlement
+          other: Déclarations écrites au Parlement
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

@@ -79,6 +79,222 @@ az:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Məzmunlar
+      metadata:
+        published: Dərc edilib
+        updated: Yenilənib
+      schema_name:
+        aaib_report:
+          one: Təyyarə qəzalarının araşdırılması üzrə şöbə hesabatı
+          other: Təyyarə qəzalarının araşdırılması üzrə şöbə hesabatları
+        announcement:
+          one: Elan
+          other: Elanlar
+        asylum_support_decision:
+          one: Sığınacaq dəstəyi üzrə məhkəmə kollegiyası qərarı
+          other: Sığınacaq dəstəyi üzrə məhkəmə kollegiyası qərarları
+        authored_article:
+          one: Müəlliflik edilmiş məqalə
+          other: Müəlliflik edilmiş məqalələr
+        business_finance_support_scheme:
+          one: Biznesin maliyələşdirilməsinə dəstək sxemi
+          other: Biznesin maliyələşdirilməsinə dəstək sxemləri
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Nümunə üzrə araşdırma
+          other: Nümunə üzrə araşdırmalar
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Qapalı məsləhətləşmə
+          other: Qapalı məsləhətləşmələr
+        cma_case:
+          one: Rəqabət və Bazar üzrə səlahiyyət məsələsi
+          other: Rəqabət və Bazar üzrə səlahiyyət məsələləri
+        consultation:
+          one: Məsləhətləşmə
+          other: Məsləhətləşmələr
+        consultation_outcome:
+          one: Məsləhətləşmə nəticəsi
+          other: Məsləhətləşmə nəticələri
+        corporate_information_page:
+          one: Məlumat səhifəsi
+          other: Məlumat səhifələri
+        corporate_report:
+          one: Şirkətin fəaliyyəti üzrə hesabat
+          other: Şirkətin fəaliyyəti üzrə hesabatlar
+        correspondence:
+          one: Yazışma
+          other: Yazışmalar
+        countryside_stewardship_grant:
+          one: Kənddə idarəetmə üçün maliyyə təşviqi
+          other: Kənddə idarəetmə üçün maliyyə təşviqləri
+        decision:
+          one: Qərar
+          other: Qərarlar
+        detailed_guide:
+          one: Göstəriş
+          other: Göstəriş
+        dfid_research_output:
+          one: İnkişafın nəticəsi üçün araşdırma
+          other: İnkişafın nəticələri üçün araşdırma
+        document_collection:
+          one: Yığım
+          other: Yığımlar
+        draft_text:
+          one: Hazırlanan mətn
+          other: Hazırlanan mətnlər
+        drug_safety_update:
+          one: Dərman təhlükəsizliyi üzrə yeniləmə
+          other: Dərman təhlükəsizliyi üzrə yeniləmələr
+        employment_appeal_tribunal_decision:
+          one: İş şikayətləri üzrə məhkəmə kollegiyası qərarı
+          other: İş şikayətləri üzrə məhkəmə kollegiyası qərarları
+        employment_tribunal_decision:
+          one: İşlə əlaqəli məhkəmə kollegiyası qərarı
+          other: İşlə əlaqəli məhkəmə kollegiyası qərarları
+        esi_fund:
+          one: Avropa struktur və investisiya fondu (ESIF)
+          other: Avropa struktur və investisiya fondları (ESIF)
+        foi_release:
+          one: Məlumat əldə etmə azadlığı buraxılışı
+          other: Məlumat əldə etmə azadlığı buraxılışları
+        form:
+          one: Forma
+          other: Formalar
+        guidance:
+          one: Göstəriş
+          other: Göstəriş
+        impact_assessment:
+          one: Təsirin dəyərləndirilməsi
+          other: Təsirin dəyərləndirilmələri
+        imported:
+          one: idxal edilmiş - gözlənilən növ
+          other: idxal edilmiş - gözlənilən növ
+        independent_report:
+          one: Müstəqil hesabat
+          other: Müstəqil hesabatlar
+        international_development_fund:
+          one: İnkişaf üçün beynəlxalq fondlar
+          other: İnkişaf üçün beynəlxalq fondlar
+        international_treaty:
+          one: Beynəlxalq saziş
+          other: Beynəlxalq sazişlər
+        maib_report:
+          one: Dəniz qəzalarının araşdırılması üzrə şöbə hesabatı
+          other: Dəniz qəzalarının araşdırılması üzrə şöbə hesabatları
+        map:
+          one: Xəritə
+          other: Xəritələr
+        medical_safety_alert:
+          one: Dərman və tibbi avadanlıq üçün xəbərdarlıq bildirişləri və geri çağırmalar
+          other: Dərman və tibbi avadanlıq üçün xəbərdarlıq bildirişləri və geri çağırmalar
+        national:
+          one: Milli statistika elanı
+          other: Milli statistika elanları
+        national_statistics:
+          one: Milli statistika
+          other: Milli statistika
+        national_statistics_announcement:
+          one: Milli statistika elanı
+          other: Milli statistika elanları
+        news_article:
+          one: Xəbərləri əks etdirən məqalə
+          other: Xəbərləri əks etdirən məqalələr
+        notice:
+          one: Bildiriş
+          other: Bildirişlər
+        official:
+          one: Rəsmi statistika elanı
+          other: Rəsmi statistika elanları
+        official_statistics:
+          one: Rəsmi statistika
+          other: Rəsmi statistika
+        official_statistics_announcement:
+          one: Rəsmi statistika elanı
+          other: Rəsmi statistika elanları
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Açıq məsləhətləşmə
+          other: Açıq məsləhətləşmələr
+        oral_statement:
+          one: Parlamentə şifahi müraciət
+          other: Parlamentə şifahi müraciətlər
+        policy:
+          one: Siyasət
+          other: Siyasətlər
+        policy_paper:
+          one: Siyasət sənədi
+          other: Siyasət sənədləri
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Reklam materialı
+          other: Reklam materialı
+        publication:
+          one: Nəşr
+          other: Nəşrlər
+        raib_report:
+          one: Dəmir yolu qəzalarının araşdırılması üzrə şöbə hesabatı
+          other: Dəmir yolu qəzalarının araşdırılması üzrə şöbə hesabatları
+        regulation:
+          one: Tənzimləmə
+          other: Tənzimləmələr
+        research:
+          one: Araşdırma və təhlil
+          other: Araşdırma və təhlil
+        residential_property_tribunal_decision:
+          one: Yaşayış üçün istifadə edilən mülk üzrə məhkəmə kollegiyası qərarı
+          other: Yaşayış üçün istifadə edilən mülk üzrə məhkəmə kollegiyası qərarları
+        service_sign_in:
+          one: Xidmət üçün sistemə daxil olma
+          other: Xidmət üçün sistemə daxil olma
+        service_standard_report:
+          one: Xidmət standartı üzrə hesabat
+          other: Xidmət standartı üzrə hesabatlar
+        speaking_notes:
+          one: Şifahi qeydlər
+          other: Şifahi qeydlər
+        standard:
+          one: Standart
+          other: Standartlar
+        statement_to_parliament:
+          one: Parlamentə müraciət
+          other: Parlamentə müraciətlər
+        statistical_data_set:
+          one: Statistik məlumat paketi
+          other: Statistik məlumat paketləri
+        statistics_announcement:
+          one: Statistik məlumat elanı
+          other: Statistik məlumat elanları
+        statutory_guidance:
+          one: Normativ göstərişlər
+          other: Normativ göstərişlər
+        tax_tribunal_decision:
+          one: Vergi və dəftərxana üzrə məhkəmə kollegiyası qərarı
+          other: Vergi və dəftərxana üzrə məhkəmə kollegiyası qərarları
+        transcript:
+          one: Çıxarış
+          other: Çıxarışlar
+        transparency:
+          one: Məlumatla bağlı şəffaflıq
+          other: Məlumatla bağlı şəffaflıq
+        utaac_decision:
+          one: İnzibati şikayətlər üzrə məhkəmə kollegiyası qərarı
+          other: İnzibati şikayətlər üzrə məhkəmə kollegiyası qərarları
+        written_statement:
+          one: Parlamentə yazılı müraciət
+          other: Parlamentə yazılı müraciətlər
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

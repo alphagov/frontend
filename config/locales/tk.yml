@@ -79,6 +79,222 @@ tk:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Mazmuny
+      metadata:
+        published: Çap edilen
+        updated: Täzelenen
+      schema_name:
+        aaib_report:
+          one: Howa heläkçiligini derňemek bölüminiň hasabaty
+          other: Howa heläkçiligini derňemek bölüminiň hasabatlary
+        announcement:
+          one: Bildiriş
+          other: Bildirişler
+        asylum_support_decision:
+          one: Hemaýatkär kazyýet kararyny goldaýar
+          other: Hemaýatkär kazyýet kararlaryny goldaýar
+        authored_article:
+          one: Ygtyýarlandyrylan statýa
+          other: Ygtyýarlandyrylan statýalar
+        business_finance_support_scheme:
+          one: Telekeçiligi maliýeleşdirmegiň shemasy
+          other: Telekeçiligi maliýeleşdirmegi goldamak shemalary
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Ýagdaý seljermesi
+          other: Ýagdaý seljermeleri
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Ýapyk maslahat
+          other: Ýapyk maslahatlar
+        cma_case:
+          one: Bäsdeşlik we bazar häkimiýeti ýagdaýy
+          other: Bäsdeşlik we bazar häkimiýeti ýagdaýlary
+        consultation:
+          one: Maslahat
+          other: Maslahatlar
+        consultation_outcome:
+          one: Maslahatyň netijesi
+          other: Maslahatyň netijeleri
+        corporate_information_page:
+          one: Maglumat sahypasy
+          other: Maglumat sahypalary
+        corporate_report:
+          one: Korperatiw hasabat
+          other: Korperatiw hasabatlar
+        correspondence:
+          one: Gabat gelme
+          other: Gabat gelmeler
+        countryside_stewardship_grant:
+          one: Oba dolandyryş gullugy granty
+          other: Oba dolandyryş gullugy grantlary
+        decision:
+          one: Karar
+          other: Kararlar
+        detailed_guide:
+          one: Gözkezme
+          other: Gözkezme
+        dfid_research_output:
+          one: Ösüş netijesi üçin gözleg
+          other: Ösüş netijeleri üçin gözleg
+        document_collection:
+          one: Toplama
+          other: Toplamalar
+        draft_text:
+          one: Taslama teksti
+          other: Taslama tekstleri
+        drug_safety_update:
+          one: Derman hopsuzlygynyň täzelenmesi
+          other: Derman hopsuzlygynyň täzelenmeleri
+        employment_appeal_tribunal_decision:
+          one: Iş arzasyna kazyýetiň karary
+          other: Iş arzasyna kazyýetiň kararlary
+        employment_tribunal_decision:
+          one: Işçiler babatda kazyýetiň karary
+          other: Işçiler babatda kazyýetiň kararlary
+        esi_fund:
+          one: Ýewropanyň gurluş we maýa goýum gaznasy (ÝGMG)
+          other: Ýewropanyň gurluş we maýa goýum gaznalary (ÝGMG)
+        foi_release:
+          one: FOI goýberilişi
+          other: FOI goýberişleri
+        form:
+          one: Forma
+          other: Formalar
+        guidance:
+          one: Gözkezme
+          other: Gözkezme
+        impact_assessment:
+          one: Täsir bahalandyrmasy
+          other: Täsir bahalandyrmalary
+        imported:
+          one: getirilen - garaşýan görnüş
+          other: getirilen - garaşýan görnüş
+        independent_report:
+          one: Garaşsyz hasabat
+          other: Garaşsyz hasabatlar
+        international_development_fund:
+          one: Halkara ösüşiň gaznalary
+          other: Halkara ösüşiň gaznalary
+        international_treaty:
+          one: Halkara şertnama
+          other: Halkara şertnamalar
+        maib_report:
+          one: Deňiz heläkçiligini derňemek bölüminiň hasabaty
+          other: Deňiz heläkçiligini derňemek bölüminiň hasabatlary
+        map:
+          one: Karta
+          other: Kartalar
+        medical_safety_alert:
+          one: Dermanlar we lukmançylyk enjamlary barada habar berişler we duýduryşlar
+          other: Dermanlar we lukmançylyk enjamlary barada habar berişler we duýduryşlar
+        national:
+          one: Milli statistika bildirişi
+          other: Milli statistika bildirişleri
+        national_statistics:
+          one: Milli statistika
+          other: Milli statistika
+        national_statistics_announcement:
+          one: Milli statistika bildirişi
+          other: Milli statistika bildirişleri
+        news_article:
+          one: Habar makalasy
+          other: Habar makalalary
+        notice:
+          one: Bellik
+          other: Bellikler
+        official:
+          one: Resmi statistika bildirişi
+          other: Resmi statistika bildirişleri
+        official_statistics:
+          one: Resmi statistika
+          other: Resmi statistika
+        official_statistics_announcement:
+          one: Resmi statistika bildirişi
+          other: Resmi statistika bildirişleri
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Açyk maslahat
+          other: Açyk maslahatlar
+        oral_statement:
+          one: Mejlise dilden beýan
+          other: Mejlise dilden beýanlar
+        policy:
+          one: Syýasat
+          other: Syýasatlar
+        policy_paper:
+          one: Syýasat kagyzy
+          other: Syýasat kagyzlary
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Mahabat materialy
+          other: Mahabat materialy
+        publication:
+          one: Neşir
+          other: Neşirler
+        raib_report:
+          one: Demir ýol heläkçiligini derňemek bölüminiň hasabaty
+          other: Demir ýol heläkçiligini derňemek bölüminiň hasabatlary
+        regulation:
+          one: Düzgünnama
+          other: Düzgünnamalar
+        research:
+          one: Gözleg we derňew
+          other: Gözleg we derňew
+        residential_property_tribunal_decision:
+          one: Ýaşaýyş jaý kazyýetiniň karary
+          other: Ýaşaýyş jaý kazyýetiniň kararlary
+        service_sign_in:
+          one: Hyzmat hasaba girmek
+          other: Hyzmat hasaba girmek
+        service_standard_report:
+          one: Standart hyzmat hasabaty
+          other: Standart hyzmat hasabatlary
+        speaking_notes:
+          one: Gepleşik bellikleri
+          other: Gepleşik bellikleri
+        standard:
+          one: Standart
+          other: Standartlar
+        statement_to_parliament:
+          one: Mejlise beýan
+          other: Mejlise beýanlar
+        statistical_data_set:
+          one: Statistiki maglumat toplumy
+          other: Statistiki maglumat toplumlary
+        statistics_announcement:
+          one: Statistiki habarnama
+          other: Statistiki habarnamalar
+        statutory_guidance:
+          one: Kanun boýunça görkezme
+          other: Kanun boýunça görkezme
+        tax_tribunal_decision:
+          one: Salgyt we kansler kazyýetiniň karary
+          other: Salgyt we kansler kazyýetiniň kararlary
+        transcript:
+          one: Ýazgy
+          other: Ýazgylar
+        transparency:
+          one: Aç-açanlyk maglumatlar
+          other: Aç-açanlyk maglumatlar
+        utaac_decision:
+          one: Administratiw arza kazyýetiň karary
+          other: Administratiw arza kazyýetiň kararlary
+        written_statement:
+          one: Mejlise ýazmaça beýan
+          other: Mejlise ýazmaça beýanlar
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

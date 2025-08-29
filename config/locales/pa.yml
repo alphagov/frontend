@@ -79,6 +79,222 @@ pa:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: ਸਮਗਰੀ
+      metadata:
+        published: ਪ੍ਰਕਾਸ਼ਿਤ
+        updated: ਅੱਪਡੇਟ ਕੀਤਾ
+      schema_name:
+        aaib_report:
+          one: ਹਵਾਈ ਹਾਦਸੇ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀ ਰਿਪੋਰਟ
+          other: ਹਵਾਈ ਹਾਦਸੇ ਦੀ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀਆਂ ਰਿਪੋਰਟਾਂ
+        announcement:
+          one: ਘੋਸ਼ਣਾ
+          other: ਘੋਸ਼ਣਾਵਾਂ
+        asylum_support_decision:
+          one: ਸ਼ਰਣ ਸਹਾਇਤਾ ਟ੍ਰਿਬਿਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਸ਼ਰਣ ਸਹਾਇਤਾ ਟ੍ਰਿਬਿਨਲ ਦੇ ਫੈਸਲੇ
+        authored_article:
+          one: ਲੇਖਕ ਲੇਖ
+          other: ਲੇਖਕ ਲੇਖ
+        business_finance_support_scheme:
+          one: ਵਪਾਰ ਵਿੱਤ ਸਹਾਇਤਾ ਯੋਜਨਾ
+          other: ਵਪਾਰ ਵਿੱਤ ਸਹਾਇਤਾ ਯੋਜਨਾਵਾਂ
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: ਕੇਸ ਅਧਿਐਨ
+          other: ਕੇਸ ਅਧਿਐਨ
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: ਬੰਦ ਸਲਾਹ -ਮਸ਼ਵਰਾ
+          other: ਬੰਦ ਸਲਾਹ ਮਸ਼ਵਰੇ
+        cma_case:
+          one: ਮੁਕਾਬਲਾ ਅਤੇ ਮਾਰਕੇਟ ਅਥਾਰਟੀ ਕੇਸ
+          other: ਮੁਕਾਬਲਾ ਅਤੇ ਮਾਰਕੇਟ ਅਥਾਰਟੀ ਕੇਸ
+        consultation:
+          one: ਸਲਾਹ ਮਸ਼ਵਰਾ
+          other: ਸਲਾਹ ਮਸ਼ਵਰੇ
+        consultation_outcome:
+          one: ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦਾ ਨਤੀਜਾ
+          other: ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦੇ ਨਤੀਜੇ
+        corporate_information_page:
+          one: ਜਾਣਕਾਰੀ ਪੰਨਾ
+          other: ਜਾਣਕਾਰੀ ਪੰਨੇ
+        corporate_report:
+          one: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟ
+          other: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟਾਂ
+        correspondence:
+          one: ਪੱਤਰ -ਵਿਹਾਰ
+          other: ਪੱਤਰ -ਵਿਹਾਰ
+        countryside_stewardship_grant:
+          one: ਦੇਸੀ ਇਲਾਕਿਆਂ ਦੀ ਨਿਗਰਾਨੀ ਗ੍ਰਾਂਟ
+          other: ਦੇਸੀ ਇਲਾਕਿਆਂ ਦੀ ਨਿਗਰਾਨੀ ਗ੍ਰਾਂਟਾਂ
+        decision:
+          one: ਫੈਸਲਾ
+          other: ਫੈਸਲੇ
+        detailed_guide:
+          one: ਸੇਧ
+          other: ਸੇਧ
+        dfid_research_output:
+          one: ਵਿਕਾਸ ਆਉਟਪੁੱਟ ਲਈ ਖੋਜ
+          other: ਵਿਕਾਸ ਆਉਟਪੁੱਟਾਂ ਲਈ ਖੋਜ
+        document_collection:
+          one: ਸੰਗ੍ਰਹਿ
+          other: ਸੰਗ੍ਰਹਿ
+        draft_text:
+          one: ਡਰਾਫਟ ਟੈਕਸਟ
+          other: ਡਰਾਫਟ ਟੈਕਸਟ
+        drug_safety_update:
+          one: ਡਰੱਗ ਸੇਫਟੀ ਅਪਡੇਟ
+          other: ਡਰੱਗ ਸੇਫਟੀ ਅਪਡੇਟਸ
+        employment_appeal_tribunal_decision:
+          one: ਰੁਜ਼ਗਾਰ ਅਪੀਲ ਟ੍ਰਿਬਿਊਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਰੁਜ਼ਗਾਰ ਅਪੀਲ ਟ੍ਰਿਬਿਊਨਲ ਦੇ ਫੈਸਲੇ
+        employment_tribunal_decision:
+          one: ਰੁਜ਼ਗਾਰ ਟ੍ਰਿਬਿਊਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਰੁਜ਼ਗਾਰ ਟ੍ਰਿਬਿਊਨਲ ਦੇ ਫੈਸਲੇ
+        esi_fund:
+          one: ਯੂਰਪੀਅਨ ਢਾਂਚਾਗਤ ਅਤੇ ਨਿਵੇਸ਼ ਫੰਡ (ESIF)
+          other: ਯੂਰਪੀਅਨ ਢਾਂਚਾਗਤ ਅਤੇ ਨਿਵੇਸ਼ ਫੰਡ (ESIF)
+        foi_release:
+          one: FOI ਰਿਲੀਜ਼
+          other: FOI ਰਿਲੀਜ਼
+        form:
+          one: ਫਾਰਮ
+          other: ਫਾਰਮ
+        guidance:
+          one: ਸੇਧ
+          other: ਸੇਧ
+        impact_assessment:
+          one: ਪ੍ਰਭਾਵ ਮੁਲਾਂਕਣ
+          other: ਪ੍ਰਭਾਵ ਮੁਲਾਂਕਣ
+        imported:
+          one: ਆਯਾਤ - ਉਡੀਕ ਕੀਤੀ ਕਿਸਮ
+          other: ਆਯਾਤ - ਉਡੀਕ ਕੀਤੀ ਕਿਸਮ
+        independent_report:
+          one: ਸੁਤੰਤਰ ਰਿਪੋਰਟ
+          other: ਸੁਤੰਤਰ ਰਿਪੋਰਟਾਂ
+        international_development_fund:
+          one: ਅੰਤਰਰਾਸ਼ਟਰੀ ਵਿਕਾਸ ਫੰਡਿੰਗ
+          other: ਅੰਤਰਰਾਸ਼ਟਰੀ ਵਿਕਾਸ ਫੰਡਿੰਗ
+        international_treaty:
+          one: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀ
+          other: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀਆਂ
+        maib_report:
+          one: ਸਮੁੰਦਰੀ ਹਾਦਸੇ ਦੀ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀ ਰਿਪੋਰਟ
+          other: ਸਮੁੰਦਰੀ ਦੁਰਘਟਨਾ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀਆਂ ਰਿਪੋਰਟਾਂ
+        map:
+          one: ਨਕਸ਼ਾ
+          other: ਨਕਸ਼ੇ
+        medical_safety_alert:
+          one: ਦਵਾਈਆਂ ਅਤੇ ਮੈਡੀਕਲ ਉਪਕਰਣਾਂ ਲਈ ਚੇਤਾਵਨੀ ਅਤੇ ਰੀਕਾਲ
+          other: ਦਵਾਈਆਂ ਅਤੇ ਮੈਡੀਕਲ ਉਪਕਰਣਾਂ ਲਈ ਚੇਤਾਵਨੀ ਅਤੇ ਰੀਕਾਲ
+        national:
+          one: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾ
+          other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾਵਾਂ
+        national_statistics:
+          one: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ
+          other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ
+        national_statistics_announcement:
+          one: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾ
+          other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾਵਾਂ
+        news_article:
+          one: ਖਬਰ ਲੇਖ
+          other: ਖਬਰ ਲੇਖ
+        notice:
+          one: ਨੋਟਿਸ
+          other: ਨੋਟਿਸ
+        official:
+          one: ਅਧਿਕਾਰਤ ਅੰਕੜਿਆਂ ਦਾ ਐਲਾਨ
+          other: ਅਧਿਕਾਰਤ ਅੰਕੜੇ ਘੋਸ਼ਣਾਵਾਂ
+        official_statistics:
+          one: ਅਧਿਕਾਰਤ ਅੰਕੜੇ
+          other: ਅਧਿਕਾਰਤ ਅੰਕੜੇ
+        official_statistics_announcement:
+          one: ਅਧਿਕਾਰਤ ਅੰਕੜਿਆਂ ਦਾ ਐਲਾਨ
+          other: ਅਧਿਕਾਰਤ ਅੰਕੜੇ ਘੋਸ਼ਣਾਵਾਂ
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: ਖੁੱਲ੍ਹਾ ਸਲਾਹ-ਮਸ਼ਵਰਾ
+          other: ਖੁੱਲ੍ਹੇ ਸਲਾਹ-ਮਸ਼ਵਰੇ
+        oral_statement:
+          one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
+          other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
+        policy:
+          one: ਨੀਤੀ ਨੂੰ
+          other: ਨੀਤੀਆਂ
+        policy_paper:
+          one: ਨੀਤੀ ਪੇਪਰ
+          other: ਨੀਤੀ ਦੇ ਕਾਗਜ਼
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: ਪ੍ਰਚਾਰ ਸਮੱਗਰੀ
+          other: ਪ੍ਰਚਾਰ ਸਮੱਗਰੀ
+        publication:
+          one: ਪ੍ਰਕਾਸ਼ਨ
+          other: ਪ੍ਰਕਾਸ਼ਨ
+        raib_report:
+          one: ਰੇਲ ਹਾਦਸੇ ਦੀ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀ ਰਿਪੋਰਟ
+          other: ਰੇਲ ਹਾਦਸੇ ਦੀ ਜਾਂਚ ਸ਼ਾਖਾ ਦੀਆਂ ਰਿਪੋਰਟਾਂ
+        regulation:
+          one: ਨਿਯਮ
+          other: ਨਿਯਮ
+        research:
+          one: ਖੋਜ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ
+          other: ਖੋਜ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ
+        residential_property_tribunal_decision:
+          one: ਰਿਹਾਇਸ਼ੀ ਸੰਪਤੀ ਟ੍ਰਿਬਿਊਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਰਿਹਾਇਸ਼ੀ ਸੰਪਤੀ ਟ੍ਰਿਬਿਊਨਲ ਦੇ ਫੈਸਲੇ
+        service_sign_in:
+          one: ਸੇਵਾ ਸਾਈਨ ਇਨ
+          other: ਸੇਵਾ ਸਾਈਨ ਇਨ
+        service_standard_report:
+          one: ਸੇਵਾ ਮਿਆਰੀ ਰਿਪੋਰਟ
+          other: ਸੇਵਾ ਮਿਆਰੀ ਰਿਪੋਰਟਾਂ
+        speaking_notes:
+          one: ਭਾਸ਼ਣ ਨੋਟ
+          other: ਭਾਸ਼ਣ ਨੋਟ
+        standard:
+          one: ਮਿਆਰੀ
+          other: ਮਿਆਰ
+        statement_to_parliament:
+          one: ਸੰਸਦ ਨੂੰ ਬਿਆਨ
+          other: ਸੰਸਦ ਨੂੰ ਬਿਆਨ
+        statistical_data_set:
+          one: ਅੰਕੜਾ ਡਾਟਾ ਸੈੱਟ
+          other: ਅੰਕੜਾ ਡਾਟਾ ਸੈੱਟ
+        statistics_announcement:
+          one: ਅੰਕੜੇ ਜਾਰੀ ਘੋਸ਼ਣਾ
+          other: ਅੰਕੜੇ ਜਾਰੀ ਘੋਸ਼ਣਾਵਾਂ
+        statutory_guidance:
+          one: ਕਨੂੰਨੀ ਸੇਧ
+          other: ਕਨੂੰਨੀ ਸੇਧ
+        tax_tribunal_decision:
+          one: ਟੈਕਸ ਅਤੇ ਚਾਂਸਰੀ ਟ੍ਰਿਬਿਊਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਟੈਕਸ ਅਤੇ ਚਾਂਸਰੀ ਟ੍ਰਿਬਿਊਨਲ ਦੇ ਫੈਸਲੇ
+        transcript:
+          one: ਪ੍ਰਤੀਲਿਪੀ
+          other: ਪ੍ਰਤੀਲਿਪੀ
+        transparency:
+          one: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
+          other: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
+        utaac_decision:
+          one: ਪ੍ਰਬੰਧਕੀ ਅਪੀਲ ਟ੍ਰਿਬਿਊਨਲ ਦਾ ਫੈਸਲਾ
+          other: ਪ੍ਰਬੰਧਕੀ ਅਪੀਲ ਟ੍ਰਿਬਿਊਨਲ ਦੇ ਫੈਸਲੇ
+        written_statement:
+          one: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ
+          other: ਸੰਸਦ ਨੂੰ ਲਿਖਤੀ ਬਿਆਨ ਦਿੱਤੇ
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

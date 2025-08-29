@@ -91,4 +91,54 @@ RSpec.describe HtmlPublicationPresenter do
       end
     end
   end
+
+  describe "#last_changed" do
+    context "when this is the first published version" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(:html_publication, example_name: "published_with_history_mode")
+      end
+
+      it "gives the date when last updated" do
+        expect(html_publication_presenter.last_changed).to eq("Published 17 January 2016")
+      end
+    end
+
+    context "when this isn't the first published version" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(:html_publication, example_name: "published_with_history_mode").tap do |example|
+          example["details"]["first_published_version"] = false
+        end
+      end
+
+      it "gives the date when last updated" do
+        expect(html_publication_presenter.last_changed).to eq("Updated 17 January 2016")
+      end
+    end
+  end
+
+  describe "#format_sub_type" do
+    context "when the parent has a document type" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(:html_publication, example_name: "multiple_organisations").tap do |example|
+          example["links"]["parent"][0]["document_type"] = "example_document_type"
+        end
+      end
+
+      it "outputs the parent document type" do
+        expect(html_publication_presenter.format_sub_type).to eq("example_document_type")
+      end
+    end
+
+    context "when the parent does not exist" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(:html_publication, example_name: "multiple_organisations").tap do |example|
+          example["links"]["parent"] = nil
+        end
+      end
+
+      it "outputs the default document type" do
+        expect(html_publication_presenter.format_sub_type).to eq("publication")
+      end
+    end
+  end
 end

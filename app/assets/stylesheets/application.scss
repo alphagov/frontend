@@ -1,7 +1,7 @@
-// This flag stops the font from being included in this application's
-// stylesheet - the font is being served by Static across all of GOV.UK, so is
-// not needed here.
-$govuk-include-default-font-face: false;
+// This flag includes the font in this application's
+// stylesheet - Since we are no longer using Static in frontend,
+// it is now set to true.
+$govuk-include-default-font-face: true;
 
 @import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/component_support";

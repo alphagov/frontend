@@ -78,6 +78,222 @@ pt:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Conteúdos
+      metadata:
+        published: Publicado em
+        updated: Atualizado em
+      schema_name:
+        aaib_report:
+          one: Relatório da Divisão de Investigação de Acidentes Aéreos
+          other: Relatórios da Divisão de Investigação de Acidentes Aéreos
+        announcement:
+          one: Anúncio
+          other: Anúncios
+        asylum_support_decision:
+          one: Decisão do tribunal de apoio a asilo
+          other: Decisões do tribunal de apoio a asilo
+        authored_article:
+          one: Artigo de autor
+          other: Artigos de autor
+        business_finance_support_scheme:
+          one: Regime de apoio financeiro a empresas
+          other: Regimes de apoio financeiro a empresas
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Estudo de caso
+          other: Estudos de caso
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Consulta encerrada
+          other: Consultas encerradas
+        cma_case:
+          one: Caso da Autoridade da Concorrência e Mercados
+          other: Casos da Autoridade da Concorrência e Mercados
+        consultation:
+          one: Consulta
+          other: Consultas
+        consultation_outcome:
+          one: Resultado da consulta
+          other: Resultados da consulta
+        corporate_information_page:
+          one: Página de informação
+          other: Páginas de informação
+        corporate_report:
+          one: Relatório empresarial
+          other: Relatórios empresariais
+        correspondence:
+          one: Correspondência
+          other: Correspondências
+        countryside_stewardship_grant:
+          one: Subsídio de Conservação do Campo
+          other: Subsídios de Conservação do Campo
+        decision:
+          one: Decisão
+          other: Decisões
+        detailed_guide:
+          one: Orientação
+          other: Orientação
+        dfid_research_output:
+          one: Resultado da Investigação para o Desenvolvimento
+          other: Resultados da Investigação para o Desenvolvimento
+        document_collection:
+          one: Coleção
+          other: Coleções
+        draft_text:
+          one: Texto provisório
+          other: Textos provisórios
+        drug_safety_update:
+          one: Atualização sobre Segurança dos Medicamentos
+          other: Atualizações sobre Segurança dos Medicamentos
+        employment_appeal_tribunal_decision:
+          one: Decisão do tribunal de recurso em matéria de trabalho
+          other: Decisões do tribunal de recurso em matéria de trabalho
+        employment_tribunal_decision:
+          one: Decisão do tribunal de trabalho
+          other: Decisões do tribunal de trabalho
+        esi_fund:
+          one: Fundo Estrutural e de Investimento Europeus (ESIF)
+          other: Fundos Estruturais e de Investimento Europeus (ESIF)
+        foi_release:
+          one: Comunicado de Liberdade de Informação
+          other: Comunicados de Liberdade de Informação
+        form:
+          one: Formulário
+          other: Formulários
+        guidance:
+          one: Orientação
+          other: Orientação
+        impact_assessment:
+          one: Avaliação de impacto
+          other: Avaliações de impacto
+        imported:
+          one: importado – a aguardar tipo
+          other: importado – a aguardar tipo
+        independent_report:
+          one: Relatório independente
+          other: Relatórios independentes
+        international_development_fund:
+          one: Financiamento do desenvolvimento internacional
+          other: Financiamento do desenvolvimento internacional
+        international_treaty:
+          one: Tratado internacional
+          other: Tratados internacionais
+        maib_report:
+          one: Relatório da Divisão de Investigação de Acidentes Marítimos
+          other: Relatórios da Divisão de Investigação de Acidentes Marítimos
+        map:
+          one: Mapa
+          other: Mapas
+        medical_safety_alert:
+          one: Alertas e recolhas para medicamentos e dispositivos médicos
+          other: Alertas e recolhas para medicamentos e dispositivos médicos
+        national:
+          one: Anúncio de estatísticas nacionais
+          other: Anúncios de estatísticas nacionais
+        national_statistics:
+          one: Estatísticas Nacionais
+          other: Estatísticas Nacionais
+        national_statistics_announcement:
+          one: Anúncio de estatísticas nacionais
+          other: Anúncios de estatísticas nacionais
+        news_article:
+          one: Artigo noticioso
+          other: Artigos noticiosos
+        notice:
+          one: Aviso
+          other: Avisos
+        official:
+          one: Anúncio de estatísticas oficiais
+          other: Anúncios de estatísticas oficiais
+        official_statistics:
+          one: Estatísticas Oficiais
+          other: Estatísticas Oficiais
+        official_statistics_announcement:
+          one: Anúncio de estatísticas oficiais
+          other: Anúncios de estatísticas oficiais
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Consulta aberta
+          other: Consultas abertas
+        oral_statement:
+          one: Declaração oral ao Parlamento
+          other: Declarações orais ao Parlamento
+        policy:
+          one: Política
+          other: Políticas
+        policy_paper:
+          one: Documento de política
+          other: Documentos de políticas
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Material promocional
+          other: Material promocional
+        publication:
+          one: Publicação
+          other: Publicações
+        raib_report:
+          one: Relatório da Divisão de Investigação de Acidentes Ferroviários
+          other: Relatórios da Divisão de Investigação de Acidentes Ferroviários
+        regulation:
+          one: Regulamento
+          other: Regulamentos
+        research:
+          one: Investigação e análise
+          other: Investigação e análise
+        residential_property_tribunal_decision:
+          one: Decisão do tribunal de propriedade residencial
+          other: Decisões do tribunal de propriedade residencial
+        service_sign_in:
+          one: Registo no serviço
+          other: Registo no serviço
+        service_standard_report:
+          one: Relatório Padrão de Serviço
+          other: Relatórios Padrão de Serviço
+        speaking_notes:
+          one: Notas orais
+          other: Notas orais
+        standard:
+          one: Norma
+          other: Normas
+        statement_to_parliament:
+          one: Declaração ao Parlamento
+          other: Declarações ao Parlamento
+        statistical_data_set:
+          one: Conjunto de dados estatísticos
+          other: Conjuntos de dados estatísticos
+        statistics_announcement:
+          one: Anúncio de divulgação de estatísticas
+          other: Anúncios de divulgação de estatísticas
+        statutory_guidance:
+          one: Orientação estatutária
+          other: Orientação estatutária
+        tax_tribunal_decision:
+          one: Decisão do Tribunal Fiscal e de Chancelaria
+          other: Decisões do Tribunal Fiscal e de Chancelaria
+        transcript:
+          one: Transcrição
+          other: Transcrições
+        transparency:
+          one: Dados de transparência
+          other: Dados de transparência
+        utaac_decision:
+          one: Decisão do tribunal de recurso administrativo
+          other: Decisões do tribunal de recurso administrativo
+        written_statement:
+          one: Declaração escrita ao Parlamento
+          other: Declarações escritas ao Parlamento
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

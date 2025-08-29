@@ -78,6 +78,222 @@ ka:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: შინაარსი
+      metadata:
+        published: პუბლიკაცია
+        updated: განახლება
+      schema_name:
+        aaib_report:
+          one: ავიაკატასტროფების გამოძიების ფილიალის ანგარიში
+          other: ავიაკატასტროფების გამოძიების ფილიალის ანგარიშები
+        announcement:
+          one: განცხადება
+          other: განცხადებები
+        asylum_support_decision:
+          one: თავშესაფრის მხარდაჭერის ტრიბუნალის გადაწყვეტილება
+          other: თავშესაფრის მხარდამჭერი სასამართლო გადაწყვეტილებები
+        authored_article:
+          one: ავტორიზებული სტატია
+          other: ავტორიზებული სტატიები
+        business_finance_support_scheme:
+          one: ბიზნესის დაფინანსების მხარდაჭერის სქემა
+          other: ბიზნესის დაფინანსების მხარდაჭერის სქემები
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: შემთხვევის კვლევა
+          other: შემთხვევის კვლევები
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: დახურული კონსულტაცია
+          other: დახურული კონსულტაციები
+        cma_case:
+          one: კონკურენციისა და ბაზრების უფლებამოსილების საქმე
+          other: კონკურენციისა და ბაზრების ორგანოების საქმეები
+        consultation:
+          one: კონსულტაცია
+          other: კონსულტაციები
+        consultation_outcome:
+          one: კონსულტაციის შედეგი
+          other: კონსულტაციის შედეგები
+        corporate_information_page:
+          one: საინფორმაციო გვერდი
+          other: საინფორმაციო გვერდები
+        corporate_report:
+          one: კორპორატიული ანგარიში
+          other: კორპორატიული ანგარიშები
+        correspondence:
+          one: მიმოწერა
+          other: მიმოწერები
+        countryside_stewardship_grant:
+          one: სოფლის მეურნეობის გრანტი
+          other: სოფლის მეურნეობის გრანტები
+        decision:
+          one: გადაწყვეტილება
+          other: გადაწყვეტილებები
+        detailed_guide:
+          one: ხელძღვანელობა
+          other: ხელძღვანელობა
+        dfid_research_output:
+          one: კვლევა განვითარების შედეგისათვის
+          other: კვლევა განვითარების შედეგებისათვის
+        document_collection:
+          one: კოლექცია
+          other: კოლექციები
+        draft_text:
+          one: სამუშაო ტექსტი
+          other: სამუშაო ტექსტები
+        drug_safety_update:
+          one: ნარკოტიკების უსაფრთხოების განახლება
+          other: ნარკოტიკების უსაფრთხოების განახლებები
+        employment_appeal_tribunal_decision:
+          one: დასაქმების სააპელაციო სასამართლოს გადაწყვეტილება
+          other: დასაქმების სააპელაციო სასამართლოს გადაწყვეტილებები
+        employment_tribunal_decision:
+          one: დასაქმების სასამართლოს გადაწყვეტილება
+          other: დასაქმების სასამართლოს გადაწყვეტილებები
+        esi_fund:
+          one: ევროპის სტრუქტურული და საინვესტიციო ფონდი (ESIF)
+          other: ევროპული სტრუქტურული და საინვესტიციო ფონდები (ESIF)
+        foi_release:
+          one: ინფორმაციის თავისუფლების გამოცემა
+          other: ინფორმაციის თავისუფლების გამოცემებ
+        form:
+          one: ფორმა
+          other: ფორმები
+        guidance:
+          one: გზამკვლევი
+          other: გზამკვლევი
+        impact_assessment:
+          one: ზემოქმედების შეფასება
+          other: ზემოქმედების შეფასებები
+        imported:
+          one: იმპორტირებული - ლოდინის ტიპი
+          other: იმპორტირებული - ლოდინის ტიპი
+        independent_report:
+          one: დამოუკიდებელი ანგარიში
+          other: დამოუკიდებელი ანგარიშები
+        international_development_fund:
+          one: საერთაშორისო განვითარების დაფინანსება
+          other: საერთაშორისო განვითარების დაფინანსება
+        international_treaty:
+          one: საერთაშორისო ხელშეკრულება
+          other: საერთაშორისო ხელშეკრულებები
+        maib_report:
+          one: საზღვაო შემთხვევების გამოძიების ფილიალის ანგარიში
+          other: საზღვაო შემთხვევების გამოძიების ფილიალის ანგარიშები
+        map:
+          one: რუკა
+          other: რუკები
+        medical_safety_alert:
+          one: გაფრთხილებები და შეტყობინებები წამლებისა და სამედიცინო მოწყობილობებისთვის
+          other: გაფრთხილებები და შეტყობინებები წამლებისა და სამედიცინო მოწყობილობებისთვის
+        national:
+          one: ნაციონალური სტატისტიკის განცხადება
+          other: ეროვნული სტატისტიკის განცხადებები
+        national_statistics:
+          one: ეროვნული სტატისტიკა
+          other: ეროვნული სტატისტიკა
+        national_statistics_announcement:
+          one: ეროვნული სტატისტიკის განცხადება
+          other: ეროვნული სტატისტიკის განცხადებები
+        news_article:
+          one: ახალი ამბების სტატია
+          other: ახალი ამბების სტატიები
+        notice:
+          one: შენიშვნა
+          other: შენიშვნები
+        official:
+          one: ოფიციალური სტატისტიკის განცხადება
+          other: ოფიციალური სტატისტიკის განცხადებები
+        official_statistics:
+          one: ოფიციალური სტატისტიკა
+          other: ოფიციალური სტატისტიკა
+        official_statistics_announcement:
+          one: ოფიციალური სტატისტიკის განცხადება
+          other: ოფიციალური სტატისტიკის განცხადებები
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: ღია კონსულტაცია
+          other: ღია კონსულტაციები
+        oral_statement:
+          one: ზეპირი განცხადება პარლამენტში
+          other: ზეპირი განცხადებები პარლამენტში
+        policy:
+          one: კანონი
+          other: კანონები
+        policy_paper:
+          one: საკანონომდებლო დოკუმენტი
+          other: საკანონომდებლო დოკუმენტები
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: პრომო მასალა
+          other: პრომო მასალები
+        publication:
+          one: პუბლიკაცია
+          other: პუბლიკაციები
+        raib_report:
+          one: სარკინიგზო ავარიების გამოძიების ფილიალის ანგარიში
+          other: სარკინიგზო ავარიების გამოძიების ფილიალის ანგარიშები
+        regulation:
+          one: რეგულირება
+          other: რეგულირებები
+        research:
+          one: კვლევა და ანალიზი
+          other: კვლევა და ანალიზი
+        residential_property_tribunal_decision:
+          one: საცხოვრებელი ქონების ტრიბუნალის გადაწყვეტილება
+          other: საცხოვრებელი ქონების ტრიბუნალის გადაწყვეტილებები
+        service_sign_in:
+          one: სერვისში შესვლა
+          other: სერვისში შესვლა
+        service_standard_report:
+          one: სერვისის სტანდარტული ანგარიში
+          other: სერვისის სტანდარტული ანგარიშები
+        speaking_notes:
+          one: საუბრის შენიშვნა
+          other: საუბრის შენიშვნები
+        standard:
+          one: სტანდარტი
+          other: სტანდარტები
+        statement_to_parliament:
+          one: განცხადება პარლამენტში
+          other: განცხადებები პარლამენტში
+        statistical_data_set:
+          one: სტატისტიკური მონაცემების ნაკრები
+          other: სტატისტიკური მონაცემების ნაკრებები
+        statistics_announcement:
+          one: სტატისტიკის გამოქვეყნების განცხადება
+          other: სტატისტიკის გამოქვეყნების განცხადებები
+        statutory_guidance:
+          one: კანონიერი ხელმძღვანელობა
+          other: კანონიერი ხელმძღვანელობა
+        tax_tribunal_decision:
+          one: საგადასახადო და კანცელარიის სასამართლოს გადაწყვეტილება
+          other: საგადასახადო და კანცელარიის სასამართლოს გადაწყვეტილებები
+        transcript:
+          one: ტრანსქრიფტი
+          other: ტრანსქრიფტები
+        transparency:
+          one: გამჭვირვალობის მონაცემები
+          other: გამჭვირვალობის მონაცემები
+        utaac_decision:
+          one: ადმინისტრაციული სააპელაციო სასამართლოს გადაწყვეტილება
+          other: ადმინისტრაციული სააპელაციო სასამართლოს გადაწყვეტილებები
+        written_statement:
+          one: წერილობითი განცხადება პარლამენტში
+          other: წერილობითი განცხადებები პარლამენტში
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

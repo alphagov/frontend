@@ -78,6 +78,222 @@ nl:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Inhoud
+      metadata:
+        published: Gepubliceerd
+        updated: Bijgewerkt
+      schema_name:
+        aaib_report:
+          one: Rapporten Van De Afdeling Onderzoek Van Luchtvaartongevallen
+          other: Rapporten Van De Afdeling Onderzoek Van Ongevallen In De Luchtvaart
+        announcement:
+          one: Aankondiging
+          other: Aankondigingen
+        asylum_support_decision:
+          one: Uitspraak van het asiel-ondersteuningstribunaal
+          other: Uitspraken van het asiel-ondersteuningstribunaal
+        authored_article:
+          one: Geschreven artikel
+          other: Geschreven artikelen
+        business_finance_support_scheme:
+          one: Zakelijke financiering steunregeling
+          other: Ondersteuningsregelingen voor bedrijfsfinanciering
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Casestudy
+          other: Casestudies
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Gesloten overleg
+          other: Gesloten raadplegingen
+        cma_case:
+          one: Mededingings- en marktautoriteit zaak
+          other: Mededinging en Markten Autoriteit zaken
+        consultation:
+          one: Raadpleging
+          other: Raadplegingen
+        consultation_outcome:
+          one: Uitkomsten raadpleging
+          other: Overleg uitkomsten
+        corporate_information_page:
+          one: Informatie pagina
+          other: Informatie pagina's
+        corporate_report:
+          one: Ondernemingsverslag
+          other: Bedrijfsverslagen
+        correspondence:
+          one: Correspondentie
+          other: Correspondentie
+        countryside_stewardship_grant:
+          one: Subsidie voor Countryside Stewardship
+          other: Subsidies in het kader van het Countryside Stewardship
+        decision:
+          one: Besluit
+          other: Besluiten
+        detailed_guide:
+          one: Richtsnoer
+          other: Begeleiding
+        dfid_research_output:
+          one: Onderzoek voor ontwikkeling output
+          other: Onderzoek voor ontwikkelingsdoeleinden
+        document_collection:
+          one: Verzameling
+          other: Verzamelingen
+        draft_text:
+          one: Ontwerpteksten
+          other: Ontwerpteksten
+        drug_safety_update:
+          one: Veiligheid van Geneesmiddelen
+          other: Veiligheid van Geneesmiddelen
+        employment_appeal_tribunal_decision:
+          one: Beslissing van de rechtbank in hoger beroep
+          other: Beslissingen van de rechtbank in hoger beroep
+        employment_tribunal_decision:
+          one: Beslissing van het arbeidstribunaal
+          other: Beslissingen van het arbeidstribunaal
+        esi_fund:
+          one: Europees Structuur- en Investeringsfonds (ESIF)
+          other: Europese structuur- en investeringsfondsen (ESIF)
+        foi_release:
+          one: Vrijheid van informatie-vrijgave
+          other: Vrijheid van informatie-vrijgaven
+        form:
+          one: Formulier
+          other: Formulieren
+        guidance:
+          one: Richtlijn
+          other: Richtlijn
+        impact_assessment:
+          one: Effectbeoordeling
+          other: Effectbeoordelingen
+        imported:
+          one: ingevoerd - in afwachting van type
+          other: ingevoerd - in afwachting van type
+        independent_report:
+          one: Onafhankelijk rapport
+          other: Onafhankelijke rapporten
+        international_development_fund:
+          one: Internationale ontwikkelingsfinanciering
+          other: Internationale ontwikkelingsfinanciering
+        international_treaty:
+          one: Internationaal verdrag
+          other: Internationale verdragen
+        maib_report:
+          one: Marine ongevallen onderzoek branch rapport
+          other: Marine ongevallen onderzoek branch rapporten
+        map:
+          one: Kaart
+          other: Kaarten
+        medical_safety_alert:
+          one: Waarschuwingen en terugroepingen voor geneesmiddelen en medische hulpmiddelen
+          other: Waarschuwingen en terugroepingen voor geneesmiddelen en medische hulpmiddelen
+        national:
+          one: Aankondiging nationale statistieken
+          other: Aankondigingen nationale statistieken
+        national_statistics:
+          one: Nationale statistieken
+          other: Nationale statistieken
+        national_statistics_announcement:
+          one: Aankondigingen nationale statistieken
+          other: Aankondigingen nationale statistieken
+        news_article:
+          one: Nieuwsartikel
+          other: Nieuwsartikel
+        notice:
+          one: Mededeling
+          other: Mededelingen
+        official:
+          one: Officiële statistieken aankondiging
+          other: Officiële statistieken aankondigingen
+        official_statistics:
+          one: Officiële statistieken
+          other: Officiële statistieken
+        official_statistics_announcement:
+          one: Aankondiging van officiële statistieken
+          other: Aankondigingen van officiële statistieken
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Open raadpleging
+          other: Open raadplegingen
+        oral_statement:
+          one: Mondelinge verklaring voor het Parlement
+          other: Mondelinge verklaringen aan het Parlement
+        policy:
+          one: Beleid
+          other: Beleid
+        policy_paper:
+          one: Beleidsnota
+          other: Beleidsnota's
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Promotiemateriaal
+          other: Promotiemateriaal
+        publication:
+          one: Publicatie
+          other: Publicaties
+        raib_report:
+          one: Verslag Van De Spoorwegongevallenonderzoeksdienst
+          other: Verslagen Van De Spoorwegongevallenonderzoeksdienst
+        regulation:
+          one: Regelgeving
+          other: Regelgeving
+        research:
+          one: Onderzoek en analyse
+          other: Onderzoek en analyse
+        residential_property_tribunal_decision:
+          one: Beslissing van de rechtbank voor woningen
+          other: Beslissingen van de rechtbank voor woningen
+        service_sign_in:
+          one: Dienst aanmelden
+          other: Dienst aanmelden
+        service_standard_report:
+          one: Service Standaardrapport
+          other: Service Standaardrapporten
+        speaking_notes:
+          one: Sprekende notities
+          other: Sprekende notities
+        standard:
+          one: Standaard
+          other: Standaarden
+        statement_to_parliament:
+          one: Verklaring voor het Parlement
+          other: Verklaringen voor het Parlement
+        statistical_data_set:
+          one: Statistische gegevensverzameling
+          other: Statistische gegevensverzamelingen
+        statistics_announcement:
+          one: Aankondiging van vrijgegeven statistieken
+          other: Aankondigingen van vrijgegeven statistieken
+        statutory_guidance:
+          one: Statutaire richtsnoeren
+          other: Statutaire richtsnoeren
+        tax_tribunal_decision:
+          one: Beslissing van het tribunaal voor belastingen en kanselarij
+          other: Beslissingen van het tribunaal voor belastingen en kanselarij
+        transcript:
+          one: Transcriptie
+          other: Transcripties
+        transparency:
+          one: Transparantiegegevens
+          other: Transparantiegegevens
+        utaac_decision:
+          one: Beslissing van de rechtbank voor administratief beroep
+          other: Beslissingen van de rechtbank voor administratief beroep
+        written_statement:
+          one: Schriftelijke verklaring aan het Parlement
+          other: Schriftelijke verklaringen aan het Parlement
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

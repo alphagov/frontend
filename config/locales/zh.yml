@@ -78,6 +78,152 @@ zh:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: 目录
+      metadata:
+        published: 已发布
+        updated: 已更新
+      schema_name:
+        aaib_report:
+          other: 航空事故调查局报告
+        announcement:
+          other: 公告
+        asylum_support_decision:
+          other: 庇护支持法庭裁决
+        authored_article:
+          other: 撰写文章
+        business_finance_support_scheme:
+          other: 商业财务支持计划
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: 案例研究
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: 封闭咨询
+        cma_case:
+          other: 竞争和市场管理局案例
+        consultation:
+          other: 咨询
+        consultation_outcome:
+          other: 咨询结果
+        corporate_information_page:
+          other: 信息页
+        corporate_report:
+          other: 公司报告
+        correspondence:
+          other: 通信
+        countryside_stewardship_grant:
+          other: 乡村管理计划拨款
+        decision:
+          other: 决策
+        detailed_guide:
+          other: 指南
+        dfid_research_output:
+          other: 发展产出研究
+        document_collection:
+          other: 待整理
+        draft_text:
+          other: 草拟文本
+        drug_safety_update:
+          other: 药物安全更新
+        employment_appeal_tribunal_decision:
+          other: 劳资上诉法庭判决
+        employment_tribunal_decision:
+          other: 劳资法庭判决
+        esi_fund:
+          other: 欧洲结构与投资基金(ESIF)
+        foi_release:
+          other: FOI 发布
+        form:
+          other: 表格
+        guidance:
+          other: 指南
+        impact_assessment:
+          other: 影响评估
+        imported:
+          other: 进口-等待型
+        independent_report:
+          other: 独立报告
+        international_development_fund:
+          other: 国际发展资金
+        international_treaty:
+          other: 国际条约
+        maib_report:
+          other: 海事事故调查局报告
+        map:
+          other: 地图
+        medical_safety_alert:
+          other: 药品和医疗设备的警报和召回
+        national:
+          other: 国家统计局公告
+        national_statistics:
+          other: 国家统计局
+        national_statistics_announcement:
+          other: 国家统计局公告
+        news_article:
+          other: 新闻报道
+        notice:
+          other: 通知
+        official:
+          other: 官方统计公告
+        official_statistics:
+          other: 官方统计
+        official_statistics_announcement:
+          other: 官方统计公告
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: 公开协商
+        oral_statement:
+          other: 议会口头声明
+        policy:
+          other: 策略
+        policy_paper:
+          other: 政策文件
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: 宣传资料
+        publication:
+          other: 公布
+        raib_report:
+          other: 铁路事故调查局报告
+        regulation:
+          other: 条例
+        research:
+          other: 研究和分析
+        residential_property_tribunal_decision:
+          other: 住宅物业法庭判决
+        service_sign_in:
+          other: 服务登记
+        service_standard_report:
+          other: 服务标准报告
+        speaking_notes:
+          other: 发言讲稿
+        standard:
+          other: 标准
+        statement_to_parliament:
+          other: 议会声明
+        statistical_data_set:
+          other: 统计数据集
+        statistics_announcement:
+          other: 统计数据发布公告
+        statutory_guidance:
+          other: 法定指南
+        tax_tribunal_decision:
+          other: 税务和衡平法法庭裁决
+        transcript:
+          other: 文字记录
+        transparency:
+          other: 透明度数据
+        utaac_decision:
+          other: 行政上诉法庭裁决
+        written_statement:
+          other: 议会口头声明
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

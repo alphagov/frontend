@@ -78,6 +78,234 @@ da:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Indhold
+      metadata:
+        published: offentliggjort
+        updated: Opdateret
+      schema_name:
+        aaib_report:
+          one: Rapport fra afdelingen for undersøgelse af flyulykker
+          other: Rapporter fra afdelingen for undersøgelse af flyulykker
+        announcement:
+          one: Meddelelse
+          other: Meddelelser
+        asylum_support_decision:
+          one: Afgørelse fra asylstøttedomstolen
+          other: Afgørelser fra asylstøttedomstolen
+        authored_article:
+          one: Forfattet artikel
+          other: Forfatterartikler
+        business_finance_support_scheme:
+          one: Forretningsfinansieringsstøtteordning
+          other: Forretningsfinansieringsstøtteordninger
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Casestudie
+          other: Casestudie
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Lukket konsultation
+          other: Lukkede konsultationer
+        cma_case:
+          one: Konkurrence- og markedsmyndighedens sag
+          other: Konkurrence- og markedsmyndighedens sager
+        consultation:
+          one: Konsultation
+          other: Konsultationer
+        consultation_outcome:
+          one: Resultatet af høringen
+          other: Resultater af høringen
+        corporate_information_page:
+          one: Informationsside
+          other: Informationssider
+        corporate_report:
+          one: Virksomhedsrapport
+          other: Virksomhedsrapporter
+        correspondence:
+          one: Korrespondance
+          other: Korrespondancer
+        countryside_stewardship_grant:
+          one: Countryside Stewardship tilskud
+          other: Countryside Stewardship -tilskud
+        decision:
+          one: Beslutning
+          other: Beslutninger
+        detailed_guide:
+          one: Vejledning
+          other: Vejledning
+        dfid_research_output:
+          one: Forskning til udvikling af output
+          other: Forskning til udvikling af outputs
+        document_collection:
+          one: Indsamling
+          other: Indsamlinger
+        draft_text:
+          one: Udkast til tekst
+          other: Udkast til tekster
+        drug_safety_update:
+          one: Opdatering om lægemiddelsikkerhed
+          other: Opdateringer om lægemiddelsikkerhed
+        employment_appeal_tribunal_decision:
+          one: |-
+            Afgørelse om forvaltningsappelsager
+            Nyhedsartikel
+          other: |-
+            Afgørelser om administrative klager
+            Nyhedsartikel
+        employment_tribunal_decision:
+          one: |-
+            Afgørelse om forvaltningsappelsag
+            Nyhedsartikel
+          other: |-
+            Afgørelse om forvaltningsappelsager
+            Nyhedsartikel
+        esi_fund:
+          one: Den Europæiske Struktur- og Investeringsfond (ESIF)
+          other: De europæiske struktur- og investeringsfonde (ESIF)
+        foi_release:
+          one: FOI frigivelse
+          other: FOI frigivelser
+        form:
+          one: Formular
+          other: Formularer
+        guidance:
+          one: Vejledning
+          other: Vejledning
+        impact_assessment:
+          one: Konsekvensanalyse
+          other: Konsekvensanalyser
+        imported:
+          one: importeret - afventer type
+          other: importeret - afventer type
+        independent_report:
+          one: Uafhængig rapport
+          other: Uafhængige rapporter
+        international_development_fund:
+          one: International udviklingsfinansiering
+          other: International udviklingsfinansiering
+        international_treaty:
+          one: International traktat
+          other: Internationale traktater
+        maib_report:
+          one: Rapport fra afdelingen for undersøgelse af flyulykker
+          other: Rapporter fra afdelingen for undersøgelse af flyulykker
+        map:
+          one: Kort
+          other: Kort
+        medical_safety_alert:
+          one: Advarsler og tilbagekaldelser af lægemidler og medicinsk udstyr
+          other: Advarsler og tilbagekaldelser af lægemidler og medicinsk udstyr
+        national:
+          one: Nationale statistikmeddelelse
+          other: Nationale statistikmeddelelser
+        national_statistics:
+          one: Nationale statistikker
+          other: Nationale statistikker
+        national_statistics_announcement:
+          one: Nationale statistikmeddelelse
+          other: Nationale statistikmeddelelser
+        news_article:
+          one: Nyhedsartikel
+          other: Nyhedsartikler
+        notice:
+          one: Meddelelse
+          other: Meddelelser
+        official:
+          one: Officielle statistikmeddelelse
+          other: Officielle statistikmeddelelser
+        official_statistics:
+          one: Officielle statistikker
+          other: Officielle statistikker
+        official_statistics_announcement:
+          one: Officielle statistikmeddelelse
+          other: Officielle statistikmeddelelser
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Åben konsultation
+          other: Åbne konsultationer
+        oral_statement:
+          one: Mundtlig erklæring til Parlamentet
+          other: Mundtlige erklæring til Parlamentet
+        policy:
+          one: Politik
+          other: Politikker
+        policy_paper:
+          one: Politikdokument
+          other: Politikdokumenter
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Reklamemateriale
+          other: Reklamemateriale
+        publication:
+          one: Publikation
+          other: Publikationer
+        raib_report:
+          one: rapport fra undersøgelsesafdelingen for jernbaneulykker
+          other: rapporter fra undersøgelsesafdelingen for jernbaneulykker
+        regulation:
+          one: Forordning
+          other: Forordninger
+        research:
+          one: Forskning og analyse
+          other: Forskning og analyse
+        residential_property_tribunal_decision:
+          one: Afgørelse fra domstolene om boligejendomme
+          other: Afgørelser fra domstolene om boligejendomme
+        service_sign_in:
+          one: Tjeneste logge ind
+          other: Tjeneste logge ind
+        service_standard_report:
+          one: Servicestandardrapport
+          other: Servicestandardrapport
+        speaking_notes:
+          one: Talende noter
+          other: Talende noter
+        standard:
+          one: Standard
+          other: Standarder
+        statement_to_parliament:
+          one: Erklæring til Parlamentet
+          other: Erklæringer til Parlamentet
+        statistical_data_set:
+          one: Statistisk datasæt
+          other: Statistiske datasæt
+        statistics_announcement:
+          one: Meddelelse om frigivelse af statistik
+          other: Meddelelser om frigivelse af statistik
+        statutory_guidance:
+          one: Lovpligtig vejledning
+          other: Lovpligtig vejledning
+        tax_tribunal_decision:
+          one: Afgørelse fra skatte- og kancellidomstolen
+          other: Afgørelser fra skatte- og kancellidomstolen
+        transcript:
+          one: Udskrift
+          other: Udskrifter
+        transparency:
+          one: Data om gennemsigtighed
+          other: Data om gennemsigtighed
+        utaac_decision:
+          one: |-
+            Afgørelse om forvaltningsappelsager
+            Nyhedsartikel
+          other: |-
+            Afgørelser om forvaltningsappelsager
+            Nyhedsartikel
+        written_statement:
+          one: Mundtlig erklæring til Parlamentet
+          other: Mundtlige erklæring til Parlamentet
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

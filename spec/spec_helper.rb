@@ -8,7 +8,6 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "capybara/rails"
-require "slimmer/rspec"
 require "timecop"
 require "webmock/rspec"
 WebMock.disable_net_connect!(allow_localhost: true)
@@ -34,5 +33,10 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system) do
     driven_by :rack_test
+    Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
+  end
+
+  config.before(:each, type: :request) do
+    Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
   end
 end

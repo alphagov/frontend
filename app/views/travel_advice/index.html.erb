@@ -3,7 +3,6 @@
 %>
 
 <% content_for :head do %>
-  <%= javascript_include_tag "views/travel-advice.js", integrity: false %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
 <% end %>
 
@@ -92,9 +91,9 @@
 </div>
 
 <% content_for :title, page_title(@presenter) %>
-
 <% content_for :head do %>
   <% if @presenter.description %>
     <meta name="description" content="<%= @presenter.description %>">
   <% end %>
 <% end %>
+<%= javascript_include_tag "views/travel-advice.js", integrity: false %>

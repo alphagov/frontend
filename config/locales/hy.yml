@@ -78,6 +78,222 @@ hy:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Բովանդակություն
+      metadata:
+        published: Հրապարակված
+        updated: Թարմացված
+      schema_name:
+        aaib_report:
+          one: Ավիավթարների հետաքննության բաժանմունքի զեկույց
+          other: Ավիավթարների հետաքննության բաժանմունքի զեկույցներ
+        announcement:
+          one: Հայտարարություն
+          other: Հայտարարություններ
+        asylum_support_decision:
+          one: Ապաստարանի աջակցության համար տրիբունալի որոշում
+          other: Ապաստարանի աջակցության համար տրիբունալի որոշումներ
+        authored_article:
+          one: Հեղինակային հոդված
+          other: Հեղինակային հոդվածներ
+        business_finance_support_scheme:
+          one: Բիզնեսի ֆինանսավորման աջակցության պլան
+          other: Բիզնեսի ֆինանսավորման աջակցության պլաններ
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Մասնավոր դեպքի ուսումնասիրություն
+          other: Մասնավոր դեպքի ուսումնասիրություններ
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Փակ խորհրդակցություն
+          other: Փակ խորհրդակցություններ
+        cma_case:
+          one: Մրցակցության և շուկայի կառավարման բաժնի դեպք
+          other: Մրցակցության և շուկայի կառավարման բաժնի դեպքեր
+        consultation:
+          one: Խորհրդակցություն
+          other: Խորհրդակցություններ
+        consultation_outcome:
+          one: Խորհրդակցության արդյունք
+          other: Խորհրդակցության արդյունքներ
+        corporate_information_page:
+          one: Տեղեկատվական էջ
+          other: Տեղեկատվական էջեր
+        corporate_report:
+          one: Կորպորատիվ զեկույց
+          other: Կորպորատիվ զեկույցներ
+        correspondence:
+          one: Նամակագրություն
+          other: Նամակագրություններ
+        countryside_stewardship_grant:
+          one: Գյուղատնտեսության կառավարման դրամաշնորհ
+          other: Գյուղատնտեսության կառավարման դրամաշնորհներ
+        decision:
+          one: Որոշում
+          other: Որոշումներ
+        detailed_guide:
+          one: Ուղեցույց
+          other: Ուղեցույց
+        dfid_research_output:
+          one: Զարգացման արդյունքի հետազոտություն
+          other: Զարգացման արդյունքների հետազոտություն
+        document_collection:
+          one: Հավաքագրում
+          other: Հավաքագրումներ
+        draft_text:
+          one: Նախնական տեքստ
+          other: Նախնական տեքստեր
+        drug_safety_update:
+          one: Դեղերի անվտանգության թարմացում
+          other: Դեղերի անվտանգության թարմացումներ
+        employment_appeal_tribunal_decision:
+          one: Աշխատանքի բողոքարկման համար տրիբունալի որոշում
+          other: Աշխատանքի բողոքարկման համար տրիբունալի որոշումներ
+        employment_tribunal_decision:
+          one: Աշխատանքի համար տրիբունալի որոշում
+          other: Աշխատանքի համար տրիբունալի որոշումներ
+        esi_fund:
+          one: Եվրոպական կառուցվածքային և ներդրումային հիմնադրամ (ESIF)
+          other: Եվրոպական կառուցվածքային և ներդրումային հիմնադրամներ (ESIF)
+        foi_release:
+          one: Տեղեկատվության ազատության հրապարակում
+          other: Տեղեկատվության ազատության հրապարակումներ
+        form:
+          one: Ձևաթուղթ
+          other: Ձևաթղթեր
+        guidance:
+          one: Ուղեցույց
+          other: Ուղեցույց
+        impact_assessment:
+          one: Ազդեցության գնահատում
+          other: Ազդեցության գնահատումներ
+        imported:
+          one: ներմուծված - սպասման տեսակ
+          other: ներմուծված - սպասման տեսակ
+        independent_report:
+          one: Անկախ զեկույց
+          other: Անկախ զեկույցներ
+        international_development_fund:
+          one: Միջազգային զարգացման ֆինանսավորում
+          other: Միջազգային զարգացման ֆինանսավորում
+        international_treaty:
+          one: Միջազգային պայմանագիր
+          other: Միջազգային պայմանագրեր
+        maib_report:
+          one: Ծովային վթարների հետաքննության բաժանմունքի զեկույց
+          other: Ծովային վթարների հետաքննության բաժանմունքի զեկույցներ
+        map:
+          one: Քարտեզ
+          other: Քարտեզներ
+        medical_safety_alert:
+          one: Նախազգուշացումներ և հիշեցումներ դեղերի և բժշկական սարքավորումների համար
+          other: Նախազգուշացումներ և հիշեցումներ դեղերի և բժշկական սարքավորումների համար
+        national:
+          one: Ազգային վիճակագրական հայտարարություն
+          other: Ազգային վիճակագրական հայտարարություններ
+        national_statistics:
+          one: Ազգային վիճակագրություն
+          other: Ազգային վիճակագրություն
+        national_statistics_announcement:
+          one: Ազգային վիճակագրական հայտարարություն
+          other: Ազգային վիճակագրական հայտարարություններ
+        news_article:
+          one: Տեղեկատվական հոդված
+          other: Տեղեկատվական հոդվածներ
+        notice:
+          one: Ծանուցում
+          other: Ծանուցումներ
+        official:
+          one: Պաշտոնական վիճակագրական հայտարարություն
+          other: Պաշտոնական վիճակագրական հայտարարություններ
+        official_statistics:
+          one: Պաշտոնական վիճակագրություն
+          other: Պաշտոնական վիճակագրություն
+        official_statistics_announcement:
+          one: Պաշտոնական վիճակագրական հայտարարություն
+          other: Պաշտոնական վիճակագրական հայտարարություններ
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Բաց խորհրդակցություն
+          other: Բաց խորհրդակցություններ
+        oral_statement:
+          one: Խորհրդարանին ուղղված բանավոր հայտարարություն
+          other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
+        policy:
+          one: Քաղաքականություն
+          other: Քաղաքականություններ
+        policy_paper:
+          one: Քաղաքականության փաստաթուղթ
+          other: Քաղաքականության փաստաթղթեր
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Գովազդային նյութ
+          other: Գովազդային նյութ
+        publication:
+          one: Հրապարակում
+          other: Հրապարակումներ
+        raib_report:
+          one: Երկաթուղային վթարների հետաքննության բաժանմունքի զեկույց
+          other: Երկաթուղային վթարների հետաքննության բաժանմունքի զեկույցներ
+        regulation:
+          one: Կանոնադրություն
+          other: Կանոնադրություններ
+        research:
+          one: Հետազոտություն և վերլուծություն
+          other: Հետազոտություն և վերլուծություն
+        residential_property_tribunal_decision:
+          one: Անշարժ գույքի վերաբերյալ տրիբունալի որոշում
+          other: Անշարժ գույքի վերաբերյալ տրիբունալի որոշումներ
+        service_sign_in:
+          one: Ծառայության մուտք
+          other: Ծառայության մուտք
+        service_standard_report:
+          one: Ծառայության ստանդարտ զեկույց
+          other: Ծառայության ստանդարտ զեկույցներ
+        speaking_notes:
+          one: Հրապարակային խոսքի ամփոփ տեղեկություն
+          other: Հրապարակային խոսքի ամփոփ տեղեկություն
+        standard:
+          one: Ստանդարտ
+          other: Ստանդարտներ
+        statement_to_parliament:
+          one: Հայտարարություն ուղղված խորհրդարանին
+          other: Հայտարարություններ ուղղված խորհրդարանին
+        statistical_data_set:
+          one: Վիճակագրական տվյալների ամբողջություն
+          other: Վիճակագրական տվյալների ամբողջություններ
+        statistics_announcement:
+          one: Վիճակագրության հրապարակման հայտարարություն
+          other: Վիճակագրության հրապարակման հայտարարություններ
+        statutory_guidance:
+          one: Կանոնադրական ուղեցույց
+          other: Կանոնադրական ուղեցույց
+        tax_tribunal_decision:
+          one: Հարկային և լորդ կանցլերի տրիբունալի որոշում
+          other: Հարկային և լորդ կանցլերի տրիբունալի որոշումներ
+        transcript:
+          one: Արձանագրություն
+          other: Արձանագրություններ
+        transparency:
+          one: Թափանցիկության տվյալներ
+          other: Թափանցիկության տվյալներ
+        utaac_decision:
+          one: Վարչական բողոքների համար տրիբունալի որոշում
+          other: Վարչական բողոքների համար տրիբունալի որոշումներ
+        written_statement:
+          one: Խորհրդարանին ուղղված գրավոր հայտարարություն
+          other: Խորհրդարանին ուղղված գրավոր հայտարարություններ
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

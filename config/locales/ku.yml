@@ -78,6 +78,205 @@ ku:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: ناوەڕۆک
+      metadata:
+        published: بڵاوکراوەتەوە
+        updated: نوێ کراوەتەوە
+      schema_name:
+        aaib_report:
+          one: اپۆرتی لقی لێکۆڵینەوە لە ڕووداوە ئاسمانییەکان
+          other: ڕاپۆرتی لقی لێکۆڵینەوە لە ڕووداوە ئاسمانییەکان
+        announcement:
+          one: ڕاگەیاندن
+          other: ڕاگەیاندن
+        asylum_support_decision:
+          one: بڕیاری دادگا له‌سه‌ر هاوكاری پەنابەری
+          other: بڕیاری دادگا له‌سه‌ر هاوكاری پەنابەری
+        authored_article:
+          one: بابەتێکی نووسەر
+          other: بابەته‌ نووسراوه‌كان
+        business_finance_support_scheme:
+          one: پلانی هاوكاری دارایی بازرگانی
+          other: پلانی هاوكاری دارایی بازرگانی
+        case_study:
+          one: توێژینەوەی کەیس
+          other: توێژینەوەی کەیس
+        closed_consultation:
+          one: ڕاوێژکاری داخراو
+          other: ڕاوێژکاری داخراو
+        cma_case:
+          one: کەیسەکانی دەسەڵاتی کێبڕکێ و بازاڕەکان
+          other: کەیسەکانی دەسەڵاتی کێبڕکێ و بازاڕەکان
+        consultation:
+          one: ڕاوێژکاری
+          other: ڕاوێژکاری
+        consultation_outcome:
+          one: دەرئەنجامی ڕاوێژکاری
+          other: دەرئەنجامی ڕاوێژکاری
+        corporate_information_page:
+          one: لاپەڕەکانی زانیاری
+          other: لاپەڕەکانی زانیاری
+        corporate_report:
+          one: ڕاپۆرتی کۆمپانیاکان
+          other: ڕاپۆرتی کۆمپانیاکان
+        correspondence:
+          one: پەیوەندیکردن
+          other: پەیوەندیکردن
+        countryside_stewardship_grant:
+          one: یارمەتی بەڕێوەبردنی لادێ
+          other: یارمەتی بەڕێوەبردنی لادێ
+        decision:
+          one: بڕیار
+          other: بڕیارەکان
+        detailed_guide:
+          one: ڕێنوێنی
+          other: ڕێنوێنی
+        dfid_research_output:
+          one: توێژینەوە بۆ بەرهەمی گەشەپێدان
+          other: توێژینەوە بۆ بەرهەمی گەشەپێدان
+        document_collection:
+          one: کۆکردنەوە
+          other: کۆکردنەوە
+        draft_text:
+          one: ڕەشنووسی دەقەکان
+          other: ڕەشنووسی دەقەکان
+        drug_safety_update:
+          one: نوێکردنەوەی سەلامەتی دەرمان
+          other: نوێکردنەوەی سەلامەتی دەرمان
+        employment_appeal_tribunal_decision:
+          one: بڕیاری دادگای تانە لە دامەزراندن
+          other: بڕیارەکانی دادگای تانەدان لە دامەزراندن
+        employment_tribunal_decision:
+          one: بڕیاری دادگای دامەزراندن
+          other: بڕیارەکانی دادگای دامەزراندن
+        esi_fund:
+          one: سندوقی پێکهاتەیی و وەبەرهێنانی ئەوروپا (ESIF)
+          other: سندوقەکانی پێکهاتەیی و وەبەرهێنانی ئەوروپا (ESIF)
+        foi_release:
+          one: بڵاوکردنەوەی ئازادی زانیاری
+          other: بڵاوکردنەوەی ئازادی زانیاریه‌كان
+        form:
+          one: فۆرم
+          other: فۆڕمەکان
+        guidance:
+          one: ڕێنوێنی
+          other: ڕێنوێنی
+        impact_assessment:
+          one: هەڵسەنگاندنی کاریگەرییەکان
+          other: هەڵسەنگاندنی کاریگەرییەکان
+        imported:
+          one: هاوردە کراوە - جۆری چاوەڕوانکراو
+          other: هاوردە کراوە - جۆری چاوەڕوانکراو
+        independent_report:
+          one: ڕاپۆرتی سەربەخۆ
+          other: ڕاپۆرتە سەربەخۆکان
+        international_development_fund:
+          one: هاوكاری دارایی بۆ گەشەپێدانی نێودەوڵەتی
+          other: هاوكاری دارایی بۆ گەشەپێدانی نێودەوڵەتی
+        international_treaty:
+          one: پەیمانی نێودەوڵەتی
+          other: پەیمانی نێودەوڵەتی
+        maib_report:
+          one: ڕاپۆرتی لقی لێکۆڵینەوەی ڕووداوی دەریایی
+          other: ڕاپۆرتەکانی لقی لێکۆڵینەوە لە ڕووداوە دەریاییەکان
+        map:
+          one: نەخشە
+          other: نەخشەکان
+        medical_safety_alert:
+          one: ئاگادارکردنەوە و بانگهێشتکردنەوە بۆ دەرمان و ئامێرە پزیشکییەکان
+          other: ئاگادارکردنەوە و بانگهێشتکردنەوە بۆ دەرمان و ئامێرە پزیشکییەکان
+        national:
+          one: ڕاگەیاندنی ئاماری فەرمی باوەڕپێکراو
+          other: ڕاگەیاندنی ئاماره‌ فەرمیه‌ باوەڕپێکراوه‌كان
+        national_statistics:
+          one: ئاماری فەرمی باوەڕپێکراو
+          other: ئاماری فەرمی باوەڕپێکراو
+        national_statistics_announcement:
+          one: ڕاگەیاندنی ئاماری فەرمی باوەڕپێکراو
+          other: ڕاگەیاندنی ئاماره‌ فەرمیه‌ باوەڕپێکراوه‌كان
+        news_article:
+          one: ئاگاداری
+          other: ئاگادارییەکان
+        notice:
+        official:
+          one: ڕاگەیاندنی ئاماری فەرمی
+          other: ڕاگەیاندنی ئاماری فەرمیه‌كان
+        official_statistics:
+          one: ئاماری فەرمی
+          other: ئاماره‌ فەرمیه‌كان
+        official_statistics_announcement:
+          one: ڕاگەیاندنی ئاماری فەرمی
+          other: ڕاگەیاندنی ئاماره‌ فەرمیه‌كان
+        open_consultation:
+          one: ڕاوێژکاری کراوە
+          other: ڕاوێژکاری کراوه‌كان
+        oral_statement:
+          one: لێدوانی زارەکی بۆ پەرلەمان
+          other: لێدوانی زارەکی بۆ پەرلەمان
+        policy:
+          one: سیاسەت
+          other: سیاسەتەکان
+        policy_paper:
+          one: وەرەقەی سیاسی
+          other: وەرەقە سیاسەكان
+        product-safety-alert-report-recall:
+          one: هۆشداری سەلامەتی بەرهەم، ڕاپۆرت و گه‌ڕانه‌وه‌ی به‌رهه‌مه‌كان
+          other: هۆشداری سەلامەتی بەرهەم، ڕاپۆرت و گه‌ڕانه‌وه‌ی به‌رهه‌مه‌كان
+        promotional:
+          one: مادەی بانگەشە
+          other: مادەی بانگەشە
+        publication:
+          one: بڵاوکراوە
+          other: بڵاوکراوەکان
+        raib_report:
+          one: 'لێکۆڵینەوە لە ڕووداوەکانی شەمەندەفەر- ڕاپۆرتی لق '
+          other: 'لێکۆڵینەوە لە ڕووداوەکانی شەمەندەفەر- ڕاپۆرتی لقه‌كان '
+        regulation:
+          one: ڕێسا
+          other: ڕێساکان
+        research:
+          one: لێکۆڵینەوە و شیکاری
+          other: لێکۆڵینەوە و شیکاریه‌كان
+        residential_property_tribunal_decision:
+          one: دەرئەنجامی دادگای کەیسی نیشتەجێبوون
+          other: دەرئەنجامه‌كانی دادگای کەیسی نیشتەجێبوون
+        service_sign_in:
+          one: چوونەژوورەوەی خزمەتگوزاری
+          other: چوونەژوورەوەی خزمەتگوزاری
+        service_standard_report:
+          one: ڕاپۆرتی ستانداردی خزمەتگوزاری
+          other: ڕاپۆرتەکانی ستانداردی خزمەتگوزاری
+        speaking_notes:
+          one: تێبینی قسەکردن
+          other: تێبینی قسەکردن
+        standard:
+          one: ستاندەر
+          other: ستانداردەکان
+        statement_to_parliament:
+          one: بەیاننامەیەک بۆ پەرلەمان
+          other: لێدوان بۆ پەرلەمان
+        statistics_announcement:
+          one: ڕاگەیاندنی بڵاوکردنەوەی ئامارەکان
+          other: ئامارەکان ڕاگەیاندنەکانی بڵاوکردەوە
+        statutory_guidance:
+          one: ڕێنمایی یاسایی
+          other: ڕێنمایی یاسایی
+        tax_tribunal_decision:
+          one: بڕیاری دادگا سەبارەت بە باج یان پرسی دارایی
+          other: بڕیاری دادگا سەبارەت بە باج یان پرسە داراییەکان
+        transcript:
+          one: وەرگێڕانی قسه‌ به‌ نوسین
+          other: وەرگێڕانی قسه‌ به‌ نوسین
+        transparency:
+          one: داتاکانی شەفافیەت
+          other: داتاکانی شەفافیەت
+        utaac_decision:
+          one: بڕیاری دادگای تانەدانی کارگێڕی
+          other: بڕیارەکانی دادگای تانەدانی کارگێڕی
+        written_statement:
+          one: بەیاننامەی نووسراو بۆ پەرلەمان
+          other: بەیاننامە نووسراوه‌كان بۆ پەرلەمان
     download_ics:
     email_and_print_link: ناوت تۆمار بکە بۆ ئیمەیڵه‌كان یان ئەم لاپەڕەیە پرنت بکە
     extra_bank_holiday:

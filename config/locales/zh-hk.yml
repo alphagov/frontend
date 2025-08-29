@@ -78,6 +78,152 @@ zh-hk:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: 內容
+      metadata:
+        published: 已發布
+        updated: 已更新
+      schema_name:
+        aaib_report:
+          other: 空中意外事故調查報告
+        announcement:
+          other: 公告
+        asylum_support_decision:
+          other: 庇護支援裁判決定
+        authored_article:
+          other: 撰寫文章
+        business_finance_support_scheme:
+          other: 商業融資支援計劃
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: 案例研究
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: 專屬諮詢
+        cma_case:
+          other: 競爭及市場管理案例
+        consultation:
+          other: 諮詢
+        consultation_outcome:
+          other: 諮詢結果
+        corporate_information_page:
+          other: 資訊頁面
+        corporate_report:
+          other: 政府報告
+        correspondence:
+          other: 通信
+        countryside_stewardship_grant:
+          other: 鄉村管理補助金
+        decision:
+          other: 決定
+        detailed_guide:
+          other: 詳細指引
+        dfid_research_output:
+          other: 發展成果之研究
+        document_collection:
+          other: 系列
+        draft_text:
+          other: 內容
+        drug_safety_update:
+          other: 藥物安全更新
+        employment_appeal_tribunal_decision:
+          other: 僱傭上訴法庭裁決
+        employment_tribunal_decision:
+          other: 僱傭法庭裁決
+        esi_fund:
+          other: 歐洲結構與投資基金 (ESIF)
+        foi_release:
+          other: 資訊自由(FOI)資訊發布
+        form:
+          other: 表格
+        guidance:
+          other: 指引
+        impact_assessment:
+          other: 影響評估
+        imported:
+          other: 輸入-等待類型中
+        independent_report:
+          other: 獨立報告
+        international_development_fund:
+          other: 國際發展籌資
+        international_treaty:
+          other: 國際條約
+        maib_report:
+          other: 海洋事故調查處報告
+        map:
+          other: 地圖
+        medical_safety_alert:
+          other: 藥品及醫療器械警示及召回
+        national:
+          other: 國家統計數據公告
+        national_statistics:
+          other: 國家統計數據
+        national_statistics_announcement:
+          other: 國家統計數據公告
+        news_article:
+          other: 新聞
+        notice:
+          other: 通知
+        official:
+          other: 官方統計數據公告
+        official_statistics:
+          other: 統計資料
+        official_statistics_announcement:
+          other: 官方統計數據公告
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: 公開諮詢
+        oral_statement:
+          other: 提交國會的口頭聲明
+        policy:
+          other: 政策
+        policy_paper:
+          other: 政策文件
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: 宣傳資料
+        publication:
+          other: 出版物
+        raib_report:
+          other: 鐵路意外調查處公告
+        regulation:
+          other: 規定
+        research:
+          other: 研究與分析
+        residential_property_tribunal_decision:
+          other: 住宅物業法庭裁決
+        service_sign_in:
+          other: 服務登入
+        service_standard_report:
+          other: 服務標準報告
+        speaking_notes:
+          other: 演講稿
+        standard:
+          other: 標準
+        statement_to_parliament:
+          other: 提交國會的聲明
+        statistical_data_set:
+          other: 統計數據資料
+        statistics_announcement:
+          other: 統計數據資料發佈公告
+        statutory_guidance:
+          other: 法定指引
+        tax_tribunal_decision:
+          other: 稅務及大法官法庭裁決
+        transcript:
+          other: 談話副本
+        transparency:
+          other: 透明化數據
+        utaac_decision:
+          other: 行政上訴法庭裁決
+        written_statement:
+          other: 提交國會的書面聲明
     download_ics:
     email_and_print_link:
     extra_bank_holiday:

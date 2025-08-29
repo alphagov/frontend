@@ -31,11 +31,11 @@
 <%= render "govuk_publishing_components/components/inverse_header", {
   padding_top: 6,
   padding_bottom: 6,
-  subtext: content_item.last_changed,
+  subtext: @presenter.last_changed,
 } do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: content_item.title,
-    context: I18n.t("content_item.schema_name.#{content_item.format_sub_type}", count: 1),
+    context: I18n.t("formats.#{@presenter.format_sub_type}.name", count: 1),
     inverse: true,
     margin_bottom: 0,
     font_size: "xl",

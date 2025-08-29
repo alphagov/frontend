@@ -11,4 +11,12 @@ RSpec.describe HtmlPublication do
     expect(html_publication.organisations.length).to eq(1)
     expect(html_publication.organisations[0].title).to eq("Environment Agency")
   end
+
+  it "returns public timestamp" do
+    expect(html_publication.public_timestamp).to eq("2016-01-17T14:19:42.460Z")
+  end
+
+  it "returns first published version" do
+    expect(html_publication.first_published_version).to be(true)
+  end
 end

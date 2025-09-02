@@ -1,12 +1,11 @@
 class CorporateInformationPagePresenter < ContentItemPresenter
   include LinkHelper
+  include ContentsList
 
-  def headers_for_contents_list_component
-    @headers = contents_list_headings
+  def additional_headers
+    return [] unless corporate_information_pages?
 
-    return [] unless show_contents_list?
-
-    ContentsOutlinePresenter.new(@headers).for_contents_list_component
+    [corporate_information_heading]
   end
 
   def corporate_information_heading
@@ -27,24 +26,6 @@ class CorporateInformationPagePresenter < ContentItemPresenter
   end
 
 private
-
-  def show_contents_list?
-    @headers.present? && @headers.level_two_headers?
-  end
-
-  def contents_list_headings
-    content_item.headers << corporate_information_heading if content_item.corporate_information?
-
-    exclude_nested_headings
-
-    ContentsOutline.new(content_item.headers) if content_item.headers.present?
-  end
-
-  def exclude_nested_headings
-    content_item.headers.each do |header|
-      header.delete("headers") unless header["headers"].nil?
-    end
-  end
 
   def corporate_information_pages?
     content_item.corporate_information_pages.any?

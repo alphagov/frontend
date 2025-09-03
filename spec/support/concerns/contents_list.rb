@@ -28,6 +28,14 @@ RSpec.shared_examples "it can have a contents list" do |document_type, example_n
         expect(headers[0][:text]).to eq(additional_headers[0]["text"])
       end
     end
+
+    context "when visible is set to `false`" do
+      it "returns an empty array" do
+        headers = presenter.headers_for_contents_list_component(additional_headers:, visible: false)
+
+        expect(headers).to eq([])
+      end
+    end
   end
 
   context "when there are h2s headers present in the body" do
@@ -75,6 +83,14 @@ RSpec.shared_examples "it can have a contents list" do |document_type, example_n
         expect(headers.count).to eq(expected_headers_count)
         expect(headers.last[:href]).to include(additional_headers.last["id"])
         expect(headers.last[:text]).to eq(additional_headers.last["text"])
+      end
+    end
+
+    context "when visible is set to `false`" do
+      it "returns an empty array" do
+        headers = presenter.headers_for_contents_list_component(additional_headers:, visible: false)
+
+        expect(headers).to eq([])
       end
     end
   end

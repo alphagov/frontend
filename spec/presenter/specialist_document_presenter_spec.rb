@@ -3,28 +3,18 @@ RSpec.describe SpecialistDocumentPresenter do
 
   let(:content_item) { SpecialistDocument.new(content_store_response) }
 
-  describe "#headers_for_contents_list_component" do
+  it_behaves_like "it can have a contents list", "specialist_document", "drug-device-alerts"
+
+  describe "#show_table_of_contents?" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
+
     context "when show_table_of_contents flag enabled" do
       before do
         content_store_response["links"]["finder"][0]["details"]["show_table_of_contents"] = true
       end
 
-      context "and there are no headers" do
-        let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
-
-        it "returns an empty array" do
-          expect(specialist_document_presenter.headers_for_contents_list_component).to eq([])
-        end
-      end
-
-      context "and valid headers exist" do
-        let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
-
-        it "returns an array of headers" do
-          content_store_response["details"]["show_table_of_contents"] = true
-
-          expect(specialist_document_presenter.headers_for_contents_list_component.count).to eq(content_store_response["details"]["headers"].count)
-        end
+      it "returns true" do
+        expect(specialist_document_presenter.show_table_of_contents?).to be(true)
       end
     end
 
@@ -33,20 +23,8 @@ RSpec.describe SpecialistDocumentPresenter do
         content_store_response["links"]["finder"][0]["details"]["show_table_of_contents"] = false
       end
 
-      context "and there are no headers" do
-        let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
-
-        it "returns an empty array" do
-          expect(specialist_document_presenter.headers_for_contents_list_component).to eq([])
-        end
-      end
-
-      context "and valid headers exist" do
-        let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "drug-device-alerts") }
-
-        it "returns an empty array" do
-          expect(specialist_document_presenter.headers_for_contents_list_component).to eq([])
-        end
+      it "returns false" do
+        expect(specialist_document_presenter.show_table_of_contents?).to be(false)
       end
     end
   end

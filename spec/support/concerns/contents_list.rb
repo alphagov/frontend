@@ -23,8 +23,24 @@ RSpec.shared_examples "it can have a contents list" do |document_type, example_n
       expect(presenter.headers_for_contents_list_component[0][:text]).to eq(expected_headers[0]["text"])
     end
 
-    it "strips the nested headers from the headers for the contents list" do
-      expect(presenter.headers_for_contents_list_component[0][:items]).to be_empty
+    context "when there are nested headers" do
+      before do
+        content_store_response["details"]["headers"] = [
+          {
+            "text" => "Summary",
+            "level" => 2,
+            "id" => "summary",
+            "headers" => [
+              { "text" => "Download report", "level" => 3, "id" => "download-report" },
+              { "text" => "Download glossary", "level" => 3, "id" => "download-glossary" },
+            ],
+          },
+        ]
+      end
+
+      it "by default strips the nested headers from the headers for the contents list" do
+        expect(presenter.headers_for_contents_list_component[0][:items]).to be_empty
+      end
     end
   end
 end

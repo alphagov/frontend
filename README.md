@@ -40,8 +40,6 @@ some hard-coded routes.
 |News Article           |[news_article](https://docs.publishing.service.gov.uk/content-schemas/news_article.html)|https://www.gov.uk/government/news/the-personal-independence-payment-amendment-regulations-2017-statement-by-paul-gray|
 |Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|http://www.gov.uk/register-offices|
 |                       ||http://www.gov.uk/register-offices|
-
-
 |Publication            |[publication](https://docs.publishing.service.gov.uk/content-schemas/publication.html)|https://www.gov.uk/government/publications/budget-2016-documents|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
 |Service Manual guide|[service_manual_guide](https://docs.publishing.service.gov.uk/content-schemas/service_manual_guide.html)|https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works|

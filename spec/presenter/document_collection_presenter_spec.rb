@@ -4,6 +4,8 @@ RSpec.describe DocumentCollectionPresenter do
   let(:content_item) { DocumentCollection.new(content_store_response) }
   let(:content_store_response) { GovukSchemas::Example.find("document_collection", example_name: "document_collection") }
 
+  it_behaves_like "it can have a contents list", "document_collection", "document_collection_with_body"
+
   describe "#displayable_collection_groups" do
     context "with empty collection groups" do
       let(:content_store_response) do
@@ -88,35 +90,20 @@ RSpec.describe DocumentCollectionPresenter do
     end
   end
 
-  describe "#headers_for_contents_list_component" do
-    context "with no headers present in the body" do
-      it "returns the headers of the collection groups" do
-        expected = {
-          href: "#car-and-light-van",
-          items: [],
-          text: "Car and light van",
-        }
-
-        expect(presenter.headers_for_contents_list_component.count).to eq(6)
-        expect(presenter.headers_for_contents_list_component.first).to eq(expected)
-      end
+  describe "#collection_groups_headers" do
+    it "returns an array" do
+      expect(presenter.collection_groups_headers).to be_instance_of(Array)
     end
 
-    context "with a body with h2 headers present" do
-      let(:content_store_response) { GovukSchemas::Example.find("document_collection", example_name: "document_collection_with_body") }
+    it "returns the headers in the correct format" do
+      expected = {
+        "id" => "car-and-light-van",
+        "level" => 2,
+        "text" => "Car and light van",
+      }
 
-      it "returns the headers of the collection groups and the level 2 body headers in a format suitable for a Contents List component" do
-        expect(presenter.headers_for_contents_list_component.count).to eq(2)
-
-        expect(presenter.headers_for_contents_list_component[0][:href]).to eq("#consolidated-list")
-        expect(presenter.headers_for_contents_list_component[0][:text]).to eq("Consolidated list")
-        expect(presenter.headers_for_contents_list_component[1][:href]).to eq("#documents")
-        expect(presenter.headers_for_contents_list_component[1][:text]).to eq("Documents")
-      end
-
-      it "strips the nested headers from the headers for the contents list" do
-        expect(presenter.headers_for_contents_list_component[0][:items]).to be_empty
-      end
+      expect(presenter.collection_groups_headers.count).to eq(6)
+      expect(presenter.collection_groups_headers.first).to eq(expected)
     end
   end
 

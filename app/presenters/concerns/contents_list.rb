@@ -1,6 +1,8 @@
 module ContentsList
-  def headers_for_contents_list_component(additional_headers: [])
-    contents_outline = ContentsOutline.new(only_level_two_headers + additional_headers)
+  def headers_for_contents_list_component(additional_headers: [], nested_headers: false)
+    outline_headers = nested_headers ? content_item.headers : only_level_two_headers
+
+    contents_outline = ContentsOutline.new(outline_headers + additional_headers)
 
     return [] unless contents_outline.level_two_headers?
 

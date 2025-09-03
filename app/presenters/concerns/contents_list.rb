@@ -8,10 +8,10 @@ module ContentsList
 private
 
   def contents_outline
-    @contents_outline ||= ContentsOutline.new(valid_outline_headers)
+    @contents_outline ||= ContentsOutline.new(only_level_two_headers)
   end
 
-  def valid_outline_headers
+  def only_level_two_headers
     content_item.headers.map { |header| header.except("headers") }
   end
 end

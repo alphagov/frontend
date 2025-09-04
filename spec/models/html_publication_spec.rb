@@ -19,4 +19,30 @@ RSpec.describe HtmlPublication do
   it "returns first published version" do
     expect(html_publication.first_published_version).to be(true)
   end
+
+  context "when content is not historically political" do
+    let(:content_store_response) do
+      GovukSchemas::Example.find(:html_publication, example_name: "published_with_history_mode").tap do |example|
+        example["details"]["political"] = false
+      end
+    end
+
+    it "political is false" do
+      expect(html_publication.historically_political?).to be(false)
+    end
+  end
+
+  context "when content is historically political" do
+    let(:content_store_response) do
+      GovukSchemas::Example.find(:html_publication, example_name: "published_with_history_mode").tap do |example|
+        example["details"]["political"] = true
+        example["links"]["government"][0]["details"]["current"] = false
+      end
+    end
+
+    it "political is true" do
+      expect(html_publication.historically_political?).to be(true)
+      expect(html_publication.publishing_government).to eq("2010 to 2015 Conservative and Liberal Democrat coalition government")
+    end
+  end
 end

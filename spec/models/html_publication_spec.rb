@@ -45,4 +45,25 @@ RSpec.describe HtmlPublication do
       expect(html_publication.publishing_government).to eq("2010 to 2015 Conservative and Liberal Democrat coalition government")
     end
   end
+
+  it "is not withdrawn" do
+    expect(html_publication.withdrawn?).to be(false)
+  end
+
+  context "when content has been withdrawn" do
+    let(:content_store_response) do
+      GovukSchemas::Example.find("html_publication", example_name: "published").tap do |example|
+        example["withdrawn_notice"] = {
+          withdrawn_at: "2020",
+          explanation: "because of a reason",
+        }.deep_stringify_keys
+      end
+    end
+
+    it "returns the appropriate information" do
+      expect(html_publication.withdrawn?).to be(true)
+      expect(html_publication.withdrawn_at).to eq("2020")
+      expect(html_publication.withdrawn_explanation).to eq("because of a reason")
+    end
+  end
 end

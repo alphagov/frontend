@@ -792,6 +792,12 @@ pl:
         many:
         one:
         other:
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
     impact_assessment:
       name:
         few:

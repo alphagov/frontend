@@ -691,6 +691,11 @@ sr:
         few:
         one:
         other:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
     impact_assessment:
       name:
         few:

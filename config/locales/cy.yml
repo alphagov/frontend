@@ -996,6 +996,14 @@ cy:
         other: Canllawiau
         two:
         zero:
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     impact_assessment:
       name:
         few:

@@ -16,6 +16,7 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/government/calls-for-evidence/safety-of-journalists-call-for-evidence|
 |                       ||https://www.gov.uk/government/calls-for-evidence/review-of-civil-legal-aid-call-for-evidence|
 |Case studies           |[case_study](https://docs.publishing.service.gov.uk/content-schemas/case_study.html)|https://www.gov.uk/government/case-studies/aiding-capability-decision-making-for-the-royal-navy|
+|Consultation           |[consultation](https://docs.publishing.service.gov.uk/content-schemas/consultation.html)|https://www.gov.uk/government/consultations/soft-drinks-industry-levy|
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
 |Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|
 |                             |                                   |https://www.gov.uk/government/organisations/forensic-science-regulator/about/accessible-documents-policy|

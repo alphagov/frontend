@@ -994,6 +994,14 @@ ar:
         other:
         two:
         zero:
+    html_publication:
+      name:
+        few:
+        many:
+        one: HTML Publication
+        other: HTML Publications
+        two:
+        zero:
     impact_assessment:
       name:
         few:

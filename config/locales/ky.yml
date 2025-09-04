@@ -608,6 +608,10 @@ ky:
       name:
         one: Жетектеме
         other: Жетектеме
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one: Таасирдин баалоосу

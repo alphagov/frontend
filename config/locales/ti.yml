@@ -573,6 +573,10 @@ ti:
       name:
         one: መምርሒ
         other: ምምርሒታት
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one: ናይ ጽልዋ ገምጋም

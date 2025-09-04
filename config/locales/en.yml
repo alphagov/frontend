@@ -592,6 +592,10 @@ en:
       name:
         one: Guidance
         other: Guidance
+    html_publication:
+      name:
+        one: HTML Publication
+        other: HTML Publications
     impact_assessment:
       name:
         one: Impact assessment

@@ -102,6 +102,7 @@ nl:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Bezoek:'
   components:
     share_links:
       share_this_page: Deel deze pagina
@@ -648,6 +649,10 @@ nl:
       name:
         one: Schriftelijke verklaring aan het Parlement
         other: Schriftelijke verklaringen aan het Parlement
+  gone:
+    page_title: Niet langer beschikbaar
+    published_in_error: De informatie op deze pagina is verwijderd omdat deze abusievelijk is gepubliceerd.
+    title: De pagina die u zoekt is niet langer beschikbaar
   help:
     index:
       about:

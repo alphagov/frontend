@@ -102,6 +102,7 @@ kk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Мұнда өтіңіз:'
   components:
     share_links:
       share_this_page: Осы бетпен бөлісу
@@ -648,6 +649,10 @@ kk:
       name:
         one: Парламентке жазбаша мәлімдеме
         other: Парламентке жазбаша мәлімдемелер
+  gone:
+    page_title: Енді қолжетімді емес
+    published_in_error: Осы беттегі ақпарат қате жарияланғандықтан алынып тасталды.
+    title: Сіз іздеген бет енді қол жетімді емес
   help:
     index:
       about:

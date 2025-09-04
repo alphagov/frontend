@@ -102,6 +102,7 @@ hr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Posjetite:'
   components:
     share_links:
       share_this_page: Podijelite ovu stranicu
@@ -725,6 +726,10 @@ hr:
         few:
         one: Pismena izjava Parlamentu
         other: Pismene izjave Parlamentu
+  gone:
+    page_title: Nedostupno
+    published_in_error: Podaci na ovoj stranici uklonjeni su jer su pogrešno objavljeni.
+    title: Stranica koju tražite više nije dostupna
   help:
     index:
       about:

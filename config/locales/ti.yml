@@ -102,6 +102,7 @@ ti:
     today: ሎሚመዓልቲ
     united-kingdom_slug: ዩናይትድ ኪንንግደም
     upcoming_bank_holidays:
+    visit: ምብጻሕ፥
   components:
     share_links:
       share_this_page: ነዚ ፔጅ ሼር ግበርዎ
@@ -648,6 +649,10 @@ ti:
       name:
         one: ብጽሑፍ ናብ ባይቶ ዝተዋህበ መግለጺ
         other: ንባይቶ ዝቐረበ ናይ ጽሑፍ መግለጺታት
+  gone:
+    page_title: ድሕሪ ደጊም የለን
+    published_in_error: ኣብዚ ገጽ ዘሎ ሓበሬታ ብጌጋ ስለ ዝተሓትመ ተኣልዩ ኣሎ።
+    title: እቲ ትደልይዎ ዘለኹም ገጽ ድሕሪ ሕጂ ኣብዚ ኣይርከብን እዩ።
   help:
     index:
       about: ብዛዕባ GOV.UK

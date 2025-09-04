@@ -102,6 +102,7 @@ et:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Külastus:'
   components:
     share_links:
       share_this_page: Jaga seda lehte
@@ -648,6 +649,10 @@ et:
       name:
         one: Kirjalik avaldus parlamendile
         other: Kirjalikud avaldused parlamendile
+  gone:
+    page_title: Ei ole enam saadaval
+    published_in_error: Sellel lehel olev teave on eemaldatud, kuna see avaldati ekslikult.
+    title: Otsitav leht pole enam saadaval
   help:
     index:
       about:

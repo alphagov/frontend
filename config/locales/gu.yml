@@ -102,6 +102,7 @@ gu:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'મુલાકાત લો:'
   components:
     share_links:
       share_this_page: આ પેજ શેર કરો
@@ -648,6 +649,10 @@ gu:
       name:
         one: સંસદમાં લેખિત નિવેદન
         other: સંસદમાં લેખિત નિવેદનો
+  gone:
+    page_title: હવે ઉપલબ્ધ નથી
+    published_in_error: આ પેજ ઉપરની માહિતી હટાવી દેવામાં આવી છે, કારણ કે તે ભૂલથી પ્રકાશિત કરાઇ હતી.
+    title: તમે જે પેજ શોધો છો, તે હવે ઉપલબ્ધ નથી
   help:
     index:
       about:

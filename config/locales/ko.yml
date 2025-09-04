@@ -102,6 +102,7 @@ ko:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: '방문:'
   components:
     share_links:
       share_this_page: 이 페이지 공유하기
@@ -571,6 +572,10 @@ ko:
     written_statement:
       name:
         other: 의회로 서면 성명
+  gone:
+    page_title: 더 이상 이용할 수 없음
+    published_in_error: 이 페이지의 정보는 잘못된 내용이 발행되어서 삭제되었습니다.
+    title: 지금 보고있는 페이지를 더 이상 이용할 수 없습니다
   help:
     index:
       about:

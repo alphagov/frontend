@@ -102,6 +102,7 @@ az:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Baş çəkin:'
   components:
     share_links:
       share_this_page: Bu səhifəni paylaşın
@@ -648,6 +649,10 @@ az:
       name:
         one: Parlamentə yazılı müraciət
         other: Parlamentə yazılı müraciətlər
+  gone:
+    page_title: Artıq mövcud deyildir
+    published_in_error: Bu səhifədəki məlumat səhvən dərc edilmiş olduğuna görə silinmişdir.
+    title: Axtardığınız səhifə artıq mövcud deyildir
   help:
     index:
       about:

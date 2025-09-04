@@ -102,6 +102,7 @@ pa-pk:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'ویکھو:'
   components:
     share_links:
       share_this_page: ایہ ورقہ تقسیم کرو
@@ -648,6 +649,10 @@ pa-pk:
       name:
         one: قومی مجلس دے سامنے تحریری بیان
         other: قومی مجلس دے سامنے تحریری بیانات
+  gone:
+    page_title: ہون دستیاب نئیں
+    published_in_error: ایس ورقے تے موجود خبراں ہٹا دتیاں  گیا نیں کیو جے او غلطی نال چھپ گئے سن۔
+    title: جہیڑا ورقہ تُسی لبھ رئے او ہُن او موجود نئیں
   help:
     index:
       about:

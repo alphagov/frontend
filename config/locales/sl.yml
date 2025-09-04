@@ -102,6 +102,7 @@ sl:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Obiščite:'
   components:
     share_links:
       share_this_page: Deli to stran
@@ -802,6 +803,10 @@ sl:
         one: Pisna izjava za parlament
         other: Pisne izjave za parlament
         two:
+  gone:
+    page_title: Ni več na voljo
+    published_in_error: Informacije na tej strani so bile odstranjene, ker so bile objavljene po pomoti.
+    title: Stran, ki ste jo iskali, ni več na voljo
   help:
     index:
       about:

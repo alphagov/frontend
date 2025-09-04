@@ -102,6 +102,7 @@ pl:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Odwiedź:'
   components:
     share_links:
       share_this_page: Udostępnij tę stronę
@@ -802,6 +803,10 @@ pl:
         many:
         one: Pisemne oświadczenie przed parlamentem
         other: Pisemne oświadczenia przed parlamentem
+  gone:
+    page_title: Już niedostępne
+    published_in_error: Informacje na tej stronie zostały usunięte, ponieważ zostały błędnie opublikowane.
+    title: Strona, której szukasz, nie jest już dostępna
   help:
     index:
       about:

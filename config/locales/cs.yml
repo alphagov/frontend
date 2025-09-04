@@ -102,6 +102,7 @@ cs:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Navštivte:'
   components:
     share_links:
       share_this_page: Sdílet tuto stránku
@@ -725,6 +726,10 @@ cs:
         few:
         one: Písemné prohlášení pro Parlament
         other: Písemná prohlášení pro Parlament
+  gone:
+    page_title: Již není k dispozici
+    published_in_error: Informace na této stránce byly odstraněny, protože byly zveřejněny omylem.
+    title: Stránka, kterou hledáte, již není k dispozici
   help:
     index:
       about:

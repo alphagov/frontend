@@ -102,6 +102,7 @@ is:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Heimsæktu:'
   components:
     share_links:
       share_this_page: Deila þessari síðu
@@ -648,6 +649,10 @@ is:
       name:
         one: Skrifleg yfirlýsing til Þingsins
         other: Skriflegar yfirlýsingar til Þingsins
+  gone:
+    page_title: Ekki lengur aðgengileg
+    published_in_error: Upplýsingarnar á þessari síðu hafa verið fjarlægðar vegna þess að þær voru birtar fyrir mistök.
+    title: Síðan sem þú leitar að er ekki lengur aðgengileg
   help:
     index:
       about:

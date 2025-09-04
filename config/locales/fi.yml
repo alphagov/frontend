@@ -102,6 +102,7 @@ fi:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Vierailla:'
   components:
     share_links:
       share_this_page: Jaa tämä sivu
@@ -648,6 +649,10 @@ fi:
       name:
         one: Kirjallinen lausuma parlamentille
         other: Kirjallinen lausumat parlamentille
+  gone:
+    page_title: Ei ole enää käytettävissä
+    published_in_error: Tämän sivun tiedot on poistettu, koska ne on julkaistu virheellisesti.
+    title: Etsimäsi sivu ei ole enää saatavana.
   help:
     index:
       about:

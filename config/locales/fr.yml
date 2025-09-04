@@ -102,6 +102,7 @@ fr:
     today:
     united-kingdom_slug:
     upcoming_bank_holidays:
+    visit: 'Visiter:'
   components:
     share_links:
       share_this_page: Partagez cette page
@@ -648,6 +649,10 @@ fr:
       name:
         one: Déclaration écrite au Parlement
         other: Déclarations écrites au Parlement
+  gone:
+    page_title: N'est plus disponible
+    published_in_error: Les informations présentées sur cette page ont été supprimées car elles ont été publiées par erreur.
+    title: La page que vous recherchez n'est plus disponible
   help:
     index:
       about:

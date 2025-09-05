@@ -3,6 +3,7 @@ class Consultation < ContentItem
   include NationalApplicability
   include People
   include Political
+  include SinglePageNotificationButton
 
   def contributors
     organisations + people

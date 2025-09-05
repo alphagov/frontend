@@ -6,6 +6,7 @@ RSpec.describe Consultation do
   it_behaves_like "it can have national applicability", "consultation", "consultation_outcome_with_featured_attachments"
   it_behaves_like "it can have people", "consultation", "consultation_withdrawn"
   it_behaves_like "it has historical government information", "consultation", "open_consultation"
+  it_behaves_like "it can have single page notifications", "consultation", "open_consultation"
 
   describe "#contributors" do
     it "returns a list of organisations" do

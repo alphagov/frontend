@@ -66,4 +66,35 @@ RSpec.describe HtmlPublication do
       expect(html_publication.withdrawn_explanation).to eq("because of a reason")
     end
   end
+
+  it "when content has no national applicability it doesn't return anything" do
+    expect(html_publication.national_applicability).to be_nil
+  end
+
+  context "when content has national applicability" do
+    let(:content_store_response) { GovukSchemas::Example.find("html_publication", example_name: "national_applicability_alternative_url_html_publication") }
+
+    it "returns applicability information" do
+      expected = {
+        england: {
+          applicable: true,
+          label: "England",
+        },
+        northern_ireland: {
+          alternative_url: "http://www.dardni.gov.uk/news-dard-pa022-a-13-new-procedure-for",
+          applicable: false,
+          label: "Northern Ireland",
+        },
+        scotland: {
+          applicable: true,
+          label: "Scotland",
+        },
+        wales: {
+          applicable: true,
+          label: "Wales",
+        },
+      }
+      expect(html_publication.national_applicability).to eq(expected)
+    end
+  end
 end

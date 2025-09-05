@@ -7,6 +7,10 @@
   <% if ["/guidance/phone-menu-options-for-hm-land-registry", "/guidance/contact-hm-land-registry"].include?(content_item.base_path) %>
     <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
   <% end %>
+
+  <% if @presenter.hide_from_search_engines? %>
+    <meta name="robots" content="noindex">
+  <% end %>
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>

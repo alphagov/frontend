@@ -164,8 +164,8 @@ GEM
     google-protobuf (4.32.0)
       bigdecimal
       rake (>= 13)
-    googleapis-common-protos-types (1.20.0)
-      google-protobuf (>= 3.18, < 5.a)
+    googleapis-common-protos-types (1.21.0)
+      google-protobuf (~> 4.26)
     govuk_ab_testing (3.0.0)
     govuk_app_config (9.20.0)
       logstasher (~> 2.1)
@@ -200,7 +200,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.10.0)
+    govuk_web_banners (1.11.0)
       govuk_app_config
       govuk_publishing_components
       rails (>= 7)
@@ -644,7 +644,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.4.2)
+    rexml (3.4.3)
     rouge (4.6.0)
     rspec (3.13.0)
       rspec-core (~> 3.13.0)

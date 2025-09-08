@@ -262,11 +262,40 @@ sl:
         other:
         two:
     consultation:
+      analysing_feedback:
+      and: in
+      another_website_html: To posvetovanje %{closed} poteka na <a href="%{url}">drugi spletni strani</a>
+      at: na
+      closes: Zapre se ob
+      closes_at: To posvetovanje se zapre ob
+      complete_a: 'Izpolnite '
+      concluded:
+      description: Opis posvetovanja
+      detail_of_feedback_received: Podrobnosti o povratnih informacijah
+      detail_of_outcome: Podrobnosti o rezultatu
+      documents: Dokumenti
+      download_outcome: Prenesi končni rezultat
+      either: ali
+      email_to: 'Pošlji elektronsko sporočilo:'
+      feedback_received: Prejeli smo povratne informacije
+      is_being: se
       name:
         few:
         one: Posvetovanje
         other: Posvetovanja
         two:
+      not_open_yet: To posvetovanje še ni začeto
+      'on':
+      opens: Posvetovanje se začne
+      or:
+      original_consultation: Izvirno posvetovanje
+      ran_from: To posvetovanje je trajalo od
+      respond_online: Odgovori na spletu
+      summary:
+      visit_soon: Kmalu znova obiščite to stran in naložite rezultat v te javne& nbsp;povratne informacije.
+      was: je bilo
+      ways_to_respond: Načini odziva
+      write_to: 'Pišite na:'
     consultation_outcome:
       name:
         few:

@@ -2,6 +2,6 @@ class ConsultationController < ContentItemsController
   include Cacheable
 
   def show
-    @presenter = ContentItemPresenter.new(content_item)
+    @presenter = ConsultationPresenter.new(content_item)
   end
 end

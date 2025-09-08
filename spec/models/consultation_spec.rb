@@ -1,5 +1,6 @@
 RSpec.describe Consultation do
   let(:withdrawn_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_withdrawn")) }
+  let(:closed_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "closed_consultation")) }
 
   it_behaves_like "it can be withdrawn", "consultation", "consultation_withdrawn"
   it_behaves_like "it can have attachments", "consultation", "consultation_outcome_with_featured_attachments"
@@ -20,6 +21,12 @@ RSpec.describe Consultation do
         expect(withdrawn_consultation.contributors[1].title).to eq("The Rt Hon Baroness Smith of Malvern")
         expect(withdrawn_consultation.contributors[1].base_path).to eq("/government/people/jacqui-smith")
       end
+    end
+  end
+
+  describe "#opening_date_time" do
+    it "returns the opening date and time" do
+      expect(closed_consultation.opening_date_time).to eq("2016-09-05T14:00:00+01:00")
     end
   end
 end

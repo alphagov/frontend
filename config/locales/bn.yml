@@ -241,8 +241,8 @@ bn:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: পরামর্শ
+        other: পরামর্শ
     consultation_outcome:
       name:
         one:

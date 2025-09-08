@@ -253,8 +253,8 @@ hr:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Konzultacija
+        other: Konzultacije
     consultation_outcome:
       name:
         few:

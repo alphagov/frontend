@@ -241,8 +241,8 @@ ur:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: مشاورت
+        other: مشاورتیں
     consultation_outcome:
       name:
         one:

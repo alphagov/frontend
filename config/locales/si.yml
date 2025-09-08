@@ -241,8 +241,8 @@ si:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: උපදේශනය
+        other: උපදේශන
     consultation_outcome:
       name:
         one:

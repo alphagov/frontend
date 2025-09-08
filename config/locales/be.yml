@@ -265,8 +265,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Кансультацыя
+        other: Кансультацыі
     consultation_outcome:
       name:
         few:

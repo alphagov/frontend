@@ -253,8 +253,8 @@ lt:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Konsultacija
+        other: Konsultacijos
     consultation_outcome:
       name:
         few:

@@ -241,8 +241,8 @@ az:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Məsləhətləşmə
+        other: Məsləhətləşmələr
     consultation_outcome:
       name:
         one:

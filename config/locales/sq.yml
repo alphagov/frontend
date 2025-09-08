@@ -241,8 +241,8 @@ sq:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konsultim
+        other: Konsultime
     consultation_outcome:
       name:
         one:

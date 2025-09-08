@@ -241,8 +241,8 @@ sv:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Samråd
+        other: Samråd
     consultation_outcome:
       name:
         one:

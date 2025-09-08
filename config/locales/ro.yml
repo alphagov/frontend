@@ -253,8 +253,8 @@ ro:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Consultație
+        other: Consultații
     consultation_outcome:
       name:
         few:

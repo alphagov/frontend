@@ -253,8 +253,8 @@ sr:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Konsultacija
+        other: Konsultacije
     consultation_outcome:
       name:
         few:

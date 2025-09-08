@@ -241,8 +241,8 @@ el:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Διαβούλευση
+        other: Διαβουλεύσεις
     consultation_outcome:
       name:
         one:

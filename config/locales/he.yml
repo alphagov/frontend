@@ -241,8 +241,8 @@ he:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: דיון
+        other: דיונים
     consultation_outcome:
       name:
         one:

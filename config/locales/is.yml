@@ -241,8 +241,8 @@ is:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Ráðgjöf
+        other: Ráðgjafir
     consultation_outcome:
       name:
         one:

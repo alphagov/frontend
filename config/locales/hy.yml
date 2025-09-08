@@ -241,8 +241,8 @@ hy:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Խորհրդակցություն
+        other: Խորհրդակցություններ
     consultation_outcome:
       name:
         one:

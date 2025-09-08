@@ -241,8 +241,8 @@ kk:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Кеңес
+        other: Кеңестер
     consultation_outcome:
       name:
         one:

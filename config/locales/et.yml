@@ -241,8 +241,8 @@ et:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konsultatsioon
+        other: Konsultatsioonid
     consultation_outcome:
       name:
         one:

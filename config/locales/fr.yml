@@ -241,8 +241,8 @@ fr:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Consultation
+        other: Consultations
     consultation_outcome:
       name:
         one:

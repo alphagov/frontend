@@ -287,8 +287,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة
+        other: استشارات
         two:
         zero:
     consultation_outcome:

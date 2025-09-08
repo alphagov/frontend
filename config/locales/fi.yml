@@ -241,8 +241,8 @@ fi:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konsultaatio
+        other: Konsultaatiot
     consultation_outcome:
       name:
         one:

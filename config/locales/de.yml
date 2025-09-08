@@ -241,8 +241,8 @@ de:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Beratung
+        other: Beratungen
     consultation_outcome:
       name:
         one:

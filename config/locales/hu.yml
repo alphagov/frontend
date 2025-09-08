@@ -241,8 +241,8 @@ hu:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konzultáció
+        other: Konzultációk
     consultation_outcome:
       name:
         one:

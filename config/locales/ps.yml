@@ -241,8 +241,8 @@ ps:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: مشوره
+        other: مشورې
     consultation_outcome:
       name:
         one:

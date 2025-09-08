@@ -241,8 +241,8 @@ hi:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: परामर्श
+        other: परामर्श
     consultation_outcome:
       name:
         one:

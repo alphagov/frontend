@@ -241,8 +241,8 @@ fa:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: مشاوره
+        other: مشاوره‌ها
     consultation_outcome:
       name:
         one:

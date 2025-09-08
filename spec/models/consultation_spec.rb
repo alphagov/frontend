@@ -29,4 +29,10 @@ RSpec.describe Consultation do
       expect(closed_consultation.opening_date_time).to eq("2016-09-05T14:00:00+01:00")
     end
   end
+
+  describe "#closing_date_time" do
+    it "returns the closing date and time" do
+      expect(closed_consultation.closing_date_time).to eq("2016-10-31T17:00:00+01:00")
+    end
+  end
 end

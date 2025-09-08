@@ -501,8 +501,8 @@ sq:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Konsultim i hapur
+        other: Konsultime te hapura
     oral_statement:
       name:
         one: Deklarata gojore në Parlament

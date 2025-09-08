@@ -551,8 +551,8 @@ sk:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Otvorená konzultácia
+        other: Otvorené konzultácie
     oral_statement:
       name:
         few:

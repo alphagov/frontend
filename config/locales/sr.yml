@@ -551,8 +551,8 @@ sr:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Otvorena konsultacija
+        other: Otvorene konsultacije
     oral_statement:
       name:
         few:

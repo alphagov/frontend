@@ -601,8 +601,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Konsultacje otwarte
+        other: Konsultacje otwarte
     oral_statement:
       name:
         few:

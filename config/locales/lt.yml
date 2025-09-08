@@ -243,8 +243,8 @@ lt:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Pasibaigusi konsultacija
+        other: Pasibaigusios konsultacijos
     cma_case:
       name:
         few:

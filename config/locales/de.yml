@@ -233,8 +233,8 @@ de:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Abgeschlossene Beratung
+        other: Abgeschlossene Beratungen
     cma_case:
       name:
         one:

@@ -233,8 +233,8 @@ it:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Consultazione chiusa
+        other: Consultazioni chiuse
     cma_case:
       name:
         one:

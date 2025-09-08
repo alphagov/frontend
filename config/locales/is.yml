@@ -233,8 +233,8 @@ is:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Lokuð ráðgjöf
+        other: Lokaðar ráðgjafir
     cma_case:
       name:
         one:

@@ -233,8 +233,8 @@ az:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Qapalı məsləhətləşmə
+        other: Qapalı məsləhətləşmələr
     cma_case:
       name:
         one:

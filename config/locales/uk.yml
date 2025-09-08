@@ -253,8 +253,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Закрита консультація
+        other: Закриті консультації
     cma_case:
       name:
         few:

@@ -233,8 +233,8 @@ tk:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Ýapyk maslahat
+        other: Ýapyk maslahatlar
     cma_case:
       name:
         one:

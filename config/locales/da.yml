@@ -233,8 +233,8 @@ da:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Lukket konsultation
+        other: Lukkede konsultationer
     cma_case:
       name:
         one:

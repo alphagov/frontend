@@ -233,8 +233,8 @@ hy:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Փակ խորհրդակցություն
+        other: Փակ խորհրդակցություններ
     cma_case:
       name:
         one:

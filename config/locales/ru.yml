@@ -253,8 +253,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Закрытая консультация
+        other: Закрытые консультации
     cma_case:
       name:
         few:

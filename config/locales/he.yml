@@ -233,8 +233,8 @@ he:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: דיון סגור
+        other: דיונים סגורים
     cma_case:
       name:
         one:

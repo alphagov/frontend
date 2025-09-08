@@ -51,31 +51,31 @@
 
     <% if content_item.unopened? %>
       <% content_item_unopened = capture do %>
-        <%= t("consultation.opens") %>
-        <%= content_item.opening_date_midnight? ? t("consultation.on") : t("consultation.at") %>
+        <%= t("formats.consultation.opens") %>
+        <%= content_item.opening_date_midnight? ? t("formats.consultation.on") : t("formats.consultation.at") %>
         <time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time>
       <% end %>
       <%= render "govuk_publishing_components/components/notice", {
-        title: t("consultation.not_open_yet"),
+        title: t("formats.consultation.not_open_yet"),
         description_text: content_item_unopened,
       } %>
 
     <% elsif content_item.pending_final_outcome? %>
       <% content_item_final_outcome = capture do %>
-        <%= t("consultation.visit_soon") %>
+        <%= t("formats.consultation.visit_soon") %>
       <% end %>
       <%= render "govuk_publishing_components/components/notice",
-        title: t("consultation.analysing_feedback"),
+        title: t("formats.consultation.analysing_feedback"),
         description_text: content_item_final_outcome %>
 
     <% elsif content_item.final_outcome? %>
-      <%= render "govuk_publishing_components/components/notice", title: t("consultation.concluded") %>
+      <%= render "govuk_publishing_components/components/notice", title: t("formats.consultation.concluded") %>
 
       <%= render "attachments_list",
-        title: t("consultation.download_outcome"),
+        title: t("formats.consultation.download_outcome"),
         attachments_for_components: content_item.final_outcome_attachments_for_components %>
       <%= render "govuk_publishing_components/components/heading", {
-        text: t("consultation.detail_of_outcome"),
+        text: t("formats.consultation.detail_of_outcome"),
         margin_bottom: 4,
       } %>
       <div class="consultation-outcome-detail">
@@ -88,12 +88,12 @@
     <% end %>
 
     <%= render "attachments_list",
-      title: t("consultation.feedback_received"),
+      title: t("formats.consultation.feedback_received"),
       attachments_for_components: content_item.public_feedback_attachments_for_components %>
     <% if content_item.public_feedback_detail %>
       <%= render "govuk_publishing_components/components/heading", {
         margin_bottom: 4,
-        text: t("consultation.detail_of_feedback_received"),
+        text: t("formats.consultation.detail_of_feedback_received"),
       } %>
       <div class="consultation-feedback">
         <%= render "govuk_publishing_components/components/govspeak", {
@@ -112,22 +112,22 @@
             heading_level: 2,
             id: "original-consultation-title",
             margin_bottom: 4,
-            text: t("consultation.original_consultation"),
+            text: t("formats.consultation.original_consultation"),
           } %>
         </header>
     <% end %>
 
     <% consultation_date = capture do %>
       <% if content_item.closed? %>
-        <%= t("consultation.ran_from") %><br><strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time> to
+        <%= t("formats.consultation.ran_from") %><br><strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time> to
         <time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
       <% elsif content_item.open? %>
-        <%= t("consultation.closes_at") %><br>
+        <%= t("formats.consultation.closes_at") %><br>
         <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
       <% elsif content_item.unopened? %>
-        <%= t("consultation.opens") %> <%= content_item.opening_date_midnight? ? t("consultation.on") : t("consultation.at") %><br>
+        <%= t("formats.consultation.opens") %> <%= content_item.opening_date_midnight? ? t("formats.consultation.on") : t("formats.consultation.at") %><br>
         <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= content_item.opening_date %></time></strong><br>
-        <%= t("consultation.closes") %><br>
+        <%= t("formats.consultation.closes") %><br>
         <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= content_item.closing_date %></time></strong>
       <% end %>
     <% end %>
@@ -137,7 +137,7 @@
       <% if content_item.held_on_another_website? %>
         <p>
           <strong>
-            <%= t("consultation.another_website_html", closed: content_item.closed? ? t("consultation.was") : t("consultation.is_being"), url: content_item.held_on_another_website_url) %>.
+            <%= t("formats.consultation.another_website_html", closed: content_item.closed? ? t("formats.consultation.was") : t("formats.consultation.is_being"), url: content_item.held_on_another_website_url) %>.
           </strong>
         </p>
       <% end %>
@@ -145,7 +145,7 @@
     <%= render "govuk_publishing_components/components/summary_banner", {
       secondary_text: consultation_date,
       text: consultation_desc,
-      title: t("consultation.summary"),
+      title: t("formats.consultation.summary"),
     } %>
 
     <% if content_item.final_outcome? %>
@@ -155,7 +155,7 @@
     <div class="consultation-description">
       <%= render "govuk_publishing_components/components/heading", {
         margin_bottom: 4,
-        text: t("consultation.description"),
+        text: t("formats.consultation.description"),
       } %>
 
       <%= render "govuk_publishing_components/components/govspeak", {} do %>
@@ -163,14 +163,14 @@
       <% end %>
 
       <%= render "attachments_list",
-        title: t("consultation.documents"),
+        title: t("formats.consultation.documents"),
         attachments_for_components: content_item.documents_attachments_for_components %>
     </div>
 
     <% if content_item.ways_to_respond? %>
       <div id="ways-to-respond" class="consultation-ways-to-respond">
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("consultation.ways_to_respond"),
+          text: t("formats.consultation.ways_to_respond"),
           margin_bottom: 4,
         } %>
         <%= render "govuk_publishing_components/components/govspeak", {
@@ -178,28 +178,28 @@
         } do %>
           <% if content_item.respond_online_url %>
             <div class="call-to-action">
-              <p><%= link_to t("consultation.respond_online"), content_item.respond_online_url %></p>
+              <p><%= link_to t("formats.consultation.respond_online"), content_item.respond_online_url %></p>
             </div>
 
             <% if content_item.email || content_item.postal_address %>
-              <p><%= t("consultation.or") %></p>
+              <p><%= t("formats.consultation.or") %></p>
             <% end %>
           <% end %>
 
           <% if content_item.response_form? %>
             <p>
-              <%= t("consultation.complete_a") %> <%= link_to "response form", content_item.attachment_url %> <%= t("consultation.and") %>
-              <%= t("consultation.either") if content_item.email && content_item.postal_address %>
+              <%= t("formats.consultation.complete_a") %> <%= link_to "response form", content_item.attachment_url %> <%= t("formats.consultation.and") %>
+              <%= t("formats.consultation.either") if content_item.email && content_item.postal_address %>
             </p>
           <% end %>
 
           <% if content_item.email %>
-            <h3><%= t("consultation.email_to") %></h3>
+            <h3><%= t("formats.consultation.email_to") %></h3>
             <p><%= mail_to content_item.email, content_item.email %></p>
           <% end %>
 
           <% if content_item.postal_address %>
-            <h3><%= t("consultation.write_to") %></h3>
+            <h3><%= t("formats.consultation.write_to") %></h3>
             <div class="contact">
               <div class="content">
                 <%= simple_format(content_item.postal_address) %>

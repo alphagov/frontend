@@ -82,4 +82,16 @@ RSpec.describe Consultation do
       expect(closed_consultation.final_outcome?).to be(false)
     end
   end
+
+  describe "#pending_final_outcome?" do
+    it "returns true for a closed_consultation document type" do
+      expect(closed_consultation.pending_final_outcome?).to be(true)
+    end
+
+    it "returns false if it does not have the closed_consultation document type" do
+      expect(unopened_consultation.pending_final_outcome?).to be(false)
+      expect(open_consultation.pending_final_outcome?).to be(false)
+      expect(consultation_outcome.pending_final_outcome?).to be(false)
+    end
+  end
 end

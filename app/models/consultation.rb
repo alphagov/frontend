@@ -25,4 +25,8 @@ class Consultation < ContentItem
   def closed?
     %w[closed_consultation consultation_outcome].include? content_store_response["document_type"]
   end
+
+  def unopened?
+    !open? && !closed?
+  end
 end

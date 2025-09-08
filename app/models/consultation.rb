@@ -29,4 +29,8 @@ class Consultation < ContentItem
   def unopened?
     !open? && !closed?
   end
+
+  def final_outcome?
+    content_store_response["document_type"] == "consultation_outcome"
+  end
 end

@@ -274,8 +274,8 @@ hy:
       write_to: Գրել՝
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Խորհրդակցության արդյունք
+        other: Խորհրդակցության արդյունքներ
     corporate_information_page:
       about_our_services_html: Տեղեկանալ %{link}։
       corporate_information: Կորպորատիվ տեղեկություն

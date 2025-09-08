@@ -262,7 +262,7 @@ vi:
       write_to: 'Gửi thư đến:'
     consultation_outcome:
       name:
-        other:
+        other: Kết quả tham vấn
     corporate_information_page:
       about_our_services_html: Tìm hiểu %{link}.
       corporate_information: Thông tin doanh nghiệp

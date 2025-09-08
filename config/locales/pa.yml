@@ -274,8 +274,8 @@ pa:
       write_to: 'ਨੂੰ ਲਿਖੋ:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦਾ ਨਤੀਜਾ
+        other: ਸਲਾਹ-ਮਸ਼ਵਰੇ ਦੇ ਨਤੀਜੇ
     corporate_information_page:
       about_our_services_html: "%{link} ਪਤਾ ਕਰੋ।"
       corporate_information: ਕਾਰਪੋਰੇਟ ਜਾਣਕਾਰੀ

@@ -262,7 +262,7 @@ zh-hk:
       write_to: 致函：
     consultation_outcome:
       name:
-        other:
+        other: 諮詢結果
     corporate_information_page:
       about_our_services_html: 找尋 %{link}。
       corporate_information: 政府資訊

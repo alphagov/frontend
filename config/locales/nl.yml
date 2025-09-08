@@ -274,8 +274,8 @@ nl:
       write_to: 'Schrijf naar:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Uitkomsten raadpleging
+        other: Overleg uitkomsten
     corporate_information_page:
       about_our_services_html: Ontdek %{link}.
       corporate_information: Bedrijfsinformatie

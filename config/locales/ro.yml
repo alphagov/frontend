@@ -287,8 +287,8 @@ ro:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Rezultatul consultației
+        other: Rezultatele consultației
     corporate_information_page:
       about_our_services_html: Aflați %{link}.
       corporate_information: Informații despre corporație

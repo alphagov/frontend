@@ -274,8 +274,8 @@ gu:
       write_to: 'ને લખો:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: પરામર્શનો પરિણામ
+        other: પરમર્શના પરિણામો
     corporate_information_page:
       about_our_services_html: "%{link} શોધી કાઢો."
       corporate_information: કોર્પોરેટ માહિતી

@@ -274,8 +274,8 @@ da:
       write_to: 'Skriv til:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Resultatet af høringen
+        other: Resultater af høringen
     corporate_information_page:
       about_our_services_html: Find ud af %{link}.
       corporate_information: Virksomhedsoplysninger

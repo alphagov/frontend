@@ -274,8 +274,8 @@ hi:
       write_to: 'इसे लिखें:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: परामर्श का नतीजा
+        other: परामर्श के नतीजे
     corporate_information_page:
       about_our_services_html: "%{link} खोजें।"
       corporate_information: कारपोरेट सूचना

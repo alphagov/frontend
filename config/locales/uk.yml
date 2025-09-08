@@ -300,8 +300,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Результат консультації
+        other: Результати консультації
     corporate_information_page:
       about_our_services_html: Дізнатися %{link}.
       corporate_information: Корпоративна інформація

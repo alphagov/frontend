@@ -274,8 +274,8 @@ kk:
       write_to: 'Мынаған жазу:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Кеңес нәтижесі
+        other: Кеңес нәтижелері
     corporate_information_page:
       about_our_services_html: "%{link} туралы мәлімет алу."
       corporate_information: Корпоративтік ақпарат

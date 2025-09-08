@@ -324,8 +324,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: نتيجة الاستشارة
+        other: نتائج الاستشارة
         two:
         zero:
     corporate_information_page:

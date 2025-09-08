@@ -274,8 +274,8 @@ es-419:
       write_to: 'Escriba a:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Resultado de la consultoría
+        other: Resultados de las consultorías
     corporate_information_page:
       about_our_services_html: Conozca %{link}.
       corporate_information: Información corporativa

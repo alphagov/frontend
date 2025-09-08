@@ -262,7 +262,7 @@ zh:
       write_to: 收件人：
     consultation_outcome:
       name:
-        other:
+        other: 咨询结果
     corporate_information_page:
       about_our_services_html: 查找 %{link}。
       corporate_information: 公司信息

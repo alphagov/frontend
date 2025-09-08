@@ -274,8 +274,8 @@ ka:
       write_to: 'მიწერეთ:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: კონსულტაციის შედეგი
+        other: კონსულტაციის შედეგები
     corporate_information_page:
       about_our_services_html: შეიტყვეთ %{link}.
       corporate_information: კორპორატიული ინფორმაცია

@@ -300,8 +300,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Wynik konsultacji
+        other: Wyniki konsultacji
     corporate_information_page:
       about_our_services_html: Dowiedz się %{link}.
       corporate_information: Informacje korporacyjne

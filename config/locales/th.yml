@@ -262,7 +262,7 @@ th:
       write_to: 'เขียนข้อความถึง:'
     consultation_outcome:
       name:
-        other:
+        other: ผลลัพธ์จากการให้คำปรึกษา
     corporate_information_page:
       about_our_services_html: ดูข้อมูลเพิ่มเติมที่ %{link}
       corporate_information: ข้อมูลองค์กร

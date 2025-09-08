@@ -300,8 +300,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Результат консультации
+        other: Результаты консультаций
     corporate_information_page:
       about_our_services_html: Узнайте %{link}.
       corporate_information: Корпоративная информация

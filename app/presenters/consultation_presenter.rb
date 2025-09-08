@@ -7,6 +7,10 @@ class ConsultationPresenter < ContentItemPresenter
     Time.zone.parse(content_item.opening_date_time).strftime("%l:%M%P") == "12:00am"
   end
 
+  def closing_date
+    display_date_and_time(content_item.closing_date_time, rollback_midnight: true)
+  end
+
 private
 
   def display_date_and_time(date, rollback_midnight: false)

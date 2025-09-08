@@ -9,4 +9,8 @@ class Consultation < ContentItem
   def contributors
     organisations + people
   end
+
+  def opening_date_time
+    content_store_response.dig("details", "opening_date")
+  end
 end

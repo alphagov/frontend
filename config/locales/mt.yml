@@ -300,8 +300,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Riżultat tal-konsultazzjoni
+        other: Riżultati tal-konsultazzjoni
     corporate_information_page:
       about_our_services_html: Kun af %{link}.
       corporate_information: Informazzjoni korporattiva

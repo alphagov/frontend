@@ -274,8 +274,8 @@ it:
       write_to: 'Scrivi a:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Esito della consultazione
+        other: Esiti della consultazione
     corporate_information_page:
       about_our_services_html: Trova %{link}.
       corporate_information: Informazioni aziendali

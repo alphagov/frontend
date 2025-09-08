@@ -287,8 +287,8 @@ hr:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Ishod konzultacija
+        other: Ishodi konzultacija
     corporate_information_page:
       about_our_services_html: Saznajte %{link}.
       corporate_information: Korporativne informacije

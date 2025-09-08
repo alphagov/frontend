@@ -21,4 +21,8 @@ class Consultation < ContentItem
   def open?
     content_store_response["document_type"] == "open_consultation"
   end
+
+  def closed?
+    %w[closed_consultation consultation_outcome].include? content_store_response["document_type"]
+  end
 end

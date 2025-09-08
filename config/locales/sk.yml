@@ -253,8 +253,8 @@ sk:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Konzultácia
+        other: Konzultácie
     consultation_outcome:
       name:
         few:

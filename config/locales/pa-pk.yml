@@ -241,8 +241,8 @@ pa-pk:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: مشورہ
+        other: 'مشورے '
     consultation_outcome:
       name:
         one:

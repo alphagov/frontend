@@ -1,6 +1,9 @@
 RSpec.describe Consultation do
   let(:withdrawn_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_withdrawn")) }
+  let(:unopened_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "unopened_consultation")) }
+  let(:open_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "open_consultation")) }
   let(:closed_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "closed_consultation")) }
+  let(:consultation_outcome) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_outcome")) }
 
   it_behaves_like "it can be withdrawn", "consultation", "consultation_withdrawn"
   it_behaves_like "it can have attachments", "consultation", "consultation_outcome_with_featured_attachments"
@@ -33,6 +36,18 @@ RSpec.describe Consultation do
   describe "#closing_date_time" do
     it "returns the closing date and time" do
       expect(closed_consultation.closing_date_time).to eq("2016-10-31T17:00:00+01:00")
+    end
+  end
+
+  describe "#open?" do
+    it "returns true for an open_consultation document type" do
+      expect(open_consultation.open?).to be(true)
+    end
+
+    it "returns false if it is not an open_consultation document type" do
+      expect(unopened_consultation.open?).to be(false)
+      expect(closed_consultation.open?).to be(false)
+      expect(consultation_outcome.open?).to be(false)
     end
   end
 end

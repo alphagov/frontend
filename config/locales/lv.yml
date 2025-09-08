@@ -241,8 +241,8 @@ lv:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konsultēšana
+        other: Konsultācijas
     consultation_outcome:
       name:
         one:

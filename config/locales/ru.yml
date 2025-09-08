@@ -265,8 +265,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Консультация
+        other: Консультации
     consultation_outcome:
       name:
         few:

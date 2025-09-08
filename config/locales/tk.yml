@@ -241,8 +241,8 @@ tk:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Maslahat
+        other: Maslahatlar
     consultation_outcome:
       name:
         one:

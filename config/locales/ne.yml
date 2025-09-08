@@ -241,8 +241,8 @@ ne:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: परामर्श
+        other: परामर्शहरू
     consultation_outcome:
       name:
         one:

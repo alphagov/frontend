@@ -265,8 +265,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Konsultazzjoni
+        other: Konsultazzjonijiet
     consultation_outcome:
       name:
         few:

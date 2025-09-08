@@ -265,8 +265,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Консультація
+        other: Консультації
     consultation_outcome:
       name:
         few:

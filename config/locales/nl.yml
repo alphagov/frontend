@@ -241,8 +241,8 @@ nl:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Raadpleging
+        other: Raadplegingen
     consultation_outcome:
       name:
         one:

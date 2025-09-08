@@ -241,8 +241,8 @@ gu:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: પરામર્શ
+        other: પરામર્શ
     consultation_outcome:
       name:
         one:

@@ -241,8 +241,8 @@ pa:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: ਸਲਾਹ ਮਸ਼ਵਰਾ
+        other: ਸਲਾਹ ਮਸ਼ਵਰੇ
     consultation_outcome:
       name:
         one:

@@ -241,8 +241,8 @@ da:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Konsultation
+        other: Konsultationer
     consultation_outcome:
       name:
         one:

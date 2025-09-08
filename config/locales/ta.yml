@@ -241,8 +241,8 @@ ta:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: கலந்தாய்வு
+        other: கலந்தாய்வுகள்
     consultation_outcome:
       name:
         one:

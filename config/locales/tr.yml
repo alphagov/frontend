@@ -241,8 +241,8 @@ tr:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Danışma
+        other: Danışmalar
     consultation_outcome:
       name:
         one:

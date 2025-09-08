@@ -241,8 +241,8 @@ ka:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: კონსულტაცია
+        other: კონსულტაციები
     consultation_outcome:
       name:
         one:

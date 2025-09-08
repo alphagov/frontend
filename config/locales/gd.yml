@@ -264,8 +264,8 @@ gd:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Comhairliúchán
+        other: Téigh i gcomhairle
         two:
     consultation_outcome:
       name:

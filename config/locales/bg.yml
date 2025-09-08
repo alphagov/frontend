@@ -241,8 +241,8 @@ bg:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: Консултация
+        other: Консултации
     consultation_outcome:
       name:
         one:

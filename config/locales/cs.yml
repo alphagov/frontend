@@ -253,8 +253,8 @@ cs:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Konzultace
+        other: Konzultace
     consultation_outcome:
       name:
         few:

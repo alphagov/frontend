@@ -264,8 +264,8 @@ sl:
     consultation:
       name:
         few:
-        one:
-        other:
+        one: Posvetovanje
+        other: Posvetovanja
         two:
     consultation_outcome:
       name:

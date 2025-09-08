@@ -241,8 +241,8 @@ dr:
         other:
     consultation:
       name:
-        one:
-        other:
+        one: مشاوره
+        other: مشاوره ها
     consultation_outcome:
       name:
         one:

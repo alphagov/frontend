@@ -50,4 +50,14 @@ RSpec.describe Consultation do
       expect(consultation_outcome.open?).to be(false)
     end
   end
+
+  describe "#closed?" do
+    it "returns true for closed_consultation or consultation_outcome document types" do
+      expect(unopened_consultation.closed?).to be(false)
+      expect(open_consultation.closed?).to be(false)
+
+      expect(closed_consultation.closed?).to be(true)
+      expect(consultation_outcome.closed?).to be(true)
+    end
+  end
 end

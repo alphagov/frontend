@@ -274,8 +274,8 @@ et:
       write_to: 'Kirja adressaat:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Konsultatsiooni tulemus
+        other: Konsultatsiooni tulemused
     corporate_information_page:
       about_our_services_html: Uuri välja %{link}.
       corporate_information: Ettevõtte teave

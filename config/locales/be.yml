@@ -300,8 +300,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Вынік кансультацыі
+        other: Вынікі кансультацыі
     corporate_information_page:
       about_our_services_html: Даведайцеся %{link}.
       corporate_information: Карпаратыўная іфармацыя

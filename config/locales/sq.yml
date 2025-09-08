@@ -274,8 +274,8 @@ sq:
       write_to: 'Shkruaj tek:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Rezultati i konsultimit
+        other: Rezultatet e konsultimit
     corporate_information_page:
       about_our_services_html: Mësoni %{link}.
       corporate_information: Informacioni i korporatës

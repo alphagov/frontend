@@ -243,8 +243,8 @@ sr:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Zatvorena konsultacija
+        other: Zatvorene konsultacije
     cma_case:
       name:
         few:

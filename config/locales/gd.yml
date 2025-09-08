@@ -252,8 +252,8 @@ gd:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Nós imeachta comhairliúcháin dúnta
+        other: Téigh i gcomhairle go príobháideach
         two:
     cma_case:
       name:

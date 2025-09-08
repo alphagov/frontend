@@ -233,8 +233,8 @@ fi:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Suljettu kuuleminen
+        other: Suljetut neuvottelut
     cma_case:
       name:
         one:

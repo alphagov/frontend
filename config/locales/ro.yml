@@ -243,8 +243,8 @@ ro:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Consultație închisă
+        other: Consultații închise
     cma_case:
       name:
         few:

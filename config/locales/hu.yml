@@ -233,8 +233,8 @@ hu:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Lezárt konzultáció
+        other: Lezárt konzultációk
     cma_case:
       name:
         one:

@@ -233,8 +233,8 @@ ta:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: மூடிய கலந்தாய்வு
+        other: மூடிய கலந்தாய்வுகள்
     cma_case:
       name:
         one:

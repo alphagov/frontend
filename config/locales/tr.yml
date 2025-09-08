@@ -233,8 +233,8 @@ tr:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Kapalı danışma
+        other: Kapalı danışmalar
     cma_case:
       name:
         one:

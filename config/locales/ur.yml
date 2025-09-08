@@ -233,8 +233,8 @@ ur:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: محدود مشاورت
+        other: محدود مشاورتیں
     cma_case:
       name:
         one:

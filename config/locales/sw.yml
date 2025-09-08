@@ -233,8 +233,8 @@ sw:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Mashauriano ya watu wachache
+        other: Mashauriano ya watu wachache
     cma_case:
       name:
         one:

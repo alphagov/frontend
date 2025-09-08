@@ -233,8 +233,8 @@ si:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: සංවෘත උපදේශනය
+        other: සංවෘත උපදේශන
     cma_case:
       name:
         one:

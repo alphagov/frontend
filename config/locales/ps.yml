@@ -233,8 +233,8 @@ ps:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: له نيژدې مشوره
+        other: له نيژدې مشورې
     cma_case:
       name:
         one:

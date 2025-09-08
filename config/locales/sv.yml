@@ -233,8 +233,8 @@ sv:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Slutet samråd
+        other: Slutna samråd
     cma_case:
       name:
         one:

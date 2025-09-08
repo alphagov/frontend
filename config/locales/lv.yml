@@ -233,8 +233,8 @@ lv:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Slēgta tipa konsultācija
+        other: Slēgta tipa konsultācijas
     cma_case:
       name:
         one:

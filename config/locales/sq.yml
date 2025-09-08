@@ -233,8 +233,8 @@ sq:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Konsultim i mbyllur
+        other: Konsultime të mbyllura
     cma_case:
       name:
         one:

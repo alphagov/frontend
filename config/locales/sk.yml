@@ -243,8 +243,8 @@ sk:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Uzavretá konzultácia
+        other: Uzavreté konzultácie
     cma_case:
       name:
         few:

@@ -233,8 +233,8 @@ ne:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: बन्द परामर्श
+        other: बन्द परामर्शहरू
     cma_case:
       name:
         one:

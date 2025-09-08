@@ -274,8 +274,8 @@ lv:
       write_to: 'Rakstīt uz:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Konsultāciju rezultāts
+        other: Konsultāciju rezultāti
     corporate_information_page:
       about_our_services_html: Uzziniet vairāk %{link}.
       corporate_information: Korporatīva informācija

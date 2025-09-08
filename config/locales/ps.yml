@@ -274,8 +274,8 @@ ps:
       write_to: 'ته یې ولیکئ:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: د مشورې پایله
+        other: د مشورې پایلې
     corporate_information_page:
       about_our_services_html: "%{link} ومومئ."
       corporate_information: د شرکت معلومات

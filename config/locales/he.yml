@@ -274,8 +274,8 @@ he:
       write_to: 'כתוב ל:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: תוצאות דיון
+        other: תוצאות דיונים
     corporate_information_page:
       about_our_services_html: גלה %{link}.
       corporate_information: מידע תאגידי

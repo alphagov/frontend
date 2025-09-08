@@ -262,7 +262,7 @@ zh-tw:
       write_to: 發送至：
     consultation_outcome:
       name:
-        other:
+        other: 協商結果
     corporate_information_page:
       about_our_services_html: 了解 %{link}。
       corporate_information: 公司資訊

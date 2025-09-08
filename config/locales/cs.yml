@@ -287,8 +287,8 @@ cs:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Výsledek konzultace
+        other: Výsledky konzultací
     corporate_information_page:
       about_our_services_html: Zjistěte %{link}.
       corporate_information: Firemní informace

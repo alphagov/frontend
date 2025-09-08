@@ -287,8 +287,8 @@ lt:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Konsultacijos rezultatas
+        other: Konsultacijos rezultatai
     corporate_information_page:
       about_our_services_html: Sužinokite %{link}.
       corporate_information: Korporatyvinė informacija

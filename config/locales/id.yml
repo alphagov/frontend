@@ -262,7 +262,7 @@ id:
       write_to: 'Tulis kepada:'
     consultation_outcome:
       name:
-        other:
+        other: Hasil konsultasi
     corporate_information_page:
       about_our_services_html: Temukan %{link}.
       corporate_information: Informasi korporat

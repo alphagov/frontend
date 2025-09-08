@@ -274,8 +274,8 @@ pa-pk:
       write_to: اینوں لکھو
     consultation_outcome:
       name:
-        one:
-        other:
+        one: مشورے دا نتیجہ
+        other: مشورے دے نتائج
     corporate_information_page:
       about_our_services_html: اینوں لبھو %{link}.
       corporate_information: کاروبار دی معلومات

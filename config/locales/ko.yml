@@ -262,7 +262,7 @@ ko:
       write_to: '다음에 작성:'
     consultation_outcome:
       name:
-        other:
+        other: 상담 결과
     corporate_information_page:
       about_our_services_html: "%{link} 를 찾아보십시오."
       corporate_information: 대사관 정보

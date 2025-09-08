@@ -299,8 +299,8 @@ sl:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Rezultat posvetovanja
+        other: Rezultati posvetovanja
         two:
     corporate_information_page:
       about_our_services_html: Izvedite več %{link}.

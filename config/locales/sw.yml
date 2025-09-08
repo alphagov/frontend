@@ -274,8 +274,8 @@ sw:
       write_to: 'Andika barua kwa:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Matokeo ya mashauriano
+        other: Matokeo ya mashauriano
     corporate_information_page:
       about_our_services_html: Pata maelezo kuhusu %{link}.
       corporate_information: Maelezo ya shirika

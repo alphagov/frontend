@@ -299,8 +299,8 @@ gd:
     consultation_outcome:
       name:
         few:
-        one:
-        other:
+        one: Torthaí comhairliúcháin
+        other: Torthaí comhairliúcháin
         two:
     corporate_information_page:
       about_our_services_html: Amharc ar %{link}.

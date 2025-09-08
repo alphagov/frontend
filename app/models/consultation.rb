@@ -33,4 +33,8 @@ class Consultation < ContentItem
   def final_outcome?
     content_store_response["document_type"] == "consultation_outcome"
   end
+
+  def pending_final_outcome?
+    closed? && !final_outcome?
+  end
 end

@@ -271,8 +271,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة مغلقة
+        other: استشارات مغلقة
         two:
         zero:
     cma_case:

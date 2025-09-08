@@ -233,8 +233,8 @@ fa:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: مشاوره بسته
+        other: مشاوره‌های بسته
     cma_case:
       name:
         one:

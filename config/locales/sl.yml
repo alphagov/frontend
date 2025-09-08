@@ -252,8 +252,8 @@ sl:
     closed_consultation:
       name:
         few:
-        one:
-        other:
+        one: Tesno posvetovanje
+        other: Tesna posvetovanja
         two:
     cma_case:
       name:

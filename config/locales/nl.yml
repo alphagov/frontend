@@ -233,8 +233,8 @@ nl:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Gesloten overleg
+        other: Gesloten raadplegingen
     cma_case:
       name:
         one:

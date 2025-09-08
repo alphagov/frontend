@@ -233,8 +233,8 @@ el:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Κλειστή διαβούλευση
+        other: Κλειστές διαβουλεύσεις
     cma_case:
       name:
         one:

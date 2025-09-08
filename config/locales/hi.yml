@@ -233,8 +233,8 @@ hi:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: बंद कमरे में परामर्श
+        other: बंद कमरे में परामर्श
     cma_case:
       name:
         one:

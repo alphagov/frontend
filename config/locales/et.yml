@@ -233,8 +233,8 @@ et:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Suletud konsultatsioon
+        other: Suletud konsultatsioonid
     cma_case:
       name:
         one:

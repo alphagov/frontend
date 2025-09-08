@@ -504,8 +504,8 @@ et:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Avatud konsultatsioon
+        other: Avatud konsultatsioonid
     oral_statement:
       name:
         one: Suuline avaldus parlamendile

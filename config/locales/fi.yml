@@ -504,8 +504,8 @@ fi:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Avoin kuuleminen
+        other: Avoimet kuulemiset
     oral_statement:
       name:
         one: Suullinen lausuma parlamentille

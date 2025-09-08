@@ -504,8 +504,8 @@ pa-pk:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: 'کُھلی مشاورت '
+        other: 'کُھلی مشاورت '
     oral_statement:
       name:
         one: قومی مجلس دے سامنے زبانی بیان

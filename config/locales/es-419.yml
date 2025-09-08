@@ -504,8 +504,8 @@ es-419:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consulta pública
+        other: Consultas públicas
     oral_statement:
       name:
         one: Declaracion oral ante el Parlamento

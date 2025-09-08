@@ -504,8 +504,8 @@ bn:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: উম্মুক্ত পরামর্শ
+        other: উম্মুক্ত পরামর্শসমূহ
     oral_statement:
       name:
         one: সংসদে মৌখিক বিবৃতি

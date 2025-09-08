@@ -554,8 +554,8 @@ ro:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Consultație deschisă
+        other: Consultație deschise
     oral_statement:
       name:
         few:

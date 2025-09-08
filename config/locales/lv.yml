@@ -504,8 +504,8 @@ lv:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Atklāta konsultācija
+        other: Atklātas konsultācijas
     oral_statement:
       name:
         one: Mutisks paziņojums parlamentam

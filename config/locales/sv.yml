@@ -504,8 +504,8 @@ sv:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Öppet samråd
+        other: Öppet samråd
     oral_statement:
       name:
         one: Muntligt uttalande till parlamentet

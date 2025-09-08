@@ -504,8 +504,8 @@ fr:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consultation ouverte
+        other: Consultations ouvertes
     oral_statement:
       name:
         one: Déclaration orale au Parlement

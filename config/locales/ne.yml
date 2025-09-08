@@ -504,8 +504,8 @@ ne:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: खुला परामर्श
+        other: खुला परामर्शहरू
     oral_statement:
       name:
         one: संसदमा मौखिक वक्तव्य

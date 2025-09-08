@@ -504,8 +504,8 @@ fa:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: مشاوره باز
+        other: مشاوره‌های باز
     oral_statement:
       name:
         one: بیانیه شفاهی به پارلمان

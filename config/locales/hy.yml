@@ -504,8 +504,8 @@ hy:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Բաց խորհրդակցություն
+        other: Բաց խորհրդակցություններ
     oral_statement:
       name:
         one: Խորհրդարանին ուղղված բանավոր հայտարարություն

@@ -504,8 +504,8 @@ pa:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: ਖੁੱਲ੍ਹਾ ਸਲਾਹ-ਮਸ਼ਵਰਾ
+        other: ਖੁੱਲ੍ਹੇ ਸਲਾਹ-ਮਸ਼ਵਰੇ
     oral_statement:
       name:
         one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ

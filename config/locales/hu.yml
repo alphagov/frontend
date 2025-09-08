@@ -504,8 +504,8 @@ hu:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Nyílt konzultáció
+        other: Nyílt konzultációk
     oral_statement:
       name:
         one: Parlamenti felszólalás

@@ -504,8 +504,8 @@ hi:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: खुला परामर्श
+        other: खुले परामर्श
     oral_statement:
       name:
         one: संसद में मौखिक बयान

@@ -504,8 +504,8 @@ si:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: විවෘත උපදේශනය
+        other: විවෘත උපදේශන
     oral_statement:
       name:
         one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්

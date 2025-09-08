@@ -504,8 +504,8 @@ is:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Opin ráðgjöf
+        other: Opnar ráðgjafir
     oral_statement:
       name:
         one: Munnleg yfirlýsing til Þingsins

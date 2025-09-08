@@ -504,8 +504,8 @@
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Åpen konsultasjon
+        other: Åpne konsultasjoner
     oral_statement:
       name:
         one: Muntlig uttalelse til Stortinget

@@ -504,8 +504,8 @@ bg:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Открита консултация
+        other: Открити консултации
     oral_statement:
       name:
         one: Устно изявление в Парламента

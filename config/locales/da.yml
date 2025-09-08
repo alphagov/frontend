@@ -504,8 +504,8 @@ da:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Åben konsultation
+        other: Åbne konsultationer
     oral_statement:
       name:
         one: Mundtlig erklæring til Parlamentet

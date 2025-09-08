@@ -554,8 +554,8 @@ lt:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Atvira konsultacija
+        other: Atviros konsultacijos
     oral_statement:
       name:
         few:

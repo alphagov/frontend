@@ -554,8 +554,8 @@ hr:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Otvorena konzultacija
+        other: Otvorene konzultacije
     oral_statement:
       name:
         few:

@@ -702,8 +702,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة مفتوحة
+        other: استشارات مفتوحة
         two:
         zero:
     oral_statement:

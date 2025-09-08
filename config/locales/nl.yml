@@ -504,8 +504,8 @@ nl:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Open raadpleging
+        other: Open raadplegingen
     oral_statement:
       name:
         one: Mondelinge verklaring voor het Parlement

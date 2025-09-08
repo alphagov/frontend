@@ -504,8 +504,8 @@ ps:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: خلاص مشوره
+        other: مشورې خلاص کړئ
     oral_statement:
       name:
         one: پارلماني غونډې ته وینا

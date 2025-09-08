@@ -504,8 +504,8 @@ de:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Laufende Beratung
+        other: Laufende Beratungen
     oral_statement:
       name:
         one: Mündliche Erklärung vor dem Parlament

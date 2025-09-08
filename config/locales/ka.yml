@@ -504,8 +504,8 @@ ka:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: ღია კონსულტაცია
+        other: ღია კონსულტაციები
     oral_statement:
       name:
         one: ზეპირი განცხადება პარლამენტში

@@ -504,8 +504,8 @@ el:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Ανοιχτή διαβούλευση
+        other: Ανοιχτές διαβουλεύσεις
     oral_statement:
       name:
         one: Προφορική δήλωση στη Βουλή

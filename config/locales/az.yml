@@ -504,8 +504,8 @@ az:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Açıq məsləhətləşmə
+        other: Açıq məsləhətləşmələr
     oral_statement:
       name:
         one: Parlamentə şifahi müraciət

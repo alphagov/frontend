@@ -504,8 +504,8 @@ dr:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: مشاوره آزاد
+        other: مشاوره هایی آزاد
     oral_statement:
       name:
         one: بیانیهء شفاهی به پارلمان

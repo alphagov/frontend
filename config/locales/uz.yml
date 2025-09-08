@@ -504,8 +504,8 @@ uz:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Очиқ маслаҳат
+        other: Очиқ маслаҳатлар
     oral_statement:
       name:
         one: Парламентга оғзаки баёнот

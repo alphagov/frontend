@@ -504,8 +504,8 @@ es:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consulta abierta
+        other: Consultas abiertas
     oral_statement:
       name:
         one: Declaración formulada oralmente

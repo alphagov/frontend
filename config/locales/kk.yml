@@ -504,8 +504,8 @@ kk:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Ашық кеңес
+        other: Ашық кеңестер
     oral_statement:
       name:
         one: Парламентке ауызша мәлімдеме

@@ -504,8 +504,8 @@ he:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: דיון פתוח
+        other: דיונים  פתוחים
     oral_statement:
       name:
         one: הצהרה בעל פה לפרלמנט

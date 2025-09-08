@@ -604,8 +604,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Адкрытая кансультацыя
+        other: Адкрытыя кансультацыі
     oral_statement:
       name:
         few:

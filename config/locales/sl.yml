@@ -603,8 +603,8 @@ sl:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Odprto posvetovanje
+        other: Odprto posvetovanje
         two:
     oral_statement:
       name:

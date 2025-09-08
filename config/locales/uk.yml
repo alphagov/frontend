@@ -604,8 +604,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Відкрита консультація
+        other: Відкриті консультації
     oral_statement:
       name:
         few:

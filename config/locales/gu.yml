@@ -504,8 +504,8 @@ gu:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: ખુલ્લો પરામર્શ
+        other: ખુલ્લા પરામર્શ
     oral_statement:
       name:
         one: સંસદમાં મૌખિક નિવેદન

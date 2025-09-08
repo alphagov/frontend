@@ -504,8 +504,8 @@ tk:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Açyk maslahat
+        other: Açyk maslahatlar
     oral_statement:
       name:
         one: Mejlise dilden beýan

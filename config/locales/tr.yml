@@ -504,8 +504,8 @@ tr:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Açık danışma
+        other: Açık danışmalar
     oral_statement:
       name:
         one: Parlamentoya sözlü açıklama

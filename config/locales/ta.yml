@@ -504,8 +504,8 @@ ta:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: திறந்த கலந்தாலோசனை
+        other: திறந்த கலந்தாலோசனைகள்
     oral_statement:
       name:
         one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு

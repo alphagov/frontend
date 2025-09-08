@@ -603,8 +603,8 @@ gd:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Comhairliúcháin oscailte
+        other: Comhairliúcháin oscailte
         two:
     oral_statement:
       name:

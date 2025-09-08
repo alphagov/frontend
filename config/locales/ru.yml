@@ -604,8 +604,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Открытая консультация
+        other: Открытые консультации
     oral_statement:
       name:
         few:

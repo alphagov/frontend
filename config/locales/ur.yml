@@ -504,8 +504,8 @@ ur:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: آزاد مشاورت
+        other: آزاد مشاورت
     oral_statement:
       name:
         one: پارلیمان کے لیے زبانی بیان

@@ -554,8 +554,8 @@ cs:
     open_consultation:
       name:
         few:
-        one:
-        other:
+        one: Otevřená konzultace
+        other: Otevřené konzultace
     oral_statement:
       name:
         few:

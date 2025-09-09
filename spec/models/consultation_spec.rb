@@ -162,4 +162,10 @@ RSpec.describe Consultation do
       expect(closed_consultation.documents_attachments_for_components[1]["id"]).to eq("02")
     end
   end
+
+  describe "#attachments_with_details" do
+    it "returns the number of attachments that are not accessible" do
+      expect(consultation_outcome_with_featured_attachments.attachments_with_details.count).to eq(4)
+    end
+  end
 end

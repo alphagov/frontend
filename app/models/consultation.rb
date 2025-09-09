@@ -56,4 +56,11 @@ class Consultation < ContentItem
   def documents_attachments_for_components
     attachments_from(content_store_response.dig("details", "featured_attachments"))
   end
+
+  def attachments_with_details
+    items = [].push(*final_outcome_attachments_for_components)
+    items.push(*public_feedback_attachments_for_components)
+    items.push(*documents_attachments_for_components)
+    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+  end
 end

@@ -37,4 +37,8 @@ class Consultation < ContentItem
   def pending_final_outcome?
     closed? && !final_outcome?
   end
+
+  def final_outcome_detail
+    content_store_response.dig("details", "final_outcome_detail")
+  end
 end

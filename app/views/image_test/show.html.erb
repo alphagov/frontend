@@ -1,0 +1,36 @@
+<% add_view_stylesheet("image-test") %>
+<h1>Image test</h1>
+
+<h2> Original resolution </h2>
+
+<h3> Original JPG (6380 x 4255, 6.2 Megabytes) </h3>
+ <%= image_tag("image-test/image.jpg", class: "image-test") %>
+ Largest contentful paint (lowest to value achieved): 0.58-0.84s
+
+<h2> Resized to 960 x 640 (designer recommended resolution) </h2>
+
+<h3> MozJPEG (960 x 640, 809 Kilobytes) </h3>
+<%= image_tag("image-test/moz.jpg", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.38-0.64s
+
+<h3> AVIF (960 x 640, 406 Kilobytes) </h3>
+<%= image_tag("image-test/avif.avif", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.37-0.71s
+
+<h3> WebP (960 x 640, 327 Kilobytes) </h3>
+<%= image_tag("image-test/webp.webp", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.34-0.68s
+
+<h2> Resized to 1920 x 1280 (double of 960 x 640) </h2>
+
+<h3> MozJPEG (1920 x 1280, 2.81 Megabytes) </h3>
+<%= image_tag("image-test/1920.jpg", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.46-0.81s
+
+<h3> AVIF (1920 x 1280, 1.4 Megabytes) </h3>
+<%= image_tag("image-test/1920.avif", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.48-0.68s
+
+<h3> WebP (1920 x 1280, 1.1 Megabytes) </h3>
+<%= image_tag("image-test/1920.webp", class: "image-test") %>
+Largest contentful paint (lowest to highest value achieved): 0.46-0.66s

@@ -1,0 +1,18 @@
+<% add_view_stylesheet("image-test") %>
+<h1>Image test</h1>
+
+<h2> Original resolution </h2>
+
+<h3> Original PNG (1598 x 1236, 56 Kilobytes) </h3>
+ <%= image_tag("image-test/monitor.png", class: "image-test") %>
+
+<h2> Compressed versions </h2>
+
+<h3> MozJPEG (61 Kilobytes) </h3>
+<%= image_tag("image-test/monitor.jpg", class: "image-test") %>
+
+<h3> AVIF (960 x 640, 8 Kilobytes) </h3>
+<%= image_tag("image-test/monitor.avif", class: "image-test") %>
+
+<h3> WebP (960 x 640, 11 Kilobytes) </h3>
+<%= image_tag("image-test/monitor.webp", class: "image-test") %>

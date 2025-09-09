@@ -135,6 +135,10 @@ Rails.application.routes.draw do
   # published route so can't be accessed from outside
   get "/static-error-pages/:error_code.html", to: "static_error_pages#show"
 
+  get "/image-test", to: "image_test#show"
+  get "/image-test/solo", to: "image_test#solo"
+  get "/image-test/graphics", to: "image_test#graphics"
+
   # Answer pages
   constraints FormatRoutingConstraint.new("answer") do
     get ":slug", to: "answer#show", as: "answer"

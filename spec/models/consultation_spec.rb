@@ -168,4 +168,18 @@ RSpec.describe Consultation do
       expect(consultation_outcome_with_featured_attachments.attachments_with_details.count).to eq(4)
     end
   end
+
+  describe "#public_feedback_detail" do
+    it "returns public feedback detail" do
+      expected_detail = consultation_outcome.content_store_response["details"]["public_feedback_detail"]
+
+      expect(consultation_outcome.public_feedback_detail).to eq(expected_detail)
+    end
+
+    it "does not return information if it does not have the consultation_outcome document type" do
+      expect(unopened_consultation.public_feedback_detail).not_to be_present
+      expect(open_consultation.public_feedback_detail).not_to be_present
+      expect(closed_consultation.public_feedback_detail).not_to be_present
+    end
+  end
 end

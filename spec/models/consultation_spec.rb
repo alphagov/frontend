@@ -4,6 +4,15 @@ RSpec.describe Consultation do
   let(:open_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "open_consultation")) }
   let(:closed_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "closed_consultation")) }
   let(:consultation_outcome) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_outcome")) }
+  let(:consultation_outcome_with_featured_attachments) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_outcome_with_featured_attachments")) }
+
+  let(:test_documents) do
+    [
+      { "id" => "01" },
+      { "id" => "02" },
+      { "id" => "03" },
+    ]
+  end
 
   it_behaves_like "it can be withdrawn", "consultation", "consultation_withdrawn"
   it_behaves_like "it can have attachments", "consultation", "consultation_outcome_with_featured_attachments"
@@ -106,6 +115,23 @@ RSpec.describe Consultation do
       expect(unopened_consultation.final_outcome_detail).not_to be_present
       expect(open_consultation.final_outcome_detail).not_to be_present
       expect(closed_consultation.final_outcome_detail).not_to be_present
+    end
+  end
+
+  describe "#final_outcome_attachments_for_components" do
+    it "returns final outcome documents if available" do
+      consultation_outcome_with_featured_attachments.content_store_response["details"]["attachments"] = test_documents
+      consultation_outcome_with_featured_attachments.content_store_response["details"]["final_outcome_attachments"] = %w[02 03]
+
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components.length).to eq(2)
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[0]["id"]).to eq("02")
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[1]["id"]).to eq("03")
+    end
+
+    it "does not return information if it does not have the consultation_outcome document type" do
+      expect(unopened_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(open_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(closed_consultation.public_feedback_attachments_for_components).not_to be_present
     end
   end
 end

@@ -41,4 +41,9 @@ class Consultation < ContentItem
   def final_outcome_detail
     content_store_response.dig("details", "final_outcome_detail")
   end
+
+  # Read the full outcome, top of page
+  def final_outcome_attachments_for_components
+    attachments_from(content_store_response.dig("details", "final_outcome_attachments"))
+  end
 end

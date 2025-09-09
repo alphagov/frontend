@@ -46,4 +46,9 @@ class Consultation < ContentItem
   def final_outcome_attachments_for_components
     attachments_from(content_store_response.dig("details", "final_outcome_attachments"))
   end
+
+  # Feedback received, middle of page
+  def public_feedback_attachments_for_components
+    attachments_from(content_store_response.dig("details", "public_feedback_attachments"))
+  end
 end

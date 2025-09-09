@@ -134,4 +134,21 @@ RSpec.describe Consultation do
       expect(closed_consultation.public_feedback_attachments_for_components).not_to be_present
     end
   end
+
+  describe "#public_feedback_attachments_for_components" do
+    it "returns public feedback documents" do
+      consultation_outcome_with_featured_attachments.content_store_response["details"]["attachments"] = test_documents
+      consultation_outcome_with_featured_attachments.content_store_response["details"]["public_feedback_attachments"] = %w[01 03]
+
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components.length).to eq(2)
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components[0]["id"]).to eq("01")
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components[1]["id"]).to eq("03")
+    end
+
+    it "does not return information if it does not have the consultation_outcome document type" do
+      expect(unopened_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(open_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(closed_consultation.public_feedback_attachments_for_components).not_to be_present
+    end
+  end
 end

@@ -94,4 +94,18 @@ RSpec.describe Consultation do
       expect(consultation_outcome.pending_final_outcome?).to be(false)
     end
   end
+
+  describe "#final_outcome_detail" do
+    it "returns information if it has the consultation_outcome document type" do
+      expected_outcome_detail = consultation_outcome.content_store_response.dig("details", "final_outcome_detail")
+
+      expect(consultation_outcome.final_outcome_detail).to eq(expected_outcome_detail)
+    end
+
+    it "does not return information if it does not have the consultation_outcome document type" do
+      expect(unopened_consultation.final_outcome_detail).not_to be_present
+      expect(open_consultation.final_outcome_detail).not_to be_present
+      expect(closed_consultation.final_outcome_detail).not_to be_present
+    end
+  end
 end

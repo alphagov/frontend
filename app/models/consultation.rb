@@ -63,4 +63,8 @@ class Consultation < ContentItem
     items.push(*documents_attachments_for_components)
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
+
+  def public_feedback_detail
+    content_store_response.dig("details", "public_feedback_detail")
+  end
 end

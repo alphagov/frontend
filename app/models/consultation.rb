@@ -51,4 +51,9 @@ class Consultation < ContentItem
   def public_feedback_attachments_for_components
     attachments_from(content_store_response.dig("details", "public_feedback_attachments"))
   end
+
+  # Documents, bottom of page
+  def documents_attachments_for_components
+    attachments_from(content_store_response.dig("details", "featured_attachments"))
+  end
 end

@@ -71,7 +71,7 @@
     <% elsif content_item.final_outcome? %>
       <%= render "govuk_publishing_components/components/notice", title: t("formats.consultation.concluded") %>
 
-      <%= render "attachments_list",
+      <%= render "shared/attachments_list",
         title: t("formats.consultation.download_outcome"),
         attachments_for_components: content_item.final_outcome_attachments_for_components %>
       <%= render "govuk_publishing_components/components/heading", {
@@ -87,7 +87,7 @@
       </div>
     <% end %>
 
-    <%= render "attachments_list",
+    <%= render "shared/attachments_list",
       title: t("formats.consultation.feedback_received"),
       attachments_for_components: content_item.public_feedback_attachments_for_components %>
     <% if content_item.public_feedback_detail %>
@@ -162,7 +162,7 @@
         <%= raw(content_item.govspeak_body[:content]) %>
       <% end %>
 
-      <%= render "attachments_list",
+      <%= render "shared/attachments_list",
         title: t("formats.consultation.documents"),
         attachments_for_components: content_item.documents_attachments_for_components %>
     </div>

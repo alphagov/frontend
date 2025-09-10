@@ -5,6 +5,7 @@ RSpec.describe Consultation do
   let(:closed_consultation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "closed_consultation")) }
   let(:consultation_outcome) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_outcome")) }
   let(:consultation_outcome_with_featured_attachments) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "consultation_outcome_with_featured_attachments")) }
+  let(:open_consultation_with_participation) { described_class.new(GovukSchemas::Example.find("consultation", example_name: "open_consultation_with_participation")) }
 
   let(:test_documents) do
     [
@@ -202,6 +203,21 @@ RSpec.describe Consultation do
 
     it "returns false if it is not held on another website" do
       expect(unopened_consultation.held_on_another_website?).to be(false)
+    end
+  end
+
+  describe "#email" do
+    it "returns the email address if available" do
+      expected_email = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "email")
+
+      expect(open_consultation_with_participation.email).to eq(expected_email)
+    end
+
+    it "returns nil if email address isn't available" do
+      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+
+      expect(open_consultation_with_participation.email).to be_nil
     end
   end
 end

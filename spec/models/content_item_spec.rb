@@ -15,7 +15,12 @@ RSpec.describe ContentItem do
       expect(subject.to_h["links"]["ordered_related_items"]).to eq([1, 2])
     end
 
-    it "uses suggested_ordered_related_items if no ordered_related_items" do
+    # This test ensures that suggested_ordered_related_items are ignored,
+    # even if present in the content item. This is a temporary measure
+    # during the transition period when the keys may exist but shouldn't be
+    # shown to users.
+
+    it "does not use suggested_ordered_related_items if no ordered_related_items" do
       subject = described_class.new(
         {
           "links" => {
@@ -24,7 +29,7 @@ RSpec.describe ContentItem do
         },
       )
 
-      expect(subject.to_h["links"]["ordered_related_items"]).to eq([3, 4])
+      expect(subject.to_h["links"]["ordered_related_items"]).to eq([])
     end
 
     it "returns an empty set if neither key is set" do

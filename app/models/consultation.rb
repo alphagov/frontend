@@ -88,6 +88,10 @@ class Consultation < ContentItem
     ways_to_respond["link_url"] if ways_to_respond
   end
 
+  def attachment_url
+    ways_to_respond["attachment_url"] if ways_to_respond
+  end
+
 private
 
   def ways_to_respond

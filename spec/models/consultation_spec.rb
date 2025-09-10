@@ -194,4 +194,14 @@ RSpec.describe Consultation do
       expect(unopened_consultation.held_on_another_website_url).to be_nil
     end
   end
+
+  describe "#held_on_another_website?" do
+    it "returns true if it is held on another website" do
+      expect(open_consultation.held_on_another_website?).to be(true)
+    end
+
+    it "returns false if it is not held on another website" do
+      expect(unopened_consultation.held_on_another_website?).to be(false)
+    end
+  end
 end

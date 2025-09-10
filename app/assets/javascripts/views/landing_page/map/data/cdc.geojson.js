@@ -807,7 +807,7 @@ window.GOVUK.cdcGeojson = {
         coordinates: [-2.721072, 52.068212]
       },
       properties: {
-        name: 'Hereford City CDC',
+        name: 'Wye Valley Community Diagnostic and Treatment Centre',
         address: 'Hereford, HR4 9SB',
         isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',

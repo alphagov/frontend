@@ -9,7 +9,10 @@ RSpec.describe "News Article" do
   describe "rendering meta tags" do
     before do
       # Ensure we request the Content Store version of the page
-      stub_const("ContentItemLoaders::GraphqlLoader::GRAPHQL_TRAFFIC_RATE", 0)
+      stub_const(
+        "ContentItemLoaders::GraphqlLoader::GRAPHQL_TRAFFIC_RATES",
+        { "news_article" => 0 },
+      )
     end
 
     it_behaves_like "it has meta tags", "news_article", "news_article"

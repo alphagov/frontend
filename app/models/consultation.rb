@@ -67,4 +67,8 @@ class Consultation < ContentItem
   def public_feedback_detail
     content_store_response.dig("details", "public_feedback_detail")
   end
+
+  def held_on_another_website_url
+    content_store_response.dig("details", "held_on_another_website_url")
+  end
 end

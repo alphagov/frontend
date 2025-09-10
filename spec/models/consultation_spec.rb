@@ -182,4 +182,16 @@ RSpec.describe Consultation do
       expect(closed_consultation.public_feedback_detail).not_to be_present
     end
   end
+
+  describe "#held_on_another_website_url" do
+    it "returns url if it is held on another website" do
+      expected_url = open_consultation.content_store_response.dig("details", "held_on_another_website_url")
+
+      expect(open_consultation.held_on_another_website_url).to be(expected_url)
+    end
+
+    it "does not return url if it is not held on another website" do
+      expect(unopened_consultation.held_on_another_website_url).to be_nil
+    end
+  end
 end

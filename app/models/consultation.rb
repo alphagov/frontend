@@ -96,6 +96,10 @@ class Consultation < ContentItem
     open? && (respond_online_url.present? || email.present? || postal_address.present?)
   end
 
+  def response_form?
+    attachment_url.present? && (email.present? || postal_address.present?)
+  end
+
 private
 
   def ways_to_respond

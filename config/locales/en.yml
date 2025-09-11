@@ -688,6 +688,9 @@ en:
       search_for_a_service: Search GOV.UK for a service
       search_for_a_service_button: Search
       service_list_items:
+      - text: Get the app
+        path: "/guidance/download-the-govuk-app#get-the-app"
+        description: The GOV.UK app gives you time back by making your interactions with government more personalised and proactive.
       - text: HMRC services
         path: "/log-in-register-hmrc-online-services"
         description: Sign in to use tax services including self-assessment.

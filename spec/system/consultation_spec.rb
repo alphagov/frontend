@@ -421,15 +421,44 @@ RSpec.describe "Consultation" do
     end
   end
 
-  # test "closed consultation pending outcome" do
-  #   setup_and_visit_content_item("closed_consultation")
+  context "when visiting a closed consultation page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "closed_consultation") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Closed consultation")
-  #   assert page.has_css?(".gem-c-notice", text: "We are analysing your feedback")
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   assert page.has_text?("ran from")
-  #   assert page.has_text?("2pm on 5 September 2016 to 4pm on 31 October 2016")
-  # end
+    it "displays the consultation status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Closed consultation")
+      end
+    end
+
+    context "when it displays the notice banner" do
+      it "displays the title" do
+        within(".gem-c-notice") do
+          expect(page).to have_css(".gem-c-notice__title", text: "We are analysing your feedback")
+        end
+      end
+
+      it "displays the text" do
+        within(".gem-c-notice") do
+          expect(page).to have_css(".gem-c-notice__description", text: "Visit this page again soon to download the outcome to this public feedback.")
+        end
+      end
+    end
+
+    context "when it displays the blue summary box" do
+      it "displays when the consultation ran" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This consultation ran from")
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "2pm on 5 September 2016 to 4pm on 31 October 2016")
+        end
+      end
+    end
+  end
 
   # test "consultation outcome" do
   #   setup_and_visit_content_item("consultation_outcome")

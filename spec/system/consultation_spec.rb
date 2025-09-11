@@ -357,16 +357,37 @@ RSpec.describe "Consultation" do
     end
   end
 
-  # test "unopened consultation" do
-  #   setup_and_visit_content_item("unopened_consultation")
+  context "when visiting an unopened consultation page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "unopened_consultation") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Consultation")
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   # There's no daylight savings after 2037
-  #   # http://timezonesjl.readthedocs.io/en/stable/faq/#far-future-zoneddatetime-with-variabletimezone
-  #   assert page.has_css?(".gem-c-notice", text: "This consultation opens at 1pm on 5 October 2200")
-  #   assert page.has_text?(:all, "It closes at 4pm on 31 October 2210")
-  # end
+    it "displays the consultation status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Consultation")
+      end
+    end
+
+    context "when it displays the notice banner" do
+      it "displays the opening time" do
+        within(".gem-c-notice") do
+          expect(page).to have_css(".gem-c-notice__description", text: "This consultation opens at 1pm on 5 October 2200")
+        end
+      end
+    end
+
+    context "when it displays the blue summary box" do
+      it "displays when the consultation closes" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "It closes at 4pm on 31 October 2210")
+        end
+      end
+    end
+  end
 
   # test "closed consultation pending outcome" do
   #   setup_and_visit_content_item("closed_consultation")

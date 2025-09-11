@@ -78,6 +78,222 @@ pa-pk:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: مواد
+      metadata:
+        published: شائع ہویا
+        updated: تازہ ترین حال
+      schema_name:
+        aaib_report:
+          one: ہوائی حادثیاں دی تفتیشی برانچ دی رپورٹ
+          other: ہوائی حادثیاں دی تفتیشی برانچ دیاں رپورٹاں
+        announcement:
+          one: اعلان
+          other: اعلانات
+        asylum_support_decision:
+          one: پناہ دی مدد لئی عدالت دا فیصلہ
+          other: پناہ دی مدد لئی عدالت دےفیصلے
+        authored_article:
+          one: لکھاری دا مضمون
+          other: لکھاری دے مضمون
+        business_finance_support_scheme:
+          one: کاروبار دی مالی مدد دا منصوبہ
+          other: کاروبار دی مالی مدد دے منصوبے
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: کیس دی پڑھائی
+          other: کیس دی پڑھائی
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: مشاورت بند ہوئی
+          other: مشاورت بند ہوئی
+        cma_case:
+          one: مقابلہ تے منڈی دے اختیار دا مقدمہ
+          other: مقابلہ تے منڈی دے اختیار دے مقدمے
+        consultation:
+          one: مشورہ
+          other: 'مشورے '
+        consultation_outcome:
+          one: مشورے دا نتیجہ
+          other: مشورے دے نتائج
+        corporate_information_page:
+          one: خبراں دا ورقہ
+          other: خبراں دا ورقے
+        corporate_report:
+          one: کاروبار دی رپورٹ
+          other: کاروبار دیاں رپورٹاں
+        correspondence:
+          one: خط وکتابت
+          other: خط وکتابت
+        countryside_stewardship_grant:
+          one: پنڈ دی چوکیداری لئی مدد
+          other: پند دی چوکیداری لئی امداد
+        decision:
+          one: فیصلہ
+          other: فیصلے
+        detailed_guide:
+          one: 'رہنمائی '
+          other: 'رہنمائی '
+        dfid_research_output:
+          one: ترقی دے نتیجے لئی کھوج
+          other: ترقی دے نتیجے لئی کھوج
+        document_collection:
+          one: مجموعہ
+          other: مجموعے
+        draft_text:
+          one: لکھیا ہویا مواد
+          other: لکھیا ہویا مواد
+        drug_safety_update:
+          one: منشیات توں حفاظت دی تازہ ترین صورتِ حال
+          other: منشیات توں حفاظت دی تازہ ترین صورتِ حال
+        employment_appeal_tribunal_decision:
+          one: ملازمت دی درخواست تے عدالت دا فیصلہ
+          other: ملازمت دی درخواست تے عدالت دے فیصلے
+        employment_tribunal_decision:
+          one: ملازمت دی عدالت دا فیصلہ
+          other: ملازمت دی عدالت دے فیصلے
+        esi_fund:
+          one: یورپئین سڑکچکرل انوسٹمینٹ فنڈ (ESIF)
+          other: یورپئین سڑکچکرل انوسٹمینٹ فنڈ (ESIF)
+        foi_release:
+          one: فریڈم آف انفارمیشن جاری کرنا
+          other: فریڈم آف انفارمیشن جاری کرنا
+        form:
+          one: 'فارم '
+          other: فارمز
+        guidance:
+          one: رہنمائی
+          other: 'رہنمائی '
+        impact_assessment:
+          one: اثر دی جانچ
+          other: اثر دی جانچ
+        imported:
+          one: درآمد شُدہ- انتظار کرن دی قسم
+          other: درآمد شُدہ- انتظار کرن دی قسم
+        independent_report:
+          one: خودمُختار رپورٹ
+          other: خودمُختار رپورٹس
+        international_development_fund:
+          one: بین الاقوامی ترقی دا فنڈنگ
+          other: بین الاقوامی ترقی دا فنڈنگ
+        international_treaty:
+          one: بین الاقوامی معاہدہ
+          other: بین الاقوامی معایدے
+        maib_report:
+          one: بحری حادثے دی تفتیش دی برانچ دی رپورٹ
+          other: بحری حادثے دی تفتیش دی برانچ دیاں رپورٹاں
+        map:
+          one: نقشہ
+          other: نقشے
+        medical_safety_alert:
+          one: طبی آلات تے ادویات بارے ہُشیاری تے واپسی
+          other: طبی آلات تے ادویات بارے ہُشیاری تے واپسی
+        national:
+          one: قومی اعدادو شمار دا اعلان
+          other: قومی اعدادو شمار دے اعلانات
+        national_statistics:
+          one: قومی اعدادوشمار
+          other: قومی اعدادوشمار
+        national_statistics_announcement:
+          one: قومی اعدادوشمار دا اعلان
+          other: قومی اعدادوشمار دے اعلانات
+        news_article:
+          one: خبراں دا مضمون
+          other: خبراں دے مضمون
+        notice:
+          one: نوٹس
+          other: ںوٹسز
+        official:
+          one: سرکاری اعدادوشمار دا اعلان
+          other: سرکاری اعدادوشمار دے اعلانات
+        official_statistics:
+          one: سرکاری اعدادوشمار
+          other: سرکاری اعدادوشمار
+        official_statistics_announcement:
+          one: سرکاری اعدادوشمار دا اعلان
+          other: سرکاری اعدادوشمار دے اعلانات
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: 'کُھلی مشاورت '
+          other: 'کُھلی مشاورت '
+        oral_statement:
+          one: قومی مجلس دے سامنے زبانی بیان
+          other: قومی مجلس دے سامنے زبانی بیانات
+        policy:
+          one: حکمتِ عملی
+          other: حکمتِ عملی
+        policy_paper:
+          one: حکمت عملی دا کاغذ
+          other: حکمتِ عملی دے کاغذات
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: اشتہاری مواد
+          other: اشتہاری مواد
+        publication:
+          one: مطبوعہ
+          other: مطبوعات
+        raib_report:
+          one: ریل دے حادثے دی تفتیشی برانچ دی رپورٹ
+          other: ریل دے حادثے دی تفتیشی برانچ دی رپورٹاں
+        regulation:
+          one: قانون
+          other: قوانین
+        research:
+          one: 'کھوج تے تجزیہ '
+          other: 'کھوج تے تجزیہ '
+        residential_property_tribunal_decision:
+          one: رہائشی جائیداد دی عدالت دا فیصلہ
+          other: رہائشی جائیداد دی عدالت دے فیصلے
+        service_sign_in:
+          one: سروس سائن اِن
+          other: سروس سائن اِن
+        service_standard_report:
+          one: سروس سٹینڈرڈ رپورٹ
+          other: سروس سٹینڈرڈ رپورٹس
+        speaking_notes:
+          one: گل بات دے نوٹس
+          other: گل بات دے نوٹس
+        standard:
+          one: سٹینڈرڈ
+          other: سٹینڈرڈز
+        statement_to_parliament:
+          one: قومی مجلس دے سامنے بیان
+          other: قومی مجلس دے سامنے بیانات
+        statistical_data_set:
+          one: اعدادو شمار دی معلومات دا سیٹ
+          other: اعدادو شمار دی معلومات دے سیٹ
+        statistics_announcement:
+          one: اعدادو شمار جاری کرن دا اعلان
+          other: اعدادوشمار جاری کرن دے اعلانات
+        statutory_guidance:
+          one: قانونی رہنمائی
+          other: قانونی رہنمائی
+        tax_tribunal_decision:
+          one: ٹیکس تے عدالتِ عالیہ دا فیصلہ
+          other: ٹیکس تے عدالتِ عالیہ دے فیصلے
+        transcript:
+          one: بیان
+          other: بیانات
+        transparency:
+          one: شفافیت دے اعدادوشمار
+          other: شفافیت دے اعدادوشمار
+        utaac_decision:
+          one: انتظامی درخواست دی عدالت دا فیصلہ
+          other: انتظامی درخواست دی عدالت دے فیصلے
+        written_statement:
+          one: قومی مجلس دے سامنے تحریری بیان
+          other: قومی مجلس دے سامنے تحریری بیانات
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -371,6 +587,10 @@ pa-pk:
         one: حکومت دا جواب
         other: حکومت دے جوابات
     guidance:
+      name:
+        one:
+        other:
+    html_publication:
       name:
         one:
         other:

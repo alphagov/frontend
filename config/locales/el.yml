@@ -78,6 +78,222 @@ el:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Περιεχόμενα
+      metadata:
+        published: Δημοσιεύθηκε
+        updated: Ενημερωμένο
+      schema_name:
+        aaib_report:
+          one: Έκθεση του Τμήματος Έρευνας Αεροπορικών Ατυχημάτων
+          other: Εκθέσεις του Τμήματος Έρευνας Αεροπορικών Ατυχημάτων
+        announcement:
+          one: Ανακοίνωση
+          other: Ανακοινώσεις
+        asylum_support_decision:
+          one: Δικαστική απόφαση υποστήριξης ασύλου
+          other: Δικαστικές αποφάσεις υποστήριξης ασύλου
+        authored_article:
+          one: Σύνταξη άρθρου
+          other: Σύνταξη άρθρων
+        business_finance_support_scheme:
+          one: Πρόγραμμα στήριξης χρηματοδότησης επιχειρήσεων
+          other: Προγράμματα στήριξης χρηματοδότησης επιχειρήσεων
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Μελέτη περίπτωσης
+          other: Μελέτες περιπτώσεων
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Κλειστή διαβούλευση
+          other: Κλειστές διαβουλεύσεις
+        cma_case:
+          one: Υπόθεση Αρχής Ανταγωνισμού και Αγορών
+          other: Υποθέσεις Αρχής Ανταγωνισμού και Αγορών
+        consultation:
+          one: Διαβούλευση
+          other: Διαβουλεύσεις
+        consultation_outcome:
+          one: Αποτέλεσμα διαβούλευσης
+          other: Αποτελέσματα διαβούλευσης
+        corporate_information_page:
+          one: Σελίδα πληροφοριών
+          other: Σελίδες πληροφοριών
+        corporate_report:
+          one: Εταιρική έκθεση
+          other: Εταιρικές εκθέσεις
+        correspondence:
+          one: Αλληλογραφία
+          other: Αλληλογραφίες
+        countryside_stewardship_grant:
+          one: Οικονομικό κίνητρο Countryside Stewardship grant
+          other: Οικονομικά κίνητρα Countryside Stewardship grants
+        decision:
+          one: Απόφαση
+          other: Αποφάσεις
+        detailed_guide:
+          one: Οδηγία
+          other: Οδηγία
+        dfid_research_output:
+          one: Έρευνα για αναπτυξιακό αποτέλεσμα
+          other: Έρευνα για αναπτυξιακά αποτελέσματα
+        document_collection:
+          one: Συλλογή
+          other: Συλλογές
+        draft_text:
+          one: Σχέδιο κειμένου
+          other: Σχέδια κειμένων
+        drug_safety_update:
+          one: Ενημέρωση για την ασφάλεια των φαρμάκων
+          other: Ενημερώσεις για την ασφάλεια των φαρμάκων
+        employment_appeal_tribunal_decision:
+          one: Δικαστική απόφαση προσφυγής για την απασχόληση
+          other: Δικαστικές αποφάσεις προσφυγής για την απασχόληση
+        employment_tribunal_decision:
+          one: Απόφαση δικαστηρίου για την απασχόληση
+          other: Αποφάσεις δικαστηρίου για την απασχόληση
+        esi_fund:
+          one: Ευρωπαϊκό Διαρθρωτικό και Επενδυτικό Ταμείο (ESIF)
+          other: Ευρωπαϊκά Διαρθρωτικά και Επενδυτικά Ταμεία (ESIF)
+        foi_release:
+          one: Κυκλοφορία ελευθερία της πληροφόρησης
+          other: Κυκλοφορίες ελευθερία της πληροφόρησης
+        form:
+          one: Φόρμα
+          other: Φόρμες
+        guidance:
+          one: Οδηγία
+          other: Οδηγία
+        impact_assessment:
+          one: Εκτίμηση επίπτωσης
+          other: Εκτιμήσεις επιπτώσεων
+        imported:
+          one: εισήχθη - σε αναμονή για τύπο
+          other: εισήχθη - σε αναμονή για τύπο
+        independent_report:
+          one: Ανεξάρτητη έκθεση
+          other: Ανεξάρτητες εκθέσεις
+        international_development_fund:
+          one: Διεθνής χρηματοδότηση ανάπτυξης
+          other: Διεθνής χρηματοδότηση ανάπτυξης
+        international_treaty:
+          one: Διεθνής συνθήκη
+          other: Διεθνείς συνθήκες
+        maib_report:
+          one: Έκθεση του τμήματος διερεύνησης θαλάσσιων ατυχημάτων
+          other: Εκθέσεις του τμήματος διερεύνησης θαλάσσιων ατυχημάτων
+        map:
+          one: Χάρτης
+          other: Χάρτες
+        medical_safety_alert:
+          one: Ειδοποιήσεις και ανακλήσεις για φάρμακα και ιατρικές συσκευές
+          other: Ειδοποιήσεις και ανακλήσεις για φάρμακα και ιατρικές συσκευές
+        national:
+          one: Ανακοίνωση εθνικής στατιστικής υπηρεσίας
+          other: Ανακοινώσεις εθνικής στατιστικής υπηρεσίας
+        national_statistics:
+          one: Εθνική Στατιστική Υπηρεσία
+          other: Εθνική Στατιστική Υπηρεσία
+        national_statistics_announcement:
+          one: Ανακοίνωση εθνικής στατιστικής υπηρεσίας
+          other: Ανακοινώσεις εθνικής στατιστικής υπηρεσίας
+        news_article:
+          one: Άρθρο ειδήσεων
+          other: Άρθρα ειδήσεων
+        notice:
+          one: Σημείωση
+          other: Σημειώσεις
+        official:
+          one: Επίσημη ανακοίνωση στατιστικών
+          other: Επίσημες ανακοινώσεις στατιστικών
+        official_statistics:
+          one: Επίσημη Στατιστικά Στοιχεία
+          other: Επίσημη Στατιστικά Στοιχεία
+        official_statistics_announcement:
+          one: Επίσημη ανακοίνωση στατιστικών
+          other: Επίσημες ανακοινώσεις στατιστικών
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Ανοιχτή διαβούλευση
+          other: Ανοιχτές διαβουλεύσεις
+        oral_statement:
+          one: Προφορική δήλωση στη Βουλή
+          other: Προφορικές δηλώσεις στη Βουλή
+        policy:
+          one: Πολιτική
+          other: Πολιτικές
+        policy_paper:
+          one: Έγγραφο πολιτικής
+          other: Έγγραφα πολιτικής
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Προωθητικό υλικό
+          other: Προωθητικό υλικό
+        publication:
+          one: Δημοσίευση
+          other: Δημοσιεύσεις
+        raib_report:
+          one: Έκθεση Τμήματος Διερεύνησης Σιδηροδρομικών Ατυχημάτων
+          other: Εκθέσεις Τμήματος Διερεύνησης Σιδηροδρομικών Ατυχημάτων
+        regulation:
+          one: Κανονισμός λειτουργίας
+          other: Κανονισμοί λειτουργίας
+        research:
+          one: Έρευνα και ανάλυση
+          other: Έρευνα και ανάλυση
+        residential_property_tribunal_decision:
+          one: Απόφαση δικαστηρίου διαφορών ιδιοκτησίας
+          other: Αποφάσεις δικαστηρίου διαφορών ιδιοκτησίας
+        service_sign_in:
+          one: Σύνδεση υπηρεσίας
+          other: Σύνδεση υπηρεσίας
+        service_standard_report:
+          one: Τυπική έκθεση υπηρεσίας
+          other: Τυπικές εκθέσεις υπηρεσίας
+        speaking_notes:
+          one: Σημειώσεις ομιλίας
+          other: Σημειώσεις ομιλίας
+        standard:
+          one: Πρότυπο
+          other: Πρότυπα
+        statement_to_parliament:
+          one: Δήλωση στη Βουλή
+          other: Δηλώσεις στη Βουλή
+        statistical_data_set:
+          one: Σύνολο στατιστικών δεδομένων
+          other: Σύνολα στατιστικών δεδομένων
+        statistics_announcement:
+          one: Ανακοίνωση έκδοσης στατιστικών
+          other: Ανακοινώσεις έκδοσης στατιστικών
+        statutory_guidance:
+          one: Νομικές οδηγίες
+          other: Νομικές οδηγίες
+        tax_tribunal_decision:
+          one: Απόφαση του δικαστηρίου επιμελητηρίου Tax and Chancery
+          other: Αποφάσεις του δικαστηρίου επιμελητηρίου Tax and Chancery
+        transcript:
+          one: Αντίγραφο
+          other: Αντίγραφα
+        transparency:
+          one: Δεδομένα διαφάνειας
+          other: Δεδομένα διαφάνειας
+        utaac_decision:
+          one: Απόφαση του δικαστηρίου διοικητικών προσφυγών
+          other: Αποφάσεις του δικαστηρίου διοικητικών προσφυγών
+        written_statement:
+          one: Γραπτή δήλωση στη Βουλή
+          other: Γραπτές δηλώσεις στη Βουλή
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -371,6 +587,10 @@ el:
         one: Κυβερνητική απάντηση
         other: Κυβερνητικές απαντήσεις
     guidance:
+      name:
+        one:
+        other:
+    html_publication:
       name:
         one:
         other:

@@ -78,6 +78,222 @@ hi:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: विषय-वस्तु
+      metadata:
+        published: प्रकाशित
+        updated: अपडेट किया गया
+      schema_name:
+        aaib_report:
+          one: हवाई दुर्घटना जांच शाखा की रिपोर्ट
+          other: हवाई दुर्घटना जांच शाखा की रिपोर्टें
+        announcement:
+          one: घोषणा
+          other: घोषणाएं
+        asylum_support_decision:
+          one: आश्रय स्थल सहायता न्यायाधिकरण का फैसला
+          other: आश्रय स्थल सहायता न्यायाधिकरण के फैसलें
+        authored_article:
+          one: मूल आलेख
+          other: मूल आलेख
+        business_finance_support_scheme:
+          one: व्यावसायिक वित्त सहायता योजना
+          other: व्यावसायिक वित्त सहायता योजनाएं
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: विषय अध्ययन
+          other: विषय अध्ययन
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: बंद कमरे में परामर्श
+          other: बंद कमरे में परामर्श
+        cma_case:
+          one: प्रतिस्पर्धा और बाज़ार प्राधिकरण मामला
+          other: प्रतिस्पर्धा और बाज़ार प्राधिकरण मामले
+        consultation:
+          one: परामर्श
+          other: परामर्श
+        consultation_outcome:
+          one: परामर्श का नतीजा
+          other: परामर्श के नतीजे
+        corporate_information_page:
+          one: सूचना का पेज
+          other: सूचना के पेज
+        corporate_report:
+          one: कॉरपोरेट विवरण
+          other: कॉरपोरेट विवरण
+        correspondence:
+          one: पत्र व्यवहार
+          other: पत्र व्यवहार
+        countryside_stewardship_grant:
+          one: देहात प्रबंधन का अनुदान
+          other: देहात प्रबंधन के अनुदान
+        decision:
+          one: फैसला
+          other: फैसले
+        detailed_guide:
+          one: मार्गदर्शन
+          other: मार्गदर्शन
+        dfid_research_output:
+          one: विकास के लिए शोध का परिणाम
+          other: विकास के लिए शोध के परिणाम
+        document_collection:
+          one: श्रृंखला
+          other: श्रृंखलाएं
+        draft_text:
+          one: मसौदा पाठ
+          other: मसौदे के पाठ
+        drug_safety_update:
+          one: दवा सुरक्षा का अपडेट
+          other: दवा सुरक्षा के अपडेट
+        employment_appeal_tribunal_decision:
+          one: रोजगार निवेदन न्यायाधिकरण का फैसला
+          other: रोजगार निवेदन न्यायाधिकरण के फैसले
+        employment_tribunal_decision:
+          one: रोजगार न्यायाधिकरण का फैसला
+          other: रोजगार न्यायाधिकरण के फैसले
+        esi_fund:
+          one: यूरोपीय संरचनात्मक और निवेश कोष (European Structural and Investment Fund, ESIF)
+          other: यूरोपीय संरचनात्मक और निवेश कोष (European Structural and Investment Fund, ESIF)
+        foi_release:
+          one: एफओआई की विज्ञप्ति
+          other: एफओआई की विज्ञप्तियां
+        form:
+          one: प्रपत्र
+          other: प्रपत्र
+        guidance:
+          one: मार्गदर्शन
+          other: मार्गदर्शन
+        impact_assessment:
+          one: प्रभाव का आंकलन
+          other: प्रभाव का आंकलन
+        imported:
+          one: आयातित - प्रतीक्षा का प्रकार
+          other: आयातित - प्रतीक्षा का प्रकार
+        independent_report:
+          one: स्वतंत्र रिपोर्ट
+          other: स्वतंत्र रिपोर्टें
+        international_development_fund:
+          one: अंतरराष्ट्रीय विकास निधि
+          other: अंतरराष्ट्रीय विकास निधि
+        international_treaty:
+          one: अंतरराष्ट्रीय संधि
+          other: अंतरराष्ट्रीय संधियां
+        maib_report:
+          one: समुद्री दुर्घटना जांच शाखा की रिपोर्ट
+          other: समुद्री दुर्घटना जांच शाखा की रिपोर्टें
+        map:
+          one: मानचित्र
+          other: मानचित्रों
+        medical_safety_alert:
+          one: दवाओं और चिकित्सा उपकरणों के लिए चेतावनियां और रिकॉल
+          other: दवाओं और चिकित्सा उपकरणों के लिए चेतावनियां और रिकॉल
+        national:
+          one: राष्ट्रीय सांख्यिकी की घोषणा
+          other: राष्ट्रीय सांख्यिकी की घोषणाएं
+        national_statistics:
+          one: राष्ट्रीय सांख्यिकी
+          other: राष्ट्रीय सांख्यिकी
+        national_statistics_announcement:
+          one: राष्ट्रीय सांख्यिकी की घोषणा
+          other: राष्ट्रीय सांख्यिकी की घोषणाएं
+        news_article:
+          one: समाचार लेख
+          other: समाचार लेख
+        notice:
+          one: नोटिस
+          other: नोटिस
+        official:
+          one: आधिकारिक सांख्यिकी की घोषणा
+          other: आधिकारिक सांख्यिकी की घोषणाएं
+        official_statistics:
+          one: आधिकारिक सांख्यिकी
+          other: आधिकारिक सांख्यिकी
+        official_statistics_announcement:
+          one: आधिकारिक सांख्यिकी की घोषणा
+          other: आधिकारिक सांख्यिकी की घोषणाएं
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: खुला परामर्श
+          other: खुले परामर्श
+        oral_statement:
+          one: संसद में मौखिक बयान
+          other: संसद में मौखिक बयान
+        policy:
+          one: नीति
+          other: नीतियां
+        policy_paper:
+          one: नीति पत्र
+          other: नीति पत्र
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: प्रचार सामग्री
+          other: प्रचार सामग्री
+        publication:
+          one: प्रकाशन
+          other: प्रकाशन
+        raib_report:
+          one: रेल दुर्घटना जांच शाखा की रिपोर्ट
+          other: रेल दुर्घटना जांच शाखा की रिपोर्टें
+        regulation:
+          one: विनियमन
+          other: विनियमों
+        research:
+          one: अनुसंधान एवं विश्लेषण
+          other: अनुसंधान एवं विश्लेषण
+        residential_property_tribunal_decision:
+          one: आवासीय संपत्ति न्यायाधिकरण का फैसला
+          other: आवासीय संपत्ति न्यायाधिकरण के फैसले
+        service_sign_in:
+          one: सेवा साइन इन
+          other: सेवा साइन इन
+        service_standard_report:
+          one: सेवा मानक की रिपोर्ट
+          other: सेवा मानक की रिपोर्टें
+        speaking_notes:
+          one: " उदबोधन अंश"
+          other: " उदबोधन अंश"
+        standard:
+          one: मानक
+          other: मानकों
+        statement_to_parliament:
+          one: संसद में बयान
+          other: संसद में बयान
+        statistical_data_set:
+          one: सांख्यिकीय आंकड़े का समूह
+          other: सांख्यिकीय आंकड़े का समूह
+        statistics_announcement:
+          one: सांख्यिकी विज्ञप्ति की घोषणा
+          other: सांख्यिकी विज्ञप्ति की घोषणाएं
+        statutory_guidance:
+          one: वैधानिक मार्गदर्शन
+          other: वैधानिक मार्गदर्शन
+        tax_tribunal_decision:
+          one: कर और कार्यालय न्यायाधिकरण का फैसला
+          other: कर और कार्यालय न्यायाधिकरण के फैसले
+        transcript:
+          one: प्रतिलिपि
+          other: प्रतिलिपियां
+        transparency:
+          one: पारदर्शिता आंकड़े
+          other: पारदर्शिता आंकड़े
+        utaac_decision:
+          one: प्रशासनिक निवेदन न्यायाधिकरण का फैसला
+          other: प्रशासनिक निवेदन न्यायाधिकरण के फैसले
+        written_statement:
+          one: संसद में लिखित बयान
+          other: संसद में लिखित बयान
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -371,6 +587,10 @@ hi:
         one: सरकारी जवाब
         other: सरकारी जवाब
     guidance:
+      name:
+        one:
+        other:
+    html_publication:
       name:
         one:
         other:

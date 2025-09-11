@@ -133,6 +133,26 @@ RSpec.describe "Consultation" do
       expect(page).not_to have_css(".gem-c-notice__title")
     end
 
+    context "when it displays the blue summary box" do
+      it "displays the heading" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css("h2", text: "Summary")
+        end
+      end
+
+      it "displays the description" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: content_store_response.dig("details", "description"))
+        end
+      end
+
+      it "displays link to external consultations" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css("a[href=\"#{content_store_response['details']['held_on_another_website_url']}\"]", text: "another website")
+        end
+      end
+    end
+
     it "displays the document description" do
       within(".consultation-description") do
         expect(page).to have_css("h2", text: "Consultation description")
@@ -308,12 +328,6 @@ RSpec.describe "Consultation" do
       end
     end
   end
-
-  # test "link to external consultations" do
-  #   setup_and_visit_content_item("open_consultation")
-
-  #   assert page.has_css?("a[href=\"#{@content_item['details']['held_on_another_website_url']}\"]", text: "another website")
-  # end
 
   # test "open consultation" do
   #   setup_and_visit_content_item("open_consultation")

@@ -373,9 +373,25 @@ RSpec.describe "Consultation" do
     end
 
     context "when it displays the notice banner" do
+      it "displays the title" do
+        within(".gem-c-notice") do
+          expect(page).to have_css("h2", text: "This consultation isn't open yet")
+        end
+      end
+
       it "displays the opening time" do
         within(".gem-c-notice") do
           expect(page).to have_css(".gem-c-notice__description", text: "This consultation opens at 1pm on 5 October 2200")
+        end
+      end
+
+      it "includes 'on' if opening time is 12am" do
+        content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-notice") do
+          expect(page).to have_css(".gem-c-notice__description", text: "This consultation opens on 4 November 2016")
         end
       end
     end
@@ -386,6 +402,22 @@ RSpec.describe "Consultation" do
           expect(page).to have_css(".gem-c-summary-banner__text", text: "It closes at 4pm on 31 October 2210")
         end
       end
+
+      it "links to external consultation url if available" do
+        content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_text("This consultation is being held on")
+
+          expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+        end
+      end
+    end
+
+    it "does not display ways to respond" do
+      expect(page).not_to have_css(".consultation-ways-to-respond")
     end
   end
 

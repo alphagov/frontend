@@ -476,60 +476,94 @@ RSpec.describe "Consultation" do
     end
   end
 
-  # test "consultation outcome" do
-  #   setup_and_visit_content_item("consultation_outcome")
+  context "when visiting a consultation outcome page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Consultation outcome")
-  #   assert page.has_css?(".gem-c-notice", text: "This consultation has concluded")
-  #   assert page.has_css?("h2", text: "Original consultation")
-  #   assert page.has_text?("ran from")
-  #   assert page.has_text?("4pm on 20 April 2016 to 10:45pm on 13 July 2016")
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   within ".consultation-outcome-detail" do
-  #     assert page.has_text?(@content_item["details"]["final_outcome_detail"])
-  #   end
-  # end
+    it "displays the consultation status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Consultation outcome")
+      end
+    end
 
-  # test "public feedback" do
-  #   setup_and_visit_content_item("consultation_outcome_with_feedback")
+    it "displays the status in the notice banner" do
+      within(".gem-c-notice") do
+        expect(page).to have_css(".gem-c-notice__title", text: "This consultation has concluded")
+      end
+    end
 
-  #   assert page.has_text?("Detail of feedback received")
-  #   within ".consultation-feedback" do
-  #     assert page.has_text?("The majority of respondents agreed or strongly agreed with our proposals, which were:")
-  #   end
-  # end
+    it "displays the 'Original consultation' heading" do
+      expect(page).to have_css("h2", text: "Original consultation")
+    end
 
-  # test "renders consultation outcome attachments (as-is and directly)" do
-  #   setup_and_visit_content_item("consultation_outcome", general_overrides)
+    it "displays the outcome detail" do
+      within(".consultation-outcome-detail") do
+        expect(page).to have_content(content_store_response["details"]["final_outcome_detail"])
+      end
+    end
 
-  #   assert page.has_text?("Read the full outcome")
-  #   within "#read-the-full-outcome" do
-  #     assert page.has_text?("Setting the grade standards of new GCSEs in England – part 2")
-  #   end
+    context "when it displays the blue summary box" do
+      it "displays when the consultation ran" do
+        within(".gem-c-summary-banner") do
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "This consultation ran from")
+          expect(page).to have_css(".gem-c-summary-banner__text", text: "4pm on 20 April 2016 to 10:45pm on 13 July 2016")
+        end
+      end
+    end
 
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments")
+    context "when rendering public feedback" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome_with_feedback") }
+      let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Read the full outcome")
-  #   within "#read-the-full-outcome" do
-  #     assert page.has_text?("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
+      before do
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+      end
 
-  # test "shows pre-rendered public feedback documents" do
-  #   setup_and_visit_content_item("consultation_outcome_with_feedback", general_overrides)
+      it "displays feedback title" do
+        expect(page).to have_css("h2", text: "Detail of feedback received")
+      end
 
-  #   assert page.has_text?("Feedback received")
-  #   within "#feedback-received" do
-  #     assert page.has_text?("Decisions on setting the grade standards of new GCSEs in England - part 2")
-  #   end
-  # end
+      it "displays feedback text" do
+        within(".consultation-feedback") do
+          expect(page).to have_text("The majority of respondents agreed or strongly agreed with our proposals, which were:")
+        end
+      end
+    end
 
-  # test "renders public feedback document attachments" do
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments")
+    context "when rendering full outcome details" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome_with_featured_attachments") }
+      let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Feedback received")
-  #   within "#feedback-received" do
-  #     assert page.has_text?("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
+      before do
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+      end
+
+      it "displays 'Read the full outcome' heading" do
+        within("#read-the-full-outcome") do
+          expect(page).to have_css("h2", text: "Read the full outcome")
+        end
+      end
+
+      it "renders consultation outcome attachments" do
+        within("#read-the-full-outcome") do
+          expect(page).to have_text("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2")
+        end
+      end
+
+      it "renders public feedback document attachments" do
+        assert page.has_text?("Feedback received")
+
+        within "#feedback-received" do
+          expect(page).to have_text("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
+        end
+      end
+    end
+  end
 end

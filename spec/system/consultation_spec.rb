@@ -139,23 +139,63 @@ RSpec.describe "Consultation" do
     it "does not display the national applicability banner if national information is unavailable" do
       expect(page).not_to have_css(".gem-c-devolved-nations")
     end
+
+    context "when document attachments are available" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome_with_featured_attachments") }
+      let(:base_path) { content_store_response.fetch("base_path") }
+
+      before do
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+      end
+
+      it "renders the document heading" do
+        within("#documents") do
+          expect(page).to have_css("h2", text: "Documents")
+        end
+      end
+
+      it "renders document attachments" do
+        within("#documents") do
+          expect(page).to have_css("h3", text: "Setting the grade standards of new GCSEs in England – part 2")
+        end
+      end
+
+      it "renders accessible format option when accessible is false and email is supplied" do
+        within("#documents") do
+          attachments = page.find_all(".gem-c-attachment")
+
+          expect(attachments[0]).to have_content("Request an accessible format")
+        end
+      end
+
+      it "doesn't render accessible format option when accessible is true and email is supplied" do
+        content_store_response["details"]["attachments"][0]["accessible"] = true
+
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within "#documents" do
+          attachments = page.find_all(".gem-c-attachment")
+
+          expect(attachments[0]).not_to have_content("Request an accessible format")
+        end
+      end
+
+      it "doesn't render accessible format option when accessible is false and email is not supplied" do
+        content_store_response["details"]["attachments"][0].delete("alternative_format_contact_email")
+
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within "#documents" do
+          attachments = page.find_all(".gem-c-attachment")
+
+          expect(attachments[0]).not_to have_content("Request an accessible format")
+        end
+      end
+    end
   end
-
-  # test "renders document attachments (as-is and directly)" do
-  #   setup_and_visit_content_item("closed_consultation", general_overrides)
-
-  #   assert page.has_text?("Documents")
-  #   within "#documents" do
-  #     assert page.has_text?("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2")
-  #   end
-
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments", general_overrides)
-
-  #   assert page.has_text?("Documents")
-  #   within "#documents" do
-  #     assert page.has_text?("Equalities impact assessment: setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
 
   # test "link to external consultations" do
   #   setup_and_visit_content_item("open_consultation")
@@ -245,80 +285,6 @@ RSpec.describe "Consultation" do
   #   assert page.has_text?("Feedback received")
   #   within "#feedback-received" do
   #     assert page.has_text?("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
-
-  # test "renders accessible format option when accessible is false and email is supplied" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [
-  #         {
-  #           "accessible" => false,
-  #           "alternative_format_contact_email" => "ddc-modinternet@mod.gov.uk",
-  #           "attachment_type" => "file",
-  #           "id" => "01",
-  #           "title" => "Number of ex-regular service personnel now part of FR20",
-  #           "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-  #           "content_type" => "application/pdf",
-  #           "filename" => "PUBLIC_1392629965.pdf",
-  #           "locale" => "en",
-  #         },
-  #       ],
-  #       "featured_attachments" => %w[01],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments", overrides)
-  #   within "#documents" do
-  #     assert page.has_text?("Request an accessible format")
-  #   end
-  # end
-
-  # test "doesn't render accessible format option when accessible is true and email is supplied" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [
-  #         {
-  #           "accessible" => true,
-  #           "alternative_format_contact_email" => "ddc-modinternet@mod.gov.uk",
-  #           "attachment_type" => "file",
-  #           "id" => "01",
-  #           "title" => "Number of ex-regular service personnel now part of FR20",
-  #           "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-  #           "content_type" => "application/pdf",
-  #           "filename" => "PUBLIC_1392629965.pdf",
-  #           "locale" => "en",
-  #         },
-  #       ],
-  #       "featured_attachments" => %w[01],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments", overrides)
-  #   within "#documents" do
-  #     assert page.has_no_text?("Request an accessible format")
-  #   end
-  # end
-
-  # test "doesn't render accessible format option when accessible is false and email is not supplied" do
-  #   overrides = {
-  #     "details" => {
-  #       "attachments" => [
-  #         {
-  #           "accessible" => false,
-  #           "attachment_type" => "file",
-  #           "id" => "01",
-  #           "title" => "Number of ex-regular service personnel now part of FR20",
-  #           "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-  #           "content_type" => "application/pdf",
-  #           "filename" => "PUBLIC_1392629965.pdf",
-  #           "locale" => "en",
-  #         },
-  #       ],
-  #       "featured_attachments" => %w[01],
-  #     },
-  #   }
-  #   setup_and_visit_content_item("consultation_outcome_with_featured_attachments", overrides)
-  #   within "#documents" do
-  #     assert page.has_no_text?("Request an accessible format")
   #   end
   # end
 

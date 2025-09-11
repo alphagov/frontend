@@ -254,6 +254,34 @@ RSpec.describe "Consultation" do
         end
       end
     end
+
+    context "when it renders the single page notification button" do
+      it "displays the button on English language pages" do
+        buttons = page.find_all(".gem-c-single-page-notification-button")
+
+        expect(buttons.count).to eq(2)
+
+        buttons.each do
+          expect(page).to have_css(".gem-c-single-page-notification-button", text: "Get emails about this page")
+        end
+      end
+
+      it "does not render the button on foreign language pages" do
+        content_store_response["locale"] = "cy"
+        stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
+        visit "/government/consultations/postgraduate-doctoral-loans"
+
+        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      end
+
+      it "does not render the button on exempt pages" do
+        content_store_response["content_id"] = "c5c8d3cd-0dc2-4ca3-8672-8ca0a6e92165"
+        stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
+        visit "/government/consultations/postgraduate-doctoral-loans"
+
+        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      end
+    end
   end
 
   # test "link to external consultations" do
@@ -345,30 +373,5 @@ RSpec.describe "Consultation" do
   #   within "#feedback-received" do
   #     assert page.has_text?("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
   #   end
-  # end
-
-  # test "renders with the single page notification button on English language pages" do
-  #   setup_and_visit_content_item("open_consultation")
-  #   assert page.has_css?(".gem-c-single-page-notification-button")
-
-  #   buttons = page.find_all(:button)
-
-  #   expected_tracking_top = single_page_notification_button_ga4_tracking(1, "Top")
-  #   actual_tracking_top = JSON.parse(buttons.first["data-ga4-link"])
-  #   assert_equal expected_tracking_top, actual_tracking_top
-
-  #   expected_tracking_bottom = single_page_notification_button_ga4_tracking(2, "Footer")
-  #   actual_tracking_bottom = JSON.parse(buttons.last["data-ga4-link"])
-  #   assert_equal expected_tracking_bottom, actual_tracking_bottom
-  # end
-
-  # test "does not render the single page notification button on exempt pages" do
-  #   setup_and_visit_notification_exempt_page("open_consultation")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
-  # end
-
-  # test "does not render the single page notification button on foreign language pages" do
-  #   setup_and_visit_notification_exempt_page("open_consultation", "locale" => "cy")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
   # end
 end

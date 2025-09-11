@@ -26,12 +26,11 @@ RSpec.describe SpecialistDocument do
       ]
     end
 
-    it "gets a ContentsOutline describing the headers" do
+    it "returns an array of headers" do
       content_store_response["details"]["headers"] = details_headers
 
-      expect(described_class.new(content_store_response).headers).to be_instance_of(ContentsOutline)
-      expect(described_class.new(content_store_response).headers.items.count).to eq(1)
-      expect(described_class.new(content_store_response).headers.items.first.items.count).to eq(2)
+      expect(described_class.new(content_store_response).headers.count).to eq(1)
+      expect(described_class.new(content_store_response).headers.first["headers"].count).to eq(2)
     end
   end
 

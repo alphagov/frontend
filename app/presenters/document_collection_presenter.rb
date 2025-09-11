@@ -1,4 +1,6 @@
 class DocumentCollectionPresenter < ContentItemPresenter
+  include ContentsList
+
   def displayable_collection_groups
     content_item.collection_groups.select do |group|
       non_withdrawn_documents(group).any?
@@ -24,12 +26,14 @@ class DocumentCollectionPresenter < ContentItemPresenter
     end
   end
 
-  def headers_for_contents_list_component
-    outline = contents_outline
-
-    return [] unless outline.level_two_headers?
-
-    ContentsOutlinePresenter.new(outline).for_contents_list_component
+  def collection_groups_headers
+    displayable_collection_groups.map do |group|
+      {
+        "id" => group.id,
+        "level" => 2,
+        "text" => group.title,
+      }
+    end
   end
 
   def show_email_signup_link?
@@ -40,22 +44,6 @@ private
 
   def non_withdrawn_documents(group)
     group.documents.reject { |doc| doc.content_store_response["withdrawn"] }
-  end
-
-  def contents_outline
-    all_headers = valid_outline_headers + displayable_collection_groups.map do |group|
-      {
-        "id" => group.id,
-        "level" => 2,
-        "text" => group.title,
-      }
-    end
-
-    ContentsOutline.new(all_headers)
-  end
-
-  def valid_outline_headers
-    content_item.headers.map { |header| header.except("headers") }
   end
 
   def sanitised_updated_at(document)

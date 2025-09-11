@@ -67,7 +67,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component(additional_headers: @presenter.collection_groups_headers) do %>
       <div class="responsive-bottom-margin">
         <% if content_item.body.present? %>
           <div class="govuk-!-margin-bottom-8">

@@ -12,7 +12,7 @@ class SpecialistDocument < ContentItem
     @protection_type = content_store_response.dig("details", "metadata", "protection_type")
     @will_continue_on = content_store_response.dig("details", "metadata", "will_continue_on")
 
-    @headers = ContentsOutline.new(content_store_response.dig("details", "headers"))
+    @headers = content_store_response.dig("details", "headers") || []
   end
 
   def facets_with_values_from_metadata

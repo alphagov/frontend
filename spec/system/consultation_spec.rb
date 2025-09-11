@@ -514,6 +514,18 @@ RSpec.describe "Consultation" do
           expect(page).to have_css(".gem-c-summary-banner__text", text: "4pm on 20 April 2016 to 10:45pm on 13 July 2016")
         end
       end
+
+      it "links to external consultation url if available" do
+        content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        within(".gem-c-summary-banner") do
+          expect(page).to have_text("This consultation was held on")
+
+          expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+        end
+      end
     end
 
     context "when rendering public feedback" do
@@ -564,6 +576,10 @@ RSpec.describe "Consultation" do
           expect(page).to have_text("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
         end
       end
+    end
+
+    it "does not display ways to respond" do
+      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
     end
   end
 end

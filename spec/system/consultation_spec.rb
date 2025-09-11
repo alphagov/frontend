@@ -209,6 +209,41 @@ RSpec.describe "Consultation" do
         end
       end
     end
+
+    context "when it renders the ways to respond" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation_with_participation") }
+      let(:base_path) { content_store_response.fetch("base_path") }
+      let(:ways_to_respond) { content_store_response.dig("details", "ways_to_respond") }
+
+      before do
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+      end
+
+      it "displays the respond online link" do
+        within(".consultation-ways-to-respond") do
+          expect(page).to have_css(".call-to-action a[href='#{ways_to_respond['link_url']}']", text: "Respond online")
+        end
+      end
+
+      it "displays the email address" do
+        within(".consultation-ways-to-respond") do
+          expect(page).to have_css("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
+        end
+      end
+
+      it "displays the postal address formatted with line breaks" do
+        within(".consultation-ways-to-respond") do
+          assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
+        end
+      end
+
+      it "displays the response form" do
+        within(".consultation-ways-to-respond") do
+          expect(page).to have_css("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
+        end
+      end
+    end
   end
 
   # test "link to external consultations" do
@@ -299,25 +334,6 @@ RSpec.describe "Consultation" do
   #   assert page.has_text?("Feedback received")
   #   within "#feedback-received" do
   #     assert page.has_text?("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
-  #   end
-  # end
-
-  # test "ways to respond renders" do
-  #   setup_and_visit_content_item("open_consultation_with_participation")
-
-  #   within ".consultation-ways-to-respond" do
-  #     assert page.has_css?(".call-to-action a[href='https://beisgovuk.citizenspace.com/ukgi/post-office-network-consultation']", text: "Respond online")
-  #     assert page.has_css?("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
-  #     assert page.has_css?(".contact", text: "2016 Post Office Network Consultation")
-  #     assert page.has_css?("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
-  #   end
-  # end
-
-  # test "ways to respond postal address is formatted with line breaks" do
-  #   setup_and_visit_content_item("open_consultation_with_participation")
-
-  #   within ".consultation-ways-to-respond" do
-  #     assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
   #   end
   # end
 

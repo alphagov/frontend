@@ -244,6 +244,16 @@ RSpec.describe "Consultation" do
         end
       end
     end
+
+    context "when it renders share urls" do
+      it "displays the social media links" do
+        within(".gem-c-share-links") do
+          expect(page).to have_css("h2", text: "Share this page")
+          expect(page).to have_css("a", text: "Facebook")
+          expect(page).to have_css("a", text: "Twitter")
+        end
+      end
+    end
   end
 
   # test "link to external consultations" do
@@ -335,12 +345,6 @@ RSpec.describe "Consultation" do
   #   within "#feedback-received" do
   #     assert page.has_text?("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")
   #   end
-  # end
-
-  # test "share urls" do
-  #   setup_and_visit_content_item("open_consultation")
-  #   assert page.has_css?("a", text: "Facebook")
-  #   assert page.has_css?("a", text: "Twitter")
   # end
 
   # test "renders with the single page notification button on English language pages" do

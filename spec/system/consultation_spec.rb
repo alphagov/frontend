@@ -329,12 +329,33 @@ RSpec.describe "Consultation" do
     end
   end
 
-  # test "open consultation" do
-  #   setup_and_visit_content_item("open_consultation")
+  context "when visiting an open consultation page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert page.has_text?("Open consultation")
-  #   assert page.has_text?(:all, "closes at 3pm on 16 December 2216")
-  # end
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+
+    it "displays the consultation status" do
+      within(".gem-c-heading__context") do
+        expect(page).to have_content("Open consultation")
+      end
+    end
+
+    it "displays when the consultation closes" do
+      within(".gem-c-summary-banner") do
+        expect(page).to have_css(".gem-c-summary-banner__text", text: "This consultation closes at 3pm on 16 December 2216")
+      end
+    end
+
+    it "links to external consultation url if available" do
+      expect(page).to have_css(".gem-c-summary-banner", text: "This consultation is being held on")
+
+      expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
+    end
+  end
 
   # test "unopened consultation" do
   #   setup_and_visit_content_item("unopened_consultation")

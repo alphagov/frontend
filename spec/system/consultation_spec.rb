@@ -75,26 +75,46 @@ RSpec.describe "Consultation" do
   #   },
   # }
 
-  # test "consultation" do
-  #   setup_and_visit_content_item("open_consultation")
+  context "when visiting a consultation page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   assert_has_metadata({
-  #     published: "4 November 2016",
-  #     last_updated: "7 November 2016",
-  #     from: {
-  #       "Department for Education": "/government/organisations/department-for-education",
-  #     },
-  #   })
+    it "displays the title" do
+      expect(page).to have_title("Postgraduate doctoral loans - GOV.UK")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
 
-  #   assert_footer_has_published_dates("Published 4 November 2016", "Last updated 7 November 2016")
+    it "displays the metadata" do
+      within(".gem-c-metadata") do
+        expect(page).to have_content("From: Department for Education")
+        expect(page).to have_content("Published 4 November 2016")
+        expect(page).to have_content("Last updated 7 November 2016")
+        expect(page).to have_link("See all updates", href: "#full-publication-update-history")
+      end
+    end
 
-  #   within ".consultation-description" do
-  #     assert page.has_text?("We are seeking external views on a postgraduate doctoral loan.")
-  #   end
-  # end
+    it "displays the published dates history in the footer" do
+      within(".gem-c-published-dates--history") do
+        expect(page).to have_content("Published 4 November 2016")
+        expect(page).to have_content("Last updated 7 November 2016")
+        expect(page).to have_content("7 November 2011")
+        expect(page).to have_content("Added sub-topic tag.")
+        expect(page).to have_link("show all updates", href: "#full-history")
+      end
+    end
+
+    it "displays the document description" do
+      within(".consultation-description") do
+        expect(page).to have_css("h2", text: "Consultation description")
+        expect(page).to have_content("We are seeking external views on a postgraduate doctoral loan.")
+      end
+    end
+  end
 
   # test "renders document attachments (as-is and directly)" do
   #   setup_and_visit_content_item("closed_consultation", general_overrides)

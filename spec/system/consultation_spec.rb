@@ -114,6 +114,31 @@ RSpec.describe "Consultation" do
         expect(page).to have_content("We are seeking external views on a postgraduate doctoral loan.")
       end
     end
+
+    it "displays the national applicability banner if national information is available" do
+      overrides = {
+        "details" => {
+          "national_applicability" => {
+            "england" => {
+              "label" => "England",
+              "applicable" => true,
+            },
+          },
+        },
+      }
+
+      content_store_response.deep_merge!(overrides)
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      within(".gem-c-devolved-nations") do
+        expect(page).to have_css("h2", text: "Applies to England")
+      end
+    end
+
+    it "does not display the national applicability banner if national information is unavailable" do
+      expect(page).not_to have_css(".gem-c-devolved-nations")
+    end
   end
 
   # test "renders document attachments (as-is and directly)" do
@@ -358,11 +383,6 @@ RSpec.describe "Consultation" do
   #     actual_tracking = JSON.parse(details)
   #     assert_equal actual_tracking["index_section_count"], 2
   #   end
-  # end
-
-  # test "consultation that only applies to a set of nations" do
-  #   setup_and_visit_content_item("consultation_outcome_with_feedback")
-  #   assert_has_devolved_nations_component("Applies to England")
   # end
 
   # test "ways to respond renders" do

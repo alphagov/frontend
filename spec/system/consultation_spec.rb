@@ -108,6 +108,31 @@ RSpec.describe "Consultation" do
       end
     end
 
+    it "displays the history notice if government information is available" do
+      overrides = {
+        "links" => {
+          "government" => [
+            "title" => "2015 Conservative government",
+            "details" => {
+              "current" => false,
+            },
+          ],
+        },
+      }
+
+      content_store_response.deep_merge!(overrides)
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      within(".gem-c-notice__title") do
+        expect(page).to have_content("This was published under the #{content_store_response.dig('details', 'government', 'title')}")
+      end
+    end
+
+    it "does not display the history notice if government information is not available" do
+      expect(page).not_to have_css(".gem-c-notice__title")
+    end
+
     it "displays the document description" do
       within(".consultation-description") do
         expect(page).to have_css("h2", text: "Consultation description")

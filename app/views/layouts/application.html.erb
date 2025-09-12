@@ -3,19 +3,17 @@
 <% global_banner = render("govuk_web_banners/global_banner") %>
 <% content_for :body do %>
   <%= yield :before_content %>
-  <div id="wrapper" class="<%= wrapper_class(content_item) %> direction-<%= page_text_direction %>">
-    <div class="govuk-width-container">
-      <% if content_item&.phase == "beta" %>
-        <%= render "govuk_publishing_components/components/phase_banner", phase: "beta" %>
-      <% end %>
-      <% if show_breadcrumbs?(content_item) %>
-        <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
-      <% end %>
-      <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
-        <span id="Top"></span>
-        <%= yield %>
-      </main>
-    </div>
+  <div class="govuk-width-container">
+    <% if content_item&.phase == "beta" %>
+      <%= render "govuk_publishing_components/components/phase_banner", phase: "beta" %>
+    <% end %>
+    <% if show_breadcrumbs?(content_item) %>
+      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+    <% end %>
+    <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
+      <span id="Top"></span>
+      <%= yield %>
+    </main>
   </div>
   <%= yield :after_content %>
 <% end %>

@@ -167,6 +167,15 @@
   }
 }
 
+.border-top-blue {
+  border-top: 4px solid $govuk-brand-colour;
+  padding-top: govuk-spacing(8);
+
+  @include govuk-media-query($from: "desktop") {
+      padding-top: govuk-spacing(6);
+  }
+}
+
 .border-top-blue-from-desktop {
   border: none;
 

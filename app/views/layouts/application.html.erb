@@ -19,6 +19,7 @@
 <% end %>
 <%= content_for :head do %>
   <%= csp_meta_tag %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
   <%= yield :extra_javascript %>
   <%= render_component_stylesheets %>

@@ -5,6 +5,7 @@ module ContentItemLoaders
     GRAPHQL_TRAFFIC_RATES = {
       # These are decimal versions of a percentage, so can be between 0 and 1
       "news_article" => 0.5,
+      "travel_advice" => 0,
     }.freeze
     GRAPHQL_ALLOWED_SCHEMAS = GRAPHQL_TRAFFIC_RATES.keys
 

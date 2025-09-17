@@ -15,6 +15,12 @@
 <%= content_for :head do %>
   <%= csp_meta_tag %>
   <%= render_component_stylesheets %>
+  <% if content_item.to_h %>
+    <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
+    <% if content_item&.meta_section.present? %>
+      <meta name="govuk:section" content="<%= content_item.meta_section %>">
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= render "govuk_publishing_components/components/layout_for_public", {

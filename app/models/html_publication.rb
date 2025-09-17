@@ -17,4 +17,8 @@ class HtmlPublication < ContentItem
   def first_published_version
     content_store_response.dig("details", "first_published_version")
   end
+
+  def headers
+    content_store_response.dig("details", "headers") || []
+  end
 end

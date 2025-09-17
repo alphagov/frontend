@@ -1,4 +1,5 @@
 class HtmlPublicationPresenter < ContentItemPresenter
+  include ContentsList
   include DateHelper
 
   def hide_from_search_engines?
@@ -36,5 +37,9 @@ class HtmlPublicationPresenter < ContentItemPresenter
     else
       "publication"
     end
+  end
+
+  def full_path(request)
+    request.base_url + request.path
   end
 end

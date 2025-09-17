@@ -97,4 +97,43 @@ RSpec.describe HtmlPublication do
       expect(html_publication.national_applicability).to eq(expected)
     end
   end
+
+  context "when there are no headers" do
+    let(:content_store_response) { GovukSchemas::Example.find("html_publication", example_name: "published") }
+
+    it "return an empty array" do
+      expect(described_class.new(content_store_response).headers.count).to eq(0)
+    end
+  end
+
+  context "when the page contains headers" do
+    let(:content_store_response) do
+      GovukSchemas::Example.find("html_publication", example_name: "published").tap do |example|
+        example["details"]["headers"] = [
+          {
+            "headers": [
+              {
+                "id": "important-dates",
+                "level": 3,
+                "text": "1.1 Important dates",
+              },
+              {
+                "id": "scheme-changes-for-2024",
+                "level": 3,
+                "text": "1.2 Scheme changes for 2024",
+              },
+            ],
+            "id": "important-dates-and-scheme-changes",
+            "level": 2,
+            "text": "1. Important dates and scheme changes",
+          }.deep_stringify_keys,
+        ]
+      end
+    end
+
+    it "returns an array of headers" do
+      expect(described_class.new(content_store_response).headers.count).to eq(1)
+      expect(described_class.new(content_store_response).headers.first["headers"].count).to eq(2)
+    end
+  end
 end

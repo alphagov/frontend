@@ -11,6 +11,16 @@ class ConsultationPresenter < ContentItemPresenter
     opening_date_midnight? ? I18n.t("formats.consultation.on") : I18n.t("formats.consultation.at")
   end
 
+  def opens_closes_or_ran
+    if content_item.closed?
+      I18n.t("formats.consultation.ran_from")
+    elsif content_item.open?
+      I18n.t("formats.consultation.closes_at")
+    else
+      "#{I18n.t('formats.consultation.opens')} #{I18n.t('formats.consultation.at')}"
+    end
+  end
+
 private
 
   def opening_date_midnight?

@@ -3,15 +3,15 @@ class ConsultationPresenter < ContentItemPresenter
     display_date_and_time(content_item.opening_date_time)
   end
 
-  def opening_date_midnight?
-    Time.zone.parse(content_item.opening_date_time).strftime("%l:%M%P") == "12:00am"
-  end
-
   def closing_date
     display_date_and_time(content_item.closing_date_time, rollback_midnight: true)
   end
 
 private
+
+  def opening_date_midnight?
+    Time.zone.parse(content_item.opening_date_time).strftime("%l:%M%P") == "12:00am"
+  end
 
   def display_date_and_time(date, rollback_midnight: false)
     time = Time.zone.parse(date)

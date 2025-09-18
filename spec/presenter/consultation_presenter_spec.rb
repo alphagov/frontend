@@ -24,20 +24,6 @@ RSpec.describe ConsultationPresenter do
     end
   end
 
-  describe "#opening_date_midnight?" do
-    it "returns true if the opening time is 12am" do
-      content_item.content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"
-
-      expect(presenter.opening_date_midnight?).to be(true)
-    end
-
-    it "returns false if the opening time is not 12am" do
-      content_item.content_store_response["details"]["opening_date"] = "2016-04-16T13:01:57.000+00:00"
-
-      expect(presenter.opening_date_midnight?).to be(false)
-    end
-  end
-
   describe "#closing_date" do
     it "presents a friendly closing date and time" do
       content_item.content_store_response["details"]["closing_date"] = "2016-12-16T16:00:00+00:00"

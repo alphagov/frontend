@@ -118,18 +118,19 @@
     <% end %>
 
     <% consultation_date = capture do %>
-      <% if content_item.closed? %>
-        <%= @presenter.opens_closes_or_ran %><br><strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time> to
-        <time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
-      <% elsif content_item.open? %>
-        <%= @presenter.opens_closes_or_ran %><br>
-        <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
-      <% elsif content_item.unopened? %>
-        <%= @presenter.opens_closes_or_ran %><br>
-        <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong><br>
-        <%= t("formats.consultation.closes") %><br>
-        <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
+      <%= @presenter.opens_closes_or_ran %><br>
+
+      <% if content_item.closed? || content_item.unopened? %>
+        <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong>
       <% end %>
+
+      <% if content_item.closed? %>
+        <strong class="consultation-date"> to</strong>
+      <% elsif content_item.unopened? %>
+        <br><%= t("formats.consultation.closes") %><br>
+      <% end %>
+
+      <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
     <% end %>
 
     <% consultation_desc = capture do %>

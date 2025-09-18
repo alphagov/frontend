@@ -7,6 +7,10 @@ class ConsultationPresenter < ContentItemPresenter
     display_date_and_time(content_item.closing_date_time, rollback_midnight: true)
   end
 
+  def on_or_at
+    opening_date_midnight? ? I18n.t("formats.consultation.on") : I18n.t("formats.consultation.at")
+  end
+
 private
 
   def opening_date_midnight?

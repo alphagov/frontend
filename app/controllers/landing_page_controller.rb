@@ -1,5 +1,5 @@
 class LandingPageController < ContentItemsController
-  slimmer_template "gem_layout_full_width"
+  layout "full_width"
 
   content_security_policy do |policy|
     # The map block makes use of the OS api and inline styles

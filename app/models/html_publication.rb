@@ -21,4 +21,12 @@ class HtmlPublication < ContentItem
   def headers
     content_store_response.dig("details", "headers") || []
   end
+
+  def copyright_year
+    content_store_response.dig("details", "public_timestamp").to_date.year if public_timestamp.present?
+  end
+
+  def isbn
+    content_store_response.dig("details", "isbn")
+  end
 end

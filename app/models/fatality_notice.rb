@@ -9,4 +9,8 @@ class FatalityNotice < ContentItem
   def contributors
     organisations_ordered_by_emphasis + linked("people")
   end
+
+  def context
+    I18n.t("formats.fatality_notice.operations_in", location: field_of_operation.try(:title))
+  end
 end

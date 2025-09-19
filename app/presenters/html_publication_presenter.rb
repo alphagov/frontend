@@ -42,4 +42,8 @@ class HtmlPublicationPresenter < ContentItemPresenter
   def contents
     content_item.headers
   end
+
+  def full_path(request)
+    request.base_url + request.path
+  end
 end

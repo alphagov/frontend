@@ -136,4 +136,20 @@ RSpec.describe HtmlPublication do
       expect(described_class.new(content_store_response).headers.first["headers"].count).to eq(2)
     end
   end
+
+  it "returns copyright year" do
+    expect(described_class.new(content_store_response).copyright_year).to eq(2016)
+  end
+
+  context "when there is an isbn" do
+    let(:content_store_response) { GovukSchemas::Example.find("html_publication", example_name: "print_with_meta_data") }
+
+    it "returns isbn" do
+      expect(described_class.new(content_store_response).isbn).to eq("978-1-4098-4066-4")
+    end
+  end
+
+  it "returns the govspeak content" do
+    expect(described_class.new(content_store_response).govspeak_body).to include("The Environment Agency has received a new bespoke application for an environmental permit under the Environmental Permitting (England and Wales) Regulations 2010 from Mr Derek Mears.")
+  end
 end

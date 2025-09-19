@@ -75,10 +75,8 @@
       </div>
     <% end %>
 
-    <div class="print-wrapper">
-      <div class="meta-data meta-data--display-print">
-        <%= render partial: "content_items/html_publication/print_meta_data" %>
-      </div>
+    <div class="print-metadata">
+      <%= render partial: "print_meta_data" %>
     </div>
 
     <div class="govuk-grid-column-three-quarters-from-desktop contents-container<% unless content_item.headers.any? %> offset-empty-contents-list<% end %>">

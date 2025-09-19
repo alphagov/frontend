@@ -78,6 +78,152 @@ th:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: เนื้อหา
+      metadata:
+        published: เผยแพร่แล้ว
+        updated: ปรับปรุงแล้ว
+      schema_name:
+        aaib_report:
+          other: รายงานสาขาการสืบสวนอุบัติเหตุทางอากาศ
+        announcement:
+          other: ประกาศ
+        asylum_support_decision:
+          other: คำตัดสินของศาลในการสนับสนุนผู้ลี้ภัย
+        authored_article:
+          other: บทความที่มีผู้เขียน
+        business_finance_support_scheme:
+          other: โครงการสนับสนุนการเงินแก่ธุรกิจ
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: กรณีศึกษา
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: การให้คำปรึกษาที่ปิดแล้ว
+        cma_case:
+          other: กรณีของหน่วยงานที่มีอำนาจดูแลการแข่งขันและตลาด
+        consultation:
+          other: การให้คำปรึกษา
+        consultation_outcome:
+          other: ผลลัพธ์จากการให้คำปรึกษา
+        corporate_information_page:
+          other: หน้าข้อมูล
+        corporate_report:
+          other: รายงานของบริษัท
+        correspondence:
+          other: จดหมายโต้ตอบ
+        countryside_stewardship_grant:
+          other: เงินทุนเพื่อชนบท
+        decision:
+          other: การตัดสินใจ
+        detailed_guide:
+          other: คำแนะนำ
+        dfid_research_output:
+          other: การวิจัยเพื่อผลการพัฒนา
+        document_collection:
+          other: คอลเล็กชั่น
+        draft_text:
+          other: ข้อความร่าง
+        drug_safety_update:
+          other: ข่าวสารความปลอดภัยของยา
+        employment_appeal_tribunal_decision:
+          other: คำพิพากษาของศาลแรงงานขั้นอุทธรณ์
+        employment_tribunal_decision:
+          other: คำพิพากษาของศาลแรงงาน
+        esi_fund:
+          other: กองทุนโครงสร้างและการลงทุนแห่งยุโรป (ESIF)
+        foi_release:
+          other: การออก FOI
+        form:
+          other: แบบฟอร์ม
+        guidance:
+          other: คำแนะนำ
+        impact_assessment:
+          other: การประเมินผลกระทบ
+        imported:
+          other: นำเข้าแล้ว - รอการพิมพ์
+        independent_report:
+          other: รายงานอิสระ
+        international_development_fund:
+          other: ทุนพัฒนาระหว่างประเทศ
+        international_treaty:
+          other: สนธิสัญญาระหว่างประเทศ
+        maib_report:
+          other: รายงานสาขาการสืบสวนอุบัติเหตุทางทะเล
+        map:
+          other: แผนที่
+        medical_safety_alert:
+          other: การแจ้งเตือนและการเรียกคืนยาและเครื่องมือแพทย์
+        national:
+          other: ประกาศสถิติแห่งชาติ
+        national_statistics:
+          other: สถิติแห่งชาติ
+        national_statistics_announcement:
+          other: ประกาศสถิติแห่งชาติ
+        news_article:
+          other: บทความข่าว
+        notice:
+          other: ประกาศ
+        official:
+          other: ประกาศสถิติของราชการ
+        official_statistics:
+          other: สถิติของราชการ
+        official_statistics_announcement:
+          other: ประกาศสถิติของราชการ
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: การให้คำปรึกษาที่เปิดอยู่
+        oral_statement:
+          other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
+        policy:
+          other: นโยบาย
+        policy_paper:
+          other: เอกสารนโยบาย
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: สื่อวัสดุส่งเสริมการขาย
+        publication:
+          other: สิ่งพิมพ์
+        raib_report:
+          other: รายงานสาขาการสืบสวนอุบัติเหตุทางรถไฟ
+        regulation:
+          other: ระเบียบข้อบังคับ
+        research:
+          other: การวิจัยและการวิเคราะห์
+        residential_property_tribunal_decision:
+          other: คำพิพากษาของศาลเกี่ยวกับที่อยู่อาศัย
+        service_sign_in:
+          other: ลงชื่อเข้าใช้บริการ
+        service_standard_report:
+          other: รายงานมาตรฐานบริการ
+        speaking_notes:
+          other: บันทึกสุนทรพจน์
+        standard:
+          other: มาตรฐาน
+        statement_to_parliament:
+          other: แถลงการณ์ต่อรัฐสภา
+        statistical_data_set:
+          other: ชุดข้อมูลสถิติ
+        statistics_announcement:
+          other: ประกาศออกข้อมูลสถิติ
+        statutory_guidance:
+          other: คำแนะนำทางกฎหมาย
+        tax_tribunal_decision:
+          other: คำพิพากษาของศาลเกี่ยวกับภาษีอากร
+        transcript:
+          other: การถอดเสียง
+        transparency:
+          other: ข้อมูลความโปร่งใส
+        utaac_decision:
+          other: คำพิพากษาของศาลปกครองขั้นอุทธรณ์
+        written_statement:
+          other: แถลงการณ์เป็นลายลักษณ์อักษรต่อรัฐสภา
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -343,6 +489,15 @@ th:
     guidance:
       name:
         other:
+    html_publication:
+      name:
+        other:
+      print_meta_data:
+        available_at: สิ่งพิมพ์นี้สามารถดูได้ที่ %{url}
+        copyright: ลิขสิทธิ์ © Crown %{year}
+        isbn: 'ISBN:'
+        licence_html: 'สิ่งพิมพ์นี้ได้รับอนุญาตภายใต้ข้อกำหนดของ Open Government License v3.0 เว้นแต่จะระบุไว้เป็นอย่างอื่น เพื่อดูใบอนุญาตนี้ โปรดไปที่ <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> หรือส่งจดหมายถึงInformation Policy Team, The National Archives, Kew, London TW9 4DU หรือส่งอีเมลไปที่: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>'
+        third_party: ในกรณีที่เราพบข้อมูลลิขสิทธิ์ของบุคคลที่สามใดๆ คุณจะต้องขอรับการอนุญาตจากผู้ถือลิขสิทธิ์ที่เกี่ยวข้องนั้นๆ
     impact_assessment:
       name:
         other:

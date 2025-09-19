@@ -78,6 +78,222 @@ it:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Contenuti
+      metadata:
+        published: Pubblicato
+        updated: Aggiornato
+      schema_name:
+        aaib_report:
+          one: Rapporto del ramo investigativo sugli incidenti aerei
+          other: Rapporti del ramo investigativo sugli incidenti aerei
+        announcement:
+          one: Annuncio
+          other: Annunci
+        asylum_support_decision:
+          one: Decisione del tribunale a sostegno dell'asilo
+          other: Decisioni del tribunale a sostegno dell'asilo
+        authored_article:
+          one: Articolo d’autore
+          other: Articoli d’autore
+        business_finance_support_scheme:
+          one: Schema di sostegno alla finanza aziendale
+          other: Schemi di sostegno alla finanza aziendale
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Caso di studio
+          other: Casi di studio
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Consultazione chiusa
+          other: Consultazioni chiuse
+        cma_case:
+          one: Caso dell’Autorità Garante della Concorrenza e del Mercato
+          other: Casi dell’Autorità Garante della Concorrenza e del Mercato
+        consultation:
+          one: Consultazione
+          other: Consultazioni
+        consultation_outcome:
+          one: Esito della consultazione
+          other: Esiti della consultazione
+        corporate_information_page:
+          one: Pagina informativa
+          other: Pagine informative
+        corporate_report:
+          one: Report aziendale
+          other: Report aziendali
+        correspondence:
+          one: Corrispondenza
+          other: Corrispondenze
+        countryside_stewardship_grant:
+          one: Sovvenzione per la gestione della campagna
+          other: Sovvenzioni per la gestione della campagna
+        decision:
+          one: Decisione
+          other: Decisioni
+        detailed_guide:
+          one: Guida
+          other: Guida
+        dfid_research_output:
+          one: Ricerca dell’esito dello sviluppo
+          other: Ricerca degli esiti dello sviluppo
+        document_collection:
+          one: Raccolta
+          other: Raccolte
+        draft_text:
+          one: Bozza di testo
+          other: Bozze di testo
+        drug_safety_update:
+          one: Aggiornamento sulla sicurezza dei farmaci
+          other: Aggiornamenti sulla sicurezza dei farmaci
+        employment_appeal_tribunal_decision:
+          one: Decisione del tribunale di appello del lavoro
+          other: Decisioni del tribunale di appello del lavoro
+        employment_tribunal_decision:
+          one: Decisione del tribunale del lavoro
+          other: Decisioni del tribunale del lavoro
+        esi_fund:
+          one: Fondo strutturale e di investimento europeo (ESIF)
+          other: Fondi strutturali e di investimento europeo (ESIF)
+        foi_release:
+          one: Pubblicazione sulla libertà d’informazione (FOI)
+          other: Pubblicazioni sulla libertà d’informazione (FOI)
+        form:
+          one: Modulo
+          other: Moduli
+        guidance:
+          one: Guida
+          other: Guida
+        impact_assessment:
+          one: Valutazione dell’impatto
+          other: Valutazioni dell’impatto
+        imported:
+          one: importato - in attesa del tipo
+          other: importato - in attesa del tipo
+        independent_report:
+          one: Report indipendente
+          other: Report indipendenti
+        international_development_fund:
+          one: Finanziamenti per lo sviluppo internazionale
+          other: Finanziamenti per lo sviluppo internazionale
+        international_treaty:
+          one: Trattato internazionale
+          other: Trattati internazionali
+        maib_report:
+          one: Rapporto del ramo investigativo sugli incidenti marini
+          other: Rapporti del ramo investigativo sugli incidenti marini
+        map:
+          one: Mappa
+          other: Mappe
+        medical_safety_alert:
+          one: Avvisi e richiami per farmaci e dispositivi medici
+          other: Avvisi e richiami per farmaci e dispositivi medici
+        national:
+          one: Annuncio statistico nazionale
+          other: Annunci statistici nazionali
+        national_statistics:
+          one: Statistiche nazionali
+          other: Statistiche nazionali
+        national_statistics_announcement:
+          one: Annuncio statistico nazionale
+          other: Annunci statistici nazionali
+        news_article:
+          one: Articolo di notizie
+          other: Articoli di notizie
+        notice:
+          one: Avviso
+          other: Avvisi
+        official:
+          one: Annuncio statistico ufficiale
+          other: Annunci statistici ufficiali
+        official_statistics:
+          one: Statistiche ufficiali
+          other: Statistiche ufficiali
+        official_statistics_announcement:
+          one: Annuncio statistico ufficiale
+          other: Annunci statistici ufficiali
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Consultazione aperta
+          other: Consultazioni aperte
+        oral_statement:
+          one: Dichiarazione orale al Parlamento
+          other: Dichiarazioni orali al Parlamento
+        policy:
+          one: Informativa
+          other: Informative
+        policy_paper:
+          one: Documento politico
+          other: Documenti politici
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Materiale promozionale
+          other: Materiale promozionale
+        publication:
+          one: Pubblicazione
+          other: Pubblicazioni
+        raib_report:
+          one: Rapporto del ramo investigativo sugli incidenti ferroviari
+          other: Rapporti del ramo investigativo sugli incidenti ferroviari
+        regulation:
+          one: Regolamento
+          other: Regolamenti
+        research:
+          one: Ricerca e analisi
+          other: Ricerca e analisi
+        residential_property_tribunal_decision:
+          one: Decisione del tribunale sulla proprietà residenziale
+          other: Decisioni del tribunale sulla proprietà residenziale
+        service_sign_in:
+          one: Accesso al servizio
+          other: Accesso al servizio
+        service_standard_report:
+          one: Rapporto standard di servizio
+          other: Rapporti standard di servizio
+        speaking_notes:
+          one: Note parlanti
+          other: Note parlanti
+        standard:
+          one: Standard
+          other: Standard
+        statement_to_parliament:
+          one: Dichiarazione al parlamento
+          other: Dichiarazioni al parlamento
+        statistical_data_set:
+          one: Set di dati statistici
+          other: Set di dati statistici
+        statistics_announcement:
+          one: Annuncio di rilascio statistico
+          other: Annunci di rilascio statistico
+        statutory_guidance:
+          one: Guida statutaria
+          other: Guida statutaria
+        tax_tribunal_decision:
+          one: Decisione del tribunale tributario e della cancelleria
+          other: Decisioni del tribunale tributario e della cancelleria
+        transcript:
+          one: Trascrizione
+          other: Trascrizioni
+        transparency:
+          one: Dati sulla trasparenza
+          other: Dati sulla trasparenza
+        utaac_decision:
+          one: Decisione del tribunale di appello amministrativo
+          other: Decisioni del tribunale di appello amministrativo
+        written_statement:
+          one: Dichiarazione scritta al Parlamento
+          other: Dichiarazioni scritte al Parlamento
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -374,6 +590,16 @@ it:
       name:
         one:
         other:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Questa pubblicazione è disponibile all’indirizzo %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Questa pubblicazione è concessa in licenza secondo i termini della Open Government License v3.0, salvo ove diversamente indicato. Per visualizzare questa licenza, visitare <a href=”https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3”>nationalarchives.gov.uk/doc/open-government-licence/version/3</a> o scrivere a Information Policy Team, The National Archives, Kew, London TW9 4DU, o inviare una e-mail all’indirizzo: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Laddove abbiamo identificato informazioni sul copyright di terzi, sarà necessario ottenere l'autorizzazione dai titolari del copyright interessati.
     impact_assessment:
       name:
         one:

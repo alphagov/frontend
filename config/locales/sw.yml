@@ -78,6 +78,222 @@ sw:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Maudhui
+      metadata:
+        published: Ilichapishwa
+        updated: Ilisasishwa
+      schema_name:
+        aaib_report:
+          one: Ripoti ya Kitengo cha Uchunguzi wa Ajali za Ndege
+          other: Ripoti za Kitengo cha Uchunguzi wa Ajali za Ndege
+        announcement:
+          one: Tangazo
+          other: Matangazo
+        asylum_support_decision:
+          one: Uamuzi wa mahakama ya masuala ya msaada kwa wakimbizi wa kisiasa
+          other: Maamuzi ya mahakama ya masuala ya msaada kwa wakimbizi wa kisiasa
+        authored_article:
+          one: Makala ya maelezo ya mwandishi
+          other: Makala ya maelezo ya mwandishi
+        business_finance_support_scheme:
+          one: Mpango wa msaada wa fedha za biashara
+          other: Mipango ya msaada wa fedha za biashara
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Uchunguzi kifani
+          other: Uchunguzi kifani
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Mashauriano ya watu wachache
+          other: Mashauriano ya watu wachache
+        cma_case:
+          one: Kesi ya Mamlaka ya Masoko na Ushindani
+          other: Kesi za Mamlaka ya Masoko na Ushindani
+        consultation:
+          one: Mashauriano
+          other: Mashauriano
+        consultation_outcome:
+          one: Matokeo ya mashauriano
+          other: Matokeo ya mashauriano
+        corporate_information_page:
+          one: Ukurasa wa maelezo
+          other: Kurasa za maelezo
+        corporate_report:
+          one: Ripoti ya shirika
+          other: Ripoti za shirika
+        correspondence:
+          one: Mawasiliano
+          other: Mawasiliano
+        countryside_stewardship_grant:
+          one: Ruzuku ya Usimamizi wa Mashambani
+          other: Ruzuku za Usimamizi wa Mashambani
+        decision:
+          one: Uamuzi
+          other: Maamuzi
+        detailed_guide:
+          one: Mwongozo
+          other: Mwongozo
+        dfid_research_output:
+          one: Utafiti wa Matokeo ya Maendeleo
+          other: Utafiti wa Matokeo ya Maendeleo
+        document_collection:
+          one: Mkusanyiko
+          other: Mikusanyiko
+        draft_text:
+          one: Maandishi ya rasimu
+          other: Maandishi ya rasimu
+        drug_safety_update:
+          one: Taarifa ya Usalama wa Dawa
+          other: Taarifa za Usalama wa Dawa
+        employment_appeal_tribunal_decision:
+          one: Uamuzi wa mahakama ya kusikiliza rufaa za mahakama za kesi za kazi
+          other: Maamuzi ya mahakama ya kusikiliza rufaa za mahakama za kesi za kazi
+        employment_tribunal_decision:
+          one: Uamuzi wa mahakama ya kusikiliza rufaa za mahakama za kesi za kazi
+          other: Maamuzi ya mahakama ya kusikiliza rufaa za mahakama za kesi za kazi
+        esi_fund:
+          one: Fedha za Muundo na Uwekezaji za Ulaya (ESIF)
+          other: Fedha za Muundo na Uwekezaji za Ulaya (ESIF)
+        foi_release:
+          one: Taarifa ya FOI
+          other: Taarifa za FOI
+        form:
+          one: Fomu
+          other: Fomu
+        guidance:
+          one: Mwongozo
+          other: Mwongozo
+        impact_assessment:
+          one: Utathmini wa athari
+          other: Tathmini za athari
+        imported:
+          one: zilizoagizwa kutoka nje - aina ya hali ya kusbiri
+          other: zilizoagizwa kutoka nje - aina ya hali ya kusbiri
+        independent_report:
+          one: Ripoti huru
+          other: Ripoti huru
+        international_development_fund:
+          one: Ufadhili wa maendeleo ya kimataifa
+          other: Ufadhili wa maendeleo ya kimataifa
+        international_treaty:
+          one: Mkataba wa kimataifa
+          other: Mikataba ya kimataifa
+        maib_report:
+          one: Ripoti ya Kitengo cha Uchunguzi wa Ajali za Baharini
+          other: Ripoti za Kitengo cha Uchunguzi wa Ajali za Baharini
+        map:
+          one: Ramani
+          other: Ramani
+        medical_safety_alert:
+          one: Taarifa na kuondolewa kwa dawa na vifaa vya matibabu sokoni
+          other: Taarifa na kuondolewa kwa dawa na vifaa vya matibabu sokoni
+        national:
+          one: Tangazo la takwimu za kitaifa
+          other: Matangazo ya takwimu za kitaifa
+        national_statistics:
+          one: Takwimu za Kitaifa
+          other: Takwimu za Kitaifa
+        national_statistics_announcement:
+          one: Tangazo la takwimu za kitaifa
+          other: Matangazo ya takwimu za kitaifa
+        news_article:
+          one: Makala ya habari
+          other: Makala ya habari
+        notice:
+          one: Notisi
+          other: Notisi
+        official:
+          one: Tangazo la takwimu rasmi
+          other: Matangazo ya takwimu rasmi
+        official_statistics:
+          one: Takwimu Rasmi
+          other: Takwimu Rasmi
+        official_statistics_announcement:
+          one: Tangazo la takwimu rasmi
+          other: Matangazo ya takwimu rasmi
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Mashauriano ya watu wengi
+          other: Mashauriano ya watu wengi
+        oral_statement:
+          one: Taarifa ya Matamshi kwa Bunge
+          other: Taarifa za Matamshi kwa Bunge
+        policy:
+          one: Sera
+          other: Sera
+        policy_paper:
+          one: Hati ya sera
+          other: Hati za sera
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Nyenzo ya matangazo
+          other: Nyenzo ya matangazo
+        publication:
+          one: Chapisho
+          other: Machapisho
+        raib_report:
+          one: Ripoti ya Kitengo cha Uchunguzi wa Ajali za Treni
+          other: Ripoti za Kitengo cha Uchunguzi wa Ajali za Treni
+        regulation:
+          one: Kanuni
+          other: Kanuni
+        research:
+          one: Utafiti na uchanganuzi
+          other: Utafiti na uchanganuzi
+        residential_property_tribunal_decision:
+          one: Uamuzi wa mahakama ya kesi za mali ya makazi
+          other: Maamuzi ya mahakama ya kesi za mali ya makazi
+        service_sign_in:
+          one: Kuingia kwenye huduma
+          other: Kuingia kwenye huduma
+        service_standard_report:
+          one: Ripoti ya Kawaida ya Huduma
+          other: Ripoti za Kawaida za Huduma
+        speaking_notes:
+          one: Madokezo ya kutamka
+          other: Madokezo ya kutamka
+        standard:
+          one: Kiwango
+          other: Viwango
+        statement_to_parliament:
+          one: Taarifa kwa Bunge
+          other: Taarifa kwa Bunge
+        statistical_data_set:
+          one: Kikundi cha data ya takwimu
+          other: Vikundi vya data ya takwimu
+        statistics_announcement:
+          one: Tangazo la kutolewa kwa takwimu
+          other: Matangazo ya kutolewa kwa takwimu
+        statutory_guidance:
+          one: Mwongozo wa kisheria
+          other: Mwongozo wa kisheria
+        tax_tribunal_decision:
+          one: Uamuzi wa mahakama ya Ushuru na Mahakama Kuu
+          other: Maamuzi ya mahakama ya Ushuru na Mahakama Kuu
+        transcript:
+          one: Maandishi
+          other: Maandishi
+        transparency:
+          one: Data ya uwazi
+          other: Data ya uwazi
+        utaac_decision:
+          one: Uamuzi wa mahakama ya rufaa za kesi za usimamizi
+          other: Maamuzi ya mahakama ya rufaa za kesi za usimamizi
+        written_statement:
+          one: Taarifa ya Maandishi kwa Bunge
+          other: Taarifa za Maandishi kwa Bunge
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -374,6 +590,16 @@ sw:
       name:
         one:
         other:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Chapisho hili linapatikana katika %{url}
+        copyright: "© Hakimiliki ya Crown %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Chapisho hili limepewa leseni chini ya sheria na masharti ya Open Government Licence v3.0 isipokuwa ibainishwe vinginevyo. Ili uone leseni, tembelea <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> au andika barua kwa Information Policy Team, The National Archives, Kew, London TW9 4DU au tuma barua pepe: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Tukitambua maelezo yoyote ya hakimiliki ya watu wengine, utahitaji kupata ruhusa kutoka kwa wamiliki wa hakimiliki husika.
     impact_assessment:
       name:
         one:

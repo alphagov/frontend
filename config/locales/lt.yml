@@ -78,6 +78,292 @@ lt:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Turinys
+      metadata:
+        published: publikuota
+        updated: atnaujinta
+      schema_name:
+        aaib_report:
+          few:
+          one: Orlaivių avarijų tyrimo skyriaus ataskaita
+          other: Orlaivių avarijų tyrimo skyriaus ataskaitos
+        announcement:
+          few:
+          one: Pranešimas
+          other: Pranešimai
+        asylum_support_decision:
+          few:
+          one: Tribunolo sprendimas dėl prieglobsčio
+          other: Tribunolo sprendimai dėl prieglobsčio
+        authored_article:
+          few:
+          one: Autoriaus straipsnis
+          other: Autorių straipsniai
+        business_finance_support_scheme:
+          few:
+          one: Verslo finansų paramos planas
+          other: Verslo finansų paramos planas
+        call_for_evidence:
+          few:
+          one:
+          other:
+        call_for_evidence_outcome:
+          few:
+          one:
+          other:
+        case_study:
+          few:
+          one: Atvejo analizė
+          other: Atvejų analizės
+        closed_call_for_evidence:
+          few:
+          one:
+          other:
+        closed_consultation:
+          few:
+          one: Pasibaigusi konsultacija
+          other: Pasibaigusios konsultacijos
+        cma_case:
+          few:
+          one: Konkurencijos ir rinkos institucijos byla
+          other: Konkurencijos ir rinkos institucijos bylos
+        consultation:
+          few:
+          one: Konsultacija
+          other: Konsultacijos
+        consultation_outcome:
+          few:
+          one: Konsultacijos rezultatas
+          other: Konsultacijos rezultatai
+        corporate_information_page:
+          few:
+          one: Informacinis puslapis
+          other: Informaciniai puslapiai
+        corporate_report:
+          few:
+          one: Bendra ataskaita
+          other: Bendros ataskaitos
+        correspondence:
+          few:
+          one: Korespondencija
+          other: Korespondencija
+        countryside_stewardship_grant:
+          few:
+          one: Kaimo priežiūros dotacija
+          other: Kaimo priežiūros dotacijos
+        decision:
+          few:
+          one: Sprendimas
+          other: Sprendimai
+        detailed_guide:
+          few:
+          one: Detalesnė informacija
+          other: Detalesnė informacija
+        dfid_research_output:
+          few:
+          one: Plėtros rezultato tyrimas
+          other: Plėtros rezultatų tyrimas
+        document_collection:
+          few:
+          one: Serijos
+          other: Serijos
+        draft_text:
+          few:
+          one: Pirminis teksto variantas
+          other: Pirminiai teksto variantai
+        drug_safety_update:
+          few:
+          one: Nauja informacija apie vaistų saugumą
+          other: Nauja informacija apie vaistų saugumą
+        employment_appeal_tribunal_decision:
+          few:
+          one: Darbo bylų apeliacijų tribunolo sprendimas
+          other: Darbo bylų apeliacijų tribunolo sprendimai
+        employment_tribunal_decision:
+          few:
+          one: Darbo teisės tribunolo sprendimas
+          other: Darbo teisės tribunolo sprendimai
+        esi_fund:
+          few:
+          one: Europos struktūrinis ir investicijų fondas
+          other: Europos struktūriniai ir investicijų fondai
+        foi_release:
+          few:
+          one: 'Informacijos laisvė: pranešimas'
+          other: 'Informacijos laisvė: pranešimai'
+        form:
+          few:
+          one: Forma
+          other: Formos
+        guidance:
+          few:
+          one: Informacija
+          other: Informacija
+        impact_assessment:
+          few:
+          one: Poveikio įvertinimas
+          other: Poveikio įvertinimai
+        imported:
+          few:
+          one: Patalpinta - laukiama publikavimo
+          other: Patalpinta - laukiama publikavimo
+        independent_report:
+          few:
+          one: Nepriklausoma ataskaita
+          other: Nepriklausomos ataskaitos
+        international_development_fund:
+          few:
+          one: Tarptautinis plėtros finansavimas
+          other: Tarptautinis plėtros finansavimas
+        international_treaty:
+          few:
+          one: Tarptautinė sutartis
+          other: Tarptautinės sutartys
+        maib_report:
+          few:
+          one: Jūrų laivų avarijų tyrimo skyriaus ataskaita
+          other: Jūrų laivų avarijų tyrimo skyriaus ataskaitos
+        map:
+          few:
+          one: Žemėlapis
+          other: Žemėlapiai
+        medical_safety_alert:
+          few:
+          one: Įspėjimai dėl vaistų ir medicininių prietaisų, jų atšaukimas
+          other: Įspėjimai dėl vaistų ir medicininių prietaisų, jų atšaukimas
+        national:
+          few:
+          one: Nacionalinės statistikos pranešimas
+          other: Nacionalinės statistikos pranešimai
+        national_statistics:
+          few:
+          one: Statistika - nacionalinė statistika
+          other: Statistika - nacionalinė statistika
+        national_statistics_announcement:
+          few:
+          one: Nacionalinės statistikos pranešimas
+          other: Nacionalinės statistikos pranešimai
+        news_article:
+          few:
+          one: Straipsnis
+          other: Straipsniai
+        notice:
+          few:
+          one: Pranešimas
+          other: Pranešimai
+        official:
+          few:
+          one: Oficialios statistikos pranešimas
+          other: Oficialios statistikos pranešimai
+        official_statistics:
+          few:
+          one: Statistika
+          other: Statistika
+        official_statistics_announcement:
+          few:
+          one: Oficialios statistikos pranešimas
+          other: Oficialios statistikos pranešimai
+        open_call_for_evidence:
+          few:
+          one:
+          other:
+        open_consultation:
+          few:
+          one: Atvira konsultacija
+          other: Atviros konsultacijos
+        oral_statement:
+          few:
+          one: Žodinis kreipimasis į parlamentą
+          other: Žodiniai kreipimaisi į parlamentą
+        policy:
+          few:
+          one: Strategija
+          other: Strategija
+        policy_paper:
+          few:
+          one: Strategijos dokumentas
+          other: Strategijų dokumentai
+        product-safety-alert-report-recall:
+          few:
+          one:
+          other:
+        promotional:
+          few:
+          one: Reklaminė medžiaga
+          other: Reklaminė medžiaga
+        publication:
+          few:
+          one: Leidinys
+          other: Leidiniai
+        raib_report:
+          few:
+          one: Traukinių avarijų tyrimo skyriaus ataskaita
+          other: Traukinių avarijų tyrimo skyriaus ataskaitos
+        regulation:
+          few:
+          one: Reglamentas
+          other: Reglamentai
+        research:
+          few:
+          one: Tyrimas ir analizė
+          other: Tyrimai ir analizės
+        residential_property_tribunal_decision:
+          few:
+          one: Gyvenamosios nuosavybės tribunolo sprendimas
+          other: Gyvenamosios nuosavybės tribunolo sprendimai
+        service_sign_in:
+          few:
+          one: Prisijungti prie paslaugos
+          other: Prisijungti prie paslaugos
+        service_standard_report:
+          few:
+          one: Standartinė paslaugos ataskaita
+          other: Standartinės paslaugų ataskaitos
+        speaking_notes:
+          few:
+          one: Kalbos santrauka
+          other: Kalbos santrauka
+        standard:
+          few:
+          one: Standartas
+          other: Standartai
+        statement_to_parliament:
+          few:
+          one: Kreipimasis į parlamentą
+          other: Kreipimaisi į parlamentą
+        statistical_data_set:
+          few:
+          one: Statistiniai duomenys
+          other: Statistiniai duomenys
+        statistics_announcement:
+          few:
+          one: Statistinių duomenų pranešimas
+          other: Statistinių duomenų pranešimai
+        statutory_guidance:
+          few:
+          one: Įstatyminė informacija
+          other: Įstatyminė informacija
+        tax_tribunal_decision:
+          few:
+          one: Mokesčių ir kanceliarijos tribunolo sprendimas
+          other: Mokesčių ir kanceliarijos tribunolo sprendimai
+        transcript:
+          few:
+          one: Kalbos tekstas
+          other: Kalbų tekstai
+        transparency:
+          few:
+          one: Skaidrumo informacija
+          other: Skaidrumo informacija
+        utaac_decision:
+          few:
+          one: Administracinių bylų apeliacijų tribunolo sprendimas
+          other: Administracinių bylų apeliacijų tribunolo sprendimai
+        written_statement:
+          few:
+          one: Rašytinis kreipimasis į parlamentą
+          other: Rašytiniai kreipimaisi į parlamentą
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -405,6 +691,17 @@ lt:
         few:
         one:
         other:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
+      print_meta_data:
+        available_at: Šis leidinys prieinamas %{url}
+        copyright: "© Karūnos autorių teisės %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Šis leidinys licencijuojamas laikantis atviros vyriausybės licencijos v3.0, nebent nurodyta kitaip. Norėdami peržiūrėti šią licenciją, apsilankykite <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> arba kreipkitės raštu į mūsų informacijos strategijos komandą adresu The National Archives, Kew, London TW9 4DU arba el. paštu: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: ei nustatėme trečiosios šalies autorių teisių informaciją, turėsite gauti atitinkamų autorių teisių savininkų leidimą.
     impact_assessment:
       name:
         few:

@@ -88,12 +88,9 @@
       } %>
 
     <% elsif content_item.pending_final_outcome? %>
-      <% content_item_final_outcome = capture do %>
-        <%= t("formats.consultation.visit_soon") %>
-      <% end %>
       <%= render "govuk_publishing_components/components/notice",
         title: t("formats.consultation.analysing_feedback"),
-        description_text: content_item_final_outcome %>
+        description_text: I18n.t("formats.consultation.visit_soon") %>
 
     <% elsif content_item.final_outcome? %>
       <%= render "govuk_publishing_components/components/notice", title: t("formats.consultation.concluded") %>

@@ -123,16 +123,20 @@
             text: t("formats.consultation.original_consultation"),
           } %>
         </header>
-    <% end %>
 
-    <%= render "govuk_publishing_components/components/summary_banner", {
-      secondary_text: consultation_date,
-      text: consultation_desc,
-      title: t("formats.consultation.summary"),
-    } %>
-
-    <% if content_item.final_outcome? %>
+        <%= render "govuk_publishing_components/components/summary_banner", {
+          secondary_text: consultation_date,
+          text: consultation_desc,
+          title: t("formats.consultation.summary"),
+        } %>
       </section>
+
+    <% else %>
+      <%= render "govuk_publishing_components/components/summary_banner", {
+        secondary_text: consultation_date,
+        text: consultation_desc,
+        title: t("formats.consultation.summary"),
+      } %>
     <% end %>
 
     <div class="consultation-description">

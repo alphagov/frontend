@@ -21,6 +21,18 @@ class ConsultationPresenter < ContentItemPresenter
     end
   end
 
+  def notice_title
+    if content_item.unopened?
+      I18n.t("formats.consultation.not_open_yet")
+    elsif content_item.pending_final_outcome?
+      I18n.t("formats.consultation.analysing_feedback")
+    elsif content_item.final_outcome?
+      I18n.t("formats.consultation.concluded")
+    else
+      ""
+    end
+  end
+
 private
 
   def opening_date_midnight?

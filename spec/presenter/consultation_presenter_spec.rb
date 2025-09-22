@@ -85,4 +85,38 @@ RSpec.describe ConsultationPresenter do
       end
     end
   end
+
+  describe "#notice_title" do
+    context "when document type is open_consultation" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
+
+      it "returns empty text" do
+        expect(presenter.notice_title).to eq("")
+      end
+    end
+
+    context "when document type is unopened_consultation" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "unopened_consultation") }
+
+      it "returns not_open_yet text" do
+        expect(presenter.notice_title).to eq("This consultation isn't open yet")
+      end
+    end
+
+    context "when document type is closed_consultation" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "closed_consultation") }
+
+      it "returns analysing_feedback text" do
+        expect(presenter.notice_title).to eq("We are analysing your feedback")
+      end
+    end
+
+    context "when document type is consultation_outcome" do
+      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome") }
+
+      it "returns concluded text" do
+        expect(presenter.notice_title).to eq("This consultation has concluded")
+      end
+    end
+  end
 end

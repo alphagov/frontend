@@ -13,9 +13,7 @@
   <% end %>
 <% end %>
 
-<%
-  content_for :simple_header, true
-%>
+<% content_for :simple_header, true %>
 
 <% if content_item.organisations %>
   <div class="publication-external">
@@ -81,9 +79,12 @@
     <div class="print-metadata">
       <%= render partial: "print_meta_data" %>
     </div>
-    <div class="govuk-grid-column-three-quarters-from-desktop contents-container<% unless content_item.contents.any? %> offset-empty-contents-list<% end %>">
-      <%= render "govuk_publishing_components/components/govspeak_html_publication", { direction: page_text_direction } do %>
-        <%= raw(content_item.govspeak_body[:content]) %>
+
+    <div class="govuk-grid-column-three-quarters-from-desktop contents-container<% unless @presenter.contents.any? %> offset-empty-contents-list<% end %>">
+      <%= render "govuk_publishing_components/components/govspeak_html_publication", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(content_item.body.html_safe) %>
       <% end %>
     </div>
   </div>

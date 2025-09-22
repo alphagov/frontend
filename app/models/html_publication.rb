@@ -29,4 +29,8 @@ class HtmlPublication < ContentItem
   def isbn
     content_store_response.dig("details", "isbn")
   end
+
+  def govspeak_body
+    content_store_response.dig("details", "body")
+  end
 end

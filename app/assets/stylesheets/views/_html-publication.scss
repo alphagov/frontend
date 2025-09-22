@@ -1,58 +1,36 @@
 @import "govuk_publishing_components/individual_component_support";
 
-.html-publication {
-  .publication-external {
-    margin-bottom: govuk-spacing(4);
-    position: relative;
+.publication-external {
+  margin-bottom: govuk-spacing(4);
+  position: relative;
 
-    // design calls for the logos at the top to always be left aligned
-    .direction-rtl & {
-      direction: ltr;
-    }
+  // design calls for the logos at the top to always be left aligned
+  .direction-rtl & {
+    direction: ltr;
   }
+}
 
-  .contents-list-container {
-    @include govuk-media-query($from: desktop) {
-      position: sticky;
-      top: govuk-spacing(2);
-      max-height: 100vh;
-      overflow-y: auto;
-      margin-bottom: govuk-spacing(4);
-    }
+.offset-empty-contents-list {
+  @include govuk-media-query($from: desktop) {
+    float: right;
 
-    .direction-rtl & {
-      float: right;
-    }
-  }
-
-  .contents-container {
     .direction-rtl & {
       float: left;
     }
   }
+}
 
-  .offset-empty-contents-list {
-    // stylelint-disable max-nesting-depth
-    @include govuk-media-query($from: desktop) {
-      float: right;
-
-      .direction-rtl & {
-        float: left;
-      }
-    }
-    // stylelint-enable max-nesting-depth
+.contents-list-container {
+  @include govuk-media-query($from: desktop) {
+    position: sticky;
+    top: govuk-spacing(2);
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-bottom: govuk-spacing(4);
   }
 
-  .sticky-element {
-    .sticky-element__print-link {
-      margin-left: govuk-spacing(3);
-    }
-  }
-
-  @include govuk-media-query($until: desktop) {
-    .sticky-element--enabled {
-      position: static;
-    }
+  .direction-rtl & {
+    float: right;
   }
 }
 

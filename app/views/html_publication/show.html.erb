@@ -10,9 +10,7 @@
   <%= stylesheet_link_tag "views/_csv_preview" %>
 <% end %>
 
-<%
-  content_for :simple_header, true
-%>
+<% content_for :main_classes, "html-publication" %>
 
 <% if content_item.organisations %>
   <div class="publication-external">

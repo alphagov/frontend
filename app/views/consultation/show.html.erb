@@ -25,6 +25,16 @@
   <% end %>
 <% end %>
 
+<% notice_description = capture do %>
+  <% if content_item.unopened? %>
+    <%= @presenter.notice_description %>
+    <%= @presenter.on_or_at %>
+    <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
+  <% else %>
+    <% @presenter.notice_description if @presenter.notice_description.presence %>
+  <% end %>
+<% end %>
+
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
@@ -77,20 +87,15 @@
     <% end %>
 
     <% if content_item.unopened? %>
-      <% content_item_unopened = capture do %>
-        <%= @presenter.notice_description %>
-        <%= @presenter.on_or_at %>
-        <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
-      <% end %>
       <%= render "govuk_publishing_components/components/notice", {
         title: @presenter.notice_title,
-        description_text: content_item_unopened,
+        description_text: notice_description,
       } %>
 
     <% elsif content_item.pending_final_outcome? %>
       <%= render "govuk_publishing_components/components/notice",
         title: @presenter.notice_title,
-        description_text: @presenter.notice_description %>
+        description_text: notice_description %>
 
     <% elsif content_item.final_outcome? %>
       <%= render "govuk_publishing_components/components/notice", title: @presenter.notice_title %>

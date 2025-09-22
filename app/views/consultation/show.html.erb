@@ -86,20 +86,14 @@
       } %>
     <% end %>
 
-    <% if content_item.unopened? %>
+    <% if content_item.unopened? || content_item.pending_final_outcome? || content_item.final_outcome? %>
       <%= render "govuk_publishing_components/components/notice", {
         title: @presenter.notice_title,
         description_text: notice_description,
       } %>
+    <% end %>
 
-    <% elsif content_item.pending_final_outcome? %>
-      <%= render "govuk_publishing_components/components/notice",
-        title: @presenter.notice_title,
-        description_text: notice_description %>
-
-    <% elsif content_item.final_outcome? %>
-      <%= render "govuk_publishing_components/components/notice", title: @presenter.notice_title %>
-
+    <% if content_item.final_outcome? %>
       <%= render "shared/attachments_list",
         title: t("formats.consultation.download_outcome"),
         attachments_for_components: content_item.final_outcome_attachments_for_components %>

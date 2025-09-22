@@ -1,0 +1,32 @@
+<% consultation_date = capture do %>
+  <%= @presenter.opens_closes_or_ran %><br>
+
+  <% if content_item.closed? || content_item.unopened? %>
+    <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong>
+  <% end %>
+
+  <% if content_item.closed? %>
+    <strong class="consultation-date"> to</strong>
+  <% elsif content_item.unopened? %>
+    <br><%= t("formats.consultation.closes") %><br>
+  <% end %>
+
+  <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
+<% end %>
+
+<% consultation_desc = capture do %>
+  <%= content_item.description %>
+  <% if content_item.held_on_another_website? %>
+    <p>
+      <strong>
+        <%= t("formats.consultation.another_website_html", closed: content_item.closed? ? t("formats.consultation.was") : t("formats.consultation.is_being"), url: content_item.held_on_another_website_url) %>.
+      </strong>
+    </p>
+  <% end %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/summary_banner", {
+  secondary_text: consultation_date,
+  text: consultation_desc,
+  title: t("formats.consultation.summary"),
+} %>

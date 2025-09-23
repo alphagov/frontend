@@ -248,5 +248,9 @@ RSpec.describe CallForEvidence do
         expect(open_call_for_evidence_with_participation.response_form?).to be(false)
       end
     end
+
+    it "does not have a lead paragraph" do
+      expect(open_call_for_evidence.lead_paragraph).to be(false)
+    end
   end
 end

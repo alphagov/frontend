@@ -86,6 +86,10 @@ class CallForEvidence < ContentItem
     attachment_url.present? && (email.present? || postal_address.present?)
   end
 
+  def lead_paragraph
+    false
+  end
+
 private
 
   def ways_to_respond

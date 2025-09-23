@@ -65,6 +65,10 @@ class ContentItem
     )&.downcase
   end
 
+  def lead_paragraph
+    content_store_response["description"]
+  end
+
 private
 
   def linked(type)

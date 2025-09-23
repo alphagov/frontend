@@ -20,10 +20,10 @@
   <% end %>
 </div>
 
-<% if content_item.description %>
+<% if content_item.lead_paragraph %>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.lead_paragraph %>
     </div>
   </div>
 <% end %>

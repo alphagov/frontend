@@ -9,7 +9,7 @@
 
 <% content_for :simple_header, true %>
 
-<%= render "shared/header", { context: "" } %>
+<%= render "shared/header" %>
 
 <%= render "shared/publisher_metadata", locals: {
     from: govuk_styled_links_list(@presenter.contributor_links),

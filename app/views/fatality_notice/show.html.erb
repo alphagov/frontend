@@ -7,7 +7,7 @@
   <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
 
-<%= render "shared/header", { context: content_item.context } %>
+<%= render "shared/header" %>
 
 <%= render "shared/publisher_metadata", locals: {
   from: govuk_styled_links_list(@presenter.contributor_links),

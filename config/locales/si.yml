@@ -78,6 +78,222 @@ si:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: අන්තර්ගත
+      metadata:
+        published: පළ කළේ
+        updated: යාවත්කාලීන කෙරිණි
+      schema_name:
+        aaib_report:
+          one: ගුවන් අනතුරු විමර්ශන ශාඛා වාර්තාව
+          other: ගුවන් අනතුරු විමර්ශන ශාඛා වාර්තා
+        announcement:
+          one: නිවේදනය
+          other: නිවේදන
+        asylum_support_decision:
+          one: රැකවරණ සහාය විනිශ්චය මණ්ඩල තීරණය
+          other: රැකවරණ සහාය විනිශ්චය මණ්ඩල තීරණ
+        authored_article:
+          one: රචනා කළ ලිපිය
+          other: රචනා කළ ලිපි
+        business_finance_support_scheme:
+          one: ව්යාපාර මූල්ය සහාය යෝජනා ක්රමය
+          other: ව්යාපාර මූල්ය සහාය යෝජනා ක්රම
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: සිද්ධි අධ්යයනය
+          other: සිද්ධි අධ්යයන
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: සංවෘත උපදේශනය
+          other: සංවෘත උපදේශන
+        cma_case:
+          one: තරඟ සහ වෙළඳපළ අධිකාරිය නඩුව
+          other: තරඟ සහ වෙළඳපළ අධිකාරිය නඩු
+        consultation:
+          one: උපදේශනය
+          other: උපදේශන
+        consultation_outcome:
+          one: උපදේශන ප්රතිඵලය
+          other: උපදේශන ප්රතිඵල
+        corporate_information_page:
+          one: තොරතුරු පිටුව
+          other: තොරතුරු පිටු
+        corporate_report:
+          one: ආයතනික වාර්තාව
+          other: ආයතනික වාර්තා
+        correspondence:
+          one: ලිපි හුවමාරුව
+          other: ලිපි හුවමාරු
+        countryside_stewardship_grant:
+          one: ගම්බද භාරකාරත්ව ප්රදානය
+          other: ගම්බද භාරකාරත්ව ප්රදාන
+        decision:
+          one: තීරණය
+          other: තීරණ
+        detailed_guide:
+          one: මාර්ගෝපදේශය
+          other: මාර්ගෝපදේශය
+        dfid_research_output:
+          one: සංවර්ධන ප්‍රතිඵල සඳහා වූ පර්යේෂණය
+          other: සංවර්ධන ප්‍රතිඵල සඳහා වූ පර්යේෂණ
+        document_collection:
+          one: එකතුව
+          other: එකතු
+        draft_text:
+          one: කෙටුම්පත් පෙළ
+          other: කෙටුම්පත් පෙළ
+        drug_safety_update:
+          one: ඖෂධ ආරක්ෂන යාවත්කාලීනය
+          other: ඖෂධ ආරක්ෂන යාවත්කාලීන
+        employment_appeal_tribunal_decision:
+          one: රැකියා අභියාචනා විනිශ්චය මණ්ඩල තීරණය
+          other: රැකියා අභියාචනා විනිශ්චය මණ්ඩල තීරණ
+        employment_tribunal_decision:
+          one: රැකියා විනිශ්චය මණ්ඩල තීරණය
+          other: රැකියා විනිශ්චය මණ්ඩල තීරණ
+        esi_fund:
+          one: යුරෝපීය ව්යුහාත්මක සහ ආයෝජන අරමුදල (ESIF)
+          other: යුරෝපීය ව්යුහාත්මක සහ ආයෝජන අරමුදල් (ESIF)
+        foi_release:
+          one: FOI නිකුත් කිරීම
+          other: FOI නිකුත් කිරීම්
+        form:
+          one: ආකෘති පත්‍රය
+          other: ආකෘති පත්‍ර
+        guidance:
+          one: මාර්ගෝපදේශය
+          other: මාර්ගෝපදේශය
+        impact_assessment:
+          one: බලපෑම තක්සේරුව
+          other: බලපෑම තක්සේරු
+        imported:
+          one: ආනයනය කරන ලද - අපේක්ෂිත වර්ගය
+          other: ආනයනය කරන ලද - අපේක්ෂිත වර්ගය
+        independent_report:
+          one: ස්වාධීන වාර්තාව
+          other: ස්වාධීන වාර්තා
+        international_development_fund:
+          one: ජාත්යන්තර සංවර්ධන මුදල් සැපයීම
+          other: ජාත්යන්තර සංවර්ධන මුදල් සැපයීම
+        international_treaty:
+          one: ජාත්යන්තර ගිවිසුම
+          other: ජාත්යන්තර ගිවිසුම්
+        maib_report:
+          one: නාවික අනතුරු විමර්ශන ශාඛා වාර්තාව
+          other: නාවික අනතුරු විමර්ශන ශාඛා වාර්තා
+        map:
+          one: සිතියම
+          other: සිතියම්
+        medical_safety_alert:
+          one: ඖෂධ සහ වෛද්ය උපකරණ සඳහා ඇඟවීම් සහ සිහිපත් කිරීම්
+          other: ඖෂධ සහ වෛද්ය උපකරණ සඳහා ඇඟවීම් සහ සිහිපත් කිරීම්
+        national:
+          one: ජාතික සංඛ්යාලේඛන නිවේදනය
+          other: ජාතික සංඛ්යාලේඛන නිවේදන
+        national_statistics:
+          one: ජාතික සංඛ්යාලේඛන
+          other: ජාතික සංඛ්යාලේඛන
+        national_statistics_announcement:
+          one: ජාතික සංඛ්යාලේඛන නිවේදනය
+          other: ජාතික සංඛ්යාලේඛන නිවේදන
+        news_article:
+          one: පුවත් ලිපිය
+          other: පුවත් ලිපි
+        notice:
+          one: දැන්වීම
+          other: දැන්වීම්
+        official:
+          one: නිල සංඛ්යාලේඛන නිවේදනය
+          other: නිල සංඛ්යාලේඛන නිවේදන
+        official_statistics:
+          one: නිල සංඛ්යාලේඛන
+          other: නිල සංඛ්යාලේඛන
+        official_statistics_announcement:
+          one: නිල සංඛ්යාලේඛන නිවේදනය
+          other: නිල සංඛ්යාලේඛන නිවේදන
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: විවෘත උපදේශනය
+          other: විවෘත උපදේශන
+        oral_statement:
+          one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
+          other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
+        policy:
+          one: ප්රතිපත්තිය
+          other: ප්රතිපත්ති
+        policy_paper:
+          one: ප්රතිපත්ති පත්‍රිකාව
+          other: ප්රතිපත්ති පත්‍රිකා
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: ප්රවර්ධන ද්රව්ය
+          other: ප්රවර්ධන ද්රව්ය
+        publication:
+          one: ප්රකාශනය
+          other: ප්රකාශන
+        raib_report:
+          one: දුම්රිය අනතුරු විමර්ශන ශාඛා වාර්තාව
+          other: දුම්රිය අනතුරු විමර්ශන ශාඛා වාර්තා
+        regulation:
+          one: නියාමනය
+          other: නියාමන
+        research:
+          one: පර්යේෂණය සහ විශ්ලේෂණය
+          other: පර්යේෂණය සහ විශ්ලේෂණය
+        residential_property_tribunal_decision:
+          one: නේවාසික දේපළ විනිශ්චය මණ්ඩල තීරණය
+          other: නේවාසික දේපළ විනිශ්චය මණ්ඩල තීරණ
+        service_sign_in:
+          one: සේවා පිවිසුම
+          other: සේවා පිවිසුම
+        service_standard_report:
+          one: සේවා සම්මත වාර්තාව
+          other: සේවා සම්මත වාර්තා
+        speaking_notes:
+          one: කතා සටහන්
+          other: කතා සටහන්
+        standard:
+          one: ප්‍රමිතිය
+          other: ප්‍රමිති
+        statement_to_parliament:
+          one: පාර්ලිමේන්තුව වෙත ප්රකාශය
+          other: පාර්ලිමේන්තුව වෙත ප්රකාශ
+        statistical_data_set:
+          one: සංඛ්යාලේඛන දත්ත කට්ටලය
+          other: සංඛ්යාලේඛන දත්ත කට්ටල
+        statistics_announcement:
+          one: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදනය
+          other: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදන
+        statutory_guidance:
+          one: ව්යවස්ථාපිත මඟ පෙන්වීම
+          other: ව්යවස්ථාපිත මඟ පෙන්වීම
+        tax_tribunal_decision:
+          one: බදු සහ චාන්සරි විනිශ්චය මණ්ඩල තීරණය
+          other: බදු සහ චාන්සරි විනිශ්චය මණ්ඩල තීරණ
+        transcript:
+          one: ප්‍රතිලේඛනය
+          other: ප්‍රතිලේඛන
+        transparency:
+          one: විනිවිදභාව දත්ත
+          other: විනිවිදභාව දත්ත
+        utaac_decision:
+          one: පරිපාලන අභියාචනා විනිශ්චය මණ්ඩල තීරණය
+          other: පරිපාලන අභියාචනා විනිශ්චය මණ්ඩල තීරණ
+        written_statement:
+          one: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශය
+          other: පාර්ලිමේන්තුව වෙත ලිඛිත ප්රකාශ
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -374,6 +590,16 @@ si:
       name:
         one:
         other:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: මෙම ප්රකාශනය %{url} වෙතින් ලබා ගත හැකිය
+        copyright: "© රාජ්‍ය කතුහිමිකම %{year}"
+        isbn: 'ISBN:'
+        licence_html: මෙම ප්රකාශනයට වෙනත් ආකාරයකින් සඳහන් කර ඇති අවස්ථාවන්හි හැර විවෘත රාජ්ය බලපත්ර v3.0 හි නියමයන් යටතේ බලපත්ර ලබා දී ඇත. මෙම බලපත්‍රය බැලීමට, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> වෙත පිවිසෙන්න නැතහොත් The Information Policy Team, The National Archives, Kew, London TW9 4DU වෙත ලියන්න නැතහොත් <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk </a> වෙත විද්‍යුත් තැපෑලක් එවන්න.
+        third_party: අපි යම් තෙවන පාර්ශවීය ප්රකාශන හිමිකම් තොරතුරු හඳුනාගෙන ඇති අවස්ථාවක ඔබ අදාළ ප්රකාශන හිමිකම් හිමියන්ගෙන් අවසර ලබා ගත යුතුය.
     impact_assessment:
       name:
         one:

@@ -14,31 +14,63 @@
     </div>
   </div>
 
-  <% t("homepage.index.promotion_slots").each_with_index do | item, index | %>
-    <%= render "govuk_publishing_components/components/image_card", {
-      href: item[:href],
-      data_attributes: {
-        module: "ga4-link-tracker",
-        ga4_link: {
-          event_name: "navigation",
-          type: "homepage",
-          index_section: locals[:index_section],
-          index_link: index + 1,
-          index_section_count: locals[:index_section_count],
-          index_total: t("homepage.index.promotion_slots").length,
-          section: t("homepage.index.featured", locale: :en),
+  <div>
+    <% t("homepage.index.promotion_slots").each_with_index do | item, index | %>
+      <%= render "govuk_publishing_components/components/image_card", {
+        href: item[:href],
+        data_attributes: {
+          module: "ga4-link-tracker",
+          ga4_link: {
+            event_name: "navigation",
+            type: "homepage",
+            index_section: locals[:index_section],
+            index_link: index + 1,
+            index_section_count: locals[:index_section_count],
+            index_total: t("homepage.index.promotion_slots").length,
+            section: t("homepage.index.featured", locale: :en),
+          },
         },
-      },
-      image_src: image_path(item[:image_src]),
-      image_alt: "",
-      image_loading: "lazy",
-      heading_level: 3,
-      heading_text: item[:title],
-      two_thirds: true,
-      large_font_size_mobile: true,
-      description: item[:text],
-      font_size: "s",
-      srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence,
-    } %>
-  <% end %>
+        image_src: image_path(item[:image_src]),
+        image_alt: "",
+        image_loading: "lazy",
+        heading_level: 3,
+        heading_text: item[:title],
+        two_thirds: true,
+        large_font_size_mobile: true,
+        description: item[:text],
+        font_size: "s",
+        srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence,
+      } %>
+    <% end %>
+  </div>
+
+  <div class="border-top-blue">
+    <% t("homepage.index.promotion_slots_secondary").each_with_index do | item, index | %>
+      <%= render "govuk_publishing_components/components/image_card", {
+        href: item[:href],
+        data_attributes: {
+          module: "ga4-link-tracker",
+          ga4_link: {
+            event_name: "navigation",
+            type: "homepage",
+            index_section: locals[:index_section],
+            index_link: index + 1,
+            index_section_count: locals[:index_section_count],
+            index_total: t("homepage.index.promotion_slots_secondary").length,
+            section: t("homepage.index.featured_secondary", locale: :en),
+          },
+        },
+        image_src: image_path(item[:image_src]),
+        image_alt: "",
+        image_loading: "lazy",
+        heading_level: 3,
+        heading_text: item[:title],
+        two_thirds: true,
+        large_font_size_mobile: true,
+        description: item[:text],
+        font_size: "s",
+        srcset: item.fetch(:srcset, {}).stringify_keys.transform_keys { |k| image_path(k) }.presence,
+      } %>
+    <% end %>
+  </div>
 </section>

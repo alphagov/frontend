@@ -31,6 +31,7 @@ some hard-coded routes.
 |Guidance               |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/travel-to-england-from-another-country-during-coronavirus-covid-19|
 |Help index             |hardcoded|https://www.gov.uk/help|
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
+|History                |[history](https://docs.publishing.service.gov.uk/content-schemas/history.html)|https://www.gov.uk/government/history/10-downing-street|
 |Homepage               |[homepage](https://docs.publishing.service.gov.uk/content-schemas/homepage.html)|https://www.gov.uk/|
 |Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
 |Gone                   |[gone](https://docs.publishing.service.gov.uk/content-schemas/gone.html)|https://www.gov.uk/government/collections/greenhouse-gas-conversion-factors-for-company-reporting|

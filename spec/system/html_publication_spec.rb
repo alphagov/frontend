@@ -1,33 +1,89 @@
 RSpec.describe "HTML publication" do
-  context "when visiting a html publication" do
+  describe "GET /<document_type>/<slug>" do
     let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "published") }
     let(:base_path) { content_item["base_path"] }
 
-    before { stub_content_store_has_item(base_path, content_item) }
-
-    # test "random but valid items do not error" do
-    #   assert_nothing_raised { setup_and_visit_random_content_item }
-    # end
-
-    it "html publications" do
+    before do
+      stub_content_store_has_item(base_path, content_item)
       visit base_path
-
-      within ".gem-c-inverse-header" do
-        format_sub_type = content_item["details"]["format_sub_type"]
-        expect(page).to have_text(format_sub_type) if format_sub_type.present?
-        expect(page).to have_text(content_item["title"])
-
-        expect(page).to have_text("Published 17 January 2016")
-      end
-
-      within "#contents" do
-        expect(page).to have_text("Contents")
-        expect(page).to have_css(".gem-c-contents-list")
-      end
-
-      expect(page).to have_text("The Environment Agency will normally put any responses it receives on the public register. This includes your name and contact details. Tell us if you don’t want your response to be public.")
     end
 
+    describe "when visiting a html publication" do
+      # test "random but valid items do not error" do
+      #   assert_nothing_raised { setup_and_visit_random_content_item }
+      # end
+
+      # it "has expected elements and contents" do
+      #   visit base_path
+
+      #   within ".gem-c-inverse-header" do
+      #     format_sub_type = content_item["details"]["format_sub_type"]
+      #     expect(page).to have_text(format_sub_type) if format_sub_type.present?
+      #     expect(page).to have_text(content_item["title"])
+
+      #     expect(page).to have_text("Published 17 January 2016")
+      #   end
+
+      #   within "#contents" do
+      #     expect(page).to have_text("Contents")
+      #     expect(page).to have_css(".gem-c-contents-list")
+      #   end
+
+      #   expect(page).to have_text("The Environment Agency will normally put any responses it receives on the public register. This includes your name and contact details. Tell us if you don’t want your response to be public.")
+      # end
+
+      it "renders back to contents elements" do
+        expect(page).to have_css(".gem-c-back-to-top-link[href='#contents']")
+      end
+    end
+
+    describe "when visiting a html publication with metadata" do
+      let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "print_with_meta_data") }
+
+      it "html publications with meta data" do
+        expect(page).to have_css(".print-metadata", visible: false)
+
+        within ".print-metadata" do
+          expect(page).to have_text("© Crown copyright #{content_item['details']['public_timestamp'].to_date.year}")
+          expect(page).to have_text("ISBN: #{content_item['details']['isbn']}")
+        end
+      end
+    end
+
+    describe "prime minister office organisation html publication" do
+      let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "prime_ministers_office") }
+
+      it "has the right organisation logo" do
+        within(".organisation-logos__logo:nth-of-type(4)") do
+          expect(page).to have_css(".gem-c-organisation-logo.brand--cabinet-office")
+        end
+      end
+
+      it "shows no contents when headings are an empty list" do
+        within ".gem-c-inverse-header" do
+          expect(page).not_to have_text("Contents")
+        end
+      end
+    end
+
+    describe "html publication with rtl text direction" do
+      let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "arabic_translation") }
+
+      it "has the correct rtl class" do
+        expect(page).to have_css("#wrapper.direction-rtl"), "has .direction-rtl class on #wrapper element"
+      end
+    end
+
+    describe "historically political html publication" do
+      let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "published_with_history_mode") }
+
+      it "describes the relevant government" do
+        within ".govuk-notification-banner__content" do
+          puts page.html
+          expect(page).to have_text("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        end
+      end
+    end
   end
 end
 
@@ -36,51 +92,7 @@ end
 # require "test_helper"
 
 # class HtmlPublicationTest < ActionDispatch::IntegrationTest
-#   test "html publications with meta data" do
-#     setup_and_visit_html_publication("print_with_meta_data")
 
-#     within "#contents" do
-#       assert page.find(".meta-data.meta-data--display-print", visible: false, text: "© Crown copyright #{@content_item['details']['public_timestamp'].to_date.year}")
-#       assert page.find(".meta-data.meta-data--display-print", visible: false, text: "ISBN: #{@content_item['details']['isbn']}")
-#     end
-#   end
-
-#   test "renders back to contents elements" do
-#     setup_and_visit_html_publication("published")
-#     assert page.has_css?(".gem-c-back-to-top-link[href='#contents']")
-#   end
-
-#   test "prime minister office organisation html publication" do
-#     setup_and_visit_html_publication("prime_ministers_office")
-#     assert_has_component_organisation_logo_with_brand("executive-office", 4)
-#   end
-
-#   test "no contents are shown when headings are an empty list" do
-#     setup_and_visit_html_publication("prime_ministers_office")
-
-#     within ".gem-c-inverse-header" do
-#       assert_not page.has_text?("Contents")
-#     end
-#   end
-
-#   test "html publication with rtl text direction" do
-#     setup_and_visit_html_publication("arabic_translation")
-#     assert page.has_css?("#wrapper.direction-rtl"), "has .direction-rtl class on #wrapper element"
-#   end
-
-#   def assert_has_component_organisation_logo_with_brand(brand, index = 1)
-#     within(".organisation-logos__logo:nth-of-type(#{index})") do
-#       assert page.has_css?(".gem-c-organisation-logo.brand--#{brand}")
-#     end
-#   end
-
-#   test "historically political html publication" do
-#     setup_and_visit_html_publication("published_with_history_mode")
-
-#     within ".govuk-notification-banner__content" do
-#       assert page.has_text?("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
-#     end
-#   end
 
 #   test "withdrawn html publication" do
 #     content_item = GovukSchemas::Example.find("html_publication", example_name: "prime_ministers_office")

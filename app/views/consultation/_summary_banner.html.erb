@@ -17,11 +17,10 @@
 <% consultation_desc = capture do %>
   <%= content_item.description %>
   <% if content_item.held_on_another_website? %>
-    <p>
-      <strong>
-        <%= t("formats.consultation.another_website_html", closed: content_item.closed? ? t("formats.consultation.was") : t("formats.consultation.is_being"), url: content_item.held_on_another_website_url) %>.
-      </strong>
-    </p>
+    <br><br>
+    <strong>
+      <%= t("formats.consultation.another_website_html", closed: content_item.closed? ? t("formats.consultation.was") : t("formats.consultation.is_being"), url: content_item.held_on_another_website_url) %>.
+    </strong>
   <% end %>
 <% end %>
 

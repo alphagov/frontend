@@ -112,9 +112,9 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#attachments_with_details_count" do
+    describe "#attachments_with_details" do
       it "returns the number of attachments that are not accessible" do
-        expect(call_for_evidence_outcome_with_featured_attachments.attachments_with_details_count).to eq(3)
+        expect(call_for_evidence_outcome_with_featured_attachments.attachments_with_details.count).to eq(3)
       end
     end
 

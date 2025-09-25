@@ -745,6 +745,14 @@ cy:
         other: Datganiadau i'r wasg
         two:
         zero:
+    procurement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     product-safety-alert-report-recall:
       name:
         few:
@@ -878,6 +886,14 @@ cy:
         many:
         one: Set ddata ystadegol
         other: Setiau data ystadegol
+        two:
+        zero:
+    statistics:
+      name:
+        few:
+        many:
+        one:
+        other:
         two:
         zero:
     statistics_announcement:

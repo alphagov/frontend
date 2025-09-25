@@ -470,6 +470,9 @@ ja:
     press_release:
       name:
         other: プレスリリース
+    procurement:
+      name:
+        other:
     product-safety-alert-report-recall:
       name:
         other:
@@ -528,6 +531,9 @@ ja:
       name:
         other:
     statistical_data_set:
+      name:
+        other:
+    statistics:
       name:
         other:
     statistics_announcement:

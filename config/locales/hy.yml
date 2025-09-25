@@ -524,6 +524,10 @@ hy:
       name:
         one: Կոմյունիկե
         other: Կոմյունիկեներ
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ hy:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

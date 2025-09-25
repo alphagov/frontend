@@ -529,6 +529,10 @@ en:
       name:
         one: Press release
         other: Press releases
+    procurement:
+      name:
+        one: Procurement
+        other: Procurement
     product-safety-alert-report-recall:
       name:
         one: Product Safety Alerts, Reports and Recalls
@@ -604,6 +608,10 @@ en:
       name:
         one: Statistical data set
         other: Statistical data sets
+    statistics:
+      name:
+        one: Statistics
+        other: Statistics
     statistics_announcement:
       name:
         one: Statistics release announcement

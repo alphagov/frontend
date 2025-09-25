@@ -578,6 +578,11 @@ cs:
         few:
         one: Tisková zpráva
         other: Tiskové zprávy
+    procurement:
+      name:
+        few:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         few:
@@ -664,6 +669,11 @@ cs:
         one:
         other:
     statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+    statistics:
       name:
         few:
         one:

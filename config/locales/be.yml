@@ -632,6 +632,12 @@ be:
         many:
         one: Прэс-рэліз
         other: Прэс-рэлізы
+    procurement:
+      name:
+        few:
+        many:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         few:
@@ -732,6 +738,12 @@ be:
         one:
         other:
     statistical_data_set:
+      name:
+        few:
+        many:
+        one:
+        other:
+    statistics:
       name:
         few:
         many:

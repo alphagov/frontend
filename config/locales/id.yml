@@ -470,6 +470,9 @@ id:
     press_release:
       name:
         other: Siaran pers
+    procurement:
+      name:
+        other:
     product-safety-alert-report-recall:
       name:
         other:
@@ -528,6 +531,9 @@ id:
       name:
         other:
     statistical_data_set:
+      name:
+        other:
+    statistics:
       name:
         other:
     statistics_announcement:

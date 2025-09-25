@@ -524,6 +524,10 @@ ku:
       name:
         one: بەیاننامەیەکی ڕۆژنامەوانی
         other: بەیاننامە ڕۆژنامەوانیەکان
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one: هۆشداری سەلامەتی بەرهەم، ڕاپۆرت و گه‌ڕانه‌وه‌ی به‌رهه‌مه‌كان
@@ -599,6 +603,10 @@ ku:
       name:
         one: کۆمەڵە زانیارییە ئامارییەکان
         other: کۆمەڵە زانیارییە ئامارییەکان
+    statistics:
+      name:
+        one:
+        other:
     statistics_announcement:
       name:
         one: ڕاگەیاندنی بڵاوکردنەوەی ئامارەکان

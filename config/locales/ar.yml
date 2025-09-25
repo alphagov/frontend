@@ -740,6 +740,14 @@ ar:
         other: بيانات صحفية
         two:
         zero:
+    procurement:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     product-safety-alert-report-recall:
       name:
         few:
@@ -868,6 +876,14 @@ ar:
         two:
         zero:
     statistical_data_set:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
+    statistics:
       name:
         few:
         many:

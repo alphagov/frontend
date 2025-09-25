@@ -524,6 +524,10 @@ ky:
       name:
         one: Пресс-релиз
         other: Пресс-релиздер
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
@@ -599,6 +603,10 @@ ky:
       name:
         one: Статистикалык дайындардын топтому
         other: Статистикалык дайындардын топтомдору
+    statistics:
+      name:
+        one:
+        other:
     statistics_announcement:
       name:
         one: Статистиканы чыгаруу кулактандыруусу

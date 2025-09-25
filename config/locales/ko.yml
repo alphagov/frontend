@@ -470,6 +470,9 @@ ko:
     press_release:
       name:
         other: 보도자료
+    procurement:
+      name:
+        other:
     product-safety-alert-report-recall:
       name:
         other:
@@ -528,6 +531,9 @@ ko:
       name:
         other:
     statistical_data_set:
+      name:
+        other:
+    statistics:
       name:
         other:
     statistics_announcement:

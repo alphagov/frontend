@@ -524,6 +524,10 @@ hi:
       name:
         one: प्रेस विज्ञप्ति
         other: प्रेस विज्ञप्तियां
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ hi:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

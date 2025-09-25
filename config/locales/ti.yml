@@ -524,6 +524,10 @@ ti:
       name:
         one: ጋዜጣዊ መግለጺ
         other: ጋዜጣዊ መግለጺታት
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one: መጠንቀቕታታት ድሕነት ፍርያት፣ ጸብጻባትን ዳግማይ መጸዋዕታን
@@ -599,6 +603,10 @@ ti:
       name:
         one: ስታቲስቲካዊ  እኩብ ዳታ/ሓበሬታ
         other: ስታቲስቲካዊ  እኩብ ዳታታት/ሓበሬታታት
+    statistics:
+      name:
+        one:
+        other:
     statistics_announcement:
       name:
         one: ን ስታቲስቲክስ መግለጺ ዝምልከት ምልክታ

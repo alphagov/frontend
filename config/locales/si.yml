@@ -524,6 +524,10 @@ si:
       name:
         one: මාධ්ය නිවේදනය
         other: මාධ්ය නිවේදන
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ si:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

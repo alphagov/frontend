@@ -524,6 +524,10 @@ dr:
       name:
         one: بیانیه مطبوعاتی
         other: بیانیه هایی مطبوعاتی
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ dr:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

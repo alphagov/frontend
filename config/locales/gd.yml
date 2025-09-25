@@ -632,6 +632,12 @@ gd:
         one: Preaseisiúint
         other: Preaseisiúintí
         two:
+    procurement:
+      name:
+        few:
+        one:
+        other:
+        two:
     product-safety-alert-report-recall:
       name:
         few:
@@ -732,6 +738,12 @@ gd:
         other:
         two:
     statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistics:
       name:
         few:
         one:

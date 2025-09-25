@@ -524,6 +524,10 @@
       name:
         one: Pressemelding
         other: Pressemeldinger
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

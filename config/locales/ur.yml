@@ -524,6 +524,10 @@ ur:
       name:
         one: پریس ریلیز
         other: پریس ریلیزز
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ ur:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

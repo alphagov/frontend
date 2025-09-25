@@ -470,6 +470,9 @@ vi:
     press_release:
       name:
         other: Thông cáo báo chí
+    procurement:
+      name:
+        other:
     product-safety-alert-report-recall:
       name:
         other:
@@ -528,6 +531,9 @@ vi:
       name:
         other:
     statistical_data_set:
+      name:
+        other:
+    statistics:
       name:
         other:
     statistics_announcement:

@@ -578,6 +578,11 @@ ro:
         few:
         one: Comunicat de presă
         other: Comunicate de presă
+    procurement:
+      name:
+        few:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         few:
@@ -664,6 +669,11 @@ ro:
         one:
         other:
     statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+    statistics:
       name:
         few:
         one:

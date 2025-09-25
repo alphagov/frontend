@@ -524,6 +524,10 @@ lv:
       name:
         one: Paziņojums presei
         other: Paziņojumi presei
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ lv:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

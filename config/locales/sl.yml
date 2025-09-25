@@ -632,6 +632,12 @@ sl:
         one: Sporočilo za javnost
         other: Sporočila za javnost
         two:
+    procurement:
+      name:
+        few:
+        one:
+        other:
+        two:
     product-safety-alert-report-recall:
       name:
         few:
@@ -732,6 +738,12 @@ sl:
         other:
         two:
     statistical_data_set:
+      name:
+        few:
+        one:
+        other:
+        two:
+    statistics:
       name:
         few:
         one:

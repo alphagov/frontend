@@ -524,6 +524,10 @@ sw:
       name:
         one: Taarifa kwa vyombo vya habari
         other: Taarifa kwa vyombo vya habari
+    procurement:
+      name:
+        one:
+        other:
     product-safety-alert-report-recall:
       name:
         one:
@@ -596,6 +600,10 @@ sw:
         one:
         other:
     statistical_data_set:
+      name:
+        one:
+        other:
+    statistics:
       name:
         one:
         other:

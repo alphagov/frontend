@@ -512,4 +512,26 @@ RSpec.describe "Consultation" do
       expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
     end
   end
+
+  context "when visiting a withdrawn consultation page" do
+    let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_withdrawn") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+
+    it "displays the withdrawn title" do
+      expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+    end
+
+    it "displays the withdrawn notice" do
+      within ".gem-c-notice" do
+        expect(page).to have_text("This consultation was withdrawn")
+        expect(page).to have_text("It has been superseded by")
+        expect(page).to have_selector("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
+      end
+    end
+  end
 end

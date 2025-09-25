@@ -48,10 +48,10 @@ class CallForEvidence < ContentItem
     attachments_from(content_store_response.dig("details", "featured_attachments"))
   end
 
-  def attachments_with_details_count
+  def attachments_with_details
     items = [].push(*outcome_documents)
     items.push(*general_documents)
-    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }.count
+    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 
   def held_on_another_website?

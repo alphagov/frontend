@@ -11,8 +11,8 @@ class Publication < ContentItem
     (organisations_ordered_by_emphasis + people).uniq
   end
 
-  def attachments_with_details_count
-    featured_attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }.count
+  def attachments_with_details
+    featured_attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 
   def dataset?

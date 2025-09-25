@@ -22,9 +22,9 @@ RSpec.describe Publication do
     end
   end
 
-  describe "#attachments_with_details_count" do
+  describe "#attachments_with_details" do
     it "returns 0" do
-      expect(publication.attachments_with_details_count).to eq(0)
+      expect(publication.attachments_with_details.count).to eq(0)
     end
 
     context "when alternative_format_contact_email are present but accessible is false" do
@@ -35,7 +35,7 @@ RSpec.describe Publication do
       end
 
       it "returns the number of matching attachments" do
-        expect(publication.attachments_with_details_count).to eq(1)
+        expect(publication.attachments_with_details.count).to eq(1)
       end
     end
   end

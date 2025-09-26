@@ -35,6 +35,10 @@ class SpecialistDocument < ContentItem
     all_protection_type_images[protection_type]
   end
 
+  def context
+    nil
+  end
+
 private
 
   def main_facet_metadata(selected_facet)

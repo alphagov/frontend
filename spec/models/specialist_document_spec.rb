@@ -463,4 +463,12 @@ RSpec.describe SpecialistDocument do
       end
     end
   end
+
+  describe "#context" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
+
+    it "does not have a context" do
+      expect(described_class.new(content_store_response).context).to be_nil
+    end
+  end
 end

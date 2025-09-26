@@ -65,6 +65,14 @@ class ContentItem
     )&.downcase
   end
 
+  def lead_paragraph
+    content_store_response["description"]
+  end
+
+  def context
+    I18n.t("formats.#{document_type}.name", default: nil, count: 1)
+  end
+
 private
 
   def linked(type)

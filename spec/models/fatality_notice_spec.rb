@@ -38,4 +38,10 @@ RSpec.describe FatalityNotice do
       end
     end
   end
+
+  describe "#context" do
+    it "returns the right heading context" do
+      expect(fatality_notice.context).to eq("Operations in Zululand")
+    end
+  end
 end

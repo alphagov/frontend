@@ -49,6 +49,33 @@ RSpec.describe "CallForEvidence" do
       end
     end
 
+    context "when the document has been withdrawn" do
+      overrides = {
+        "withdrawn_notice" => {
+          "explanation" => "<div class=\"govspeak\"><p>This information is now out of date. It has been superseded by <a href=\"https://government/consultations/postgraduate-doctoral-loans-2016\">Postgraduate doctoral loans 2016</a></p></div>",
+          "withdrawn_at" => "2016-11-12T09:52:00Z",
+        },
+      }
+
+      before do
+        content_store_response.deep_merge!(overrides)
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+      end
+
+      it "displays the withdrawn title" do
+        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+      end
+
+      it "displays the withdrawn notice" do
+        within ".gem-c-notice" do
+          expect(page).to have_text("This call for evidence was withdrawn")
+          expect(page).to have_text("It has been superseded by")
+          expect(page).to have_selector("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
+        end
+      end
+    end
+
     it "displays the history notice if government information is available" do
       overrides = {
         "links" => {

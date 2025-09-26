@@ -17,6 +17,7 @@ spec/reports/pacts
 .env
 .yarn/cache/
 .yarn/install-state.gz
+.DS_Store
 
 # vim swap files and tags
 *.sw[a-z]

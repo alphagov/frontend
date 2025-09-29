@@ -374,6 +374,9 @@ hu:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: A jelen útmutató oldalai
+      skip_contents:
     impact_assessment:
       name:
         one:

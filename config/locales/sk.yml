@@ -405,6 +405,9 @@ sk:
         few:
         one:
         other:
+    guide:
+      pages_in_guide: Stránky v tejto príručke
+      skip_contents:
     impact_assessment:
       name:
         few:

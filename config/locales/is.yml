@@ -374,6 +374,9 @@ is:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Síður í þessum leiðbeiningum
+      skip_contents:
     impact_assessment:
       name:
         one:

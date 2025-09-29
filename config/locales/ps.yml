@@ -374,6 +374,9 @@ ps:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: په دې لارښود کې پاڼې
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -343,6 +343,9 @@ ja:
     guidance:
       name:
         other:
+    guide:
+      pages_in_guide: このガイドのページ
+      skip_contents:
     impact_assessment:
       name:
         other:

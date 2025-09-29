@@ -374,6 +374,9 @@ ku:
       name:
         one: ڕێنوێنی
         other: ڕێنوێنی
+    guide:
+      pages_in_guide: لاپەڕەکانی ئەم ڕێنماییە
+      skip_contents: ناوەڕۆکەکان بەجێبهێڵە
     impact_assessment:
       name:
         one: هەڵسەنگاندنی کاریگەرییەکان

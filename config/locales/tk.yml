@@ -374,6 +374,9 @@ tk:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Bu gollanmadaky sahypalar
+      skip_contents:
     impact_assessment:
       name:
         one:

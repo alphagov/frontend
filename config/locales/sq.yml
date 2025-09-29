@@ -374,6 +374,9 @@ sq:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Faqet në këtë udhëzim
+      skip_contents:
     impact_assessment:
       name:
         one:

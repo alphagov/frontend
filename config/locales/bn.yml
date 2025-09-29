@@ -374,6 +374,9 @@ bn:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: এই নির্দেশিকাতে পৃষ্ঠা
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -374,6 +374,9 @@ da:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Sider i denne vejledning
+      skip_contents:
     impact_assessment:
       name:
         one:

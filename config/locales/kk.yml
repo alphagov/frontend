@@ -374,6 +374,9 @@ kk:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Бұл нұсқаулықтағы беттер
+      skip_contents:
     impact_assessment:
       name:
         one:

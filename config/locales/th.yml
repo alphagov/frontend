@@ -343,6 +343,9 @@ th:
     guidance:
       name:
         other:
+    guide:
+      pages_in_guide: หน้าในคู่มือนี้
+      skip_contents:
     impact_assessment:
       name:
         other:

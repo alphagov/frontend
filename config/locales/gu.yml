@@ -374,6 +374,9 @@ gu:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: આ માર્ગદર્શિકામાંના પૃષ્ઠો
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -2,27 +2,28 @@
 <%
   content_for :title, "Print #{@content_item.page_title}"
   content_for :simple_header, true
-  content_for :extra_head_content do %>
+  content_for :extra_head_content do
+%>
   <meta name="robots" content="noindex, nofollow">
 <% end %>
 
 <div class="govuk-grid-row gem-print-columns-none" id="guide-print">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/heading', {
+    <%= render "govuk_publishing_components/components/heading", {
       text: @content_item.title,
       heading_level: 1,
       font_size: "xl",
-      margin_bottom: 6
+      margin_bottom: 6,
     } %>
 
     <div class="govuk-!-display-none-print">
-      <%= render 'govuk_publishing_components/components/lead_paragraph', {
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
         margin_bottom: 6,
         text: t("multi_page.printable_version"),
       } %>
     </div>
 
-    <%= render 'govuk_publishing_components/components/print_link', {
+    <%= render "govuk_publishing_components/components/print_link", {
       margin_bottom: 8,
       text: t("components.print_link.text"),
     } %>
@@ -33,15 +34,15 @@
           <%= "#{index + 1}. #{part['title']}" %>
         </h1>
 
-        <%= render 'govuk_publishing_components/components/govspeak',
-          content: part['body'].html_safe,
+        <%= render "govuk_publishing_components/components/govspeak",
+          content: part["body"].html_safe,
           direction: page_text_direction,
           disable_youtube_expansions: true %>
       </section>
     <% end %>
 
-    <%= render 'govuk_publishing_components/components/print_link', {
-      text: t("components.print_link.text")
+    <%= render "govuk_publishing_components/components/print_link", {
+      text: t("components.print_link.text"),
     } %>
   </div>
 </div>

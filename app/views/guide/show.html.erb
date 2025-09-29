@@ -31,11 +31,15 @@
 
     <% if @presenter.show_guide_navigation? %>
       <%= render "govuk_publishing_components/components/skip_link", {
-        text: t("guide.skip_contents"),
+        text: t("formats.guide.skip_contents"),
         href: "#guide-contents",
       } %>
+
       <aside class="part-navigation-container" role="complementary">
-        <%= render "govuk_publishing_components/components/contents_list", aria: { label: t("guide.pages_in_guide") }, contents: content_item.part_link_elements, underline_links: true %>
+        <%= render "govuk_publishing_components/components/contents_list",
+          aria: { label: t("formats.guide.pages_in_guide") },
+          contents: part_link_elements(@content_item.parts, @content_item.current_part),
+          underline_links: true %>
       </aside>
     <% end %>
   </div>

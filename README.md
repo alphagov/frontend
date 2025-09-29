@@ -29,6 +29,7 @@ some hard-coded routes.
 |Foreign travel advice index |[travel_advice_index](https://docs.publishing.service.gov.uk/content-schemas/travel_advice_index.html)|https://www.gov.uk/foreign-travel-advice|
 |Foreign travel advice  |[travel_advice](https://docs.publishing.service.gov.uk/content-schemas/travel_advice.html)|https://www.gov.uk/foreign-travel-advice/azerbaijan|
 |Guidance               |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/travel-to-england-from-another-country-during-coronavirus-covid-19|
+|Guide                  |[guide](https://docs.publishing.service.gov.uk/content-schemas/guide.html)|https://www.gov.uk/log-in-register-hmrc-online-services|
 |Help index             |hardcoded|https://www.gov.uk/help|
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
 |History                |[history](https://docs.publishing.service.gov.uk/content-schemas/history.html)|https://www.gov.uk/government/history/10-downing-street|

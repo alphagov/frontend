@@ -28,7 +28,8 @@
       font_size: "xl",
       margin_bottom: 8,
     } %>
-    <% if content_item.show_guide_navigation? %>
+
+    <% if @presenter.show_guide_navigation? %>
       <%= render "govuk_publishing_components/components/skip_link", {
         text: t("guide.skip_contents"),
         href: "#guide-contents",
@@ -41,7 +42,7 @@
 
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6" id="guide-contents">
     <% if content_item.has_parts? %>
-      <% if content_item.show_guide_navigation? %>
+      <% if @presenter.show_guide_navigation? %>
         <%= render "govuk_publishing_components/components/heading", heading_level: 1, font_size: "l", margin_bottom: 6, text: content_item.current_part_title %>
       <% end %>
       <%
@@ -58,8 +59,7 @@
         <%= raw(content_item.current_part_body) %>
       <% end %>
 
-      <% if content_item.show_guide_navigation? %>
-        <%= render "govuk_publishing_components/components/previous_and_next_navigation", content_item.previous_and_next_navigation %>
+      <% if @presenter.show_guide_navigation? %>
 
         <div class="responsive-bottom-margin">
           <a href="<%= content_item.print_link %>"

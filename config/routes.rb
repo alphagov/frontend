@@ -153,6 +153,7 @@ Rails.application.routes.draw do
 
   constraints FormatRoutingConstraint.new("guide") do
     get ":slug(.:locale)", to: "guide#show"
+    get ":slug/print(.:locale)", to: "guide#show", defaults: { variant: :print }
     get ":slug/:part(.:locale)", to: "guide#show"
   end
 

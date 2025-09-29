@@ -7,7 +7,7 @@ RSpec.describe "Specialist Document" do
 
     before do
       stub_content_store_has_item(base_path, content_item)
-      stub_content_store_has_item(finder_base_path)
+      stub_content_store_has_item(finder_base_path, finder_content_item)
     end
 
     it "succeeds" do

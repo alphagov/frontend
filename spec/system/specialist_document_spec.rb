@@ -2,11 +2,12 @@ RSpec.describe "Specialist Document" do
   describe "GET /<document_type>/<slug>" do
     let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "cma-cases-with-change-history") }
     let(:base_path) { content_store_response.fetch("base_path") }
+    let(:finder_content_item) { GovukSchemas::Example.find("specialist_document", example_name: "aaib-reports") }
     let(:finder_base_path) { content_store_response.dig("links", "finder", 0, "base_path") }
 
     before do
       stub_content_store_has_item(base_path, content_store_response)
-      stub_content_store_has_item(finder_base_path)
+      stub_content_store_has_item(finder_base_path, finder_content_item)
     end
 
     it_behaves_like "it has meta tags", "specialist_document", "cma-cases-with-change-history"

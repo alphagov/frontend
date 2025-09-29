@@ -48,6 +48,14 @@ RSpec.describe "Guide" do
       end
     end
 
+    context "when requesting the print version" do
+      it "renders the print template" do
+        get "#{guide_path}/print"
+
+        expect(response).to render_template("show")
+      end
+    end
+
     context "when viewing a missing part" do
       it "redirects to the base_path if the part doesn't exist" do
         get "#{guide_path}/i-dont-exist"

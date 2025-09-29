@@ -7,6 +7,8 @@ class GuideController < ContentItemsController
     redirect_to content_item.base_path if content_item.current_part.blank?
 
     @presenter = GuidePresenter.new(content_item)
+
+    request.variant = :print if params[:variant] == :print
   end
 
 private

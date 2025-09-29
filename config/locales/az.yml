@@ -374,6 +374,9 @@ az:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Bu təlimatdakı səhifələr
+      skip_contents:
     impact_assessment:
       name:
         one:

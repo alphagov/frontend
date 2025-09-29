@@ -374,6 +374,9 @@ si:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: මෙම මාර්ගෝපදේශයෙහි තුළ පිටු
+      skip_contents:
     impact_assessment:
       name:
         one:

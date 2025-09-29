@@ -376,6 +376,9 @@ en:
       name:
         one: Guidance
         other: Guidance
+    guide:
+      pages_in_guide: Pages in this guide
+      skip_contents: Skip contents
     impact_assessment:
       name:
         one: Impact assessment

@@ -374,6 +374,9 @@ nl:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Pagina's in deze gids
+      skip_contents:
     impact_assessment:
       name:
         one:

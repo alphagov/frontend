@@ -374,6 +374,9 @@ sw:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Kurasa za mwongozo huu
+      skip_contents:
     impact_assessment:
       name:
         one:

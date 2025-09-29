@@ -374,6 +374,9 @@ so:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Bogaga tilmaamahan
+      skip_contents:
     impact_assessment:
       name:
         one:

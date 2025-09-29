@@ -374,6 +374,9 @@ ka:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: გვერდები ამ სახელმძღვანელოში
+      skip_contents:
     impact_assessment:
       name:
         one:

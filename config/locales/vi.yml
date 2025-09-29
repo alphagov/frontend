@@ -343,6 +343,9 @@ vi:
     guidance:
       name:
         other:
+    guide:
+      pages_in_guide: Các trang trong hướng dẫn này
+      skip_contents:
     impact_assessment:
       name:
         other:

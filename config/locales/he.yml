@@ -374,6 +374,9 @@ he:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: דפים במדריך זה
+      skip_contents:
     impact_assessment:
       name:
         one:

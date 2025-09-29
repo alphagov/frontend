@@ -500,6 +500,9 @@ cy:
         other: Canllawiau
         two:
         zero:
+    guide:
+      pages_in_guide: Tudalennau yn y canllaw hwn
+      skip_contents: Sgipio cynnwys
     impact_assessment:
       name:
         few:

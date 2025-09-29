@@ -374,6 +374,9 @@ fi:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Tämän oppaan sivut
+      skip_contents:
     impact_assessment:
       name:
         one:

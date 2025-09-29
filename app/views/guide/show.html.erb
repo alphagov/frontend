@@ -3,7 +3,7 @@
   <%= machine_readable_metadata(
     schema: :article,
     canonical_url: @content_item.canonical_url,
-    body: @content_item.has_parts? ? @content_item.current_part_body : nil
+    body: @content_item.has_parts? ? @content_item.current_part_body : nil,
   ) %>
 
   <%= @requested_variant.analytics_meta_tag.html_safe if @requested_variant.present? %>
@@ -25,16 +25,16 @@
 
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/heading', {
+    <%= render "govuk_publishing_components/components/heading", {
       text: @content_item.content_title,
       heading_level: 1,
       font_size: "xl",
-      margin_bottom: 8
+      margin_bottom: 8,
     } %>
     <% if @content_item.show_guide_navigation? %>
       <%= render "govuk_publishing_components/components/skip_link", {
         text: t("guide.skip_contents"),
-        href: "#guide-contents"
+        href: "#guide-contents",
       } %>
       <aside class="part-navigation-container" role="complementary">
         <%= render "govuk_publishing_components/components/contents_list", aria: { label: t("guide.pages_in_guide") }, contents: @content_item.part_link_elements, underline_links: true %>
@@ -45,7 +45,7 @@
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6" id="guide-contents">
     <% if @content_item.has_parts? %>
       <% if @content_item.show_guide_navigation? %>
-        <%= render 'govuk_publishing_components/components/heading', heading_level: 1, font_size: 'l', margin_bottom: 6, text: @content_item.current_part_title %>
+        <%= render "govuk_publishing_components/components/heading", heading_level: 1, font_size: "l", margin_bottom: 6, text: @content_item.current_part_title %>
       <% end %>
       <%
         disable_youtube_expansions = true
@@ -56,13 +56,13 @@
       %>
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
-        disable_youtube_expansions: disable_youtube_expansions
+        disable_youtube_expansions: disable_youtube_expansions,
       } do %>
         <%= raw(@content_item.current_part_body) %>
       <% end %>
 
       <% if @content_item.show_guide_navigation? %>
-        <%= render 'govuk_publishing_components/components/previous_and_next_navigation', @content_item.previous_and_next_navigation %>
+        <%= render "govuk_publishing_components/components/previous_and_next_navigation", @content_item.previous_and_next_navigation %>
 
         <div class="responsive-bottom-margin">
           <a href="<%= @content_item.print_link %>"
@@ -72,7 +72,7 @@
               event_name: "navigation",
               type: "print page",
               section: "Footer",
-              text: t("multi_page.print_entire_guide", locale: :en)
+              text: t("multi_page.print_entire_guide", locale: :en),
             }.to_json %>">
             <%= t("multi_page.print_entire_guide") %>
           </a>
@@ -81,7 +81,7 @@
     <% end %>
   </div>
 
-  <%= render 'shared/sidebar_navigation' %>
+  <%= render "shared/sidebar_navigation" %>
 </div>
 
-<%= render 'shared/footer_navigation' %>
+<%= render "shared/footer_navigation" %>

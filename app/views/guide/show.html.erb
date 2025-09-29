@@ -38,14 +38,14 @@
       <aside class="part-navigation-container" role="complementary">
         <%= render "govuk_publishing_components/components/contents_list",
           aria: { label: t("formats.guide.pages_in_guide") },
-          contents: part_link_elements(@content_item.parts, @content_item.current_part),
+          contents: part_link_elements(content_item.parts, content_item.current_part),
           underline_links: true %>
       </aside>
     <% end %>
   </div>
 
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6" id="guide-contents">
-    <% if content_item.has_parts? %>
+    <% if content_item.parts.any? %>
       <% if @presenter.show_guide_navigation? %>
         <%= render "govuk_publishing_components/components/heading", heading_level: 1, font_size: "l", margin_bottom: 6, text: content_item.current_part_title %>
       <% end %>

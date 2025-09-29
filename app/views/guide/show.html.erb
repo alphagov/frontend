@@ -16,8 +16,6 @@
   </script>
 <% end %>
 
-<% content_for :simple_header, true %>
-
 <% content_for :extra_head_content do %>
   <% if ["/evisa", "/evisa/set-up-ukvi-account", "/evisa/view-evisa-get-share-code-prove-immigration-status", "/evisa/travel-with-evisa", "/evisa/update-ukvi-account", "/evisa/report-error-evisa"].include?(content_item.base_path) %>
     <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings">

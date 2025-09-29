@@ -47,5 +47,13 @@ RSpec.describe "Guide" do
         expect(response).to honour_content_store_ttl
       end
     end
+
+    context "when viewing a missing part" do
+      it "redirects to the base_path if the part doesn't exist" do
+        get "#{guide_path}/i-dont-exist"
+
+        expect(response).to redirect_to(guide_path)
+      end
+    end
   end
 end

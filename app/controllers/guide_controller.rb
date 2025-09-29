@@ -4,6 +4,8 @@ class GuideController < ContentItemsController
   def show
     content_item.set_current_part(params[:part])
 
+    redirect_to content_item.base_path if content_item.current_part.blank?
+
     @presenter = GuidePresenter.new(content_item)
   end
 

@@ -151,6 +151,11 @@ Rails.application.routes.draw do
     get ":slug/:division", to: "calendar#division", as: :division
   end
 
+  constraints FormatRoutingConstraint.new("guide") do
+    get ":slug(.:locale)", to: "guide#show"
+    get ":slug/:part(.:locale)", to: "guide#show"
+  end
+
   # Local Transaction pages
   constraints FormatRoutingConstraint.new("local_transaction") do
     get ":slug", to: "local_transaction#index", as: "local_transaction_search"

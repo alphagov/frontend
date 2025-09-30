@@ -8,4 +8,8 @@ class Guide < ContentItem
   def is_evisa?
     base_path == "/evisa"
   end
+
+  def part_of_step_navs?
+    content_store_response["links"].key?("part_of_step_navs")
+  end
 end

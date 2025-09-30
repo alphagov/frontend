@@ -34,4 +34,18 @@ RSpec.describe Guide do
       end
     end
   end
+
+  describe "#part_of_step_navs?" do
+    it "returns false" do
+      expect(guide.part_of_step_navs?).to be false
+    end
+
+    context "when the content item is part of a step by step navigation" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs") }
+
+      it "returns true" do
+        expect(guide.part_of_step_navs?).to be true
+      end
+    end
+  end
 end

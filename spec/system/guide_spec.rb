@@ -52,21 +52,23 @@ RSpec.describe "Guide" do
         expect(page).not_to have_css(".gem-c-print-link")
       end
     end
+
+    context "when hide_chapter_navigation is true in the content item" do
+      context "when in a step by step guide" do
+        let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs-and-hide-navigation") }
+
+        it "replaces the guide title with the part title" do
+          expect(page).not_to have_css("h1", text: content_store_response["title"])
+          expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
+        end
+      end
+    end
   end
 
   # test "draft access tokens are appended to part links within navigation" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "replaces guide title with part title if in a step by step and hide_chapter_navigation is true" do
-  #   setup_and_visit_content_item("guide-with-step-navs-and-hide-navigation")
-  #   title = @content_item["title"]
-  #   part_title = @content_item["details"]["parts"][0]["title"]
-
-  #   assert_not page.has_css?("h1", text: title)
-  #   assert_has_component_title(part_title)
   # end
 
   # test "does not replace guide title if not in a step by step and hide_chapter_navigation is true" do

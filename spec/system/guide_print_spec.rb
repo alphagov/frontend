@@ -1,8 +1,16 @@
 RSpec.describe "Guide Print" do
-  # test "it renders the print view" do
-  #   setup_and_visit_guide_print("guide")
-  #   assert page.has_css?("#guide-print")
-  # end
+  context "when visiting a guide at the print link" do
+    let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit "#{base_path}/print"
+    end
+
+    it "renders the print view" do
+      expect(page).to have_selector("#guide-print")
+    end
 
   # test "it is not indexable by search engines" do
   #   setup_and_visit_guide_print("guide")
@@ -27,4 +35,5 @@ RSpec.describe "Guide Print" do
   #     visit "#{item['base_path']}/print"
   #   end
   # end
+  end
 end

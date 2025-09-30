@@ -97,13 +97,6 @@ RSpec.describe "Guide" do
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
   # end
 
-  # test "guides with no parts in a step by step with hide_chapter_navigation do not error" do
-  #   setup_and_visit_content_item("no-part-guide-with-step-navs-and-hide-navigation")
-  #   title = @content_item["title"]
-
-  #   assert_has_component_title(title)
-  # end
-
   # test "guides show the faq page schema" do
   #   setup_and_visit_content_item("guide")
   #   faq_schema = find_structured_data(page, "FAQPage")

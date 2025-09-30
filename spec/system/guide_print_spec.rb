@@ -12,10 +12,9 @@ RSpec.describe "Guide Print" do
       expect(page).to have_selector("#guide-print")
     end
 
-  # test "it is not indexable by search engines" do
-  #   setup_and_visit_guide_print("guide")
-  #   assert page.has_css?("meta[name='robots'][content='noindex, nofollow']", visible: false)
-  # end
+    it "is not indexable by search engines" do
+      expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
+    end
 
   # test "it renders all parts in the print view" do
   #   setup_and_visit_guide_print("guide")

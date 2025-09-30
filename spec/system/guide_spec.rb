@@ -54,6 +54,13 @@ RSpec.describe "Guide" do
     end
 
     context "when hide_chapter_navigation is true in the content item" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-hide-navigation") }
+
+      it "shows the guide title and the part title" do
+        expect(page).to have_css("h1", text: content_store_response["title"])
+        expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
+      end
+
       context "when in a step by step guide" do
         let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs-and-hide-navigation") }
 
@@ -69,15 +76,6 @@ RSpec.describe "Guide" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "does not replace guide title if not in a step by step and hide_chapter_navigation is true" do
-  #   setup_and_visit_content_item("guide-with-hide-navigation")
-  #   title = @content_item["title"]
-  #   part_title = @content_item["details"]["parts"][0]["title"]
-
-  #   assert_has_component_title(title)
-  #   assert_has_component_title(part_title)
   # end
 
   # test "shows correct title in a single page guide if in a step by step and hide_chapter_navigation is true" do

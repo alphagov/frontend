@@ -1,3 +1,3 @@
 class ManualSection < ContentItem
-  include ManualTitle
+  include ManualParts
 end

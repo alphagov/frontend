@@ -43,19 +43,21 @@ RSpec.describe "Guide" do
         expect(page).to have_css(".gem-c-skip-link", text: "Sgipio cynnwys")
       end
     end
+
+    context "when visiting a single-page guide" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "single-page-guide") }
+
+      it "doesn't show part navigation, print link, or part title" do
+        expect(page).not_to have_css("h1", text: content_store_response["details"]["parts"].first["title"])
+        expect(page).not_to have_css(".gem-c-print-link")
+      end
+    end
   end
 
   # test "draft access tokens are appended to part links within navigation" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "does not show part navigation, print link or part title when only one part" do
-  #   setup_and_visit_content_item("single-page-guide")
-
-  #   assert_not page.has_css?("h1", text: @content_item["details"]["parts"].first["title"])
-  #   assert_not page.has_css?(".gem-c-print-link")
   # end
 
   # test "replaces guide title with part title if in a step by step and hide_chapter_navigation is true" do

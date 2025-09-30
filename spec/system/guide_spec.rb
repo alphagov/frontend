@@ -102,7 +102,8 @@ RSpec.describe "Guide" do
       end
 
       it "does not include the faq page schema" do
-      expect(find_schema_of_type("FAQPage")).to be_nil
+        expect(find_schema_of_type("FAQPage")).to be_nil
+      end
     end
 
     it "has GA4 tracking on the print link" do

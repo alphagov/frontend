@@ -16,23 +16,14 @@ RSpec.describe "Guide Print" do
       expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
     end
 
-  # test "it renders all parts in the print view" do
-  #   setup_and_visit_guide_print("guide")
-  #   parts = @content_item["details"]["parts"]
+    it "renders all parts in the print view" do
+      parts = content_store_response["details"]["parts"]
 
-  #   parts.each_with_index do |part, i|
-  #     assert page.has_css?("h1", text: "#{i + 1}. #{part['title']}")
-  #   end
+      parts.each_with_index do |part, i|
+        expect(page).to have_selector("h1", text: "#{i + 1}. #{part['title']}")
+      end
 
-  #   assert page.has_content?("The ‘basic’ school curriculum includes the")
-  # end
-
-  # def setup_and_visit_guide_print(name)
-  #   example = get_content_example_by_schema_and_name("guide", name)
-  #   @content_item = example.tap do |item|
-  #     stub_content_store_has_item(item["base_path"], item.to_json)
-  #     visit "#{item['base_path']}/print"
-  #   end
-  # end
+      expect(page).to have_content("The ‘basic’ school curriculum includes the")
+    end
   end
 end

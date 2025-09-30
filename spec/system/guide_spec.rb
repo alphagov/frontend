@@ -31,19 +31,19 @@ RSpec.describe "Guide" do
       expect(page).to have_css(".govuk-pagination")
       expect(page).to have_css('.govuk-link.govuk-link--no-visited-state[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
     end
+
+    it "shows the skip link" do
+      expect(page).to have_css(".gem-c-skip-link", text: "Skip contents")
+    end
+
+    context "when the guide is in Welsh" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide").tap { |csr| csr.merge!("locale" => "cy") } }
+
+      it "shows the skip link in Welsh" do
+        expect(page).to have_css(".gem-c-skip-link", text: "Sgipio cynnwys")
+      end
+    end
   end
-
-  # test "skip link in English" do
-  #   setup_and_visit_content_item("guide")
-
-  #   assert page.has_css?(".gem-c-skip-link", text: "Skip contents")
-  # end
-
-  # test "translated skip link" do
-  #   setup_and_visit_content_item("guide", { "locale" => "cy" })
-
-  #   assert page.has_css?(".gem-c-skip-link", text: "Sgipio cynnwys")
-  # end
 
   # test "draft access tokens are appended to part links within navigation" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")

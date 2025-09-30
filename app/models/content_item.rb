@@ -76,8 +76,6 @@ private
   def ordered_related_items(links)
     return [] if links["ordered_related_items_overrides"].present?
 
-    links["ordered_related_items"].presence || links.fetch(
-      "suggested_ordered_related_items", []
-    )
+    links["ordered_related_items"].presence || []
   end
 end

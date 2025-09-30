@@ -61,12 +61,22 @@ RSpec.describe "Guide" do
         expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
       end
 
+      it "does not show guide navigation or print link" do
+        expect(page).to have_css(".govuk-pagination")
+        expect(page).to have_css(".govuk-link.govuk-link--no-visited-state[href$='/print']")
+      end
+
       context "when in a step by step guide" do
         let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs-and-hide-navigation") }
 
         it "replaces the guide title with the part title" do
           expect(page).not_to have_css("h1", text: content_store_response["title"])
           expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
+        end
+
+        it "does not show guide navigation or print link" do
+          expect(page).not_to have_css(".govuk-pagination")
+          expect(page).not_to have_css(".govuk-link.govuk-link--no-visited-state[href$='/print']")
         end
 
         context "when in a single-page guide" do
@@ -85,20 +95,6 @@ RSpec.describe "Guide" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "does not show guide navigation and print link if in a step by step and hide_chapter_navigation is true" do
-  #   setup_and_visit_content_item("guide-with-step-navs-and-hide-navigation")
-
-  #   assert_not page.has_css?(".govuk-pagination")
-  #   assert_not page.has_css?(".govuk-link.govuk-link--no-visited-state[href$='/print']")
-  # end
-
-  # test "shows guide navigation and print link if not in a step by step and hide_chapter_navigation is true" do
-  #   setup_and_visit_content_item("guide-with-hide-navigation")
-
-  #   assert page.has_css?(".govuk-pagination")
-  #   assert page.has_css?(".govuk-link.govuk-link--no-visited-state[href$='/print']", text: "View a printable version of the whole guide")
   # end
 
   # test "guides with no parts in a step by step with hide_chapter_navigation do not error" do

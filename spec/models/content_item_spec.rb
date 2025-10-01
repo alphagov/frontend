@@ -190,6 +190,30 @@ RSpec.describe ContentItem do
     end
   end
 
+  describe "#lead_paragraph" do
+    subject(:content_item) { described_class.new(content_store_response) }
+
+    let(:content_store_response) do
+      GovukSchemas::Example.find("case_study", example_name: "case_study")
+    end
+
+    it "returns the lead paragraph" do
+      expect(content_item.lead_paragraph).to eq("Nearly 400 homes are set to be built on the site of a former tar distillery thanks to Gleeson Homes and HCA investment.")
+    end
+  end
+
+  describe "#context" do
+    subject(:content_item) { described_class.new(content_store_response) }
+
+    let(:content_store_response) do
+      GovukSchemas::Example.find("case_study", example_name: "case_study")
+    end
+
+    it "returns the heading context" do
+      expect(content_item.context).to eq("Case study")
+    end
+  end
+
   describe "#organisations" do
     subject(:content_item) { described_class.new(content_store_response) }
 

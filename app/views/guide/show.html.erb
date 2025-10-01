@@ -62,6 +62,8 @@
       <% end %>
 
       <% if @presenter.show_guide_navigation? %>
+        <%= render "govuk_publishing_components/components/previous_and_next_navigation",
+          previous_and_next_navigation(content_item.previous_part, content_item.next_part) %>
 
         <div class="responsive-bottom-margin">
           <a href="<%= content_item.print_link %>"

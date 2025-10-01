@@ -104,24 +104,22 @@ RSpec.describe "Guide" do
       it "does not include the faq page schema" do
       expect(find_schema_of_type("FAQPage")).to be_nil
     end
+
+    it "has GA4 tracking on the print link" do
+      expected_ga4_json = {
+        event_name: "navigation",
+        type: "print page",
+        section: "Footer",
+        text: "View a printable version of the whole guide",
+      }.to_json
+
+      expect(page).to have_css("a[data-ga4-link='#{expected_ga4_json}']")
+    end
   end
 
   # test "draft access tokens are appended to part links within navigation" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "print link has GA4 tracking" do
-  #   setup_and_visit_content_item("guide")
-
-  #   expected_ga4_json = {
-  #     event_name: "navigation",
-  #     type: "print page",
-  #     section: "Footer",
-  #     text: "View a printable version of the whole guide",
-  #   }.to_json
-
-  #   assert page.has_css?("a[data-ga4-link='#{expected_ga4_json}']")
   # end
 end

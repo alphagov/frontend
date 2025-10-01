@@ -5,6 +5,10 @@ class Guide < ContentItem
     content_store_response["details"]["hide_chapter_navigation"].presence || false
   end
 
+  def is_child_benefit?
+    base_path == "/child-benefit"
+  end
+
   def is_evisa?
     base_path == "/evisa"
   end

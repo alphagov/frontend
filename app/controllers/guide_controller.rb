@@ -1,7 +1,9 @@
 class GuideController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @presenter = GuidePresenter.new(content_item)
+  end
 
 private
 

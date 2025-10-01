@@ -1,10 +1,10 @@
 module MachineReadable
   class GuideFaqPageSchemaPresenter
-    attr_reader :guide, :view_context
+    attr_reader :guide, :logo_url
 
-    def initialize(guide, view_context)
+    def initialize(guide, logo_url)
       @guide = guide
-      @view_context = view_context
+      @logo_url = logo_url
     end
 
     def structured_data
@@ -62,10 +62,6 @@ module MachineReadable
 
     def guide_url
       Plek.new.website_root + guide.base_path
-    end
-
-    def logo_url
-      view_context.image_url("govuk_publishing_components/govuk-logo.png")
     end
   end
 end

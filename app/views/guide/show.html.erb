@@ -42,7 +42,7 @@
       <aside class="part-navigation-container" role="complementary">
         <%= render "govuk_publishing_components/components/contents_list",
           aria: { label: t("formats.guide.pages_in_guide") },
-          contents: part_link_elements(content_item.parts, content_item.current_part),
+          contents: part_link_elements(content_item.parts, content_item.current_part, draft_token:),
           underline_links: true %>
       </aside>
     <% end %>
@@ -67,7 +67,7 @@
 
       <% if @presenter.show_guide_navigation? %>
         <%= render "govuk_publishing_components/components/previous_and_next_navigation",
-          previous_and_next_navigation(content_item.previous_part, content_item.next_part) %>
+          previous_and_next_navigation(content_item.previous_part, content_item.next_part, draft_token:) %>
 
         <div class="responsive-bottom-margin">
           <a href="<%= print_link(content_item.base_path) %>"

@@ -116,11 +116,15 @@ RSpec.describe "Guide" do
 
       expect(page).to have_css("a[data-ga4-link='#{expected_ga4_json}']")
     end
+
+    context "when a draft access token is supplied" do
+      before do
+        visit "#{base_path}?token=some_token"
+      end
+
+      it "appends draft access tokens to part links within navigation" do
+        expect(page).to have_selector('.gem-c-contents-list a[href$="?token=some_token"]')
+      end
+    end
   end
-
-  # test "draft access tokens are appended to part links within navigation" do
-  #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
-
-  #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
 end

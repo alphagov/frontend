@@ -1,4 +1,6 @@
 RSpec.describe "Guide" do
+  include SchemaOrgHelpers
+
   context "when visiting a guide" do
     let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
     let(:base_path) { content_store_response.fetch("base_path") }
@@ -89,47 +91,25 @@ RSpec.describe "Guide" do
         end
       end
     end
+
+    it "includes the faq page schema" do
+      expect(find_schema_of_type("FAQPage")).not_to be_nil
+    end
+
+    context "when visiting part of a guide" do
+      before do
+        visit "#{base_path}/key-stage-1-and-2"
+      end
+
+      it "does not include the faq page schema" do
+      expect(find_schema_of_type("FAQPage")).to be_nil
+    end
   end
 
   # test "draft access tokens are appended to part links within navigation" do
   #   setup_and_visit_content_item_with_params("guide", "?token=some_token")
 
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
-  # end
-
-  # test "guides show the faq page schema" do
-  #   setup_and_visit_content_item("guide")
-  #   faq_schema = find_structured_data(page, "FAQPage")
-
-  #   assert_equal faq_schema["@type"], "FAQPage"
-  #   assert_equal faq_schema["headline"], "The national curriculum"
-
-  #   q_and_as = faq_schema["mainEntity"]
-  #   answers = q_and_as.map { |q_and_a| q_and_a["acceptedAnswer"] }
-
-  #   chapter_titles = [
-  #     "Overview",
-  #     "Key stage 1 and 2",
-  #     "Key stage 3 and 4",
-  #     "Other compulsory subjects",
-  #   ]
-  #   assert_equal(chapter_titles, q_and_as.map { |q_and_a| q_and_a["name"] })
-
-  #   guide_part_urls = [
-  #     "https://www.test.gov.uk/national-curriculum",
-  #     "https://www.test.gov.uk/national-curriculum/key-stage-1-and-2",
-  #     "https://www.test.gov.uk/national-curriculum/key-stage-3-and-4",
-  #     "https://www.test.gov.uk/national-curriculum/other-compulsory-subjects",
-  #   ]
-  #   assert_equal(guide_part_urls, q_and_as.map { |q_and_a| q_and_a["url"] })
-  #   assert_equal(guide_part_urls, answers.map { |answer| answer["url"] })
-  # end
-
-  # test "guide chapters do not show the faq schema" do
-  #   setup_and_visit_part_in_guide
-  #   faq_schema = find_structured_data(page, "FAQPage")
-
-  #   assert_nil faq_schema
   # end
 
   # test "does not render with the single page notification button" do

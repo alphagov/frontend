@@ -5,6 +5,16 @@ exclude:
   - 'test/fixtures/**'
   - "app/views/admin/find_in_admin_bookmarklet/_bookmarklet.erb"
 linters:
+  AllowedScriptType:
+    enabled: true
+    allowed_types:
+      - 'text/javascript'
+      - 'application/ld+json'
+    allow_blank: false
+    disallow_inline_scripts: false
+  NoJavascriptTagHelper:
+    enabled: false
+    correction_style: 'plain'
   Rubocop:
     enabled: true
     exclude:

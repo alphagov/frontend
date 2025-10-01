@@ -1,18 +1,37 @@
 RSpec.describe "Guide" do
-  # test "random but valid items do not error" do
-  #   assert_nothing_raised { setup_and_visit_random_content_item }
-  # end
+  context "when visiting a guide" do
+    let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  # test "guide header and navigation" do
-  #   setup_and_visit_content_item("guide")
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   assert page.has_css?("title", visible: false, text: @content_item["title"])
-  #   assert_has_component_title(@content_item["title"])
+    it "displays the guide title" do
+      expect(page).to have_title("The national curriculum: Overview - GOV.UK")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
 
-  #   assert page.has_css?("h1", text: @content_item["details"]["parts"].first["title"])
-  #   assert page.has_css?(".govuk-pagination")
-  #   assert page.has_css?(".govuk-link.govuk-link--no-visited-state[href$='/print']", text: "View a printable version of the whole guide")
-  # end
+    it "displays the part title" do
+      expect(page).to have_css("h1.gem-c-heading__text", text: "Overview")
+    end
+
+    it "displays the navigation" do
+      parts_size = content_store_response["details"]["parts"].size
+
+      expect(page).to have_css(".part-navigation-container nav li", count: parts_size)
+      expect(page).to have_css(".part-navigation-container nav li", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).not_to have_css(".part-navigation li a", text: content_store_response["details"]["parts"].first["title"])
+
+      content_store_response["details"]["parts"][1..parts_size].each do |part|
+        expect(page).to have_css(".part-navigation-container nav li a[href*=\"#{part['slug']}\"]", text: part["title"])
+      end
+
+      expect(page).to have_css(".govuk-pagination")
+      expect(page).to have_css('.govuk-link.govuk-link--no-visited-state[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
+    end
+  end
 
   # test "skip link in English" do
   #   setup_and_visit_content_item("guide")

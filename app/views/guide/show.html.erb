@@ -10,10 +10,10 @@
   } %>
 <% end %>
 
-<% unless content_item.requesting_a_part? %>
-<script type="application/ld+json">
-  <%= raw JSON.pretty_generate(MachineReadable::GuideFaqPageSchemaPresenter.new(content_item, self).structured_data) %>
-</script>
+<% if content_item.first_part? %>
+  <script type="application/ld+json">
+    <%= raw JSON.pretty_generate(MachineReadable::GuideFaqPageSchemaPresenter.new(content_item, image_url("govuk_publishing_components/govuk-logo.png")).structured_data) %>
+  </script>
 <% end %>
 
 <% content_for :simple_header, true %>

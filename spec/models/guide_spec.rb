@@ -19,6 +19,22 @@ RSpec.describe Guide do
     end
   end
 
+  describe "#is_child_benefit?" do
+    it "returns false" do
+      expect(guide.is_child_benefit?).to be false
+    end
+
+    context "when the base_path is /child-benefit" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("guide", example_name: "guide").tap { |i| i.merge!("base_path" => "/child-benefit") }
+      end
+
+      it "returns true" do
+        expect(guide.is_child_benefit?).to be true
+      end
+    end
+  end
+
   describe "#is_evisa?" do
     it "returns false" do
       expect(guide.is_evisa?).to be false

@@ -112,11 +112,6 @@ RSpec.describe "Guide" do
   #   assert page.has_css?('.gem-c-contents-list a[href$="?token=some_token"]')
   # end
 
-  # test "does not render with the single page notification button" do
-  #   setup_and_visit_content_item("guide")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
-  # end
-
   # test "print link has GA4 tracking" do
   #   setup_and_visit_content_item("guide")
 

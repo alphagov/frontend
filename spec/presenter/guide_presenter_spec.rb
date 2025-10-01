@@ -4,6 +4,28 @@ RSpec.describe GuidePresenter do
   let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
   let(:content_item) { Guide.new(content_store_response) }
 
+  describe "#show_guide_navigation?" do
+    it "returns true" do
+      expect(presenter.show_guide_navigation?).to be true
+    end
+
+    context "when content item is part of a step-by-step, and details/hide_chapter_navigation is true" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs-and-hide-navigation") }
+
+      it "returns false" do
+        expect(presenter.show_guide_navigation?).to be false
+      end
+    end
+
+    context "when there is only one part of the guide" do
+      let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "single-page-guide") }
+
+      it "returns false" do
+        expect(presenter.show_guide_navigation?).to be false
+      end
+    end
+  end
+
   describe "#title" do
     it "returns the content_item title" do
       expect(presenter.title).to eq(content_item.title)

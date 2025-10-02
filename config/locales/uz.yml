@@ -374,6 +374,9 @@ uz:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Ушбу қўлланмадаги саҳифалар
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -374,6 +374,9 @@ it:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Pagine in questa guida
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -343,6 +343,9 @@ zh-hk:
     guidance:
       name:
         other:
+    guide:
+      pages_in_guide: 本指引之頁面
+      skip_contents:
     impact_assessment:
       name:
         other:

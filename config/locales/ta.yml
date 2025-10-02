@@ -374,6 +374,9 @@ ta:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: இந்த வழிகாட்டுதலில் உள்ள பக்கங்கள்
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -374,6 +374,9 @@ pt:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Páginas neste guia
+      skip_contents:
     impact_assessment:
       name:
         one:

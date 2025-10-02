@@ -436,6 +436,9 @@ pl:
         many:
         one:
         other:
+    guide:
+      pages_in_guide: Strony w tym przewodniku
+      skip_contents:
     impact_assessment:
       name:
         few:

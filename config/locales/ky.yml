@@ -374,6 +374,9 @@ ky:
       name:
         one: Жетектеме
         other: Жетектеме
+    guide:
+      pages_in_guide: Бул жетектемедеги баракчалар
+      skip_contents: Мазмунду өткөрүп жиберүү
     impact_assessment:
       name:
         one: Таасирдин баалоосу

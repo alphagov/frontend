@@ -374,6 +374,9 @@ et:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Selle juhendi leheküljed
+      skip_contents:
     impact_assessment:
       name:
         one:

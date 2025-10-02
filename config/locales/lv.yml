@@ -374,6 +374,9 @@ lv:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Lapas šajā ceļvedī
+      skip_contents:
     impact_assessment:
       name:
         one:

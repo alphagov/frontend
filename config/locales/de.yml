@@ -374,6 +374,9 @@ de:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Seiten in diesem Leitfaden
+      skip_contents:
     impact_assessment:
       name:
         one:

@@ -374,6 +374,9 @@ hi:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: इस गाइड में पेज
+      skip_contents:
     impact_assessment:
       name:
         one:

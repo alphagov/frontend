@@ -374,6 +374,9 @@ el:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Σελίδες σε αυτόν τον οδηγό
+      skip_contents:
     impact_assessment:
       name:
         one:

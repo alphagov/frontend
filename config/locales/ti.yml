@@ -374,6 +374,9 @@ ti:
       name:
         one: መምርሒ
         other: ምምርሒታት
+    guide:
+      pages_in_guide: ገጻት ኣብዚ መምርሒ
+      skip_contents: ትሕዝቶታት ዝለል
     impact_assessment:
       name:
         one: ናይ ጽልዋ ገምጋም

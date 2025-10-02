@@ -4,6 +4,12 @@ RSpec.describe GuidePresenter do
   let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
   let(:content_item) { Guide.new(content_store_response) }
 
+  describe "#page_title" do
+    it "returns the content item title and part title" do
+      expect(presenter.page_title).to eq("#{content_item.title}: #{content_item.current_part_title}")
+    end
+  end
+
   describe "#show_guide_navigation?" do
     it "returns true" do
       expect(presenter.show_guide_navigation?).to be true

@@ -1,4 +1,8 @@
 class GuidePresenter < ContentItemPresenter
+  def page_title
+    "#{content_item.title}: #{content_item.current_part_title}"
+  end
+
   def show_guide_navigation?
     content_item.parts.count > 1 && !hide_chapter_navigation?
   end

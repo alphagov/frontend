@@ -66,7 +66,7 @@
           previous_and_next_navigation(content_item.previous_part, content_item.next_part) %>
 
         <div class="responsive-bottom-margin">
-          <a href="<%= content_item.print_link %>"
+          <a href="<%= print_link(content_item.base_path) %>"
             class="govuk-link govuk-link--no-visited-state govuk-body"
             data-module="ga4-link-tracker"
             data-ga4-link="<%= {

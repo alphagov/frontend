@@ -6,6 +6,10 @@ class Consultation < ContentItem
   include SinglePageNotificationButton
   include Updatable
 
+  def lead_paragraph
+    false
+  end
+
   def contributors
     organisations + people
   end

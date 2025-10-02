@@ -13,6 +13,10 @@ RSpec.describe "Consultation" do
       expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
     end
 
+    it "does not render the lead paragraph" do
+      expect(page).not_to have_css("gem-c-lead-paragraph")
+    end
+
     it "displays the metadata" do
       within(".gem-c-metadata") do
         expect(page).to have_content("From: Department for Education")

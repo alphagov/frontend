@@ -1,4 +1,5 @@
 <%
+  add_view_stylesheet("sign-in")
   # These components aren't found in the templates, but the styles are still
   # needed as they're used within the sign in page's `content_item`.
   add_gem_component_stylesheet("document-list")
@@ -71,5 +72,23 @@
         text: t("help.sign_in.search_for_a_service_button"),
         secondary_solid: true %>
     </form>
+
+    <div class="govuk-!-width-full app-promo">
+      <%= render "govuk_publishing_components/components/image_card", {
+        two_thirds: true,
+        href: "/guidance/download-the-govuk-app",
+        image_src: asset_path("app-promo/govuk-app-icon.png"),
+        heading_text: "Get the GOV.UK app",
+        description: "Your government services and information, on the go.",
+        data_attributes: {
+          module: "ga4-link-tracker",
+          ga4_link: {
+            event_name: "navigation",
+            type: "image card",
+          },
+        },
+      } %>
+    </div>
+
   </div>
 </div>

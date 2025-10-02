@@ -1,0 +1,24 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.app-promo {
+  padding-top: govuk-spacing(6);
+  border-top: 4px solid $govuk-brand-colour;
+  margin-top: govuk-spacing(8);
+
+  @include govuk-media-query($from: "tablet") {
+    margin-top: govuk-spacing(9);
+  }
+
+  .gem-c-image-card {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .gem-c-image-card__description {
+    text-wrap: balance;
+  }
+
+  .gem-c-image-card__image-wrapper.gem-c-image-card__image-wrapper--one-third {
+    flex-basis: 100px;
+  }
+}

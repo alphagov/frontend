@@ -8,8 +8,16 @@ module NewsImage
 private
 
   def default_news_image
-    organisation = content_store_response.dig("links", "primary_publishing_organisation")
-    organisation[0].dig("details", "default_news_image") if organisation.present?
+    primary_organisation = content_store_response.dig("links", "primary_publishing_organisation")
+    primary_org_default_news_image = primary_organisation[0].dig("details", "default_news_image") if primary_organisation.present?
+
+    organisation = content_store_response.dig("links", "organisations")
+    organisation_default_news_image = organisation[0].dig("details", "default_news_image") if organisation.present?
+
+    worldwide_organisation = content_store_response.dig("links", "worldwide_organisations")
+    worldwide_organisation_default_news_image = worldwide_organisation[0].dig("details", "default_news_image") if worldwide_organisation.present?
+
+    primary_org_default_news_image || organisation_default_news_image || worldwide_organisation_default_news_image
   end
 
   def placeholder_image

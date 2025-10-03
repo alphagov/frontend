@@ -1,6 +1,6 @@
 <% add_view_stylesheet("service-manual-topic") %>
 <%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
 <% content_for :before_content do %>

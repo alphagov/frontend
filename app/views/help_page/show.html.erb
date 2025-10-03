@@ -1,4 +1,4 @@
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :article } %>
 
   <% if @content_item.base_path == '/help/cookie-details' %>

@@ -1,4 +1,6 @@
 RSpec.describe NewsArticle do
+  subject(:news_article) { described_class.new(content_item) }
+
   it_behaves_like "it has news image", "news_article", "news_article"
   it_behaves_like "it has updates", "news_article", "best-practice-event"
   it_behaves_like "it has no updates", "news_article", "news_article"
@@ -9,8 +11,6 @@ RSpec.describe NewsArticle do
   it_behaves_like "it can be withdrawn", "news_article", "news_article_withdrawn"
 
   describe "#contributors" do
-    subject(:news_article) { described_class.new(content_item) }
-
     let(:content_item) { GovukSchemas::Example.find("news_article", example_name: "best-practice-government-response") }
 
     it "returns the organisations ordered by emphasis" do
@@ -20,6 +20,75 @@ RSpec.describe NewsArticle do
       expect(news_article.contributors[0].title).to eq(organisations[0]["title"])
       expect(news_article.contributors[1].title).to eq(organisations[1]["title"])
       expect(news_article.contributors[2].title).to eq(organisations[2]["title"])
+    end
+  end
+
+  describe "document is a news article with a custom lead image" do
+    let(:content_item) { GovukSchemas::Example.find("news_article", example_name: "news_article") }
+
+    it "fetches lead image from the details" do
+      expect(news_article.image).to eq(content_item.dig("details", "image"))
+    end
+  end
+
+  describe "document is a news article without a custom lead image" do
+    let(:content_item) { GovukSchemas::Example.find("news_article", example_name: "best-practice-news-story") }
+
+    it "fetches lead image from primary publishing organisation" do
+      pre_existing_details = content_item["details"]
+      pre_existing_primary_organisation = content_item.dig("links", "primary_publishing_organisation")[0]
+      content_item["details"] = pre_existing_details.delete("image") # drop the custom image so we can test the fallback
+      content_item["links"]["primary_publishing_organisation"] = [
+        pre_existing_primary_organisation.merge("details" => pre_existing_primary_organisation["details"].merge(
+          {
+            "default_news_image" => {
+              "high_resolution_url" => "https://assets.publishing.service.gov.uk/media/621e4de4e90e0710be0354d7/s960_fcdo-main-building.jpg",
+              "url" => "https://assets.publishing.service.gov.uk/media/621e4de48fa8f5490aff83b4/s300_fcdo-main-building.jpg",
+            },
+          },
+        )),
+      ]
+      expect(news_article.image).to eq(content_item.dig("links", "primary_publishing_organisation")[0].dig("details", "default_news_image"))
+    end
+  end
+
+  describe "document is a news article without a custom lead image or primary organisation" do
+    let(:content_item) { GovukSchemas::Example.find("news_article", example_name: "best-practice-news-story") }
+
+    it "fetches lead image from the first organisation" do
+      pre_existing_details = content_item["details"]
+      pre_existing_organisation = content_item.dig("links", "organisations")[0]
+      content_item["details"] = pre_existing_details.delete("image") # drop the custom image so we can test the fallback
+      content_item["links"]["organisations"] = [
+        pre_existing_organisation.merge("details" => pre_existing_organisation["details"].merge(
+          {
+            "default_news_image" => {
+              "high_resolution_url" => "https://assets.publishing.service.gov.uk/media/621e4de4e90e0710be0354d7/s960_fcdo-main-building.jpg",
+              "url" => "https://assets.publishing.service.gov.uk/media/621e4de48fa8f5490aff83b4/s300_fcdo-main-building.jpg",
+            },
+          },
+        )),
+      ]
+      expect(news_article.image).to eq(content_item.dig("links", "organisations")[0].dig("details", "default_news_image"))
+    end
+  end
+
+  describe "document is a world news story without a custom lead image" do
+    let(:content_item) { GovukSchemas::Example.find("news_article", example_name: "world_news_story_news_article") }
+
+    it "fetches lead image from worldwide organisation" do
+      pre_existing_details = content_item["details"]
+      pre_existing_wwo = content_item.dig("links", "worldwide_organisations")[0]
+      content_item["details"] = pre_existing_details.delete("image") # drop the custom image so we can test the fallback
+      content_item["links"]["worldwide_organisations"] = [
+        pre_existing_wwo.merge!("details" => {
+          "default_news_image" => {
+            "high_resolution_url" => "https://assets.publishing.service.gov.uk/media/621e4de4e90e0710be0354d7/s960_fcdo-main-building.jpg",
+            "url" => "https://assets.publishing.service.gov.uk/media/621e4de48fa8f5490aff83b4/s300_fcdo-main-building.jpg",
+          },
+        }),
+      ]
+      expect(news_article.image).to eq(content_item.dig("links", "worldwide_organisations")[0].dig("details", "default_news_image"))
     end
   end
 end

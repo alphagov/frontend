@@ -82,10 +82,8 @@ RSpec.describe "Consultation" do
     end
 
     it "displays the document description" do
-      within(".consultation-description") do
-        expect(page).to have_css("h2", text: "Consultation description")
-        expect(page).to have_content("We are seeking external views on a postgraduate doctoral loan.")
-      end
+      expect(page).to have_css("h2", text: "Consultation description")
+      expect(page).to have_content("We are seeking external views on a postgraduate doctoral loan.")
     end
 
     it "displays the national applicability banner if national information is available" do
@@ -193,28 +191,24 @@ RSpec.describe "Consultation" do
         visit base_path
       end
 
+      it "displays the title" do
+        expect(page).to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      end
+
       it "displays the respond online link" do
-        within(".consultation-ways-to-respond") do
-          expect(page).to have_css(".call-to-action a[href='#{ways_to_respond['link_url']}']", text: "Respond online")
-        end
+        expect(page).to have_css(".call-to-action a[href='#{ways_to_respond['link_url']}']", text: "Respond online")
       end
 
       it "displays the email address" do
-        within(".consultation-ways-to-respond") do
-          expect(page).to have_css("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
-        end
+        expect(page).to have_css("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
       end
 
       it "displays the postal address formatted with line breaks" do
-        within(".consultation-ways-to-respond") do
-          assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
-        end
+        assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
       end
 
       it "displays the response form" do
-        within(".consultation-ways-to-respond") do
-          expect(page).to have_css("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
-        end
+        expect(page).to have_css("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
       end
     end
 
@@ -345,7 +339,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".consultation-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -400,7 +394,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -476,9 +470,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays feedback text" do
-        within(".consultation-feedback") do
-          expect(page).to have_text("The majority of respondents agreed or strongly agreed with our proposals, which were:")
-        end
+        expect(page).to have_text("The majority of respondents agreed or strongly agreed with our proposals, which were:")
       end
     end
 
@@ -513,7 +505,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 

@@ -436,6 +436,9 @@ be:
         many:
         one:
         other:
+    guide:
+      pages_in_guide: Старонкі ў гэтым кіраўніцтве
+      skip_contents:
     impact_assessment:
       name:
         few:

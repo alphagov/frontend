@@ -498,6 +498,9 @@ ar:
         other:
         two:
         zero:
+    guide:
+      pages_in_guide: الصفحات في هذا الدليل
+      skip_contents:
     impact_assessment:
       name:
         few:

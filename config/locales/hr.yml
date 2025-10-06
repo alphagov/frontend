@@ -405,6 +405,9 @@ hr:
         few:
         one:
         other:
+    guide:
+      pages_in_guide: Stranice u ovom vodiču
+      skip_contents:
     impact_assessment:
       name:
         few:

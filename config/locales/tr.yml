@@ -374,6 +374,9 @@ tr:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Bu kılavuzdaki sayfalar
+      skip_contents:
     impact_assessment:
       name:
         one:

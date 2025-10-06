@@ -405,6 +405,9 @@ ro:
         few:
         one:
         other:
+    guide:
+      pages_in_guide: Paginile din acest ghid
+      skip_contents:
     impact_assessment:
       name:
         few:

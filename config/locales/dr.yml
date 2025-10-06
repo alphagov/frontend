@@ -374,6 +374,9 @@ dr:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: صفحات موجود در این راهنما
+      skip_contents:
     impact_assessment:
       name:
         one:

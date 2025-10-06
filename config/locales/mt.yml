@@ -436,6 +436,9 @@ mt:
         many:
         one:
         other:
+    guide:
+      pages_in_guide: Paġni f'dan il-gwida
+      skip_contents:
     impact_assessment:
       name:
         few:

@@ -374,6 +374,9 @@ es-419:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Páginas en esta guía
+      skip_contents:
     impact_assessment:
       name:
         one:

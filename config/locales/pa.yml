@@ -374,6 +374,9 @@ pa:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: ਇਸ ਗਾਈਡ ਦੇ ਪੰਨੇ
+      skip_contents:
     impact_assessment:
       name:
         one:

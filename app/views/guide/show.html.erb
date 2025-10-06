@@ -1,0 +1,92 @@
+<% add_view_stylesheet("guide") %>
+
+<% content_for :title do %>
+  <%= @presenter.page_title %> - GOV.UK
+<% end %>
+
+<% content_for :extra_headers do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", {
+    content_item: content_item.to_h,
+    schema: :article,
+    canonical_url: Plek.new.website_root + content_item.current_part_path,
+    body: content_item.current_part_body.presence,
+  } %>
+
+  <% if content_item.is_evisa? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings">
+  <% end %>
+<% end %>
+
+<% if content_item.first_part? %>
+  <script type="application/ld+json">
+    <%= raw JSON.pretty_generate(MachineReadable::GuideFaqPageSchemaPresenter.new(content_item, image_url("govuk_publishing_components/govuk-logo.png")).structured_data) %>
+  </script>
+<% end %>
+
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: @presenter.title,
+      heading_level: 1,
+      font_size: "xl",
+      margin_bottom: 8,
+    } %>
+
+    <% if @presenter.show_guide_navigation? %>
+      <%= render "govuk_publishing_components/components/skip_link", {
+        text: t("formats.guide.skip_contents"),
+        href: "#guide-contents",
+      } %>
+
+      <aside class="part-navigation-container" role="complementary">
+        <%= render "govuk_publishing_components/components/contents_list",
+          aria: { label: t("formats.guide.pages_in_guide") },
+          contents: part_link_elements(content_item.parts, content_item.current_part, draft_token:),
+          underline_links: true %>
+      </aside>
+    <% end %>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6" id="guide-contents">
+    <% if content_item.parts.any? %>
+      <% if @presenter.show_guide_navigation? %>
+        <%= render "govuk_publishing_components/components/heading",
+          text: content_item.current_part_title,
+          heading_level: 1,
+          font_size: "xl",
+          margin_bottom: 6 %>
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+        disable_youtube_expansions: !content_item.is_child_benefit?,
+      } do %>
+        <%= raw(content_item.current_part_body) %>
+      <% end %>
+
+      <% if @presenter.show_guide_navigation? %>
+        <%= render "govuk_publishing_components/components/previous_and_next_navigation",
+          previous_and_next_navigation(content_item.previous_part, content_item.next_part, draft_token:) %>
+
+        <div class="responsive-bottom-margin">
+          <a href="<%= print_link(content_item.base_path) %>"
+            class="govuk-link govuk-link--no-visited-state govuk-body"
+            data-module="ga4-link-tracker"
+            data-ga4-link="<%= {
+              event_name: "navigation",
+              type: "print page",
+              section: "Footer",
+              text: t("multi_page.print_entire_guide", locale: :en),
+            }.to_json %>">
+            <%= t("multi_page.print_entire_guide") %>
+          </a>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render "shared/sidebar_navigation" %>
+</div>
+
+<%= render "shared/footer_navigation" %>

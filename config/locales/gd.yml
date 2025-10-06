@@ -436,6 +436,9 @@ gd:
         one:
         other:
         two:
+    guide:
+      pages_in_guide: Leathanaigh na treorach seo
+      skip_contents:
     impact_assessment:
       name:
         few:

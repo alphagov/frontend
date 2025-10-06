@@ -436,6 +436,9 @@ ru:
         many:
         one:
         other:
+    guide:
+      pages_in_guide: Страница в руководстве
+      skip_contents:
     impact_assessment:
       name:
         few:

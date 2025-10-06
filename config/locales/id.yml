@@ -343,6 +343,9 @@ id:
     guidance:
       name:
         other:
+    guide:
+      pages_in_guide: Halaman dalam panduan ini
+      skip_contents:
     impact_assessment:
       name:
         other:

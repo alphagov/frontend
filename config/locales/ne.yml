@@ -374,6 +374,9 @@ ne:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: यस गाइडका पृष्ठहरू
+      skip_contents:
     impact_assessment:
       name:
         one:

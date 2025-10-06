@@ -405,6 +405,9 @@ lt:
         few:
         one:
         other:
+    guide:
+      pages_in_guide: Puslapiai šiame vadove
+      skip_contents:
     impact_assessment:
       name:
         few:

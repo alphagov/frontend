@@ -374,6 +374,9 @@ hy:
       name:
         one:
         other:
+    guide:
+      pages_in_guide: Այս ուղեցույցում առկա էջերը
+      skip_contents:
     impact_assessment:
       name:
         one:

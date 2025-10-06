@@ -220,33 +220,29 @@ RSpec.describe "CallForEvidence" do
         visit base_path
       end
 
+      it "displays the title" do
+        expect(page).to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      end
+
       it "displays the respond online link" do
-        within(".call-for-evidence-ways-to-respond") do
-          expect(page).to have_css(".call-to-action a[href='#{ways_to_respond['link_url']}']", text: "Respond online")
-        end
+        expect(page).to have_css(".call-to-action a[href='#{ways_to_respond['link_url']}']", text: "Respond online")
       end
 
       it "displays the email address" do
-        within(".call-for-evidence-ways-to-respond") do
-          expect(page).to have_css("a[href='mailto:#{ways_to_respond['email']}']", text: ways_to_respond["email"])
-        end
+        expect(page).to have_css("a[href='mailto:#{ways_to_respond['email']}']", text: ways_to_respond["email"])
       end
 
       it "displays the postal address formatted with line breaks" do
-        within(".call-for-evidence-ways-to-respond") do
-          expect(page).to have_css(".contact", text: "2016 Post Office Network Consultation Department for Business, Energy and Industrial Strategy 1 Victoria Street London SW1H 0ET")
-          assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
-          assert page.has_css?(".contact .content p", text: "Department for Business, Energy and Industrial Strategy")
-          assert page.has_css?(".contact .content p", text: "1 Victoria Street")
-          assert page.has_css?(".contact .content p", text: "London")
-          assert page.has_css?(".contact .content p", text: "SW1H 0ET")
-        end
+        expect(page).to have_css(".contact", text: "2016 Post Office Network Consultation Department for Business, Energy and Industrial Strategy 1 Victoria Street London SW1H 0ET")
+        assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
+        assert page.has_css?(".contact .content p", text: "Department for Business, Energy and Industrial Strategy")
+        assert page.has_css?(".contact .content p", text: "1 Victoria Street")
+        assert page.has_css?(".contact .content p", text: "London")
+        assert page.has_css?(".contact .content p", text: "SW1H 0ET")
       end
 
       it "displays the response form" do
-        within(".call-for-evidence-ways-to-respond") do
-          expect(page).to have_css("a[href='#{ways_to_respond['attachment_url']}']", text: "response form")
-        end
+        expect(page).to have_css("a[href='#{ways_to_respond['attachment_url']}']", text: "response form")
       end
     end
 
@@ -369,7 +365,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -410,7 +406,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -486,7 +482,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css(".call-for-evidence-ways-to-respond")
+      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 end

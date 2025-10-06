@@ -77,8 +77,7 @@
     <% end %>
 
     <% if content_item.final_outcome? %>
-      <hr class="govuk-section-break govuk-section-break--visible">
-      <section class="govuk-!-margin-top-6">
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
         <header>
           <%= render "govuk_publishing_components/components/heading", {
             heading_level: 2,
@@ -87,13 +86,9 @@
             text: t("formats.consultation.original_consultation"),
           } %>
         </header>
-
-        <%= render partial: "summary_banner" %>
-      </section>
-
-    <% else %>
-      <%= render partial: "summary_banner" %>
     <% end %>
+
+    <%= render partial: "summary_banner" %>
 
     <%= render "govuk_publishing_components/components/heading", {
       margin_bottom: 4,

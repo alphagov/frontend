@@ -454,9 +454,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "displays the outcome detail" do
-      within(".call-for-evidence-outcome-detail") do
-        expect(page).to have_content("The first award of all new GCSEs will be based primarily on statistical predictions with examiner judgement playing a secondary role.")
-      end
+      expect(page).to have_content("The first award of all new GCSEs will be based primarily on statistical predictions with examiner judgement playing a secondary role.")
     end
 
     it "displays the 'Original call for evidence' heading" do

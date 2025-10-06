@@ -64,13 +64,12 @@
         text: t("formats.call_for_evidence.detail_of_outcome"),
         margin_bottom: 4,
       } %>
-      <div class="call-for-evidence-outcome-detail">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(content_item.outcome_detail) %>
-        <% end %>
-      </div>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(content_item.outcome_detail) %>
+      <% end %>
 
       <hr class="govuk-section-break govuk-section-break--visible">
       <section class="govuk-!-margin-top-6">

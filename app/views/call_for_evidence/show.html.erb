@@ -88,22 +88,20 @@
       <%= render partial: "summary_banner" %>
     <% end %>
 
-    <div class="call-for-evidence-description">
-      <%= render "govuk_publishing_components/components/heading", {
-        margin_bottom: 4,
-        text: t("formats.call_for_evidence.description"),
-      } %>
+    <%= render "govuk_publishing_components/components/heading", {
+      margin_bottom: 4,
+      text: t("formats.call_for_evidence.description"),
+    } %>
 
-      <%= render "govuk_publishing_components/components/govspeak", {
-        margin_bottom: 8,
-      } do %>
-        <%= raw(content_item.body.html_safe) %>
-      <% end %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      margin_bottom: 8,
+    } do %>
+      <%= raw(content_item.body.html_safe) %>
+    <% end %>
 
-      <%= render "shared/attachments_list",
-        title: t("formats.call_for_evidence.documents"),
-        attachments_for_components: content_item.general_documents %>
-    </div>
+    <%= render "shared/attachments_list",
+      title: t("formats.call_for_evidence.documents"),
+      attachments_for_components: content_item.general_documents %>
 
     <% if content_item.ways_to_respond? %>
       <div id="ways-to-respond" class="call-for-evidence-ways-to-respond">

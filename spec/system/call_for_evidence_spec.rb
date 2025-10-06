@@ -141,10 +141,8 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "displays the document description" do
-      within(".call-for-evidence-description") do
-        expect(page).to have_css("h2", text: "Call for evidence description")
-        expect(page).to have_content("The government is holding this call for evidence to identify opportunities to reduce the number of children (people aged under 18) accessing and using vape products, while ensuring they are still easily available as a quit aid for adult smokers.")
-      end
+      expect(page).to have_css("h2", text: "Call for evidence description")
+      expect(page).to have_content("The government is holding this call for evidence to identify opportunities to reduce the number of children (people aged under 18) accessing and using vape products, while ensuring they are still easily available as a quit aid for adult smokers.")
     end
 
     context "when attachments are available" do

@@ -51,7 +51,6 @@
         title: t("formats.call_for_evidence.not_open_yet"),
         description_text: content_item_unopened,
       } %>
-      <%= render partial: "summary_banner" %>
 
     <% elsif content_item.outcome? %>
       <%= render "govuk_publishing_components/components/notice", title: t("formats.call_for_evidence.closed") %>
@@ -79,12 +78,9 @@
             text: t("formats.call_for_evidence.original_call_for_evidence"),
           } %>
         </header>
-
-        <%= render partial: "summary_banner" %>
-
-    <% else %>
-      <%= render partial: "summary_banner" %>
     <% end %>
+
+    <%= render partial: "summary_banner" %>
 
     <%= render "govuk_publishing_components/components/heading", {
       margin_bottom: 4,

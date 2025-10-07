@@ -13,9 +13,6 @@
             data-availability-url="<%= content_item.availability_url %>"
             data-open-url="<%= content_item.open_url %>"
             data-redirect="<%= content_item.redirect_attribute %>">
-            <% if webchat_unavailable? %>
-              <%= unavailability_message %>
-            <% else %>
               <span class="js-webchat-advisers-error">
                 <%= t("webchat.technical_problem") %>
               </span>
@@ -37,7 +34,6 @@
                     <%= t("webchat.speak_to_adviser") %>
                 </a>.
               </span>
-            <% end %>
           </span>
         </p>
         <% # This is inline in the source however slimmer will optimize this. %>

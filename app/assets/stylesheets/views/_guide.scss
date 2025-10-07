@@ -10,4 +10,17 @@
     margin-left: 1.5em;
     padding-left: .3em;
   }
+
+  // Test overriding govspeak heading sizes
+  .gem-c-govspeak.govuk-govspeak {
+    h2 {
+      // l
+      @include govuk-font(36, $weight: bold);
+    }
+
+    h3 {
+      // m
+      @include govuk-font(24, $weight: bold);
+    }
+  }
 }

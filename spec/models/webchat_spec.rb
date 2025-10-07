@@ -18,5 +18,9 @@ RSpec.describe Webchat do
     it "has an open_url" do
       expect(webchat.open_url).not_to be_nil
     end
+
+    it "has a redirect_attribute" do
+      expect(webchat.redirect_attribute).to eq("false")
+    end
   end
 end

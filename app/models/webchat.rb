@@ -14,4 +14,8 @@ class Webchat < ContentItem
     @open_url = "https://d1y02qp19gjy8q.cloudfront.net/open/index.html"
     @redirect_attribute = "false"
   end
+
+  def lead_paragraph
+    nil
+  end
 end

@@ -71,8 +71,7 @@
         <%= raw(content_item.outcome_detail) %>
       <% end %>
 
-      <hr class="govuk-section-break govuk-section-break--visible">
-      <section class="govuk-!-margin-top-6">
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
         <header>
           <%= render "govuk_publishing_components/components/heading", {
             heading_level: 2,
@@ -82,7 +81,6 @@
         </header>
 
         <%= render partial: "summary_banner" %>
-      </section>
 
     <% else %>
       <%= render partial: "summary_banner" %>

@@ -113,6 +113,8 @@ Rails.application.routes.draw do
     get "/organisations/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"
     get "/organisations/:organisation_slug/about/:slug(.:locale)", to: "corporate_information_page#show"
 
+    get "/organisations/hm-passport-office/contact/hm-passport-office-webchat", to: "webchat#show"
+
     # Placeholder for attachments being virus-scanned
     get "/placeholder", to: "placeholder#show"
 

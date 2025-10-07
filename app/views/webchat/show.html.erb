@@ -15,16 +15,16 @@
               <%= unavailability_message %>
             <% else %>
               <span class="js-webchat-advisers-error">
-                <%= t("shared.webchat.technical_problem") %>
+                <%= t("webchat.technical_problem") %>
               </span>
               <span class="js-webchat-advisers-unavailable govuk-!-display-none">
-                <%= t("shared.webchat.closed") %>
+                <%= t("webchat.closed") %>
               </span>
               <span class="js-webchat-advisers-busy govuk-!-display-none">
-                <%= t("shared.webchat.busy") %>
+                <%= t("webchat.busy") %>
               </span>
               <span class="js-webchat-advisers-available govuk-!-display-none">
-                <%= t("shared.webchat.available") %>
+                <%= t("webchat.available") %>
                 <a
                   href="#"
                   data-redirect="<%= content_item.redirect_attribute %>"
@@ -32,7 +32,7 @@
                   class="js-webchat-open-button"
                   data-module="ga4-link-tracker"
                   data-ga4-link="<%= content_item.ga4_link_data %>">
-                    <%= t("shared.webchat.speak_to_adviser") %>
+                    <%= t("webchat.speak_to_adviser") %>
                 </a>.
               </span>
             <% end %>

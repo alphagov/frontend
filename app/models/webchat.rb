@@ -1,0 +1,2 @@
+class Webchat < ContentItem
+end

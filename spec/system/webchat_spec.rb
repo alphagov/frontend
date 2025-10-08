@@ -43,11 +43,6 @@ RSpec.describe "Webchat" do
     end
   end
 
-#   test "does not render with the single page notification button" do
-#     visit WEBCHAT_PATH
-#     assert_no_selector ".single-page-notification-button"
-#   end
-
 #   test "the content security policy is updated for webchat hosts" do
 #     Capybara.current_driver = :rack_test
 

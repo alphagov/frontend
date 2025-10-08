@@ -47,6 +47,13 @@ RSpec.describe "Webchat" do
 
       expect(parsed_csp["connect-src"]).to include("https://d1y02qp19gjy8q.cloudfront.net")
     end
+
+    it "has GA4 tracking on the webchat available link" do
+      expected_ga4_data = '{"event_name":"navigation","type":"webchat","text":"Speak to an adviser now"}'
+
+      expect(page).to have_selector(".js-webchat-advisers-available a[data-module=ga4-link-tracker]")
+      expect(page).to have_selector(".js-webchat-advisers-available a[data-ga4-link='#{expected_ga4_data}']")
+    end
   end
 
 private
@@ -56,20 +63,4 @@ private
               .map { |directive| directive.strip.split(" ") }
               .each_with_object({}) { |directive, memo| memo[directive.first] = directive[1..] }
   end
-
-#   test "has GA4 tracking on the webchat available link" do
-#     visit WEBCHAT_PATH
-#     assert_ga4_tracking_present
-#   end
-
-# private
-
-#   def assert_ga4_tracking_present
-#     assert_selector ".js-webchat-advisers-available a[data-module=ga4-link-tracker]"
-#     assert_selector ".js-webchat-advisers-available a[data-ga4-link='#{expected_ga4_data}']"
-#   end
-
-#   def expected_ga4_data
-#     '{"event_name":"navigation","type":"webchat","text":"Speak to an adviser now"}'
-#   end
 end

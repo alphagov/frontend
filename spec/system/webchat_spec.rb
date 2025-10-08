@@ -41,16 +41,21 @@ RSpec.describe "Webchat" do
       expect(page).to have_selector(".js-webchat[data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
       expect(page).to have_selector(".js-webchat[data-redirect='false']")
     end
+
+    it "sets the correct content security policy for webchat hosts" do
+      parsed_csp = parse_csp_header(page.response_headers["Content-Security-Policy"])
+
+      expect(parsed_csp["connect-src"]).to include("https://d1y02qp19gjy8q.cloudfront.net")
+    end
   end
 
-#   test "the content security policy is updated for webchat hosts" do
-#     Capybara.current_driver = :rack_test
+private
 
-#     visit WEBCHAT_PATH
-#     parsed_csp = parse_csp_header(page.response_headers["Content-Security-Policy"])
-
-#     assert_includes parsed_csp["connect-src"], "https://webchat.host"
-#   end
+  def parse_csp_header(csp_header)
+    csp_header.split(";")
+              .map { |directive| directive.strip.split(" ") }
+              .each_with_object({}) { |directive, memo| memo[directive.first] = directive[1..] }
+  end
 
 #   test "has GA4 tracking on the webchat available link" do
 #     visit WEBCHAT_PATH
@@ -58,12 +63,6 @@ RSpec.describe "Webchat" do
 #   end
 
 # private
-
-#   def parse_csp_header(csp_header)
-#     csp_header.split(";")
-#               .map { |directive| directive.strip.split(" ") }
-#               .each_with_object({}) { |directive, memo| memo[directive.first] = directive[1..] }
-#   end
 
 #   def assert_ga4_tracking_present
 #     assert_selector ".js-webchat-advisers-available a[data-module=ga4-link-tracker]"

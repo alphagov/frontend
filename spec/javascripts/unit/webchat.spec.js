@@ -1,5 +1,3 @@
-/* globals setFixtures */
-
 var $ = window.jQuery
 
 describe('Webchat', function () {
@@ -33,9 +31,13 @@ describe('Webchat', function () {
   var jsonNormalisedBusy = jsonNormalised('success', 'BUSY')
   var jsonNormalisedError = [404, {}, '404 not found']
 
+  var fixture
+
   beforeEach(function () {
     jasmine.Ajax.install()
-    setFixtures(INSERTION_HOOK)
+    fixture = document.createElement('div')
+    fixture.innerHTML = INSERTION_HOOK
+    document.body.appendChild(fixture)
     $webchat = $('.js-webchat')
     $advisersUnavailable = $webchat.find('.js-webchat-advisers-unavailable')
     $advisersBusy = $webchat.find('.js-webchat-advisers-busy')
@@ -45,6 +47,7 @@ describe('Webchat', function () {
 
   afterEach(function () {
     jasmine.Ajax.uninstall()
+    document.body.removeChild(fixture)
   })
 
   describe('on valid application locations', function () {

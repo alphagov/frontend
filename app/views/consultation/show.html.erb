@@ -106,6 +106,7 @@
     <% if content_item.ways_to_respond? %>
       <%= render "govuk_publishing_components/components/heading", {
         text: t("formats.consultation.ways_to_respond"),
+        id: "ways-to-respond",
         margin_bottom: 4,
       } %>
       <%= render "govuk_publishing_components/components/govspeak", {

@@ -35,15 +35,13 @@ RSpec.describe "Webchat" do
       expect(page).to have_selector("h1", text: "Test Webchat")
       expect(page).to have_content("Advisers may be busy at peak times")
     end
+
+    it "renders webchat widget with correct data attributes" do
+      expect(page).to have_selector(".js-webchat[data-availability-url='https://d1y02qp19gjy8q.cloudfront.net/availability/18555309']")
+      expect(page).to have_selector(".js-webchat[data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
+      expect(page).to have_selector(".js-webchat[data-redirect='false']")
+    end
   end
-
-#   test "renders webchat widget with correct data attributes" do
-#     visit WEBCHAT_PATH
-
-#     assert_selector ".js-webchat[data-availability-url='https://webchat.host/available']"
-#     assert_selector ".js-webchat[data-open-url='https://webchat.host/open']"
-#     assert_selector ".js-webchat[data-redirect='false']"
-#   end
 
 #   test "does not render with the single page notification button" do
 #     visit WEBCHAT_PATH

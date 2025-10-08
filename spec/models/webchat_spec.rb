@@ -14,5 +14,9 @@ RSpec.describe Webchat do
     it "has an availability_url" do
       expect(webchat.availability_url).not_to be_nil
     end
+
+    it "has an open_url" do
+      expect(webchat.open_url).not_to be_nil
+    end
   end
 end

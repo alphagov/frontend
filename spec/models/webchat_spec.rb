@@ -15,6 +15,10 @@ RSpec.describe Webchat do
       expect(webchat.availability_url).not_to be_nil
     end
 
+    it "has a csp_connect_src" do
+      expect(webchat.csp_connect_src).not_to be_nil
+    end
+
     it "has a ga4_link_data" do
       expect(webchat.ga4_link_data).not_to be_nil
     end

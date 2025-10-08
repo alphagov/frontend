@@ -30,17 +30,12 @@ RSpec.describe "Webchat" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
+
+    it "renders webchat page with title and content" do
+      expect(page).to have_selector("h1", text: "Test Webchat")
+      expect(page).to have_content("Advisers may be busy at peak times")
+    end
   end
-
-#   test "renders webchat page with correct content" do
-#     I18n.with_locale(:en) do
-#       visit WEBCHAT_PATH
-
-#       assert_selector "h1", text: "Test Webchat"
-#       assert_selector "#webchat-title", text: I18n.t("contact.webchat", locale: :en)
-#       assert page.has_content?("Test info")
-#     end
-#   end
 
 #   test "renders webchat widget with correct data attributes" do
 #     visit WEBCHAT_PATH

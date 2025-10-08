@@ -17,8 +17,6 @@ RSpec.describe "TravelAdvice" do
         expect(page).to have_selector("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: :hidden)
       end
 
-      expect(page).to have_selector("#wrapper.travel-advice")
-
       within("#content") do
         within(".gem-c-heading") do
           expect(page).to have_content("Foreign travel advice")
@@ -50,12 +48,6 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_title("Foreign travel advice")
       expect(page.title).to eq("Foreign travel advice - GOV.UK")
-    end
-
-    it "sets the slimmer #wrapper classes" do
-      visit "/foreign-travel-advice"
-
-      expect(page.find("#wrapper")["class"]).to include("travel-advice")
     end
 
     it "displays breadcrumbs" do

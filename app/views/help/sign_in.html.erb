@@ -6,7 +6,7 @@
   add_gem_component_stylesheet("inset-text")
 %>
 <% content_for :title, "#{content_item.title} - GOV.UK" %>
-<% content_for :extra_headers do %>
+<% content_for :head do %>
   <meta name="description" content="<%= content_item.description %>">
 <% end %>
 

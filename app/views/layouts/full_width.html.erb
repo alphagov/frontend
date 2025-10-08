@@ -1,0 +1,28 @@
+<% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
+<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
+<% global_banner = render("govuk_web_banners/global_banner") %>
+<% content_for :body do %>
+  <%= yield :before_content %>
+  <main role="main" id="content" class="govuk-main-wrapper <%= yield :main_classes %>" <%= lang_attribute %>>
+    <span id="Top"></span>
+    <%= yield %>
+  </main>
+  <%= yield :after_content %>
+<% end %>
+
+<%= content_for :head do %>
+  <%= csp_meta_tag %>
+  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+  <%= render_component_stylesheets %>
+  <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/layout_for_public", {
+    title: yield(:title),
+    emergency_banner:,
+    global_banner:,
+    full_width: true,
+    homepage: @homepage_layout,
+  } do %>
+  <%= yield :body %>
+<% end %>

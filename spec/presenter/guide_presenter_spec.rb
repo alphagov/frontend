@@ -44,6 +44,14 @@ RSpec.describe GuidePresenter do
         it "returns the first part title" do
           expect(presenter.title).to eq(content_item.parts.first["title"])
         end
+
+        context "and visiting a part" do
+          before { content_item.set_current_part(content_store_response["details"]["parts"].second["slug"]) }
+
+          it "returns the current part title" do
+            expect(presenter.title).to eq(content_item.parts.second["title"])
+          end
+        end
       end
     end
   end

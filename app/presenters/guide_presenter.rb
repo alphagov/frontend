@@ -8,7 +8,7 @@ class GuidePresenter < ContentItemPresenter
   end
 
   def title
-    return content_item.parts.first["title"] if replace_title_with_first_part_title?
+    return content_item.current_part_title if content_item.parts.any? && hide_chapter_navigation?
 
     content_item.title
   end
@@ -17,9 +17,5 @@ private
 
   def hide_chapter_navigation?
     content_item.part_of_step_navs? && content_item.hide_chapter_navigation?
-  end
-
-  def replace_title_with_first_part_title?
-    content_item.hide_chapter_navigation? && content_item.content_store_response["links"].key?("part_of_step_navs")
   end
 end

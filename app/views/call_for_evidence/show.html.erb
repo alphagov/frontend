@@ -48,12 +48,12 @@
         <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
       <% end %>
       <%= render "govuk_publishing_components/components/notice", {
-        title: t("formats.call_for_evidence.not_open_yet"),
+        title: @presenter.notice_title,
         description_text: content_item_unopened,
       } %>
 
     <% elsif content_item.outcome? %>
-      <%= render "govuk_publishing_components/components/notice", title: t("formats.call_for_evidence.closed") %>
+      <%= render "govuk_publishing_components/components/notice", title: @presenter.notice_title %>
 
       <%= render "shared/attachments_list",
         title: t("formats.call_for_evidence.download_outcome"),

@@ -863,6 +863,12 @@ kk:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Кеңесшілер сөйлесуге дайын.
+    busy: Барлық вебчат кеңесшілері қазір бос емес.
+    closed: Дәл қазір вебчат жабық.
+    speak_to_adviser: Қазір кеңесшімен сөйлесіңіз
+    technical_problem: Қазіргі уақытта техникалық ақауларға байланысты вебчат қолжетімді емес.
   website:
   when_do_the_clocks_change:
     calendar:

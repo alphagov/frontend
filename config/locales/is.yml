@@ -863,6 +863,12 @@ is:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Ráðgjafar eru til taks í spjall.
+    busy: Allir ráðgjafar í vefspjalli eru uppteknir í augnablikinu.
+    closed: Vefspjallið er lokað í augnblikinu.
+    speak_to_adviser: Tala við ráðgjafa núna
+    technical_problem: Vefspjallið er ekki aðgengilegt í augnablikinu vegna tæknilegra örðugleika.
   website:
   when_do_the_clocks_change:
     calendar:

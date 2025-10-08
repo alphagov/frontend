@@ -863,6 +863,12 @@ nl:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Er zijn adviseurs beschikbaar om te chatten.
+    busy: Alle webchat-adviseurs zijn momenteel bezet.
+    closed: Webchat is op dit moment gesloten.
+    speak_to_adviser: Spreek nu met een adviseur
+    technical_problem: Webchat is momenteel niet beschikbaar wegens technische problemen.
   website:
   when_do_the_clocks_change:
     calendar:

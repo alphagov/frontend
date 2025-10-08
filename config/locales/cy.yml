@@ -1193,6 +1193,12 @@ cy:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Mae cynghorwyr ar gael i sgwrsio.
+    busy: Mae holl gynghorwyr y we-sgwrs yn brysur ar hyn o bryd.
+    closed: Mae'r we-sgwrs ar gau ar hyn o bryd.
+    speak_to_adviser: Siaradwch â chynghorydd nawr
+    technical_problem: Dydy'r we-sgwrs ddim ar gael ar hyn o bryd oherwydd problemau technegol.
   website: Gwefan
   when_do_the_clocks_change:
     calendar:

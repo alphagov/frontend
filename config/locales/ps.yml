@@ -863,6 +863,12 @@ ps:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: د خبرو اترو لپاره مشاورین شتون لري.
+    busy: ټول د ویب چیټ مشاورین دا مهال بوخت دي.
+    closed: ویب چیٹ دا مهال بند دی.
+    speak_to_adviser: همدا اوس له یوه سلاکار سره خبرې وکړئ
+    technical_problem: ویب چیٹ دا مهال د تخنیکي ستونزو له امله شتون نلري.
   website:
   when_do_the_clocks_change:
     calendar:

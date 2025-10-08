@@ -1021,6 +1021,12 @@ gd:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Is féidir teacht ar chomhairleoirí trí chomhrá.
+    busy: Tá na comhairleoirí comhrá gréasáin ar líne gnóthach i láthair na huaire.
+    closed: Tá an gréasán gréasáin dúnta ag an am seo.
+    speak_to_adviser: Labhair le comhairleoir anois
+    technical_problem: Níl comhrá ar líne ag obair ag an am seo mar gheall ar chur isteach teicniúil.
   website:
   when_do_the_clocks_change:
     calendar:

@@ -942,6 +942,12 @@ sr:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Savetnici su dostupni za ćaskanje.
+    busy: Svi savetnici putem veb-ćaskanja su trenutno zauzeti.
+    closed: Veb-ćaskanje je trenutno zatvoreno.
+    speak_to_adviser: Razgovarajte sa savetnikom odmah
+    technical_problem: Veb-ćaskanje trenutno nije dostupno zbog tehničkih problema.
   website:
   when_do_the_clocks_change:
     calendar:

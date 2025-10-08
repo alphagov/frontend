@@ -784,6 +784,12 @@ zh-hk:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: 顧問可展開對話。
+    busy: 全部網上對話顧問現時繁忙。
+    closed: 網上對話現時已關閉。
+    speak_to_adviser: 立即與顧問對話
+    technical_problem: 網上對話現時因技術問題而不可用。
   website:
   when_do_the_clocks_change:
     calendar:

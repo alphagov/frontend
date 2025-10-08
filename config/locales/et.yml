@@ -863,6 +863,12 @@ et:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Nõustajad on vestlemiseks saadaval.
+    busy: Kõik veebivestluse nõustajad on praegu hõivatud.
+    closed: Veebivestlus on praegu suletud.
+    speak_to_adviser: Rääkige nüüd nõustajaga
+    technical_problem: Veebivestlus pole praegu tehniliste probleemide tõttu saadaval.
   website:
   when_do_the_clocks_change:
     calendar:

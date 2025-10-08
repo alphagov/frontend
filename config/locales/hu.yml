@@ -863,6 +863,12 @@ hu:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Vannak elérhető tanácsadók a chatszobában.
+    busy: Jelenleg minden webchat-tanácsadó elfoglalt.
+    closed: A webchat jelenleg zárva van.
+    speak_to_adviser: Beszéljen egy tanácsadóval most.
+    technical_problem: A webchat technikai problémák miatt jelenleg nem elérhető.
   website:
   when_do_the_clocks_change:
     calendar:

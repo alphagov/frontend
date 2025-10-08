@@ -863,6 +863,12 @@ he:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: יועצים זמינים לצ'אט.
+    busy: 'כל יועצי הצ''אט באינטרנט עסוקים כרגע. '
+    closed: 'צ''אט באינטרנט סגור כרגע. '
+    speak_to_adviser: דבר עם יועץ עכשיו
+    technical_problem: צ'אט באינטרנט אינו זמין כרגע בגלל בעיות טכניות.
   website:
   when_do_the_clocks_change:
     calendar:

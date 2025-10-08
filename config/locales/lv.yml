@@ -863,6 +863,12 @@ lv:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Konsultanti ir pieejami tērzēšanai.
+    busy: Visi konsultanti pašlaik ir aizņemti.
+    closed: Tīmekļa tērzēšana pašlaik ir slēgta.
+    speak_to_adviser: Runāt ar konsultantu tūlīt
+    technical_problem: Tīmekļa tērzēšana pašlaik nav pieejama tehnisku problēmu dēļ.
   website:
   when_do_the_clocks_change:
     calendar:

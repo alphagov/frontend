@@ -863,6 +863,12 @@ ne:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: सल्लाहकारहरु च्याट गर्नको लागी उपलब्ध छन्।
+    busy: सबै वैबच्याट सल्लाहकारहरु अहिले व्यस्त छन्।
+    closed: वैबच्याट अहिले बन्द छ।
+    speak_to_adviser: अब एक सल्लाहकार सँग कुरा गर्नुहोस्
+    technical_problem: प्राविधिक समस्याको कारण अहिले वैबच्याट उपलब्ध छैन।
   website:
   when_do_the_clocks_change:
     calendar:

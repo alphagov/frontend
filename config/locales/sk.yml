@@ -942,6 +942,12 @@ sk:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Poradcovia sú k dispozícii na rozhovor.
+    busy: Všetci poradcovia na webovom chate sú momentálne zaneprázdnení.
+    closed: Webový chat je momentálne zatvorený.
+    speak_to_adviser: Obráťte sa na poradcu
+    technical_problem: Webchat je momentálne nedostupný z dôvodu technických problémov.
   website:
   when_do_the_clocks_change:
     calendar:

@@ -1179,6 +1179,12 @@ ar:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: المستشارون ليسوا متاحين للدردشة.
+    busy: جميع مستشاري دردشة الويب مشغولون في الوقت الحالي.
+    closed: دردشة الويب مغلقة في الوقت الحالي.
+    speak_to_adviser: تحدث مع أحد المستشارين الآن
+    technical_problem: دردشة الويب غير متاحة في الوقت الحالي بسبب مشاكل فنية.
   website:
   when_do_the_clocks_change:
     calendar:

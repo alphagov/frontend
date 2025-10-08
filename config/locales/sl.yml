@@ -1021,6 +1021,12 @@ sl:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Svetovalci so na voljo za klepet.
+    busy: Trenutno so vsi svetovalci spletnega klepeta zasedeni.
+    closed: Spletni klepet trenutno ne deluje.
+    speak_to_adviser: Govorite s svetovalcem zdaj
+    technical_problem: Spletni klepet trenutno ni na voljo zaradi tehničnih težav.
   website:
   when_do_the_clocks_change:
     calendar:

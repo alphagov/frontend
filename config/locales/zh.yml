@@ -784,6 +784,12 @@ zh:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: 顾问有空聊天。
+    busy: 所有的在线聊天顾问现在都很忙。
+    closed: 在线聊天暂时关闭。
+    speak_to_adviser: 立即与顾问谈谈
+    technical_problem: 由于技术问题，目前无法使用在线聊天。
   website:
   when_do_the_clocks_change:
     calendar:

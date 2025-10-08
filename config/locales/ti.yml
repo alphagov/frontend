@@ -863,6 +863,12 @@ ti:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: ኣማኸርቲ ኣብ ቻት ንኽዕልሉ ድሉዋት እዮም
+    busy: ኩሎም ኣማኸርቲ ዌብቻት ኣብዚ እዋን ትሑዛት እዮም ዘለው
+    closed: ኣብዚ እዋን እዚ ዌብቻት ተዓጽዩ ኣሎ
+    speak_to_adviser: ሕጂ ምስ ኣማኻሪ ተዘራረብ
+    technical_problem: ኣብዚ ሕዚ እዋን ዌብቻት ብሰንኪ ቴክኒካዊ ጸገም ክርከብ ኣይክእል እዩ።
   website: መርበብ ሓበሬታ/ዌብሳይት
   when_do_the_clocks_change:
     calendar:

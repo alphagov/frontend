@@ -863,6 +863,12 @@ ka:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: მრჩევლები ხელმისაწვდომია სასაუბროდ.
+    busy: ვებ-გვერდის ყველა მრჩეველი ამჟამად დაკავებულია.
+    closed: ამჟამად ვებ ჩეთი დახურულია.
+    speak_to_adviser: მრჩეველთან ახლა დალაპარაკება
+    technical_problem: ამჟამად ვებ ჩეთი მიუწვდომელია ტექნიკური პრობლემების გამო.
   website:
   when_do_the_clocks_change:
     calendar:

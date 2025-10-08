@@ -784,6 +784,12 @@ th:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: ที่ปรึกษาพร้อมสำหรับการแชท
+    busy: ที่ปรึกษาทางเว็บแชทไม่ว่างเลยในขณะนี้
+    closed: เว็บแชทปิดอยู่ในขณะนี้
+    speak_to_adviser: พูดคุยกับที่ปรึกษาตอนนี้
+    technical_problem: Webchat ไม่พร้อมให้บริการในขณะนี้เนื่องจากปัญหาทางเทคนิค
   website:
   when_do_the_clocks_change:
     calendar:

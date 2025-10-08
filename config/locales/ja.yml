@@ -784,6 +784,12 @@ ja:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: アドバイザーのチャットがご利用いただけます。
+    busy: 現在、すべてのウェブチャットアドバイザーはビジーです。
+    closed: ウェブチャットは現在ご利用いただけません。
+    speak_to_adviser: 今すぐアドバイザーにご相談ください
+    technical_problem: 技術的な問題により、現在ウェブチャットはご利用いただけません。
   website:
   when_do_the_clocks_change:
     calendar:

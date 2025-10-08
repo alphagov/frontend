@@ -1021,6 +1021,12 @@ ru:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Консультанты доступны в чате.
+    busy: В настоящий момент все консультанты заняты.
+    closed: В настоящий момент Веб-чат не работает.
+    speak_to_adviser: Поговорите с консультантом
+    technical_problem: В настоящий момент Веб-чат не доступен по техническим причинам.
   website:
   when_do_the_clocks_change:
     calendar:

@@ -942,6 +942,12 @@ ro:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Consultanții sunt disponibili pentru a discuta pe chat.
+    busy: Toți consultanții de pe webchat sunt ocupați în acest moment.
+    closed: Webchatul este închis în acest moment.
+    speak_to_adviser: Vorbiți cu un consultant acum
+    technical_problem: Webchatul este disponibil momentan din cauza problemelor tehnice.
   website:
   when_do_the_clocks_change:
     calendar:

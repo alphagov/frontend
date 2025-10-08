@@ -863,6 +863,12 @@ pa:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: ਸਲਾਹਕਾਰ ਗੱਲਬਾਤ ਕਰਨ ਲਈ ਉਪਲਬਧ ਹਨ।
+    busy: ਸਾਰੇ ਵੈਬਚੈਟ ਸਲਾਹਕਾਰ ਇਸ ਸਮੇਂ ਰੁੱਝੇ ਹੋਏ ਹਨ।
+    closed: ਵੈਬਚੈਟ ਇਸ ਸਮੇਂ ਬੰਦ ਹੈ।
+    speak_to_adviser: ਹੁਣ ਕਿਸੇ ਸਲਾਹਕਾਰ ਨਾਲ ਗੱਲ ਕਰੋ
+    technical_problem: ਵੈਬਚੈਟ ਇਸ ਸਮੇਂ ਤਕਨੀਕੀ ਸਮੱਸਿਆਵਾਂ ਦੇ ਕਾਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।
   website:
   when_do_the_clocks_change:
     calendar:

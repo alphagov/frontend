@@ -863,6 +863,12 @@ az:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Söhbət etmək üçün məsləhətçilər mövcuddur.
+    busy: Veb-çat məsləhətçilərinin hamısı hazırda məşğuldurlar.
+    closed: Veb-çat indi bağlıdır.
+    speak_to_adviser: Məsləhətçi ilə indi danışın
+    technical_problem: Texniki problemlər səbəbilə veb-çat indi mövcud deyildir.
   website:
   when_do_the_clocks_change:
     calendar:

@@ -21,6 +21,16 @@ class CallForEvidencePresenter < ContentItemPresenter
     end
   end
 
+  def notice_title
+    if content_item.unopened?
+      I18n.t("formats.call_for_evidence.not_open_yet")
+    elsif content_item.outcome?
+      I18n.t("formats.call_for_evidence.closed")
+    else
+      ""
+    end
+  end
+
 private
 
   def opening_date_midnight?

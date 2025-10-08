@@ -2,42 +2,42 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/govspeak" do %>
-        <p>Monday to Friday, 8am to 8pm <br>Weekends and public holidays, 9am to 5:30pm</p>
+    <%= render "govuk_publishing_components/components/govspeak" do %>
+      <p>Monday to Friday, 8am to 8pm <br>Weekends and public holidays, 9am to 5:30pm</p>
 
-        <p>Advisers may be busy at peak times.</p>
+      <p>Advisers may be busy at peak times.</p>
 
-        <p>
-          <span class="js-webchat"
-            data-availability-url="<%= content_item.availability_url %>"
-            data-open-url="<%= content_item.open_url %>"
-            data-redirect="<%= content_item.redirect_attribute %>">
-            <span class="js-webchat-advisers-error">
-              <%= t("webchat.technical_problem") %>
-            </span>
-            <span class="js-webchat-advisers-unavailable govuk-!-display-none">
-              <%= t("webchat.closed") %>
-            </span>
-            <span class="js-webchat-advisers-busy govuk-!-display-none">
-              <%= t("webchat.busy") %>
-            </span>
-            <span class="js-webchat-advisers-available govuk-!-display-none">
-              <%= t("webchat.available") %>
-              <a
-                href="#"
-                data-redirect="<%= content_item.redirect_attribute %>"
-                rel="external"
-                class="js-webchat-open-button"
-                data-module="ga4-link-tracker"
-                data-ga4-link="<%= content_item.ga4_link_data %>">
-                  <%= t("webchat.speak_to_adviser") %>
-              </a>.
-            </span>
+      <p>
+        <span class="js-webchat"
+          data-availability-url="<%= content_item.availability_url %>"
+          data-open-url="<%= content_item.open_url %>"
+          data-redirect="<%= content_item.redirect_attribute %>">
+          <span class="js-webchat-advisers-error">
+            <%= t("webchat.technical_problem") %>
           </span>
-        </p>
-        <%= javascript_include_tag "webchat", integrity: false, type: "module" %>
-      <% end %>
-    </div>
+          <span class="js-webchat-advisers-unavailable govuk-!-display-none">
+            <%= t("webchat.closed") %>
+          </span>
+          <span class="js-webchat-advisers-busy govuk-!-display-none">
+            <%= t("webchat.busy") %>
+          </span>
+          <span class="js-webchat-advisers-available govuk-!-display-none">
+            <%= t("webchat.available") %>
+            <a
+              href="#"
+              data-redirect="<%= content_item.redirect_attribute %>"
+              rel="external"
+              class="js-webchat-open-button"
+              data-module="ga4-link-tracker"
+              data-ga4-link="<%= content_item.ga4_link_data %>">
+                <%= t("webchat.speak_to_adviser") %>
+            </a>.
+          </span>
+        </span>
+      </p>
+      <%= javascript_include_tag "webchat", integrity: false, type: "module" %>
+    <% end %>
+  </div>
   <%= render "shared/sidebar_navigation" %>
 </div>
 

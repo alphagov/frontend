@@ -37,9 +37,9 @@ RSpec.describe "Webchat" do
     end
 
     it "renders webchat widget with correct data attributes" do
-      expect(page).to have_selector(".js-webchat[data-availability-url='https://d1y02qp19gjy8q.cloudfront.net/availability/18555309']")
-      expect(page).to have_selector(".js-webchat[data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
-      expect(page).to have_selector(".js-webchat[data-redirect='false']")
+      expect(page).to have_selector("[data-module='webchat'][data-availability-url='https://d1y02qp19gjy8q.cloudfront.net/availability/18555309']")
+      expect(page).to have_selector("[data-module='webchat'][data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
+      expect(page).to have_selector("[data-module='webchat'][data-redirect='false']")
     end
 
     it "sets the correct content security policy for webchat hosts" do

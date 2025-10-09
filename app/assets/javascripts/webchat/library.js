@@ -1,8 +1,14 @@
-(function (global) {
-  function Webchat (el) {
-    var POLL_INTERVAL = 5 * 1000
-    var AJAX_TIMEOUT = 5 * 1000
-    var API_STATES = [
+window.GOVUK = window.GOVUK || {}
+window.GOVUK.Modules = window.GOVUK.Modules || {};
+
+(function (Modules) {
+  'use strict'
+
+  function Webchat (module) {
+    this.module = module
+    this.POLL_INTERVAL = 5 * 1000
+    this.AJAX_TIMEOUT = 5 * 1000
+    this.API_STATES = [
       'BUSY',
       'UNAVAILABLE',
       'AVAILABLE',
@@ -10,100 +16,97 @@
       'OFFLINE',
       'ONLINE'
     ]
-    var openUrl = el.getAttribute('data-open-url')
-    var availabilityUrl = el.getAttribute('data-availability-url')
-    var openButton = document.querySelector('.js-webchat-open-button')
-    var webchatStateClass = 'js-webchat-advisers-'
-    var intervalID = null
-
-    function init () {
-      if (!availabilityUrl || !openUrl) {
-        throw Error.new('urls for webchat not defined', window.location.href)
-      }
-
-      if (openButton) {
-        openButton.addEventListener('click', handleOpenChat)
-      }
-      intervalID = setInterval(checkAvailability, POLL_INTERVAL)
-      checkAvailability()
-    }
-
-    function handleOpenChat (evt) {
-      evt.preventDefault()
-      var redirect = this.getAttribute('data-redirect')
-      redirect === 'true' ? window.location.href = openUrl : window.open(openUrl, 'newwin', 'width=366,height=516')
-    }
-
-    function checkAvailability () {
-      var done = function () {
-        if (request.readyState === 4 && request.status === 200) {
-          apiSuccess(JSON.parse(request.response))
-        } else {
-          apiError()
-        }
-      }
-
-      var request = new XMLHttpRequest()
-      request.open('GET', availabilityUrl, true)
-      request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-      request.addEventListener('load', done.bind(this))
-      request.timeout = AJAX_TIMEOUT
-
-      request.send()
-    }
-
-    function apiSuccess (result) {
-      var validState, state
-
-      if (Object.prototype.hasOwnProperty.call(result, 'inHOP')) {
-        validState = API_STATES.indexOf(result.status.toUpperCase()) !== -1
-        state = validState ? result.status : 'ERROR'
-        if (result.inHOP === 'true') {
-          if (result.availability === 'true') {
-            if (result.status === 'online') {
-              state = 'AVAILABLE'
-            }
-            if (result.status === 'busy') {
-              state = 'AVAILABLE'
-            }
-            if (result.status === 'offline') {
-              state = 'UNAVAILABLE'
-            }
-          } else {
-            if (result.status === 'busy') {
-              state = 'BUSY'
-            } else {
-              state = 'UNAVAILABLE'
-            }
-          }
-        } else {
-          state = 'UNAVAILABLE'
-        }
-      } else {
-        validState = API_STATES.indexOf(result.response) !== -1
-        state = validState ? result.response : 'ERROR'
-      }
-      advisorStateChange(state)
-    }
-
-    function apiError () {
-      clearInterval(intervalID)
-      advisorStateChange('ERROR')
-    }
-
-    function advisorStateChange (state) {
-      state = state.toLowerCase()
-      var currentState = el.querySelector('[class^="' + webchatStateClass + state + '"]')
-      var allStates = el.querySelectorAll('[class^="' + webchatStateClass + '"]')
-
-      for (var index = 0; index < allStates.length; index++) {
-        allStates[index].classList.add('govuk-!-display-none')
-      }
-      currentState.classList.remove('govuk-!-display-none')
-    }
-
-    init()
+    this.openUrl = this.module.getAttribute('data-open-url')
+    this.availabilityUrl = this.module.getAttribute('data-availability-url')
+    this.openButton = this.module.querySelector('.js-webchat-open-button')
+    this.webchatStateClass = 'js-webchat-advisers-'
+    this.intervalID = null
+    this.redirect = this.module.getAttribute('data-redirect')
   }
 
-  global.GOVUK.Webchat = Webchat
-})(window)
+  Webchat.prototype.init = function () {
+    if (!this.availabilityUrl || !this.openUrl) {
+      throw new Error('urls for webchat not defined', window.location.href)
+    }
+
+    if (this.openButton) {
+      this.openButton.addEventListener('click', this.handleOpenChat.bind(this))
+    }
+    this.intervalID = setInterval(this.checkAvailability.bind(this), this.POLL_INTERVAL)
+    this.checkAvailability()
+  }
+
+  Webchat.prototype.handleOpenChat = function (e) {
+    e.preventDefault()
+    this.redirect === 'true' ? window.location.href = this.openUrl : window.open(this.openUrl, 'newwin', 'width=366,height=516')
+  }
+
+  Webchat.prototype.checkAvailability = function () {
+    var done = function () {
+      if (request.readyState === 4 && request.status === 200) {
+        this.apiSuccess(JSON.parse(request.response))
+      } else {
+        this.apiError()
+      }
+    }
+
+    var request = new XMLHttpRequest()
+    request.open('GET', this.availabilityUrl, true)
+    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+    request.addEventListener('load', done.bind(this))
+    request.timeout = this.AJAX_TIMEOUT
+    request.send()
+  }
+
+  Webchat.prototype.apiSuccess = function (result) {
+    var validState, state
+
+    if (Object.prototype.hasOwnProperty.call(result, 'inHOP')) {
+      validState = this.API_STATES.indexOf(result.status.toUpperCase()) !== -1
+      state = validState ? result.status : 'ERROR'
+      if (result.inHOP === 'true') {
+        if (result.availability === 'true') {
+          if (result.status === 'online') {
+            state = 'AVAILABLE'
+          }
+          if (result.status === 'busy') {
+            state = 'AVAILABLE'
+          }
+          if (result.status === 'offline') {
+            state = 'UNAVAILABLE'
+          }
+        } else {
+          if (result.status === 'busy') {
+            state = 'BUSY'
+          } else {
+            state = 'UNAVAILABLE'
+          }
+        }
+      } else {
+        state = 'UNAVAILABLE'
+      }
+    } else {
+      validState = this.API_STATES.indexOf(result.response) !== -1
+      state = validState ? result.response : 'ERROR'
+    }
+    this.advisorStateChange(state)
+  }
+
+  Webchat.prototype.apiError = function () {
+    clearInterval(this.intervalID)
+    this.advisorStateChange('ERROR')
+  }
+
+  Webchat.prototype.advisorStateChange = function (state) {
+    state = state.toLowerCase()
+    var currentState = this.module.querySelector('[class^="' + this.webchatStateClass + state + '"]')
+    var allStates = this.module.querySelectorAll('[class^="' + this.webchatStateClass + '"]')
+
+    for (var index = 0; index < allStates.length; index++) {
+      allStates[index].classList.add('govuk-!-display-none')
+    }
+    currentState.classList.remove('govuk-!-display-none')
+  }
+
+  Modules.Webchat = Webchat
+})(window.GOVUK.Modules)

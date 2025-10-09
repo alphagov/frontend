@@ -27,7 +27,7 @@ class CallForEvidence < ContentItem
   end
 
   def unopened?
-    !open? && !closed?
+    content_store_response["document_type"] == "call_for_evidence"
   end
 
   def outcome?

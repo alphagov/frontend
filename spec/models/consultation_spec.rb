@@ -72,7 +72,7 @@ RSpec.describe Consultation do
   end
 
   describe "#unopened?" do
-    it "returns true if it has the unopened_consultation document type" do
+    it "returns true if it has the 'consultation' document type" do
       expect(unopened_consultation.unopened?).to be(true)
 
       expect(open_consultation.unopened?).to be(false)

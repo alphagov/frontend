@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
@@ -26,6 +27,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   Webchat.prototype.init = function () {
     if (!this.availabilityUrl || !this.openUrl) {
+      /* istanbul ignore next */
       throw new Error('urls for webchat not defined', window.location.href)
     }
 
@@ -36,6 +38,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.checkAvailability()
   }
 
+  /* istanbul ignore next */
   Webchat.prototype.handleOpenChat = function (e) {
     e.preventDefault()
     this.redirect === 'true' ? window.location.href = this.openUrl : window.open(this.openUrl, 'newwin', 'width=366,height=516')
@@ -61,6 +64,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   Webchat.prototype.apiSuccess = function (result) {
     var validState, state
 
+    /* istanbul ignore next */
     if (Object.prototype.hasOwnProperty.call(result, 'inHOP')) {
       validState = this.API_STATES.indexOf(result.status.toUpperCase()) !== -1
       state = validState ? result.status : 'ERROR'

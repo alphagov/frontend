@@ -31,6 +31,10 @@ class CallForEvidencePresenter < ContentItemPresenter
     end
   end
 
+  def notice_description
+    content_item.unopened? ? I18n.t("formats.call_for_evidence.opens") : ""
+  end
+
 private
 
   def opening_date_midnight?

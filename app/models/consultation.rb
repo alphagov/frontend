@@ -2,6 +2,7 @@ class Consultation < ContentItem
   include Attachments
   include NationalApplicability
   include People
+  include Phases
   include Political
   include SinglePageNotificationButton
   include Updatable

@@ -22,6 +22,7 @@ RSpec.describe Consultation do
   it_behaves_like "it has historical government information", "consultation", "open_consultation"
   it_behaves_like "it can have single page notifications", "consultation", "open_consultation"
   it_behaves_like "it has updates", "consultation", "open_consultation"
+  it_behaves_like "it can have phases", "consultation", "open_consultation"
 
   describe "#contributors" do
     it "returns a list of organisations" do

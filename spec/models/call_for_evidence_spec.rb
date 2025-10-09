@@ -12,6 +12,7 @@ RSpec.describe CallForEvidence do
   it_behaves_like "it has historical government information", "call_for_evidence", "open_call_for_evidence"
   it_behaves_like "it can have single page notifications", "call_for_evidence", "open_call_for_evidence"
   it_behaves_like "it has updates", "call_for_evidence", "open_call_for_evidence"
+  it_behaves_like "it can have phases", "call_for_evidence", "open_call_for_evidence"
 
   describe "#contributors" do
     it "returns a list of organisations" do

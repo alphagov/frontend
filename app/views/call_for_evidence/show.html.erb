@@ -42,14 +42,14 @@
     <% end %>
 
     <% if content_item.unopened? %>
-      <% content_item_unopened = capture do %>
+      <% notice_description = capture do %>
         <%= t("formats.call_for_evidence.opens") %>
         <%= @presenter.on_or_at %>
         <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
       <% end %>
       <%= render "govuk_publishing_components/components/notice", {
         title: @presenter.notice_title,
-        description_text: content_item_unopened,
+        description_text: notice_description,
       } %>
 
     <% elsif content_item.outcome? %>

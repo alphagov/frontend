@@ -9,6 +9,13 @@ module ManualSections
     def page_title
       "#{breadcrumb} - #{manual_page_title}"
     end
+
+    def document_heading
+      document_heading = []
+
+      document_heading << content_store_response["details"]["section_id"] if content_store_response["details"]["section_id"]
+      document_heading << content_store_response["title"] if content_store_response["title"]
+    end
   end
 
 private

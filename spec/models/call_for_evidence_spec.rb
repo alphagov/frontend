@@ -61,7 +61,7 @@ RSpec.describe CallForEvidence do
     end
 
     describe "#unopened?" do
-      it "returns true if it has the unopened_call_for_evidence document type" do
+      it "returns true if it has the 'call_for_evidence' document type" do
         expect(unopened_call_for_evidence.unopened?).to be(true)
 
         expect(open_call_for_evidence.unopened?).to be(false)

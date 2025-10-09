@@ -1,5 +1,3 @@
-var $ = window.jQuery
-
 describe('Webchat', function () {
   var GOVUK = window.GOVUK
 
@@ -13,7 +11,6 @@ describe('Webchat', function () {
       'Available, <div class="js-webchat-open-button">chat now</div>' +
     '</div>' +
   '</div>'
-  var $webchat
   var $advisersUnavailable
   var $advisersBusy
   var $advisersAvailable
@@ -32,17 +29,17 @@ describe('Webchat', function () {
   var jsonNormalisedError = [404, {}, '404 not found']
 
   var fixture
+  var webchat
 
   beforeEach(function () {
     jasmine.Ajax.install()
     fixture = document.createElement('div')
     fixture.innerHTML = INSERTION_HOOK
     document.body.appendChild(fixture)
-    $webchat = $('.js-webchat')
-    $advisersUnavailable = $webchat.find('.js-webchat-advisers-unavailable')
-    $advisersBusy = $webchat.find('.js-webchat-advisers-busy')
-    $advisersAvailable = $webchat.find('.js-webchat-advisers-available')
-    $advisersError = $webchat.find('.js-webchat-advisers-error')
+    $advisersUnavailable = fixture.querySelector('.js-webchat-advisers-unavailable')
+    $advisersBusy = fixture.querySelector('.js-webchat-advisers-busy')
+    $advisersAvailable = fixture.querySelector('.js-webchat-advisers-available')
+    $advisersError = fixture.querySelector('.js-webchat-advisers-error')
   })
 
   afterEach(function () {
@@ -52,11 +49,8 @@ describe('Webchat', function () {
 
   describe('on valid application locations', function () {
     function mount () {
-      var webchats = document.querySelectorAll('.js-webchat')
-      for (var i = 0; i < webchats.length; i++) {
-        /* eslint-disable no-new */
-        new GOVUK.Webchat(webchats[i])
-      }
+      webchat = new GOVUK.Modules.Webchat(fixture.querySelector('.js-webchat'))
+      webchat.init()
     }
 
     it('should poll for availability', function () {
@@ -71,42 +65,42 @@ describe('Webchat', function () {
     it('should inform user whether advisors are available', function () {
       mount()
       jasmine.Ajax.requests.mostRecent().respondWith(jsonNormalisedAvailable)
-      expect($advisersAvailable.hasClass('govuk-!-display-none')).toBe(false)
+      expect($advisersAvailable.classList.contains('govuk-!-display-none')).toBe(false)
 
-      expect($advisersBusy.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersError.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersUnavailable.hasClass('govuk-!-display-none')).toBe(true)
+      expect($advisersBusy.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersError.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersUnavailable.classList.contains('govuk-!-display-none')).toBe(true)
     })
 
     it('should inform user whether advisors are unavailable', function () {
       mount()
       jasmine.Ajax.requests.mostRecent().respondWith(jsonNormalisedUnavailable)
-      expect($advisersUnavailable.hasClass('govuk-!-display-none')).toBe(false)
+      expect($advisersUnavailable.classList.contains('govuk-!-display-none')).toBe(false)
 
-      expect($advisersAvailable.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersBusy.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersError.hasClass('govuk-!-display-none')).toBe(true)
+      expect($advisersAvailable.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersBusy.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersError.classList.contains('govuk-!-display-none')).toBe(true)
     })
 
     it('should inform user whether advisors are busy', function () {
       mount()
       jasmine.Ajax.requests.mostRecent().respondWith(jsonNormalisedBusy)
-      expect($advisersBusy.hasClass('govuk-!-display-none')).toBe(false)
+      expect($advisersBusy.classList.contains('govuk-!-display-none')).toBe(false)
 
-      expect($advisersAvailable.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersError.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersUnavailable.hasClass('govuk-!-display-none')).toBe(true)
+      expect($advisersAvailable.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersError.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersUnavailable.classList.contains('govuk-!-display-none')).toBe(true)
     })
 
     it('should inform user whether there was an error', function () {
       mount()
       jasmine.Ajax.requests.mostRecent().respondWith(jsonNormalisedError)
 
-      expect($advisersError.hasClass('govuk-!-display-none')).toBe(false)
+      expect($advisersError.classList.contains('govuk-!-display-none')).toBe(false)
 
-      expect($advisersAvailable.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersBusy.hasClass('govuk-!-display-none')).toBe(true)
-      expect($advisersUnavailable.hasClass('govuk-!-display-none')).toBe(true)
+      expect($advisersAvailable.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersBusy.classList.contains('govuk-!-display-none')).toBe(true)
+      expect($advisersUnavailable.classList.contains('govuk-!-display-none')).toBe(true)
     })
   })
 })

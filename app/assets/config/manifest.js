@@ -9,7 +9,6 @@
 //= link views/landing_page/map/data/cdc.geojson.js
 //= link views/landing_page/map/data/hub.geojson.js
 //= link views/landing_page/map/data/icb.geojson.js
-//= link webchat.js
 
 //= link static-error-pages.js
 

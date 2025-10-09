@@ -295,6 +295,10 @@ RSpec.describe "CallForEvidence" do
 
       expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
     end
+
+    it "does not display the status notice banner" do
+      expect(page).not_to have_css(".gem-c-notice__title")
+    end
   end
 
   context "when visiting an unopened call for evidence page" do
@@ -403,6 +407,10 @@ RSpec.describe "CallForEvidence" do
           expect(page).to have_link("another website", href: content_store_response.dig("details", "held_on_another_website_url"))
         end
       end
+    end
+
+    it "does not display the status notice banner" do
+      expect(page).not_to have_css(".gem-c-notice__title")
     end
 
     it "does not display ways to respond" do

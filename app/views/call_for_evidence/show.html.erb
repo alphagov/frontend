@@ -42,7 +42,7 @@
     <% end %>
 
     <% if content_item.unopened? || content_item.outcome? %>
-      <%= render partial: "notice" %>
+      <%= render partial: "shared/phased/notice" %>
     <% end %>
 
     <% if content_item.outcome? %>

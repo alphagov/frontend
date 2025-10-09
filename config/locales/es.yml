@@ -233,20 +233,49 @@ es:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Consulta cerrada
+        other: Consultas cerradas
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: "y"
+      another_website_html: Esta consulta %{closed} se realizó en <a href='%{url}'>otro sitio web</a>
+      at: en
+      closes: Cierra a las
+      closes_at: Esta consulta se cierra a las
+      complete_a: Complete un/a
+      concluded:
+      description: Descripción de la consulta
+      detail_of_feedback_received: Detalle de los comentarios recibidos
+      detail_of_outcome: Detalle del resultado
+      documents: Documentos
+      download_outcome: Descargue el resultado completo
+      either: cualquiera
+      email_to: 'correo electrónico para:'
+      feedback_received: Comentarios recibidos
+      is_being: es ser
       name:
-        one:
-        other:
+        one: Consulta
+        other: Consultas
+      not_open_yet: Esta consulta no está abierta todavía
+      'on':
+      opens: Se abre esta consulta
+      or:
+      original_consultation: Consulta original
+      ran_from: Esta consulta fue de
+      respond_online: Responda en línea
+      summary:
+      visit_soon: Vuelva a visitar esta página pronto para descargar los resultados de este comentario&nbsppúblico.
+      was: era
+      ways_to_respond: Formas de responder
+      write_to: 'Escribir a:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Resultado de la consulta
+        other: Resultados de la consulta
     corporate_information_page:
       about_our_services_html: Descubra %{link}.
       corporate_information: Información corporativa
@@ -504,8 +533,8 @@ es:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consulta abierta
+        other: Consultas abiertas
     oral_statement:
       name:
         one: Declaración formulada oralmente

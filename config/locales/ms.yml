@@ -224,16 +224,45 @@ ms:
         other:
     closed_consultation:
       name:
-        other:
+        other: Rundingan tertutup
     cma_case:
       name:
         other:
     consultation:
+      analysing_feedback:
+      and: dan
+      another_website_html: Perundingan ini %{closed} telah diadakan di <a href="%{url}">laman web lain</a>
+      at: di
+      closes: Ditutup pada
+      closes_at: Perundingan ini ditutup pada
+      complete_a: Lengkapkan
+      concluded:
+      description: Huraian perundingan
+      detail_of_feedback_received: Butiran maklum balas diterima
+      detail_of_outcome: Butiran hasil
+      documents: Dokumen
+      download_outcome: Muat turun hasil penuh
+      either: sama ada
+      email_to: 'E-mel kepada:'
+      feedback_received: Maklum balas diterima
+      is_being: sedang
       name:
-        other:
+        other: Rundingan
+      not_open_yet: Perundingan ini masih belum dibuka
+      'on':
+      opens: Perundingan ini dibuka
+      or:
+      original_consultation: Perundingan asal
+      ran_from: Perundingan ini berjalan dari
+      respond_online: Jawab dalam talian
+      summary:
+      visit_soon: Lawati laman ini semula untuk muat turun hasil maklum balas awam ini.
+      was: adalah
+      ways_to_respond: Cara untuk menjawab
+      write_to: 'Tulis kepada:'
     consultation_outcome:
       name:
-        other:
+        other: Hasil rundingan
     corporate_information_page:
       about_our_services_html: Ketahui %{link}.
       corporate_information: Maklumat korporat
@@ -455,7 +484,7 @@ ms:
         other:
     open_consultation:
       name:
-        other:
+        other: Rundingan terbuka
     oral_statement:
       name:
         other: Kenyataan lisan kepada Parlimen

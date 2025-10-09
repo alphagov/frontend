@@ -233,20 +233,49 @@ it:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Consultazione chiusa
+        other: Consultazioni chiuse
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: e
+      another_website_html: Questa consultazione %{closed} tenuta su <a href=”%{url}”>un altro sito web</a>
+      at: in
+      closes: Si chiude alle
+      closes_at: Questa consultazione si chiude alle
+      complete_a: Completa un
+      concluded:
+      description: Descrizione della consultazione
+      detail_of_feedback_received: Dettagli del feedback ricevuto
+      detail_of_outcome: Dettagli dell’esito
+      documents: Documenti
+      download_outcome: Scarica l’esito completo
+      either: o
+      email_to: 'Invia una e-mail a:'
+      feedback_received: Feedback ricevuto
+      is_being: viene
       name:
-        one:
-        other:
+        one: Consultazione
+        other: Consultazioni
+      not_open_yet: Questa consultazione non è ancora aperta
+      'on':
+      opens: Questa consultazione si apre
+      or:
+      original_consultation: Consultazione originale
+      ran_from: Questa consultazione è partita da
+      respond_online: Rispondi online
+      summary:
+      visit_soon: Visita presto questa pagina per scaricare il risultato in questo feedback pubblico.
+      was: era
+      ways_to_respond: Modi di rispondere
+      write_to: 'Scrivi a:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Esito della consultazione
+        other: Esiti della consultazione
     corporate_information_page:
       about_our_services_html: Trova %{link}.
       corporate_information: Informazioni aziendali
@@ -504,8 +533,8 @@ it:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consultazione aperta
+        other: Consultazioni aperte
     oral_statement:
       name:
         one: Dichiarazione orale al Parlamento

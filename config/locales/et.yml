@@ -233,20 +233,49 @@ et:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Suletud konsultatsioon
+        other: Suletud konsultatsioonid
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: ja
+      another_website_html: See konsultatsioon %{closed} toimus <a href="%{url}">teisel veebisaidil</a>
+      at: kl
+      closes: See lõpeb kl
+      closes_at: See konsultatsioon lõpeb kell
+      complete_a: Täitke
+      concluded:
+      description: Konsultatsiooni kirjeldus
+      detail_of_feedback_received: Tagasiside üksikasjad saadud
+      detail_of_outcome: Tulemuse üksikasjad
+      documents: Dokumendid
+      download_outcome: Laadi alla täielik tulemus
+      either: kas
+      email_to: 'E-posti adressaat:'
+      feedback_received: Tagasiside saadud
+      is_being: 'on'
       name:
-        one:
-        other:
+        one: Konsultatsioon
+        other: Konsultatsioonid
+      not_open_yet: See konsultatsioon pole veel alanud
+      'on':
+      opens: See konsultatsioon algab
+      or:
+      original_consultation: Algne konsultatsioon
+      ran_from: See konsultatsioon kestis
+      respond_online: Vastake võrgus
+      summary:
+      visit_soon: Külastage seda lehte peagi uuesti, et selle avalik tagasiside alla laadida.
+      was: oli
+      ways_to_respond: Vastamise viisid
+      write_to: 'Kirja adressaat:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Konsultatsiooni tulemus
+        other: Konsultatsiooni tulemused
     corporate_information_page:
       about_our_services_html: Uuri välja %{link}.
       corporate_information: Ettevõtte teave
@@ -504,8 +533,8 @@ et:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Avatud konsultatsioon
+        other: Avatud konsultatsioonid
     oral_statement:
       name:
         one: Suuline avaldus parlamendile

@@ -224,16 +224,45 @@ ja:
         other:
     closed_consultation:
       name:
-        other:
+        other: 非公開審議
     cma_case:
       name:
         other:
     consultation:
+      analysing_feedback:
+      and: および
+      another_website_html: この審議%{closed}は、<ahref = "%{url}">別のウェブサイト</a>で行われました
+      at: 時間：
+      closes: 終了時間：
+      closes_at: 審議終了時間：
+      complete_a: 次を完成させる：
+      concluded:
+      description: 審議内容
+      detail_of_feedback_received: 受け取ったフィードバックの詳細
+      detail_of_outcome: 結果の詳細
+      documents: ドキュメント
+      download_outcome: 完全な結果をダウンロードする
+      either: どちらか
+      email_to: Eメール送信先：
+      feedback_received: フィードバックを受信しました
+      is_being: 継続中
       name:
-        other:
+        other: 審議
+      not_open_yet: この審議はまだ開かれていません
+      'on':
+      opens: この審議が始まります
+      or:
+      original_consultation: 当初の審議
+      ran_from: この審議が始まった時間：
+      respond_online: オンラインで返信する
+      summary:
+      visit_soon: この一般向けフィードバックの結果をダウンロードするには、すぐにこのページにアクセスしてください。
+      was: 終了
+      ways_to_respond: 対応方法
+      write_to: 書き込み先：
     consultation_outcome:
       name:
-        other:
+        other: 審議結果
     corporate_information_page:
       about_our_services_html: "%{link} をご覧ください。"
       corporate_information: 各種情報
@@ -455,7 +484,7 @@ ja:
         other:
     open_consultation:
       name:
-        other:
+        other: 公開審議
     oral_statement:
       name:
         other: 議会への口頭声明

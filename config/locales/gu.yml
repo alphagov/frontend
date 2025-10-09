@@ -233,20 +233,49 @@ gu:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: બંધ થયેલ પરામર્શ
+        other: બંધ થયેલા પરામર્શ
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: અને
+      another_website_html: આ પરામર્શ %{closed} ના રોજ <a href="%{url}">અન્ય વેબસાઇટ</a> પર આયોજિત કરેલ છે
+      at: ખાતે
+      closes: તે સમાપ્ત થાય છે
+      closes_at: આ પરામર્શ ના રોજ સમાપ્ત થાય છે
+      complete_a: પૂર્ણ કરો
+      concluded:
+      description: પરામર્શ વર્ણન
+      detail_of_feedback_received: પ્રાપ્ત ફીડબૅકની વિગતો
+      detail_of_outcome: પરિણામોની વિગતો
+      documents: દસ્તાવેજો
+      download_outcome: સંપૂર્ણ પરિણામ ડાઉનલોડ કરો
+      either: અથવા
+      email_to: 'અહીં ઈમેલ કરો:'
+      feedback_received: 'પ્રાપ્ત ફીડબૅક '
+      is_being: છે
       name:
-        one:
-        other:
+        one: પરામર્શ
+        other: પરામર્શ
+      not_open_yet: આ પરામર્શ હજુ સુધી શરૂ થયેલ નથી
+      'on':
+      opens: આ પરામર્શ શરૂ થાય છે
+      or:
+      original_consultation: મૂળ પરામર્શ
+      ran_from: આ પરામર્શ થી ચાલુ
+      respond_online: ઓનલાઇન પ્રતિભાવ આપો
+      summary:
+      visit_soon: આ public&nbspના પરિણામો ડાઉનલોડ કરવા માટે આ પેજની જલ્દી મુલાકાત લો;ફીડબૅક.
+      was: હતું
+      ways_to_respond: પ્રતિભાવ આપવાની રીતો
+      write_to: 'ને લખો:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: પરામર્શનો પરિણામ
+        other: પરમર્શના પરિણામો
     corporate_information_page:
       about_our_services_html: "%{link} શોધી કાઢો."
       corporate_information: કોર્પોરેટ માહિતી
@@ -504,8 +533,8 @@ gu:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: ખુલ્લો પરામર્શ
+        other: ખુલ્લા પરામર્શ
     oral_statement:
       name:
         one: સંસદમાં મૌખિક નિવેદન

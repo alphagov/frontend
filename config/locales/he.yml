@@ -233,20 +233,49 @@ he:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: דיון סגור
+        other: דיונים סגורים
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: ו
+      another_website_html: דיון זה %{closed} התקיים ב <a href="%{url}">אתר אחר</a>
+      at: ב-
+      closes: הוא נסגר ב
+      closes_at: דיון זו נסגר ב
+      complete_a: השלם
+      concluded:
+      description: תיאור הדיון
+      detail_of_feedback_received: פירוט המשוב שהתקבל
+      detail_of_outcome: פירוט התוצאה
+      documents: מסמכים
+      download_outcome: הורדת התוצאה המלאה
+      either: או
+      email_to: 'שלח דואר אלקטרוני אל:'
+      feedback_received: המשוב התקבל
+      is_being: להיות
       name:
-        one:
-        other:
+        one: דיון
+        other: דיונים
+      not_open_yet: הדיון הזה עדיין לא פתוח
+      'on':
+      opens: דיון זה נפתח
+      or:
+      original_consultation: דיון מקורי
+      ran_from: דיון זו נערך מ-
+      respond_online: להגיב באינטרנט
+      summary:
+      visit_soon: בקר בדף זה שוב בקרוב כדי להוריד את התוצאה &nbspלמשוב הציבורי הזה
+      was: היה
+      ways_to_respond: דרכים להגיב
+      write_to: 'כתוב ל:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: תוצאות דיון
+        other: תוצאות דיונים
     corporate_information_page:
       about_our_services_html: גלה %{link}.
       corporate_information: מידע תאגידי
@@ -504,8 +533,8 @@ he:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: דיון פתוח
+        other: דיונים  פתוחים
     oral_statement:
       name:
         one: הצהרה בעל פה לפרלמנט

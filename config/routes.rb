@@ -96,6 +96,8 @@ Rails.application.routes.draw do
 
     get "/collections/:slug", to: "document_collection#show", as: :document_collection
 
+    get "/consultations/:slug(.:locale)", to: "consultation#show"
+
     get "/fatalities/:slug", to: "fatality_notice#show", as: :fatality_notice
 
     scope "/fields-of-operation" do

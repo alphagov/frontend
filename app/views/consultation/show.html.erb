@@ -1,0 +1,162 @@
+<% content_for :title do %>
+  <%= @presenter.page_title %> - GOV.UK
+<% end %>
+
+<% content_for :head do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+<% end %>
+
+<%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
+
+<%= render "shared/header" %>
+
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(@presenter.contributor_links),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
+
+<%= render "shared/single_page_notification_button", content_item: %>
+
+<%= render "shared/history_notice", content_item: %>
+
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+  <%= render "govuk_publishing_components/components/notice", {
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation&.html_safe,
+    time: withdrawn_time_tag,
+    lang: "en",
+  } %>
+<% end %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% if content_item.national_applicability.present? %>
+      <%= render "govuk_publishing_components/components/devolved_nations", {
+        national_applicability: content_item.national_applicability,
+        content_type: content_item.schema_name,
+      } %>
+    <% end %>
+
+    <%= render partial: "notice" %>
+
+    <% if content_item.final_outcome? %>
+      <%= render "shared/attachments_list",
+        title: t("formats.consultation.download_outcome"),
+        attachments_for_components: content_item.final_outcome_attachments_for_components %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("formats.consultation.detail_of_outcome"),
+        margin_bottom: 4,
+      } %>
+      <div class="consultation-outcome-detail">
+        <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
+        } do %>
+          <%= raw(content_item.final_outcome_detail) %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= render "shared/attachments_list",
+      title: t("formats.consultation.feedback_received"),
+      attachments_for_components: content_item.public_feedback_attachments_for_components %>
+    <% if content_item.public_feedback_detail %>
+      <%= render "govuk_publishing_components/components/heading", {
+        margin_bottom: 4,
+        text: t("formats.consultation.detail_of_feedback_received"),
+      } %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(content_item.public_feedback_detail) %>
+      <% end %>
+    <% end %>
+
+    <% if content_item.final_outcome? %>
+      <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
+        <header>
+          <%= render "govuk_publishing_components/components/heading", {
+            heading_level: 2,
+            id: "original-consultation-title",
+            margin_bottom: 4,
+            text: t("formats.consultation.original_consultation"),
+          } %>
+        </header>
+    <% end %>
+
+    <%= render partial: "summary_banner" %>
+
+    <%= render "govuk_publishing_components/components/heading", {
+      margin_bottom: 4,
+      text: t("formats.consultation.description"),
+    } %>
+
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <%= raw(content_item.body.html_safe) %>
+    <% end %>
+
+    <%= render "shared/attachments_list",
+      title: t("formats.consultation.documents"),
+      attachments_for_components: content_item.documents_attachments_for_components %>
+
+    <% if content_item.ways_to_respond? %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("formats.consultation.ways_to_respond"),
+        id: "ways-to-respond",
+        margin_bottom: 4,
+      } %>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <% if content_item.respond_online_url %>
+          <div class="call-to-action">
+            <p><%= link_to t("formats.consultation.respond_online"), content_item.respond_online_url %></p>
+          </div>
+
+          <% if content_item.email || content_item.postal_address %>
+            <p><%= t("formats.consultation.or") %></p>
+          <% end %>
+        <% end %>
+
+        <% if content_item.response_form? %>
+          <p>
+            <%= t("formats.consultation.complete_a") %> <%= link_to "response form", content_item.attachment_url %> <%= t("formats.consultation.and") %>
+            <%= t("formats.consultation.either") if content_item.email && content_item.postal_address %>
+          </p>
+        <% end %>
+
+        <% if content_item.email %>
+          <h3><%= t("formats.consultation.email_to") %></h3>
+          <p><%= mail_to content_item.email, content_item.email %></p>
+        <% end %>
+
+        <% if content_item.postal_address %>
+          <h3><%= t("formats.consultation.write_to") %></h3>
+          <div class="contact">
+            <div class="content">
+              <%= simple_format(content_item.postal_address) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <div class="content-bottom-margin">
+      <div class="govuk-!-display-none-print responsive-bottom-margin">
+        <%= render "govuk_publishing_components/components/share_links",
+          links: share_links(content_item.base_path, content_item.title),
+          track_as_sharing: true,
+          title: t("components.share_links.share_this_page") %>
+      </div>
+
+      <%= render "shared/published_dates_with_notification_button" %>
+    </div>
+  </div>
+  <%= render "shared/sidebar_navigation" %>
+</div>
+
+<%= render "shared/footer_navigation" %>

@@ -233,20 +233,49 @@ de:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Abgeschlossene Beratung
+        other: Abgeschlossene Beratungen
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: und
+      another_website_html: Diese Anhörung %{closed} fand auf einer <a href="%{url}">anderen Website</a> statt
+      at: um
+      closes: Sie schließt um
+      closes_at: Diese Anhörung endet um
+      complete_a: Vervollständigen einer
+      concluded:
+      description: Beschreibung der Anhörung
+      detail_of_feedback_received: Einzelheiten zur erhaltenen Rückmeldung
+      detail_of_outcome: Einzelheiten zum Ergebnis
+      documents: Dokumente
+      download_outcome: Download der vollständigen Ergebnisse
+      either: entweder
+      email_to: 'Email an:'
+      feedback_received: Erhaltene Rückmeldungen
+      is_being: wird
       name:
-        one:
-        other:
+        one: Beratung
+        other: Beratungen
+      not_open_yet: Diese Anhörung ist noch nicht eröffnet
+      'on':
+      opens: Diese Anhörung wird eröffnet
+      or:
+      original_consultation: Originale Anhörung
+      ran_from: Diese Anhörung lief ab
+      respond_online: Online antworten
+      summary:
+      visit_soon: Besuchen Sie diese Seite bald wieder, um das Ergebnis dieser öffentlichen Rückmeldung herunterzuladen.
+      was: war
+      ways_to_respond: Möglichkeiten, um zu antworten
+      write_to: 'Schreiben Sie an:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Beratungsergebnis
+        other: Beratungsergebnisse
     corporate_information_page:
       about_our_services_html: Finden Sie es heraus %{link}.
       corporate_information: Unternehmensinformationen
@@ -504,8 +533,8 @@ de:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Laufende Beratung
+        other: Laufende Beratungen
     oral_statement:
       name:
         one: Mündliche Erklärung vor dem Parlament

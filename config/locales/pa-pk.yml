@@ -233,20 +233,49 @@ pa-pk:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: مشاورت بند ہوئی
+        other: مشاورت بند ہوئی
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: ہور
+      another_website_html: ایہ مشورہ  %{closed}ایندے تے وقوعہ ہویا <a href="%{url}">دُوسری ویب سائٹ</a>
+      at: ایندے تے
+      closes: ایہ ایندے تے بند ہوندا اے
+      closes_at: ایہ مشاورت ایندے تے بند ہوندی اے
+      complete_a: اک پُورا کرو
+      concluded:
+      description: مشاورت دی وضاحت
+      detail_of_feedback_received: موصول شُدہ جواب دی تفصیل
+      detail_of_outcome: نتیجے دی تفصیل
+      documents: دستاویزات
+      download_outcome: سارے نتائج ڈاؤن لوڈ کرو
+      either: کوئی اک
+      email_to: اینوں ای میل کرو
+      feedback_received: جواب مل گیا
+      is_being: ایہ وی
       name:
-        one:
-        other:
+        one: مشورہ
+        other: 'مشورے '
+      not_open_yet: ایہ مشاورت ہلے نئیں کُھلی
+      'on':
+      opens: ایہ مشاورت کُھل گئی اے
+      or:
+      original_consultation: اصلی مشاورت
+      ran_from: ایہ مشاورت داچلایا ہویا فارم اے
+      respond_online: آن لائن جاب دیوؤ
+      summary:
+      visit_soon: ایس ورقے تے چھیتی واپس آؤ عوام ولوں دتے گئے جواب نوں ڈاؤن لوڈ کرو جواب۔
+      was: او سی
+      ways_to_respond: جواب دین دے طریقے
+      write_to: اینوں لکھو
     consultation_outcome:
       name:
-        one:
-        other:
+        one: مشورے دا نتیجہ
+        other: مشورے دے نتائج
     corporate_information_page:
       about_our_services_html: اینوں لبھو %{link}.
       corporate_information: کاروبار دی معلومات
@@ -504,8 +533,8 @@ pa-pk:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: 'کُھلی مشاورت '
+        other: 'کُھلی مشاورت '
     oral_statement:
       name:
         one: قومی مجلس دے سامنے زبانی بیان

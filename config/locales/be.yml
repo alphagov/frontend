@@ -253,8 +253,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Закрытая кансультацыя
+        other: Закрытыя кансультацыі
     cma_case:
       name:
         few:
@@ -262,17 +262,46 @@ be:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: і
+      another_website_html: Гэта кансультацыя %{closed}  праводзілася на <a href="%{url}">іншым сайце</a>
+      at: на
+      closes: Ён зачыняецца ў
+      closes_at: Кансультацыі завяршаюцца ў
+      complete_a: Скончыць
+      concluded:
+      description: Апісанне кансультацыі
+      detail_of_feedback_received: Падрабязная інфармацыя аб атрыманых водгуках
+      detail_of_outcome: Дэталізацыя вынікаў
+      documents: Дакументы
+      download_outcome: Скачать полный отчет о результатах
+      either: альбо
+      email_to: 'На адрас электроннай пошты:'
+      feedback_received: Водгукі атрыманы
+      is_being: з'яўляцца
       name:
         few:
         many:
-        one:
-        other:
+        one: Кансультацыя
+        other: Кансультацыі
+      not_open_yet: Гэта кансультацыя яшчэ не адкрыта
+      'on':
+      opens: Гэта кансультацыя адкрываецца
+      or:
+      original_consultation: Арыгінальная кансультацыя
+      ran_from: Кансультацыя доўжылася з
+      respond_online: Адказаць анлайн
+      summary:
+      visit_soon: Наведайце гэту старонку зноў хуткім часам, каб скачаць вынікі гэтай зваротнай сувязі з грамадскасцю.
+      was: было
+      ways_to_respond: Спосабы рэагавання
+      write_to: 'Пішыце па адрасе:'
     consultation_outcome:
       name:
         few:
         many:
-        one:
-        other:
+        one: Вынік кансультацыі
+        other: Вынікі кансультацыі
     corporate_information_page:
       about_our_services_html: Даведайцеся %{link}.
       corporate_information: Карпаратыўная іфармацыя
@@ -604,8 +633,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Адкрытая кансультацыя
+        other: Адкрытыя кансультацыі
     oral_statement:
       name:
         few:

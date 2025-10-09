@@ -233,20 +233,49 @@ bn:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: ক্লোজড কনসাল্টেশন
+        other: ক্লোজড কনসাল্টেশন
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: এবং
+      another_website_html: এই পরামর্শটি %{closed} <a href="%{url}">আরেকটি ওয়েবসাইটে</a> অনুষ্ঠিত হয়
+      at: এ
+      closes: এটি বন্ধ হচ্ছে
+      closes_at: এই পরামর্শটি বন্ধ হচ্ছে
+      complete_a: একটি সম্পন্ন করুন
+      concluded:
+      description: পরামর্শের বর্ণনা
+      detail_of_feedback_received: ফিডব্যাকের বিস্তারিত গৃহীত হয়েছে
+      detail_of_outcome: ফলাফলের বিস্তারিত
+      documents: নথিপত্র
+      download_outcome: সম্পূর্ণ ফলাফল ডাউনলোড করুন
+      either: হয়তো
+      email_to: 'এখানে ইমেইল করুন:'
+      feedback_received: ফিডব্যাক গৃহীত হয়েছে
+      is_being: হয়েছে
       name:
-        one:
-        other:
+        one: পরামর্শ
+        other: পরামর্শ
+      not_open_yet: এই পরামর্শটি এখনও চালু হয়নি
+      'on':
+      opens: এই পরামর্শটি চালু হচ্ছে
+      or:
+      original_consultation: মূল পরামর্শ
+      ran_from: এই পরামর্শটি যেখান থেকে চলেছে
+      respond_online: অনলাইনে উত্তর দিন
+      summary:
+      visit_soon: সর্বসাধারণের ফিডব্যাকের এই ফলাফল ডাউনলোড করতে শীঘ্রই পুনরায় এই পেজটি ভিজিট করুন।
+      was: ছিল
+      ways_to_respond: উত্তর দেওয়ার উপায়
+      write_to: 'যার কাছে লিখবেন:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: পরামর্শের ফলাফল
+        other: পরামর্শের ফলাফল
     corporate_information_page:
       about_our_services_html: "%{link} খুঁজুন।"
       corporate_information: কর্পোরেট তথ্য
@@ -504,8 +533,8 @@ bn:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: উম্মুক্ত পরামর্শ
+        other: উম্মুক্ত পরামর্শসমূহ
     oral_statement:
       name:
         one: সংসদে মৌখিক বিবৃতি

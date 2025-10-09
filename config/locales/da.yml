@@ -233,20 +233,49 @@ da:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Lukket konsultation
+        other: Lukkede konsultationer
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: og
+      another_website_html: Denne konsultation %{closed} blev afholdt på <a href="%{url}">en anden hjemmeside</a>
+      at: på
+      closes: Den lukker kl.
+      closes_at: Denne konsultation lukker kl.
+      complete_a: Fuldfør en
+      concluded:
+      description: Konsultationsbeskrivelse
+      detail_of_feedback_received: Nærmere oplysninger om modtaget feedback
+      detail_of_outcome: Nærmere oplysninger om resultatet
+      documents: Dokumenter
+      download_outcome: Download det fulde resultat
+      either: enten
+      email_to: 'E-mail til:'
+      feedback_received: Feedback modtaget
+      is_being: er ved at blive
       name:
-        one:
-        other:
+        one: Konsultation
+        other: Konsultationer
+      not_open_yet: Denne høring er ikke åben endnu
+      'on':
+      opens: Denne konsultation åbner
+      or:
+      original_consultation: original konsultation
+      ran_from: Denne konsultation løb fra
+      respond_online: Svar online
+      summary:
+      visit_soon: Besøg denne side igen snart for at downloade resultatet til denne offentlige feedback.
+      was: var
+      ways_to_respond: Måder at reagere på
+      write_to: 'Skriv til:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Resultatet af høringen
+        other: Resultater af høringen
     corporate_information_page:
       about_our_services_html: Find ud af %{link}.
       corporate_information: Virksomhedsoplysninger
@@ -504,8 +533,8 @@ da:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Åben konsultation
+        other: Åbne konsultationer
     oral_statement:
       name:
         one: Mundtlig erklæring til Parlamentet

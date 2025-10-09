@@ -233,20 +233,49 @@ fr:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Consultation fermée
+        other: Consultations fermées
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: et
+      another_website_html: Cette consultation %{closed} s'est tenue sur <a href="%{url}">un autre site Web</a>
+      at: à
+      closes: Elle s'achève à
+      closes_at: Cette consultation s'achève à
+      complete_a: Remplissez un
+      concluded:
+      description: Description de la consultation
+      detail_of_feedback_received: Détail des commentaires reçus
+      detail_of_outcome: Détail du résultat
+      documents: Documents
+      download_outcome: Télécharger la totalité des résultats
+      either: Soit
+      email_to: 'Envoyer un courriel à:'
+      feedback_received: Commentaire reçu
+      is_being: est en train de
       name:
-        one:
-        other:
+        one: Consultation
+        other: Consultations
+      not_open_yet: Cette consultation n'a pas encore débuté.
+      'on':
+      opens: Cette consultation a débuté.
+      or:
+      original_consultation: Consultation originale
+      ran_from: Cette consultation s'est tenue du
+      respond_online: Répondre en ligne
+      summary:
+      visit_soon: Consultez à nouveau cette page prochainement pour télécharger le résultat de ce feedback public.
+      was: était
+      ways_to_respond: Moyens de répondre
+      write_to: 'Écrire à :'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Résultat de la consultation
+        other: Résultats de la consultation
     corporate_information_page:
       about_our_services_html: Découvrir %{link}.
       corporate_information: Informations sur l'entreprise
@@ -504,8 +533,8 @@ fr:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Consultation ouverte
+        other: Consultations ouvertes
     oral_statement:
       name:
         one: Déclaration orale au Parlement

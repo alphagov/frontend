@@ -233,20 +233,49 @@ hi:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: बंद कमरे में परामर्श
+        other: बंद कमरे में परामर्श
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: और
+      another_website_html: यह परामर्श %{closed} <a href="%{url}">एक अन्य वेबसाइट</a>पर आयोजित किया गया
+      at: पर
+      closes: यह बंद होता है
+      closes_at: यह परामर्श पर बंद होता है
+      complete_a: पूरा करें
+      concluded:
+      description: परामर्श का विवरण
+      detail_of_feedback_received: प्राप्त फीडबैक का विवरण
+      detail_of_outcome: परिणाम का विवरण
+      documents: दस्तावेज़
+      download_outcome: पूरा परिणाम डाउनलोड करें
+      either: या फिर
+      email_to: 'ईमेल करें:'
+      feedback_received: फीडबैक प्राप्त हुआ
+      is_being: हो रहा है
       name:
-        one:
-        other:
+        one: परामर्श
+        other: परामर्श
+      not_open_yet: यह परामर्श अभी तक खोला नहीं गया है
+      'on':
+      opens: यह परामर्श खुलता है
+      or:
+      original_consultation: असली परामर्श
+      ran_from: यह परामर्श चला था
+      respond_online: ऑनलाइन जवाब दें
+      summary:
+      visit_soon: जल्द ही इस पेज में वापस आकर इस सार्वजनिक प्रतिक्रिया का परिणाम डाउनलोड करें।
+      was: था
+      ways_to_respond: जवाब देने के तरीके
+      write_to: 'इसे लिखें:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: परामर्श का नतीजा
+        other: परामर्श के नतीजे
     corporate_information_page:
       about_our_services_html: "%{link} खोजें।"
       corporate_information: कारपोरेट सूचना
@@ -504,8 +533,8 @@ hi:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: खुला परामर्श
+        other: खुले परामर्श
     oral_statement:
       name:
         one: संसद में मौखिक बयान

@@ -233,20 +233,49 @@ fa:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: مشاوره بسته
+        other: مشاوره‌های بسته
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: و
+      another_website_html: این مشاوره %{closed} در <a href="%{url}">وب‌سات دیگر برگزار شد</a>
+      at: در
+      closes: بسته می‌شود در
+      closes_at: این مشاوره بسته می‌شود در
+      complete_a: تکمیل کنید یک
+      concluded:
+      description: توضیحات مشاوره
+      detail_of_feedback_received: جزئیات بازخورد دریافت‌شده
+      detail_of_outcome: جزئیات نتیجه
+      documents: اسناد
+      download_outcome: دانلود نتیجه کامل
+      either: یا
+      email_to: 'ایمیل به:'
+      feedback_received: بازخورد دریافت شد
+      is_being: در حال
       name:
-        one:
-        other:
+        one: مشاوره
+        other: مشاوره‌ها
+      not_open_yet: این مشاوره هنوز باز نشده است
+      'on':
+      opens: این مشاوره باز می‌شود
+      or:
+      original_consultation: مشاوره اصلی
+      ran_from: این مشاوره در حال اجرا است از
+      respond_online: آنلاین پاسخ دهید
+      summary:
+      visit_soon: برای دانلود نتیجه این بازخورد عمومی، خیلی زود دوباره از این صفحه بازدید کنید.
+      was: بود
+      ways_to_respond: راه‌های پاسخ
+      write_to: 'پیام دهید به:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: نتیجه مشاوره
+        other: نتایج مشاوره
     corporate_information_page:
       about_our_services_html: اطلاعات کسب کنید %{link}.
       corporate_information: اطلاعات شرکت
@@ -504,8 +533,8 @@ fa:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: مشاوره باز
+        other: مشاوره‌های باز
     oral_statement:
       name:
         one: بیانیه شفاهی به پارلمان

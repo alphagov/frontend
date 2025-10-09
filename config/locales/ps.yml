@@ -233,20 +233,49 @@ ps:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: له نيژدې مشوره
+        other: له نيژدې مشورې
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: او
+      another_website_html: دا مشوره <a href="%{url}">په بله ویبپا ڼه  کې %{closed}ترسره شوه</a>
+      at: په
+      closes: په کې بندیږي
+      closes_at: دا مشوره په پای کې پای ته رسیږي
+      complete_a: بشپړ کړئ
+      concluded:
+      description: د مشورې توضیحات
+      detail_of_feedback_received: د ترلاسه شوي نظریاتو تفصیل
+      detail_of_outcome: د پایلې تفصیل
+      documents: اسناد
+      download_outcome: بشپړه پایله ډاونلوډ کړئ
+      either: یا هم
+      email_to: 'ته بریښنالیک:'
+      feedback_received: نظر ترلاسه شو
+      is_being: کېږي
       name:
-        one:
-        other:
+        one: مشوره
+        other: مشورې
+      not_open_yet: دا مشوره لاهم خلاص نده
+      'on':
+      opens: دا مشوره خلاصیږي
+      or:
+      original_consultation: اصلي مشوره
+      ran_from: دا مشوره له دې ځایه روانه وه
+      respond_online: آنلاین ځواب ورکړئ
+      summary:
+      visit_soon: ژر تر ژره دې پاڼه څخه لیدنه وکړئ ترڅو دې عامه & nbsp feedback نظریاتو ته پایله ډاونلوډ کړئ.
+      was: وه
+      ways_to_respond: د ځواب ویلو لارې
+      write_to: 'ته یې ولیکئ:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: د مشورې پایله
+        other: د مشورې پایلې
     corporate_information_page:
       about_our_services_html: "%{link} ومومئ."
       corporate_information: د شرکت معلومات
@@ -504,8 +533,8 @@ ps:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: خلاص مشوره
+        other: مشورې خلاص کړئ
     oral_statement:
       name:
         one: پارلماني غونډې ته وینا

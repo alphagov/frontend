@@ -271,8 +271,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة مغلقة
+        other: استشارات مغلقة
         two:
         zero:
     cma_case:
@@ -284,19 +284,48 @@ ar:
         two:
         zero:
     consultation:
+      analysing_feedback:
+      and: و
+      another_website_html: عُقدت هذه الاستشارة %{closed} على <a href="%{url}">موقع ويب آخر</a>
+      at: في
+      closes: موعد الإغلاق
+      closes_at: تُغلق هذه الاستشارة تغلق في
+      complete_a: إكمال
+      concluded:
+      description: وصف الاستشارة
+      detail_of_feedback_received: تفاصيل التعليق المستلم
+      detail_of_outcome: تفاصيل النتيجة
+      documents: المستندات
+      download_outcome: تنزيل النتيجة كاملة
+      either: إما
+      email_to: 'رسالة بريد إلكتروني إلى:'
+      feedback_received: التعليق المستلم
+      is_being: يتم حاليًا
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة
+        other: استشارات
         two:
         zero:
+      not_open_yet: هذه الاستشارة لم تُفتح بعد
+      'on':
+      opens: تفتح هذه الاستشارة
+      or:
+      original_consultation: الاستشارة الأصلية
+      ran_from: أجريت هذه الاستشارة من
+      respond_online: الرد عبر الإنترنت
+      summary:
+      visit_soon: قم بزيارة هذه الصفحة مرة أخرى قريبًا لتنزيل النتيجة لهذه التعليقات العامة.
+      was: كان
+      ways_to_respond: طرق الرد
+      write_to: 'قم بمراسلة:'
     consultation_outcome:
       name:
         few:
         many:
-        one:
-        other:
+        one: نتيجة الاستشارة
+        other: نتائج الاستشارة
         two:
         zero:
     corporate_information_page:
@@ -702,8 +731,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: استشارة مفتوحة
+        other: استشارات مفتوحة
         two:
         zero:
     oral_statement:

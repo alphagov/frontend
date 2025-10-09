@@ -233,20 +233,49 @@ fi:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Suljettu kuuleminen
+        other: Suljetut neuvottelut
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: ja
+      another_website_html: Tämä kuuleminen %{closed} järjestettiin toisella <a href="%{url}">averkkosivustolla</a>
+      at: klo
+      closes: Se sulkeutuu klo
+      closes_at: Tämä kuuleminen päättyy klo
+      complete_a: Täytä
+      concluded:
+      description: Konsultaation kuvaus
+      detail_of_feedback_received: Yksityiskohta saadusta palautteesta
+      detail_of_outcome: Yksityiskohta lopputuloksesta
+      documents: Asiakirjat
+      download_outcome: Lataa koko tulos
+      either: jompikumpi
+      email_to: 'lähetä sähköpostia osoitteeseen:'
+      feedback_received: Palaute Vastaanotettu
+      is_being: osoitteessa
       name:
-        one:
-        other:
+        one: Konsultaatio
+        other: Konsultaatiot
+      not_open_yet: Tämä kuuleminen ei ole vielä auki
+      'on':
+      opens: Tämä kuuleminen avautuu
+      or:
+      original_consultation: Alkuperäinen kuuleminen
+      ran_from: Tämä kuuleminen kesti
+      respond_online: Vastaa verkossa
+      summary:
+      visit_soon: Käy pian uudelleen tällä sivulla ja lataa tämän julkisen palautteen tulokset.
+      was: oli
+      ways_to_respond: Tapoja vastata
+      write_to: 'Kirjoittaa:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Konsultoinnin tulos
+        other: Konsultoinnin tulokset
     corporate_information_page:
       about_our_services_html: Ota selvää %{link}.
       corporate_information: Yritystiedot
@@ -504,8 +533,8 @@ fi:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Avoin kuuleminen
+        other: Avoimet kuulemiset
     oral_statement:
       name:
         one: Suullinen lausuma parlamentille

@@ -253,8 +253,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Закрытая консультация
+        other: Закрытые консультации
     cma_case:
       name:
         few:
@@ -262,17 +262,46 @@ ru:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: и
+      another_website_html: Консультация %{closed} проведенная на <a href="%{url}">другой Веб-сайт</a>
+      at: на
+      closes: Она закрывается на
+      closes_at: Данная консультация закрывается на
+      complete_a: Заполните
+      concluded:
+      description: Описание консультации
+      detail_of_feedback_received: Детали, полученного отзыва
+      detail_of_outcome: Детали результата
+      documents: Документы
+      download_outcome: Скачать результат полностью
+      either: другое
+      email_to: 'Напишите на:'
+      feedback_received: Отзыв получен
+      is_being: сейчас
       name:
         few:
         many:
-        one:
-        other:
+        one: Консультация
+        other: Консультации
+      not_open_yet: Консультация еще не открыта
+      'on':
+      opens: Консультация открывается
+      or:
+      original_consultation: Оригинальная консультация
+      ran_from: Обычная консультация
+      respond_online: Он-лайн ответ
+      summary:
+      visit_soon: Посетите эту страницу снова, чтобы скачать результат данного общественного отзыв.
+      was: был
+      ways_to_respond: Как получить ответ
+      write_to: 'Пишите на:'
     consultation_outcome:
       name:
         few:
         many:
-        one:
-        other:
+        one: Результат консультации
+        other: Результаты консультаций
     corporate_information_page:
       about_our_services_html: Узнайте %{link}.
       corporate_information: Корпоративная информация
@@ -604,8 +633,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Открытая консультация
+        other: Открытые консультации
     oral_statement:
       name:
         few:

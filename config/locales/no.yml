@@ -233,20 +233,49 @@
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Lukket konsultasjon
+        other: Lukkede konsultasjoner
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: og
+      another_website_html: Denne konsultasjonen %{closed} ble avholdt på <a href="%{url}">et annet nettsted</a>
+      at: på
+      closes: Den avsluttes klokken
+      closes_at: Denne konsultasjonen avsluttes klokken
+      complete_a: Fullfør en
+      concluded:
+      description: Konsultasjonsbeskrivelse
+      detail_of_feedback_received: Detalj av mottatt tilbakemelding
+      detail_of_outcome: Detalj av resultatet
+      documents: Dokumenter
+      download_outcome: Last ned hele resultatet
+      either: enten
+      email_to: 'E-post til:'
+      feedback_received: Tilbakemelding mottatt
+      is_being: blir
       name:
-        one:
-        other:
+        one: Konsultasjon
+        other: Konsultasjoner
+      not_open_yet: Denne konsultasjonen er ikke åpen ennå
+      'on':
+      opens: Denne konsultasjonen åpner
+      or:
+      original_consultation: Opprinnelig konsultasjon
+      ran_from: Denne konsultasjonen varte fra
+      respond_online: Svar online
+      summary:
+      visit_soon: Besøk denne siden igjen snart for å laste ned resultatet til denne public feedback.
+      was: var
+      ways_to_respond: Måter å svare på
+      write_to: 'Skriv til:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Konsultasjonsresultat
+        other: Konsultasjonsresultater
     corporate_information_page:
       about_our_services_html: Finn ut %{link}.
       corporate_information: Bedriftsinformasjon
@@ -504,8 +533,8 @@
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Åpen konsultasjon
+        other: Åpne konsultasjoner
     oral_statement:
       name:
         one: Muntlig uttalelse til Stortinget

@@ -233,20 +233,49 @@ sw:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Mashauriano ya watu wachache
+        other: Mashauriano ya watu wachache
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: na
+      another_website_html: Mashauriano haya %{closed} yalifanywa kwenye <a href="%{url}">tovuti nyingine</a>
+      at: saa
+      closes: Yatafungwa saa
+      closes_at: Mashauriano haya yatafungwa saa
+      complete_a: Jaza
+      concluded:
+      description: Maelezo ya mashauriano
+      detail_of_feedback_received: Maelezo ya maoni yamepokewa
+      detail_of_outcome: Maelezo ya matokeo
+      documents: Hati
+      download_outcome: Pakua matokeo yote
+      either: labda
+      email_to: 'Tuma barua pepe katika:'
+      feedback_received: Maoni yamepokewa
+      is_being: yana
       name:
-        one:
-        other:
+        one: Mashauriano
+        other: Mashauriano
+      not_open_yet: Bado mashauriano haya hayajafunguliwa
+      'on':
+      opens: Mashauriano haya yatafunguliwa
+      or:
+      original_consultation: Mashauriano halisi
+      ran_from: Mashauriano haya yalifanywa kuanzia
+      respond_online: Jibu mtandaoni
+      summary:
+      visit_soon: Tembelea ukurasa huu tena hivi karibuni ili upakue matokeo ya maoni haya ya umma.
+      was: yalikuwa
+      ways_to_respond: Njia za kujibu
+      write_to: 'Andika barua kwa:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Matokeo ya mashauriano
+        other: Matokeo ya mashauriano
     corporate_information_page:
       about_our_services_html: Pata maelezo kuhusu %{link}.
       corporate_information: Maelezo ya shirika
@@ -504,8 +533,8 @@ sw:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Mashauriano ya watu wengi
+        other: Mashauriano ya watu wengi
     oral_statement:
       name:
         one: Taarifa ya Matamshi kwa Bunge

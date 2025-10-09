@@ -233,20 +233,49 @@ sq:
         other:
     closed_consultation:
       name:
-        one:
-        other:
+        one: Konsultim i mbyllur
+        other: Konsultime të mbyllura
     cma_case:
       name:
         one:
         other:
     consultation:
+      analysing_feedback:
+      and: dhe
+      another_website_html: Ky konsultim %{closed} u mbajt <a href="%{url}">uebfaqe tjetër</a>
+      at: në
+      closes: Mbyllet në
+      closes_at: Ky konsultim mbyllet në
+      complete_a: Kompleto një
+      concluded:
+      description: Përshkrimi i konsultimit
+      detail_of_feedback_received: Detajet e reagimit të marrë
+      detail_of_outcome: Detajet e rezultatit
+      documents: Dokumentet
+      download_outcome: Shkarkoni rezultatin e plotë
+      either: ose
+      email_to: 'Dërgo email në:'
+      feedback_received: Reagimi i marrë
+      is_being: është duke u
       name:
-        one:
-        other:
+        one: Konsultim
+        other: Konsultime
+      not_open_yet: Ky konsultim nuk është hapur ende
+      'on':
+      opens: Ky konsultim hapet
+      or:
+      original_consultation: Konsultimi origjinal
+      ran_from: Ky konsultim filloi nga
+      respond_online: Përgjigju online
+      summary:
+      visit_soon: Vizitoni përsëri këtë faqe së shpejti për të shkarkuar rezultatin në këtë & nbsp; reagimi.
+      was: ishte
+      ways_to_respond: Mënyrat për tu përgjigjur
+      write_to: 'Shkruaj tek:'
     consultation_outcome:
       name:
-        one:
-        other:
+        one: Rezultati i konsultimit
+        other: Rezultatet e konsultimit
     corporate_information_page:
       about_our_services_html: Mësoni %{link}.
       corporate_information: Informacioni i korporatës
@@ -504,8 +533,8 @@ sq:
         other:
     open_consultation:
       name:
-        one:
-        other:
+        one: Konsultim i hapur
+        other: Konsultime te hapura
     oral_statement:
       name:
         one: Deklarata gojore në Parlament

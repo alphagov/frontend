@@ -78,6 +78,222 @@ hu:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Tartalomjegyzék
+      metadata:
+        published: közzététel dátuma
+        updated: Frissítve
+      schema_name:
+        aaib_report:
+          one: A Légi Balesetek Kivizsgálásáért Felelős Részleg jelentése
+          other: A Légi Balesetek Kivizsgálásáért Felelős Részleg jelentései
+        announcement:
+          one: Bejelentés
+          other: Bejelentések
+        asylum_support_decision:
+          one: Menekültügyi bírósági ítélet
+          other: Menekültügyi bírósági ítéletek
+        authored_article:
+          one: Publicisztika
+          other: Publicisztikák
+        business_finance_support_scheme:
+          one: Vállalkozás pénzügyi támogatására szolgáló terv
+          other: Vállalkozás pénzügyi támogatására szolgáló tervek
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Esettanulmány
+          other: Esettanulmányok
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Lezárt konzultáció
+          other: Lezárt konzultációk
+        cma_case:
+          one: Verseny- és Piachatósági eset
+          other: Verseny- és Piachatósági esetek
+        consultation:
+          one: Konzultáció
+          other: Konzultációk
+        consultation_outcome:
+          one: Konzultációs eredmény
+          other: Konzultációs eredmények
+        corporate_information_page:
+          one: Információs oldal
+          other: Információs oldalak
+        corporate_report:
+          one: Testületi beszámoló
+          other: Testületi beszámolók
+        correspondence:
+          one: Levelezés
+          other: Levelezések
+        countryside_stewardship_grant:
+          one: Tájvédelmi segély
+          other: Tájvédelmi segélyek
+        decision:
+          one: Döntés
+          other: Döntések
+        detailed_guide:
+          one: Útmutató
+          other: Útmutató
+        dfid_research_output:
+          one: A fejlesztési teljesítmény kutatása
+          other: A fejlesztési teljesítmények kutatása
+        document_collection:
+          one: Gyűjtemény
+          other: Gyűjtemények
+        draft_text:
+          one: Szövegtervezet
+          other: Szövegtervezetek
+        drug_safety_update:
+          one: Gyógyszerbiztonsági frissítés
+          other: Gyógyszerbiztonsági frissítések
+        employment_appeal_tribunal_decision:
+          one: Munkaügyi fellebbezés bírósági ítélettel szemben
+          other: Munkaügyi fellebbezés bírósági ítéletekkel szemben
+        employment_tribunal_decision:
+          one: Munkaügyi bírósági ítélet
+          other: Munkaügyi bírósági ítéletek
+        esi_fund:
+          one: Európai strukturális és beruházási alap (ESIF)
+          other: Európai strukturális és beruházási alapokok (ESIF)
+        foi_release:
+          one: Információhoz való joggal kapcsolatos közlemény
+          other: Információhoz való joggal kapcsolatos közlemények
+        form:
+          one: Űrlap
+          other: Űrlapok
+        guidance:
+          one: Útmutató
+          other: Útmutató
+        impact_assessment:
+          one: Hatásvizsgálat
+          other: Hatásvizsgálatok
+        imported:
+          one: Importálva
+          other: Importálva
+        independent_report:
+          one: Független beszámoló
+          other: Független beszámolók
+        international_development_fund:
+          one: Nemzetközi fejlesztésfinanszírozás
+          other: Nemzetközi fejlesztésfinanszírozás
+        international_treaty:
+          one: Nemzetközi egyezmény
+          other: Nemzetközi egyezmények
+        maib_report:
+          one: A Tengeri Balesetek Kivizsgálásáért Felelős Részleg jelentése
+          other: A Tengeri Balesetek Kivizsgálásáért Felelős Részleg jelentései
+        map:
+          one: Térkép
+          other: Térképek
+        medical_safety_alert:
+          one: Gyógyszerekre és orvostechnikai eszközökre vonatkozó figyelmeztetések és visszahívások
+          other: Gyógyszerekre és orvostechnikai eszközökre vonatkozó figyelmeztetések és visszahívások
+        national:
+          one: Nemzeti statisztikai bejelentés
+          other: Nemzeti statisztikai bejelentések
+        national_statistics:
+          one: Nemzeti statisztikák
+          other: Nemzeti statisztikák
+        national_statistics_announcement:
+          one: Nemzeti statisztikai bejelentés
+          other: Nemzeti statisztikai bejelentések
+        news_article:
+          one: Cikk
+          other: Cikkek
+        notice:
+          one: Értesítés
+          other: Értesítések
+        official:
+          one: Hivatalos statisztikai bejelentés
+          other: Hivatalos statisztikai bejelentések
+        official_statistics:
+          one: Hivatalos statisztika
+          other: Hivatalos statisztikák
+        official_statistics_announcement:
+          one: Hivatalos statisztikai bejelentés
+          other: Hivatalos statisztikai bejelentések
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Nyílt konzultáció
+          other: Nyílt konzultációk
+        oral_statement:
+          one: Parlamenti felszólalás
+          other: Parlamenti felszólalások
+        policy:
+          one: Irányelv
+          other: Irányelvek
+        policy_paper:
+          one: Irányelvi dokumentum
+          other: Irányelvi dokumentumok
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Promóciós anyag
+          other: Promóciós anyagok
+        publication:
+          one: Kiadvány
+          other: Kiadványok
+        raib_report:
+          one: A Vasúti Balesetek Kivizsgálásáért Felelős Részleg jelentése
+          other: A Vasúti Balesetek Kivizsgálásáért Felelős Részleg jelentései
+        regulation:
+          one: Szabályozás
+          other: Szabályozások
+        research:
+          one: Kutatás és elemzés
+          other: Kutatás és elemzés
+        residential_property_tribunal_decision:
+          one: Lakóingatlannal kapcsolatos bírósági döntés
+          other: Lakóingatlannal kapcsolatos bírósági döntések
+        service_sign_in:
+          one: Bejelentkezés a szolgálatásba
+          other: Bejelentkezés a szolgálatásba
+        service_standard_report:
+          one: Szolgálatás Szabványos Jelentése
+          other: Szolgálatás Szabványos Jelentései
+        speaking_notes:
+          one: Feljegyzések
+          other: Feljegyzések
+        standard:
+          one: Szabvány
+          other: Szabványok
+        statement_to_parliament:
+          one: Parlamenti nyilatkozat
+          other: Parlamenti nyilatkozatok
+        statistical_data_set:
+          one: Statisztikai adatkészlet
+          other: Statisztikai adatkészletek
+        statistics_announcement:
+          one: Statisztika közzétételének bejelentése
+          other: Statisztika közzétételének bejelentései
+        statutory_guidance:
+          one: Törvényi előírás
+          other: Törvényi előírás
+        tax_tribunal_decision:
+          one: Adóval és kancelláriával kapcsolatos bírósági ítélet
+          other: Adóval és kancelláriával kapcsolatos bírósági ítéletek
+        transcript:
+          one: Leirat
+          other: Leiratok
+        transparency:
+          one: Átláthatósági adatok
+          other: Átláthatósági adatok
+        utaac_decision:
+          one: Adminisztratív fellebbezéssel kapcsolatos bírósági ítélet
+          other: Adminisztratív fellebbezéssel kapcsolatos bírósági ítéletek
+        written_statement:
+          one: Írásbeli parlamenti nyilatkozat
+          other: Írásbeli parlamenti nyilatkozatok
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ hu:
     guide:
       pages_in_guide: A jelen útmutató oldalai
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: 'A kiadvány elérhető a következő helyen: %{url}'
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'A jelen kiadvány licenceit a Nyílt Közigazgatási Engedélyek 3.0 biztosítja, kivéve, ha másként van jelölve. A licenc megtekintéséhez látogassa meg a(z)  <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> vagy írjon az Információkezeléssel foglalkozó Csapatnak, The National Archives, Kew, London TW9 4DU, vagy e-mailt a következő címre: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Enegdélyt kell kérnie az érintett szerzői jogok tulajdonosaitól abban az esetben, ha harmadik fél szerzői jogi információkat közöltünk.
     impact_assessment:
       name:
         one:

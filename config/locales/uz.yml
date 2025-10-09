@@ -78,6 +78,222 @@ uz:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Мундарижа
+      metadata:
+        published: Нашр қилинган
+        updated: Янгиланган
+      schema_name:
+        aaib_report:
+          one: Авиация ҳодисаларини тергов қилиш бўйича бўлим ҳисоботи
+          other: Авиация ҳодисаларини тергов қилиш бўйича бўлим ҳисоботлари
+        announcement:
+          one: Эълон
+          other: Эълонлар
+        asylum_support_decision:
+          one: Бошпана тақдим этиш ҳақида ҳакамлик суди қарори
+          other: Бошпана тақдим этиш ҳақида ҳакамлик суди қарорлари
+        authored_article:
+          one: Муаллифлик мақоласи
+          other: Муаллифлик мақолалари
+        business_finance_support_scheme:
+          one: Бизнесни молиялаштиришни қўллаб-қувватлаш режаси
+          other: Бизнесни молиялаштиришни қўллаб-қувватлаш режалари
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Ҳолатларнинг таҳлили
+          other: Ҳолатларнинг таҳлиллари
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Батафсил маслаҳат
+          other: Батафсил маслаҳатлар
+        cma_case:
+          one: Рақобат ва бозорни муҳофаза қилиш Бошқармаси Иши
+          other: Рақобат ва бозорни муҳофаза қилиш Бошқармаси Ишлари
+        consultation:
+          one: Маслаҳат
+          other: Маслаҳатлар
+        consultation_outcome:
+          one: Маслаҳат натижаси
+          other: Маслаҳат натижалари
+        corporate_information_page:
+          one: Маълумотлар саҳифаси
+          other: Маълумотлар саҳифалари
+        corporate_report:
+          one: Корпорация фаолияти тўғрисида ҳисобот
+          other: Корпорация фаолияти тўғрисида ҳисоботлар
+        correspondence:
+          one: Ёзишма
+          other: Ёзишмалар
+        countryside_stewardship_grant:
+          one: Қишлоқ жойда тезкор бошқармани ташкиллаштириш гранти
+          other: Қишлоқ жойда тезкор бошқармани ташкиллаштириш грантлари
+        decision:
+          one: Қарор
+          other: Қарорлар
+        detailed_guide:
+          one: Қўлланма
+          other: Қўлланма
+        dfid_research_output:
+          one: Ишлаб чиқиш натижалари бўйича тадқиқот
+          other: Ишлаб чиқиш натижалари бўйича тадқиқотлар
+        document_collection:
+          one: Йиғиш
+          other: Йиғимлар
+        draft_text:
+          one: Матн лойиҳаси
+          other: Матн лойиҳалари
+        drug_safety_update:
+          one: Дори хавфсизлиги маълумотларини янгилаш
+          other: Дори хавфсизлиги маълумотларини янгилашлари
+        employment_appeal_tribunal_decision:
+          one: Меҳнат ишлари бўйича апелляцион трибуналнинг қарори
+          other: Меҳнат ишлари бўйича апелляцион трибуналнинг қарорлари
+        employment_tribunal_decision:
+          one: Меҳнат ишлари бўйича трибуналнинг қарори
+          other: Меҳнат ишлари бўйича трибуналнинг қарорлари
+        esi_fund:
+          one: Европа тузилмавий ва инвестицион фонд (ESIF)
+          other: Европа тузилмавий ва инвестицион фондлари (ESIF)
+        foi_release:
+          one: Маълумот эркинлиги нашри
+          other: Маълумот эркинлиги нашрлари
+        form:
+          one: Шакл
+          other: Шакллар
+        guidance:
+          one: Қўлланма
+          other: Қўлланма
+        impact_assessment:
+          one: Таъсир этиш баҳоси
+          other: Таъсир этиш баҳолари
+        imported:
+          one: импорт қилинган - кутиш тури
+          other: импорт қилинган - кутиш тури
+        independent_report:
+          one: Мустақил ҳисобот
+          other: Мустақил ҳисоботлар
+        international_development_fund:
+          one: Халқаро ривожлантиришни молиялаштириш
+          other: Халқаро ривожлантиришни молиялаштириш
+        international_treaty:
+          one: Халқаро шартнома
+          other: Халқаро шартномалар
+        maib_report:
+          one: Денгизда бахтсиз ҳодисаларни тергов қилиш бўйича бўлим ҳисоботи
+          other: Денгизда бахтсиз ҳодисаларни тергов қилиш бўйича бўлим ҳисоботлари
+        map:
+          one: Карта
+          other: Карталар
+        medical_safety_alert:
+          one: Дори препаратлари ва тиббиёт қурилмалари ҳақидаги огоҳлантиришлар ва мулоҳазалар
+          other: Дори препаратлари ва тиббиёт қурилмалари ҳақидаги огоҳлантиришлар ва мулоҳазалар
+        national:
+          one: Давлат статистик маълумотлар эълони
+          other: Давлат статистик маълумотлар эълонлари
+        national_statistics:
+          one: Давлат статистик маълумотлар
+          other: Давлат статистик маълумотлар
+        national_statistics_announcement:
+          one: Давлат статистик маълумотлар эълони
+          other: Давлат статистик маълумотлар эълонлари
+        news_article:
+          one: Янгилик мақоласи
+          other: Янгилик мақолалари
+        notice:
+          one: Хабарнома
+          other: Хабарномалар
+        official:
+          one: Расмий статистик маълумотлар эълони
+          other: Расмий статистик маълумотлар эълонлари
+        official_statistics:
+          one: Расмий статистик маълумотлар
+          other: Расмий статистик маълумотлар
+        official_statistics_announcement:
+          one: Расмий статистик маълумотлар эълони
+          other: Расмий статистик маълумотлар эълонлари
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Очиқ маслаҳат
+          other: Очиқ маслаҳатлар
+        oral_statement:
+          one: Парламентга оғзаки баёнот
+          other: Парламентга оғзаки баёнотлар
+        policy:
+          one: Сиёсат
+          other: Сиёсатлар
+        policy_paper:
+          one: Сиёсат масалалари бўйича ҳужжат
+          other: Сиёсат масалалари бўйича ҳужжатлари
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Реклама материаллари
+          other: Реклама материаллари
+        publication:
+          one: Нашр қилиш
+          other: Нашр қилишлар
+        raib_report:
+          one: Темир йўлда ҳодисаларни тергов қилиш бўлими ҳисоботи
+          other: Темир йўлда ҳодисаларни тергов қилиш бўлими ҳисоботлари
+        regulation:
+          one: Низом
+          other: Низомлар
+        research:
+          one: Тадқиқот ва таҳлил
+          other: Тадқиқот ва таҳлил
+        residential_property_tribunal_decision:
+          one: Турар-жой объектига нисбатан трибунал қарори
+          other: Турар-жой объектига нисбатан трибунал қарорлари
+        service_sign_in:
+          one: Хизматни рўйхатдан ўтказиш
+          other: Хизматни рўйхатдан ўтказиш
+        service_standard_report:
+          one: Хизмат кўрсатиш стандарти бўйича ҳисобот
+          other: Хизмат кўрсатиш стандарти бўйича ҳисоботлар
+        speaking_notes:
+          one: Оғзаки танбеҳлар
+          other: Оғзаки танбеҳлар
+        standard:
+          one: Стандарт
+          other: Стандартлар
+        statement_to_parliament:
+          one: Парламентга баёнот
+          other: Парламентга баёнотлар
+        statistical_data_set:
+          one: Статистик маълумотлар жамланмаси
+          other: Статистик маълумотларнинг жамланмалари
+        statistics_announcement:
+          one: Статистик маълумотларни чиқариш ҳақида эълон
+          other: Статистик маълумотларни чиқариш ҳақида эълонлар
+        statutory_guidance:
+          one: Норматив қўлланма
+          other: Норматив қўлланма
+        tax_tribunal_decision:
+          one: Солиқ масалалари ва адолатлилик трибунали қарори
+          other: Солиқ масалалари ва адолатлилик трибунали қарорлари
+        transcript:
+          one: Расшифровка
+          other: Расшифровкалар
+        transparency:
+          one: Шаффоф маълумотлар
+          other: Шаффоф маълумотлар
+        utaac_decision:
+          one: Маъмурий апелляция трибуналининг қарори
+          other: Маъмурий апелляция трибуналининг қарорлари
+        written_statement:
+          one: Парламентга ёзма баёнот
+          other: Парламентга ёзма баёнотлар
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ uz:
     guide:
       pages_in_guide: Ушбу қўлланмадаги саҳифалар
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Ушбу нашр этиш %{url} манзилда эришимли
+        copyright: "© Британия миллатлар ҳамдўстлигининг Муаллифлик ҳуқуқи %{year}"
+        isbn: 'Китобнинг халқаро стандарт рақами:'
+        licence_html: 'Ушбу нашр этиш 3.0 версиядаги Очиқ давлат лицензияси доирасида лицензияланган, агар бошқа шарт кўрсатилмаган бўлса. Лицензия билан танишиш учун <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> сайтларига ташриф буюринг ёки Ахборот сиёсати билан ишлаш бўйича гуруҳга, Миллий архив, Кью, Лондон TW9 4DU, ёки улар билан қуйидаги электрон почта бўйича боғланинг: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Агар учинчи шахсларнинг муаллифлик ҳуқуқлари ҳақида бирон бир маълумот аниқланадиган бўлса, сизга мувофиқ ҳуқуқий ворислардан рухсатнома олишингиз зарур бўлади.
     impact_assessment:
       name:
         one:

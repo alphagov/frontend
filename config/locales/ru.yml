@@ -78,6 +78,362 @@ ru:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Содержание
+      metadata:
+        published: Опубликовано
+        updated: обновлено
+      schema_name:
+        aaib_report:
+          few:
+          many:
+          one: Отчет Отдела по Расследованию Авиационных Происшествий
+          other: Отчеты Отдела по Расследованию Авиационных Происшествий
+        announcement:
+          few:
+          many:
+          one: Объявление
+          other: Объявления
+        asylum_support_decision:
+          few:
+          many:
+          one: Решение суда по вопросам предоставления убежища
+          other: Решения суда по вопросам предоставления убежища
+        authored_article:
+          few:
+          many:
+          one: Авторская статья
+          other: Авторские статьи
+        business_finance_support_scheme:
+          few:
+          many:
+          one: План поддержки финансирования бизнеса
+          other: Планы поддержки финансирования бизнеса
+        call_for_evidence:
+          few:
+          many:
+          one:
+          other:
+        call_for_evidence_outcome:
+          few:
+          many:
+          one:
+          other:
+        case_study:
+          few:
+          many:
+          one: Причинный анализ
+          other: Причинные анализы
+        closed_call_for_evidence:
+          few:
+          many:
+          one:
+          other:
+        closed_consultation:
+          few:
+          many:
+          one: Закрытая консультация
+          other: Закрытые консультации
+        cma_case:
+          few:
+          many:
+          one: Дело Управления по Защите Конкуренции и Рынкам
+          other: Дела Управления по Защите Конкуренции и Рынкам
+        consultation:
+          few:
+          many:
+          one: Консультация
+          other: Консультации
+        consultation_outcome:
+          few:
+          many:
+          one: Результат консультации
+          other: Результаты консультаций
+        corporate_information_page:
+          few:
+          many:
+          one: Информационная страница
+          other: Информационные страницы
+        corporate_report:
+          few:
+          many:
+          one: Корпоративный отчет
+          other: Корпоративные отчеты
+        correspondence:
+          few:
+          many:
+          one: Корреспонденция
+          other: Корреспонденция
+        countryside_stewardship_grant:
+          few:
+          many:
+          one: Грант Управлений Сельской местности
+          other: Гранты Управлений Сельской местности
+        decision:
+          few:
+          many:
+          one: Решение
+          other: Решения
+        detailed_guide:
+          few:
+          many:
+          one: Подробное руководство
+          other: Руководство
+        dfid_research_output:
+          few:
+          many:
+          one: Результат Исследования по развитию
+          other: Результаты Исследования по развитию
+        document_collection:
+          few:
+          many:
+          one: Коллекция
+          other: Коллекции
+        draft_text:
+          few:
+          many:
+          one: Проект текста
+          other: Проект текстов
+        drug_safety_update:
+          few:
+          many:
+          one: Обновлённые данные по Безопасности Лекарственного Средства
+          other: Обновлённые данные по Безопасности Лекарственного Средства
+        employment_appeal_tribunal_decision:
+          few:
+          many:
+          one: Решение Апелляционного Суда по Трудовым Делам
+          other: Решения Апелляционного Суда по Трудовым Делам
+        employment_tribunal_decision:
+          few:
+          many:
+          one: Решение органа по рассмотрению индивидуальных трудовых споров
+          other: Решения органа по рассмотрению индивидуальных трудовых споров
+        esi_fund:
+          few:
+          many:
+          one: Европейский Структурный и Инвестиционный Фонд (ЕСИФ)
+          other: Европейские Структурные и Инвестиционные Фонды (ЕСИФ)
+        foi_release:
+          few:
+          many:
+          one: Новая редакция Закона о Свободе Распространения Информации
+          other: Новые редакции Закона о Свободе Распространения Информации
+        form:
+          few:
+          many:
+          one: Форма
+          other: Формы
+        guidance:
+          few:
+          many:
+          one: Руководство
+          other: Руководство
+        impact_assessment:
+          few:
+          many:
+          one: Оценка воздействия
+          other: Оценки воздействия
+        imported:
+          few:
+          many:
+          one: импортировано - тип ожидания
+          other: импортировано - тип ожидания
+        independent_report:
+          few:
+          many:
+          one: Независимый отчет
+          other: Независимые отчеты
+        international_development_fund:
+          few:
+          many:
+          one: Международное финансирование развития
+          other: Международное финансирование развития
+        international_treaty:
+          few:
+          many:
+          one: Международное соглашение
+          other: Международные соглашения
+        maib_report:
+          few:
+          many:
+          one: Отчет Отдела по Расследованию Несчастных Случаев на Море
+          other: Отчеты Отдела по Расследованию Несчастных Случаев на Море
+        map:
+          few:
+          many:
+          one: Карта
+          other: Карты
+        medical_safety_alert:
+          few:
+          many:
+          one: Уведомления и отзывы о лекарственных препаратах и медицинских устройствах
+          other: Уведомления и отзывы о лекарственных препаратах и медицинских устройствах
+        national:
+          few:
+          many:
+          one: Объявление национального статистического комитета
+          other: Объявления национального статистического комитета
+        national_statistics:
+          few:
+          many:
+          one: Национальная статистика
+          other: Национальная статистика
+        national_statistics_announcement:
+          few:
+          many:
+          one: Объявление национального статистического комитета
+          other: Объявления национального статистического комитета
+        news_article:
+          few:
+          many:
+          one: Новостная статья
+          other: Новостные статьи
+        notice:
+          few:
+          many:
+          one: Заметка
+          other: Заметки
+        official:
+          few:
+          many:
+          one: Доклад по официальным статистическим данным
+          other: Доклады по официальным статистическим данным
+        official_statistics:
+          few:
+          many:
+          one: Официальная Статистика
+          other: Официальная Статистика
+        official_statistics_announcement:
+          few:
+          many:
+          one: Доклад по официальным статистическим данным
+          other: Доклады по официальным статистическим данным
+        open_call_for_evidence:
+          few:
+          many:
+          one:
+          other:
+        open_consultation:
+          few:
+          many:
+          one: Открытая консультация
+          other: Открытые консультации
+        oral_statement:
+          few:
+          many:
+          one: Устное заявление парламенту
+          other: Устные заявления парламенту
+        policy:
+          few:
+          many:
+          one: Политика
+          other: Политика
+        policy_paper:
+          few:
+          many:
+          one: Директивный документ
+          other: Директивные документы
+        product-safety-alert-report-recall:
+          few:
+          many:
+          one:
+          other:
+        promotional:
+          few:
+          many:
+          one: Рекламный материал
+          other: Рекламные материалы
+        publication:
+          few:
+          many:
+          one: Публикация
+          other: Публикации
+        raib_report:
+          few:
+          many:
+          one: Отчет Отдела по Расследованию Несчастных Случаев на Железнодорожном Транспорте
+          other: Отчеты Отдела по Расследованию Несчастных Случаев на Железнодорожном Транспорте
+        regulation:
+          few:
+          many:
+          one: Требование
+          other: Требования
+        research:
+          few:
+          many:
+          one: Исследования и аналитика
+          other: Исследования и аналитика
+        residential_property_tribunal_decision:
+          few:
+          many:
+          one: Решение арбитражного суда по жилищной собственности
+          other: Решения арбитражного суда по жилищной собственности
+        service_sign_in:
+          few:
+          many:
+          one: Сервис по регистрации
+          other: Сервис по регистрации
+        service_standard_report:
+          few:
+          many:
+          one: Отчет оп Стандарту Обслуживания
+          other: Отчеты оп Стандарту Обслуживания
+        speaking_notes:
+          few:
+          many:
+          one: Тезисы выступления
+          other: Тезисы выступления
+        standard:
+          few:
+          many:
+          one: Стандарт
+          other: Стандарты
+        statement_to_parliament:
+          few:
+          many:
+          one: Заявление парламенту
+          other: Заявления парламенту
+        statistical_data_set:
+          few:
+          many:
+          one: Совокупность статистических данных
+          other: Совокупность статистических данных
+        statistics_announcement:
+          few:
+          many:
+          one: Объявление о публикации статистических данных
+          other: Объявления о публикации статистических данных
+        statutory_guidance:
+          few:
+          many:
+          one: Официальные рекомендации
+          other: Официальные рекомендации
+        tax_tribunal_decision:
+          few:
+          many:
+          one: Решение суда по Налоговым и Канцелярским вопросам
+          other: Решения суда по Налоговым и Канцелярским вопросам
+        transcript:
+          few:
+          many:
+          one: Транскрипт
+          other: Транскрипты
+        transparency:
+          few:
+          many:
+          one: Прозрачность данных
+          other: Прозрачность данных
+        utaac_decision:
+          few:
+          many:
+          one: Решение суда по апелляции на решение административного органа
+          other: Решения суда по апелляции на решение административного органа
+        written_statement:
+          few:
+          many:
+          one: Письменное заявление парламенту
+          other: Письменные заявления парламенту
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -468,6 +824,18 @@ ru:
     guide:
       pages_in_guide: Страница в руководстве
       skip_contents:
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
+      print_meta_data:
+        available_at: Данная публикация доступна на %{url}
+        copyright: "© Авторское право короны %{year}"
+        isbn: 'Международный Стандартный Книжный Номер:'
+        licence_html: 'Данная публикация лицензирована по условиям Открытой государственной лицензии  v3.0, за исключением тех случаев, где указано иное. для просмотра лицензии, посетите <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> либо обратитесь к Команде по Информационной политике, в Национальный Архив, по адресу Кью, Лондон   TW9 4DU, либо по электронной почте: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: 'В случае обнаружения нами информации авторского права третьей стороны, Вам будет необходимо получить разрешение владельцев авторского права, имеющих к ней отношение. '
     impact_assessment:
       name:
         few:

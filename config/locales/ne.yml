@@ -78,6 +78,222 @@ ne:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: विषयवस्तु
+      metadata:
+        published: प्रकाशित
+        updated: अद्यावधिक गरियो
+      schema_name:
+        aaib_report:
+          one: हवाई दुर्घटना अनुसन्धान शाखा प्रतिवेदन
+          other: हवाई दुर्घटना अनुसन्धान शाखा प्रतिवेदनहरू
+        announcement:
+          one: घोषणा
+          other: घोषणाहरु
+        asylum_support_decision:
+          one: शरण सहयोग न्यायाधिकरणको निर्णय
+          other: शरण सहयोग न्यायाधिकरणको निर्णयहरू
+        authored_article:
+          one: लेखिएको लेख
+          other: लेखिएको लेखहरू
+        business_finance_support_scheme:
+          one: व्यापार वित्त समर्थन योजना
+          other: व्यापार वित्त समर्थन योजनाहरु
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: मामिला अध्ययन
+          other: मामिला अध्ययनहरू
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: बन्द परामर्श
+          other: बन्द परामर्शहरू
+        cma_case:
+          one: प्रतिस्पर्धा र बजार प्राधिकरण मामिला
+          other: प्रतिस्पर्धा र बजार प्राधिकरण मामिलाहरु
+        consultation:
+          one: परामर्श
+          other: परामर्शहरू
+        consultation_outcome:
+          one: परामर्श परिणाम
+          other: परामर्श परिणामहरू
+        corporate_information_page:
+          one: जानकारी पृष्ठ
+          other: जानकारी पृष्ठहरू
+        corporate_report:
+          one: निगम प्रतिवेदन
+          other: निगम प्रतिवेदनहरू
+        correspondence:
+          one: पत्राचार
+          other: पत्राचारहरू
+        countryside_stewardship_grant:
+          one: ग्रामीण क्षेत्र संचालन अनुदान
+          other: ग्रामीण क्षेत्र संचालन अनुदानहरू
+        decision:
+          one: निर्णय
+          other: निर्णयहरु
+        detailed_guide:
+          one: मार्गदर्शन
+          other: मार्गदर्शन
+        dfid_research_output:
+          one: विकास उत्पादनको लागी अनुसन्धान
+          other: विकास उत्पादनहरुको लागी अनुसन्धान
+        document_collection:
+          one: स्ग्रह
+          other: स्ग्रहहरु
+        draft_text:
+          one: मस्यौदा पाठ
+          other: मस्यौदा पाठहरू
+        drug_safety_update:
+          one: औषधि सुरक्षा अद्यावधिक
+          other: औषधि सुरक्षा अद्यावधिकहरू
+        employment_appeal_tribunal_decision:
+          one: रोजगार अपील न्यायाधिकरण निर्णय
+          other: रोजगार अपील न्यायाधिकरण निर्णयहरू
+        employment_tribunal_decision:
+          one: रोजगार न्यायाधिकरण निर्णय
+          other: रोजगार न्यायाधिकरण निर्णयहरू
+        esi_fund:
+          one: यूरोपीयन संरचनात्मक र लगानी कोष (ESIF)
+          other: यूरोपीयन संरचनात्मक र लगानी कोषहरू (ESIF)
+        foi_release:
+          one: जानकारीको स्वतन्त्रता विज्ञप्ति
+          other: जानकारीको स्वतन्त्रता विज्ञप्तिहरू
+        form:
+          one: फारम
+          other: फारमहरु
+        guidance:
+          one: मार्गदर्शन
+          other: मार्गदर्शन
+        impact_assessment:
+          one: प्रभाव मूल्यांकन
+          other: प्रभाव मूल्यांकनहरू
+        imported:
+          one: आयातित - प्रतीक्षा प्रकार
+          other: आयातित - प्रतीक्षा प्रकार
+        independent_report:
+          one: स्वतन्त्र प्रतिवेदन
+          other: स्वतन्त्र प्रतिवेदनहरू
+        international_development_fund:
+          one: अन्तर्राष्ट्रिय विकास कोष
+          other: अन्तर्राष्ट्रिय विकास कोष
+        international_treaty:
+          one: अन्तर्राष्ट्रिय सन्धि
+          other: अन्तर्राष्ट्रिय सन्धिहरु
+        maib_report:
+          one: समुद्री दुर्घटना अनुसन्धान शाखा प्रतिवेदन
+          other: समुद्री दुर्घटना अनुसन्धान शाखा प्रतिवेदनहरू
+        map:
+          one: नक्शा
+          other: नक्साहरू
+        medical_safety_alert:
+          one: औषधि र चिकित्सा उपकरणहरुको लागी चेतावनी र फिर्तीहरू
+          other: औषधि र चिकित्सा उपकरणहरुको लागी चेतावनी र फिर्तीहरू
+        national:
+          one: राष्ट्रिय तथ्याङ्क घोषणा
+          other: राष्ट्रिय तथ्याङ्क घोषणाहरू
+        national_statistics:
+          one: राष्ट्रिय तथ्याङ्क
+          other: राष्ट्रिय तथ्याङ्क
+        national_statistics_announcement:
+          one: राष्ट्रिय तथ्याङ्क घोषणा
+          other: राष्ट्रिय तथ्याङ्क घोषणाहरू
+        news_article:
+          one: समाचार लेख
+          other: समाचार लेखहरू
+        notice:
+          one: सूचना
+          other: सूचनाहरु
+        official:
+          one: आधिकारिक तथ्याङ्क घोषणा
+          other: आधिकारिक तथ्याङ्क घोषणाहरु
+        official_statistics:
+          one: आधिकारिक तथ्याङ्क
+          other: आधिकारिक तथ्याङ्क
+        official_statistics_announcement:
+          one: आधिकारिक तथ्याङ्क घोषणा
+          other: आधिकारिक तथ्याङ्क घोषणाहरु
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: खुला परामर्श
+          other: खुला परामर्शहरू
+        oral_statement:
+          one: संसदमा मौखिक वक्तव्य
+          other: 'संसदमा मौखिक वक्तव्यहरू '
+        policy:
+          one: नीति
+          other: नीतिहरु
+        policy_paper:
+          one: नीति पत्र
+          other: नीति पत्रहरू
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: प्रचार सामग्री
+          other: प्रचार सामग्री
+        publication:
+          one: प्रकाशन
+          other: प्रकाशनहरु
+        raib_report:
+          one: रेल दुर्घटना अनुसन्धान शाखा प्रतिवेदन
+          other: रेल दुर्घटना अनुसन्धान शाखा प्रतिवेदनहरू
+        regulation:
+          one: नियम
+          other: नियमहरु
+        research:
+          one: अनुसन्धान र विश्लेषण
+          other: अनुसन्धान र विश्लेषण
+        residential_property_tribunal_decision:
+          one: आवासीय सम्पत्ति न्यायाधिकरण निर्णय
+          other: आवासीय सम्पत्ति न्यायाधिकरण निर्णयहरू
+        service_sign_in:
+          one: सेवा साइन इन
+          other: सेवा साइन इन
+        service_standard_report:
+          one: सेवा मानक प्रतिवेदन
+          other: सेवा मानक प्रतिवेदनहरू
+        speaking_notes:
+          one: बोल्ने टिप्पणीहरू
+          other: बोल्ने टिप्पणीहरू
+        standard:
+          one: मानक
+          other: मानकहरू
+        statement_to_parliament:
+          one: संसदको वक्तव्य
+          other: संसदमा वक्तव्यहरू
+        statistical_data_set:
+          one: तथ्याङ्क जानकारी समुह
+          other: तथ्याङ्क जानकारी समुहहरू
+        statistics_announcement:
+          one: तथ्याङ्क बिज्ञप्ति घोषणा
+          other: तथ्याङ्क बिज्ञप्ति घोषणाहरू
+        statutory_guidance:
+          one: वैधानिक मार्गदर्शन
+          other: वैधानिक मार्गदर्शन
+        tax_tribunal_decision:
+          one: कर र चान्सरी न्यायाधिकरण निर्णय
+          other: कर र चान्सरी न्यायाधिकरण निर्णयहरू
+        transcript:
+          one: प्रतिलिपि
+          other: प्रतिलिपिहरू
+        transparency:
+          one: पारदर्शिता जानकारी
+          other: पारदर्शिता जानकारी
+        utaac_decision:
+          one: प्रशासनिक अपील न्यायाधिकरण निर्णय
+          other: प्रशासनिक अपील न्यायाधिकरण निर्णयहरू
+        written_statement:
+          one: संसदमा लिखित वक्तव्य
+          other: संसदमा लिखित वक्तव्यहरू
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ ne:
     guide:
       pages_in_guide: यस गाइडका पृष्ठहरू
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: यो प्रकाशन %{url} मा उपलब्ध छ
+        copyright: "© क्राउन प्रतिलिपि अधिकार %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'यो प्रकाशन कुनै ठाउँमा तोकिएको बाहेक खुला सरकार इजाजतपत्र v3.0 को शर्तहरु अन्तर्गत इजाजतपत्र प्राप्त छ। यो इजाजतपत्र हेर्नको लागी <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> मा जानुहोस् वा सूचना नीति टोलि, राष्ट्रिय अभिलेखालय, किउ, लन्डन TW9 4DU मा पत्र लेख्नुहोस् वा ईमेल पठाउनुहोस्: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: यदि हामीले कुनै तेस्रो पक्ष प्रतिलिपि अधिकार जानकारीको पहिचान गरेका छौं भने तपाईंले सम्बन्धित प्रतिलिपि अधिकार धारकहरु बाट अनुमति प्राप्त गर्न आवश्यक छ।
     impact_assessment:
       name:
         one:

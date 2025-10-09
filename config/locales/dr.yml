@@ -78,6 +78,222 @@ dr:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: محتویات
+      metadata:
+        published: منتشر شده
+        updated: آپدیت شده
+      schema_name:
+        aaib_report:
+          one: گزارش شعبهء بررسی حوادث هوایی
+          other: گزارشات شعبهء بررسی حوادث هوایی
+        announcement:
+          one: اطلاعیه
+          other: اطلاعیه ها
+        asylum_support_decision:
+          one: تصمیم دادگاه حمایت از پناهنده گی
+          other: تصامیم دادگاه حمایت از پناهنده گی
+        authored_article:
+          one: مقاله تألیف شده
+          other: مقالات تألیف شده
+        business_finance_support_scheme:
+          one: طرح حمایت مالی از کسب و کار
+          other: طرح هایی حمایت مالی از کسب و کار
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: مطالعه موردی
+          other: مطالعات موردی
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: مشاورهء متوقف شده
+          other: مشاوره هایی متوقف شده
+        cma_case:
+          one: پروندهء  رقابت و قدرت بازار
+          other: پروندهء رقابت پ قدرت بازار
+        consultation:
+          one: مشاوره
+          other: مشاوره ها
+        consultation_outcome:
+          one: نتیجهء مشاوره
+          other: نتایج مشاوره
+        corporate_information_page:
+          one: صفحه معلومات
+          other: صفحات معلومات
+        corporate_report:
+          one: گزارش شرکت
+          other: گزارشات شرکت
+        correspondence:
+          one: مکاتبه
+          other: مکاتیب
+        countryside_stewardship_grant:
+          one: هزینهء معاونت روستایی
+          other: هزینه هایی معاونت روستایی
+        decision:
+          one: تصمیم
+          other: تصامیم
+        detailed_guide:
+          one: راهنمایی
+          other: راهنمایی
+        dfid_research_output:
+          one: تحقیق برای خروجی توسعه
+          other: تحقیق برای خروجی هایی توسعه
+        document_collection:
+          one: مجموعه
+          other: مجموعه ها
+        draft_text:
+          one: پیش نویس متن
+          other: پیش نویس متون
+        drug_safety_update:
+          one: آپدیت ایمنی دوا
+          other: آپدیت هایی ایمنی دوا
+        employment_appeal_tribunal_decision:
+          one: تصمیم دادگاه استیناف کار گماری
+          other: تصامیم دادگاه استیناف کار گماری
+        employment_tribunal_decision:
+          one: تصمیم دادگاه کار گماری
+          other: تصامیم دادگاه کار گماری
+        esi_fund:
+          one: صندوق ساختاری و سرمایه گزاری اروپا(ESIF)
+          other: صندوق هایی ساختاری و سرمایه گذاری اروپا(ESIF)
+        foi_release:
+          one: انتشار آزادی اطلاعات
+          other: انتشارات آزادی اطلاعات
+        form:
+          one: فارم
+          other: فارم ها
+        guidance:
+          one: راهنمایی
+          other: راهنمایی
+        impact_assessment:
+          one: ارزیابی تأثیر
+          other: ارزیابی هایی تأثیر
+        imported:
+          one: وارد شده – بصورت معلق
+          other: وارد شده – بصورت معلق
+        independent_report:
+          one: گزارش مستقل
+          other: گزارشات مستقل
+        international_development_fund:
+          one: بودیجه توسعه بین المللی
+          other: بودیجه توسعه بین المللی
+        international_treaty:
+          one: معاهده بین المللی
+          other: معاهدات بین المللی
+        maib_report:
+          one: گزارش شعبهء بررسی حوادث بحری
+          other: گزارشات شعبهء بررسی حوادث بحری
+        map:
+          one: نقشه
+          other: نقشه ها
+        medical_safety_alert:
+          one: هشدار ها و فراخوانی برای دوا ها و تجهیزات طبی
+          other: هشدار ها و فراخوانی دوا ها و تجهیرات طبی
+        national:
+          one: اطلاعیهء آمار ملی
+          other: اطلاعیه هایی آمار ملی
+        national_statistics:
+          one: آمار ملی
+          other: آمار ملی
+        national_statistics_announcement:
+          one: اطلاعیه آمار ملی
+          other: اطلاعیه آمار ملی
+        news_article:
+          one: مقاله خبری
+          other: مقالات خبری
+        notice:
+          one: اطلاعیه
+          other: اطلاعیه ها
+        official:
+          one: اطلاعیه آمار رسمی
+          other: اطلاعیه هایی آمار رسمی
+        official_statistics:
+          one: آمار رسمی
+          other: آمار رسمی
+        official_statistics_announcement:
+          one: اطلاعیه آمار رسمی
+          other: اطلاعیه آمار رسمی
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: مشاوره آزاد
+          other: مشاوره هایی آزاد
+        oral_statement:
+          one: بیانیهء شفاهی به پارلمان
+          other: بیانیه هایی شفاهی به پارلمان
+        policy:
+          one: سیاست
+          other: سیاست ها
+        policy_paper:
+          one: مقاله سیاست
+          other: اوراق سیاست
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: مواد تبلیغاتی
+          other: مواد تبلیغاتی
+        publication:
+          one: انتشار
+          other: انتشارات
+        raib_report:
+          one: گزارش شعبهء بررسی حوادث خط آهن
+          other: گزارشات شعبهء بررسی حوادث خط آهن
+        regulation:
+          one: قانون
+          other: قوانین
+        research:
+          one: تحقیق و تجزیه و تحلیل
+          other: تحقیق و تجزیه و تحلیل
+        residential_property_tribunal_decision:
+          one: تصمیم دادگاه ملکیت مسکونی
+          other: تصامیم دادگاه ملکیت مسکونی
+        service_sign_in:
+          one: ورود به بخش خدمات
+          other: ورود به بخش خدمات
+        service_standard_report:
+          one: گزارش استندرد خدمات
+          other: گزارشات استندرد خدمات
+        speaking_notes:
+          one: یادداشت هایی سخنرانی
+          other: یادداشت هایی سخنرانی
+        standard:
+          one: استندرد
+          other: استندرد ها
+        statement_to_parliament:
+          one: بیانیه به پارلمان
+          other: بیانیه های به پارلمان
+        statistical_data_set:
+          one: مجموعهء آماری احصایوی
+          other: مجموعه هایی آماری احصایوی
+        statistics_announcement:
+          one: اطلاعیه انتشار آمار
+          other: اطلاعیه هایی انتشار آمار
+        statutory_guidance:
+          one: راهنمایی قانونی
+          other: راهنمایی قانونی
+        tax_tribunal_decision:
+          one: تصمیم دادگاه مالیه و دفتر ثبت عامه
+          other: تصامیم دادگاه مالیه و دفتر ثبت عامه
+        transcript:
+          one: نسخهء کتبی
+          other: نسخه هایی کتبی
+        transparency:
+          one: داده هایی شفافیت
+          other: داده هایی شفافیت
+        utaac_decision:
+          one: تصمیم دادگاه استیناف اداری
+          other: تصامیم دادگاه استیناف اداری
+        written_statement:
+          one: بیانیهء کتبی به پارلمان
+          other: بیانیه هایی کتبی به پارلمان
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,19 @@ dr:
     guide:
       pages_in_guide: صفحات موجود در این راهنما
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: این نشریه در%{url} موجود است
+        copyright: "©حق چاپ تاج%{year}"
+        isbn: شماره کتاب استندرد بین المللی
+        licence_html: |-
+          این نشریه تحت شرایط مجوز دولت باز v3.0 جواز دارد مگر در مواردی که خلاف آن ذکر شده باشد.
+          جهت بازدید از این جواز، مراجعه نمایید به<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> و یا به تیم پالیسی معلومات اطلاع دهید، آرشیف ملی، کیو، لندن TW9 4DU، یا ایمل
+          <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.
+        third_party: در مواردی که ما حق چاپ برداری شخص ثالث را شناسایی نمودیم، شما نیاز دارید تا از صاحبان دارندهء حق چاپ اجازه بگیرید
     impact_assessment:
       name:
         one:

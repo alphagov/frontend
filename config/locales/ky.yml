@@ -78,6 +78,240 @@ ky:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Мазмуну
+      metadata:
+        published: Жарыяланды
+        updated: Жаңыртылды
+      schema_name:
+        aaib_report:
+          one: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчету
+          other: Абадагы кагылыштарды териштирүүчү бөлүмдүн отчеттору
+        announcement:
+          one: Кулактандыруу
+          other: Кулактандыруулар
+        asylum_support_decision:
+          one: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечими
+          other: Баш калкалоочуларды колдоо суроолору боюнча трибуналдын чечимдери
+        authored_article:
+          one: Макаланын автору
+          other: Макалалардын автору
+        business_finance_support_scheme:
+          one: Бизнести каржылоону колдоочу схема
+          other: Бизнести каржылоону колдоочу схемалар
+        call_for_evidence:
+          one: Далилдерди талап кылуу
+          other: Далилдерди талап кылуулар
+        call_for_evidence_outcome:
+          one: Натыйжанын далилдөөсүн талап кылуу
+          other: Натыйжанын далилдөөлөрүн талап кылуу
+        case_study:
+          one: Окуяны изилдөө
+          other: Окуяларды изилдөө
+        closed_call_for_evidence:
+          one: Далилдерди жабык түрдө талап кылуу
+          other: Далилдерди жабык түрдө талап кылуулар
+        closed_consultation:
+          one: Жабык түрдө консультация
+          other: Жабык түрдө консультациялар
+        cma_case:
+          one: Атаандаштыкты жана рынокту башкаруу иши
+          other: Атаандаштыкты жана рынокту башкаруу иштери
+        consultation:
+          one: Консультация
+          other: Консультациялар
+        consultation_outcome:
+          one: Консультациянын натыйжасы
+          other: Консультациянын натыйжалары
+        corporate_information_page:
+          one: Маалымат баракчасы
+          other: Маалымат баракчалары
+        corporate_report:
+          one: Корпоративдик отчет
+          other: Корпоративдик отчеттор
+        correspondence:
+          one: Корреспонденция
+          other: Корреспонденциялар
+        countryside_stewardship_grant:
+          one: Айылдык аймактарды башкаруу боюнча грант
+          other: Айылдык аймактарды башкаруу боюнча гранттар
+        decision:
+          one: Чечим
+          other: Чечимдер
+        detailed_guide:
+          one: Жетектеме
+          other: Жетектеме
+        dfid_research_output:
+          one: Өнүгүү үчүн изилдөөнүн натыйжасы
+          other: Өнүгүү үчүн изилдөөнүн натыйжалары
+        document_collection:
+          one: Жыйнак
+          other: Жыйнактар
+        draft_text:
+          one: Сомдомо тексти
+          other: Сомдомо тексттери
+        drug_safety_update:
+          one: Дары каражаттарынын коопсуздугу боюнча жаңыртуу
+          other: Дары каражаттарынын коопсуздугу боюнча жаңыртуулар
+        employment_appeal_tribunal_decision:
+          one: Эмгек арыздары боюнча апелляциялык соттун чечими
+          other: Эмгек арыздары боюнча апелляциялык соттун чечимдери
+        employment_tribunal_decision:
+          one: Эмгек боюнча апелляциялык соттун чечими
+          other: Эмгек боюнча апелляциялык соттун чечимдери
+        esi_fund:
+          one: Европалык структуралык жана инвестиция фонду (ESIF)
+          other: Европалык структуралык жана инвестиция фонддору (ESIF)
+        fatality_notice:
+          one: Өлүм тууралуу билдирүү
+          other: Өлүм тууралуу билдирүүлөр
+        foi_release:
+          one: FOI чыгарылышы
+          other: FOI чыгарылыштары
+        form:
+          one: Форма
+          other: Формалар
+        government_response:
+          one: Өкмөттүн реакциясы
+          other: Өкмөттүн реакциялары
+        guidance:
+          one: Жетектеме
+          other: Жетектеме
+        impact_assessment:
+          one: Таасирдин баалоосу
+          other: Таасирдин баалоолору
+        imported:
+          one: импорттолгон - күтүүчү түр
+          other: импорттолгон - күтүүчү түр
+        independent_report:
+          one: Көз карандысыз отчет
+          other: Көз карандысыз отчеттор
+        international_development_fund:
+          one: Өнүгүүнүн эл аралык каржылоосу
+          other: Өнүгүүнүн эл аралык каржылоосу
+        international_treaty:
+          one: Эл аралык келишим
+          other: Эл аралык келишимдер
+        maib_report:
+          one: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчету
+          other: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
+        map:
+          one: Карта
+          other: Карталар
+        medical_safety_alert:
+          one: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
+          other: Дары каражаттарын жана медициналык жабдуулар боюнча маалымдоолор жана чакырып алуулар
+        national:
+          one: Аккредиттелген расмий статистикалык кулактандыруу
+          other: Аккредиттелген расмий статистикалык кулактандыруулар
+        national_statistics:
+          one: Аккредиттелген расмий статистика
+          other: Аккредиттелген расмий статистика
+        national_statistics_announcement:
+          one: Аккредиттелген расмий статистикалык кулактандыруу
+          other: Аккредиттелген расмий статистикалык кулактандыруулар
+        news_article:
+          one: Жаңылыктар макаласы
+          other: Жаңылыктар макалалар
+        news_story:
+          one: Жаңылыктар тарыхчасы
+          other: Жаңылыктар тарыхчалары
+        notice:
+          one: Эскертүү
+          other: Эскертүүлөр
+        official:
+          one: Расмий статистикалык кулактандыруу
+          other: Расмий статистикалык кулактандыруулар
+        official_statistics:
+          one: Расмий статистика
+          other: Расмий статистикалар
+        official_statistics_announcement:
+          one: Расмий статистикалык кулактандыруу
+          other: Расмий статистикалык кулактандыруулар
+        open_call_for_evidence:
+          one: Далилдерди ачык түрдө талап кылуу
+          other: Далилдерди ачык түрдө талап кылуулар
+        open_consultation:
+          one: Ачык консультация
+          other: Ачык консультациялар
+        oral_statement:
+          one: Парламентте ооз эки арыз
+          other: Парламентте ооз эки арыздар
+        policy:
+          one: Саясат
+          other: Саясаттар
+        policy_paper:
+          one: Саясий документ
+          other: Саясий документтер
+        press_release:
+          one: Пресс-релиз
+          other: Пресс-релиздер
+        product-safety-alert-report-recall:
+          one: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
+          other: Продукциянын коопсуздугу боюнча эскертүүлөр, отчеттор жана пикирлер
+        promotional:
+          one: Жарнама материалдары
+          other: Жарнама материалдары
+        publication:
+          one: Жарыялоо
+          other: Жарыялоолор
+        raib_report:
+          one: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчету
+          other: Темир жолдогу кагылыштарды териштирүүчү бөлүмдүн отчеттору
+        regulation:
+          one: Жөнгө салуу
+          other: Жөнгө салуулар
+        research:
+          one: Изилдөө жана талдоо
+          other: Изилдөө жана талдоо
+        residential_property_tribunal_decision:
+          one: Турак-жай менчиги боюнча соттун чечими
+          other: Турак-жай менчиги боюнча соттун чечимдери
+        service_sign_in:
+          one: Кызматка кирүү
+          other: Кызматка кирүү
+        service_standard_report:
+          one: Кызмат көрсөтүү стандарттары боюнча отчет
+          other: Кызмат көрсөтүү стандарттары боюнча отчеттор
+        speaking_notes:
+          one: Чыгып сүйлөө боюнча эскертүүлөр
+          other: Чыгып сүйлөө боюнча эскертүүлөр
+        speech:
+          one: Сөз
+          other: Сөздөр
+        standard:
+          one: Стандарт
+          other: Стандарттар
+        statement_to_parliament:
+          one: Парламентте арыз
+          other: Парламентте арыздар
+        statistical_data_set:
+          one: Статистикалык дайындардын топтому
+          other: Статистикалык дайындардын топтомдору
+        statistics_announcement:
+          one: Статистиканы чыгаруу кулактандыруусу
+          other: Статистиканы чыгаруу кулактандыруулары
+        statutory_guidance:
+          one: Нормативдик жетектеме
+          other: Нормативдик жетектеме
+        tax_tribunal_decision:
+          one: Салык жана канцелярия трибуналынын чечими
+          other: Салык жана канцелярия трибуналынын чечимдери
+        transcript:
+          one: Стенограмма
+          other: Стенограммалар
+        transparency:
+          one: Дайындардын тунуктугу
+          other: Дайындардын тунуктугу
+        utaac_decision:
+          one: Административдик аппелляция трибуналынын чечими
+          other: Административдик аппелляция трибуналынын чечимдери
+        world_news_story:
+          one: Дүйнөлүк жаңылыктар тарыхчасы
+          other: Дүйнөлүк жаңылыктар тарыхчалары
+        written_statement:
+          one: Парламентте жазуу түрүндө арыз
+          other: Парламентте жазуу түрүндө арыздар
     download_ics:
     email_and_print_link: Электрондук каттарга жазылуу же бул баракчаны басып чыгаруу
     extra_bank_holiday:
@@ -406,6 +640,16 @@ ky:
     guide:
       pages_in_guide: Бул жетектемедеги баракчалар
       skip_contents: Мазмунду өткөрүп жиберүү
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Бул жарыялоо %{url} сайтында жеткиликтүү
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Бул басылма Ачык Өкмөт Лицензиясынын v3.0 шарттарына ылайык лицензияланган. Бул уруксаттаманы көрүү үчүн <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> вебсайтына баш багып же Маалыматтык саясат тобуна, Улуттук архивге, Кью, Лондон TW9 4DU жазып же электрондук катты бул дарекке жөнөтүңүз: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Үчүнчү тараптын автордук укук маалыматын аныктаган учурда, сиз тиешелүү автордук укук ээлеринен уруксат алышыңыз керек болот.
     impact_assessment:
       name:
         one: Таасирдин баалоосу

@@ -78,6 +78,222 @@ kk:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Мазмұны
+      metadata:
+        published: Жарияланды
+        updated: Жаңартылды
+      schema_name:
+        aaib_report:
+          one: Әуе апаттарын тергеу бөлімінің есебі
+          other: Әуе апаттарын тергеу бөлімінің есептері
+        announcement:
+          one: Хабарландыру
+          other: Хабарландырулар
+        asylum_support_decision:
+          one: Баспана бойынша қолдау трибуналының шешімі
+          other: Баспана бойынша қолдау трибуналының шешімдері
+        authored_article:
+          one: Мақала авторы
+          other: Мақала авторлары
+        business_finance_support_scheme:
+          one: Кәсіпкерлікті қаржыландыру схемасы
+          other: Кәсіпкерлікті қаржыландыру схемалары
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Тақырыптық зерттеу
+          other: Тақырыптық зерттеулер
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Жабық кеңес
+          other: Жабық кеңестер
+        cma_case:
+          one: Бәсекелестік және нарықтар бойынша басқарма ісі
+          other: Бәсекелестік және нарықтар бойынша басқарма істері
+        consultation:
+          one: Кеңес
+          other: Кеңестер
+        consultation_outcome:
+          one: Кеңес нәтижесі
+          other: Кеңес нәтижелері
+        corporate_information_page:
+          one: Ақпараттық бет
+          other: Ақпараттық беттер
+        corporate_report:
+          one: Корпоративтік есеп
+          other: Корпоративтік есептер
+        correspondence:
+          one: Хат алмасу
+          other: Хат алмасулар
+        countryside_stewardship_grant:
+          one: Countryside Stewardship гранты
+          other: Countryside Stewardship гранттары
+        decision:
+          one: Шешім
+          other: Шешімдер
+        detailed_guide:
+          one: Нұсқаулық
+          other: Нұсқаулық
+        dfid_research_output:
+          one: Өнімділік бойынша зерттеулер
+          other: Өнімділік бойынша зерттеулер
+        document_collection:
+          one: Топтама
+          other: Топтамалар
+        draft_text:
+          one: Жоба мәтіні
+          other: Жоба мәтіндері
+        drug_safety_update:
+          one: Дәрілік заттардың қауіпсіздігін жаңарту
+          other: Дәрілік заттардың қауіпсіздігін жаңартулар
+        employment_appeal_tribunal_decision:
+          one: Жұмыспен қамту жөніндегі апелляциялық сот шешімі
+          other: Жұмыспен қамту жөніндегі апелляциялық сот шешімдері
+        employment_tribunal_decision:
+          one: Жұмыспен қамту жөніндегі сот шешімі
+          other: Жұмыспен қамту жөніндегі сот шешімдері
+        esi_fund:
+          one: Еуропалық құрылымдық және инвестициялық қор (ESIF)
+          other: Еуропалық құрылымдық және инвестициялық қорлар (ESIF)
+        foi_release:
+          one: FOI шығарылымы
+          other: FOI шығарылымдары
+        form:
+          one: Форма
+          other: Формалар
+        guidance:
+          one: Нұсқаулық
+          other: Нұсқаулық
+        impact_assessment:
+          one: Ықпалын бағалау
+          other: Ықпалын бағалаулар
+        imported:
+          one: импортталған - күтілетін түрі
+          other: импортталған - күтілетін түрі
+        independent_report:
+          one: Тәуелсіз есеп
+          other: Тәуелсіз есептер
+        international_development_fund:
+          one: Халықаралық даму қоры
+          other: Халықаралық даму қоры
+        international_treaty:
+          one: Халықаралық келісім
+          other: Халықаралық келісімдер
+        maib_report:
+          one: Теңіз апаттарын тергеу бөлімінің есебі
+          other: Теңіз апаттарын тергеу бөлімінің есептері
+        map:
+          one: Карта
+          other: Карталар
+        medical_safety_alert:
+          one: Дәрі-дәрмектер мен медициналық құрылғылар бойынша пікірлер мен ескертулер
+          other: Дәрі-дәрмектер мен медициналық құрылғылар бойынша пікірлер мен ескертулер
+        national:
+          one: Ұлттық статистика хабарландыруы
+          other: Ұлттық статистика хабарландырулары
+        national_statistics:
+          one: Ұлттық статистика
+          other: Ұлттық статистика
+        national_statistics_announcement:
+          one: Ұлттық статистика хабарландыруы
+          other: Ұлттық статистика хабарландырулары
+        news_article:
+          one: Жаңалықтар мақаласы
+          other: Жаңалықтар мақалалары
+        notice:
+          one: Ескертпе
+          other: Ескертпелер
+        official:
+          one: Ресми статистика хабарландыруы
+          other: Ресми статистика хабарландырулары
+        official_statistics:
+          one: Ресми статистика
+          other: Ресми статистика
+        official_statistics_announcement:
+          one: Ресми статистика хабарландыруы
+          other: Ресми статистика хабарландырулары
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Ашық кеңес
+          other: Ашық кеңестер
+        oral_statement:
+          one: Парламентке ауызша мәлімдеме
+          other: Парламентке ауызша мәлімдемелер
+        policy:
+          one: Саясат
+          other: Саясаттар
+        policy_paper:
+          one: Саяси құжат
+          other: Саяси құжаттар
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Жарнамалық материал
+          other: Жарнамалық материал
+        publication:
+          one: Жарияланым
+          other: Жарияланымдар
+        raib_report:
+          one: Теміржол апаттарын тергеу бөлімінің есебі
+          other: Теміржол апаттарын тергеу бөлімінің есептері
+        regulation:
+          one: Ереже
+          other: Ережелер
+        research:
+          one: Зерттеу және талдау
+          other: Зерттеу және талдау
+        residential_property_tribunal_decision:
+          one: Тұрғын үйге қатысты сот шешімі
+          other: Тұрғын үйге қатысты сот шешімдері
+        service_sign_in:
+          one: Қызметке кіру
+          other: Қызметке кіру
+        service_standard_report:
+          one: Қызметтің стандартты есебі
+          other: Қызметтің стандартты есептері
+        speaking_notes:
+          one: Сөйлеу жазбалары
+          other: Сөйлеу жазбалары
+        standard:
+          one: Стандарт
+          other: Стандарттар
+        statement_to_parliament:
+          one: Парламент мәлімдемесі
+          other: Парламент мәлімдемелері
+        statistical_data_set:
+          one: Статистикалық деректер жиыны
+          other: Статистикалық деректер жиындары
+        statistics_announcement:
+          one: Статистикалық шығарылым хабарландыруы
+          other: Статистикалық шығарылым хабарландырулары
+        statutory_guidance:
+          one: Заң нұсқаулығы
+          other: Заң нұсқаулығы
+        tax_tribunal_decision:
+          one: Салық және сот кеңесінің сот шешімі
+          other: Салық және сот кеңесінің сот шешімдері
+        transcript:
+          one: Стенограмма
+          other: Стенограммалар
+        transparency:
+          one: Ашықтық деректері
+          other: Ашықтық деректері
+        utaac_decision:
+          one: Әкімшілік аппеляциялық сот шешімі
+          other: Әкімшілік аппеляциялық сот шешімдері
+        written_statement:
+          one: Парламентке жазбаша мәлімдеме
+          other: Парламентке жазбаша мәлімдемелер
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ kk:
     guide:
       pages_in_guide: Бұл нұсқаулықтағы беттер
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Бұл жарияланым %{url} сайтында қолжетімді
+        copyright: "© Crown авторлық құқығы %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Бұл жарияланым басқаша көрсетілмеген жағдайларды қоспағанда, v3.0 Ашық Үкімет лицензиясының шарттары бойынша лицензияланған. Осы лицензияны көру үшін, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> веб-сайтына өтіңіз немесе немесе Ақпараттық саясат тобына, Ұлттық мұрағаттарға, Kew, London TW9 4DU жазыңыз немесе төмендегі мекенжайға электрондық хат жазыңыз: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Егер біз авторлық құқық туралы кез келген үшінші тарап ақпаратын анықтаған болсақ, сізге тиісті авторлық құқық иелерінен рұқсат алу қажет болады.
     impact_assessment:
       name:
         one:

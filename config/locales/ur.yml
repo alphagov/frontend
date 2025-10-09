@@ -78,6 +78,222 @@ ur:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: مشمولات
+      metadata:
+        published: شائع کردہ
+        updated: اپ ڈیٹ کردہ
+      schema_name:
+        aaib_report:
+          one: فضائی حادثات کی تفتیشی برانچ رپورٹ
+          other: فضائی حادثات کی تفتیشی برانچ رپورٹس
+        announcement:
+          one: اعلان
+          other: اعلانات
+        asylum_support_decision:
+          one: پناہ گزین کی معاونتی عدالت کا فیصلہ
+          other: پناہ گزین کی معاونتی عدالت کے فیصلے
+        authored_article:
+          one: مصنف کے نام کے ساتھ لکھا مضمون
+          other: مصنف کے نام کے ساتھ لکھے مضامین
+        business_finance_support_scheme:
+          one: بزنس فائنانس معاونتی اسکیم
+          other: بزنس فائنانس معاونتی اسکیمز
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: کیس اسٹڈی
+          other: کیس اسٹڈیز
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: محدود مشاورت
+          other: محدود مشاورتیں
+        cma_case:
+          one: مقابلے اور مارکیٹس کی اتھارٹی کا کیس
+          other: مقابلے اور مارکیٹس کی اتھارٹی کے کیسز
+        consultation:
+          one: مشاورت
+          other: مشاورتیں
+        consultation_outcome:
+          one: مشاورت کا نتیجہ
+          other: مشاورت کے نتائج
+        corporate_information_page:
+          one: معلومات کا صفحہ
+          other: معلومات کے صفحات
+        corporate_report:
+          one: کارپوریٹ رپورٹ
+          other: کارپوریٹ رپورٹس
+        correspondence:
+          one: خط و کتابت
+          other: خط و کتابت
+        countryside_stewardship_grant:
+          one: Countryside Stewardship گرانٹ
+          other: Countryside Stewardship گرانٹس
+        decision:
+          one: فیصلہ
+          other: فیصلے
+        detailed_guide:
+          one: رہنمائی
+          other: رہنمائی
+        dfid_research_output:
+          one: ترقی کے نتیجے پر تحقیق
+          other: ترقی کے نتائج پر تحقیق
+        document_collection:
+          one: مجموعہ
+          other: مجموعے
+        draft_text:
+          one: ڈرافٹ کا متن
+          other: ڈرافٹ کے متن
+        drug_safety_update:
+          one: دوا کی حفاظتی اپ ڈیٹ
+          other: دوا کی حفاظتی اپ ڈیٹس
+        employment_appeal_tribunal_decision:
+          one: ملازمت کی اپیل کا عدالتی فیصلہ
+          other: ملازمت کی اپیل کے عدالتی فیصلے
+        employment_tribunal_decision:
+          one: ملازمت کی اپیل کا فیصلہ
+          other: ملازمت کی اپیل کے فیصلے
+        esi_fund:
+          one: یورپی بناوٹی اور سرمایہ کاری کا فنڈ (ESIF)
+          other: یورپی بناوٹی اور سرمایہ کاری کے فنڈز (ESIF)
+        foi_release:
+          one: رہائی تھی۔
+          other: رہائی تھی۔
+        form:
+          one: فارم
+          other: فارمز
+        guidance:
+          one: رہنمائی
+          other: رہنمائی
+        impact_assessment:
+          one: اثر کی جانچ
+          other: اثر کی جانچیں
+        imported:
+          one: درآمد شدہ - قسم کا انتظار
+          other: درآمد شدہ - قسم کا انتظار
+        independent_report:
+          one: خودمختار رپورٹ
+          other: خودمختار رپورٹس
+        international_development_fund:
+          one: عالمی ترقیاتی فنڈنگ
+          other: عالمی ترقیاتی فنڈنگ
+        international_treaty:
+          one: عالمی معاہدہ
+          other: عالمی معاہدے
+        maib_report:
+          one: میرین حادثے کی تفتیشی برانچ رپورٹ
+          other: میرین حادثے کی تفتیشی برانچ رپورٹس
+        map:
+          one: نقشہ
+          other: نقشے
+        medical_safety_alert:
+          one: ادویات اور طبی ڈیوائسز کے لیے انتباہات اور ری کالز
+          other: ادویات اور طبی ڈیوائسز کے لیے انتباہات اور ری کالز
+        national:
+          one: قومی شماریاتی اعلان
+          other: قومی شماریاتی اعلانات
+        national_statistics:
+          one: قومی شماریات
+          other: قومی شماریات
+        national_statistics_announcement:
+          one: قومی شماریاتی اعلان
+          other: قومی شماریاتی اعلانات
+        news_article:
+          one: خبروں کا مضمون
+          other: خبروں کے مضامین
+        notice:
+          one: نوٹس
+          other: نوٹسز
+        official:
+          one: سرکاری شماریات کا اعلان
+          other: سرکاری شماریات کے اعلانات
+        official_statistics:
+          one: سرکاری شماریات
+          other: سرکاری شماریات
+        official_statistics_announcement:
+          one: سرکاری شماریات کا اعلان
+          other: سرکاری شماریات کے اعلانات
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: آزاد مشاورت
+          other: آزاد مشاورت
+        oral_statement:
+          one: پارلیمان کے لیے زبانی بیان
+          other: پارلیمان کے لیے زبانی بیانات
+        policy:
+          one: پالیسی
+          other: پالیسیاں
+        policy_paper:
+          one: پالیسی کا کاغذ
+          other: پالیسی کے کاغذات
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: تشہیری مواد
+          other: تشہیری مواد
+        publication:
+          one: پبلیکیشن
+          other: پبلیکیشنز
+        raib_report:
+          one: ریل حادثے کی تفتیشی برانچ رپورٹ
+          other: ریل حادثے کی تفتیشی برانچ رپورٹس
+        regulation:
+          one: ضابطہ
+          other: ضابطے
+        research:
+          one: تحقیق اور تجزیہ
+          other: تحقیق اور تجزیہ
+        residential_property_tribunal_decision:
+          one: رہائشی پراپرٹی کے لیے عدالتی فیصلہ
+          other: رہائشی پراپرٹی کے لیے عدالتی فیصلے
+        service_sign_in:
+          one: سروس سائن ان
+          other: سروس سائن ان
+        service_standard_report:
+          one: سروس کے معیار کی رپورٹ
+          other: سروس کے معیار کی رپورٹس
+        speaking_notes:
+          one: صوتی نوٹس
+          other: صوتی نوٹس
+        standard:
+          one: معیار
+          other: معیارات
+        statement_to_parliament:
+          one: پارلیمان میں دیا گیا بیان
+          other: پارلیمان میں دیے گئے بیانات
+        statistical_data_set:
+          one: شماریاتی ڈیٹا سیٹ
+          other: شماریاتی ڈیٹا سیٹس
+        statistics_announcement:
+          one: شماریات کے اجراء کا اعلان
+          other: شماریات کے اجراء کا اعلانات
+        statutory_guidance:
+          one: قانونی رہنمائی
+          other: قانونی رہنمائی
+        tax_tribunal_decision:
+          one: ٹیکس اینڈ چانسری عدالتی فیصلہ
+          other: ٹیکس اینڈ چانسری عدالتی فیصلے
+        transcript:
+          one: ٹرانسکرپٹ
+          other: ٹرنسکرپٹس
+        transparency:
+          one: شفافیت کا ڈیٹا
+          other: شفافیت کا ڈیٹا
+        utaac_decision:
+          one: انتظامی اپیلز کا عدالتی فیصلہ
+          other: انتظامی اپیلز کے عدالتی فیصلے
+        written_statement:
+          one: پالیمان کے لیے تحریری بیان
+          other: پالیمان کے لیے تحریری بیانات
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ ur:
     guide:
       pages_in_guide: اس رہنما میں موجود صفحات
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: یہ پبلیکیشن %{url} پر دستیاب ہے
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'یہ پبلیکیشن اوپن گورنمنٹ لائسنس v3.0 کے تحت لائسنس یافتہ ہے سوائے اس کے جو بصورت دیگر بیان کردہ ہے۔ لائسنس دیکھنے کے لیے، <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> کو ملاحظہ کریں یا معلوماتی پالیسی کی ٹیم، قومی آرکائیوز، کیو، لندن TW9 4DUپر پیغام بھیجیں، یا یہاں ای میل کریں: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: جہاں ہم کسی فریق ثالث کی کاپی رائٹ معلومات کی شناخت کی ہو آپ کو متعلقہ کاپی رائٹ ہولڈرز سے اجازت لینے کی ضرورت ہو گی۔
     impact_assessment:
       name:
         one:

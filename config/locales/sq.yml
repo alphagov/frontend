@@ -78,6 +78,222 @@ sq:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Përmbajtja
+      metadata:
+        published: Publikuar
+        updated: Përditësuar
+      schema_name:
+        aaib_report:
+          one: Raporti i Degës së Hetimit të Aksidenteve Ajrore
+          other: Raportet e Degës së Hetimit të Aksidenteve Ajrore
+        announcement:
+          one: Lajmërim
+          other: Lajmërime
+        asylum_support_decision:
+          one: Vendimi i gjykatës për mbështetjen e azilit
+          other: Vendimet e gjykatës për mbështetjen e azilit
+        authored_article:
+          one: Artikull me autor
+          other: Artikuj me autor
+        business_finance_support_scheme:
+          one: Skema e mbështetjes së financimit të biznesit
+          other: Skemat e mbështetjes së financimit të biznesit
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Rast studimi
+          other: Raste studimi
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Konsultim i mbyllur
+          other: Konsultime të mbyllura
+        cma_case:
+          one: Rasti i Autoritetit të Konkurrencës dhe Tregjeve
+          other: Raste të Autoritetit të Konkurrencës dhe Tregjeve
+        consultation:
+          one: Konsultim
+          other: Konsultime
+        consultation_outcome:
+          one: Rezultati i konsultimit
+          other: Rezultatet e konsultimit
+        corporate_information_page:
+          one: Faqja e informacionit
+          other: Faqet e informacionit
+        corporate_report:
+          one: Raport i organizatës
+          other: Raporte te organizatës
+        correspondence:
+          one: Korrespondencë
+          other: Korrespondencat
+        countryside_stewardship_grant:
+          one: Granti i administrimit të fshatit
+          other: Grantet e administrimit të fshatit
+        decision:
+          one: Vendimi
+          other: Vendimet
+        detailed_guide:
+          one: Udhëzim
+          other: Udhëzim
+        dfid_research_output:
+          one: Kërkimi për Rezultatin e Zhvillimit
+          other: Kërkimi për Rezultatet e Zhvillimit
+        document_collection:
+          one: Koleksion
+          other: Koleksionet
+        draft_text:
+          one: Draft tekst
+          other: Draft tekste
+        drug_safety_update:
+          one: Përditësimi i Sigurisë së Barnave
+          other: Përditësime të Sigurisë së Barnave
+        employment_appeal_tribunal_decision:
+          one: Vendimi i gjykatës së apelit të punës
+          other: Vendimet e gjykatës së apelit të punës
+        employment_tribunal_decision:
+          one: Vendimi i gjykatës së punësimit
+          other: Vendimet e gjykatës së punësimit
+        esi_fund:
+          one: Fondi Evropian për Strukturimin dhe Investimet (ESIF)
+          other: Fondet Evropiane Strukturore dhe Investuese (ESIF)
+        foi_release:
+          one: Njoftim mbi Lirinë e Informacionit
+          other: Njoftime mbi Lirinë e Informacionit
+        form:
+          one: Formular
+          other: Formularë
+        guidance:
+          one: Udhëzime
+          other: Udhëzime
+        impact_assessment:
+          one: Vlerësim i ndikimit
+          other: Vlerësime te ndikimit
+        imported:
+          one: importuar - tipi pritje
+          other: importuar - tipi pritje
+        independent_report:
+          one: Raport i pavarur
+          other: Raporte të pavarur
+        international_development_fund:
+          one: Financimi i zhvillimit ndërkombëtar
+          other: Financime të zhvillimit ndërkombëtar
+        international_treaty:
+          one: Traktat ndërkombëtar
+          other: Traktate ndërkombëtare
+        maib_report:
+          one: Raporti i Degës së Hetimit të Aksidenteve Detare
+          other: Raportet e Degës së Hetimit të Aksidenteve Detare
+        map:
+          one: Hartë
+          other: Harta
+        medical_safety_alert:
+          one: Njoftime dhe kujtesa për ilaçe dhe pajisje mjekësore
+          other: Njoftime dhe kujtesa për ilaçe dhe pajisje mjekësore
+        national:
+          one: Njoftimi i statistikave kombëtare
+          other: Njoftimet e statistikave kombëtare
+        national_statistics:
+          one: Statistikat Kombëtare
+          other: Statistikat Kombëtare
+        national_statistics_announcement:
+          one: Njoftimi i statistikave kombëtare
+          other: Njoftime të statistikave kombëtare
+        news_article:
+          one: Artikull lajmesh
+          other: Artikuj lajmesh
+        notice:
+          one: Njoftim
+          other: Njoftime
+        official:
+          one: Njoftimi i statistikave zyrtare
+          other: Njoftimet e statistikave zyrtare
+        official_statistics:
+          one: Statistikat Zyrtare
+          other: Statistikat Zyrtare
+        official_statistics_announcement:
+          one: Njoftimi i statistikave zyrtare
+          other: Njoftime të statistikave zyrtare
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Konsultim i hapur
+          other: Konsultime te hapura
+        oral_statement:
+          one: Deklarata gojore në Parlament
+          other: Deklarata gojore në Parlament
+        policy:
+          one: Politikë
+          other: Politika
+        policy_paper:
+          one: Dokument politikash
+          other: Dokumente politikash
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Material promovues
+          other: Material promovues
+        publication:
+          one: Publikim
+          other: Publikime
+        raib_report:
+          one: Raporti i Degës së Hetimit të Aksidenteve Hekurudhor
+          other: Raportet e Degës së Hetimit të Aksidenteve Hekurudhor
+        regulation:
+          one: Rregullore
+          other: Rregulloret
+        research:
+          one: Kërkime dhe analiza
+          other: Kërkime dhe analiza
+        residential_property_tribunal_decision:
+          one: Vendimi i gjykatës së pronës së banimit
+          other: Vendimet e gjykatës së pronës së banimit
+        service_sign_in:
+          one: Hyrje në shërbim
+          other: Hyrje në shërbim
+        service_standard_report:
+          one: Raporti Standard i Shërbimit
+          other: Raportet Standarde të Shërbimit
+        speaking_notes:
+          one: Pika fjalimi
+          other: Pika fjalimi
+        standard:
+          one: Standardi
+          other: Standarde
+        statement_to_parliament:
+          one: Deklaratë në Parlament
+          other: Deklarata në Parlament
+        statistical_data_set:
+          one: Grupi i të dhënave statistikore
+          other: Grupe të të dhënave statistikore
+        statistics_announcement:
+          one: Njoftimi për publikimin e statistikave
+          other: Njoftime për publikimin e statistikave
+        statutory_guidance:
+          one: Udhëzim ligjor
+          other: Udhëzim ligjor
+        tax_tribunal_decision:
+          one: Vendimi i gjykatës së taksave dhe kancelarive
+          other: Vendime të gjykatës së taksave dhe kancelarive
+        transcript:
+          one: Transkript
+          other: Transkripte
+        transparency:
+          one: Të dhëna për transparencën
+          other: Të dhëna për transparencën
+        utaac_decision:
+          one: Vendimi i gjykatës së apelit administrativ
+          other: Vendime të gjykatës së apelit administrativ
+        written_statement:
+          one: Deklaratë me shkrim në Parlament
+          other: Deklarata me shkrim në Parlament
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -406,6 +622,16 @@ sq:
     guide:
       pages_in_guide: Faqet në këtë udhëzim
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Ky publikim është i disponueshëm në %{url}
+        copyright: "© Crown e drejta e autorit %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ky publikim është i licencuar sipas kushteve të Licencës së Qeverisë së Hapur v3.0, përveç rasteve kur përcaktohet ndryshe. Për të parë këtë licencë, vizitoni <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ose i shkruani Ekipit të Politikave të Informacionit, Arkivave Kombëtare, Kew, London TW9 4DU, ose email: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Aty ku kemi identifikuar ndonjë informacion të palës së tretë për të drejtën e autorit, do t'ju duhet të merrni leje nga mbajtësit e të drejtave të autorit në fjalë.
     impact_assessment:
       name:
         one:

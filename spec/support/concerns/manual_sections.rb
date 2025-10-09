@@ -71,3 +71,20 @@ RSpec.shared_examples "it can have document heading" do |document_type, example_
     end
   end
 end
+
+RSpec.shared_examples "it can have breadcrumbs" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  context "when show_contents_list? is true" do
+    it "knows it has Manual homepage breadcrumbs" do
+      content_item["links"]["organisations"][0]["content_id"] = "dcc907d6-433c-42df-9ffb-d9c68be5dc4d"
+      expect(described_class.new(content_item).breadcrumbs).to eq([{ title: "Manual homepage", url: "/guidance/content-design/what-is-content-design" }])
+    end
+  end
+
+  context "when show_contents_list? is false" do
+    it "knows it has Back to contents breadcrumbs" do
+      expect(described_class.new(content_item).breadcrumbs).to eq([{ title: "Back to contents", url: "/guidance/content-design/what-is-content-design" }])
+    end
+  end
+end

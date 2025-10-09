@@ -466,6 +466,24 @@ ky:
       name:
         one: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчету
         other: Деңиз үстүндөгү кагылыштарды териштирүүчү бөлүмдүн отчеттору
+    manuals:
+      breadcrumb_contents: Мазмунга кайтуу
+      contents_list_breadcrumb_contents: Нускаманын башкы баракчасы
+      contents_title: Мазмуну
+      hmrc_manual_type: HMRC ички нускамасы
+      hmrc_title: "%{title}HMRC ички нускамасы"
+      next_page: Кийинки баракча
+      pages_in_manual_section: Нускама бөлүмдөрүнүн барактары
+      previous_page: Мурунку баракча
+      search_this_manual: Бул нускаманы издөө
+      see_all_updates: Бардык жаңыртууларды көрүү
+      summary_title: Кыскача
+      title: "%{title}Жетектеме"
+      updated: Жаңыртылды
+      updates_amendments: жарыяланган түзөтүүлөр
+      updates_description: "%{title}' жаңыртууларынын тизмеси."
+      updates_page_title: Жаңыртуулар - %{title}
+      updates_title: Жаңыртуулар %{title}
     map:
       name:
         one: Карта

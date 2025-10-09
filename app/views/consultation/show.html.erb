@@ -41,7 +41,7 @@
       } %>
     <% end %>
 
-    <%= render partial: "notice" %>
+    <%= render partial: "notice" unless content_item.open? %>
 
     <% if content_item.final_outcome? %>
       <%= render "shared/attachments_list",

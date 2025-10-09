@@ -51,13 +51,11 @@
         text: t("formats.consultation.detail_of_outcome"),
         margin_bottom: 4,
       } %>
-      <div class="consultation-outcome-detail">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(content_item.final_outcome_detail) %>
-        <% end %>
-      </div>
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(content_item.final_outcome_detail) %>
+      <% end %>
     <% end %>
 
     <%= render "shared/attachments_list",

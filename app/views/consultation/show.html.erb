@@ -41,7 +41,7 @@
       } %>
     <% end %>
 
-    <%= render partial: "notice" if !content_item.open? %>
+    <%= render partial: "consultation/sections/notice" if !content_item.open? %>
 
     <% if content_item.final_outcome? %>
       <%= render "shared/attachments_list",

@@ -41,12 +41,11 @@
       } %>
     <% end %>
 
-    <% if content_item.unopened? %>
+    <% if content_item.unopened? || content_item.outcome? %>
       <%= render partial: "notice" %>
+    <% end %>
 
-    <% elsif content_item.outcome? %>
-      <%= render partial: "notice" %>
-
+    <% if content_item.outcome? %>
       <%= render "shared/attachments_list",
         title: t("formats.call_for_evidence.download_outcome"),
         attachments_for_components: content_item.outcome_documents %>

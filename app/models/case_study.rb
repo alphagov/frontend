@@ -1,5 +1,6 @@
 class CaseStudy < ContentItem
   include EmphasisedOrganisations
+  include NewsImage
   include Updatable
   include WorldwideOrganisations
 

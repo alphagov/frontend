@@ -87,4 +87,51 @@ RSpec.describe Speech do
       expect(content_item.speech_type_explanation).to be_nil
     end
   end
+
+  describe "#image" do
+    describe "document is a speech with a custom lead image" do
+      let(:content_store_response) { GovukSchemas::Example.find("speech", example_name: "speech") }
+
+      it "fetches lead image from the details" do
+        expect(content_item.image).to eq(content_store_response.dig("details", "image"))
+      end
+    end
+
+    describe "document is a speech without a custom lead image" do
+      let(:content_store_response) { GovukSchemas::Example.find("speech", example_name: "speech") }
+
+      it "fetches lead image from primary publishing organisation" do
+        content_store_response["details"] = content_store_response["details"].delete("image") # drop the custom image so we can test the fallback
+        content_store_response["links"]["primary_publishing_organisation"] = [
+          { "details" =>
+              {
+                "default_news_image" => {
+                  "high_resolution_url" => "https://assets.publishing.service.gov.uk/media/621e4de4e90e0710be0354d7/s960_fcdo-main-building.jpg",
+                  "url" => "https://assets.publishing.service.gov.uk/media/621e4de48fa8f5490aff83b4/s300_fcdo-main-building.jpg",
+                },
+              } },
+        ]
+        expect(content_item.image).to eq(content_store_response.dig("links", "primary_publishing_organisation")[0].dig("details", "default_news_image"))
+      end
+    end
+
+    describe "document is a speech without a custom lead image, and no default news image on the primary organisation" do
+      let(:content_store_response) { GovukSchemas::Example.find("speech", example_name: "speech") }
+
+      it "does not fall back to non-primary organisations, but uses the placeholder image" do
+        content_store_response["details"] = content_store_response["details"].delete("image") # drop the custom image so we can test the fallback
+        content_store_response["links"]["primary_publishing_organisation"] = [{ "details" => { "default_news_image" => nil } }] # drop the default news image so we can test the fallback
+        content_store_response["links"]["organisations"] = [
+          { "details" =>
+              {
+                "default_news_image" => {
+                  "high_resolution_url" => "https://assets.publishing.service.gov.uk/media/621e4de4e90e0710be0354d7/s960_fcdo-main-building.jpg",
+                  "url" => "https://assets.publishing.service.gov.uk/media/621e4de48fa8f5490aff83b4/s300_fcdo-main-building.jpg",
+                },
+              } },
+        ] # mock default news image on secondary organisation
+        expect(content_item.image).to include({ "url" => "https://assets.publishing.service.gov.uk/media/5e59279b86650c53b2cefbfe/placeholder.jpg" })
+      end
+    end
+  end
 end

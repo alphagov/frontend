@@ -17,10 +17,13 @@
   <%= render_component_stylesheets %>
   <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
 <% end %>
-
+<%
+  page_title = yield :title
+  page_title = page_title.presence || page_title(content_item) || "GOV.UK"
+%>
 <%= render "govuk_publishing_components/components/layout_for_public", {
     draft_watermark: draft_host?,
-    title: yield(:title),
+    title: page_title,
     emergency_banner:,
     global_banner:,
     full_width: true,

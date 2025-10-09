@@ -13,6 +13,7 @@
 <%= content_for :head do %>
   <%= csp_meta_tag %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
+  <%= yield :extra_javascript %>
   <%= render_component_stylesheets %>
   <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
 <% end %>

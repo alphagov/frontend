@@ -13,3 +13,11 @@ RSpec.shared_examples "it can have page title" do |document_type, example_name|
     expect(described_class.new(content_item).page_title).to eq("Content design: planning, writing and managing content - What is content design? - Guidance")
   end
 end
+
+RSpec.shared_examples "it can have document heading" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "knows it has document heading" do
+    expect(described_class.new(content_item).document_heading).to eq(["What is content design?"])
+  end
+end

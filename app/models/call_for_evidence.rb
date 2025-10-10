@@ -11,10 +11,6 @@ class CallForEvidence < ContentItem
     organisations + people
   end
 
-  def open?
-    content_store_response["document_type"] == "open_call_for_evidence"
-  end
-
   def closed?
     %w[closed_call_for_evidence call_for_evidence_outcome].include? content_store_response["document_type"]
   end

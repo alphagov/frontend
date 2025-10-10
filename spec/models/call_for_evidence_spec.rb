@@ -13,6 +13,7 @@ RSpec.describe CallForEvidence do
   it_behaves_like "it can have single page notifications", "call_for_evidence", "open_call_for_evidence"
   it_behaves_like "it has updates", "call_for_evidence", "open_call_for_evidence"
   it_behaves_like "it can have phases with a running time period", "call_for_evidence", "open_call_for_evidence"
+  it_behaves_like "it can have an open phase", "call_for_evidence", "open_call_for_evidence"
 
   describe "#contributors" do
     it "returns a list of organisations" do
@@ -24,18 +25,6 @@ RSpec.describe CallForEvidence do
       it "returns a list of organisations followed by people" do
         expect(open_call_for_evidence.contributors[1].title).to eq("The Rt Hon Baroness Smith of Malvern")
         expect(open_call_for_evidence.contributors[1].base_path).to eq("/government/people/jacqui-smith")
-      end
-    end
-
-    describe "#open?" do
-      it "returns true for an open_call_for_evidence document type" do
-        expect(open_call_for_evidence.open?).to be(true)
-      end
-
-      it "returns false if it is not an open_call_for_evidence document type" do
-        expect(unopened_call_for_evidence.open?).to be(false)
-        expect(closed_call_for_evidence.open?).to be(false)
-        expect(call_for_evidence_outcome.open?).to be(false)
       end
     end
 

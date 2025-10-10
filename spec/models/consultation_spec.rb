@@ -23,6 +23,7 @@ RSpec.describe Consultation do
   it_behaves_like "it can have single page notifications", "consultation", "open_consultation"
   it_behaves_like "it has updates", "consultation", "open_consultation"
   it_behaves_like "it can have phases with a running time period", "consultation", "open_consultation"
+  it_behaves_like "it can have an open phase", "consultation", "open_consultation"
 
   describe "#contributors" do
     it "returns a list of organisations" do
@@ -35,18 +36,6 @@ RSpec.describe Consultation do
         expect(withdrawn_consultation.contributors[1].title).to eq("The Rt Hon Baroness Smith of Malvern")
         expect(withdrawn_consultation.contributors[1].base_path).to eq("/government/people/jacqui-smith")
       end
-    end
-  end
-
-  describe "#open?" do
-    it "returns true for an open_consultation document type" do
-      expect(open_consultation.open?).to be(true)
-    end
-
-    it "returns false if it is not an open_consultation document type" do
-      expect(unopened_consultation.open?).to be(false)
-      expect(closed_consultation.open?).to be(false)
-      expect(consultation_outcome.open?).to be(false)
     end
   end
 

@@ -20,11 +20,6 @@ class CallForEvidence < ContentItem
     attachments_from(content_store_response.dig("details", "outcome_attachments"))
   end
 
-  # Documents, bottom of page
-  def featured_attachments
-    attachments_from(content_store_response.dig("details", "featured_attachments"))
-  end
-
   def attachments_with_details
     items = [].push(*outcome_documents)
     items.push(*featured_attachments)

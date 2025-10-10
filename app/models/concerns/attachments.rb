@@ -15,12 +15,16 @@ module Attachments
       end
     end
 
-    def attachments_from(attachment_id_list)
-      attachments.select { |doc| (attachment_id_list || []).include? doc["id"] }
+    def featured_attachments
+      attachments_from(content_store_response.dig("details", "featured_attachments"))
     end
   end
 
 private
+
+  def attachments_from(attachment_id_list)
+    attachments.select { |doc| (attachment_id_list || []).include? doc["id"] }
+  end
 
   def csv_preview_url(doc)
     asset = doc["assets"]&.first

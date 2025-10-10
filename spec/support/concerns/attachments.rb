@@ -3,6 +3,8 @@ RSpec.shared_examples "it can have attachments" do |document_type, example_name|
   let(:expected_attachments) { content_store_response["details"]["attachments"] }
 
   it "knows it has attachments" do
+    expect(expected_attachments).to be_present
+
     expect(described_class.new(content_store_response).attachments).to eq(expected_attachments)
   end
 
@@ -11,11 +13,12 @@ RSpec.shared_examples "it can have attachments" do |document_type, example_name|
     expect(described_class.new(content_store_response).attachments).to eq([])
   end
 
-  it "returns a sublist of attachments based on list of IDs" do
+  it "returns a sublist of featured attachments based on list of IDs" do
     attachment_id_list = content_store_response["details"]["featured_attachments"]
     expected_featured_attachments = expected_attachments.select { |doc| (attachment_id_list || []).include? doc["id"] }
 
-    expect(described_class.new(content_store_response).attachments_from(attachment_id_list)).to eq(expected_featured_attachments)
+    expect(described_class.new(content_store_response).featured_attachments).to be_present
+    expect(described_class.new(content_store_response).featured_attachments).to eq(expected_featured_attachments)
   end
 
   context "when checking attachment properties" do

@@ -33,11 +33,6 @@ class Consultation < ContentItem
     attachments_from(content_store_response.dig("details", "public_feedback_attachments"))
   end
 
-  # Documents, bottom of page
-  def featured_attachments
-    attachments_from(content_store_response.dig("details", "featured_attachments"))
-  end
-
   def attachments_with_details
     items = [].push(*final_outcome_attachments)
     items.push(*public_feedback_attachments)

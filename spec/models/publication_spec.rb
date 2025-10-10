@@ -54,33 +54,6 @@ RSpec.describe Publication do
     end
   end
 
-  describe "#featured_attachments" do
-    let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "publication-with-featured-attachments") }
-
-    it "returns featured attachments" do
-      expected = [{
-        "accessible" => true,
-        "alternative_format_contact_email" => nil,
-        "attachment_type" => "file",
-        "command_paper_number" => "",
-        "content_type" => "application/pdf",
-        "file_size" => 1_932_905,
-        "filename" => "PUBLIC_1392629965.pdf",
-        "hoc_paper_number" => "",
-        "id" => "PUBLIC_1392629965.pdf",
-        "isbn" => "",
-        "number_of_pages" => 2,
-        "title" => "Number of ex-regular service personnel now part of FR20",
-        "unique_reference" => "",
-        "unnumbered_command_paper" => false,
-        "unnumbered_hoc_paper" => false,
-        "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-      }]
-
-      expect(publication.featured_attachments).to eq(expected)
-    end
-  end
-
   describe "#national_statistics?" do
     it "returns false" do
       expect(publication.national_statistics?).to be false

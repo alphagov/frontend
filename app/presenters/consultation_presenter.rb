@@ -26,7 +26,7 @@ class ConsultationPresenter < ContentItemPresenter
       I18n.t("formats.consultation.not_open_yet")
     elsif content_item.pending_final_outcome?
       I18n.t("formats.consultation.analysing_feedback")
-    elsif content_item.final_outcome?
+    elsif content_item.outcome?
       I18n.t("formats.consultation.concluded")
     else
       ""

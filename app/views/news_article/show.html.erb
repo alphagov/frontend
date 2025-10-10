@@ -45,12 +45,14 @@
 
       <div class="govuk-!-display-none-print responsive-bottom-margin">
         <%= render "govuk_publishing_components/components/share_links",
+          dir: page_text_direction,
           links: share_links(content_item.base_path, content_item.title),
           track_as_sharing: true,
           title: t("components.share_links.share_this_page") %>
       </div>
 
       <%= render "govuk_publishing_components/components/published_dates", {
+        dir: page_text_direction,
         published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),
         history: formatted_history(content_item.history),

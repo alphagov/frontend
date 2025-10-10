@@ -4,4 +4,8 @@ RSpec.shared_examples "it can have phases with a running time period" do |docume
   it "can have an opening date and time" do
     expect(described_class.new(content_store_response).opening_date_time).to eq(content_store_response["details"]["opening_date"])
   end
+
+  it "can have a closing date and time" do
+    expect(described_class.new(content_store_response).closing_date_time).to eq(content_store_response["details"]["closing_date"])
+  end
 end

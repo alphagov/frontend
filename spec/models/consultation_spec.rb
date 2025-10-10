@@ -38,12 +38,6 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#closing_date_time" do
-    it "returns the closing date and time" do
-      expect(closed_consultation.closing_date_time).to eq("2016-10-31T17:00:00+01:00")
-    end
-  end
-
   describe "#open?" do
     it "returns true for an open_consultation document type" do
       expect(open_consultation.open?).to be(true)

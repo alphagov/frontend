@@ -61,7 +61,7 @@
 
     <%= render "shared/attachments_list",
       title: t("formats.consultation.feedback_received"),
-      attachments_for_components: content_item.public_feedback_attachments_for_components %>
+      attachments_for_components: content_item.public_feedback_attachments %>
     <% if content_item.public_feedback_detail %>
       <%= render "govuk_publishing_components/components/heading", {
         margin_bottom: 4,

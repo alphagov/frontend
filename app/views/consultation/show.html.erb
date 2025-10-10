@@ -46,7 +46,7 @@
     <% if content_item.outcome? %>
       <%= render "shared/attachments_list",
         title: t("formats.consultation.download_outcome"),
-        attachments_for_components: content_item.final_outcome_attachments_for_components %>
+        attachments_for_components: content_item.final_outcome_attachments %>
 
       <%= render "govuk_publishing_components/components/heading", {
         text: t("formats.consultation.detail_of_outcome"),

@@ -100,7 +100,7 @@
 
     <%= render "shared/attachments_list",
       title: t("formats.consultation.documents"),
-      attachments_for_components: content_item.documents_attachments_for_components %>
+      attachments_for_components: content_item.featured_attachments %>
 
     <% if content_item.ways_to_respond? %>
       <%= render "govuk_publishing_components/components/heading", {

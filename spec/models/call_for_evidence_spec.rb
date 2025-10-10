@@ -44,9 +44,9 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#general_documents" do
+    describe "#featured_attachments" do
       it "returns featured attachments if available" do
-        expect(call_for_evidence_outcome_with_featured_attachments.general_documents.length).to be(1)
+        expect(call_for_evidence_outcome_with_featured_attachments.featured_attachments.length).to be(1)
       end
     end
 

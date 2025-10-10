@@ -103,17 +103,6 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#featured_attachments" do
-    it "returns consultation documents if available" do
-      closed_consultation.content_store_response["details"]["attachments"] = test_documents
-      closed_consultation.content_store_response["details"]["featured_attachments"] = %w[01 02]
-
-      expect(closed_consultation.featured_attachments.length).to eq(2)
-      expect(closed_consultation.featured_attachments[0]["id"]).to eq("01")
-      expect(closed_consultation.featured_attachments[1]["id"]).to eq("02")
-    end
-  end
-
   describe "#attachments_with_details" do
     it "returns the number of attachments that are not accessible" do
       expect(consultation_outcome_with_featured_attachments.attachments_with_details.count).to eq(4)

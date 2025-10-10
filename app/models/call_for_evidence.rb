@@ -21,13 +21,13 @@ class CallForEvidence < ContentItem
   end
 
   # Documents, bottom of page
-  def general_documents
+  def featured_attachments
     attachments_from(content_store_response.dig("details", "featured_attachments"))
   end
 
   def attachments_with_details
     items = [].push(*outcome_documents)
-    items.push(*general_documents)
+    items.push(*featured_attachments)
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 

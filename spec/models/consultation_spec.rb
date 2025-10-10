@@ -103,14 +103,14 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#documents_attachments_for_components" do
+  describe "#featured_attachments" do
     it "returns consultation documents if available" do
       closed_consultation.content_store_response["details"]["attachments"] = test_documents
       closed_consultation.content_store_response["details"]["featured_attachments"] = %w[01 02]
 
-      expect(closed_consultation.documents_attachments_for_components.length).to eq(2)
-      expect(closed_consultation.documents_attachments_for_components[0]["id"]).to eq("01")
-      expect(closed_consultation.documents_attachments_for_components[1]["id"]).to eq("02")
+      expect(closed_consultation.featured_attachments.length).to eq(2)
+      expect(closed_consultation.featured_attachments[0]["id"]).to eq("01")
+      expect(closed_consultation.featured_attachments[1]["id"]).to eq("02")
     end
   end
 

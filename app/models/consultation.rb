@@ -34,14 +34,14 @@ class Consultation < ContentItem
   end
 
   # Documents, bottom of page
-  def documents_attachments_for_components
+  def featured_attachments
     attachments_from(content_store_response.dig("details", "featured_attachments"))
   end
 
   def attachments_with_details
     items = [].push(*final_outcome_attachments)
     items.push(*public_feedback_attachments)
-    items.push(*documents_attachments_for_components)
+    items.push(*featured_attachments)
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 

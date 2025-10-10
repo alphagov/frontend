@@ -892,6 +892,12 @@ hi:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: चैट पर सलाहकार उपलब्ध हैं।
+    busy: सभी वेबचैट सलाहकार इस समय व्यस्त हैं।
+    closed: फिलहाल वेबचैट बंद है।
+    speak_to_adviser: अभी एक सलाहकार से बात करें
+    technical_problem: तकनीकी समस्याओं की वज़ह से इस समय वेबचैट अनुपलब्ध है।
   website:
   when_do_the_clocks_change:
     calendar:

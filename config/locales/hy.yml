@@ -892,6 +892,12 @@ hy:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: 'Խորհրդատուները հասանելի են զրույցի համար:'
+    busy: 'Webchat-ի բոլոր խորհրդատուներն այս պահին զբաղված են:'
+    closed: 'Webchat-ն այս պահին հասանելի չէ:'
+    speak_to_adviser: Զրուցել խորհրդատուի հետ հիմա
+    technical_problem: 'Տեխնիկական խնդիրների պատճառով այս պահին webchat-ը հասանելի չէ:'
   website:
   when_do_the_clocks_change:
     calendar:

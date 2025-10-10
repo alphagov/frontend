@@ -813,6 +813,12 @@ ms:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Tidak ada penasihat sedia untuk bersembang.
+    busy: Semua penasihat sembang web sedang sibuk ketika ini.
+    closed: Sembang web ditutup ketika ini.
+    speak_to_adviser: Bercakap dengan seorang penasihat sekarang
+    technical_problem: Sembang web tidak tersedia ketika ini kerana masalah teknikal.
   website:
   when_do_the_clocks_change:
     calendar:

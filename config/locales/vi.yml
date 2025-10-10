@@ -813,6 +813,12 @@ vi:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Tư vấn viên đã sẵn sàng trò chuyện.
+    busy: Tất cả các tư vấn viên webchat hiện đang bận.
+    closed: Webchat hiện đã bị đóng.
+    speak_to_adviser: Nói chuyện với tư vấn viên ngay bây giờ
+    technical_problem: Webchat hiện không có sẵn do sự cố kỹ thuật.
   website:
   when_do_the_clocks_change:
     calendar:

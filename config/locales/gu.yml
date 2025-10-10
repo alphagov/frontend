@@ -892,6 +892,12 @@ gu:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: ચેટ કરવા માટે સલાહકારો ઉપસ્થિત છે.
+    busy: તમામ વેબચેટ સલાહકારો અત્યારે વ્યસ્ત છે.
+    closed: વેબચેટ અત્યારે બંધ છે.
+    speak_to_adviser: હવે સલાહકાર સાથે વાત કરો
+    technical_problem: ટેક્નિકલ સમસ્યાને લીધે અત્યારે વેબચેટ ઉપલબ્ધ નથી.
   website:
   when_do_the_clocks_change:
     calendar:

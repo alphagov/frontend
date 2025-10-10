@@ -892,6 +892,12 @@ ku:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: ڕاوێژکاران ئامادەن بۆ گفتوگۆکردن
+    busy: هەموو ڕاوێژکارانی وێبچات لە ئێستادا سەرقاڵی کارن و مەشغوڵن.
+    closed: لە ئێستادا وێبچات داخراوە.
+    speak_to_adviser: ئێستا لەگەڵ ڕاوێژکارێک قسە بکە
+    technical_problem: لە ئێستادا وێبچات بەردەست نییە بەهۆی کێشەی تەکنیکییەوە.
   website: ماڵپەڕ
   when_do_the_clocks_change:
     calendar:

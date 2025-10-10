@@ -1050,6 +1050,12 @@ mt:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Konsulenti huma disponibbli biex jiċċettjaw.
+    busy: Il-konsulenti tal-webchat kollha huma okkupati bħalissa.
+    closed: Il-webchat huwa magħluq bħalissa.
+    speak_to_adviser: Kellem lil konsulent issa
+    technical_problem: Il-webchat mhuwiex disponibbli bħalissa minħabba problemi tekniċi.
   website:
   when_do_the_clocks_change:
     calendar:

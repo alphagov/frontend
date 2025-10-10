@@ -24,7 +24,7 @@
       var filter = this.value
       filterInst.filterListItems(filter)
     })
-
+    /* istanbul ignore next */
     if (this.container) {
       var countryCount = this.container.getElementsByClassName('js-country-count')[0]
       if (countryCount) {

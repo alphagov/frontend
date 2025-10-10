@@ -9,3 +9,11 @@ RSpec.shared_examples "it can have a running time period" do |document_type, exa
     expect(described_class.new(content_store_response).closing_date_time).to eq(content_store_response["details"]["closing_date"])
   end
 end
+
+RSpec.shared_examples "it can have an open phase" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "returns true for an open_<schema_name> document type" do
+    expect(described_class.new(content_store_response).open?).to be(true)
+  end
+end

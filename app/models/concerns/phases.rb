@@ -8,4 +8,8 @@ module Phases
   def closing_date_time
     content_store_response.dig("details", "closing_date")
   end
+
+  def open?
+    content_store_response["document_type"] == "open_#{schema_name}"
+  end
 end

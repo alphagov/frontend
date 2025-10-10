@@ -43,10 +43,11 @@
 
     <%= render partial: "shared/phased/notice" unless content_item.open? %>
 
-    <% if content_item.final_outcome? %>
+    <% if content_item.outcome? %>
       <%= render "shared/attachments_list",
         title: t("formats.consultation.download_outcome"),
         attachments_for_components: content_item.final_outcome_attachments_for_components %>
+
       <%= render "govuk_publishing_components/components/heading", {
         text: t("formats.consultation.detail_of_outcome"),
         margin_bottom: 4,
@@ -74,7 +75,7 @@
       <% end %>
     <% end %>
 
-    <% if content_item.final_outcome? %>
+    <% if content_item.outcome? %>
       <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
         <header>
           <%= render "govuk_publishing_components/components/heading", {

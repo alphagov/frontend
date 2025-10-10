@@ -42,15 +42,15 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#final_outcome?" do
+  describe "#outcome?" do
     it "returns true for a consultation_outcome document type" do
-      expect(consultation_outcome.final_outcome?).to be(true)
+      expect(consultation_outcome.outcome?).to be(true)
     end
 
     it "returns false if it does not have the consultation_outcome document type" do
-      expect(unopened_consultation.final_outcome?).to be(false)
-      expect(open_consultation.final_outcome?).to be(false)
-      expect(closed_consultation.final_outcome?).to be(false)
+      expect(unopened_consultation.outcome?).to be(false)
+      expect(open_consultation.outcome?).to be(false)
+      expect(closed_consultation.outcome?).to be(false)
     end
   end
 

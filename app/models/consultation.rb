@@ -15,10 +15,6 @@ class Consultation < ContentItem
     organisations + people
   end
 
-  def unopened?
-    content_store_response["document_type"] == "consultation"
-  end
-
   def final_outcome?
     content_store_response["document_type"] == "consultation_outcome"
   end

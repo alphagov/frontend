@@ -11,10 +11,6 @@ class CallForEvidence < ContentItem
     organisations + people
   end
 
-  def unopened?
-    content_store_response["document_type"] == "call_for_evidence"
-  end
-
   def outcome?
     content_store_response["document_type"] == "call_for_evidence_outcome"
   end

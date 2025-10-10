@@ -19,4 +19,16 @@ RSpec.shared_examples "it can have ways to respond" do |document_type, example_n
       expect(described_class.new(content_store_response).held_on_another_website_url).to be_nil
     end
   end
+
+  describe "#held_on_another_website?" do
+    it "returns true if it is held on another website" do
+      expect(described_class.new(content_store_response).held_on_another_website?).to be(true)
+    end
+
+    it "returns false if it is not held on another website" do
+      content_store_response["details"].delete("held_on_another_website_url")
+
+      expect(described_class.new(content_store_response).held_on_another_website?).to be(false)
+    end
+  end
 end

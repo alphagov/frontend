@@ -124,16 +124,6 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#held_on_another_website?" do
-    it "returns true if it is held on another website" do
-      expect(open_consultation.held_on_another_website?).to be(true)
-    end
-
-    it "returns false if it is not held on another website" do
-      expect(unopened_consultation.held_on_another_website?).to be(false)
-    end
-  end
-
   describe "#email" do
     it "returns the email address if available" do
       expected_email = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "email")

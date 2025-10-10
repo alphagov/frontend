@@ -45,10 +45,6 @@ class Consultation < ContentItem
     content_store_response.dig("details", "public_feedback_detail")
   end
 
-  def held_on_another_website?
-    held_on_another_website_url.present?
-  end
-
   def email
     ways_to_respond["email"] if ways_to_respond
   end

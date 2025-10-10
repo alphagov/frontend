@@ -63,16 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#held_on_another_website?" do
-      it "returns true if it is held on another website" do
-        expect(open_call_for_evidence.held_on_another_website?).to be(true)
-      end
-
-      it "returns false if it is not held on another website" do
-        expect(unopened_call_for_evidence.held_on_another_website?).to be(false)
-      end
-    end
-
     describe "#ways_to_respond?" do
       it "returns true for an open_call_for_evidence document type that has contact information available" do
         expect(open_call_for_evidence_with_participation.ways_to_respond?).to be(true)

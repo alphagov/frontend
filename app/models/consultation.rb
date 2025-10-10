@@ -6,6 +6,7 @@ class Consultation < ContentItem
   include Political
   include SinglePageNotificationButton
   include Updatable
+  include WaysToRespond
 
   def lead_paragraph
     false

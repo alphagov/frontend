@@ -69,14 +69,14 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#final_outcome_attachments_for_components" do
+  describe "#final_outcome_attachments" do
     it "returns final outcome documents if available" do
       consultation_outcome_with_featured_attachments.content_store_response["details"]["attachments"] = test_documents
       consultation_outcome_with_featured_attachments.content_store_response["details"]["final_outcome_attachments"] = %w[02 03]
 
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components.length).to eq(2)
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[0]["id"]).to eq("02")
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[1]["id"]).to eq("03")
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments.length).to eq(2)
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments[0]["id"]).to eq("02")
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments[1]["id"]).to eq("03")
     end
 
     it "does not return information if it does not have the consultation_outcome document type" do

@@ -24,7 +24,7 @@ class Consultation < ContentItem
   end
 
   # Read the full outcome, top of page
-  def final_outcome_attachments_for_components
+  def final_outcome_attachments
     attachments_from(content_store_response.dig("details", "final_outcome_attachments"))
   end
 
@@ -39,7 +39,7 @@ class Consultation < ContentItem
   end
 
   def attachments_with_details
-    items = [].push(*final_outcome_attachments_for_components)
+    items = [].push(*final_outcome_attachments)
     items.push(*public_feedback_attachments_for_components)
     items.push(*documents_attachments_for_components)
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }

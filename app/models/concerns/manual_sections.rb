@@ -26,6 +26,10 @@ module ManualSections
         },
       ]
     end
+
+    def manual_base_path
+      content_store_response&.dig("details", "manual", "base_path")
+    end
   end
 
 private

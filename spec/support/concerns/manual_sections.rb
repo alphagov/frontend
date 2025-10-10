@@ -88,3 +88,11 @@ RSpec.shared_examples "it can have breadcrumbs" do |document_type, example_name|
     end
   end
 end
+
+RSpec.shared_examples "it can have manual base path" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "returns the manual base path" do
+    expect(described_class.new(content_item).manual_base_path).to eq(content_item.dig("details", "manual", "base_path"))
+  end
+end

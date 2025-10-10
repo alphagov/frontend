@@ -18,6 +18,7 @@ RSpec.describe CallForEvidence do
   it_behaves_like "it can have a closed phase", "call_for_evidence", "call_for_evidence_outcome"
   it_behaves_like "it can have an unopened phase", "call_for_evidence", "unopened_call_for_evidence"
   it_behaves_like "it can have an outcome phase", "call_for_evidence", "call_for_evidence_outcome"
+  it_behaves_like "it can have ways to respond", "call_for_evidence", "open_call_for_evidence_with_participation"
 
   describe "#contributors" do
     it "returns a list of organisations" do

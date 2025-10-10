@@ -6,6 +6,7 @@ class CallForEvidence < ContentItem
   include Political
   include SinglePageNotificationButton
   include Updatable
+  include WaysToRespond
 
   def contributors
     organisations + people

@@ -28,6 +28,7 @@ RSpec.describe Consultation do
   it_behaves_like "it can have a closed phase", "consultation", "consultation_outcome"
   it_behaves_like "it can have an unopened phase", "consultation", "unopened_consultation"
   it_behaves_like "it can have an outcome phase", "consultation", "consultation_outcome"
+  it_behaves_like "it can have ways to respond", "consultation", "open_consultation_with_participation"
 
   describe "#contributors" do
     it "returns a list of organisations" do

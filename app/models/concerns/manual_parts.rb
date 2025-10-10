@@ -26,6 +26,14 @@ module ManualParts
         },
       ]
     end
+
+    def manual_content_item
+      @manual_content_item ||= Services.content_store.content_item(base_path)
+    end
+
+    def parsed_content_item
+      manual_content_item.parsed_content
+    end
   end
 
 private

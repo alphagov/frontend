@@ -67,3 +67,14 @@ RSpec.shared_examples "it can have breadcrumbs" do |document_type, example_name|
     end
   end
 end
+
+RSpec.shared_examples "it can have manual content item" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "returns an empty hash when content store returns empty body" do
+    stub_request(:get, "http://content-store.dev.gov.uk/content/guidance/content-design/what-is-content-design")
+.to_return(status: 200, body: "{}", headers: {})
+
+    expect(described_class.new(content_item).parsed_content_item).to eq({})
+  end
+end

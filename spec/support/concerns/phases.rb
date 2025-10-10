@@ -33,3 +33,11 @@ RSpec.shared_examples "it can have an unopened phase" do |document_type, example
     expect(described_class.new(content_store_response).unopened?).to be(true)
   end
 end
+
+RSpec.shared_examples "it can have an outcome phase" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "returns true for an <schema_name>_outcome document type" do
+    expect(described_class.new(content_store_response).closed?).to be(true)
+  end
+end

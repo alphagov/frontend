@@ -63,18 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#held_on_another_website_url" do
-      it "returns url if it is held on another website" do
-        expected_url = open_call_for_evidence.content_store_response.dig("details", "held_on_another_website_url")
-
-        expect(open_call_for_evidence.held_on_another_website_url).to be(expected_url)
-      end
-
-      it "does not return url if it is not held on another website" do
-        expect(unopened_call_for_evidence.held_on_another_website_url).to be_nil
-      end
-    end
-
     describe "#held_on_another_website?" do
       it "returns true if it is held on another website" do
         expect(open_call_for_evidence.held_on_another_website?).to be(true)

@@ -20,4 +20,8 @@ module Phases
   def unopened?
     content_store_response["document_type"] == schema_name
   end
+
+  def outcome?
+    content_store_response["document_type"] == "#{schema_name}_outcome"
+  end
 end

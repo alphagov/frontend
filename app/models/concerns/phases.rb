@@ -16,4 +16,8 @@ module Phases
   def closed?
     ["closed_#{schema_name}", "#{schema_name}_outcome"].include? content_store_response["document_type"]
   end
+
+  def unopened?
+    content_store_response["document_type"] == schema_name
+  end
 end

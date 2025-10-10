@@ -15,10 +15,6 @@ class Consultation < ContentItem
     organisations + people
   end
 
-  def closed?
-    %w[closed_consultation consultation_outcome].include? content_store_response["document_type"]
-  end
-
   def unopened?
     content_store_response["document_type"] == "consultation"
   end

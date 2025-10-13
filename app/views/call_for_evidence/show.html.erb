@@ -45,22 +45,9 @@
       <%= render partial: "shared/phased/notice" %>
     <% end %>
 
+    <%= render partial: "shared/phased/outcome_details" if content_item.outcome? %>
+
     <% if content_item.outcome? %>
-      <%= render "shared/attachments_list",
-        title: t("formats.call_for_evidence.download_outcome"),
-        attachments_for_components: content_item.final_outcome_attachments %>
-
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("formats.call_for_evidence.detail_of_outcome"),
-        margin_bottom: 4,
-      } %>
-
-      <%= render "govuk_publishing_components/components/govspeak", {
-        direction: page_text_direction,
-      } do %>
-        <%= raw(content_item.final_outcome_detail) %>
-      <% end %>
-
       <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
         <header>
           <%= render "govuk_publishing_components/components/heading", {

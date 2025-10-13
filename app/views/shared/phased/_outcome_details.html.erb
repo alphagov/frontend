@@ -1,0 +1,14 @@
+<%= render "shared/attachments_list",
+title: t("formats.#{content_item.schema_name}.download_outcome"),
+attachments_for_components: content_item.final_outcome_attachments %>
+
+<%= render "govuk_publishing_components/components/heading", {
+  text: t("formats.#{content_item.schema_name}.detail_of_outcome"),
+  margin_bottom: 4,
+} %>
+
+<%= render "govuk_publishing_components/components/govspeak", {
+  direction: page_text_direction,
+} do %>
+  <%= raw(content_item.final_outcome_detail) %>
+<% end %>

@@ -17,6 +17,10 @@ module WaysToRespond
     ways_to_respond["email"] if ways_to_respond
   end
 
+  def postal_address
+    ways_to_respond["postal_address"] if ways_to_respond
+  end
+
 private
 
   def ways_to_respond

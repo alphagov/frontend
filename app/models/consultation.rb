@@ -45,10 +45,6 @@ class Consultation < ContentItem
     content_store_response.dig("details", "public_feedback_detail")
   end
 
-  def postal_address
-    ways_to_respond["postal_address"] if ways_to_respond
-  end
-
   def respond_online_url
     ways_to_respond["link_url"] if ways_to_respond
   end

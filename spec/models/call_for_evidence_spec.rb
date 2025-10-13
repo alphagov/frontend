@@ -63,21 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#postal_address" do
-      it "returns the postal address if available" do
-        expected_postal_address = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "postal_address")
-
-        expect(open_call_for_evidence_with_participation.postal_address).to eq(expected_postal_address)
-      end
-
-      it "returns nil if postal address isn't available" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("postal_address")
-
-        expect(open_call_for_evidence_with_participation.postal_address).to be_nil
-      end
-    end
-
     describe "#respond_online_url" do
       it "returns the link url if available" do
         expected_link_url = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "link_url")

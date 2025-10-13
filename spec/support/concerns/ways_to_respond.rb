@@ -86,4 +86,20 @@ RSpec.shared_examples "it can have ways to respond" do |document_type, example_n
       expect(described_class.new(content_store_response).postal_address).to be_nil
     end
   end
+
+  describe "#respond_online_url" do
+    it "returns the link url if available" do
+      expected_link_url = content_store_response.dig("details", "ways_to_respond", "link_url")
+
+      expect(described_class.new(content_store_response).respond_online_url).to be_present
+      expect(described_class.new(content_store_response).respond_online_url).to eq(expected_link_url)
+    end
+
+    it "returns nil if link url isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("link_url")
+
+      expect(described_class.new(content_store_response).respond_online_url).to be_nil
+    end
+  end
 end

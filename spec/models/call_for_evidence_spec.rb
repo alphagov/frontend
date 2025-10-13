@@ -63,21 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#respond_online_url" do
-      it "returns the link url if available" do
-        expected_link_url = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "link_url")
-
-        expect(open_call_for_evidence_with_participation.respond_online_url).to eq(expected_link_url)
-      end
-
-      it "returns nil if link url isn't available" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("link_url")
-
-        expect(open_call_for_evidence_with_participation.respond_online_url).to be_nil
-      end
-    end
-
     describe "#attachment_url" do
       it "returns the attachment url if available" do
         expected_attachment_url = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "attachment_url")

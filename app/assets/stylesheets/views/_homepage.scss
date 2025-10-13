@@ -213,6 +213,31 @@
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;
   }
+
+  // Override styles for image card to ensure the icon size
+  // does not increase on mobile
+  .gem-c-image-card {
+    display: flex;
+  }
+
+  .gem-c-image-card__text-wrapper.gem-c-image-card__text-wrapper--two-thirds {
+    flex: 1 1 auto;
+  }
+}
+
+.app-promo {
+  padding-top: govuk-spacing(6);
+  border-top: 4px solid $govuk-brand-colour;
+  margin-top: govuk-spacing(8);
+  margin-bottom: govuk-spacing(6);
+
+  @include govuk-media-query($from: "tablet") {
+    margin-top: govuk-spacing(9);
+  }
+
+  .gem-c-image-card {
+    margin-bottom: 0;
+  }
 }
 
 .homepage-section--services-and-info {

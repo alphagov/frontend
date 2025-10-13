@@ -17,12 +17,12 @@ class CallForEvidence < ContentItem
   end
 
   # Read the full outcome, top of page
-  def outcome_documents
+  def final_outcome_attachments
     attachments_from(content_store_response.dig("details", "outcome_attachments"))
   end
 
   def attachments_with_details
-    items = [].push(*outcome_documents)
+    items = [].push(*final_outcome_attachments)
     items.push(*featured_attachments)
 
     inaccessible_attachments_with_email(items)

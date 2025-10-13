@@ -46,15 +46,15 @@ RSpec.describe CallForEvidence do
     end
   end
 
-  describe "#outcome_documents" do
+  describe "#final_outcome_attachments" do
     it "returns documents if it has the call_for_evidence_outcome document type" do
-      expect(call_for_evidence_outcome_with_featured_attachments.outcome_documents.length).to be(2)
+      expect(call_for_evidence_outcome_with_featured_attachments.final_outcome_attachments.length).to be(2)
     end
 
     it "does not return documents if it does not have the call_for_evidence_outcome document type" do
-      expect(unopened_call_for_evidence.outcome_documents).to be_empty
-      expect(open_call_for_evidence.outcome_documents).to be_empty
-      expect(closed_call_for_evidence.outcome_documents).to be_empty
+      expect(unopened_call_for_evidence.final_outcome_attachments).to be_empty
+      expect(open_call_for_evidence.final_outcome_attachments).to be_empty
+      expect(closed_call_for_evidence.final_outcome_attachments).to be_empty
     end
   end
 

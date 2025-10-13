@@ -32,39 +32,39 @@ RSpec.describe CallForEvidence do
         expect(open_call_for_evidence.contributors[1].base_path).to eq("/government/people/jacqui-smith")
       end
     end
+  end
 
-    describe "#outcome_detail" do
-      it "returns information if it has the call_for_evidence_outcome document type" do
-        expect(call_for_evidence_outcome.outcome_detail).to be(call_for_evidence_outcome.content_store_response.dig("details", "outcome_detail"))
-      end
-
-      it "does not return information if it does not have the call_for_evidence_outcome document type" do
-        expect(unopened_call_for_evidence.outcome_detail).not_to be_present
-        expect(open_call_for_evidence.outcome_detail).not_to be_present
-        expect(closed_call_for_evidence.outcome_detail).not_to be_present
-      end
+  describe "#outcome_detail" do
+    it "returns information if it has the call_for_evidence_outcome document type" do
+      expect(call_for_evidence_outcome.outcome_detail).to be(call_for_evidence_outcome.content_store_response.dig("details", "outcome_detail"))
     end
 
-    describe "#outcome_documents" do
-      it "returns documents if it has the call_for_evidence_outcome document type" do
-        expect(call_for_evidence_outcome_with_featured_attachments.outcome_documents.length).to be(2)
-      end
+    it "does not return information if it does not have the call_for_evidence_outcome document type" do
+      expect(unopened_call_for_evidence.outcome_detail).not_to be_present
+      expect(open_call_for_evidence.outcome_detail).not_to be_present
+      expect(closed_call_for_evidence.outcome_detail).not_to be_present
+    end
+  end
 
-      it "does not return documents if it does not have the call_for_evidence_outcome document type" do
-        expect(unopened_call_for_evidence.outcome_documents).to be_empty
-        expect(open_call_for_evidence.outcome_documents).to be_empty
-        expect(closed_call_for_evidence.outcome_documents).to be_empty
-      end
+  describe "#outcome_documents" do
+    it "returns documents if it has the call_for_evidence_outcome document type" do
+      expect(call_for_evidence_outcome_with_featured_attachments.outcome_documents.length).to be(2)
     end
 
-    describe "#attachments_with_details" do
-      it "returns the number of attachments that are not accessible" do
-        expect(call_for_evidence_outcome_with_featured_attachments.attachments_with_details.count).to eq(3)
-      end
+    it "does not return documents if it does not have the call_for_evidence_outcome document type" do
+      expect(unopened_call_for_evidence.outcome_documents).to be_empty
+      expect(open_call_for_evidence.outcome_documents).to be_empty
+      expect(closed_call_for_evidence.outcome_documents).to be_empty
     end
+  end
 
-    it "does not have a lead paragraph" do
-      expect(open_call_for_evidence.lead_paragraph).to be(false)
+  describe "#attachments_with_details" do
+    it "returns the number of attachments that are not accessible" do
+      expect(call_for_evidence_outcome_with_featured_attachments.attachments_with_details.count).to eq(3)
     end
+  end
+
+  it "does not have a lead paragraph" do
+    expect(open_call_for_evidence.lead_paragraph).to be(false)
   end
 end

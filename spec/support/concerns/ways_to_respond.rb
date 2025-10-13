@@ -54,4 +54,20 @@ RSpec.shared_examples "it can have ways to respond" do |document_type, example_n
       expect(described_class.new(content_store_response).ways_to_respond?).to be(false)
     end
   end
+
+  describe "#email" do
+    it "returns the email address if available" do
+      expected_email = content_store_response.dig("details", "ways_to_respond", "email")
+
+      expect(described_class.new(content_store_response).email).to be_present
+      expect(described_class.new(content_store_response).email).to eq(expected_email)
+    end
+
+    it "returns nil if email address isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+
+      expect(described_class.new(content_store_response).email).to be_nil
+    end
+  end
 end

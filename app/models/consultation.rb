@@ -45,10 +45,6 @@ class Consultation < ContentItem
     content_store_response.dig("details", "public_feedback_detail")
   end
 
-  def email
-    ways_to_respond["email"] if ways_to_respond
-  end
-
   def postal_address
     ways_to_respond["postal_address"] if ways_to_respond
   end
@@ -63,11 +59,5 @@ class Consultation < ContentItem
 
   def response_form?
     attachment_url.present? && (email.present? || postal_address.present?)
-  end
-
-private
-
-  def ways_to_respond
-    content_store_response.dig("details", "ways_to_respond")
   end
 end

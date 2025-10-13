@@ -63,21 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#email" do
-      it "returns the email address if available" do
-        expected_email = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "email")
-
-        expect(open_call_for_evidence_with_participation.email).to eq(expected_email)
-      end
-
-      it "returns nil if email address isn't available" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("email")
-
-        expect(open_call_for_evidence_with_participation.email).to be_nil
-      end
-    end
-
     describe "#postal_address" do
       it "returns the postal address if available" do
         expected_postal_address = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "postal_address")

@@ -27,10 +27,6 @@ class CallForEvidence < ContentItem
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 
-  def email
-    ways_to_respond["email"] if ways_to_respond
-  end
-
   def postal_address
     ways_to_respond["postal_address"] if ways_to_respond
   end
@@ -49,11 +45,5 @@ class CallForEvidence < ContentItem
 
   def lead_paragraph
     false
-  end
-
-private
-
-  def ways_to_respond
-    @ways_to_respond ||= content_store_response.dig("details", "ways_to_respond")
   end
 end

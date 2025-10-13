@@ -63,20 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#attachment_url" do
-      it "returns the attachment url if available" do
-        expected_attachment_url = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "attachment_url")
-
-        expect(open_call_for_evidence_with_participation.attachment_url).to eq(expected_attachment_url)
-      end
-
-      it "returns nil if attachment url isn't available" do
-        open_call_for_evidence_with_participation.content_store_response["details"].delete("ways_to_respond")
-
-        expect(open_call_for_evidence_with_participation.attachment_url).to be_nil
-      end
-    end
-
     describe "#response_form?" do
       it "returns true for an open_call_for_evidence document type that has attachment url and only email" do
         ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")

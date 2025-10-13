@@ -124,28 +124,6 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#attachment_url" do
-    it "returns the attachment url if available" do
-      expected_attachment_url = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "attachment_url")
-
-      expect(open_consultation_with_participation.attachment_url).to eq(expected_attachment_url)
-    end
-
-    it "returns nil if attachment url isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("attachment_url")
-
-      expect(open_consultation_with_participation.attachment_url).to be_nil
-    end
-
-    it "returns nil if ways_to_respond isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response["details"]
-      ways_to_respond.delete("ways_to_respond")
-
-      expect(open_consultation_with_participation.attachment_url).to be_nil
-    end
-  end
-
   describe "#response_form?" do
     it "returns true for an open_consultation document type that has attachment url and only email" do
       ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")

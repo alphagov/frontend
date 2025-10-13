@@ -875,6 +875,11 @@ en:
         title: Cost of living support
         href: "/cost-of-living"
         image_src: homepage/cost-of-living-featured.png
+      promotion_slots_secondary:
+      - text: Your government services and information, on the go.
+        title: Get the GOV.UK app
+        href: "/guidance/download-the-govuk-app"
+        image_src: app-promo/govuk-app-icon.png
       running_limited_company: Running a limited company
       search_button: Search GOV.UK
       search_label: Search

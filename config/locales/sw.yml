@@ -892,6 +892,12 @@ sw:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Washauri wanapatikana ili kupiga gumzo nao.
+    busy: Washauri wote wa gumzo la mtandaoni hawapatikani kwa sasa.
+    closed: Huduma ya gumzo la mtandaoni imefungwa kwa sasa.
+    speak_to_adviser: Zungumza na mshauri sasa
+    technical_problem: Huduma ya gumzo la mtandaoni haipatikani kwa sasa kwa sababu ya matatizo ya kiufundi.
   website:
   when_do_the_clocks_change:
     calendar:

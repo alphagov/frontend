@@ -1050,6 +1050,12 @@ be:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Кансультанты даступныя для камунікавання.
+    busy: Усе кансультанты ўэб-чату зараз заняты.
+    closed: Ўэб-чат зараз час зачынены.
+    speak_to_adviser: Пагаварыце зараз з кансультантам
+    technical_problem: Ўэб-чат зараз недаступны з-за тэхнічных праблем.
   website:
   when_do_the_clocks_change:
     calendar:

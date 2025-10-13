@@ -892,6 +892,12 @@ si:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: චැට් කිරීමට උපදේශකයින් ඇත.
+    busy: සියලුම වෙබ් චැට් උපදේශකයින් මේ මොහොතේ කාර්ය බහුලයි.
+    closed: වෙබ් චැට් මේ මොහොතේ වසා ඇත.
+    speak_to_adviser: දැන් උපදේශකයෙකුට කතා කරන්න
+    technical_problem: තාක්ෂණික ගැටළු හේතුවෙන් වෙබ් චැට් මේ මොහොතේ ලබා ගත නොහැක.
   website:
   when_do_the_clocks_change:
     calendar:

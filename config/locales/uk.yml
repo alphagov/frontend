@@ -1050,6 +1050,12 @@ uk:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Доступні консультанти для спілкування.
+    busy: Наразі всі консультанти вебчату зайняті.
+    closed: На даний момент вебчат закритий.
+    speak_to_adviser: Поговорити з консультантом зараз
+    technical_problem: Вебчат наразі не доступний через технічні проблеми.
   website:
   when_do_the_clocks_change:
     calendar:

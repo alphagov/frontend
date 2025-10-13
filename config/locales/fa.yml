@@ -892,6 +892,12 @@ fa:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: مشاوران برای چت در دسترس هستند.
+    busy: تمام مشاوران وب‌چت در حال حاضر مشغول هستند.
+    closed: وب‌چت در این لحظه بسته می‌شود.
+    speak_to_adviser: اکنون با یک مشاور صحبت کنید
+    technical_problem: به دلیل مشکلات فنی، وب‌چت در حال حاضر در دسترس نیست.
   website:
   when_do_the_clocks_change:
     calendar:

@@ -892,6 +892,12 @@ de:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Unsere Berater stehen für einen Chat zur Verfügung.
+    busy: Alle Chat-Berater sind im Moment beschäftigt.
+    closed: Der Webchat ist im Moment geschlossen.
+    speak_to_adviser: Sprechen Sie jetzt mit einem Berater
+    technical_problem: Der Webchat ist zur Zeit aufgrund technischer Probleme nicht verfügbar.
   website:
   when_do_the_clocks_change:
     calendar:

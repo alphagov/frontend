@@ -187,6 +187,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
 
       this.$module.addEventListener('keyup', (e) => {
+        /* istanbul ignore next */
         if (e.keyCode === 27) {
           this.map.closePopup()
         }

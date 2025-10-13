@@ -892,6 +892,12 @@ fi:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Neuvonantajat ovat chatissa.
+    busy: Kaikki webchat-neuvojat ovat tällä hetkellä varattuja.
+    closed: Webchat on suljettu tällä hetkellä.
+    speak_to_adviser: Puhu nyt neuvonantajan kanssa
+    technical_problem: Webchat ei ole tällä hetkellä käytettävissä teknisten ongelmien vuoksi.
   website:
   when_do_the_clocks_change:
     calendar:

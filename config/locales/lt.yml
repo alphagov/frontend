@@ -971,6 +971,12 @@ lt:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Konsultantai pasirengę bendrauti.
+    busy: Visis internetinių pokalbių konsultantai šiuo metu užimti.
+    closed: Internetinis pokalbis šiuo metu neprieinamas.
+    speak_to_adviser: Kalbėti su konsultantu dabar
+    technical_problem: Internetinis pokalbis šiuo metu neprieinamas dėl techninių problemų.
   website:
   when_do_the_clocks_change:
     calendar:

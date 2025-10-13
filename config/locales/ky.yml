@@ -892,6 +892,12 @@ ky:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: Кеңешчилер маектешүүгө жеткиликтүү.
+    busy: Вебчат кеңешчилеринин баары учурда бош эмес.
+    closed: Вебчат учурда жабык.
+    speak_to_adviser: Азыр кеңешчи менен сүйлөшүү
+    technical_problem: Вебчат учурда техникалык көйгөйлөрдөн улам жеткиликсиз.
   website:
   when_do_the_clocks_change:
     calendar:

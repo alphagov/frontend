@@ -892,6 +892,12 @@ ta:
   time:
     formats:
       short_ordinal: "%e %B %Y"
+  webchat:
+    available: உரையாடலுக்கு ஆலோசகர்கள் உள்ளனர்.
+    busy: அனைத்து இணைய உரையாடல் ஆலோசகர்களும் தற்போது வேலையில் உள்ளனர்.
+    closed: இணைய உரையாடல் தற்போது மூடப்பட்டுள்ளது.
+    speak_to_adviser: ஓர் ஆலோசகருடன் இப்போது பேசுங்கள்
+    technical_problem: தொழில்நுட்பப் பிரச்சினைகள் காரணமாக இணைய உரையாடல் தற்போது கிடைக்கப்பெறவில்லை.
   website:
   when_do_the_clocks_change:
     calendar:

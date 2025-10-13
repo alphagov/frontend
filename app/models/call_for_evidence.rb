@@ -12,7 +12,7 @@ class CallForEvidence < ContentItem
     organisations + people
   end
 
-  def outcome_detail
+  def final_outcome_detail
     content_store_response.dig("details", "outcome_detail")
   end
 

@@ -38,7 +38,8 @@ class Consultation < ContentItem
     items = [].push(*final_outcome_attachments)
     items.push(*public_feedback_attachments)
     items.push(*featured_attachments)
-    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+
+    inaccessible_attachments_with_email(items)
   end
 
   def public_feedback_detail

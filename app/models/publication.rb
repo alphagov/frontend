@@ -12,7 +12,7 @@ class Publication < ContentItem
   end
 
   def attachments_with_details
-    featured_attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+    inaccessible_attachments_with_email(featured_attachments)
   end
 
   def dataset?

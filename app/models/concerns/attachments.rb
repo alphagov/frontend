@@ -18,6 +18,10 @@ module Attachments
     def featured_attachments
       attachments_from(content_store_response.dig("details", "featured_attachments"))
     end
+
+    def inaccessible_attachments_with_email(attachments)
+      attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+    end
   end
 
 private

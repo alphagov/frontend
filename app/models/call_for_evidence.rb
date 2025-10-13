@@ -24,7 +24,8 @@ class CallForEvidence < ContentItem
   def attachments_with_details
     items = [].push(*outcome_documents)
     items.push(*featured_attachments)
-    items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+
+    inaccessible_attachments_with_email(items)
   end
 
   def lead_paragraph

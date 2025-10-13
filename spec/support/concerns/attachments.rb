@@ -21,6 +21,17 @@ RSpec.shared_examples "it can have attachments" do |document_type, example_name|
     expect(described_class.new(content_store_response).featured_attachments).to eq(expected_featured_attachments)
   end
 
+  it "returns a list of attachments that are not accessible and contain an email address" do
+    attachments = content_store_response["details"]["attachments"]
+
+    attachments = described_class.new(content_store_response).inaccessible_attachments_with_email(attachments)
+
+    attachments.each do |attachment|
+      expect(attachment["accessible"]).to be(false)
+      expect(attachment["alternative_format_contact_email"]).to be_present
+    end
+  end
+
   context "when checking attachment properties" do
     let(:attachment) { content_store_response["details"]["attachments"].first }
 

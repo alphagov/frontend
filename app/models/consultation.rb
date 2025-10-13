@@ -44,8 +44,4 @@ class Consultation < ContentItem
   def public_feedback_detail
     content_store_response.dig("details", "public_feedback_detail")
   end
-
-  def response_form?
-    attachment_url.present? && (email.present? || postal_address.present?)
-  end
 end

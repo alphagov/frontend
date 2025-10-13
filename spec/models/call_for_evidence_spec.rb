@@ -63,30 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#response_form?" do
-      it "returns true for an open_call_for_evidence document type that has attachment url and only email" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("postal_adress")
-
-        expect(open_call_for_evidence_with_participation.response_form?).to be(true)
-      end
-
-      it "returns true for an open_call_for_evidence document type that has attachment url and only postal address" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("email")
-
-        expect(open_call_for_evidence_with_participation.response_form?).to be(true)
-      end
-
-      it "returns false for an open_call_for_evidence document type that has attachment url but no email or postal address" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("email")
-        ways_to_respond.delete("postal_address")
-
-        expect(open_call_for_evidence_with_participation.response_form?).to be(false)
-      end
-    end
-
     it "does not have a lead paragraph" do
       expect(open_call_for_evidence.lead_paragraph).to be(false)
     end

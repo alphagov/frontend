@@ -29,6 +29,10 @@ module WaysToRespond
     ways_to_respond["attachment_url"] if ways_to_respond
   end
 
+  def response_form?
+    attachment_url.present? && (email.present? || postal_address.present?)
+  end
+
 private
 
   def ways_to_respond

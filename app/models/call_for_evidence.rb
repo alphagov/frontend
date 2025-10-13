@@ -27,10 +27,6 @@ class CallForEvidence < ContentItem
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 
-  def response_form?
-    attachment_url.present? && (email.present? || postal_address.present?)
-  end
-
   def lead_paragraph
     false
   end

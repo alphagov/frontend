@@ -125,4 +125,35 @@ RSpec.shared_examples "it can have ways to respond" do |document_type, example_n
       expect(described_class.new(content_store_response).attachment_url).to be_nil
     end
   end
+
+  describe "#response_form?" do
+    it "returns true for an open_<schema_name> document type that has attachment url and only email" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("postal_adress")
+      ways_to_respond.delete("link_url")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(ways_to_respond["email"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(true)
+    end
+
+    it "returns true for an open_<schema_name> document type that has attachment url and only postal address" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+      ways_to_respond.delete("link_url")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(ways_to_respond["postal_address"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(true)
+    end
+
+    it "returns false for an open_<schema_name> document type that has attachment url but no email or postal address" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+      ways_to_respond.delete("postal_address")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(false)
+    end
+  end
 end

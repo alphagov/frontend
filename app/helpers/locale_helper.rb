@@ -8,6 +8,10 @@ module LocaleHelper
     I18n.t("i18n.direction", locale: I18n.locale, default: "ltr")
   end
 
+  def rtl_attribute
+    page_text_direction == "rtl" ? "direction-rtl" : ""
+  end
+
   def native_language_name_for(locale)
     I18n.t("language_names.#{locale}", locale:)
   end

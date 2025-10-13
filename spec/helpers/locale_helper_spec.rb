@@ -50,4 +50,18 @@ RSpec.describe LocaleHelper do
       expect(native_language_name_for(:cy)).to eq("Cymraeg")
     end
   end
+
+  describe "#rtl_attribute" do
+    it "returns an empty string for an ltr language" do
+      I18n.with_locale(:en) do
+        expect(rtl_attribute).to eq("")
+      end
+    end
+
+    it "returns a direction-rtl class for an rtl language" do
+      I18n.with_locale(:ar) do
+        expect(rtl_attribute).to eq("direction-rtl")
+      end
+    end
+  end
 end

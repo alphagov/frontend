@@ -27,10 +27,6 @@ class CallForEvidence < ContentItem
     items.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
   end
 
-  def ways_to_respond?
-    open? && (respond_online_url.present? || email.present? || postal_address.present?)
-  end
-
   def email
     ways_to_respond["email"] if ways_to_respond
   end

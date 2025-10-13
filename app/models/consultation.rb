@@ -61,10 +61,6 @@ class Consultation < ContentItem
     ways_to_respond["attachment_url"] if ways_to_respond
   end
 
-  def ways_to_respond?
-    open? && (respond_online_url.present? || email.present? || postal_address.present?)
-  end
-
   def response_form?
     attachment_url.present? && (email.present? || postal_address.present?)
   end

@@ -63,32 +63,6 @@ RSpec.describe CallForEvidence do
       end
     end
 
-    describe "#ways_to_respond?" do
-      it "returns true for an open_call_for_evidence document type that has contact information available" do
-        expect(open_call_for_evidence_with_participation.ways_to_respond?).to be(true)
-      end
-
-      it "returns false for an open_call_for_evidence document type that does not have any contact information available" do
-        expect(open_call_for_evidence.ways_to_respond?).to be(false)
-      end
-
-      it "returns false for an open_call_for_evidence document type that only has an attachment url as contact information" do
-        ways_to_respond = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond")
-        ways_to_respond.delete("email")
-        ways_to_respond.delete("postal_address")
-        ways_to_respond.delete("link_url")
-
-        expect(open_call_for_evidence_with_participation.attachment_url).to be_present
-        expect(open_call_for_evidence_with_participation.ways_to_respond?).to be(false)
-      end
-
-      it "returns false if it does not have the open_call_for_evidence document type" do
-        expect(unopened_call_for_evidence.ways_to_respond?).not_to be_present
-        expect(closed_call_for_evidence.ways_to_respond?).not_to be_present
-        expect(call_for_evidence_outcome.ways_to_respond?).not_to be_present
-      end
-    end
-
     describe "#email" do
       it "returns the email address if available" do
         expected_email = open_call_for_evidence_with_participation.content_store_response.dig("details", "ways_to_respond", "email")

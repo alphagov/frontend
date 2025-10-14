@@ -1,6 +1,6 @@
 class ConsultationPresenter < ContentItemPresenter
   def on_or_at
-    opening_date_midnight? ? I18n.t("common.on") : I18n.t("formats.consultation.at")
+    opening_date_midnight? ? I18n.t("common.on") : I18n.t("common.at")
   end
 
   def opens_closes_or_ran
@@ -9,7 +9,7 @@ class ConsultationPresenter < ContentItemPresenter
     elsif content_item.open?
       I18n.t("formats.consultation.closes_at")
     else
-      "#{I18n.t('formats.consultation.opens')} #{I18n.t('formats.consultation.at')}"
+      "#{I18n.t('formats.consultation.opens')} #{I18n.t('common.at')}"
     end
   end
 

@@ -1,6 +1,6 @@
 class CallForEvidencePresenter < ContentItemPresenter
   def on_or_at
-    opening_date_midnight? ? I18n.t("common.on") : I18n.t("formats.call_for_evidence.at")
+    opening_date_midnight? ? I18n.t("common.on") : I18n.t("common.at")
   end
 
   def opens_closes_or_ran
@@ -9,7 +9,7 @@ class CallForEvidencePresenter < ContentItemPresenter
     elsif content_item.open?
       I18n.t("formats.call_for_evidence.closes_at")
     else
-      "#{I18n.t('formats.call_for_evidence.opens')} #{I18n.t('formats.call_for_evidence.at')}"
+      "#{I18n.t('formats.call_for_evidence.opens')} #{I18n.t('common.at')}"
     end
   end
 

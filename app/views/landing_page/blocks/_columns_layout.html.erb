@@ -1,6 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/columns_layout", media: "all" %>
+<% end %>
 <%
-  add_view_stylesheet("landing_page/columns_layout")
-
   data_attributes = {
     columns: block.data["columns"] || 3,
   }

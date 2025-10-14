@@ -1,7 +1,7 @@
-
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/hero", media: "all" %>
+<% end %>
 <%
-  add_view_stylesheet("landing_page/hero")
-
   hero_classes = %W[hero hero--#{block.theme}]
 
   grid_class = "govuk-grid-column-two-thirds-from-desktop"

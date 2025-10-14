@@ -1,6 +1,6 @@
-<%
-  add_view_stylesheet("landing_page/box")
-%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/box", media: "all" %>
+<% end %>
 <div class="box <%= "border-top--#{style(block.data["theme_colour"])}" %>">
   <%= render "govuk_publishing_components/components/heading", {
     text: govuk_styled_link(block.content, path: block.href),

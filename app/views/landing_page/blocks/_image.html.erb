@@ -1,6 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/image", media: "all" %>
+<% end %>
 <%
-  add_view_stylesheet("landing_page/image")
-
   img_classes = [
     "image",
     ("border-top--#{style(block.data["theme_colour"])}" if block.data["theme_colour"]),

@@ -75,6 +75,7 @@ dr:
   cancel:
   common:
     add_holiday_ics:
+    at: در
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:

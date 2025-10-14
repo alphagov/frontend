@@ -2,7 +2,7 @@
   <%= @presenter.opens_closes_or_ran %><br>
 
   <% if content_item.closed? || content_item.unopened? %>
-    <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time></strong>
+    <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time></strong>
   <% end %>
 
   <% if content_item.closed? %>

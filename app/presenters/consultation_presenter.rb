@@ -1,8 +1,4 @@
 class ConsultationPresenter < ContentItemPresenter
-  def opening_date
-    display_date_and_time(content_item.opening_date_time)
-  end
-
   def closing_date
     display_date_and_time(content_item.closing_date_time, rollback_midnight: true)
   end

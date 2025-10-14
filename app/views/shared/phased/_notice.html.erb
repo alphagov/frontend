@@ -2,7 +2,7 @@
   <% if content_item.unopened? %>
     <%= @presenter.notice_description %>
     <%= @presenter.on_or_at %>
-    <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
+    <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
   <% else %>
     <% @presenter.notice_description if @presenter.notice_description.presence %>
   <% end %>

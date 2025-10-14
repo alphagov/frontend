@@ -8,6 +8,5 @@
 //= require govuk_publishing_components/components/cookie-banner
 //= require govuk_publishing_components/components/cross-service-header
 //= require govuk_publishing_components/components/feedback
-//= require govuk_publishing_components/components/layout-header
 //= require govuk_publishing_components/components/layout-super-navigation-header
 //= require govuk_publishing_components/components/skip-link

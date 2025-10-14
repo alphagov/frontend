@@ -1,4 +1,3 @@
-<% stylesheet_link_tag "application", media: "all"  # Trigger this without rendering it to ensure it appears in links header %>
 <% emergency_banner = render("govuk_web_banners/emergency_banner") %>
 <% global_banner = render("govuk_web_banners/global_banner") %>
 <% content_for :body do %>
@@ -23,7 +22,6 @@
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
   <%= yield :extra_javascript %>
-  <%= render_component_stylesheets %>
   <% if content_item.to_h %>
     <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
     <% if content_item&.meta_section.present? %>

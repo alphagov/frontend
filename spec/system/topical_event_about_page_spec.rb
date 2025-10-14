@@ -52,11 +52,6 @@ RSpec.describe "Topical Event About Page" do
     end
   end
 
-#   test "does not render with the single page notification button" do
-#     setup_and_visit_content_item("topical_event_about_page")
-#     assert_not page.has_css?(".gem-c-single-page-notification-button")
-#   end
-
 # private
 
 #   def topical_event_end_date

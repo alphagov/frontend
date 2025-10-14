@@ -8,7 +8,7 @@ class ConsultationPresenter < ContentItemPresenter
   end
 
   def on_or_at
-    opening_date_midnight? ? I18n.t("formats.consultation.on") : I18n.t("formats.consultation.at")
+    opening_date_midnight? ? I18n.t("common.on") : I18n.t("formats.consultation.at")
   end
 
   def opens_closes_or_ran
@@ -60,6 +60,6 @@ private
       # 12am on 10 January becomes 11:59pm on 9 January
       time -= 1.second
     end
-    I18n.l(time, format: "#{time_format} #{I18n.t('formats.consultation.on')} #{date_format}").gsub(":00", "").gsub("12pm", "midday").gsub("12am #{I18n.t('formats.consultation.on')} ", "").strip
+    I18n.l(time, format: "#{time_format} #{I18n.t('common.on')} #{date_format}").gsub(":00", "").gsub("12pm", "midday").gsub("12am #{I18n.t('common.on')} ", "").strip
   end
 end

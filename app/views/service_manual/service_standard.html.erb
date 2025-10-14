@@ -1,7 +1,7 @@
-<% add_view_stylesheet("service-manual-service-standard") %>
 <% content_for :head do %>
   <meta name="description" content="<%= strip_tags(content_item.description) %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+  <%= stylesheet_link_tag "views/_service-manual-service-standard", media: "all" %>
 <% end %>
 <%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
 

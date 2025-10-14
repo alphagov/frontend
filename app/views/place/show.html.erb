@@ -1,7 +1,6 @@
-<%
-  add_view_stylesheet("place-list")
-%>
-
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_place-list", media: "all" %>
+<% end %>
 <%
   results_anchor ||= nil
   ga4_type = content_item.document_type.gsub("_", " ")

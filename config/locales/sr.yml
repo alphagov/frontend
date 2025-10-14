@@ -274,7 +274,6 @@ sr:
         one: Konsultacija
         other: Konsultacije
       not_open_yet: Ove konsultacije još nisu otvorene
-      'on':
       opens: Ove konsultacije se otvaraju
       or:
       original_consultation: Prvobitne konsultacije

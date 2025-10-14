@@ -262,7 +262,6 @@ fa:
         one: مشاوره
         other: مشاوره‌ها
       not_open_yet: این مشاوره هنوز باز نشده است
-      'on':
       opens: این مشاوره باز می‌شود
       or:
       original_consultation: مشاوره اصلی

@@ -262,7 +262,6 @@
         one: Konsultasjon
         other: Konsultasjoner
       not_open_yet: Denne konsultasjonen er ikke åpen ennå
-      'on':
       opens: Denne konsultasjonen åpner
       or:
       original_consultation: Opprinnelig konsultasjon

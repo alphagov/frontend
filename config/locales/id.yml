@@ -250,7 +250,6 @@ id:
       name:
         other: Konsultasi
       not_open_yet: Konsultasi ini belum dibuka
-      'on':
       opens: Konsultasi ini sudah dibuka
       or:
       original_consultation: Konsultasi asli

@@ -262,7 +262,6 @@ sv:
         one: Samråd
         other: Samråd
       not_open_yet: Detta samråd är inte öppet ännu
-      'on':
       opens: Detta samråd öppnas
       or:
       original_consultation: Ursprungligt samråd

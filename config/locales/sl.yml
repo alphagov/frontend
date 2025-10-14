@@ -286,7 +286,6 @@ sl:
         other: Posvetovanja
         two:
       not_open_yet: To posvetovanje še ni začeto
-      'on':
       opens: Posvetovanje se začne
       or:
       original_consultation: Izvirno posvetovanje

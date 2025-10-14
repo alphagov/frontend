@@ -262,7 +262,6 @@ az:
         one: Məsləhətləşmə
         other: Məsləhətləşmələr
       not_open_yet: Bu məsləhətləşmə hələ açıq deyildir
-      'on':
       opens: Bu məsləhətləşmə açılır
       or:
       original_consultation: İlkin məsləhətləşmə

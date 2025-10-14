@@ -274,7 +274,6 @@ cs:
         one: Konzultace
         other: Konzultace
       not_open_yet: Tato konzultace ještě není otevřena
-      'on':
       opens: Tato konzultace zahajuje
       or:
       original_consultation: Původní konzultace

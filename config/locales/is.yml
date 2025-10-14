@@ -262,7 +262,6 @@ is:
         one: Ráðgjöf
         other: Ráðgjafir
       not_open_yet: Þessi ráðgjöf er ekki enn opin
-      'on':
       opens: Þessi ráðgjöf opnar
       or:
       original_consultation: Upprunaleg ráðgjöf

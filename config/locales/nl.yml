@@ -262,7 +262,6 @@ nl:
         one: Raadpleging
         other: Raadplegingen
       not_open_yet: Deze raadpleging is nog niet geopend
-      'on':
       opens: Deze raadpleging wordt geopend
       or:
       original_consultation: Oorspronkelijke raadpleging

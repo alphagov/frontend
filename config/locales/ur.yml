@@ -262,7 +262,6 @@ ur:
         one: مشاورت
         other: مشاورتیں
       not_open_yet: یہ مشاورت ابھی تک کھلی نہیں ہے
-      'on':
       opens: یہ مشاورت درج ذیل پر کھلتی ہے
       or:
       original_consultation: اصل مشاورت

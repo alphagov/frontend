@@ -262,7 +262,6 @@ hu:
         one: Konzultáció
         other: Konzultációk
       not_open_yet: A konzultáció még nem nyitott
-      'on':
       opens: A konzultáció megnyílik
       or:
       original_consultation: Eredeti konzultáció

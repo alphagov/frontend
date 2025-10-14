@@ -264,7 +264,6 @@ en:
         one: Consultation
         other: Consultations
       not_open_yet: This consultation isn't open yet
-      'on': 'on'
       opens: This consultation opens
       or: or
       original_consultation: Original consultation

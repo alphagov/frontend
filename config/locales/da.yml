@@ -262,7 +262,6 @@ da:
         one: Konsultation
         other: Konsultationer
       not_open_yet: Denne høring er ikke åben endnu
-      'on':
       opens: Denne konsultation åbner
       or:
       original_consultation: original konsultation

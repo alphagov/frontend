@@ -250,7 +250,6 @@ ms:
       name:
         other: Rundingan
       not_open_yet: Perundingan ini masih belum dibuka
-      'on':
       opens: Perundingan ini dibuka
       or:
       original_consultation: Perundingan asal

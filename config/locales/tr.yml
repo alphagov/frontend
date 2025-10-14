@@ -262,7 +262,6 @@ tr:
         one: Danışma
         other: Danışmalar
       not_open_yet: Bu danışma henüz açık değil
-      'on':
       opens: Bu danışma açılıyor
       or:
       original_consultation: Orijinal danışma

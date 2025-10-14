@@ -274,7 +274,6 @@ lt:
         one: Konsultacija
         other: Konsultacijos
       not_open_yet: Ši konsultacija dar neprasidėjo
-      'on':
       opens: Ši konsultacija prasideda
       or:
       original_consultation: Pirminė konsultacija

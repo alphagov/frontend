@@ -262,7 +262,6 @@ si:
         one: උපදේශනය
         other: උපදේශන
       not_open_yet: මෙම උපදේශනය තවමත් විවෘත කර නැත
-      'on':
       opens: මෙම උපදේශනය විවෘත වේ
       or:
       original_consultation: මුල් උපදේශනය

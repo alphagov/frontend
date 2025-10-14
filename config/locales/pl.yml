@@ -286,7 +286,6 @@ pl:
         one: Konsultacja
         other: Konsultacje
       not_open_yet: Te konsultacje jeszcze się nie rozpoczęły
-      'on':
       opens: Konsultacje rozpoczynają się
       or:
       original_consultation: Pierwotne konsultacje

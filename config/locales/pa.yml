@@ -262,7 +262,6 @@ pa:
         one: ਸਲਾਹ ਮਸ਼ਵਰਾ
         other: ਸਲਾਹ ਮਸ਼ਵਰੇ
       not_open_yet: ਇਹ ਸਲਾਹ -ਮਸ਼ਵਰਾ ਅਜੇ ਖੁੱਲ੍ਹਾ ਨਹੀਂ ਹੈ
-      'on':
       opens: ਇਹ ਸਲਾਹ ਮਸ਼ਵਰਾ ਖੁੱਲਦਾ ਹੈ
       or:
       original_consultation: ਮੂਲ ਸਲਾਹ

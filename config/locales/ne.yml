@@ -262,7 +262,6 @@ ne:
         one: परामर्श
         other: परामर्शहरू
       not_open_yet: यो परामर्श अझै खुलेको छैन
-      'on':
       opens: यो परामर्श खुल्छ
       or:
       original_consultation: मूल परामर्श

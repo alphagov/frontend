@@ -250,7 +250,6 @@ vi:
       name:
         other: Tham vấn
       not_open_yet: Buổi tham vấn này chưa mở
-      'on':
       opens: Buổi tham vấn này đang diễn ra
       or:
       original_consultation: Buổi tham vấn nguyên bản

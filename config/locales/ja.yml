@@ -250,7 +250,6 @@ ja:
       name:
         other: 審議
       not_open_yet: この審議はまだ開かれていません
-      'on':
       opens: この審議が始まります
       or:
       original_consultation: 当初の審議

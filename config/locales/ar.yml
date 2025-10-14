@@ -310,7 +310,6 @@ ar:
         two:
         zero:
       not_open_yet: هذه الاستشارة لم تُفتح بعد
-      'on':
       opens: تفتح هذه الاستشارة
       or:
       original_consultation: الاستشارة الأصلية

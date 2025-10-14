@@ -250,7 +250,6 @@ th:
       name:
         other: การให้คำปรึกษา
       not_open_yet: ยังไม่เปิดการให้คำปรึกษา
-      'on':
       opens: การให้คำปรึกษานี้เปิดแล้ว
       or:
       original_consultation: การให้คำปรึกษาดั้งเดิม

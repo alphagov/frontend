@@ -262,7 +262,6 @@ kk:
         one: Кеңес
         other: Кеңестер
       not_open_yet: Бұл кеңес әлі ашылмаған
-      'on':
       opens: Бұл кеңес ашылды
       or:
       original_consultation: Бастапқы кеңес

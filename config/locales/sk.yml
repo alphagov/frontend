@@ -274,7 +274,6 @@ sk:
         one: Konzultácia
         other: Konzultácie
       not_open_yet: Táto konzultácia ešte nie je otvorená
-      'on':
       opens: Táto konzultácia sa začína
       or:
       original_consultation: Pôvodná konzultácia

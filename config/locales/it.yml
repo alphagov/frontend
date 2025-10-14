@@ -262,7 +262,6 @@ it:
         one: Consultazione
         other: Consultazioni
       not_open_yet: Questa consultazione non è ancora aperta
-      'on':
       opens: Questa consultazione si apre
       or:
       original_consultation: Consultazione originale

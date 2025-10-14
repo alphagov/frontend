@@ -262,7 +262,6 @@ es:
         one: Consulta
         other: Consultas
       not_open_yet: Esta consulta no está abierta todavía
-      'on':
       opens: Se abre esta consulta
       or:
       original_consultation: Consulta original

@@ -274,7 +274,6 @@ ro:
         one: Consultație
         other: Consultații
       not_open_yet: Această consultație nu este deschisă încă
-      'on':
       opens: Această consultație se deschide
       or:
       original_consultation: Consultație originală

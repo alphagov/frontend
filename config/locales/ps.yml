@@ -262,7 +262,6 @@ ps:
         one: مشوره
         other: مشورې
       not_open_yet: دا مشوره لاهم خلاص نده
-      'on':
       opens: دا مشوره خلاصیږي
       or:
       original_consultation: اصلي مشوره

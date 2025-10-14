@@ -262,7 +262,6 @@ lv:
         one: Konsultēšana
         other: Konsultācijas
       not_open_yet: Šī konsultācija vēl nav atvērta
-      'on':
       opens: Šī konsultācija tiek atvērta
       or:
       original_consultation: Oriģinālā konsultācija

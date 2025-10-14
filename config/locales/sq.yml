@@ -262,7 +262,6 @@ sq:
         one: Konsultim
         other: Konsultime
       not_open_yet: Ky konsultim nuk është hapur ende
-      'on':
       opens: Ky konsultim hapet
       or:
       original_consultation: Konsultimi origjinal

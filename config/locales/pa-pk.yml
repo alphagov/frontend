@@ -262,7 +262,6 @@ pa-pk:
         one: مشورہ
         other: 'مشورے '
       not_open_yet: ایہ مشاورت ہلے نئیں کُھلی
-      'on':
       opens: ایہ مشاورت کُھل گئی اے
       or:
       original_consultation: اصلی مشاورت

@@ -262,7 +262,6 @@ dr:
         one: مشاوره
         other: مشاوره ها
       not_open_yet: مشاوره تا هنوز شروع نشده است
-      'on':
       opens: مشاوره شروع میشود
       or:
       original_consultation: مشاورهء اصلی

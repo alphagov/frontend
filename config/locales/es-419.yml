@@ -262,7 +262,6 @@ es-419:
         one: Consulta
         other: Consultas
       not_open_yet: Esta consulta aún no está abierta
-      'on':
       opens: Esta consulta abre
       or:
       original_consultation: Consulta inicial

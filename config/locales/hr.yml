@@ -274,7 +274,6 @@ hr:
         one: Konzultacija
         other: Konzultacije
       not_open_yet: Ovo savjetovanje još nije otvoreno
-      'on':
       opens: Ovo savjetovanje se otvara
       or:
       original_consultation: Originalno savjetovanje

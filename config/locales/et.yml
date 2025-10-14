@@ -262,7 +262,6 @@ et:
         one: Konsultatsioon
         other: Konsultatsioonid
       not_open_yet: See konsultatsioon pole veel alanud
-      'on':
       opens: See konsultatsioon algab
       or:
       original_consultation: Algne konsultatsioon

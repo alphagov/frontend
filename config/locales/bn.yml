@@ -262,7 +262,6 @@ bn:
         one: পরামর্শ
         other: পরামর্শ
       not_open_yet: এই পরামর্শটি এখনও চালু হয়নি
-      'on':
       opens: এই পরামর্শটি চালু হচ্ছে
       or:
       original_consultation: মূল পরামর্শ

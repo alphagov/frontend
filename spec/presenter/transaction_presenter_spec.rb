@@ -47,4 +47,20 @@ RSpec.describe TransactionPresenter do
       end
     end
   end
+
+  context "when scroll_tracking? is present" do
+    describe "#scroll_tracking" do
+      it "is false when on the incorrect base path" do
+        content_store_response["base_path"] = "/random"
+        content_item = Transaction.new(content_store_response)
+        expect(subject(content_item).scroll_tracking?).to be(false)
+      end
+
+      it "is true when on the correct base path" do
+        content_store_response["base_path"] = "/register-to-vote"
+        content_item = Transaction.new(content_store_response)
+        expect(subject(content_item).scroll_tracking?).to be(true)
+      end
+    end
+  end
 end

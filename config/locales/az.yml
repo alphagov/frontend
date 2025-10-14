@@ -244,7 +244,6 @@ az:
       analysing_feedback:
       and: və
       another_website_html: Bu məsləhətləşmə %{closed} başqa <a href="%{url}">vebsaytda həyata keçirilir</a>
-      at: "(vaxtı göstərir)"
       closes: O, saat ...də (da) bağlanır
       closes_at: Məsləhətləşmə saat ...də (da) bağlanır
       complete_a: "...tamamlayın"

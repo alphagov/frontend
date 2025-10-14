@@ -244,7 +244,6 @@ sq:
       analysing_feedback:
       and: dhe
       another_website_html: Ky konsultim %{closed} u mbajt <a href="%{url}">uebfaqe tjetër</a>
-      at: në
       closes: Mbyllet në
       closes_at: Ky konsultim mbyllet në
       complete_a: Kompleto një

@@ -244,7 +244,6 @@ el:
       analysing_feedback:
       and: και
       another_website_html: Αυτή η διαβούλευση %{closed} πραγματοποιήθηκε σε <a href="%{url}">άλλο ιστότοπο</a>
-      at: στο
       closes: Κλείνει στο
       closes_at: Αυτή η διαβούλευση κλείνει στις
       complete_a: Συμπληρώστε ένα

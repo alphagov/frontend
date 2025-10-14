@@ -266,7 +266,6 @@ sl:
       analysing_feedback:
       and: in
       another_website_html: To posvetovanje %{closed} poteka na <a href="%{url}">drugi spletni strani</a>
-      at: na
       closes: Zapre se ob
       closes_at: To posvetovanje se zapre ob
       complete_a: 'Izpolnite '

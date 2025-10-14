@@ -266,7 +266,6 @@ mt:
       analysing_feedback:
       and: u
       another_website_html: Din il-konsultazzjoni %{closed} tinsab fuq  <a href="%{url}">websajt oħra</a>
-      at: fi
       closes: Din tagħlaq fil
       closes_at: Din il-konsultazzjoni tagħlaq nhar
       complete_a: Lesti

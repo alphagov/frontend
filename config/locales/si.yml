@@ -244,7 +244,6 @@ si:
       analysing_feedback:
       and: සහ
       another_website_html: මෙම උපදේශනය %{closed} <a href="%{url}">වෙනත් වෙබ් අඩවියක</a> පවත් වනු ලැබේ
-      at: දී
       closes: එය වසන වේලාව
       closes_at: මෙම උපදේශනය වසන වේලාව
       complete_a: එකක් සම්පූර්ණ කරන්න

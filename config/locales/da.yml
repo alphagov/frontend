@@ -244,7 +244,6 @@ da:
       analysing_feedback:
       and: og
       another_website_html: Denne konsultation %{closed} blev afholdt på <a href="%{url}">en anden hjemmeside</a>
-      at: på
       closes: Den lukker kl.
       closes_at: Denne konsultation lukker kl.
       complete_a: Fuldfør en

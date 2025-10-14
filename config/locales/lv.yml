@@ -244,7 +244,6 @@ lv:
       analysing_feedback:
       and: un
       another_website_html: Šī konsultācija %{closed} notika <a href="%{url}">citā tīmekļa vietnē</a>
-      at: 'šajā laikā:'
       closes: Slēgšanas laiks ir
       closes_at: Šīs konsultācijas slēgšanas laiks ir
       complete_a: Pabeigt

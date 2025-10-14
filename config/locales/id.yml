@@ -233,7 +233,6 @@ id:
       analysing_feedback:
       and: dan
       another_website_html: Konsultasi ini %{closed} diadakan di <a href="%{url}">situs web lain</a>
-      at: pada
       closes: Tutup pada
       closes_at: Konsultasi ini ditutup pada
       complete_a: Selesaikan

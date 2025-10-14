@@ -244,7 +244,6 @@ ka:
       analysing_feedback:
       and: და
       another_website_html: ეს კონსულტაცია %{closed} ჩატარდა <a href="%{url}">სხვა ვებგვერდზე</a>
-      at: ზე
       closes: იხურება
       closes_at: ეს კონსულტაცია იხურება
       complete_a: დასრულება

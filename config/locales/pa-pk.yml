@@ -244,7 +244,6 @@ pa-pk:
       analysing_feedback:
       and: ہور
       another_website_html: ایہ مشورہ  %{closed}ایندے تے وقوعہ ہویا <a href="%{url}">دُوسری ویب سائٹ</a>
-      at: ایندے تے
       closes: ایہ ایندے تے بند ہوندا اے
       closes_at: ایہ مشاورت ایندے تے بند ہوندی اے
       complete_a: اک پُورا کرو

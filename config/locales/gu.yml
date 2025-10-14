@@ -244,7 +244,6 @@ gu:
       analysing_feedback:
       and: અને
       another_website_html: આ પરામર્શ %{closed} ના રોજ <a href="%{url}">અન્ય વેબસાઇટ</a> પર આયોજિત કરેલ છે
-      at: ખાતે
       closes: તે સમાપ્ત થાય છે
       closes_at: આ પરામર્શ ના રોજ સમાપ્ત થાય છે
       complete_a: પૂર્ણ કરો

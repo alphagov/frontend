@@ -244,7 +244,6 @@ it:
       analysing_feedback:
       and: e
       another_website_html: Questa consultazione %{closed} tenuta su <a href=”%{url}”>un altro sito web</a>
-      at: in
       closes: Si chiude alle
       closes_at: Questa consultazione si chiude alle
       complete_a: Completa un

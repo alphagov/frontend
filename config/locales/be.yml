@@ -266,7 +266,6 @@ be:
       analysing_feedback:
       and: і
       another_website_html: Гэта кансультацыя %{closed}  праводзілася на <a href="%{url}">іншым сайце</a>
-      at: на
       closes: Ён зачыняецца ў
       closes_at: Кансультацыі завяршаюцца ў
       complete_a: Скончыць

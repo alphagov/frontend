@@ -233,7 +233,6 @@ zh-hk:
       analysing_feedback:
       and: 及
       another_website_html: 本次諮詢 %{closed} 在 <a href="%{url}">另一網站舉行</a>
-      at: 位於
       closes: 截止日期為
       closes_at: 本次諮詢結束於
       complete_a: 完成一項

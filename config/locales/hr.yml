@@ -255,7 +255,6 @@ hr:
       analysing_feedback:
       and: i
       another_website_html: Ovo savjetovanje %{closed} održano je na <ahref="%{url}">drugoj web stranici</a>
-      at: u
       closes: Zatvara se u
       closes_at: Ovo savjetovanje završava se u
       complete_a: 'Dovršite '

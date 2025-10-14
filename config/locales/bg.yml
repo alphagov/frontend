@@ -244,7 +244,6 @@ bg:
       analysing_feedback:
       and: и
       another_website_html: Тази консултация %{closed} се намира на <a href="%{url}">друг уебсайт</a>
-      at: на
       closes: Закрива се в
       closes_at: Тази консултация се закрива в
       complete_a: Попълнете

@@ -244,7 +244,6 @@ es-419:
       analysing_feedback:
       and: "y"
       another_website_html: Esta consulta %{closed} realizada en <a href="%{url}">otro sitio web</a>
-      at: en
       closes: Se cierra a
       closes_at: Esta consulta se cierra a las
       complete_a: Completar un

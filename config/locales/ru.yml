@@ -266,7 +266,6 @@ ru:
       analysing_feedback:
       and: и
       another_website_html: Консультация %{closed} проведенная на <a href="%{url}">другой Веб-сайт</a>
-      at: на
       closes: Она закрывается на
       closes_at: Данная консультация закрывается на
       complete_a: Заполните

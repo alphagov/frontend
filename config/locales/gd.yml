@@ -266,7 +266,6 @@ gd:
       analysing_feedback:
       and: agus
       another_website_html: Tionóladh an comhairliúchán %{closed} seo ar <a href="%{url}">suíomh Gréasáin eile</a>
-      at: ag an seoladh
       closes: Críochnaíonn sé ag
       closes_at: Críochnaíonn an suirbhé seo ag
       complete_a: Comhlánaigh a

@@ -233,7 +233,6 @@ ko:
       analysing_feedback:
       and: 그리고
       another_website_html: 이 상담 %{closed} 은 <a href="%{url}">다른 웹사이트</a>에서 진행되었습니다
-      at: 때
       closes: 종결 시점
       closes_at: 이 상담은 다음 시점에 종결됩니다
       complete_a: 완료 시점

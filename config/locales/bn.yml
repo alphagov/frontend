@@ -244,7 +244,6 @@ bn:
       analysing_feedback:
       and: এবং
       another_website_html: এই পরামর্শটি %{closed} <a href="%{url}">আরেকটি ওয়েবসাইটে</a> অনুষ্ঠিত হয়
-      at: এ
       closes: এটি বন্ধ হচ্ছে
       closes_at: এই পরামর্শটি বন্ধ হচ্ছে
       complete_a: একটি সম্পন্ন করুন

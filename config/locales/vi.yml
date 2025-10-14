@@ -233,7 +233,6 @@ vi:
       analysing_feedback:
       and: và
       another_website_html: Buổi tham vấn này %{closed} được tổ chức trên <a href="%{url}">một trang web khác</a>
-      at: lúc
       closes: Và kết thúc lúc
       closes_at: Buổi tham vấn này kết thúc lúc
       complete_a: Hoàn thành

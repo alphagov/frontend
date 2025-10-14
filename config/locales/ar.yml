@@ -288,7 +288,6 @@ ar:
       analysing_feedback:
       and: و
       another_website_html: عُقدت هذه الاستشارة %{closed} على <a href="%{url}">موقع ويب آخر</a>
-      at: في
       closes: موعد الإغلاق
       closes_at: تُغلق هذه الاستشارة تغلق في
       complete_a: إكمال

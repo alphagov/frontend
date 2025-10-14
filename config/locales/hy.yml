@@ -244,7 +244,6 @@ hy:
       analysing_feedback:
       and: և
       another_website_html: Այս խորհրդակցությունը %{closed} անցկացվել է <a href="%{url}">մեկ այլ</a>
-      at: վեբ կայքում՝
       closes: Այն ավարտվում է
       closes_at: Այս խորհրդակցությունն ավարտվում է
       complete_a: Իրականացնել

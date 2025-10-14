@@ -244,7 +244,6 @@ hi:
       analysing_feedback:
       and: और
       another_website_html: यह परामर्श %{closed} <a href="%{url}">एक अन्य वेबसाइट</a>पर आयोजित किया गया
-      at: पर
       closes: यह बंद होता है
       closes_at: यह परामर्श पर बंद होता है
       complete_a: पूरा करें

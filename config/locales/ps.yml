@@ -244,7 +244,6 @@ ps:
       analysing_feedback:
       and: او
       another_website_html: دا مشوره <a href="%{url}">په بله ویبپا ڼه  کې %{closed}ترسره شوه</a>
-      at: په
       closes: په کې بندیږي
       closes_at: دا مشوره په پای کې پای ته رسیږي
       complete_a: بشپړ کړئ

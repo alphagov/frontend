@@ -244,7 +244,6 @@ dr:
       analysing_feedback:
       and: و
       another_website_html: این مشاوره%{closed}برگزار میشود در<a href="%{url}">ویبسایت دیگر</a>
-      at: در
       closes: این بسته میشود در
       closes_at: این مشاوره بسته میشود در
       complete_a: تکمیل نمایید یک

@@ -244,7 +244,6 @@ is:
       analysing_feedback:
       and: og
       another_website_html: Þessi ráðgjöf %{closed} var haldin á <a href="%{url}">annarri vefsíðu</a>
-      at: þann
       closes: Henni lýkur
       closes_at: Þessari ráðgjöf lýkur
       complete_a: Ljúka

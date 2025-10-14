@@ -1,16 +1,32 @@
 
 RSpec.describe "Topical Event About Page" do
-#   test "topical event about pages" do
-#     setup_and_visit_content_item("topical_event_about_page")
-#     assert_has_component_title(@content_item["title"])
-#     assert page.has_text?(@content_item["description"])
-#     assert page.has_text?("The risk of Ebola to the UK remains low. The virus is only transmitted by direct contact with the blood or bodily fluids of an infected person.")
+  let(:content_store_response) { GovukSchemas::Example.find("topical_event_about_page", example_name: "topical_event_about_page") }
+  let(:base_path) { content_store_response.fetch("base_path") }
+
+  before do
+    stub_content_store_has_item(base_path, content_store_response)
+    visit base_path
+  end
+
+  describe "basic page information" do
+    it "has a page title" do
+      expect(page).to have_title(content_store_response["title"])
+    end
+
+    it "has a lead paragraph taken from the description" do
+      expect(page).to have_text(content_store_response["title"])
+    end
+
+    it "has body text" do
+      assert page.has_text?("The risk of Ebola to the UK remains low. The virus is only transmitted by direct contact with the blood or bodily fluids of an infected person.")
+    end
+  end
+
 #     assert_has_contents_list([
 #       { text: "Response in the UK", id: "response-in-the-uk" },
 #       { text: "Response in Africa", id: "response-in-africa" },
 #       { text: "Advice for travellers", id: "advice-for-travellers" },
 #     ])
-#   end
 
 #   test "slim topical event about pages have no contents" do
 #     setup_and_visit_content_item("slim")

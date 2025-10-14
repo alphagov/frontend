@@ -1,8 +1,11 @@
-<% add_view_stylesheet("homepage") %>
 <% content_for :head do %>
   <link rel="canonical" href="<%= Frontend.govuk_website_root + root_path %>">
   <meta name="title" property="og:title" content="<%= t("homepage.index.intro_title.text") %>">
   <meta name="description" property="og:description" content="<%= t("homepage.index.meta_description_new") %>">
+  <%= stylesheet_link_tag "views/_homepage", media: "all" %>
+  <%= stylesheet_link_tag "views/_homepage_header", media: "all" %>
+  <%= stylesheet_link_tag "views/_homepage_more_on_govuk", media: "all" %>
+  <%= stylesheet_link_tag "views/_popular_links", media: "all" %>
 <% end %>
 <% content_for :title, t("homepage.index.intro_title.text") %>
 <% content_for :main_classes, "govuk-!-padding-top-0" %>

@@ -60,6 +60,7 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/protected-food-drink-names/pitahaya-amazonica-de-palora|
 |Speech                 |[speech](https://docs.publishing.service.gov.uk/content-schemas/speech.html)|https://www.gov.uk/government/speeches/motorcycle-testing|
 |Statistical Data Set   |[statistical_data_set](https://docs.publishing.service.gov.uk/content-schemas/statistical_data_set.html)|https://www.gov.uk/government/statistical-data-sets/local-government-pension-scheme-funds-summary-data-2011-to-2012|
+|Topical Event About Page|[topical_event_about_page](https://docs.publishing.service.gov.uk/content-schemas/topical_event_about_page.html)|https://www.gov.uk/government/topical-events/western-balkans-summit-london-2018/about|
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|
 |                       ||https://www.gov.uk/find-a-job|

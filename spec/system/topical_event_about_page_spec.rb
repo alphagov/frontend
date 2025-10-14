@@ -51,18 +51,4 @@ RSpec.describe "Topical Event About Page" do
       end
     end
   end
-
-# private
-
-#   def topical_event_end_date
-#     Date.parse(@content_item["links"]["parent"][0]["details"]["end_date"])
-#   end
-
-#   def body_with_two_contents_list_items
-#     "<div class='govspeak'>
-#     <h2 id='response-in-the-uk'>Item 1</h2>
-#     <p>Content about item 1</p>
-#     <h2 id='response-in-africa'>Item 2</h2>
-#     <p>Content about item 2</p></div>"
-#   end
 end

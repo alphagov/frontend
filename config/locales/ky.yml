@@ -762,7 +762,7 @@ ky:
       universal_credit:
     most_active:
   i18n:
-    direction: Лтр
+    direction:
   language_names:
     ar:
     az:

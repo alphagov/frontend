@@ -6,18 +6,18 @@ $govuk-include-default-font-face: true;
 @import "govuk_publishing_components/govuk_frontend_support";
 @import "govuk_publishing_components/component_support";
 
-@import "govuk_publishing_components/components/button";
-@import "govuk_publishing_components/components/cookie-banner";
-@import "govuk_publishing_components/components/feedback";
-@import "govuk_publishing_components/components/heading";
-@import "govuk_publishing_components/components/input";
-@import "govuk_publishing_components/components/label";
-@import "govuk_publishing_components/components/layout-footer";
-@import "govuk_publishing_components/components/layout-for-public";
-@import "govuk_publishing_components/components/layout-super-navigation-header";
-@import "govuk_publishing_components/components/search";
-@import "govuk_publishing_components/components/search-with-autocomplete";
-@import "govuk_publishing_components/components/skip-link";
+@import "govuk_publishing_components/components/button.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/cookie-banner.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/feedback.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/heading.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/input.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/label.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/layout-footer.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/layout-for-public.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/layout-super-navigation-header.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/search.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/search-with-autocomplete.scss"; // stylelint-disable-line scss/load-partial-extension
+@import "govuk_publishing_components/components/skip-link.scss"; // stylelint-disable-line scss/load-partial-extension
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/content-bottom-margin";

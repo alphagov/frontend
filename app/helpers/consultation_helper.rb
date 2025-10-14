@@ -7,6 +7,10 @@ module ConsultationHelper
     display_date_and_time(closing_date_time, rollback_midnight: true)
   end
 
+  def on_or_at(opening_date_time)
+    opening_date_midnight?(opening_date_time) ? I18n.t("common.on") : I18n.t("common.at")
+  end
+
 private
 
   def display_date_and_time(date, rollback_midnight: false)
@@ -22,5 +26,9 @@ private
       time -= 1.second
     end
     I18n.l(time, format: "#{time_format} #{on} #{date_format}").gsub(":00", "").gsub("12pm", "midday").gsub("12am #{on} ", "").strip
+  end
+
+  def opening_date_midnight?(opening_date_time)
+    Time.zone.parse(opening_date_time).strftime("%l:%M%P") == "12:00am"
   end
 end

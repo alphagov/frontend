@@ -1,7 +1,7 @@
 <% notice_description = capture do %>
   <% if content_item.unopened? %>
     <%= @presenter.notice_description %>
-    <%= @presenter.on_or_at %>
+    <%= on_or_at(content_item.opening_date_time) %>
     <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
   <% else %>
     <% @presenter.notice_description if @presenter.notice_description.presence %>

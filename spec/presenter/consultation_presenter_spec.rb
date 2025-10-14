@@ -4,20 +4,6 @@ RSpec.describe ConsultationPresenter do
   let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
   let(:content_item) { Consultation.new(content_store_response) }
 
-  describe "#on_or_at" do
-    it "returns 'on' if the opening time is 12am" do
-      content_item.content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"
-
-      expect(presenter.on_or_at).to eq("on")
-    end
-
-    it "returns 'at' if the opening time is not 12am" do
-      content_item.content_store_response["details"]["opening_date"] = "2016-04-16T13:01:57.000+00:00"
-
-      expect(presenter.on_or_at).to eq("at")
-    end
-  end
-
   describe "#opens_closes_or_ran" do
     context "when document type is closed_consultation" do
       let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "closed_consultation") }

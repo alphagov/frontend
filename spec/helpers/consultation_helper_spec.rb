@@ -32,4 +32,18 @@ RSpec.describe ConsultationHelper do
       expect(closing_date(closing_date_time)).to eq("11:59pm on 3 November 2016")
     end
   end
+
+  describe "#on_or_at" do
+    it "returns 'on' if the opening time is 12am" do
+      opening_date_time = "2016-11-04T00:00:00+00:00"
+
+      expect(on_or_at(opening_date_time)).to eq("on")
+    end
+
+    it "returns 'at' if the opening time is not 12am" do
+      opening_date_time = "2016-04-16T13:01:57.000+00:00"
+
+      expect(on_or_at(opening_date_time)).to eq("at")
+    end
+  end
 end

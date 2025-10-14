@@ -1,8 +1,4 @@
 class ConsultationPresenter < ContentItemPresenter
-  def on_or_at
-    opening_date_midnight? ? I18n.t("common.on") : I18n.t("common.at")
-  end
-
   def opens_closes_or_ran
     if content_item.closed?
       I18n.t("formats.consultation.ran_from")
@@ -33,11 +29,5 @@ class ConsultationPresenter < ContentItemPresenter
     else
       ""
     end
-  end
-
-private
-
-  def opening_date_midnight?
-    Time.zone.parse(content_item.opening_date_time).strftime("%l:%M%P") == "12:00am"
   end
 end

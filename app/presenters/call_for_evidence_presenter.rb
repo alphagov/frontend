@@ -1,8 +1,4 @@
 class CallForEvidencePresenter < ContentItemPresenter
-  def on_or_at
-    opening_date_midnight? ? I18n.t("common.on") : I18n.t("common.at")
-  end
-
   def opens_closes_or_ran
     if content_item.closed?
       I18n.t("formats.call_for_evidence.ran_from")
@@ -25,11 +21,5 @@ class CallForEvidencePresenter < ContentItemPresenter
 
   def notice_description
     content_item.unopened? ? I18n.t("formats.call_for_evidence.opens") : ""
-  end
-
-private
-
-  def opening_date_midnight?
-    Time.zone.parse(content_item.opening_date_time).strftime("%l:%M%P") == "12:00am"
   end
 end

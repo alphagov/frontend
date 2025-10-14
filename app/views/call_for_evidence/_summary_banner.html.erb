@@ -5,9 +5,9 @@
 
     <% if content_item.closed? %>
       <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time> to
-      <time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time>
+      <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
     <% elsif content_item.open? %>
-      <time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time>
+      <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
     <% elsif content_item.unopened? %>
       <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
     <% end %>
@@ -16,7 +16,7 @@
   <% if content_item.unopened? %>
     <br>
     <%= t("formats.call_for_evidence.closes") %><br>
-    <strong><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
+    <strong><time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time></strong>
   <% end %>
 <% end %>
 

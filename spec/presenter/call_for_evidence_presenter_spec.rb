@@ -3,20 +3,6 @@ RSpec.describe CallForEvidencePresenter do
   let(:content_item) { CallForEvidence.new(content_store_response) }
   let(:presenter) { described_class.new(content_item) }
 
-  describe "#closing_date" do
-    it "presents a friendly closing date and time" do
-      content_item.content_store_response["details"]["closing_date"] = "2016-12-16T16:00:00+00:00"
-
-      expect(presenter.closing_date).to eq("4pm on 16 December 2016")
-    end
-
-    it "presents a closing date and time as 11:59am on the day before if the time is 12am" do
-      content_item.content_store_response["details"]["closing_date"] = "2016-11-04T00:00:00+00:00"
-
-      expect(presenter.closing_date).to eq("11:59pm on 3 November 2016")
-    end
-  end
-
   describe "#on_or_at" do
     it "returns 'on' if the opening time is 12am" do
       content_item.content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"

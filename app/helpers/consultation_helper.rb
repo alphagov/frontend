@@ -3,6 +3,10 @@ module ConsultationHelper
     display_date_and_time(opening_date_time)
   end
 
+  def closing_date(closing_date_time)
+    display_date_and_time(closing_date_time, rollback_midnight: true)
+  end
+
 private
 
   def display_date_and_time(date, rollback_midnight: false)

@@ -11,7 +11,7 @@
     <br><%= t("formats.consultation.closes") %><br>
   <% end %>
 
-  <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= @presenter.closing_date %></time></strong>
+  <strong class="consultation-date"><time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time></strong>
 <% end %>
 
 <% consultation_desc = capture do %>

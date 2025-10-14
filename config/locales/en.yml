@@ -96,6 +96,7 @@ en:
       scotland_in: in Scotland
       scotland_slug: scotland
     next_holiday_in_is: The next bank holiday %{in_nation} is
+    'on': 'on'
     past_bank_holidays: Past bank holidays
     print_link: Print this page
     substitute_day: Substitute day

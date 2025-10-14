@@ -1,7 +1,7 @@
-<%
-  add_view_stylesheet("local-transaction")
-%>
 <% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_local-transaction", media: "all" %>
+<% end %>
 
 <%= render layout: "shared/base_page", locals: {
   title: content_item.title,

@@ -1,9 +1,5 @@
 
 RSpec.describe "Topical Event About Page" do
-#   test "random but valid items do not error" do
-#     assert_nothing_raised { setup_and_visit_random_content_item }
-#   end
-
 #   test "topical event about pages" do
 #     setup_and_visit_content_item("topical_event_about_page")
 #     assert_has_component_title(@content_item["title"])

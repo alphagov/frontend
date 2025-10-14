@@ -10,6 +10,10 @@
   <% if content_item.hide_from_search_engines? %>
     <meta name="robots" content="noindex, nofollow">
   <% end %>
+
+  <% if @transaction_presenter.scroll_tracking? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
+  <% end %>
 <% end %>
 
 <%= render layout: "shared/base_page", locals: {

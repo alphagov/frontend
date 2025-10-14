@@ -1,9 +1,6 @@
-<%
-  add_view_stylesheet("travel-advice")
-%>
-
 <% content_for :head do %>
   <%= auto_discovery_link_tag :atom, travel_advice_path(:format => :atom), :title => "Recent updates" %>
+  <%= stylesheet_link_tag "views/_travel-advice", media: "all" %>
 <% end %>
 
 <div class="govuk-grid-row">

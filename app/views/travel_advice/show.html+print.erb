@@ -1,10 +1,10 @@
-<% add_view_stylesheet("travel-advice") %>
 <%
   content_for :title, "Print #{@travel_advice_presenter.page_title}"
   content_for :simple_header, true
   content_for :extra_head_content do
 %>
   <meta name="robots" content="noindex, nofollow">
+  <%= stylesheet_link_tag "views/_travel-advice", media: "all" %>
 <% end %>
 
 <div class="govuk-grid-row" id="travel-advice-print">

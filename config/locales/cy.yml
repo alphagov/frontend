@@ -214,7 +214,6 @@ cy:
     call_for_evidence:
       and: a
       another_website_html:
-      at: am
       closed: Mae'r alwad hon am dystiolaeth wedi cau
       closed_another_website_html:
       closes: Mae'n cau am

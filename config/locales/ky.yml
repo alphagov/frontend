@@ -192,7 +192,6 @@ ky:
     call_for_evidence:
       and: жана
       another_website_html: Бул далилдерди талап кылуу %{closed} <a href="%{url}">башка вебсайтта</a> суралган
-      at: бул жерде
       closed: Бул далилдерди талап кылуу жабылган
       closed_another_website_html:
       closes: Ал жабылат

@@ -1,7 +1,7 @@
 class TravelAdviceController < ContentItemsController
   include Cacheable
 
-  FOREIGN_TRAVEL_ADVICE_SLUG = "foreign-travel-advice".freeze
+  FOREIGN_TRAVEL_ADVICE_PATH = "/foreign-travel-advice".freeze
 
   def index
     @presenter = TravelAdviceIndexPresenter.new(content_item.to_h)
@@ -33,12 +33,8 @@ class TravelAdviceController < ContentItemsController
 private
 
   def content_item_path
-    return "/#{FOREIGN_TRAVEL_ADVICE_SLUG}" unless country_page?
+    return FOREIGN_TRAVEL_ADVICE_PATH if request.path.split(".").first == FOREIGN_TRAVEL_ADVICE_PATH
 
-    "/#{FOREIGN_TRAVEL_ADVICE_SLUG}/#{params[:country]}"
-  end
-
-  def country_page?
-    params[:country].present?
+    "#{FOREIGN_TRAVEL_ADVICE_PATH}/#{params[:country]}"
   end
 end

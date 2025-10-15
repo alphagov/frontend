@@ -12,16 +12,20 @@ module ConsultationHelper
   end
 
   def opens_closes_or_ran(phase, schema_name)
+    locale_key = ""
+
     case phase
     when "closed_#{schema_name}"
-      I18n.t("formats.#{schema_name}.ran_from")
+      locale_key = "ran_from"
     when "#{schema_name}_outcome"
-      I18n.t("formats.#{schema_name}.ran_from")
+      locale_key = "ran_from"
     when "open_#{schema_name}"
-      I18n.t("formats.#{schema_name}.closes_at")
+      locale_key = "closes_at"
     else
-      I18n.t("formats.#{schema_name}.opens") + " #{I18n.t('common.at')}"
+      return I18n.t("formats.#{schema_name}.opens") + " #{I18n.t('common.at')}"
     end
+
+    I18n.t("formats.#{schema_name}.#{locale_key}")
   end
 
 private

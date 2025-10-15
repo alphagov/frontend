@@ -7,19 +7,24 @@
 <% end %>
 
 <% consultation_date = capture do %>
-  <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %><br>
+  <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %>
+  <br>
+  <strong>
+    <% if content_item.closed? %>
+      <%= opening_datetime %> to
+      <%= closing_datetime %>
+    <% elsif content_item.open? %>
+      <%= closing_datetime %>
+    <% elsif content_item.unopened? %>
+      <%= opening_datetime %>
+    <% end %>
+  </strong>
 
-  <% if content_item.closed? || content_item.unopened? %>
-    <strong><%= opening_datetime %></strong>
+  <% if content_item.unopened? %>
+    <br>
+    <%= t("formats.consultation.closes") %><br>
+    <strong><%= closing_datetime %></strong>
   <% end %>
-
-  <% if content_item.closed? %>
-    <strong> to</strong>
-  <% elsif content_item.unopened? %>
-    <br><%= t("formats.consultation.closes") %><br>
-  <% end %>
-
-  <strong><%= closing_datetime %></strong>
 <% end %>
 
 <% consultation_desc = capture do %>

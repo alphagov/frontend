@@ -2,6 +2,10 @@
   <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
 <% end %>
 
+<% closing_datetime = capture do %>
+  <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
+<% end %>
+
 <% call_for_evidence_date = capture do %>
   <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %>
   <br>
@@ -9,9 +13,9 @@
 
     <% if content_item.closed? %>
       <%= opening_datetime %> to
-      <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
+      <%= closing_datetime %>
     <% elsif content_item.open? %>
-      <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
+    <%= closing_datetime %>
     <% elsif content_item.unopened? %>
       <%= opening_datetime %>
     <% end %>
@@ -20,7 +24,7 @@
   <% if content_item.unopened? %>
     <br>
     <%= t("formats.call_for_evidence.closes") %><br>
-    <strong><time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time></strong>
+    <strong><%= closing_datetime %></strong>
   <% end %>
 <% end %>
 

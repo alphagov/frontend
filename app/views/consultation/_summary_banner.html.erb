@@ -2,6 +2,10 @@
   <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
 <% end %>
 
+<% closing_datetime = capture do %>
+  <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
+<% end %>
+
 <% consultation_date = capture do %>
   <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %><br>
 
@@ -15,7 +19,7 @@
     <br><%= t("formats.consultation.closes") %><br>
   <% end %>
 
-  <strong><time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time></strong>
+  <strong><%= closing_datetime %></strong>
 <% end %>
 
 <% consultation_desc = capture do %>

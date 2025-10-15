@@ -10,12 +10,11 @@
   <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %>
   <br>
   <strong>
-
     <% if content_item.closed? %>
       <%= opening_datetime %> to
       <%= closing_datetime %>
     <% elsif content_item.open? %>
-    <%= closing_datetime %>
+      <%= closing_datetime %>
     <% elsif content_item.unopened? %>
       <%= opening_datetime %>
     <% end %>
@@ -23,7 +22,7 @@
 
   <% if content_item.unopened? %>
     <br>
-    <%= t("formats.call_for_evidence.closes") %><br>
+    <%= t("formats.#{content_item.schema_name}.closes") %><br>
     <strong><%= closing_datetime %></strong>
   <% end %>
 <% end %>
@@ -33,7 +32,7 @@
   <% if content_item.held_on_another_website? %>
     <br><br>
     <strong>
-      <%= t("formats.call_for_evidence.another_website_html", closed: content_item.closed? ? t("formats.call_for_evidence.was") : t("formats.call_for_evidence.is_being"), url: content_item.held_on_another_website_url) %>.
+      <%= t("formats.#{content_item.schema_name}.another_website_html", closed: content_item.closed? ? t("formats.#{content_item.schema_name}.was") : t("formats.#{content_item.schema_name}.is_being"), url: content_item.held_on_another_website_url) %>.
     </strong>
   <% end %>
 <% end %>
@@ -41,5 +40,5 @@
 <%= render "govuk_publishing_components/components/summary_banner", {
   secondary_text: consultation_date,
   text: consultation_desc,
-  title: t("formats.call_for_evidence.summary"),
+  title: t("formats.#{content_item.schema_name}.summary"),
 } %>

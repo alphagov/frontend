@@ -1,8 +1,12 @@
+<% opening_datetime = capture do %>
+  <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
+<% end %>
+
 <% consultation_date = capture do %>
   <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %><br>
 
   <% if content_item.closed? || content_item.unopened? %>
-    <strong><time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time></strong>
+    <strong><%= opening_datetime %></strong>
   <% end %>
 
   <% if content_item.closed? %>

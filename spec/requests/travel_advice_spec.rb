@@ -27,9 +27,7 @@ RSpec.describe "Travel Advice" do
 
       context "when requesting atom" do
         before do
-          atom_base_path = "#{base_path}.atom"
-          stub_content_store_has_item(atom_base_path, content_item)
-          get atom_base_path
+          get "#{base_path}.atom"
         end
 
         it "returns an aggregate of country atom feeds" do

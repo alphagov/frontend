@@ -1,7 +1,9 @@
 <%
-  add_view_stylesheet("publisher_metadata")
   logo = locals[:logo]
 %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_publisher_metadata", media: "all" %>
+<% end %>
 
 <div class="govuk-grid-row">
   <div class="metadata-wrapper gem-print-columns-none <%= "responsive-bottom-margin" if logo %>">

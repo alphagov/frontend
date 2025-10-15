@@ -1,5 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/featured", media: "all" %>
+<% end %>
 <%
-  add_view_stylesheet("landing_page/featured")
   featured_child_content_classes = "featured_child"
   block.image ? featured_child_content_classes << " featured__child--content-with-image" : featured_child_content_classes << " featured__child--content"
 %>

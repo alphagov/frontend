@@ -1,13 +1,7 @@
-<%
-  add_view_stylesheet("sign-in")
-  # These components aren't found in the templates, but the styles are still
-  # needed as they're used within the sign in page's `content_item`.
-  add_gem_component_stylesheet("document-list")
-  add_gem_component_stylesheet("inset-text")
-%>
 <% content_for :title, "#{content_item.title} - GOV.UK" %>
 <% content_for :head do %>
   <meta name="description" content="<%= content_item.description %>">
+  <%= stylesheet_link_tag "views/_sign-in", media: "all" %>
 <% end %>
 
 <div class="govuk-grid-row">

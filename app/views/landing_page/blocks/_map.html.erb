@@ -1,6 +1,6 @@
-<%
-  add_view_stylesheet("landing_page/map")
-%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/map", media: "all" %>
+<% end %>
 <% content_for :extra_javascript do %>
   <%= javascript_include_tag "views/landing_page/map/leaflet.js", integrity: false, type: "module" %>
   <%= javascript_include_tag "views/landing_page/map/data/lookup.js", integrity: false, type: "module" %>

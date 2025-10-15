@@ -1,6 +1,6 @@
-<%
-  add_view_stylesheet("csv_preview")
-%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_csv_preview", media: "all" %>
+<% end %>
 
 <% content_for :title, "#{@attachment_metadata["title"]} - GOV.UK" %>
 

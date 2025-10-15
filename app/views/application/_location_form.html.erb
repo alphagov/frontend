@@ -1,6 +1,4 @@
 <%
-  add_view_stylesheet("location_form")
-
   action ||= nil
   results_anchor ||= "error"
   form_method ||= "post"
@@ -15,6 +13,9 @@
   ga4_type = content_item.document_type.gsub("_", " ")
   ga4_section = t("formats.local_transaction.enter_postcode", locale: :en)
 %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_location_form", media: "all" %>
+<% end %>
 
 <%= tag.div class: css_classes do %>
   <% if @location_error %>

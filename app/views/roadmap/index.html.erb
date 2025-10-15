@@ -1,5 +1,3 @@
-<% add_view_stylesheet("roadmap") %>
-
 <% content_for :title, t("roadmap.page_title") %>
 <% content_for :head do %>
   <meta name="description" content="<%= t("roadmap.hero.description") %>">
@@ -7,6 +5,7 @@
   <meta property="og:url" content="https://www.gov.uk/roadmap">
   <meta property="og:title" content="Roadmap - GOV.UK">
   <meta property="og:description" content="<%= t("roadmap.hero.description") %>">
+  <%= stylesheet_link_tag "views/_roadmap", media: "all" %>
 <% end %>
 
 <section class="govuk-!-padding-bottom-6 govuk-roadmap-section">

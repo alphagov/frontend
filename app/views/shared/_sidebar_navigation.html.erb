@@ -1,6 +1,6 @@
-<%
-  add_view_stylesheet("sidebar-navigation")
-%>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_sidebar-navigation", media: "all" %>
+<% end %>
 
 <div class="govuk-grid-column-one-third sidebar-navigation">
   <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>

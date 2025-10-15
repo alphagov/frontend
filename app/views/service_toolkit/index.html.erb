@@ -1,10 +1,10 @@
 <%
-  add_view_stylesheet("service-toolkit")
   content_for :title, "Service Toolkit - GOV.UK"
   content_for :main_classes, "govuk-!-padding-top-0"
 %>
 <% content_for :head do %>
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+  <%= stylesheet_link_tag "views/_service-toolkit", media: "all" %>
 <% end %>
 <%= render "govuk_publishing_components/components/inverse_header", {
   full_width: true,

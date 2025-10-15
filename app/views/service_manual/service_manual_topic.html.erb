@@ -1,7 +1,7 @@
-<% add_view_stylesheet("service-manual-topic") %>
 <%= content_for :title, "#{content_item.title} - Service Manual - GOV.UK" %>
 <% content_for :head do %>
   <meta name="description" content="<%= strip_tags(content_item.description) %>">
+  <%= stylesheet_link_tag "views/_service-manual-topic", media: "all" %>
 <% end %>
 <% content_for :before_content do %>
   <%= render partial: "service_manual/service_manual_breadcrumbs", breadcrumbs: @presenter.breadcrumbs %>

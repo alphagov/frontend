@@ -1,7 +1,7 @@
-<%
-  add_view_stylesheet("cookie-settings")
-%>
 <% content_for :title, "Cookies on GOV.UK" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_cookie-settings", media: "all" %>
+<% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

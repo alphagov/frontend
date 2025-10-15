@@ -1,9 +1,9 @@
-<% add_view_stylesheet("guide") %>
 <%
   content_for :title, "Print #{content_item.title} - GOV.UK"
   content_for :head do
 %>
   <meta name="robots" content="noindex, nofollow">
+  <%= stylesheet_link_tag "views/_guide", media: "all" %>
 <% end %>
 
 <div class="govuk-grid-row gem-print-columns-none" id="guide-print">

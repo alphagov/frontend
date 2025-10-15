@@ -1,4 +1,6 @@
-<% add_view_stylesheet("landing_page/logo") %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_landing_page/logo", media: "all" %>
+<% end %>
 <div class="logo">
   <% if block.data['logo'] == 'nhs' %>
     <%= image_tag "landing_page/logo-nhs.svg", class: "logo__img--nhs", alt: "NHS" %>

@@ -1,9 +1,6 @@
-<%
-  add_view_stylesheet("calendars")
-%>
-
 <% content_for :head do %>
   <%= bank_hol_ab_test_variant.analytics_meta_tag.html_safe if page_under_test? %>
+  <%= stylesheet_link_tag "views/_calendars", media: "all" %>
 <% end %>
 
 <%= render :partial => "calendar_head" %>

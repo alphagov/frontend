@@ -6,7 +6,7 @@
   <time datetime="<%= content_item.closing_date_time %>"><%= closing_date(content_item.closing_date_time) %></time>
 <% end %>
 
-<% call_for_evidence_date = capture do %>
+<% consultation_date = capture do %>
   <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %>
   <br>
   <strong>
@@ -28,7 +28,7 @@
   <% end %>
 <% end %>
 
-<% call_for_evidence_desc = capture do %>
+<% consultation_desc = capture do %>
   <%= content_item.description %>
   <% if content_item.held_on_another_website? %>
     <br><br>
@@ -39,7 +39,7 @@
 <% end %>
 
 <%= render "govuk_publishing_components/components/summary_banner", {
-  secondary_text: call_for_evidence_date,
-  text: call_for_evidence_desc,
+  secondary_text: consultation_date,
+  text: consultation_desc,
   title: t("formats.call_for_evidence.summary"),
 } %>

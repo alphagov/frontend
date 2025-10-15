@@ -191,6 +191,26 @@ RSpec.describe "CsvPreview" do
     end
   end
 
+  context "when the asset's parent document url is a redirect" do
+    before do
+      redirect_base_path = "/redirect#{parent_document_base_path}"
+      redirect_url = "https://www.test.gov.uk#{redirect_base_path}"
+
+      setup_asset_manager(redirect_url, asset_manager_id, "/#{filename}.csv")
+      setup_redirect_content_item(parent_document_base_path, redirect_base_path)
+      setup_content_item("/csv-preview/#{asset_manager_id}/#{filename}/", parent_document_base_path)
+      visit "http://www.dev.gov.uk/csv-preview/#{asset_manager_id}/#{filename}/"
+    end
+
+    it "returns a 200 response" do
+      expect(page.status_code).to eq(200)
+    end
+
+    it "includes the correct asset title from the content item" do
+      expect(page).to have_text("Attachment 2")
+    end
+  end
+
   context "when asset manager returns a 403 response" do
     before do
       filename = "filename-2"

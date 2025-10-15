@@ -16,7 +16,8 @@ class CsvPreviewController < ApplicationController
     return cacheable_404 unless parent_document_uri
 
     parent_document_path = URI(parent_document_uri).request_uri
-    @content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
+
+    @content_item = parent_content_item(parent_document_path)
     @attachment_metadata = @content_item.dig("details", "attachments").find do |attachment|
       attachment["filename"] == asset_filename
     end
@@ -60,5 +61,20 @@ private
 
   def csv_content_type
     ["text/csv", "application/csv"]
+  end
+
+  def parent_content_item(parent_document_path)
+    content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
+    if content_item.dig("details", "attachments")
+      return content_item
+    end
+
+    Rails.logger.warn("CSV attachment details missing for '#{params[:id]}' at '#{parent_document_path}'")
+
+    redirect_path = content_item.dig("redirects", 0, "destination")
+    if redirect_path
+      Rails.logger.debug("CSV attachment details missing for '#{params[:id]}' at '#{parent_document_path}', following redirect to '#{redirect_path}'")
+      GdsApi.content_store.content_item(redirect_path).to_hash
+    end
   end
 end

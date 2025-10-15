@@ -47,6 +47,19 @@ module AssetManagerHelpers
     stub_content_store_has_item(parent_document_base_path, content_item)
   end
 
+  def setup_redirect_content_item(parent_document_base_path, redirect_base_path)
+    content_item = {
+      base_path: redirect_base_path,
+      redirects: [{
+        destination: parent_document_base_path,
+        path: redirect_base_path,
+        type: "exact",
+      }],
+    }
+
+    stub_content_store_has_item(redirect_base_path, content_item)
+  end
+
   def generate_test_csv(column_count, row_count)
     csv_headers = CSV.generate_line((1..column_count).map { |column_number| "field_#{column_number}" })
     csv_row = CSV.generate_line((1..column_count).map { |column_number| "Value#{column_number}" })

@@ -1,15 +1,9 @@
-
 ⚠️ This repo is Continuously Deployed: make sure you [follow the guidance](https://docs.publishing.service.gov.uk/manual/development-pipeline.html#merge-your-own-pull-request) ⚠️
 
 ## What
 
-
-
 ## Why
 
-[Trello card?](url)
+Jira card: https://gov-uk.atlassian.net/browse/[CARD-ID]
 
-## How
-
-## Screenshots?
-
+## Visual changes

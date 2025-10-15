@@ -123,6 +123,8 @@ Rails.application.routes.draw do
     get "/speeches/:slug(.:locale)", to: "speech#show"
 
     get "/statistical-data-sets/:slug", to: "statistical_data_set#show"
+
+    get "/topical-events/:slug/about", to: "flexible_page#show"
   end
 
   # Service manuals

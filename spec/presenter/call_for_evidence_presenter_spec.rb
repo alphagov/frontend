@@ -3,40 +3,6 @@ RSpec.describe CallForEvidencePresenter do
   let(:content_item) { CallForEvidence.new(content_store_response) }
   let(:presenter) { described_class.new(content_item) }
 
-  describe "#opens_closes_or_ran" do
-    context "when document type is closed_call_for_evidence" do
-      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "closed_call_for_evidence") }
-
-      it "returns ran_from text" do
-        expect(presenter.opens_closes_or_ran).to eq("This call for evidence ran from")
-      end
-    end
-
-    context "when document type is call_for_evidence_outcome" do
-      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "call_for_evidence_outcome") }
-
-      it "returns ran_from text" do
-        expect(presenter.opens_closes_or_ran).to eq("This call for evidence ran from")
-      end
-    end
-
-    context "when document type is open_call_for_evidence" do
-      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "open_call_for_evidence") }
-
-      it "returns closes_at text if document type is open_call_for_evidence" do
-        expect(presenter.opens_closes_or_ran).to eq("This call for evidence closes at")
-      end
-    end
-
-    context "when document type is call_for_evidence" do
-      let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "unopened_call_for_evidence") }
-
-      it "returns opens at text if document type is call_for_evidence" do
-        expect(presenter.opens_closes_or_ran).to eq("This call for evidence opens at")
-      end
-    end
-  end
-
   describe "#notice_title" do
     context "when document type is call_for_evidence" do
       let(:content_store_response) { GovukSchemas::Example.find("call_for_evidence", example_name: "unopened_call_for_evidence") }

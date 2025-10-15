@@ -1,5 +1,5 @@
 <% consultation_date = capture do %>
-  <%= @presenter.opens_closes_or_ran %><br>
+  <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %><br>
 
   <% if content_item.closed? || content_item.unopened? %>
     <strong class="consultation-date"><time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time></strong>

@@ -1,5 +1,5 @@
 <% call_for_evidence_date = capture do %>
-  <%= @presenter.opens_closes_or_ran %>
+  <%= opens_closes_or_ran(content_item.document_type, content_item.schema_name) %>
   <br>
   <strong>
 

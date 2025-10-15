@@ -4,40 +4,6 @@ RSpec.describe ConsultationPresenter do
   let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
   let(:content_item) { Consultation.new(content_store_response) }
 
-  describe "#opens_closes_or_ran" do
-    context "when document type is closed_consultation" do
-      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "closed_consultation") }
-
-      it "returns ran_from text" do
-        expect(presenter.opens_closes_or_ran).to eq("This consultation ran from")
-      end
-    end
-
-    context "when document type is consultation_outcome" do
-      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "consultation_outcome") }
-
-      it "returns ran_from text" do
-        expect(presenter.opens_closes_or_ran).to eq("This consultation ran from")
-      end
-    end
-
-    context "when document type is open_consultation" do
-      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }
-
-      it "returns closes_at text if document type is open_consultation" do
-        expect(presenter.opens_closes_or_ran).to eq("This consultation closes at")
-      end
-    end
-
-    context "when document type is consultation" do
-      let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "unopened_consultation") }
-
-      it "returns opens at text if document type is consultation" do
-        expect(presenter.opens_closes_or_ran).to eq("This consultation opens at")
-      end
-    end
-  end
-
   describe "#notice_title" do
     context "when document type is open_consultation" do
       let(:content_store_response) { GovukSchemas::Example.find("consultation", example_name: "open_consultation") }

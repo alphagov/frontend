@@ -46,4 +46,42 @@ RSpec.describe ConsultationHelper do
       expect(on_or_at(opening_date_time)).to eq("at")
     end
   end
+
+  describe "#opens_closes_or_ran" do
+    context "when schema_name is 'consultation'" do
+      it "returns ran_from text when document type is closed_consultation" do
+        expect(opens_closes_or_ran("closed_consultation", "consultation")).to eq("This consultation ran from")
+      end
+
+      it "returns ran_from text when document type is consultation_outcome" do
+        expect(opens_closes_or_ran("consultation_outcome", "consultation")).to eq("This consultation ran from")
+      end
+
+      it "returns closes_at text when document type is open_consultation" do
+        expect(opens_closes_or_ran("open_consultation", "consultation")).to eq("This consultation closes at")
+      end
+
+      it "returns opens at text when document type is consultation" do
+        expect(opens_closes_or_ran("consultation", "consultation")).to eq("This consultation opens at")
+      end
+    end
+
+    context "when schema_name is 'call_for_evidence'" do
+      it "returns ran_from text when document type is closed_call_for_evidence" do
+        expect(opens_closes_or_ran("closed_call_for_evidence", "call_for_evidence")).to eq("This call for evidence ran from")
+      end
+
+      it "returns ran_from text when document type is call_for_evidence_outcome" do
+        expect(opens_closes_or_ran("call_for_evidence_outcome", "call_for_evidence")).to eq("This call for evidence ran from")
+      end
+
+      it "returns closes_at text when document type is open_call_for_evidence" do
+        expect(opens_closes_or_ran("open_call_for_evidence", "call_for_evidence")).to eq("This call for evidence closes at")
+      end
+
+      it "returns opens at text when document type is call_for_evidence" do
+        expect(opens_closes_or_ran("call_for_evidence", "call_for_evidence")).to eq("This call for evidence opens at")
+      end
+    end
+  end
 end

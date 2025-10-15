@@ -11,6 +11,19 @@ module ConsultationHelper
     opening_date_midnight?(opening_date_time) ? I18n.t("common.on") : I18n.t("common.at")
   end
 
+  def opens_closes_or_ran(phase, schema_name)
+    case phase
+    when "closed_#{schema_name}"
+      I18n.t("formats.#{schema_name}.ran_from")
+    when "#{schema_name}_outcome"
+      I18n.t("formats.#{schema_name}.ran_from")
+    when "open_#{schema_name}"
+      I18n.t("formats.#{schema_name}.closes_at")
+    else
+      I18n.t("formats.#{schema_name}.opens") + " #{I18n.t('common.at')}"
+    end
+  end
+
 private
 
   def display_date_and_time(date, rollback_midnight: false)

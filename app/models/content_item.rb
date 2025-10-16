@@ -4,7 +4,7 @@ class ContentItem
   include Withdrawable
   attr_reader :base_path, :body, :content_id,
               :content_store_response, :description, :document_type, :first_public_at,
-              :first_published_at, :image, :links, :locale, :phase, :public_updated_at,
+              :first_published_at, :image, :links, :locale, :public_updated_at,
               :schema_name, :title
 
   def initialize(content_store_response)
@@ -21,7 +21,6 @@ class ContentItem
     @locale = content_store_response["locale"]
     @public_updated_at = content_store_response["public_updated_at"]
     @links = content_store_response["links"]
-    @phase = content_store_response["phase"]
     @first_published_at = content_store_response["first_published_at"]
     @first_public_at = content_store_response.dig("details", "first_public_at")
 

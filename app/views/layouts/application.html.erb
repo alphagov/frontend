@@ -3,9 +3,6 @@
 <% content_for :body do %>
   <%= yield :before_content %>
   <div class="govuk-width-container">
-    <% if content_item&.phase == "beta" %>
-      <%= render "govuk_publishing_components/components/phase_banner", phase: "beta" %>
-    <% end %>
     <% if show_breadcrumbs?(content_item) %>
       <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
     <% end %>

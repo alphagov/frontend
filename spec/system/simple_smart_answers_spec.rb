@@ -6,7 +6,6 @@ RSpec.describe "SimpleSmartAnswers" do
       schema_name: "simple_smart_answer",
       title: "The Bridge of Death",
       description: "Cheery description about bridge of death",
-      phase: "beta",
       public_updated_at: "2013-06-25T11:59:04+01:00",
       details: {
         start_button_text: "Start now",
@@ -100,8 +99,6 @@ RSpec.describe "SimpleSmartAnswers" do
         end
       end
     end
-
-    expect(page).to have_selector(".gem-c-phase-banner")
   end
 
   context "when previously a format with parts" do

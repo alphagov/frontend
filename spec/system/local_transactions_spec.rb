@@ -641,4 +641,29 @@ RSpec.describe "LocalTransactions" do
       )
     end
   end
+
+  context "when maintenance mode for postcode lookup is enabled" do
+    around do |example|
+      ClimateControl.modify MAINTENANCE_MESSAGE: "System is undergoing maintenance and will be back shortly" do
+        example.run
+      end
+    end
+
+    it "does not show the postcode field" do
+      load Rails.root.join("config/initializers/maintenance.rb")
+      visit "/pay-bear-tax"
+
+      expect(page).not_to have_field("postcode")
+      expect(page).to have_text("System is undergoing maintenance and will be back shortly")
+    end
+  end
+
+  context "when maintenance mode for postcode lookup is disabled" do
+    it "displays the postcode field" do
+      load Rails.root.join("config/initializers/maintenance.rb")
+      visit "/pay-bear-tax"
+
+      expect(page).to have_field("postcode")
+    end
+  end
 end

@@ -11,7 +11,6 @@ RSpec.describe "Places" do
       base_path: "/passport-interview-office",
       schema_name: "place",
       document_type: "place",
-      phase: "beta",
       public_updated_at: "2012-10-02T15:21:03+00:00",
       details: {
         introduction:
@@ -95,8 +94,6 @@ RSpec.describe "Places" do
           end
         end
       end
-
-      expect(page).to have_selector(".gem-c-phase-banner")
     end
 
     it "adds GA4 form submit attributes" do

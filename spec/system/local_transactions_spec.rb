@@ -32,7 +32,6 @@ RSpec.describe "LocalTransactions" do
       format: "local_transaction",
       links: {},
       locale: "en",
-      phase: "beta",
       public_updated_at: "2014-12-16T12:49:50.000+00:00",
       publishing_app: "publisher",
       rendering_app: "frontend",
@@ -67,7 +66,6 @@ RSpec.describe "LocalTransactions" do
       it "displays the page content" do
         expect(page).to have_title("Pay your bear tax")
         expect(page).to have_content("owning or looking after a bear")
-        expect(page).to have_selector(".gem-c-phase-banner")
         expect(page).to have_title("Pay your bear tax - GOV.UK", exact: true)
       end
 

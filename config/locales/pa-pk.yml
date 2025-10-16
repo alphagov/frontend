@@ -75,6 +75,7 @@ pa-pk:
   cancel:
   common:
     add_holiday_ics:
+    at: ایندے تے
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ pa-pk:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ pa-pk:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ pa-pk:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ pa-pk:
       analysing_feedback:
       and: ہور
       another_website_html: ایہ مشورہ  %{closed}ایندے تے وقوعہ ہویا <a href="%{url}">دُوسری ویب سائٹ</a>
-      at: ایندے تے
       closes: ایہ ایندے تے بند ہوندا اے
       closes_at: ایہ مشاورت ایندے تے بند ہوندی اے
       complete_a: اک پُورا کرو
@@ -261,7 +260,6 @@ pa-pk:
         one: مشورہ
         other: 'مشورے '
       not_open_yet: ایہ مشاورت ہلے نئیں کُھلی
-      'on':
       opens: ایہ مشاورت کُھل گئی اے
       or:
       original_consultation: اصلی مشاورت

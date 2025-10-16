@@ -75,6 +75,7 @@ cs:
   cancel:
   common:
     add_holiday_ics:
+    at: na
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ cs:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -195,7 +197,6 @@ cs:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -213,7 +214,6 @@ cs:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -254,7 +254,6 @@ cs:
       analysing_feedback:
       and: a
       another_website_html: Tato konzultace %{closed} se konala na <a href="%{url}">jiné webové stránce</a>
-      at: na
       closes: Uzavírá se v
       closes_at: Tato konzultace končí v
       complete_a: Dokončete
@@ -273,7 +272,6 @@ cs:
         one: Konzultace
         other: Konzultace
       not_open_yet: Tato konzultace ještě není otevřena
-      'on':
       opens: Tato konzultace zahajuje
       or:
       original_consultation: Původní konzultace

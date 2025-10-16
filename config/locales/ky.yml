@@ -75,6 +75,7 @@ ky:
   cancel:
   common:
     add_holiday_ics:
+    at: бул жерде
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ky:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on': күнү
     past_bank_holidays:
     print_link: Бул баракчаны басып чыгаруу
     substitute_day:
@@ -190,7 +192,6 @@ ky:
     call_for_evidence:
       and: жана
       another_website_html: Бул далилдерди талап кылуу %{closed} <a href="%{url}">башка вебсайтта</a> суралган
-      at: бул жерде
       closed: Бул далилдерди талап кылуу жабылган
       closed_another_website_html:
       closes: Ал жабылат
@@ -207,7 +208,6 @@ ky:
         one: Далилдерди талап кылуу
         other: Далилдерди талап кылуулар
       not_open_yet: Бул далилдерди талап кылуу ачыла элек
-      'on': күнү
       open_another_website_html:
       opens: Бул далилдерди талап кылуу ачылат
       or: же
@@ -243,7 +243,6 @@ ky:
       analysing_feedback: Биз пикириңизди талдап жатабыз
       and: жана
       another_website_html: Бул консультация %{closed} <a href="%{url}">башка вебсайтта</a> жүргүзүлгөн
-      at: бул жерде
       closes: Ал жабылат
       closes_at: Бул консультация жабылат
       complete_a: Толтуруу
@@ -261,7 +260,6 @@ ky:
         one: Консультация
         other: Консультациялар
       not_open_yet: Бул консультация ачыла элек
-      'on': күнү
       opens: Бул консультация ачылат
       or: же
       original_consultation: Түпнуска консультация

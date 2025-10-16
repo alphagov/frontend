@@ -75,6 +75,7 @@ bn:
   cancel:
   common:
     add_holiday_ics:
+    at: এ
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ bn:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ bn:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ bn:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ bn:
       analysing_feedback:
       and: এবং
       another_website_html: এই পরামর্শটি %{closed} <a href="%{url}">আরেকটি ওয়েবসাইটে</a> অনুষ্ঠিত হয়
-      at: এ
       closes: এটি বন্ধ হচ্ছে
       closes_at: এই পরামর্শটি বন্ধ হচ্ছে
       complete_a: একটি সম্পন্ন করুন
@@ -261,7 +260,6 @@ bn:
         one: পরামর্শ
         other: পরামর্শ
       not_open_yet: এই পরামর্শটি এখনও চালু হয়নি
-      'on':
       opens: এই পরামর্শটি চালু হচ্ছে
       or:
       original_consultation: মূল পরামর্শ

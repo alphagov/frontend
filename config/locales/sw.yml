@@ -75,6 +75,7 @@ sw:
   cancel:
   common:
     add_holiday_ics:
+    at: saa
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ sw:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ sw:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ sw:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ sw:
       analysing_feedback:
       and: na
       another_website_html: Mashauriano haya %{closed} yalifanywa kwenye <a href="%{url}">tovuti nyingine</a>
-      at: saa
       closes: Yatafungwa saa
       closes_at: Mashauriano haya yatafungwa saa
       complete_a: Jaza
@@ -261,7 +260,6 @@ sw:
         one: Mashauriano
         other: Mashauriano
       not_open_yet: Bado mashauriano haya hayajafunguliwa
-      'on':
       opens: Mashauriano haya yatafunguliwa
       or:
       original_consultation: Mashauriano halisi

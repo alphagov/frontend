@@ -22,6 +22,13 @@ RSpec.describe Consultation do
   it_behaves_like "it has historical government information", "consultation", "open_consultation"
   it_behaves_like "it can have single page notifications", "consultation", "open_consultation"
   it_behaves_like "it has updates", "consultation", "open_consultation"
+  it_behaves_like "it can have phases with a running time period", "consultation", "open_consultation"
+  it_behaves_like "it can have an open phase", "consultation", "open_consultation"
+  it_behaves_like "it can have a closed phase", "consultation", "closed_consultation"
+  it_behaves_like "it can have a closed phase", "consultation", "consultation_outcome"
+  it_behaves_like "it can have an unopened phase", "consultation", "unopened_consultation"
+  it_behaves_like "it can have an outcome phase", "consultation", "consultation_outcome"
+  it_behaves_like "it can have ways to respond", "consultation", "open_consultation_with_participation"
 
   describe "#contributors" do
     it "returns a list of organisations" do
@@ -34,62 +41,6 @@ RSpec.describe Consultation do
         expect(withdrawn_consultation.contributors[1].title).to eq("The Rt Hon Baroness Smith of Malvern")
         expect(withdrawn_consultation.contributors[1].base_path).to eq("/government/people/jacqui-smith")
       end
-    end
-  end
-
-  describe "#opening_date_time" do
-    it "returns the opening date and time" do
-      expect(closed_consultation.opening_date_time).to eq("2016-09-05T14:00:00+01:00")
-    end
-  end
-
-  describe "#closing_date_time" do
-    it "returns the closing date and time" do
-      expect(closed_consultation.closing_date_time).to eq("2016-10-31T17:00:00+01:00")
-    end
-  end
-
-  describe "#open?" do
-    it "returns true for an open_consultation document type" do
-      expect(open_consultation.open?).to be(true)
-    end
-
-    it "returns false if it is not an open_consultation document type" do
-      expect(unopened_consultation.open?).to be(false)
-      expect(closed_consultation.open?).to be(false)
-      expect(consultation_outcome.open?).to be(false)
-    end
-  end
-
-  describe "#closed?" do
-    it "returns true for closed_consultation or consultation_outcome document types" do
-      expect(unopened_consultation.closed?).to be(false)
-      expect(open_consultation.closed?).to be(false)
-
-      expect(closed_consultation.closed?).to be(true)
-      expect(consultation_outcome.closed?).to be(true)
-    end
-  end
-
-  describe "#unopened?" do
-    it "returns true if it has the unopened_consultation document type" do
-      expect(unopened_consultation.unopened?).to be(true)
-
-      expect(open_consultation.unopened?).to be(false)
-      expect(closed_consultation.unopened?).to be(false)
-      expect(consultation_outcome.unopened?).to be(false)
-    end
-  end
-
-  describe "#final_outcome?" do
-    it "returns true for a consultation_outcome document type" do
-      expect(consultation_outcome.final_outcome?).to be(true)
-    end
-
-    it "returns false if it does not have the consultation_outcome document type" do
-      expect(unopened_consultation.final_outcome?).to be(false)
-      expect(open_consultation.final_outcome?).to be(false)
-      expect(closed_consultation.final_outcome?).to be(false)
     end
   end
 
@@ -119,54 +70,43 @@ RSpec.describe Consultation do
     end
   end
 
-  describe "#final_outcome_attachments_for_components" do
+  describe "#final_outcome_attachments" do
     it "returns final outcome documents if available" do
       consultation_outcome_with_featured_attachments.content_store_response["details"]["attachments"] = test_documents
       consultation_outcome_with_featured_attachments.content_store_response["details"]["final_outcome_attachments"] = %w[02 03]
 
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components.length).to eq(2)
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[0]["id"]).to eq("02")
-      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments_for_components[1]["id"]).to eq("03")
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments.length).to eq(2)
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments[0]["id"]).to eq("02")
+      expect(consultation_outcome_with_featured_attachments.final_outcome_attachments[1]["id"]).to eq("03")
     end
 
     it "does not return information if it does not have the consultation_outcome document type" do
-      expect(unopened_consultation.public_feedback_attachments_for_components).not_to be_present
-      expect(open_consultation.public_feedback_attachments_for_components).not_to be_present
-      expect(closed_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(unopened_consultation.public_feedback_attachments).not_to be_present
+      expect(open_consultation.public_feedback_attachments).not_to be_present
+      expect(closed_consultation.public_feedback_attachments).not_to be_present
     end
   end
 
-  describe "#public_feedback_attachments_for_components" do
+  describe "#public_feedback_attachments" do
     it "returns public feedback documents" do
       consultation_outcome_with_featured_attachments.content_store_response["details"]["attachments"] = test_documents
       consultation_outcome_with_featured_attachments.content_store_response["details"]["public_feedback_attachments"] = %w[01 03]
 
-      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components.length).to eq(2)
-      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components[0]["id"]).to eq("01")
-      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments_for_components[1]["id"]).to eq("03")
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments.length).to eq(2)
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments[0]["id"]).to eq("01")
+      expect(consultation_outcome_with_featured_attachments.public_feedback_attachments[1]["id"]).to eq("03")
     end
 
     it "does not return information if it does not have the consultation_outcome document type" do
-      expect(unopened_consultation.public_feedback_attachments_for_components).not_to be_present
-      expect(open_consultation.public_feedback_attachments_for_components).not_to be_present
-      expect(closed_consultation.public_feedback_attachments_for_components).not_to be_present
+      expect(unopened_consultation.public_feedback_attachments).not_to be_present
+      expect(open_consultation.public_feedback_attachments).not_to be_present
+      expect(closed_consultation.public_feedback_attachments).not_to be_present
     end
   end
 
-  describe "#documents_attachments_for_components" do
-    it "returns consultation documents if available" do
-      closed_consultation.content_store_response["details"]["attachments"] = test_documents
-      closed_consultation.content_store_response["details"]["featured_attachments"] = %w[01 02]
-
-      expect(closed_consultation.documents_attachments_for_components.length).to eq(2)
-      expect(closed_consultation.documents_attachments_for_components[0]["id"]).to eq("01")
-      expect(closed_consultation.documents_attachments_for_components[1]["id"]).to eq("02")
-    end
-  end
-
-  describe "#attachments_with_details" do
+  describe "#all_inaccessible_attachments_with_email" do
     it "returns the number of attachments that are not accessible" do
-      expect(consultation_outcome_with_featured_attachments.attachments_with_details.count).to eq(4)
+      expect(consultation_outcome_with_featured_attachments.all_inaccessible_attachments_with_email.count).to eq(4)
     end
   end
 
@@ -181,145 +121,6 @@ RSpec.describe Consultation do
       expect(unopened_consultation.public_feedback_detail).not_to be_present
       expect(open_consultation.public_feedback_detail).not_to be_present
       expect(closed_consultation.public_feedback_detail).not_to be_present
-    end
-  end
-
-  describe "#held_on_another_website_url" do
-    it "returns url if it is held on another website" do
-      expected_url = open_consultation.content_store_response.dig("details", "held_on_another_website_url")
-
-      expect(open_consultation.held_on_another_website_url).to be(expected_url)
-    end
-
-    it "does not return url if it is not held on another website" do
-      expect(unopened_consultation.held_on_another_website_url).to be_nil
-    end
-  end
-
-  describe "#held_on_another_website?" do
-    it "returns true if it is held on another website" do
-      expect(open_consultation.held_on_another_website?).to be(true)
-    end
-
-    it "returns false if it is not held on another website" do
-      expect(unopened_consultation.held_on_another_website?).to be(false)
-    end
-  end
-
-  describe "#email" do
-    it "returns the email address if available" do
-      expected_email = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "email")
-
-      expect(open_consultation_with_participation.email).to eq(expected_email)
-    end
-
-    it "returns nil if email address isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("email")
-
-      expect(open_consultation_with_participation.email).to be_nil
-    end
-  end
-
-  describe "#postal_address" do
-    it "returns the postal address if available" do
-      expected_postal_address = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "postal_address")
-
-      expect(open_consultation_with_participation.postal_address).to eq(expected_postal_address)
-    end
-
-    it "returns nil if postal address isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("postal_address")
-
-      expect(open_consultation_with_participation.postal_address).to be_nil
-    end
-  end
-
-  describe "#respond_online_url" do
-    it "returns the link url if available" do
-      expected_link_url = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "link_url")
-
-      expect(open_consultation_with_participation.respond_online_url).to eq(expected_link_url)
-    end
-
-    it "returns nil if link url isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("link_url")
-
-      expect(open_consultation_with_participation.respond_online_url).to be_nil
-    end
-  end
-
-  describe "#attachment_url" do
-    it "returns the attachment url if available" do
-      expected_attachment_url = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond", "attachment_url")
-
-      expect(open_consultation_with_participation.attachment_url).to eq(expected_attachment_url)
-    end
-
-    it "returns nil if attachment url isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("attachment_url")
-
-      expect(open_consultation_with_participation.attachment_url).to be_nil
-    end
-
-    it "returns nil if ways_to_respond isn't available" do
-      ways_to_respond = open_consultation_with_participation.content_store_response["details"]
-      ways_to_respond.delete("ways_to_respond")
-
-      expect(open_consultation_with_participation.attachment_url).to be_nil
-    end
-  end
-
-  describe "#ways_to_respond?" do
-    it "returns true for an open_consultation_document type that has contact information available" do
-      expect(open_consultation_with_participation.ways_to_respond?).to be(true)
-    end
-
-    it "returns false for an open_consultation_document type that does not have any contact information available" do
-      expect(open_consultation.ways_to_respond?).to be(false)
-    end
-
-    it "returns false for an open_consultation_document type that only has an attachment url as contact information" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("email")
-      ways_to_respond.delete("postal_address")
-      ways_to_respond.delete("link_url")
-
-      expect(open_consultation_with_participation.attachment_url).to be_present
-      expect(open_consultation_with_participation.ways_to_respond?).to be(false)
-    end
-
-    it "returns false if it does not have the open_consultation_document type" do
-      expect(unopened_consultation.ways_to_respond?).not_to be_present
-      expect(closed_consultation.ways_to_respond?).not_to be_present
-      expect(consultation_outcome.ways_to_respond?).not_to be_present
-    end
-  end
-
-  describe "#response_form?" do
-    it "returns true for an open_consultation document type that has attachment url and only email" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("postal_adress")
-
-      expect(open_consultation_with_participation.response_form?).to be(true)
-    end
-
-    it "returns true for an open_consultation document type that has attachment url and only postal address" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("email")
-
-      expect(open_consultation_with_participation.response_form?).to be(true)
-    end
-
-    it "returns false for an open_consultation document type that has attachment url but no email or postal address" do
-      ways_to_respond = open_consultation_with_participation.content_store_response.dig("details", "ways_to_respond")
-      ways_to_respond.delete("email")
-      ways_to_respond.delete("postal_address")
-
-      expect(open_consultation_with_participation.response_form?).to be(false)
     end
   end
 end

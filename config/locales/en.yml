@@ -75,6 +75,7 @@ en:
   cancel: cancel
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
+    at: at
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
     bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
@@ -96,6 +97,7 @@ en:
       scotland_in: in Scotland
       scotland_slug: scotland
     next_holiday_in_is: The next bank holiday %{in_nation} is
+    'on': 'on'
     past_bank_holidays: Past bank holidays
     print_link: Print this page
     substitute_day: Substitute day
@@ -192,7 +194,6 @@ en:
     call_for_evidence:
       and: and
       another_website_html: This call for evidence %{closed} held on <a href="%{url}">another website</a>
-      at: at
       closed: This call for evidence has closed
       closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>
       closes: It closes at
@@ -209,7 +210,6 @@ en:
         one: Call for evidence
         other: Calls for evidence
       not_open_yet: This call for evidence isn't open yet
-      'on': 'on'
       open_another_website_html: This call for evidence is being held on <a href="%{url}">another website</a>
       opens: This call for evidence opens
       or: or
@@ -245,7 +245,6 @@ en:
       analysing_feedback: We are analysing your feedback
       and: and
       another_website_html: This consultation %{closed} held on <a href="%{url}">another website</a>
-      at: at
       closes: It closes at
       closes_at: This consultation closes at
       complete_a: Complete a
@@ -263,7 +262,6 @@ en:
         one: Consultation
         other: Consultations
       not_open_yet: This consultation isn't open yet
-      'on': 'on'
       opens: This consultation opens
       or: or
       original_consultation: Original consultation

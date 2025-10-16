@@ -75,6 +75,7 @@ uk:
   cancel:
   common:
     add_holiday_ics:
+    at: о
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ uk:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -200,7 +202,6 @@ uk:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -219,7 +220,6 @@ uk:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -265,7 +265,6 @@ uk:
       analysing_feedback:
       and: та
       another_website_html: Ця консультація %{closed} проведена на <a href="%{url}">іншому вебсайті</a>
-      at: о
       closes: Вона завершиться о
       closes_at: Ця консультація завершиться о
       complete_a: Заповніть
@@ -285,7 +284,6 @@ uk:
         one: Консультація
         other: Консультації
       not_open_yet: Ця консультація ще не розпочалася
-      'on':
       opens: Ця консультація розпочинається
       or:
       original_consultation: Первісна консультація

@@ -75,6 +75,7 @@ si:
   cancel:
   common:
     add_holiday_ics:
+    at: දී
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ si:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ si:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ si:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ si:
       analysing_feedback:
       and: සහ
       another_website_html: මෙම උපදේශනය %{closed} <a href="%{url}">වෙනත් වෙබ් අඩවියක</a> පවත් වනු ලැබේ
-      at: දී
       closes: එය වසන වේලාව
       closes_at: මෙම උපදේශනය වසන වේලාව
       complete_a: එකක් සම්පූර්ණ කරන්න
@@ -261,7 +260,6 @@ si:
         one: උපදේශනය
         other: උපදේශන
       not_open_yet: මෙම උපදේශනය තවමත් විවෘත කර නැත
-      'on':
       opens: මෙම උපදේශනය විවෘත වේ
       or:
       original_consultation: මුල් උපදේශනය

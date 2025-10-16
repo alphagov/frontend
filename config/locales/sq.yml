@@ -75,6 +75,7 @@ sq:
   cancel:
   common:
     add_holiday_ics:
+    at: në
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ sq:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ sq:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ sq:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ sq:
       analysing_feedback:
       and: dhe
       another_website_html: Ky konsultim %{closed} u mbajt <a href="%{url}">uebfaqe tjetër</a>
-      at: në
       closes: Mbyllet në
       closes_at: Ky konsultim mbyllet në
       complete_a: Kompleto një
@@ -261,7 +260,6 @@ sq:
         one: Konsultim
         other: Konsultime
       not_open_yet: Ky konsultim nuk është hapur ende
-      'on':
       opens: Ky konsultim hapet
       or:
       original_consultation: Konsultimi origjinal

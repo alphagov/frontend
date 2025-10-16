@@ -1,0 +1,14 @@
+<% notice_description = capture do %>
+  <% if content_item.unopened? %>
+    <%= @presenter.notice_description %>
+    <%= on_or_at(content_item.opening_date_time) %>
+    <time datetime="<%= content_item.opening_date_time %>"><%= opening_date(content_item.opening_date_time) %></time>
+  <% else %>
+    <% @presenter.notice_description if @presenter.notice_description.presence %>
+  <% end %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/notice", {
+  title: @presenter.notice_title,
+  description_text: notice_description,
+} %>

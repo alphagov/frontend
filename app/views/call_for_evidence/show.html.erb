@@ -41,35 +41,13 @@
       } %>
     <% end %>
 
-    <% if content_item.unopened? %>
-      <% content_item_unopened = capture do %>
-        <%= t("formats.call_for_evidence.opens") %>
-        <%= @presenter.on_or_at %>
-        <time datetime="<%= content_item.opening_date_time %>"><%= @presenter.opening_date %></time>
-      <% end %>
-      <%= render "govuk_publishing_components/components/notice", {
-        title: t("formats.call_for_evidence.not_open_yet"),
-        description_text: content_item_unopened,
-      } %>
+    <% if content_item.unopened? || content_item.outcome? %>
+      <%= render partial: "shared/phased/notice" %>
+    <% end %>
 
-    <% elsif content_item.outcome? %>
-      <%= render "govuk_publishing_components/components/notice", title: t("formats.call_for_evidence.closed") %>
+    <%= render partial: "shared/phased/outcome_details" if content_item.outcome? %>
 
-      <%= render "shared/attachments_list",
-        title: t("formats.call_for_evidence.download_outcome"),
-        attachments_for_components: content_item.outcome_documents %>
-
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("formats.call_for_evidence.detail_of_outcome"),
-        margin_bottom: 4,
-      } %>
-
-      <%= render "govuk_publishing_components/components/govspeak", {
-        direction: page_text_direction,
-      } do %>
-        <%= raw(content_item.outcome_detail) %>
-      <% end %>
-
+    <% if content_item.outcome? %>
       <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
         <header>
           <%= render "govuk_publishing_components/components/heading", {
@@ -80,7 +58,7 @@
         </header>
     <% end %>
 
-    <%= render partial: "summary_banner" %>
+    <%= render partial: "shared/phased/summary_banner" %>
 
     <%= render "govuk_publishing_components/components/heading", {
       margin_bottom: 4,
@@ -95,48 +73,9 @@
 
     <%= render "shared/attachments_list",
       title: t("formats.call_for_evidence.documents"),
-      attachments_for_components: content_item.general_documents %>
+      attachments_for_components: content_item.featured_attachments %>
 
-    <% if content_item.ways_to_respond? %>
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("formats.call_for_evidence.ways_to_respond"),
-        margin_bottom: 4,
-      } %>
-      <%= render "govuk_publishing_components/components/govspeak", {
-        direction: page_text_direction,
-      } do %>
-        <% if content_item.respond_online_url %>
-          <div class="call-to-action">
-            <p><%= link_to t("formats.call_for_evidence.respond_online"), content_item.respond_online_url %></p>
-          </div>
-
-          <% if content_item.email || content_item.postal_address %>
-            <p><%= t("formats.call_for_evidence.or") %></p>
-          <% end %>
-        <% end %>
-
-        <% if content_item.response_form? %>
-          <p>
-            <%= t("formats.call_for_evidence.complete_a") %> <%= link_to t("formats.call_for_evidence.response_form"), content_item.attachment_url %> <%= t("formats.call_for_evidence.and") %>
-            <%= t("formats.call_for_evidence.either") if content_item.email && content_item.postal_address %>
-          </p>
-        <% end %>
-
-        <% if content_item.email %>
-          <h3><%= t("formats.call_for_evidence.email_to") %></h3>
-          <p><%= mail_to content_item.email, content_item.email %></p>
-        <% end %>
-
-        <% if content_item.postal_address %>
-          <h3><%= t("formats.call_for_evidence.write_to") %></h3>
-          <div class="contact">
-            <div class="content">
-              <%= simple_format(content_item.postal_address) %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render partial: "shared/phased/ways_to_respond" if content_item.ways_to_respond? %>
 
     <div class="content-bottom-margin">
       <div class="govuk-!-display-none-print responsive-bottom-margin">

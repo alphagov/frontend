@@ -75,6 +75,7 @@ de:
   cancel:
   common:
     add_holiday_ics:
+    at: um
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ de:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ de:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ de:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ de:
       analysing_feedback:
       and: und
       another_website_html: Diese Anhörung %{closed} fand auf einer <a href="%{url}">anderen Website</a> statt
-      at: um
       closes: Sie schließt um
       closes_at: Diese Anhörung endet um
       complete_a: Vervollständigen einer
@@ -261,7 +260,6 @@ de:
         one: Beratung
         other: Beratungen
       not_open_yet: Diese Anhörung ist noch nicht eröffnet
-      'on':
       opens: Diese Anhörung wird eröffnet
       or:
       original_consultation: Originale Anhörung

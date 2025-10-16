@@ -75,6 +75,7 @@ ar:
   cancel:
   common:
     add_holiday_ics:
+    at: في
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ar:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -210,7 +212,6 @@ ar:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -231,7 +232,6 @@ ar:
         two:
         zero:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -287,7 +287,6 @@ ar:
       analysing_feedback:
       and: و
       another_website_html: عُقدت هذه الاستشارة %{closed} على <a href="%{url}">موقع ويب آخر</a>
-      at: في
       closes: موعد الإغلاق
       closes_at: تُغلق هذه الاستشارة تغلق في
       complete_a: إكمال
@@ -309,7 +308,6 @@ ar:
         two:
         zero:
       not_open_yet: هذه الاستشارة لم تُفتح بعد
-      'on':
       opens: تفتح هذه الاستشارة
       or:
       original_consultation: الاستشارة الأصلية

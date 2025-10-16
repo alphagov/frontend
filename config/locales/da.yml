@@ -75,6 +75,7 @@ da:
   cancel:
   common:
     add_holiday_ics:
+    at: på
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ da:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ da:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ da:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ da:
       analysing_feedback:
       and: og
       another_website_html: Denne konsultation %{closed} blev afholdt på <a href="%{url}">en anden hjemmeside</a>
-      at: på
       closes: Den lukker kl.
       closes_at: Denne konsultation lukker kl.
       complete_a: Fuldfør en
@@ -261,7 +260,6 @@ da:
         one: Konsultation
         other: Konsultationer
       not_open_yet: Denne høring er ikke åben endnu
-      'on':
       opens: Denne konsultation åbner
       or:
       original_consultation: original konsultation

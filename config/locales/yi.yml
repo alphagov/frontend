@@ -75,6 +75,7 @@ yi:
   cancel:
   common:
     add_holiday_ics:
+    at:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ yi:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ yi:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ yi:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ yi:
       analysing_feedback:
       and:
       another_website_html:
-      at:
       closes:
       closes_at:
       complete_a:
@@ -261,7 +260,6 @@ yi:
         one:
         other:
       not_open_yet:
-      'on':
       opens:
       or:
       original_consultation:

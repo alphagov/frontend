@@ -75,6 +75,7 @@ ps:
   cancel:
   common:
     add_holiday_ics:
+    at: په
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ps:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ ps:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ ps:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ ps:
       analysing_feedback:
       and: او
       another_website_html: دا مشوره <a href="%{url}">په بله ویبپا ڼه  کې %{closed}ترسره شوه</a>
-      at: په
       closes: په کې بندیږي
       closes_at: دا مشوره په پای کې پای ته رسیږي
       complete_a: بشپړ کړئ
@@ -261,7 +260,6 @@ ps:
         one: مشوره
         other: مشورې
       not_open_yet: دا مشوره لاهم خلاص نده
-      'on':
       opens: دا مشوره خلاصیږي
       or:
       original_consultation: اصلي مشوره

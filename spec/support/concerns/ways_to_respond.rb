@@ -1,0 +1,159 @@
+RSpec.shared_examples "it can have ways to respond" do |document_type, example_name|
+  let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  it "has the open_<schema_name> document type" do
+    expect(content_store_response["document_type"]).to eq("open_#{content_store_response['schema_name']}")
+  end
+
+  describe "#held_on_another_website_url" do
+    it "returns url if it is held on another website" do
+      expected_url = content_store_response["details"]["held_on_another_website_url"]
+
+      expect(described_class.new(content_store_response).held_on_another_website_url).to be_present
+      expect(described_class.new(content_store_response).held_on_another_website_url).to eq(expected_url)
+    end
+
+    it "does not return url if it is not held on another website" do
+      content_store_response["details"].delete("held_on_another_website_url")
+
+      expect(described_class.new(content_store_response).held_on_another_website_url).to be_nil
+    end
+  end
+
+  describe "#held_on_another_website?" do
+    it "returns true if it is held on another website" do
+      expect(described_class.new(content_store_response).held_on_another_website?).to be(true)
+    end
+
+    it "returns false if it is not held on another website" do
+      content_store_response["details"].delete("held_on_another_website_url")
+
+      expect(described_class.new(content_store_response).held_on_another_website?).to be(false)
+    end
+  end
+
+  describe "#ways_to_respond?" do
+    it "returns true if there is contact information available" do
+      expect(content_store_response["details"]["ways_to_respond"]).to be_present
+      expect(described_class.new(content_store_response).ways_to_respond?).to be(true)
+    end
+
+    it "returns false if there is no contact information available" do
+      content_store_response["details"].delete("ways_to_respond")
+
+      expect(described_class.new(content_store_response).ways_to_respond?).to be(false)
+    end
+
+    it "returns false if it only has an attachment url as contact information" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+      ways_to_respond.delete("postal_address")
+      ways_to_respond.delete("link_url")
+
+      expect(described_class.new(content_store_response).attachment_url).to be_present
+      expect(described_class.new(content_store_response).ways_to_respond?).to be(false)
+    end
+  end
+
+  describe "#email" do
+    it "returns the email address if available" do
+      expected_email = content_store_response.dig("details", "ways_to_respond", "email")
+
+      expect(described_class.new(content_store_response).email).to be_present
+      expect(described_class.new(content_store_response).email).to eq(expected_email)
+    end
+
+    it "returns nil if email address isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+
+      expect(described_class.new(content_store_response).email).to be_nil
+    end
+  end
+
+  describe "#postal_address" do
+    it "returns the postal address if available" do
+      expected_postal_address = content_store_response.dig("details", "ways_to_respond", "postal_address")
+
+      expect(described_class.new(content_store_response).postal_address).to be_present
+      expect(described_class.new(content_store_response).postal_address).to eq(expected_postal_address)
+    end
+
+    it "returns nil if postal address isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("postal_address")
+
+      expect(described_class.new(content_store_response).postal_address).to be_nil
+    end
+  end
+
+  describe "#respond_online_url" do
+    it "returns the link url if available" do
+      expected_link_url = content_store_response.dig("details", "ways_to_respond", "link_url")
+
+      expect(described_class.new(content_store_response).respond_online_url).to be_present
+      expect(described_class.new(content_store_response).respond_online_url).to eq(expected_link_url)
+    end
+
+    it "returns nil if link url isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("link_url")
+
+      expect(described_class.new(content_store_response).respond_online_url).to be_nil
+    end
+  end
+
+  describe "#attachment_url" do
+    it "returns the attachment url if available" do
+      expected_attachment_url = content_store_response.dig("details", "ways_to_respond", "attachment_url")
+
+      expect(described_class.new(content_store_response).attachment_url).to be_present
+      expect(described_class.new(content_store_response).attachment_url).to eq(expected_attachment_url)
+    end
+
+    it "returns nil if attachment url isn't available" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("attachment_url")
+
+      expect(described_class.new(content_store_response).attachment_url).to be_nil
+    end
+
+    it "returns nil if ways_to_respond isn't available" do
+      ways_to_respond = content_store_response["details"]
+      ways_to_respond.delete("ways_to_respond")
+
+      expect(described_class.new(content_store_response).attachment_url).to be_nil
+    end
+  end
+
+  describe "#response_form?" do
+    it "returns true for an open_<schema_name> document type that has attachment url and only email" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("postal_adress")
+      ways_to_respond.delete("link_url")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(ways_to_respond["email"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(true)
+    end
+
+    it "returns true for an open_<schema_name> document type that has attachment url and only postal address" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+      ways_to_respond.delete("link_url")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(ways_to_respond["postal_address"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(true)
+    end
+
+    it "returns false for an open_<schema_name> document type that has attachment url but no email or postal address" do
+      ways_to_respond = content_store_response.dig("details", "ways_to_respond")
+      ways_to_respond.delete("email")
+      ways_to_respond.delete("postal_address")
+
+      expect(ways_to_respond["attachment_url"]).to be_present
+      expect(described_class.new(content_store_response).response_form?).to be(false)
+    end
+  end
+end

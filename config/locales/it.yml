@@ -75,6 +75,7 @@ it:
   cancel:
   common:
     add_holiday_ics:
+    at: in
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ it:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ it:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ it:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ it:
       analysing_feedback:
       and: e
       another_website_html: Questa consultazione %{closed} tenuta su <a href=”%{url}”>un altro sito web</a>
-      at: in
       closes: Si chiude alle
       closes_at: Questa consultazione si chiude alle
       complete_a: Completa un
@@ -261,7 +260,6 @@ it:
         one: Consultazione
         other: Consultazioni
       not_open_yet: Questa consultazione non è ancora aperta
-      'on':
       opens: Questa consultazione si apre
       or:
       original_consultation: Consultazione originale

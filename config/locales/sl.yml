@@ -75,6 +75,7 @@ sl:
   cancel:
   common:
     add_holiday_ics:
+    at: na
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ sl:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -200,7 +202,6 @@ sl:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -219,7 +220,6 @@ sl:
         other:
         two:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -265,7 +265,6 @@ sl:
       analysing_feedback:
       and: in
       another_website_html: To posvetovanje %{closed} poteka na <a href="%{url}">drugi spletni strani</a>
-      at: na
       closes: Zapre se ob
       closes_at: To posvetovanje se zapre ob
       complete_a: 'Izpolnite '
@@ -285,7 +284,6 @@ sl:
         other: Posvetovanja
         two:
       not_open_yet: To posvetovanje še ni začeto
-      'on':
       opens: Posvetovanje se začne
       or:
       original_consultation: Izvirno posvetovanje

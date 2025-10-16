@@ -75,6 +75,7 @@ tk:
   cancel:
   common:
     add_holiday_ics:
+    at: "-da"
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ tk:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ tk:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ tk:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ tk:
       analysing_feedback:
       and: we
       another_website_html: Bu maslahat %{closed} <a href="%{url}">başga websahypa</a> internet sahypasynda görkezilýär
-      at: "-da"
       closes: Ol ýapylýar
       closes_at: Bu maslahat ýapylýar
       complete_a: Tamamlaň
@@ -261,7 +260,6 @@ tk:
         one: Maslahat
         other: Maslahatlar
       not_open_yet: Bu maslahat beriş heniz açylmady
-      'on':
       opens: Maslahat beriş açyldy
       or:
       original_consultation: Hakyky maslahat beriş

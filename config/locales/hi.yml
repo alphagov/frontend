@@ -75,6 +75,7 @@ hi:
   cancel:
   common:
     add_holiday_ics:
+    at: पर
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ hi:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ hi:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ hi:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ hi:
       analysing_feedback:
       and: और
       another_website_html: यह परामर्श %{closed} <a href="%{url}">एक अन्य वेबसाइट</a>पर आयोजित किया गया
-      at: पर
       closes: यह बंद होता है
       closes_at: यह परामर्श पर बंद होता है
       complete_a: पूरा करें
@@ -261,7 +260,6 @@ hi:
         one: परामर्श
         other: परामर्श
       not_open_yet: यह परामर्श अभी तक खोला नहीं गया है
-      'on':
       opens: यह परामर्श खुलता है
       or:
       original_consultation: असली परामर्श

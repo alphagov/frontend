@@ -22,9 +22,9 @@ RSpec.describe Publication do
     end
   end
 
-  describe "#attachments_with_details" do
+  describe "#all_inaccessible_attachments_with_email" do
     it "returns 0" do
-      expect(publication.attachments_with_details.count).to eq(0)
+      expect(publication.all_inaccessible_attachments_with_email.count).to eq(0)
     end
 
     context "when alternative_format_contact_email are present but accessible is false" do
@@ -35,7 +35,7 @@ RSpec.describe Publication do
       end
 
       it "returns the number of matching attachments" do
-        expect(publication.attachments_with_details.count).to eq(1)
+        expect(publication.all_inaccessible_attachments_with_email.count).to eq(1)
       end
     end
   end
@@ -51,33 +51,6 @@ RSpec.describe Publication do
       it "returns true" do
         expect(publication.dataset?).to be true
       end
-    end
-  end
-
-  describe "#featured_attachments" do
-    let(:content_store_response) { GovukSchemas::Example.find("publication", example_name: "publication-with-featured-attachments") }
-
-    it "returns featured attachments" do
-      expected = [{
-        "accessible" => true,
-        "alternative_format_contact_email" => nil,
-        "attachment_type" => "file",
-        "command_paper_number" => "",
-        "content_type" => "application/pdf",
-        "file_size" => 1_932_905,
-        "filename" => "PUBLIC_1392629965.pdf",
-        "hoc_paper_number" => "",
-        "id" => "PUBLIC_1392629965.pdf",
-        "isbn" => "",
-        "number_of_pages" => 2,
-        "title" => "Number of ex-regular service personnel now part of FR20",
-        "unique_reference" => "",
-        "unnumbered_command_paper" => false,
-        "unnumbered_hoc_paper" => false,
-        "url" => "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/315163/PUBLIC_1392629965.pdf",
-      }]
-
-      expect(publication.featured_attachments).to eq(expected)
     end
   end
 

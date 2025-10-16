@@ -75,6 +75,7 @@ gd:
   cancel:
   common:
     add_holiday_ics:
+    at: ag an seoladh
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ gd:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -200,7 +202,6 @@ gd:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -219,7 +220,6 @@ gd:
         other:
         two:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -265,7 +265,6 @@ gd:
       analysing_feedback:
       and: agus
       another_website_html: Tionóladh an comhairliúchán %{closed} seo ar <a href="%{url}">suíomh Gréasáin eile</a>
-      at: ag an seoladh
       closes: Críochnaíonn sé ag
       closes_at: Críochnaíonn an suirbhé seo ag
       complete_a: Comhlánaigh a
@@ -285,7 +284,6 @@ gd:
         other: Téigh i gcomhairle
         two:
       not_open_yet: Níl an teaglaim seo oscailte fós
-      'on':
       opens: Tá an chuid seo den chomhairliúchán oscailte
       or:
       original_consultation: Comhairliúchán bunaidh

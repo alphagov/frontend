@@ -75,6 +75,7 @@ ms:
   cancel:
   common:
     add_holiday_ics:
+    at: di
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ms:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -185,7 +187,6 @@ ms:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -201,7 +202,6 @@ ms:
       name:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -232,7 +232,6 @@ ms:
       analysing_feedback:
       and: dan
       another_website_html: Perundingan ini %{closed} telah diadakan di <a href="%{url}">laman web lain</a>
-      at: di
       closes: Ditutup pada
       closes_at: Perundingan ini ditutup pada
       complete_a: Lengkapkan
@@ -249,7 +248,6 @@ ms:
       name:
         other: Rundingan
       not_open_yet: Perundingan ini masih belum dibuka
-      'on':
       opens: Perundingan ini dibuka
       or:
       original_consultation: Perundingan asal

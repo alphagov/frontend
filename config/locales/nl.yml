@@ -75,6 +75,7 @@ nl:
   cancel:
   common:
     add_holiday_ics:
+    at: om
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ nl:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ nl:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ nl:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ nl:
       analysing_feedback:
       and: en
       another_website_html: Dit overleg %{closed} werd gehouden op <a href="%{url}">een andere website</a>
-      at: om
       closes: Het is afgelopen om
       closes_at: Deze raadpleging sluit op
       complete_a: Vul een
@@ -261,7 +260,6 @@ nl:
         one: Raadpleging
         other: Raadplegingen
       not_open_yet: Deze raadpleging is nog niet geopend
-      'on':
       opens: Deze raadpleging wordt geopend
       or:
       original_consultation: Oorspronkelijke raadpleging

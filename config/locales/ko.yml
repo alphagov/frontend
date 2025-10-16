@@ -75,6 +75,7 @@ ko:
   cancel:
   common:
     add_holiday_ics:
+    at: 때
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ko:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -185,7 +187,6 @@ ko:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -201,7 +202,6 @@ ko:
       name:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -232,7 +232,6 @@ ko:
       analysing_feedback:
       and: 그리고
       another_website_html: 이 상담 %{closed} 은 <a href="%{url}">다른 웹사이트</a>에서 진행되었습니다
-      at: 때
       closes: 종결 시점
       closes_at: 이 상담은 다음 시점에 종결됩니다
       complete_a: 완료 시점
@@ -249,7 +248,6 @@ ko:
       name:
         other: 상담
       not_open_yet: 이 상담이 아직 공개되지 않았습니다
-      'on':
       opens: 이 상담이 공개되었습니다
       or:
       original_consultation: 기존 상담

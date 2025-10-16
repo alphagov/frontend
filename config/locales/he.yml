@@ -75,6 +75,7 @@ he:
   cancel:
   common:
     add_holiday_ics:
+    at: ב-
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ he:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ he:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ he:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ he:
       analysing_feedback:
       and: ו
       another_website_html: דיון זה %{closed} התקיים ב <a href="%{url}">אתר אחר</a>
-      at: ב-
       closes: הוא נסגר ב
       closes_at: דיון זו נסגר ב
       complete_a: השלם
@@ -261,7 +260,6 @@ he:
         one: דיון
         other: דיונים
       not_open_yet: הדיון הזה עדיין לא פתוח
-      'on':
       opens: דיון זה נפתח
       or:
       original_consultation: דיון מקורי

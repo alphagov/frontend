@@ -11,16 +11,12 @@ class Publication < ContentItem
     (organisations_ordered_by_emphasis + people).uniq
   end
 
-  def attachments_with_details
-    featured_attachments.select { |doc| doc["accessible"] == false && doc["alternative_format_contact_email"] }
+  def all_inaccessible_attachments_with_email
+    inaccessible_attachments_with_email(featured_attachments)
   end
 
   def dataset?
     %w[national_statistics official_statistics transparency].include? document_type
-  end
-
-  def featured_attachments
-    attachments_from(content_store_response["details"]["featured_attachments"])
   end
 
   def national_statistics?

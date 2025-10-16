@@ -75,6 +75,7 @@ ur:
   cancel:
   common:
     add_holiday_ics:
+    at: پر
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ur:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ ur:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ ur:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ ur:
       analysing_feedback:
       and: اور
       another_website_html: یہ مشاورت %{closed} <a href="%{url}">ایک اور ویب سائٹ پر ہوئی تھی</a>
-      at: پر
       closes: یہ درج ذیل پر بند ہوتی ہے
       closes_at: یہ مشاورت درج ذیل پر بند ہوتی ہے
       complete_a: مکمل کریں
@@ -261,7 +260,6 @@ ur:
         one: مشاورت
         other: مشاورتیں
       not_open_yet: یہ مشاورت ابھی تک کھلی نہیں ہے
-      'on':
       opens: یہ مشاورت درج ذیل پر کھلتی ہے
       or:
       original_consultation: اصل مشاورت

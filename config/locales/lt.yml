@@ -75,6 +75,7 @@ lt:
   cancel:
   common:
     add_holiday_ics:
+    at: laiku
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ lt:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -195,7 +197,6 @@ lt:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -213,7 +214,6 @@ lt:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -254,7 +254,6 @@ lt:
       analysing_feedback:
       and: ir
       another_website_html: Ši konsultacija %{closed} teikiama <a href="%{url}">kitoje interneto svetainėje</a>
-      at: laiku
       closes: Ji baigiasi
       closes_at: Ši konsultacija baigiasi
       complete_a: Užpildyti
@@ -273,7 +272,6 @@ lt:
         one: Konsultacija
         other: Konsultacijos
       not_open_yet: Ši konsultacija dar neprasidėjo
-      'on':
       opens: Ši konsultacija prasideda
       or:
       original_consultation: Pirminė konsultacija

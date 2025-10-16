@@ -430,9 +430,7 @@ RSpec.describe "Consultation" do
     end
 
     it "displays the outcome detail" do
-      within(".consultation-outcome-detail") do
-        expect(page).to have_content(content_store_response["details"]["final_outcome_detail"])
-      end
+      expect(page).to have_content(content_store_response["details"]["final_outcome_detail"])
     end
 
     context "when it displays the blue summary box" do

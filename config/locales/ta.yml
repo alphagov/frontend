@@ -75,6 +75,7 @@ ta:
   cancel:
   common:
     add_holiday_ics:
+    at: "-இல்"
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ ta:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -190,7 +192,6 @@ ta:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -207,7 +208,6 @@ ta:
         one:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -243,7 +243,6 @@ ta:
       analysing_feedback:
       and: மற்றும்
       another_website_html: இந்தக் கலந்தாலோசனை %{closed} <a href="%{url}">வேறொரு இணையதளத்தில்</a>நடைபெற்றது
-      at: "-இல்"
       closes: இது முடிவடைகிறது
       closes_at: இந்தக் கலந்தாலோசனை முடிவடைகிறது
       complete_a: கலந்தாலோசனை விளக்கத்தை
@@ -261,7 +260,6 @@ ta:
         one: கலந்தாய்வு
         other: கலந்தாய்வுகள்
       not_open_yet: இந்தக் கலந்தாலோசனை இன்னும் திறக்கப்படவில்லை
-      'on':
       opens: இந்தக் கலந்தாலோசனை திறக்கிறது
       or:
       original_consultation: மூலக் கலந்தாலோசனை

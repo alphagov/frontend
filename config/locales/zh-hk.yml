@@ -75,6 +75,7 @@ zh-hk:
   cancel:
   common:
     add_holiday_ics:
+    at: 位於
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
@@ -96,6 +97,7 @@ zh-hk:
       scotland_in:
       scotland_slug:
     next_holiday_in_is:
+    'on':
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -185,7 +187,6 @@ zh-hk:
     call_for_evidence:
       and:
       another_website_html:
-      at:
       closed:
       closed_another_website_html:
       closes:
@@ -201,7 +202,6 @@ zh-hk:
       name:
         other:
       not_open_yet:
-      'on':
       open_another_website_html:
       opens:
       or:
@@ -232,7 +232,6 @@ zh-hk:
       analysing_feedback:
       and: 及
       another_website_html: 本次諮詢 %{closed} 在 <a href="%{url}">另一網站舉行</a>
-      at: 位於
       closes: 截止日期為
       closes_at: 本次諮詢結束於
       complete_a: 完成一項
@@ -249,7 +248,6 @@ zh-hk:
       name:
         other: 諮詢
       not_open_yet: 諮詢仍未開始
-      'on':
       opens: 本次諮詢開始
       or:
       original_consultation: 原有諮詢

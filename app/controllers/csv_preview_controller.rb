@@ -1,6 +1,8 @@
 require "csv"
 
 class CsvPreviewController < ApplicationController
+  include Cacheable
+
   rescue_from GdsApi::HTTPForbidden, with: :access_limited
   rescue_from CSV::MalformedCSVError, CsvPreviewService::FileEncodingError, with: :malformed_csv
 

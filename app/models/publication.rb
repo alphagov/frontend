@@ -11,7 +11,7 @@ class Publication < ContentItem
     (organisations_ordered_by_emphasis + people).uniq
   end
 
-  def attachments_with_details
+  def all_inaccessible_attachments_with_email
     inaccessible_attachments_with_email(featured_attachments)
   end
 

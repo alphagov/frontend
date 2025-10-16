@@ -34,7 +34,7 @@ class Consultation < ContentItem
     attachments_from(content_store_response.dig("details", "public_feedback_attachments"))
   end
 
-  def attachments_with_details
+  def all_inaccessible_attachments_with_email
     items = [].push(*final_outcome_attachments)
     items.push(*public_feedback_attachments)
     items.push(*featured_attachments)

@@ -42,14 +42,6 @@
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(8) 0 0;
 
-  .govuk-body {
-    // Ensure font-size is 19px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 19px;
-      font-size: govuk-px-to-rem(19);
-    }
-  }
-
   .govuk-heading-l {
     // Ensure font-size is 32px on mobile for the new homepage design
     @include govuk-media-query($until: "tablet") {

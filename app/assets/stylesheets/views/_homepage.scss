@@ -5,6 +5,35 @@
   padding: govuk-spacing(4) 0 govuk-spacing(6);
 }
 
+.homepage-section__heading {
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: $govuk-brand-colour;
+  margin: 0 0 govuk-spacing(6);
+  padding: govuk-spacing(8) 0 0;
+
+  .govuk-heading-l {
+    // Ensure font-size is 32px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 32px;
+      font-size: govuk-px-to-rem(32);
+    }
+  }
+
+  @include govuk-media-query($from: "desktop") {
+    border: none;
+    padding: 0;
+  }
+}
+
+.homepage-section__heading-wrapper {
+  margin-bottom: govuk-spacing(1);
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
 .homepage-section--promotion-slots {
   padding: 26px 0 govuk-spacing(4);
 
@@ -32,35 +61,6 @@
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
-  }
-}
-
-.homepage-section__heading {
-  border-top-style: solid;
-  border-top-width: 4px;
-  border-top-color: $govuk-brand-colour;
-  margin: 0 0 govuk-spacing(6);
-  padding: govuk-spacing(8) 0 0;
-
-  .govuk-heading-l {
-    // Ensure font-size is 32px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 32px;
-      font-size: govuk-px-to-rem(32);
-    }
-  }
-
-  @include govuk-media-query($from: "desktop") {
-    border: none;
-    padding: 0;
-  }
-}
-
-.homepage-section__heading-wrapper {
-  margin-bottom: govuk-spacing(1);
-
-  @include govuk-media-query($from: desktop) {
-    margin-bottom: 0;
   }
 }
 

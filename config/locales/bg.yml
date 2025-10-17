@@ -79,6 +79,222 @@ bg:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Съдържание
+      metadata:
+        published: Публикуван
+        updated: Актуализиран
+      schema_name:
+        aaib_report:
+          one: Доклад на Отдела за разследване на авиационни произшествия
+          other: Доклади на Отдела за разследване на авиационни произшествия
+        announcement:
+          one: Съобщение
+          other: Съобщения
+        asylum_support_decision:
+          one: Решение на съда за подкрепа в областта на убежището
+          other: Решения на съда за подкрепа в областта на убежището
+        authored_article:
+          one: Авторска статия
+          other: Авторска статии
+        business_finance_support_scheme:
+          one: Схема за подпомагане на бизнес финансирането
+          other: Схеми за подпомагане на бизнес финансирането
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Казус
+          other: Казуси
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Закрита консултация
+          other: Закрити консултации
+        cma_case:
+          one: Дело на Органа за защита на конкуренцията и пазарите
+          other: Дела на Органа за защита на конкуренцията и пазарите
+        consultation:
+          one: Консултация
+          other: Консултации
+        consultation_outcome:
+          one: Резултат от консултацията
+          other: Резултати от консултацията
+        corporate_information_page:
+          one: Информационна страница
+          other: Информационни страници
+        corporate_report:
+          one: Фирмен доклад
+          other: Фирмени доклади
+        correspondence:
+          one: Кореспонденция
+          other: Кореспонденции
+        countryside_stewardship_grant:
+          one: Безвъзмездна финансова помощ за управление на селските райони
+          other: Безвъзмездни финансови помощи за управление на селските райони
+        decision:
+          one: Решение
+          other: Решения
+        detailed_guide:
+          one: Насока
+          other: Насока
+        dfid_research_output:
+          one: Научни изследвания за развитие
+          other: Научни изследвания за развития
+        document_collection:
+          one: Събиране
+          other: Събирания
+        draft_text:
+          one: Проектотекст
+          other: Проектотекстове
+        drug_safety_update:
+          one: Актуализация на безопасността на лекарствата
+          other: Актуализации на безопасността на лекарствата
+        employment_appeal_tribunal_decision:
+          one: Решение на апелативния съд по трудови спорове
+          other: Решения на апелативния съд по трудови спорове
+        employment_tribunal_decision:
+          one: Решение на съда по трудови спорове
+          other: Решения на съда по трудови спорове
+        esi_fund:
+          one: Европейски структурен и инвестиционен фонд (ESIF)
+          other: Европейски структурни и инвестиционни фондове (ESIF)
+        foi_release:
+          one: Свобода на информацията издание
+          other: Свобода на информацията издания
+        form:
+          one: Формуляр
+          other: Формуляри
+        guidance:
+          one: Насока
+          other: Насока
+        impact_assessment:
+          one: Оценка на въздействието
+          other: Оценки на въздействието
+        imported:
+          one: импортиран - очакващ тип
+          other: импортиран - очакващ тип
+        independent_report:
+          one: Независим доклад
+          other: Независими доклади
+        international_development_fund:
+          one: Финансиране за международно развитие
+          other: Финансиране за международно развитие
+        international_treaty:
+          one: Международен договор
+          other: Международни договори
+        maib_report:
+          one: Доклад на Отдела за разследване на морски произшествия
+          other: Доклади на Отдела за разследване на морски произшествия
+        map:
+          one: Карта
+          other: Карти
+        medical_safety_alert:
+          one: Предупреждения и изтегляния на лекарства и медицински изделия
+          other: Предупреждения и изтегляния на лекарства и медицински изделия
+        national:
+          one: Съобщение от националната статистика
+          other: Съобщения от националните статистики
+        national_statistics:
+          one: Национална статистика
+          other: Национална статистика
+        national_statistics_announcement:
+          one: Съобщение от националната статистика
+          other: Съобщения от националните статистики
+        news_article:
+          one: Информационна статия
+          other: Информационни статии
+        notice:
+          one: Известие
+          other: Известия
+        official:
+          one: Съобщение от официалната статистика
+          other: Съобщения от официалните статистики
+        official_statistics:
+          one: Официална статистика
+          other: Официална статистика
+        official_statistics_announcement:
+          one: Съобщение от официалната статистика
+          other: Съобщения от официалните статистики
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Открита консултация
+          other: Открити консултации
+        oral_statement:
+          one: Устно изявление в Парламента
+          other: Устни изявления в Парламента
+        policy:
+          one: Политика
+          other: Политики
+        policy_paper:
+          one: Политически документ
+          other: Политически документи
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Рекламен материал
+          other: Рекламен материал
+        publication:
+          one: Публикация
+          other: Публикации
+        raib_report:
+          one: Доклад на Отдела за разследване на железопътни произшествия
+          other: Доклади на Отдела за разследване на железопътни произшествия
+        regulation:
+          one: Наредба
+          other: Наредби
+        research:
+          one: Проучване и анализ
+          other: Проучване и анализ
+        residential_property_tribunal_decision:
+          one: Съдебно решение за жилищни имоти
+          other: Съдебни решения за жилищни имоти
+        service_sign_in:
+          one: Влизане в услугата
+          other: Влизане в услугата
+        service_standard_report:
+          one: Стандартен доклад за услугите
+          other: Стандартни доклади за услугите
+        speaking_notes:
+          one: Бележки за изказвания
+          other: Бележки за изказвания
+        standard:
+          one: Стандарт
+          other: Стандарти
+        statement_to_parliament:
+          one: Изявление пред Парламента
+          other: Изявления пред Парламента
+        statistical_data_set:
+          one: Набор от статистически данни
+          other: Набори от статистически данни
+        statistics_announcement:
+          one: Съобщение за издадена статистика
+          other: Съобщения за издадена статистика
+        statutory_guidance:
+          one: Законови указания
+          other: Законови указания
+        tax_tribunal_decision:
+          one: Решение на данъчния и канцеларския съд
+          other: Решения на данъчния и канцеларския съд
+        transcript:
+          one: Текст
+          other: Текстове
+        transparency:
+          one: Данни за прозрачност
+          other: Данни за прозрачност
+        utaac_decision:
+          one: Решение на административния апелативен съд
+          other: Решения на апелативния съд по трудови спорове
+        written_statement:
+          one: Писмено изявление в Парламента
+          other: Писмени изявления в Парламента
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -404,6 +620,16 @@ bg:
     guide:
       pages_in_guide: Страници в това ръководство
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Тази публикация е налична на адрес %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Тази публикация е лицензирана съгласно условията на Open Government Licence v3.0, освен ако не е посочено друго. За да разгледате този лиценз, посетете <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> или пишете до екипа за информационна политика, The National Archives, Kew, Лондон TW9 4DU, или изпратете имейл до: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Когато идентифицираме информация за авторски права на трети страни, ще трябва да получите разрешение от съответните носители на авторските права.
     impact_assessment:
       name:
         one:

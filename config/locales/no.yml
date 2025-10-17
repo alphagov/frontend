@@ -79,6 +79,222 @@
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Innhold
+      metadata:
+        published: Publisert
+        updated: Oppdatert
+      schema_name:
+        aaib_report:
+          one: Rapport fra Air Accident Investigation Branch
+          other: Air Accidents Investigation Branch-rapporterer
+        announcement:
+          one: Kunngjøring
+          other: Kunngjøringer
+        asylum_support_decision:
+          one: Asylstøttenemndavgjørelse
+          other: Asylstøttenemndavgjørelser
+        authored_article:
+          one: Forfatterartikkel
+          other: Forfatterartikler
+        business_finance_support_scheme:
+          one: Forretningsfinansieringsstøtteordning
+          other: Forretningsfinansieringsstøtteordninger
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Casestudie
+          other: Casestudier
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Lukket konsultasjon
+          other: Lukkede konsultasjoner
+        cma_case:
+          one: Konkurranse- og markedstilsynsak
+          other: Konkurranse- og markedstilsynsaker
+        consultation:
+          one: Konsultasjon
+          other: Konsultasjoner
+        consultation_outcome:
+          one: Konsultasjonsresultat
+          other: Konsultasjonsresultater
+        corporate_information_page:
+          one: Informasjonsside
+          other: Informasjonssider
+        corporate_report:
+          one: Bedriftsrapport
+          other: Bedriftsrapporter
+        correspondence:
+          one: Korrespondanse
+          other: Korrespondanser
+        countryside_stewardship_grant:
+          one: Countryside Stewardship-stipend
+          other: Tilskudd fra Countryside Stewardship-stipend
+        decision:
+          one: Beslutning
+          other: Beslutninger
+        detailed_guide:
+          one: Veiledning
+          other: Veiledning
+        dfid_research_output:
+          one: Resultater av forskning for utvikling
+          other: Resultater av forskning for utvikling
+        document_collection:
+          one: Samling
+          other: Samlinger
+        draft_text:
+          one: Utkast til tekst
+          other: Utkast til tekster
+        drug_safety_update:
+          one: Oppdatering av legemiddelsikkerhet
+          other: Oppdatering av legemiddelsikkerhet
+        employment_appeal_tribunal_decision:
+          one: Ansettelsesnemndas avgjørelse
+          other: Ansettelsesnemndas avgjørelser
+        employment_tribunal_decision:
+          one: Arbeidsrettsavgjørelse
+          other: Arbeidsrettsavgjørelser
+        esi_fund:
+          one: Det europeiske struktur- og investeringsfondet (ESIF)
+          other: Det europeiske struktur- og investeringsfond (ESIF)
+        foi_release:
+          one: Informasjonsfrihetstillatelse
+          other: Informasjonsfrihetstillatelser
+        form:
+          one: Skjema
+          other: Skjemaer
+        guidance:
+          one: Veiledning
+          other: Veiledning
+        impact_assessment:
+          one: Konsekvensutredning
+          other: Konsekvensanalyser
+        imported:
+          one: importert - venter på type
+          other: importert - venter på type
+        independent_report:
+          one: Uavhengig rapport
+          other: Uavhengige rapporter
+        international_development_fund:
+          one: Finansiering for internasjonal utvikling
+          other: Finansiering for internasjonal utvikling
+        international_treaty:
+          one: Internasjonal traktat
+          other: Internasjonale traktater
+        maib_report:
+          one: Rapport fra havulykkeundersøkelsesavdelingen
+          other: Rapporter fra havulykkeundersøkelsesavdelingen
+        map:
+          one: Kart
+          other: Kart
+        medical_safety_alert:
+          one: Varsler og tilbakekallinger for medisiner og medisinsk utstyr
+          other: Varsler og tilbakekallinger for medisiner og medisinsk utstyr
+        national:
+          one: Nasjonal statistikkmelding
+          other: Nasjonale statistikkmeldinger
+        national_statistics:
+          one: Nasjonal statistikk
+          other: Nasjonal statistikk
+        national_statistics_announcement:
+          one: Nasjonal statistikkmelding
+          other: Nasjonale statistikkmeldinger
+        news_article:
+          one: Nyhetsartikkel
+          other: Nyhetsartikler
+        notice:
+          one: Merknad
+          other: Merknader
+        official:
+          one: Kunngjøring om offisiell statistikk
+          other: Kunngjøringer om offisiell statistikk
+        official_statistics:
+          one: Offisiell statistikk
+          other: Offisiell statistikk
+        official_statistics_announcement:
+          one: Kunngjøring om offisiell statistikk
+          other: Kunngjøringer om offisiell statistikk
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Åpen konsultasjon
+          other: Åpne konsultasjoner
+        oral_statement:
+          one: Muntlig uttalelse til Stortinget
+          other: Muntlige uttalelser til Stortinget
+        policy:
+          one: Retningslinjer
+          other: Retningslinjer
+        policy_paper:
+          one: Skriv om retningslinjer
+          other: Skriv om retningslinjer
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Reklamemateriell
+          other: Reklamemateriell
+        publication:
+          one: Publikasjoner
+          other: Publikasjoner
+        raib_report:
+          one: Rapport om gransking av jernbaneulykker
+          other: Rapporter om gransking av jernbaneulykker
+        regulation:
+          one: Forskrift
+          other: Forskrifter
+        research:
+          one: Forskning og analyse
+          other: Forskning og analyse
+        residential_property_tribunal_decision:
+          one: Beslutning fra boligeiendomsnemnda
+          other: Beslutninger fra boligeiendomsnemnda
+        service_sign_in:
+          one: Tjenestepålogging
+          other: Tjeneste påloggin
+        service_standard_report:
+          one: Tjenestestandardrapport
+          other: Tjenestestandardrapporter
+        speaking_notes:
+          one: Talenotater
+          other: Talenotater
+        standard:
+          one: Standard
+          other: Standarder
+        statement_to_parliament:
+          one: Erklæring til Stortinget
+          other: Erklæringer til Stortinget
+        statistical_data_set:
+          one: Statistisk datasett
+          other: Statistiske datasett
+        statistics_announcement:
+          one: Kunngjøring om statistikk
+          other: Kunngjøringer om statistikk
+        statutory_guidance:
+          one: Lovpålagt veiledning
+          other: Lovpålagt veiledning
+        tax_tribunal_decision:
+          one: Skatte- og kanslerettsavgjørelse
+          other: Skatte- og kanslerettsavgjørelser
+        transcript:
+          one: Transkripsjon
+          other: Transkripsjoner
+        transparency:
+          one: Åpenhetsdata
+          other: Åpenhetsdata
+        utaac_decision:
+          one: Administrativ ankenemndavgjørelse
+          other: Administrative ankenemndavgjørelser
+        written_statement:
+          one: Skriftlig uttalelse til Stortinget
+          other: Skriftlige uttalelser til Stortinget
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -404,6 +620,16 @@
     guide:
       pages_in_guide: Sider i denne veiledningen
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Denne publikasjonen er tilgjengelig på %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Denne publikasjonen er lisensiert under vilkårene i Open Government License v3.0 med mindre annet er angitt. For å se denne lisensen, besøk <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> eller skriv til Information Policy Team, National Archives, Kew, London TW9 4DU, eller e-post: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Der vi har identifisert opphavsrettsinformasjon fra tredjepart, må du få tillatelse fra berørte opphavsrettsinnehavere.
     impact_assessment:
       name:
         one:

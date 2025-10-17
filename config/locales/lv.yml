@@ -79,6 +79,222 @@ lv:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Saturs
+      metadata:
+        published: publicēts
+        updated: atjaunināts
+      schema_name:
+        aaib_report:
+          one: Aviosatiksmes negadījumu izmeklēšanas nodaļas ziņojums
+          other: Aviosatiksmes negadījumu izmeklēšanas nodaļas ziņojumi
+        announcement:
+          one: Paziņojums
+          other: Paziņojumi
+        asylum_support_decision:
+          one: Patvēruma atbalsta tiesas lēmums
+          other: Patvēruma atbalsta tiesas lēmumi
+        authored_article:
+          one: Autora raksts
+          other: Autora raksti
+        business_finance_support_scheme:
+          one: Biznesa finanšu atbalsta shēma
+          other: Biznesa finanšu atbalsta shēmas
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: Piemērs
+          other: Piemēri
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: Slēgta tipa konsultācija
+          other: Slēgta tipa konsultācijas
+        cma_case:
+          one: Konkurences un tirgus iestādes lieta
+          other: Konkurences un tirgus iestādes lietas
+        consultation:
+          one: Konsultēšana
+          other: Konsultācijas
+        consultation_outcome:
+          one: Konsultāciju rezultāts
+          other: Konsultāciju rezultāti
+        corporate_information_page:
+          one: Informācijas lapa
+          other: Informācijas lapas
+        corporate_report:
+          one: Korporatīvais ziņojums
+          other: Korporatīvie ziņojumi
+        correspondence:
+          one: Sarakste
+          other: Sarakstes
+        countryside_stewardship_grant:
+          one: Lauku vides pārvaldības grants
+          other: Lauku vides pārvaldības granti
+        decision:
+          one: Lēmums
+          other: Lēmumi
+        detailed_guide:
+          one: Detalizētas norādes
+          other: Detalizētas norādes
+        dfid_research_output:
+          one: Pētniecības attīstībai projekts
+          other: Pētniecības attīstībai projekti
+        document_collection:
+          one: Sērija
+          other: Sērijas
+        draft_text:
+          one: Teksta uzmetums
+          other: Teksta uzmetumi
+        drug_safety_update:
+          one: Zāļu drošības atjauninājums
+          other: Zāļu drošības atjauninājumi
+        employment_appeal_tribunal_decision:
+          one: Darba lietu apelācijas tiesas lēmums
+          other: Darba lietu apelācijas tiesas lēmumi
+        employment_tribunal_decision:
+          one: Darba lietu tiesas lēmums
+          other: Darba lietu tiesas lēmumi
+        esi_fund:
+          one: Eiropas strukturālais un investīciju fonds (ESIF)
+          other: Eiropas strukturālie un investīciju fondi (ESIF)
+        foi_release:
+          one: Informācijas atklātības datu publicēšana
+          other: Informācijas atklātības datu publicēšana
+        form:
+          one: Forma
+          other: Formas
+        guidance:
+          one: Norādes
+          other: Norādes
+        impact_assessment:
+          one: Ietekmes novērtējums
+          other: Ietekmes novērtējumi
+        imported:
+          one: importēts-gaidīšanas režīmā
+          other: importēts-gaidīšanas režīmā
+        independent_report:
+          one: Neatkarīgs ziņojums
+          other: Neatkarīgi ziņojumi
+        international_development_fund:
+          one: Starptautiskās attīstības finansējums
+          other: Starptautiskās attīstības finansējums
+        international_treaty:
+          one: Starptautiskais līgums
+          other: Starptautiskie līgumi
+        maib_report:
+          one: Kuģniecības negadījumu izmeklēšanas nodaļas ziņojums
+          other: Kuģniecības negadījumu izmeklēšanas nodaļas ziņojumi
+        map:
+          one: Karte
+          other: Kartes
+        medical_safety_alert:
+          one: Brīdinājumi un zāļu un medicīnas ierīču atsaukšana
+          other: Brīdinājumi un zāļu un medicīnas ierīču atsaukšana
+        national:
+          one: Paziņojums par valsts statistiku
+          other: Paziņojumi par valsts statistiku
+        national_statistics:
+          one: Statistika - valsts dati
+          other: Statistika - valsts dati
+        national_statistics_announcement:
+          one: Paziņojums par valsts statistiku
+          other: Paziņojumi par valsts statistiku
+        news_article:
+          one: Raksts
+          other: Raksti
+        notice:
+          one: Paziņojums
+          other: Paziņojumi
+        official:
+          one: Paziņojums par oficiālo statistiku
+          other: Paziņojumi par oficiālo statistiku
+        official_statistics:
+          one: Statistika
+          other: Statistika
+        official_statistics_announcement:
+          one: Paziņojums par oficiālo statistiku
+          other: Paziņojumi par oficiālo statistiku
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: Atklāta konsultācija
+          other: Atklātas konsultācijas
+        oral_statement:
+          one: Mutisks paziņojums parlamentam
+          other: Mutiski paziņojumi parlamentam
+        policy:
+          one: Darbības joma
+          other: Darbības jomas
+        policy_paper:
+          one: Politikas dokuments
+          other: Politikas dokumenti
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: Reklāmas materiāls
+          other: Reklāmas materiāli
+        publication:
+          one: Publikācija
+          other: Publikācijas
+        raib_report:
+          one: Dzelzceļa negadījumu izmeklēšanas nodaļas ziņojums
+          other: Dzelzceļa negadījumu izmeklēšanas nodaļas ziņojumi
+        regulation:
+          one: Regula
+          other: Regulas
+        research:
+          one: Izpēte un analīze
+          other: Izpēte un analīze
+        residential_property_tribunal_decision:
+          one: Mājokļu īpašuma lietu tiesas lēmums
+          other: Mājokļu īpašuma lietu tiesas lēmumi
+        service_sign_in:
+          one: Pierakstīšanās pakalpojumā
+          other: Pierakstīšanās pakalpojumā
+        service_standard_report:
+          one: Pakalpojuma standarta ziņojums
+          other: Pakalpojuma standarta ziņojumi
+        speaking_notes:
+          one: Runas piezīmes
+          other: Runas piezīmes
+        standard:
+          one: Standarts
+          other: Standarti
+        statement_to_parliament:
+          one: Ziņojums parlamentam
+          other: Ziņojumi parlamentam
+        statistical_data_set:
+          one: Statistiskas datu kopums
+          other: Statistikas datu kopumi
+        statistics_announcement:
+          one: Statistikas publiskošanas paziņojums
+          other: Statistikas publiskošanas paziņojumi
+        statutory_guidance:
+          one: Saistošās vadlīnijas
+          other: Saistošās vadlīnijas
+        tax_tribunal_decision:
+          one: Nodokļu un Kanclera tiesas lēmums
+          other: Nodokļu un Kanclera tiesas lēmumi
+        transcript:
+          one: Noraksts
+          other: Noraksti
+        transparency:
+          one: Atklātības dati
+          other: Atklātības dati
+        utaac_decision:
+          one: Administratīvo lietu apelācijas tiesas lēmums
+          other: Administratīvo lietu apelācijas tiesas lēmumi
+        written_statement:
+          one: Rakstisks ziņojums parlamentam
+          other: Rakstiski ziņojumi parlamentam
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -404,6 +620,16 @@ lv:
     guide:
       pages_in_guide: Lapas šajā ceļvedī
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: Šī publikācija ir pieejama vietnē %{url}
+        copyright: "© Britu sadraudzības autortiesības %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Šī publikācija ir licencēta saskaņā ar valsts izsniegtās atklātās licences v3.0 nosacījumiem, izņemot, ja norādīts citādi. Lai skatītu šo licenci, apmeklējiet <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> vai rakstiet uz adresi Information Policy Team, The National Archives, Kew, London TW9 4DU vai e-pasta adresi: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Gadījumos, kur esam identificējuši trešo personu autortiesību informāciju, jums ir nepieciešams saņemt atļauju no attiecīgajiem autortiesību īpašniekiem.
     impact_assessment:
       name:
         one:

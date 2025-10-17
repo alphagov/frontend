@@ -79,6 +79,152 @@ ko:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: 콘텐츠
+      metadata:
+        published: 발행
+        updated: 업데이트
+      schema_name:
+        aaib_report:
+          other: 영국 항공사고조사위원회 보고서
+        announcement:
+          other: 발표
+        asylum_support_decision:
+          other: 망명 지원 법원 판결
+        authored_article:
+          other: 저작물
+        business_finance_support_scheme:
+          other: 비즈니스 재무 지원 계획
+        call_for_evidence:
+          other:
+        call_for_evidence_outcome:
+          other:
+        case_study:
+          other: 사례 연구
+        closed_call_for_evidence:
+          other:
+        closed_consultation:
+          other: 종결된 상담
+        cma_case:
+          other: 경쟁 및 시장 감독 사례
+        consultation:
+          other: 상담
+        consultation_outcome:
+          other: 상담 결과
+        corporate_information_page:
+          other: 정보 페이지
+        corporate_report:
+          other: 기업 보고서
+        correspondence:
+          other: 통신
+        countryside_stewardship_grant:
+          other: 농촌환경관리 보조금
+        decision:
+          other: 판결
+        detailed_guide:
+          other: 지침
+        dfid_research_output:
+          other: 발전 결과에 대한 연구
+        document_collection:
+          other: 컬렉션
+        draft_text:
+          other: 초안 텍스트
+        drug_safety_update:
+          other: 의약품 안전 업데이트
+        employment_appeal_tribunal_decision:
+          other: 고용 항소 법원 판결
+        employment_tribunal_decision:
+          other: 고용 법원 결정
+        esi_fund:
+          other: 유럽구조투자기금(ESIF)
+        foi_release:
+          other: FOI 발표
+        form:
+          other: 양식
+        guidance:
+          other: 지침
+        impact_assessment:
+          other: 영향 평가
+        imported:
+          other: 수입 - 대기 유형
+        independent_report:
+          other: 독립적 보고서
+        international_development_fund:
+          other: 국제 개발 자금
+        international_treaty:
+          other: 국제 조약
+        maib_report:
+          other: 영국 해상사고조사위원회 보고서
+        map:
+          other: 지도
+        medical_safety_alert:
+          other: 의약품 및 의료기기에 대한 경고 및 리콜
+        national:
+          other: 국내 통계 공지사항
+        national_statistics:
+          other: 국내 통계
+        national_statistics_announcement:
+          other: 국내 통계 공지사항
+        news_article:
+          other: 뉴스 기사
+        notice:
+          other: 공지
+        official:
+          other: 공식 통계 공지사항
+        official_statistics:
+          other: 공식 통계
+        official_statistics_announcement:
+          other: 공식 통계 공지사항
+        open_call_for_evidence:
+          other:
+        open_consultation:
+          other: 공개 상담
+        oral_statement:
+          other: 의회로 구두 성명
+        policy:
+          other: 정책
+        policy_paper:
+          other: 정책 문서
+        product-safety-alert-report-recall:
+          other:
+        promotional:
+          other: 홍보 자료
+        publication:
+          other: 발행물
+        raib_report:
+          other: 영국 철도사고조사위원회 보고서
+        regulation:
+          other: 규제
+        research:
+          other: 조사 및 분석
+        residential_property_tribunal_decision:
+          other: 주거재산법원 판결
+        service_sign_in:
+          other: 서비스 로그인
+        service_standard_report:
+          other: 서비스 표준 보고서
+        speaking_notes:
+          other: 연설문 메모
+        standard:
+          other: 표준
+        statement_to_parliament:
+          other: 의회로 성명
+        statistical_data_set:
+          other: 통계 데이터 세트
+        statistics_announcement:
+          other: 통계 공개 발표
+        statutory_guidance:
+          other: 법정지도
+        tax_tribunal_decision:
+          other: 조세 및 형평법 법원 판결
+        transcript:
+          other: 녹취록
+        transparency:
+          other: 투명성 데이터
+        utaac_decision:
+          other: 행정 항소심판 법원 판결
+        written_statement:
+          other: 의회로 서면 성명
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -373,6 +519,15 @@ ko:
     guide:
       pages_in_guide: 이 지침 내 페이지
       skip_contents:
+    html_publication:
+      name:
+        other:
+      print_meta_data:
+        available_at: 이 발행물은 %{url}에서 이용할 수 있습니다
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 본 출판물은 달리 명시된 경우를 제외하고 정부 공개 라이선스 v3.0의 조항에 따라 라이선스됩니다. 이 라이선스를 보려면 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> 에 방문하거나, 정보 정책 팀(Information Policy Team), 국립 아카이브(The National Archives), Kew, London TW9 4DU에 문의를 남기거나 다음 주소로 이메일을 보내십시오. <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>
+        third_party: 서드파티 저작권 정보를 확인한 경우, 해당 저작권자의 허가를 받아야 합니다.
     impact_assessment:
       name:
         other:

@@ -79,6 +79,292 @@ sr:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Sadržaj
+      metadata:
+        published: Objavljeno
+        updated: Ažurirano
+      schema_name:
+        aaib_report:
+          few:
+          one: Izveštaj Agencije istragu vazduhoplovnih nesreća
+          other: Izveštaji Agencije istragu vazduhoplovnih nesreća
+        announcement:
+          few:
+          one: Najava
+          other: Najave
+        asylum_support_decision:
+          few:
+          one: Odluka tribunala za podršku azilu
+          other: Odluke tribunala za podršku azilu
+        authored_article:
+          few:
+          one: Autorski članak
+          other: Autorski članci
+        business_finance_support_scheme:
+          few:
+          one: Šema podrške za poslovno finansiranje
+          other: Šeme podrške za poslovno finansiranje
+        call_for_evidence:
+          few:
+          one:
+          other:
+        call_for_evidence_outcome:
+          few:
+          one:
+          other:
+        case_study:
+          few:
+          one: Studija slučaja
+          other: Studije slučaja
+        closed_call_for_evidence:
+          few:
+          one:
+          other:
+        closed_consultation:
+          few:
+          one: Zatvorena konsultacija
+          other: Zatvorene konsultacije
+        cma_case:
+          few:
+          one: Predmet Nacionalnog tela za zaštitu konkurencije i tržišta
+          other: Predmeti Nacionalnog tela za zaštitu konkurencije i tržišta
+        consultation:
+          few:
+          one: Konsultacija
+          other: Konsultacije
+        consultation_outcome:
+          few:
+          one: Ishod konsultacija
+          other: Ishodi konsultacija
+        corporate_information_page:
+          few:
+          one: Stranica sa informacijama
+          other: Stranice sa informacijama
+        corporate_report:
+          few:
+          one: Organizacioni izveštaj
+          other: Organizacioni izveštaji
+        correspondence:
+          few:
+          one: Prepiska
+          other: Prepiske
+        countryside_stewardship_grant:
+          few:
+          one: Grant za upravljanje poljoprivrednim gazdinstvom
+          other: Grantovi za upravljanje poljoprivrednim gazdinstvom
+        decision:
+          few:
+          one: Odluka
+          other: Odluke
+        detailed_guide:
+          few:
+          one: Detaljno uputstvo
+          other: Detaljno uputstvo
+        dfid_research_output:
+          few:
+          one: Istraživanje za krajnji cilj razvoja
+          other: Istraživanje za krajnji ciljeve razvoja
+        document_collection:
+          few:
+          one: Kolekcija
+          other: Kolekcije
+        draft_text:
+          few:
+          one: Radna verzija teksta
+          other: Radne verzije teksta
+        drug_safety_update:
+          few:
+          one: Obaveštenje o bezbednosti lekova
+          other: Obaveštenja o bezbednosti lekova
+        employment_appeal_tribunal_decision:
+          few:
+          one: Odluka tribunala za žalbe u vezi sa zaposlenjem
+          other: Odluke tribunala za žalbe u vezi sa zaposlenjem
+        employment_tribunal_decision:
+          few:
+          one: Odluka tribunala za zaposlenje
+          other: Odluke tribunala za zaposlenje
+        esi_fund:
+          few:
+          one: Evropski strukturni i investicioni fond (ESIF)
+          other: Evropski strukturni i investicioni fondovi (ESIF)
+        foi_release:
+          few:
+          one: Odgovor na zahtev za pristup informacijama od javnog značaja
+          other: Odgovori na zahteve za pristup informacijama od javnog značaja
+        form:
+          few:
+          one: Formular
+          other: Obrasci
+        guidance:
+          few:
+          one: Detaljno uputstvo
+          other: Detaljno uputstvo
+        impact_assessment:
+          few:
+          one: Procena efekta
+          other: Procene efekata
+        imported:
+          few:
+          one: uvezeno – utvrđivanje tipa
+          other: uvezeno – utvrđivanje tipa
+        independent_report:
+          few:
+          one: Nezavisni izveštaj
+          other: Nezavisni izveštaji
+        international_development_fund:
+          few:
+          one: Međunarodni fond za razvoj
+          other: Međunarodni fond za razvoj
+        international_treaty:
+          few:
+          one: Međunarodni sporazum
+          other: Međunarodni sporazumi
+        maib_report:
+          few:
+          one: Izveštaj Agencije istragu pomorskih nesreća
+          other: Izveštaji Agencije istragu pomorskih nesreća
+        map:
+          few:
+          one: Mapa
+          other: Mape
+        medical_safety_alert:
+          few:
+          one: Upozorenja i zahtevi za opoziv za lekove i medicinska sredstva
+          other: Upozorenja i zahtevi za opoziv za lekove i medicinska sredstva
+        national:
+          few:
+          one: Najava državne statistike
+          other: Najave državne statistike
+        national_statistics:
+          few:
+          one: Državna statistika
+          other: Državna statistika
+        national_statistics_announcement:
+          few:
+          one: Najava državne statistike
+          other: Najave državne statistike
+        news_article:
+          few:
+          one: Članak vesti
+          other: Članci vesti
+        notice:
+          few:
+          one: Obaveštenje
+          other: Obaveštenja
+        official:
+          few:
+          one: Izjava zvanične statistike
+          other: Izjave zvanične statistike
+        official_statistics:
+          few:
+          one: Zvanična statistika
+          other: Zvanična statistika
+        official_statistics_announcement:
+          few:
+          one: Izjava zvanične statistike
+          other: Izjave zvanične statistike
+        open_call_for_evidence:
+          few:
+          one:
+          other:
+        open_consultation:
+          few:
+          one: Otvorena konsultacija
+          other: Otvorene konsultacije
+        oral_statement:
+          few:
+          one: Usmeno obraćanje Parlamentu
+          other: Usmena obraćanja Parlamentu
+        policy:
+          few:
+          one: Politika
+          other: Politike
+        policy_paper:
+          few:
+          one: Predlog politike
+          other: Predlozi politike
+        product-safety-alert-report-recall:
+          few:
+          one:
+          other:
+        promotional:
+          few:
+          one: Promotivni materijal
+          other: Promotivni materijal
+        publication:
+          few:
+          one: Publikacija
+          other: Publikacije
+        raib_report:
+          few:
+          one: Izveštaj Agencije istragu železničkih nesreća
+          other: Izveštaji Agencije istragu železničkih nesreća
+        regulation:
+          few:
+          one: Propis
+          other: Propisi
+        research:
+          few:
+          one: Istraživanje i analiza
+          other: Istraživanje i analiza
+        residential_property_tribunal_decision:
+          few:
+          one: Odluka tribunala o imovini rezidenta
+          other: Odluke tribunala o imovini rezidenata
+        service_sign_in:
+          few:
+          one: Prijava u uslugu
+          other: Prijava u uslugu
+        service_standard_report:
+          few:
+          one: Izveštaj o standardu usluge
+          other: Izveštaji o standardu usluge
+        speaking_notes:
+          few:
+          one: Teze za govor
+          other: Teze za govor
+        standard:
+          few:
+          one: Standard
+          other: Standardi
+        statement_to_parliament:
+          few:
+          one: Obraćanje Parlamentu
+          other: Obraćanja Parlamentu
+        statistical_data_set:
+          few:
+          one: Set statističkih podataka
+          other: Setovi statističkih podataka
+        statistics_announcement:
+          few:
+          one: Saopštenje o objavljenim statističkim podacima
+          other: Saopštenja o objavljenim statističkim podacima
+        statutory_guidance:
+          few:
+          one: Zakonska uputstva
+          other: Zakonska uputstva
+        tax_tribunal_decision:
+          few:
+          one: Odluka tribunala o porezima i državnoj upravi
+          other: Odluke tribunala o porezima i državnoj upravi
+        transcript:
+          few:
+          one: Transkript
+          other: Transkripti
+        transparency:
+          few:
+          one: Podaci o transparentnosti
+          other: Podaci o transparentnosti
+        utaac_decision:
+          few:
+          one: Odluka tribunala za administrativne žalbe
+          other: Odluke tribunala za administrativne žalbe
+        written_statement:
+          few:
+          one: Pismena predstavka Parlamentu
+          other: Pismene predstavke Parlamentu
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -435,6 +721,17 @@ sr:
     guide:
       pages_in_guide: Stranice u ovom vodiču
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
+      print_meta_data:
+        available_at: Ova publikacija je dostupna na adresi %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ova publikacija je licencirana prema uslovima licence Open Government Licence v3.0 osim ukoliko je drugačije naznačeno. Da biste videli ovu licencu, otvorite <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ili se obratite Timu za politiku o podacima, The National Archives, Kew, London TW9 4DU, ili pošaljite e-poruku na: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Ako utvrdimo da postoje informacije pod autorskim pravima trećeg lica, moraćete da dobijete dozvolu od dotičnih nosilaca autorskih prava.
     impact_assessment:
       name:
         few:

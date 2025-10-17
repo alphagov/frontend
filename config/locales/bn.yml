@@ -79,6 +79,222 @@ bn:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: বিষয়সূচী
+      metadata:
+        published: প্রকাশিত হয়েছে
+        updated: হালনাগাদ করা হয়েছে
+      schema_name:
+        aaib_report:
+          one: বিমান দুর্ঘটনা তদন্ত শাখা প্রতিবেদন
+          other: বিমান দুর্ঘটনা তদন্ত শাখা প্রতিবেদনসমূহ
+        announcement:
+          one: ঘোষণা
+          other: ঘোষণা
+        asylum_support_decision:
+          one: রাজনৈতিক আশ্রয় সহায়তা ট্রাইব্যুনালের সিদ্ধান্ত
+          other: রাজনৈতিক আশ্রয় সহায়তা ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        authored_article:
+          one: লেখকের উৎস সহ নিবন্ধ
+          other: লেখকের উৎস সহ নিবন্ধসমূহ
+        business_finance_support_scheme:
+          one: ব্যবসায়িক অর্থায়ন সহায়তা স্কিম
+          other: ব্যবসায়িক অর্থায়ন সহায়তা স্কিমসমূহ
+        call_for_evidence:
+          one:
+          other:
+        call_for_evidence_outcome:
+          one:
+          other:
+        case_study:
+          one: কেস স্টাডি
+          other: কেস স্টাডিসমূহ
+        closed_call_for_evidence:
+          one:
+          other:
+        closed_consultation:
+          one: ক্লোজড কনসাল্টেশন
+          other: ক্লোজড কনসাল্টেশন
+        cma_case:
+          one: প্রতিযোগিতা এবং বাজার কর্তৃপক্ষ কেস
+          other: প্রতিযোগিতা এবং বাজার কর্তৃপক্ষ কেসসমূহ
+        consultation:
+          one: পরামর্শ
+          other: পরামর্শ
+        consultation_outcome:
+          one: পরামর্শের ফলাফল
+          other: পরামর্শের ফলাফল
+        corporate_information_page:
+          one: তথ্য পেইজ
+          other: তথ্য পেইজসমূহ
+        corporate_report:
+          one: কর্পোরেট রিপোর্ট
+          other: কর্পোরেট রিপোর্টসমূহ
+        correspondence:
+          one: যোগাযোগ
+          other: যোগাযোগ
+        countryside_stewardship_grant:
+          one: কান্ট্রিসাইড স্টুয়ার্ডশিপ গ্রান্ট
+          other: কান্ট্রিসাইড স্টুয়ার্ডশিপ গ্রান্টস
+        decision:
+          one: সিদ্ধান্ত
+          other: সিদ্ধান্তসমূহ
+        detailed_guide:
+          one: পরিচালনা
+          other: পরিচালনা
+        dfid_research_output:
+          one: উন্নয়নমূলক ফলাফলের জন্য গবেষণা
+          other: উন্নয়নমূলক ফলাফলের জন্য গবেষণা
+        document_collection:
+          one: সংগ্রহ
+          other: সংগ্রহসমূহ
+        draft_text:
+          one: খসড়া টেক্সট
+          other: খসড়া টেক্সটসমূহ
+        drug_safety_update:
+          one: ঔষধের নিরাপত্তা সম্পর্কিত আপডেট
+          other: ঔষধের নিরাপত্তা সম্পর্কিত আপডেট
+        employment_appeal_tribunal_decision:
+          one: চাকরির আপীল ট্রাইব্যুনালের সিদ্ধান্ত
+          other: চাকরির আপীল ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        employment_tribunal_decision:
+          one: চাকরির ট্রাইব্যুনালের সিদ্ধান্ত
+          other: চাকরির ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        esi_fund:
+          one: ইউরোপিয়ান স্ট্রাকচারাল অ্যান্ড ইনভেস্টমেন্ট ফান্ড (ESIF)
+          other: ইউরোপিয়ান স্ট্রাকচারাল অ্যান্ড ইনভেস্টমেন্ট ফান্ডসমূহ (ESIF)
+        foi_release:
+          one: FOI ছাড়পত্র
+          other: FOI ছাড়পত্রসমূহ
+        form:
+          one: ফর্ম
+          other: ফর্মসমূহ
+        guidance:
+          one: পরিচালনা
+          other: পরিচালনা
+        impact_assessment:
+          one: প্রভাব মূল্যায়ন
+          other: প্রভাব মূল্যায়ন
+        imported:
+          one: ইমপোর্ট করা - প্রকারের জন্য অপেক্ষমাণ
+          other: ইমপোর্ট করা - প্রকারের জন্য অপেক্ষমাণ
+        independent_report:
+          one: স্বতন্ত্র রিপোর্ট
+          other: স্বতন্ত্র রিপোর্টসমূহ
+        international_development_fund:
+          one: আন্তর্জাতিক উন্নয়ন অর্থায়ন
+          other: আন্তর্জাতিক উন্নয়ন অর্থায়ন
+        international_treaty:
+          one: ইন্টারন্যাশনাল চুক্তি
+          other: ইন্টারন্যাশনাল চুক্তিসমূহ
+        maib_report:
+          one: সামুদ্রিক দুর্ঘটনা তদন্ত শাখা প্রতিবেদন
+          other: সামুদ্রিক দুর্ঘটনা তদন্ত শাখা প্রতিবেদনসমূহ
+        map:
+          one: মানচিত্র
+          other: মানচিত্রসমূহ
+        medical_safety_alert:
+          one: ঔষধপত্র ও মেডিক্যাল ডিভাইস সম্পর্কে অ্যালার্ট ও রিকল
+          other: ঔষধপত্র ও মেডিক্যাল ডিভাইস সম্পর্কে অ্যালার্ট ও রিকল
+        national:
+          one: জাতীয় পরিসংখ্যানের ঘোষণা
+          other: জাতীয় পরিসংখ্যানের ঘোষণাসমূহ
+        national_statistics:
+          one: জাতীয় পরিসংখ্যান
+          other: জাতীয় পরিসংখ্যান
+        national_statistics_announcement:
+          one: জাতীয় পরিসংখ্যানের ঘোষণা
+          other: জাতীয় পরিসংখ্যানের ঘোষণাসমূহ
+        news_article:
+          one: সংবাদের নিবন্ধ
+          other: সংবাদের নিবন্ধসমূহ
+        notice:
+          one: বিজ্ঞপ্তি
+          other: বিজ্ঞপ্তিসমূহ
+        official:
+          one: দাপ্তরিক পরিসংখ্যানের ঘোষণা
+          other: দাপ্তরিক পরিসংখ্যানের ঘোষণাসমূহ
+        official_statistics:
+          one: দাপ্তরিক পরিসংখ্যান
+          other: দাপ্তরিক পরিসংখ্যান
+        official_statistics_announcement:
+          one: দাপ্তরিক পরিসংখ্যানের ঘোষণা
+          other: দাপ্তরিক পরিসংখ্যানের ঘোষণাসমূহ
+        open_call_for_evidence:
+          one:
+          other:
+        open_consultation:
+          one: উম্মুক্ত পরামর্শ
+          other: উম্মুক্ত পরামর্শসমূহ
+        oral_statement:
+          one: সংসদে মৌখিক বিবৃতি
+          other: সংসদে মৌখিক বিবৃতিসমূহ
+        policy:
+          one: নীতিমালা
+          other: নীতিমালা
+        policy_paper:
+          one: পলিসি পেপার
+          other: পলিসি পেপারসমূহ
+        product-safety-alert-report-recall:
+          one:
+          other:
+        promotional:
+          one: প্রোমোশন সম্পর্কিত উপকরণ
+          other: প্রোমোশন সম্পর্কিত উপকরণ
+        publication:
+          one: প্রকাশনা
+          other: প্রকাশনাসমূহ
+        raib_report:
+          one: রেল দুর্ঘটনা তদন্ত শাখা প্রতিবেদন
+          other: রেল দুর্ঘটনা তদন্ত শাখা প্রতিবেদনসমূহ
+        regulation:
+          one: বিধিবিধান
+          other: বিধিবিধান
+        research:
+          one: গবেষণা ও বিশ্লেষণ
+          other: গবেষণা ও বিশ্লেষণ
+        residential_property_tribunal_decision:
+          one: আবাসিক সম্পত্তির ট্রাইব্যুনালের সিদ্ধান্ত
+          other: আবাসিক সম্পত্তির ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        service_sign_in:
+          one: পরিষেবায় সাইন ইন
+          other: পরিষেবায় সাইন ইন
+        service_standard_report:
+          one: পরিষেবার স্ট্যান্ডার্ডের প্রতিবেদন
+          other: পরিষেবার স্ট্যান্ডার্ডের প্রতিবেদনসমূহ
+        speaking_notes:
+          one: বক্তার টীকা
+          other: বক্তার টীকা
+        standard:
+          one: স্ট্যান্ডার্ড
+          other: স্ট্যান্ডার্ডসমূহ
+        statement_to_parliament:
+          one: সংসদে বিবৃতি
+          other: সংসদে বিবৃতিসমূহ
+        statistical_data_set:
+          one: পরিসংখ্যানগত তথ্য সংকলন
+          other: পরিসংখ্যানগত তথ্য সংকলন
+        statistics_announcement:
+          one: পরিসংখ্যান প্রকাশের ঘোষণা
+          other: পরিসংখ্যান প্রকাশের ঘোষণাসমূহ
+        statutory_guidance:
+          one: বিধিবদ্ধ নির্দেশনা
+          other: বিধিবদ্ধ নির্দেশনা
+        tax_tribunal_decision:
+          one: ট্যাক্স ও চ্যান্সেরি ট্রাইব্যুনালের সিদ্ধান্ত
+          other: ট্যাক্স ও চ্যান্সেরি ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        transcript:
+          one: ট্রানস্ক্রিপ্ট
+          other: ট্রানস্ক্রিপ্টসমূহ
+        transparency:
+          one: স্বচ্ছতার তথ্য
+          other: স্বচ্ছতার তথ্য
+        utaac_decision:
+          one: প্রশাসনিক আপীল ট্রাইব্যুনালের সিদ্ধান্ত
+          other: প্রশাসনিক আপীল ট্রাইব্যুনালের সিদ্ধান্তসমূহ
+        written_statement:
+          one: সংসদে লিখিত বিবৃতি
+          other: সংসদে লিখিত বিবৃতিসমূহ
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -404,6 +620,16 @@ bn:
     guide:
       pages_in_guide: এই নির্দেশিকাতে পৃষ্ঠা
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: এই প্রকাশনাটি %{url}-এ উপলভ্য
+        copyright: "© ক্রাউন কপিরাইট %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'অন্যভাবে বলা না থাকলে, এই প্রকাশনাটি ওপেন গভর্নমেন্ট লাইসেন্স v3.0-এর শর্তাধীন লাইসেন্স করা হয়েছে। এই লাইসেন্সটি দেখতে, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ভিজিট করুন বা Information Policy Team, The National Archives, Kew, London TW9 4DU ঠিকানায় লিখুন বা এই ঠিকানায় ইমেইল করুন: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>।'
+        third_party: আমরা যখন কোনো তৃতীয় পক্ষের কপিরাইটের তথ্য শনাক্ত করবো, তখন আপনাকে সংশ্লিষ্ট কপিরাইট ধারকের কাছ থেকে অনুমতি নিতে হবে।
     impact_assessment:
       name:
         one:

@@ -79,6 +79,362 @@ gd:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    content_item:
+      contents: Clár ábhair
+      metadata:
+        published: Arna chur suas
+        updated: Athnuachan
+      schema_name:
+        aaib_report:
+          few:
+          one: Tuarascáil ar Chosc Aeir de chuid Cigireacht Aer-Chruinnithe
+          other: Tuarascálacha an Bhrainse um Imscrúdú ar Thimpistí Aeir
+          two:
+        announcement:
+          few:
+          one: Fógra
+          other: Fógra
+          two:
+        asylum_support_decision:
+          few:
+          one: Tuarascáil ón mbinse athbhreithnithe ar thearmann
+          other: Cinneadh na cúirte tacaíochta tearmainn
+          two:
+        authored_article:
+          few:
+          one: Ailt scríofa
+          other: Téacsanna scríofa
+          two:
+        business_finance_support_scheme:
+          few:
+          one: Scéim tacaíochta maoinithe gnó
+          other: Meicníochtaí tacaíochta do mhaoiniú gnó
+          two:
+        call_for_evidence:
+          few:
+          one:
+          other:
+          two:
+        call_for_evidence_outcome:
+          few:
+          one:
+          other:
+          two:
+        case_study:
+          few:
+          one: Cás-staidéir
+          other: Tuarascálacha staidéir
+          two:
+        closed_call_for_evidence:
+          few:
+          one:
+          other:
+          two:
+        closed_consultation:
+          few:
+          one: Nós imeachta comhairliúcháin dúnta
+          other: Téigh i gcomhairle go príobháideach
+          two:
+        cma_case:
+          few:
+          one: Iomaíocht agus margaí
+          other: Gnóthaí an Údaráis Iomaíochta agus Margaí
+          two:
+        consultation:
+          few:
+          one: Comhairliúchán
+          other: Téigh i gcomhairle
+          two:
+        consultation_outcome:
+          few:
+          one: Torthaí comhairliúcháin
+          other: Torthaí comhairliúcháin
+          two:
+        corporate_information_page:
+          few:
+          one: Leathanach faisnéise
+          other: Leathanaigh faisnéise
+          two:
+        corporate_report:
+          few:
+          one: Tuarascáil cuideachta
+          other: Tuarascálacha cuideachta
+          two:
+        correspondence:
+          few:
+          one: Comhfhreagras
+          other: Comhfhreagras
+          two:
+        countryside_stewardship_grant:
+          few:
+          one: Deontas Maoirseachta Tuaithe
+          other: Deontais Maoirseachta Tuaithe
+          two:
+        decision:
+          few:
+          one: Cinneadh
+          other: Cinntí
+          two:
+        detailed_guide:
+          few:
+          one: Treoshuíomh
+          other: Treoshuíomh
+          two:
+        dfid_research_output:
+          few:
+          one: Torthaí taighde le haghaidh forbartha
+          other: Torthaí taighde le haghaidh forbartha
+          two:
+        document_collection:
+          few:
+          one: Bailiúchán
+          other: Bailiúcháin
+          two:
+        draft_text:
+          few:
+          one: Tionscadail téacs
+          other: Dréacht-téacsanna
+          two:
+        drug_safety_update:
+          few:
+          one: Sábháilteacht drugaí a nuashonrú
+          other: Sábháilteacht drugaí a nuashonrú
+          two:
+        employment_appeal_tribunal_decision:
+          few:
+          one: Cinneadh an bhinse achomhairc fostaíochta
+          other: Cinntí an Bhinse Achomhairc Fostaíochta
+          two:
+        employment_tribunal_decision:
+          few:
+          one: Cinneadh na cúirte saothair
+          other: Cinntí na cúirte saothair
+          two:
+        esi_fund:
+          few:
+          one: An Ciste Eorpach Struchtúrtha agus Infheistíochta (ESIF)
+          other: Cistí Struchtúracha agus Infheistíochta na hEorpa (ESIF)
+          two:
+        foi_release:
+          few:
+          one: Preasráiteas FAITH
+          other: Scaoileadh Shaoráil Faisnéise
+          two:
+        form:
+          few:
+          one: Foirm
+          other: Foirmeacha
+          two:
+        guidance:
+          few:
+          one: Treoshuíomh
+          other: Treoshuímh
+          two:
+        impact_assessment:
+          few:
+          one: Anailís tionchair
+          other: Anailísí tionchair
+          two:
+        imported:
+          few:
+          one: allmhairithe - cineál ar feitheamh
+          other: allmhairithe - cineál ar feitheamh
+          two:
+        independent_report:
+          few:
+          one: Tuarascáil neamhspleách
+          other: Tuarascálacha neamhspleácha
+          two:
+        international_development_fund:
+          few:
+          one: Forbairt idirnáisiúnta a mhaoiniú
+          other: Forbairt idirnáisiúnta a mhaoiniú
+          two:
+        international_treaty:
+          few:
+          one: Conradh idirnáisiúnta
+          other: Conarthaí idirnáisiúnta
+          two:
+        maib_report:
+          few:
+          one: Tuarascáil ón mBrainse um Imscrúdú ar Thimpistí Mara
+          other: Tuarascálacha an Bhrainse um Imscrúdú ar Thimpistí Mara
+          two:
+        map:
+          few:
+          one: Roghchlár
+          other: Cártaí
+          two:
+        medical_safety_alert:
+          few:
+          one: Foláirimh agus meabhrúcháin ar dhrugaí agus ar fheistí leighis
+          other: Foláirimh agus meabhrúcháin ar dhrugaí agus ar fheistí leighis
+          two:
+        national:
+          few:
+          one: Fógra staitisticí náisiúnta
+          other: Fógraí staitisticí náisiúnta
+          two:
+        national_statistics:
+          few:
+          one: Staitisticí náisiúnta
+          other: Staitisticí náisiúnta
+          two:
+        national_statistics_announcement:
+          few:
+          one: Fógra staitisticí náisiúnta
+          other: Fógraí staitisticí náisiúnta
+          two:
+        news_article:
+          few:
+          one: Airteagal Nuachta
+          other: Airteagal Nuachta
+          two:
+        notice:
+          few:
+          one: Tuairim
+          other: Tuairim
+          two:
+        official:
+          few:
+          one: Fógra staitisticí oifigiúla
+          other: Fógraí staitisticí oifigiúla
+          two:
+        official_statistics:
+          few:
+          one: Staitisticí oifigiúla
+          other: Staitisticí oifigiúla
+          two:
+        official_statistics_announcement:
+          few:
+          one: Fógra staitisticí oifigiúla
+          other: Fógraí staitisticí oifigiúla
+          two:
+        open_call_for_evidence:
+          few:
+          one:
+          other:
+          two:
+        open_consultation:
+          few:
+          one: Comhairliúcháin oscailte
+          other: Comhairliúcháin oscailte
+          two:
+        oral_statement:
+          few:
+          one: Ráiteas ó bhéal don Pharlaimint
+          other: Ráitis ó bhéal sa Pharlaimint
+          two:
+        policy:
+          few:
+          one: Polaitíocht
+          other: Polasaithe
+          two:
+        policy_paper:
+          few:
+          one: Doiciméad beartais
+          other: Doiciméid bheartais
+          two:
+        product-safety-alert-report-recall:
+          few:
+          one:
+          other:
+          two:
+        promotional:
+          few:
+          one: Ábhar cur chun cinn
+          other: Ábhar cur chun cinn
+          two:
+        publication:
+          few:
+          one: Foilsiú
+          other: Foilseacháin
+          two:
+        raib_report:
+          few:
+          one: Tuarascáil an Bhrainse um Imscrúdú ar Thimpistí Iarnróid
+          other: Tuarascálacha Brainse um Imscrúdú ar Thimpistí Iarnróid
+          two:
+        regulation:
+          few:
+          one: Rialacha
+          other: Rialacháin
+          two:
+        research:
+          few:
+          one: Taighde agus anailís
+          other: Taighde agus anailís
+          two:
+        residential_property_tribunal_decision:
+          few:
+          one: Rialú cúirte maoine cónaithe
+          other: Cinntí cúirte eastáit réadaigh chónaithe
+          two:
+        service_sign_in:
+          few:
+          one: Ceangal seirbhíse
+          other: Ceangal seirbhíse
+          two:
+        service_standard_report:
+          few:
+          one: Tuarascáil chaighdeánach seirbhíse
+          other: Tuarascálacha caighdeánacha seirbhíse
+          two:
+        speaking_notes:
+          few:
+          one: Nótaí Labhairt
+          other: Nótaí Labhairt
+          two:
+        standard:
+          few:
+          one: Caighdeán
+          other: Caighdeáin
+          two:
+        statement_to_parliament:
+          few:
+          one: Dearbhú don Pharlaimint
+          other: Ráitis sa Pharlaimint
+          two:
+        statistical_data_set:
+          few:
+          one: Tacar sonraí staidrimh
+          other: Tacair sonraí staidrimh
+          two:
+        statistics_announcement:
+          few:
+          one: Fógra maidir le scaoileadh staidrimh
+          other: Fógraí scaipthe staidrimh
+          two:
+        statutory_guidance:
+          few:
+          one: Treoir reachtúil
+          other: Treoir reachtúil
+          two:
+        tax_tribunal_decision:
+          few:
+          one: Cinneadh na cúirte cánach agus na seansaireachta
+          other: Cinntí na cúirte cánach agus na seansaireachta
+          two:
+        transcript:
+          few:
+          one: Tras-scríobh
+          other: Athscríbhinní
+          two:
+        transparency:
+          few:
+          one: Sonraí trédhearcachta
+          other: Sonraí trédhearcachta
+          two:
+        utaac_decision:
+          few:
+          one: Cinneadh an Bhinse Achomhairc Riaracháin
+          other: Cinntí na cúirte achomhairc riaracháin
+          two:
+        written_statement:
+          few:
+          one: Dearbhú i scríbhinn don Pharlaimint
+          other: Ráitis i scríbhinn don Pharlaimint
+          two:
     download_ics:
     email_and_print_link:
     extra_bank_holiday:
@@ -466,6 +822,18 @@ gd:
     guide:
       pages_in_guide: Leathanaigh na treorach seo
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
+        two:
+      print_meta_data:
+        available_at: Tá an foilseachán seo i láthair ar %{url}
+        copyright: "© Cóipcheart na Corónach %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Tá an foilseachán seo ceadúnaithe faoi théarmaí an Cheadúnais Rialtais Oscailte v3.0, mura gcuirtear a mhalairt in iúl. Le fáil amach faoin gceadúnas seo, féach <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> nó scríobh chuig an bhFoireann um Beartas Faisnéise, An Chartlann Náisiúnta, Kew, Londain TW9 4DU, nó trí r-phost: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Sa mhéid go bhfuil faisnéis aitheanta againn maidir le cóipchearta tríú páirtí, beidh ort cead a fháil ó shealbhóirí na gceart sin.
     impact_assessment:
       name:
         few:

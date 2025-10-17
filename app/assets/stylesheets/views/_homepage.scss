@@ -1,66 +1,203 @@
 @import "govuk_publishing_components/individual_component_support";
 @import "govuk_publishing_components/components/mixins/grid-helper";
 
-.homepage__ready-container {
-  margin: govuk-spacing(6) 0 govuk-spacing(7);
+.homepage-header {
+  background-color: $govuk-brand-colour;
+  padding-bottom: 28px;
+  padding-top: govuk-spacing(3);
+  @include govuk-typography-common;
+
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  @include govuk-media-query($from: "tablet") {
+    padding-top: govuk-spacing(6);
+  }
 
   @include govuk-media-query($from: desktop) {
-    margin-bottom: govuk-spacing(3);
+    padding-bottom: govuk-spacing(7);
+  }
+
+  // Increase the header font-size and padding for large screen sizes
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    padding-bottom: govuk-spacing(9);
   }
 }
 
-.homepage__ready-heading {
-  margin-bottom: govuk-spacing(4);
+.homepage-header__title {
+  @include govuk-typography-weight-bold;
+  color: govuk-colour("white");
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
+  line-height: 1.2;
+  margin: 0;
+  margin-bottom: govuk-spacing(6);
+
+  @include govuk-media-query($from: tablet) {
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
+    margin-bottom: govuk-spacing(7);
+  }
+
+  @include govuk-media-query($from: desktop) {
+    font-size: 55px;
+    font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
+  }
 }
 
-.homepage__ready-call-to-action {
-  margin-bottom: 0;
-  @include govuk-font(19, $weight: bold);
+.homepage-header__title-container {
+  @include govuk-media-query($from: desktop) {
+    max-width: 80%;
+  }
 }
 
-.home-services {
-  padding-top: govuk-spacing(5);
+.homepage-header__intro {
+  @include govuk-typography-weight-bold;
+
+  font-size: 40px;
+  font-size: govuk-px-to-rem(40);
+  margin: 0;
+  line-height: 1.07;
+  display: block;
+  text-wrap: balance;
+
+  @include govuk-media-query($from: tablet) {
+    font-size: 50px;
+    font-size: govuk-px-to-rem(50);
+  }
+
+  @include govuk-media-query($from: desktop) {
+    font-size: 55px;
+    font-size: govuk-px-to-rem(55);
+  }
+
+  @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
+    font-size: 64px;
+    font-size: govuk-px-to-rem(64);
+  }
 }
 
-.home-services__heading {
-  margin: 0 0 govuk-spacing(1);
-  @include govuk-font(19, $weight: bold);
-}
-
-.home-services__para {
-  margin: 0 0 govuk-spacing(3);
-  min-height: 40px;
-  @include govuk-font(16);
-}
-
-.home-info {
-  margin: govuk-spacing(2) 0 govuk-spacing(4);
-  @include govuk-font(24);
-}
-
-.home-more__title {
-  margin: 0 0 govuk-spacing(4);
-  @include govuk-font(36, $weight: bold);
-}
-
-.home-more__subtitle {
-  margin: 0 0 govuk-spacing(2);
-  @include govuk-font(24, $weight: bold);
-}
-
-.home-more__list {
-  font-weight: bold;
-}
-
-.gem-c-cards__list-item-wrapper {
-  .gem-c-cards__sub-heading,
-  .gem-c-cards__description {
-    max-width: 100%;
+.homepage-header__search {
+  @include govuk-media-query($from: mobile) {
+    @include govuk-grid-column($width: two-thirds);
   }
 }
 
 .homepage-section {
   padding: govuk-spacing(4) 0 govuk-spacing(6);
+}
+
+.homepage-section__heading {
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: $govuk-brand-colour;
+  margin: 0 0 govuk-spacing(6);
+  padding: govuk-spacing(8) 0 0;
+
+  .govuk-heading-l {
+    // Ensure font-size is 32px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 32px;
+      font-size: govuk-px-to-rem(32);
+    }
+  }
+
+  @include govuk-media-query($from: "desktop") {
+    border: none;
+    padding: 0;
+  }
+}
+
+.homepage-section__heading-wrapper {
+  margin-bottom: govuk-spacing(1);
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.homepage-section__popular-links {
+  background: govuk-colour("white");
+  padding: 28px 0 0;
+
+  // Add 9px of padding to the left and right on mobile screen sizes
+  // This gives a total size of 24px (9px padding + 15px margin)
+  @include govuk-media-query($until: "tablet") {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .govuk-heading-l {
+    // Ensure font-size is 32px on mobile for the new homepage design
+    @include govuk-media-query($until: "tablet") {
+      font-size: 32px;
+      font-size: govuk-px-to-rem(32);
+    }
+  }
+
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0 28px;
+  }
+}
+
+.homepage-most-viewed-list {
+  list-style: none;
+  padding: 0;
+  // Remove the outermost left and right margin from the internal margin of the list items.
+  margin: 0 govuk-spacing(-3);
+
+  display: grid;
+  grid-auto-flow: row; // Use CSS grid to calculate the number of rows
+  grid-template-columns: fractions(1);
+
+  @include govuk-media-query($from: "desktop") {
+    align-items: center;
+    // Note that browsers that don't support CSS grid display the component as one column on all
+    // breakpoints
+    grid-template-columns: fractions(3);
+
+    // For browsers that don't support CSS grid, constrain the width to 50% to improve usability
+    // especially for screen magnifier users
+    width: 50%;
+
+    // Reset the width for browsers that support CSS grid
+    @supports (display: grid) {
+      width: initial;
+    }
+  }
+}
+
+.homepage-most-viewed-list__item {
+  // We use grid to split the container into column widths, so manage the horizontal spacing with
+  // internal margins.
+  margin: 0 govuk-spacing(3);
+  padding: 0 0 24px;
+
+  a {
+    font-size: 19px;
+    font-size: govuk-px-to-rem(19);
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  @include govuk-media-query($from: "desktop") {
+    padding-bottom: 32px;
+
+    &:last-of-type {
+      padding-bottom: 32px;
+    }
+  }
 }
 
 .homepage-section--promotion-slots {
@@ -91,48 +228,6 @@
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
   }
-}
-
-.homepage-section__heading {
-  border-top-style: solid;
-  border-top-width: 4px;
-  border-top-color: $govuk-brand-colour;
-  margin: 0 0 govuk-spacing(6);
-  padding: govuk-spacing(8) 0 0;
-
-  .govuk-body {
-    // Ensure font-size is 19px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 19px;
-      font-size: govuk-px-to-rem(19);
-    }
-  }
-
-  .govuk-heading-l {
-    // Ensure font-size is 32px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: 32px;
-      font-size: govuk-px-to-rem(32);
-    }
-  }
-
-  @include govuk-media-query($from: "desktop") {
-    border: none;
-    padding: 0;
-  }
-}
-
-.homepage-section__heading-wrapper {
-  margin-bottom: govuk-spacing(1);
-
-  @include govuk-media-query($from: desktop) {
-    margin-bottom: 0;
-  }
-}
-
-.homepage-section__heading--border-none {
-  border: none;
-  padding: 0;
 }
 
 .homepage-section__government-activity {
@@ -166,11 +261,42 @@
   }
 }
 
+.homepage-most-active-list {
+  list-style: none;
+  margin: 0 0 govuk-spacing(9);
+  padding: 0;
+}
+
+.homepage-most-active-list__item {
+  margin: 0 0 govuk-spacing(4);
+  @include govuk-font($size: 19, $weight: bold);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  // Ensure font-size is 19px on mobile for the new homepage design
+  @include govuk-media-query($until: "tablet") {
+    font-size: 19px;
+    font-size: govuk-px-to-rem(19);
+  }
+}
+
 .border-top-blue-from-desktop {
   border: none;
 
   @include govuk-media-query($from: "desktop") {
     border-top: 4px solid $govuk-brand-colour;
+  }
+}
+
+// Overrides
+
+// Ensures the card text takes up the full width of the container
+.gem-c-cards__list-item-wrapper {
+  .gem-c-cards__sub-heading,
+  .gem-c-cards__description {
+    max-width: 100%;
   }
 }
 

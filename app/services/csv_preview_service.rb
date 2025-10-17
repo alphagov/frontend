@@ -4,58 +4,54 @@ class CsvPreviewService
 
   class FileEncodingError < StandardError; end
 
-  attr_reader :truncated
-
   def initialize(csv)
     @csv = csv
-    @truncated = false
   end
 
   def csv_rows
-    original_error = nil
-    row_sep = :auto
-
+    truncated = false
     begin
-      parsed_csv = CSV.parse(
-        csv_truncated,
-        encoding: encoding(csv_truncated),
-        headers: true,
-        row_sep:,
-      )
-    rescue CSV::MalformedCSVError => e
-      if original_error.nil?
-        original_error = e
-        row_sep = "\r\n"
-        retry
-      else
-        raise
+      summary_csv = []
+      trimmed_column_count = MAXIMUM_COLUMNS
+
+      CSV.new(@csv, encoding: encoding(@csv), headers: false).each.with_index do |row, i|
+        if i > MAXIMUM_ROWS
+          truncated = true
+          break
+        end
+
+        # Find the index of the last non-blank header
+        if i.zero?
+          trimmed_column_count = number_of_non_blank_header_columns(row)
+        end
+
+        # Don't show columns past the last non-blank header
+        if row.count > trimmed_column_count
+          truncated = true
+          row = row[(0...trimmed_column_count)]
+        end
+
+        # Don't preview rows that have no data
+        next if row.all?(&:blank?)
+
+        summary_csv << row.map do |column|
+          {
+            text: column&.encode("UTF-8"),
+          }
+        end
       end
+    rescue Encoding::UndefinedConversionError
+      raise FileEncodingError, "Character cannot be converted"
     end
-    [converted_and_restricted_csv(parsed_csv), truncated]
+    [summary_csv, truncated]
   end
 
 private
 
-  attr_reader :id, :filename
-  attr_writer :truncated
+  def number_of_non_blank_header_columns(row)
+    trimmed_row_headers = row[(0...MAXIMUM_COLUMNS)]
 
-  def newline_or_last_char_index(string, newline_index)
-    (0..newline_index).inject(-1) do |current_index|
-      next_index = string.index("\n", current_index + 1)
-      return string.length - 1 if next_index.nil?
-
-      next_index
-    end
-  end
-
-  def truncate_to_maximum_number_of_lines(string, maximum_number_of_lines)
-    truncation_index = newline_or_last_char_index(string, maximum_number_of_lines - 1)
-    self.truncated ||= (truncation_index != string.length - 1)
-    string[0..truncation_index]
-  end
-
-  def csv_truncated
-    @csv_truncated ||= truncate_to_maximum_number_of_lines(@csv, MAXIMUM_ROWS + 1)
+    [trimmed_row_headers.rindex(&:present?) + 1, MAXIMUM_COLUMNS].min
   end
 
   def encoding(media)
@@ -74,19 +70,5 @@ private
 
   def windows_1252_encoding?(media)
     media.force_encoding("windows-1252").valid_encoding?
-  end
-
-  def converted_and_restricted_csv(parsed_csv)
-    @converted_and_restricted_csv ||= parsed_csv.to_a.map do |row|
-      columns = row.map do |column|
-        {
-          text: column&.encode("UTF-8"),
-        }
-      end
-      self.truncated ||= (columns.length > MAXIMUM_COLUMNS)
-      columns.take(MAXIMUM_COLUMNS)
-    end
-  rescue Encoding::UndefinedConversionError
-    raise FileEncodingError, "Character cannot be converted"
   end
 end

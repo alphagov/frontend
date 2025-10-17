@@ -37,6 +37,46 @@ RSpec.describe CsvPreviewService do
       end
     end
 
+    context "with CSV containing empty rows" do
+      let(:csv) { "header 1,header 2,header 3\n,,\ncontent 1,content 2,content 3\n" }
+
+      it "parses the CSV correctly" do
+        expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
+      end
+    end
+
+    context "with CSV containing empty header columns" do
+      let(:csv) { "header 1,header 2,header 3,,,,,,,\ncontent 1,content 2,content 3,,,,,,,\n" }
+
+      it "parses the CSV correctly" do
+        expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
+      end
+    end
+
+    context "with CSV containing empty header columns in the middle" do
+      let(:csv) { "header 1,header 2,,header 4,,,,,,,\ncontent 1,content 2,,content 4,,,,,,,\n" }
+      let(:parsed_csv) do
+        [
+          [
+            { text: "header 1" },
+            { text: "header 2" },
+            { text: nil },
+            { text: "header 4" },
+          ],
+          [
+            { text: "content 1" },
+            { text: "content 2" },
+            { text: nil },
+            { text: "content 4" },
+          ],
+        ]
+      end
+
+      it "parses the CSV correctly allowing for missing headers" do
+        expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
+      end
+    end
+
     context "with long CSV" do
       let(:csv) do
         val = "header 1,header 2,header 3\ncontent 1,content 2,content 3\n"
@@ -94,50 +134,6 @@ RSpec.describe CsvPreviewService do
 
       it "raises FileEncodingError" do
         expect { csv_preview_service.csv_rows }.to raise_error(described_class::FileEncodingError)
-      end
-    end
-  end
-
-  describe "#newline_or_last_char_index" do
-    let(:csv) { "" }
-
-    context "when newline index is less than index of last newline" do
-      it "returns the correct index" do
-        expect(csv_preview_service.send(:newline_or_last_char_index, "a\nb\ncdef\ngh\nijk", 2)).to eq(8)
-      end
-    end
-
-    context "when newline index is equal to index of last newline" do
-      it "returns the correct index" do
-        expect(csv_preview_service.send(:newline_or_last_char_index, "a\nb\ncdef\ngh\n", 3)).to eq(11)
-      end
-    end
-
-    context "when newline index is greater than index of last newline" do
-      it "returns the correct index" do
-        expect(csv_preview_service.send(:newline_or_last_char_index, "a\nb\ncdef\ngh\nijk", 10)).to eq(14)
-      end
-    end
-  end
-
-  describe "#truncate_to_maximum_number_of_lines" do
-    let(:csv) { "" }
-
-    context "when requested number of lines is less than actual number of lines" do
-      it "returns the correct string" do
-        expect(csv_preview_service.send(:truncate_to_maximum_number_of_lines, "a\nb\ncdef\ngh\nijk", 3)).to eq("a\nb\ncdef\n")
-      end
-    end
-
-    context "when requested number of lines is equal to actual number of lines" do
-      it "returns the correct string" do
-        expect(csv_preview_service.send(:truncate_to_maximum_number_of_lines, "a\nb\ncdef\ngh\n", 4)).to eq("a\nb\ncdef\ngh\n")
-      end
-    end
-
-    context "when requested number of lines is greater than actual number of lines" do
-      it "returns the correct string" do
-        expect(csv_preview_service.send(:truncate_to_maximum_number_of_lines, "a\nb\ncdef\ngh\nijk", 10)).to eq("a\nb\ncdef\ngh\nijk")
       end
     end
   end

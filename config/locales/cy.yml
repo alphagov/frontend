@@ -99,6 +99,7 @@ cy:
       scotland_slug: yr-alban
     next_holiday_in_is: Yr ŵyl banc nesaf %{in_nation} yw
     'on': ar
+    or:
     past_bank_holidays: Gwyliau banc blaenorol
     print_link: Argraffu'r dudalen hon
     substitute_day: Diwrnod amgen

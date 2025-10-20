@@ -99,6 +99,7 @@ ku:
       scotland_slug:
     next_holiday_in_is:
     'on': لەسەر
+    or: یان
     past_bank_holidays:
     print_link: ئەم لاپەڕەیە پرنت بکە
     substitute_day:

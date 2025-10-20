@@ -99,6 +99,7 @@ vi:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:

@@ -99,6 +99,7 @@ ky:
       scotland_slug:
     next_holiday_in_is:
     'on': күнү
+    or: же
     past_bank_holidays:
     print_link: Бул баракчаны басып чыгаруу
     substitute_day:

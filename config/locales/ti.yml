@@ -99,6 +99,7 @@ ti:
       scotland_slug:
     next_holiday_in_is:
     'on': አብ
+    or: ወይ
     past_bank_holidays:
     print_link: ነዚ ገጽ ሕተሞ
     substitute_day:

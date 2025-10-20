@@ -1,4 +1,6 @@
 RSpec.describe LocalAuthority do
+  include GdsApi::TestHelpers::LocalLinksManager
+
   subject(:local_authority) { described_class.new(local_authority_hash, parent:) }
 
   let(:local_authority_hash) do
@@ -64,5 +66,59 @@ RSpec.describe LocalAuthority do
         })
       end
     end
+  end
+
+  describe ".from_slug" do
+    before do
+      stub_local_links_manager_has_a_local_authority("westminster")
+    end
+
+    it "returns a local authority model" do
+      expect(described_class.from_slug("westminster")).to be_instance_of(described_class)
+      expect(described_class.from_slug("westminster").name).to eq("Westminster")
+    end
+
+    context "when the slug describes the district of a two-tier body" do
+      before do
+        stub_local_links_manager_has_a_district_and_county_local_authority("staffordshire-moorlands", "staffordshire")
+      end
+
+      it "returns a local authority model" do
+        expect(described_class.from_slug("staffordshire-moorlands")).to be_instance_of(described_class)
+        expect(described_class.from_slug("staffordshire-moorlands").name).to eq("Staffordshire-moorlands")
+      end
+    end
+
+    context "when the slug describes only the county of a two-tier body" do
+      before do
+        stub_local_links_manager_has_a_county("shropshire")
+      end
+
+      it "returns a local authority model" do
+        expect(described_class.from_slug("shropshire")).to be_instance_of(described_class)
+        expect(described_class.from_slug("shropshire").name).to eq("Shropshire")
+      end
+    end
+  end
+
+private
+
+  def stub_local_links_manager_has_a_county(authority_slug)
+    response = {
+      "local_authorities" => [
+        {
+          "name" => authority_slug.capitalize,
+          "homepage_url" => "",
+          "country_name" => "England",
+          "tier" => "county",
+          "slug" => authority_slug,
+          "gss" => "E0000001",
+        },
+      ],
+    }
+
+    stub_request(:get, "#{GdsApi::TestHelpers::LocalLinksManager::LOCAL_LINKS_MANAGER_ENDPOINT}/api/local-authority")
+      .with(query: { authority_slug: })
+      .to_return(body: response.to_json, status: 200)
   end
 end

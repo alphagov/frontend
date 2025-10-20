@@ -22,7 +22,7 @@ class CsvPreviewService
 
         # Find the index of the last non-blank header
         if i.zero?
-          trimmed_column_count = number_of_non_blank_header_columns(row)
+          trimmed_column_count = column_count_cap_from_header(row)
         end
 
         # Don't show columns past the last non-blank header
@@ -48,10 +48,17 @@ class CsvPreviewService
 
 private
 
-  def number_of_non_blank_header_columns(row)
+  def column_count_cap_from_header(row)
     trimmed_row_headers = row[(0...MAXIMUM_COLUMNS)]
 
-    [trimmed_row_headers.rindex(&:present?) + 1, MAXIMUM_COLUMNS].min
+    row_index = trimmed_row_headers.rindex(&:present?)
+
+    # some csvs have a blank first row, possibly followed by explanatory text
+    if row_index
+      [row_index + 1, MAXIMUM_COLUMNS].min
+    else
+      MAXIMUM_COLUMNS
+    end
   end
 
   def encoding(media)

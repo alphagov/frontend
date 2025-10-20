@@ -75,6 +75,7 @@ yi:
   cancel:
   common:
     add_holiday_ics:
+    and:
     at:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:

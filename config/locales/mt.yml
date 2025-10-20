@@ -75,6 +75,7 @@ mt:
   cancel:
   common:
     add_holiday_ics:
+    and: u
     at: fi
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:

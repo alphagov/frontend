@@ -75,6 +75,7 @@ sk:
   cancel:
   common:
     add_holiday_ics:
+    and: a
     at: na
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:

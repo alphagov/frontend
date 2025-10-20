@@ -75,6 +75,7 @@ lv:
   cancel:
   common:
     add_holiday_ics:
+    and: un
     at: 'šajā laikā:'
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:

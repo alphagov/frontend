@@ -75,6 +75,7 @@ cy:
   cancel:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
+    and: a
     at: am
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
     bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.

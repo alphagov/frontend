@@ -75,6 +75,7 @@ hi:
   cancel:
   common:
     add_holiday_ics:
+    and: और
     at: पर
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:

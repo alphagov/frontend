@@ -242,7 +242,6 @@ uz:
         other:
     consultation:
       analysing_feedback:
-      and: ва
       another_website_html: Ушбу маслаҳат %{closed} бошқа <a href="%{url}"> веб-сайтда ўтказилди</a>
       closes: да якунланади
       closes_at: Ушбу маслаҳат да якунланади

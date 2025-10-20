@@ -231,7 +231,6 @@ ja:
         other:
     consultation:
       analysing_feedback:
-      and: および
       another_website_html: この審議%{closed}は、<ahref = "%{url}">別のウェブサイト</a>で行われました
       closes: 終了時間：
       closes_at: 審議終了時間：

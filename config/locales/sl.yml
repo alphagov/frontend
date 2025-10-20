@@ -264,7 +264,6 @@ sl:
         two:
     consultation:
       analysing_feedback:
-      and: in
       another_website_html: To posvetovanje %{closed} poteka na <a href="%{url}">drugi spletni strani</a>
       closes: Zapre se ob
       closes_at: To posvetovanje se zapre ob

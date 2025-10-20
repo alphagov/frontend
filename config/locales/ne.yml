@@ -242,7 +242,6 @@ ne:
         other:
     consultation:
       analysing_feedback:
-      and: र
       another_website_html: यो परामर्श %{बन्द} <a href="%{url}">अर्को वेबसाइट</a> मा आयोजित
       closes: मा बन्द हुन्छ
       closes_at: यो परामर्श मा बन्द हुन्छ

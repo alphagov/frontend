@@ -242,7 +242,6 @@ sv:
         other:
     consultation:
       analysing_feedback:
-      and: och
       another_website_html: Detta samråd %{closed} hölls på <a href="%{url}">en annan webbplats</a>
       closes: Det avslutas kl
       closes_at: Detta samråd avslutas på

@@ -288,7 +288,6 @@ cy:
         zero:
     consultation:
       analysing_feedback: Rydym yn dadansoddi eich adborth
-      and: a
       another_website_html: Cynhaliwyd yr ymgynghoriad hwn %{closed} ar <a href="%{url}">wefan arall</a>
       closes: Mae'n cau am
       closes_at: Mae'r ymgynghoriad hwn yn cau am

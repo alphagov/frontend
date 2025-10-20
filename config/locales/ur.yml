@@ -242,7 +242,6 @@ ur:
         other:
     consultation:
       analysing_feedback:
-      and: اور
       another_website_html: یہ مشاورت %{closed} <a href="%{url}">ایک اور ویب سائٹ پر ہوئی تھی</a>
       closes: یہ درج ذیل پر بند ہوتی ہے
       closes_at: یہ مشاورت درج ذیل پر بند ہوتی ہے

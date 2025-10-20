@@ -242,7 +242,6 @@ tr:
         other:
     consultation:
       analysing_feedback:
-      and: ve
       another_website_html: Bu danışma %{closed} başka bir websitesinde<a href="%{url}">gerçekleşti</a>
       closes: şurada kapanıyor
       closes_at: Bu danışma şurada kapanıyor

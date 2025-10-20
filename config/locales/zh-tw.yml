@@ -231,7 +231,6 @@ zh-tw:
         other:
     consultation:
       analysing_feedback:
-      and: 以及
       another_website_html: 此諮詢 %{closed} 在 <a href="%{url}">另一個網站進</a>
       closes: 截止於
       closes_at: 此諮詢截止於

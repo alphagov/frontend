@@ -242,7 +242,6 @@ ky:
         other: Атаандаштыкты жана рынокту башкаруу иштери
     consultation:
       analysing_feedback: Биз пикириңизди талдап жатабыз
-      and: жана
       another_website_html: Бул консультация %{closed} <a href="%{url}">башка вебсайтта</a> жүргүзүлгөн
       closes: Ал жабылат
       closes_at: Бул консультация жабылат

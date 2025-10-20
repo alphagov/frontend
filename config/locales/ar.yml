@@ -286,7 +286,6 @@ ar:
         zero:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: عُقدت هذه الاستشارة %{closed} على <a href="%{url}">موقع ويب آخر</a>
       closes: موعد الإغلاق
       closes_at: تُغلق هذه الاستشارة تغلق في

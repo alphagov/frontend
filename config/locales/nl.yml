@@ -242,7 +242,6 @@ nl:
         other:
     consultation:
       analysing_feedback:
-      and: en
       another_website_html: Dit overleg %{closed} werd gehouden op <a href="%{url}">een andere website</a>
       closes: Het is afgelopen om
       closes_at: Deze raadpleging sluit op

@@ -242,7 +242,6 @@ pa:
         other:
     consultation:
       analysing_feedback:
-      and: ਅਤੇ
       another_website_html: ਇਹ ਸਲਾਹ -ਮਸ਼ਵਰਾ %{close} <a href="%{url}"> ਹੋਰ ਵੈਬਸਾਈਟ </a> 'ਤੇ ਆਯੋਜਿਤ ਕੀਤਾ ਗਿਆ
       closes: "'ਤੇ ਬੰਦ ਹੁੰਦਾ ਹੈ"
       closes_at: ਇਹ ਸਲਾਹ -ਮਸ਼ਵਰਾ ਇੱਥੇ ਬੰਦ ਹੁੰਦਾ ਹੈ

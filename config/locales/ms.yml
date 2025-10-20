@@ -231,7 +231,6 @@ ms:
         other:
     consultation:
       analysing_feedback:
-      and: dan
       another_website_html: Perundingan ini %{closed} telah diadakan di <a href="%{url}">laman web lain</a>
       closes: Ditutup pada
       closes_at: Perundingan ini ditutup pada

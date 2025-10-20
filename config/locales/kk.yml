@@ -242,7 +242,6 @@ kk:
         other:
     consultation:
       analysing_feedback:
-      and: және
       another_website_html: Бұл кеңес %{closed} <a href="%{url}">басқа веб-сайтта өтті</a>
       closes: Ол мына уақытта жабылды
       closes_at: Бұл кеңес мына уақытта жабылады

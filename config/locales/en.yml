@@ -244,7 +244,6 @@ en:
         other: Competition and Markets Authority cases
     consultation:
       analysing_feedback: We are analysing your feedback
-      and: and
       another_website_html: This consultation %{closed} held on <a href="%{url}">another website</a>
       closes: It closes at
       closes_at: This consultation closes at

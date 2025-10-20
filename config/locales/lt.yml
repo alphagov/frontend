@@ -253,7 +253,6 @@ lt:
         other:
     consultation:
       analysing_feedback:
-      and: ir
       another_website_html: Ši konsultacija %{closed} teikiama <a href="%{url}">kitoje interneto svetainėje</a>
       closes: Ji baigiasi
       closes_at: Ši konsultacija baigiasi

@@ -242,7 +242,6 @@ es:
         other:
     consultation:
       analysing_feedback:
-      and: "y"
       another_website_html: Esta consulta %{closed} se realizó en <a href='%{url}'>otro sitio web</a>
       closes: Cierra a las
       closes_at: Esta consulta se cierra a las

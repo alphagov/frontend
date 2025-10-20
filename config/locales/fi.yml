@@ -242,7 +242,6 @@ fi:
         other:
     consultation:
       analysing_feedback:
-      and: ja
       another_website_html: Tämä kuuleminen %{closed} järjestettiin toisella <a href="%{url}">averkkosivustolla</a>
       closes: Se sulkeutuu klo
       closes_at: Tämä kuuleminen päättyy klo

@@ -242,7 +242,6 @@ fa:
         other:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: این مشاوره %{closed} در <a href="%{url}">وب‌سات دیگر برگزار شد</a>
       closes: بسته می‌شود در
       closes_at: این مشاوره بسته می‌شود در

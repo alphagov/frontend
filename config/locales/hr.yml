@@ -253,7 +253,6 @@ hr:
         other:
     consultation:
       analysing_feedback:
-      and: i
       another_website_html: Ovo savjetovanje %{closed} održano je na <ahref="%{url}">drugoj web stranici</a>
       closes: Zatvara se u
       closes_at: Ovo savjetovanje završava se u

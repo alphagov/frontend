@@ -242,7 +242,6 @@ ta:
         other:
     consultation:
       analysing_feedback:
-      and: மற்றும்
       another_website_html: இந்தக் கலந்தாலோசனை %{closed} <a href="%{url}">வேறொரு இணையதளத்தில்</a>நடைபெற்றது
       closes: இது முடிவடைகிறது
       closes_at: இந்தக் கலந்தாலோசனை முடிவடைகிறது

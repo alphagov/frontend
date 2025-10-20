@@ -242,7 +242,6 @@ fr:
         other:
     consultation:
       analysing_feedback:
-      and: et
       another_website_html: Cette consultation %{closed} s'est tenue sur <a href="%{url}">un autre site Web</a>
       closes: Elle s'achève à
       closes_at: Cette consultation s'achève à

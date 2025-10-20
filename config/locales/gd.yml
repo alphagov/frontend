@@ -264,7 +264,6 @@ gd:
         two:
     consultation:
       analysing_feedback:
-      and: agus
       another_website_html: Tionóladh an comhairliúchán %{closed} seo ar <a href="%{url}">suíomh Gréasáin eile</a>
       closes: Críochnaíonn sé ag
       closes_at: Críochnaíonn an suirbhé seo ag

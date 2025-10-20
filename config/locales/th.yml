@@ -231,7 +231,6 @@ th:
         other:
     consultation:
       analysing_feedback:
-      and: และ
       another_website_html: การให้คำปรึกษา %{closed} นี้จัดขึ้นใน <a href="%{url}">เว็บไซต์อื่น</a>
       closes: ปิดเมื่อ
       closes_at: การให้คำปรึกษานี้ปิดเมื่อ

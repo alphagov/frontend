@@ -242,7 +242,6 @@ ti:
         other: ጉዳያት በዓል መዚ ውድድርን ዕዳጋታትን
     consultation:
       analysing_feedback: ርእይቶኹም ንትንትን ኣለና
-      and: ከምኡ ውን
       another_website_html: እዚ ምምኽኻር %{closed} ኣብ <a href="%{url}">ካልእ መርበብ ሓበሬታ</a> ዝተኻየደ እዩ።
       closes: ዝዕጸወሉ ድማ
       closes_at: እዚ ምምኽኻር ዝዕጸወሉ ኣብ

@@ -242,7 +242,6 @@ is:
         other:
     consultation:
       analysing_feedback:
-      and: og
       another_website_html: Þessi ráðgjöf %{closed} var haldin á <a href="%{url}">annarri vefsíðu</a>
       closes: Henni lýkur
       closes_at: Þessari ráðgjöf lýkur

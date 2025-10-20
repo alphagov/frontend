@@ -264,7 +264,6 @@ pl:
         other:
     consultation:
       analysing_feedback:
-      and: i
       another_website_html: Te konsultacje %{closed} odbyły się na <a href="%{url}">innej stronie internetowej</a>
       closes: Kończy się o
       closes_at: Te konsultacje kończą się o

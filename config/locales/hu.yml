@@ -242,7 +242,6 @@ hu:
         other:
     consultation:
       analysing_feedback:
-      and: és
       another_website_html: A konzultáció %{closed} egy <a href="%{url}">másik weboldalon kerül megrendezésre</a>
       closes: 'Lezárul ekkor:'
       closes_at: 'A konzultáció lezárul ekkor:'

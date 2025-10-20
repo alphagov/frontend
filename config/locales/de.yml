@@ -242,7 +242,6 @@ de:
         other:
     consultation:
       analysing_feedback:
-      and: und
       another_website_html: Diese Anhörung %{closed} fand auf einer <a href="%{url}">anderen Website</a> statt
       closes: Sie schließt um
       closes_at: Diese Anhörung endet um

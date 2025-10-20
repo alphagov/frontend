@@ -242,7 +242,6 @@ dr:
         other:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: این مشاوره%{closed}برگزار میشود در<a href="%{url}">ویبسایت دیگر</a>
       closes: این بسته میشود در
       closes_at: این مشاوره بسته میشود در

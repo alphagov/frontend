@@ -242,7 +242,6 @@ tk:
         other:
     consultation:
       analysing_feedback:
-      and: we
       another_website_html: Bu maslahat %{closed} <a href="%{url}">başga websahypa</a> internet sahypasynda görkezilýär
       closes: Ol ýapylýar
       closes_at: Bu maslahat ýapylýar

@@ -253,7 +253,6 @@ sr:
         other:
     consultation:
       analysing_feedback:
-      and: i
       another_website_html: Ove konsultacije %{closed} se održavaju na <a href="%{url}">drugom veb-sajtu</a>
       closes: Zatvara se u
       closes_at: Ove konsultacije se zatvaraju u

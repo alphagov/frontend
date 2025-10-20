@@ -242,7 +242,6 @@ et:
         other:
     consultation:
       analysing_feedback:
-      and: ja
       another_website_html: See konsultatsioon %{closed} toimus <a href="%{url}">teisel veebisaidil</a>
       closes: See lõpeb kl
       closes_at: See konsultatsioon lõpeb kell

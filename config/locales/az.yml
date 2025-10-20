@@ -242,7 +242,6 @@ az:
         other:
     consultation:
       analysing_feedback:
-      and: və
       another_website_html: Bu məsləhətləşmə %{closed} başqa <a href="%{url}">vebsaytda həyata keçirilir</a>
       closes: O, saat ...də (da) bağlanır
       closes_at: Məsləhətləşmə saat ...də (da) bağlanır

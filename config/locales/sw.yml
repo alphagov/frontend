@@ -242,7 +242,6 @@ sw:
         other:
     consultation:
       analysing_feedback:
-      and: na
       another_website_html: Mashauriano haya %{closed} yalifanywa kwenye <a href="%{url}">tovuti nyingine</a>
       closes: Yatafungwa saa
       closes_at: Mashauriano haya yatafungwa saa

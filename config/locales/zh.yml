@@ -231,7 +231,6 @@ zh:
         other:
     consultation:
       analysing_feedback:
-      and: 和
       another_website_html: 本咨询 %{closed} 位于 <a href="%{url}">另一个网站</a>
       closes: 它的结束时间
       closes_at: 本咨询的结束时间

@@ -253,7 +253,6 @@ ro:
         other:
     consultation:
       analysing_feedback:
-      and: și
       another_website_html: Această consultație %{closed} s-a ținut pe <a href="%{url}">un alt website</a>
       closes: Se închide la
       closes_at: Această consultație se închide la

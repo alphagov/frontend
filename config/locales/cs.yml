@@ -253,7 +253,6 @@ cs:
         other:
     consultation:
       analysing_feedback:
-      and: a
       another_website_html: Tato konzultace %{closed} se konala na <a href="%{url}">jiné webové stránce</a>
       closes: Uzavírá se v
       closes_at: Tato konzultace končí v

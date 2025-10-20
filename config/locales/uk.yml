@@ -264,7 +264,6 @@ uk:
         other:
     consultation:
       analysing_feedback:
-      and: та
       another_website_html: Ця консультація %{closed} проведена на <a href="%{url}">іншому вебсайті</a>
       closes: Вона завершиться о
       closes_at: Ця консультація завершиться о

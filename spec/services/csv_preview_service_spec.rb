@@ -72,6 +72,21 @@ RSpec.describe CsvPreviewService do
         ]
       end
 
+      context "with CSV containing a totally empty header row" do
+        let(:csv) { ",,,,,,,,,\ncontent 1,content 2,content 3,,,,,,,\n" }
+        let(:parsed_csv) do
+          [
+            [
+              { text: "content 1" }, { text: "content 2" }, { text: "content 3" }, { text: nil }, { text: nil }, { text: nil }, { text: nil }, { text: nil }, { text: nil }, { text: nil }
+            ],
+          ]
+        end
+
+        it "uses the default column count cap of 50" do
+          expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
+        end
+      end
+
       it "parses the CSV correctly allowing for missing headers" do
         expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
       end

@@ -191,7 +191,6 @@ ky:
         one: Бизнести каржылоону колдоочу схема
         other: Бизнести каржылоону колдоочу схемалар
     call_for_evidence:
-      and: жана
       another_website_html: Бул далилдерди талап кылуу %{closed} <a href="%{url}">башка вебсайтта</a> суралган
       closed: Бул далилдерди талап кылуу жабылган
       closed_another_website_html:

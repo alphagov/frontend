@@ -193,7 +193,6 @@ en:
         one: Business finance support scheme
         other: Business finance support schemes
     call_for_evidence:
-      and: and
       another_website_html: This call for evidence %{closed} held on <a href="%{url}">another website</a>
       closed: This call for evidence has closed
       closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>

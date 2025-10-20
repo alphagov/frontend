@@ -191,7 +191,6 @@ ti:
         one: ናይ ቢዝነስ ፋይናንስ ደገፍ መደብ
         other: ናይ ቢዝነስ ፋይናንስ ደገፍ መደባት
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:

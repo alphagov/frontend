@@ -107,6 +107,7 @@ pl:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Odwiedź:'
+    was: był
   components:
     share_links:
       share_this_page: Udostępnij tę stronę

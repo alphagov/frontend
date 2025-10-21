@@ -107,6 +107,7 @@ sl:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Obiščite:'
+    was: je bilo
   components:
     share_links:
       share_this_page: Deli to stran

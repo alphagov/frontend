@@ -107,6 +107,7 @@ is:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Heimsæktu:'
+    was: var
   components:
     share_links:
       share_this_page: Deila þessari síðu

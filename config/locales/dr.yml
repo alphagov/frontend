@@ -107,6 +107,7 @@ dr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'بازدید:'
+    was: بود
   components:
     share_links:
       share_this_page: این صفحه را به اشتراک بگذارید

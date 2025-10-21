@@ -107,6 +107,7 @@ et:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Külastus:'
+    was: oli
   components:
     share_links:
       share_this_page: Jaga seda lehte

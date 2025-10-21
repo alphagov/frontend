@@ -107,6 +107,7 @@ cs:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Navštivte:'
+    was: byl
   components:
     share_links:
       share_this_page: Sdílet tuto stránku

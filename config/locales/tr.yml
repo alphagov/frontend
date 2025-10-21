@@ -107,6 +107,7 @@ tr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Ziyaret et:'
+    was: idi
   components:
     share_links:
       share_this_page: Bu sayfayı paylaş

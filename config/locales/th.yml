@@ -107,6 +107,7 @@ th:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'เยี่ยมชม:'
+    was: เคย
   components:
     share_links:
       share_this_page: แชร์หน้านี้

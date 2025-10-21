@@ -107,6 +107,7 @@ pt:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Visite:'
+    was: foi
   components:
     share_links:
       share_this_page: Partilhar esta página

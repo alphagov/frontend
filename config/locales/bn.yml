@@ -107,6 +107,7 @@ bn:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'ভিজিট করুন:'
+    was: ছিল
   components:
     share_links:
       share_this_page: এই পেজটি শেয়ার করুন

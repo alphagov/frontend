@@ -107,6 +107,7 @@ sv:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Besök:'
+    was: var
   components:
     share_links:
       share_this_page: Dela den här sidan

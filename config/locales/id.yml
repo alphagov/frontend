@@ -107,6 +107,7 @@ id:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Kunjungan:'
+    was: "."
   components:
     share_links:
       share_this_page: Bagikan halaman ini

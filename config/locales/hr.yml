@@ -107,6 +107,7 @@ hr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Posjetite:'
+    was: bio
   components:
     share_links:
       share_this_page: Podijelite ovu stranicu

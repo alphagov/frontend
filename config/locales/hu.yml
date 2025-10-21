@@ -107,6 +107,7 @@ hu:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Látogassa meg:'
+    was: volt
   components:
     share_links:
       share_this_page: Oldal megosztása

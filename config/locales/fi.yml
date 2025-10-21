@@ -107,6 +107,7 @@ fi:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Vierailla:'
+    was: oli
   components:
     share_links:
       share_this_page: Jaa tämä sivu

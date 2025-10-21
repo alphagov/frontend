@@ -35,7 +35,9 @@ class FindLocalCouncilController < ContentItemsController
   def result
     @local_authority = LocalAuthority.from_slug(params[:authority_slug])
 
-    if @local_authority.parent.blank?
+    if @local_authority.tier == "county"
+      redirect_to "/find-local-council"
+    elsif @local_authority.parent.blank?
       render :one_council
     else
       @county = @local_authority.parent

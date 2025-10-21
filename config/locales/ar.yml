@@ -309,7 +309,6 @@ ar:
         zero:
       not_open_yet: هذه الاستشارة لم تُفتح بعد
       opens: تفتح هذه الاستشارة
-      or:
       original_consultation: الاستشارة الأصلية
       ran_from: أجريت هذه الاستشارة من
       respond_online: الرد عبر الإنترنت

@@ -261,7 +261,6 @@ sv:
         other: Samråd
       not_open_yet: Detta samråd är inte öppet ännu
       opens: Detta samråd öppnas
-      or:
       original_consultation: Ursprungligt samråd
       ran_from: Detta samråd pågick från och med
       respond_online: Svara online

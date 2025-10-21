@@ -261,7 +261,6 @@ fi:
         other: Konsultaatiot
       not_open_yet: Tämä kuuleminen ei ole vielä auki
       opens: Tämä kuuleminen avautuu
-      or:
       original_consultation: Alkuperäinen kuuleminen
       ran_from: Tämä kuuleminen kesti
       respond_online: Vastaa verkossa

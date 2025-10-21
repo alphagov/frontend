@@ -311,7 +311,6 @@ cy:
         zero:
       not_open_yet: Nid yw'r ymgynghoriad hwn wedi agor eto
       opens: Mae'r ymgynghoriad hwn yn agor
-      or:
       original_consultation: Ymgynghoriad gwreiddiol
       ran_from: Roedd yr ymgynghoriad hwn yn rhedeg o
       respond_online: Ymateb ar-lein

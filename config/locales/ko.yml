@@ -249,7 +249,6 @@ ko:
         other: 상담
       not_open_yet: 이 상담이 아직 공개되지 않았습니다
       opens: 이 상담이 공개되었습니다
-      or:
       original_consultation: 기존 상담
       ran_from: 상담 실행 장소
       respond_online: 온라인으로 응답하기

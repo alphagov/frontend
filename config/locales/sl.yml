@@ -285,7 +285,6 @@ sl:
         two:
       not_open_yet: To posvetovanje še ni začeto
       opens: Posvetovanje se začne
-      or:
       original_consultation: Izvirno posvetovanje
       ran_from: To posvetovanje je trajalo od
       respond_online: Odgovori na spletu

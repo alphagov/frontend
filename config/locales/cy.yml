@@ -243,7 +243,6 @@ cy:
       respond_online: Ymateb ar-lein
       response_form: ffurflen ymateb
       summary: Crynodeb
-      was: roedd
       ways_to_respond: Ffyrdd o ymateb
       write_to: 'Ysgrifennu at:'
     call_for_evidence_outcome:

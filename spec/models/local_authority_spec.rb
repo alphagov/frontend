@@ -1,5 +1,5 @@
 RSpec.describe LocalAuthority do
-  include GdsApi::TestHelpers::LocalLinksManager
+  include LocationHelpers
 
   subject(:local_authority) { described_class.new(local_authority_hash, parent:) }
 
@@ -99,26 +99,5 @@ RSpec.describe LocalAuthority do
         expect(described_class.from_slug("shropshire").name).to eq("Shropshire")
       end
     end
-  end
-
-private
-
-  def stub_local_links_manager_has_a_county(authority_slug)
-    response = {
-      "local_authorities" => [
-        {
-          "name" => authority_slug.capitalize,
-          "homepage_url" => "",
-          "country_name" => "England",
-          "tier" => "county",
-          "slug" => authority_slug,
-          "gss" => "E0000001",
-        },
-      ],
-    }
-
-    stub_request(:get, "#{GdsApi::TestHelpers::LocalLinksManager::LOCAL_LINKS_MANAGER_ENDPOINT}/api/local-authority")
-      .with(query: { authority_slug: })
-      .to_return(body: response.to_json, status: 200)
   end
 end

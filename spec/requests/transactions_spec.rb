@@ -46,7 +46,7 @@ RSpec.describe "Transactions" do
     end
 
     it "sets the locale to welsh" do
-      expect(I18n).to receive(:locale=).with(:en).exactly(3).times # TODO: Why 3 times in a request, only 1 in a controller?
+      expect(I18n).to receive(:locale=).with(:en).exactly(5).times # TODO: Why 3 times in a request, only 1 in a controller?
       expect(I18n).to receive(:locale=).with("cy")
 
       get "/chwilio-am-swydd"

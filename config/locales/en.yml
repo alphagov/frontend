@@ -213,7 +213,6 @@ en:
       not_open_yet: This call for evidence isn't open yet
       open_another_website_html: This call for evidence is being held on <a href="%{url}">another website</a>
       opens: This call for evidence opens
-      or: or
       original_call_for_evidence: Original call for evidence
       ran_from: This call for evidence ran from
       respond_online: Respond online

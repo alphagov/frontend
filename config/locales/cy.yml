@@ -237,7 +237,6 @@ cy:
       not_open_yet: Nid yw'r alwad am dystiolaeth hon ar agor eto
       open_another_website_html: Cedwir yr alwad hon am dystiolaeth ar <a href="%{url}">wefan arall</a>
       opens: Mae'r alwad am dystiolaeth yn agor
-      or:
       original_call_for_evidence: Yr alwad wreiddiol am dystiolaeth
       ran_from: Roedd yr alwad hon am dystiolaeth yn rhedeg o
       respond_online: Ymateb ar-lein

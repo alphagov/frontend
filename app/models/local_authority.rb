@@ -36,9 +36,9 @@ class LocalAuthority
   end
 
   private_class_method def self.make_from_api_response(response)
-    if response["local_authorities"].count == 2
-      parent = LocalAuthority.new(response["local_authorities"].reject { |la| la["tier"] == "district" }.first)
-    end
-    LocalAuthority.new(response["local_authorities"].reject { |la| la["tier"] == "county" }.first, parent:)
+    return LocalAuthority.new(response["local_authorities"].first) if response["local_authorities"].count == 1
+
+    parent = LocalAuthority.new(response["local_authorities"].reject { |la| la["tier"] == "district" }.first)
+    LocalAuthority.new(response["local_authorities"].select { |la| la["tier"] == "district" }.first, parent:)
   end
 end

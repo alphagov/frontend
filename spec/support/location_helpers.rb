@@ -20,4 +20,23 @@ module LocationHelpers
       stub_local_links_manager_has_a_local_authority(authority, local_custodian_code:, snac:, gss:)
     end
   end
+
+  def stub_local_links_manager_has_a_county(authority_slug)
+    response = {
+      "local_authorities" => [
+        {
+          "name" => authority_slug.capitalize,
+          "homepage_url" => "",
+          "country_name" => "England",
+          "tier" => "county",
+          "slug" => authority_slug,
+          "gss" => "E0000001",
+        },
+      ],
+    }
+
+    stub_request(:get, "#{GdsApi::TestHelpers::LocalLinksManager::LOCAL_LINKS_MANAGER_ENDPOINT}/api/local-authority")
+      .with(query: { authority_slug: })
+      .to_return(body: response.to_json, status: 200)
+  end
 end

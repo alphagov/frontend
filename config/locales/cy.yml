@@ -220,7 +220,6 @@ cy:
       closed_another_website_html:
       closes_at: Mae'r alwad hon am dystiolaeth yn cau am
       description: Disgrifiad yr alwad o dystiolaeth
-      either: naill ai
       email_to: 'E-bostio at:'
       name:
         few:

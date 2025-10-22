@@ -200,7 +200,6 @@ en:
       closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>
       closes_at: This call for evidence closes at
       description: Call for evidence description
-      either: either
       email_to: 'Email to:'
       name:
         one: Call for evidence

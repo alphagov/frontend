@@ -214,7 +214,6 @@ gd:
       download_outcome:
       either:
       email_to:
-      is_being:
       name:
         few:
         one:

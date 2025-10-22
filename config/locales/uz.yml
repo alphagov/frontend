@@ -204,7 +204,6 @@ uz:
       download_outcome:
       either:
       email_to:
-      is_being:
       name:
         one:
         other:

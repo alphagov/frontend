@@ -199,7 +199,6 @@ id:
       download_outcome:
       either:
       email_to:
-      is_being:
       name:
         other:
       not_open_yet:

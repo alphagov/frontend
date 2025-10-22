@@ -200,7 +200,6 @@ zh-tw:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ zh-tw:
       original_consultation: 最初諮詢
       ran_from: 此諮詢從
       respond_online: 線上回覆
+      response_form:
       summary:
       visit_soon: 稍後再次到訪此頁面，將下載結果到此公共機構&nbsp；反饋。
       ways_to_respond: 回覆方式

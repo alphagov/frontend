@@ -206,7 +206,6 @@ ur:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ ur:
       original_consultation: اصل مشاورت
       ran_from: اس مشاورت میں درج ذیل ختم ہو گیا
       respond_online: آن لائن جواب دیں
+      response_form:
       summary:
       visit_soon: اس عوامی فیڈ بیک کا نتیجہ ڈاؤن لوڈ کرنے کے لیے اس صفحے کا دوبارہ جلد دورہ کریں۔
       ways_to_respond: جواب دینے کے طریقے

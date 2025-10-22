@@ -218,7 +218,6 @@ mt:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -275,6 +274,7 @@ mt:
       original_consultation: Konsultazzjoni oriġinali
       ran_from: Din il-konsultazzjoni bdiet minn
       respond_online: Irrispondi onlajn
+      response_form:
       summary:
       visit_soon: Żur din il-paġna darb'oħra biex tniżżel ir-riżultat għall-feedback pubbliku.
       ways_to_respond: Metodi kif twieġeb

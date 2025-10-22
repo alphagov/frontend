@@ -206,7 +206,6 @@ ka:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ ka:
       original_consultation: ორიგინალი კონსულტაცია
       ran_from: ეს კონსულტაცია ამოიწურა
       respond_online: ონლაინ პასუხი
+      response_form:
       summary:
       visit_soon: ეწვიეთ გვერდს ისევ მალე, რათა გადმოწეროთ შედეგი ამ public ფიდბექისთვის.
       ways_to_respond: პასუხის გზები

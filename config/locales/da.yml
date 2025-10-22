@@ -206,7 +206,6 @@ da:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ da:
       original_consultation: original konsultation
       ran_from: Denne konsultation løb fra
       respond_online: Svar online
+      response_form:
       summary:
       visit_soon: Besøg denne side igen snart for at downloade resultatet til denne offentlige feedback.
       ways_to_respond: Måder at reagere på

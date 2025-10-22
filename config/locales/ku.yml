@@ -206,7 +206,6 @@ ku:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ ku:
       original_consultation: ڕاوێژکاری ئەسڵی
       ran_from: ئەم ڕاوێژکارییە بەڕێوە دەچێت لە
       respond_online: بە شێوەی ئۆنلاین وەڵام بدەرەوە
+      response_form:
       summary: پوختە
       visit_soon: بەم زووانە سەردانی ئەم پەیجە بکەرەوە بۆ دابەزاندنی دەرئەنجامەکە بۆ ئەم فیدباکە گشتییە.
       ways_to_respond: 'ڕیگاکانی وەڵامدانەوە  '

@@ -206,7 +206,6 @@ hu:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ hu:
       original_consultation: Eredeti konzultáció
       ran_from: 'A konzultáció kezdőidőpontja:'
       respond_online: Válasz online
+      response_form:
       summary:
       visit_soon: Látogassa meg újra az oldalt a közeljövőben a jelen nyilvános visszajelzés kimenetelének megtekintése érdekében.
       ways_to_respond: Válaszadási lehetőségek

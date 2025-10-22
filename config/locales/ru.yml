@@ -218,7 +218,6 @@ ru:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -275,6 +274,7 @@ ru:
       original_consultation: Оригинальная консультация
       ran_from: Обычная консультация
       respond_online: Он-лайн ответ
+      response_form:
       summary:
       visit_soon: Посетите эту страницу снова, чтобы скачать результат данного общественного отзыв.
       ways_to_respond: Как получить ответ

@@ -218,7 +218,6 @@ sl:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -275,6 +274,7 @@ sl:
       original_consultation: Izvirno posvetovanje
       ran_from: To posvetovanje je trajalo od
       respond_online: Odgovori na spletu
+      response_form:
       summary:
       visit_soon: Kmalu znova obiščite to stran in naložite rezultat v te javne& nbsp;povratne informacije.
       ways_to_respond: Načini odziva

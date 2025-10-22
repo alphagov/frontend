@@ -200,7 +200,6 @@ th:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ th:
       original_consultation: การให้คำปรึกษาดั้งเดิม
       ran_from: การให้คำปรึกษานี้เริ่มจาก
       respond_online: ตอบกลับทางออนไลน์
+      response_form:
       summary:
       visit_soon: เยี่ยมชมหน้านี้อีกครั้งในเร็วๆ นี้เพื่อดาวน์โหลดผลลัพธ์สำหรับข้อคิดเห็นสาธารณะนี้
       ways_to_respond: วิธีการตอบกลับ

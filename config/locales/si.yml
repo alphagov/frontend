@@ -206,7 +206,6 @@ si:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ si:
       original_consultation: මුල් උපදේශනය
       ran_from: මෙම උපදේශනය ක්‍රියාත්මක වුනේ
       respond_online: මාර්ගගතව ප්රතිචාර දක්වන්න
+      response_form:
       summary:
       visit_soon: මෙම මහජන ප්රතිපෝෂණය සඳහා වූ ප්රතිඵල බාගත කිරීම සඳහා ළඟදීම නැවත මෙම පිටුවට පිවිසෙන්න.
       ways_to_respond: ප්රතිචාර දැක්විමේ ක්‍රම

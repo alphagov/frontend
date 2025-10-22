@@ -200,7 +200,6 @@ ja:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ ja:
       original_consultation: 当初の審議
       ran_from: この審議が始まった時間：
       respond_online: オンラインで返信する
+      response_form:
       summary:
       visit_soon: この一般向けフィードバックの結果をダウンロードするには、すぐにこのページにアクセスしてください。
       ways_to_respond: 対応方法

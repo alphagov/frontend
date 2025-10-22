@@ -208,7 +208,6 @@ en:
       opens: This call for evidence opens
       original_call_for_evidence: Original call for evidence
       ran_from: This call for evidence ran from
-      response_form: response form
     call_for_evidence_outcome:
       name:
         one: Call for evidence outcome
@@ -253,6 +252,7 @@ en:
       original_consultation: Original consultation
       ran_from: This consultation ran from
       respond_online: Respond online
+      response_form: response form
       summary: Summary
       visit_soon: Visit this page again soon to download the outcome to this public feedback.
       ways_to_respond: Ways to respond

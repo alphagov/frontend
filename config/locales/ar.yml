@@ -230,7 +230,6 @@ ar:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -299,6 +298,7 @@ ar:
       original_consultation: الاستشارة الأصلية
       ran_from: أجريت هذه الاستشارة من
       respond_online: الرد عبر الإنترنت
+      response_form:
       summary:
       visit_soon: قم بزيارة هذه الصفحة مرة أخرى قريبًا لتنزيل النتيجة لهذه التعليقات العامة.
       ways_to_respond: طرق الرد

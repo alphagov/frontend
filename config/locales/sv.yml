@@ -206,7 +206,6 @@ sv:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ sv:
       original_consultation: Ursprungligt samråd
       ran_from: Detta samråd pågick från och med
       respond_online: Svara online
+      response_form:
       summary:
       visit_soon: Besök den här sidan snart igen för att ladda ner resultatet av denna offentliga återkoppling.
       ways_to_respond: Sätt att svara

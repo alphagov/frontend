@@ -218,7 +218,6 @@ uk:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -275,6 +274,7 @@ uk:
       original_consultation: Первісна консультація
       ran_from: Ця консультація розпочалася з
       respond_online: Відповідати онлайн
+      response_form:
       summary:
       visit_soon: Відвідайте цю сторінку незабаром, щоб завантажити результат до цього загальнодоступного public відгуку.
       ways_to_respond: Способи реагування

@@ -212,7 +212,6 @@ lt:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,6 +262,7 @@ lt:
       original_consultation: Pirminė konsultacija
       ran_from: Ši konsultacija tęsėsi nuo
       respond_online: Atsakyti internetu
+      response_form:
       summary:
       visit_soon: Netrukus vėl apsilankykite šiame puslapyje ir atsisiųskite šio viešo atsiliepimo rezultatą.
       ways_to_respond: Kaip pateikti atsakymą

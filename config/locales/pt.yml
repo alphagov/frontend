@@ -206,7 +206,6 @@ pt:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ pt:
       original_consultation: Consulta original
       ran_from: Esta consulta decorreu de
       respond_online: Responder online
+      response_form:
       summary:
       visit_soon: Visite esta página novamente em breve para transferir o resultado para este feedback público.
       ways_to_respond: Formas de resposta

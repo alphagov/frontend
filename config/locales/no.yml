@@ -206,7 +206,6 @@
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@
       original_consultation: Opprinnelig konsultasjon
       ran_from: Denne konsultasjonen varte fra
       respond_online: Svar online
+      response_form:
       summary:
       visit_soon: Besøk denne siden igjen snart for å laste ned resultatet til denne public feedback.
       ways_to_respond: Måter å svare på

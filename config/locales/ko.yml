@@ -200,7 +200,6 @@ ko:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ ko:
       original_consultation: 기존 상담
       ran_from: 상담 실행 장소
       respond_online: 온라인으로 응답하기
+      response_form:
       summary:
       visit_soon: 이 페이지에 다시 방문하여 이 공공 피드백의 결과를 다운로드하십시오.
       ways_to_respond: 응답 방법

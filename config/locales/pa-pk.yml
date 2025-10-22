@@ -206,7 +206,6 @@ pa-pk:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ pa-pk:
       original_consultation: اصلی مشاورت
       ran_from: ایہ مشاورت داچلایا ہویا فارم اے
       respond_online: آن لائن جاب دیوؤ
+      response_form:
       summary:
       visit_soon: ایس ورقے تے چھیتی واپس آؤ عوام ولوں دتے گئے جواب نوں ڈاؤن لوڈ کرو جواب۔
       ways_to_respond: جواب دین دے طریقے

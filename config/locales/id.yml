@@ -200,7 +200,6 @@ id:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ id:
       original_consultation: Konsultasi asli
       ran_from: Konsultasi ini berlangsung dari
       respond_online: Respons online
+      response_form:
       summary:
       visit_soon: Segera kunjungi lagi halaman ini untuk mengunduh hasil dari umpan balik publik ini.
       ways_to_respond: Cara merespons

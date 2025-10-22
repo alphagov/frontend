@@ -206,7 +206,6 @@ kk:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ kk:
       original_consultation: Бастапқы кеңес
       ran_from: Бұл кеңес мына жерден басталады
       respond_online: Онлайн жауап беру
+      response_form:
       summary:
       visit_soon: Нәтижені осы қоғамдық пікірге жүктеу үшін жақында осы бетке қайта кіріңіз.
       ways_to_respond: Жауап беру жолдары

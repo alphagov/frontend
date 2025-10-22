@@ -232,7 +232,6 @@ cy:
       opens: Mae'r alwad am dystiolaeth yn agor
       original_call_for_evidence: Yr alwad wreiddiol am dystiolaeth
       ran_from: Roedd yr alwad hon am dystiolaeth yn rhedeg o
-      response_form: ffurflen ymateb
     call_for_evidence_outcome:
       name:
         few:
@@ -301,6 +300,7 @@ cy:
       original_consultation: Ymgynghoriad gwreiddiol
       ran_from: Roedd yr ymgynghoriad hwn yn rhedeg o
       respond_online: Ymateb ar-lein
+      response_form: ffurflen ymateb
       summary: Crynodeb
       visit_soon: Dewch yn ôl at y wefan hon yn fuan i lwytho'r canlyniad i lawr ar gyfer yr adborth cyhoeddus hwn.
       ways_to_respond: Ffyrdd o ymateb

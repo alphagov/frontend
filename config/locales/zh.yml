@@ -200,7 +200,6 @@ zh:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ zh:
       original_consultation: 最初咨询
       ran_from: 本咨询的时间
       respond_online: 在线回复
+      response_form:
       summary:
       visit_soon: 请尽快再次访问此页面，将结果下载给公众 反馈。
       ways_to_respond: 回复方法

@@ -200,7 +200,6 @@ ms:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         other:
@@ -239,6 +238,7 @@ ms:
       original_consultation: Perundingan asal
       ran_from: Perundingan ini berjalan dari
       respond_online: Jawab dalam talian
+      response_form:
       summary:
       visit_soon: Lawati laman ini semula untuk muat turun hasil maklum balas awam ini.
       ways_to_respond: Cara untuk menjawab

@@ -212,7 +212,6 @@ ro:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,6 +262,7 @@ ro:
       original_consultation: Consultație originală
       ran_from: Această consultație a început la
       respond_online: Răspundeți online
+      response_form:
       summary:
       visit_soon: Accesați din această pagină în curând pentru a descărca rezultatul acestui feedback public.
       ways_to_respond: Modalități de a răspunde

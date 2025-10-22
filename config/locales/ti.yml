@@ -206,7 +206,6 @@ ti:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ ti:
       original_consultation: ኦርጅናል ምምኽኻር
       ran_from: እዚ ምምኽኻር ዝካየደሉ ካብ
       respond_online: ብኦንላይን መልሲ ሃብ
+      response_form:
       summary: መጠቃለሊ
       visit_soon: እቲ ውጽኢት ናብዚ ህዝባዊ ርእይቶ ንምውራድ ኣብ ቀረባ እዋን ደጊምኩም ኣብዚ ገጽ ተወከሱ።
       ways_to_respond: መልሲ ዝወሃብሉ መንገድታት

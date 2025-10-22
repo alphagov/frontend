@@ -206,7 +206,6 @@ bn:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ bn:
       original_consultation: মূল পরামর্শ
       ran_from: এই পরামর্শটি যেখান থেকে চলেছে
       respond_online: অনলাইনে উত্তর দিন
+      response_form:
       summary:
       visit_soon: সর্বসাধারণের ফিডব্যাকের এই ফলাফল ডাউনলোড করতে শীঘ্রই পুনরায় এই পেজটি ভিজিট করুন।
       ways_to_respond: উত্তর দেওয়ার উপায়

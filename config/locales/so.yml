@@ -206,7 +206,6 @@ so:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ so:
       original_consultation: Latalinta asalka ah
       ran_from: Latalinta waxay ka timid
       respond_online: Jawaab onlaayn ah
+      response_form:
       summary:
       visit_soon: Markale booqo boga si aad udejisato maxsuulka dejisan ee dadwaynaha & nbsp;falcelinta.
       ways_to_respond: Hababka loo jawaabo

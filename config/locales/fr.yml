@@ -206,7 +206,6 @@ fr:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ fr:
       original_consultation: Consultation originale
       ran_from: Cette consultation s'est tenue du
       respond_online: Répondre en ligne
+      response_form:
       summary:
       visit_soon: Consultez à nouveau cette page prochainement pour télécharger le résultat de ce feedback public.
       ways_to_respond: Moyens de répondre

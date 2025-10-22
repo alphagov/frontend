@@ -206,7 +206,6 @@ sw:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ sw:
       original_consultation: Mashauriano halisi
       ran_from: Mashauriano haya yalifanywa kuanzia
       respond_online: Jibu mtandaoni
+      response_form:
       summary:
       visit_soon: Tembelea ukurasa huu tena hivi karibuni ili upakue matokeo ya maoni haya ya umma.
       ways_to_respond: Njia za kujibu

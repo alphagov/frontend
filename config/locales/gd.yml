@@ -218,7 +218,6 @@ gd:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -275,6 +274,7 @@ gd:
       original_consultation: Comhairliúchán bunaidh
       ran_from: Rinneadh an comhairliúchán seo ó
       respond_online: Tabhair freagra ar líne
+      response_form:
       summary:
       visit_soon: Tar ar ais go luath chun cuairt a thabhairt orainn ar an leathanach seo chun tuarascáil an chomhairliúcháin phoiblí seo a íoslódáil.
       ways_to_respond: Bealaí chun freagra a thabhairt

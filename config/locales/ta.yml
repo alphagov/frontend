@@ -206,7 +206,6 @@ ta:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ ta:
       original_consultation: மூலக் கலந்தாலோசனை
       ran_from: "-லிருந்து இந்தக் கலந்தாலோசனை நடந்தது"
       respond_online: இணையத்தில் பதிலளிக்கவும்
+      response_form:
       summary:
       visit_soon: இந்த பொதுமக்கள் மதிப்புரையின் விளைவை பதிவிறக்குவதற்கு இந்தப் பக்கத்துக்குத் திரும்பவும் வருகை தருக.
       ways_to_respond: பதிலளிக்கும் வழிகள்

@@ -206,7 +206,6 @@ fa:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ fa:
       original_consultation: مشاوره اصلی
       ran_from: این مشاوره در حال اجرا است از
       respond_online: آنلاین پاسخ دهید
+      response_form:
       summary:
       visit_soon: برای دانلود نتیجه این بازخورد عمومی، خیلی زود دوباره از این صفحه بازدید کنید.
       ways_to_respond: راه‌های پاسخ

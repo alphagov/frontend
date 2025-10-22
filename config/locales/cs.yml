@@ -212,7 +212,6 @@ cs:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,6 +262,7 @@ cs:
       original_consultation: Původní konzultace
       ran_from: Tato konzultace probíhala od
       respond_online: Reagovat online
+      response_form:
       summary:
       visit_soon: Brzy tuto stránku znovu navštivte a stáhněte si výsledek této veřejné zpětné vazby.
       ways_to_respond: Způsoby reakce

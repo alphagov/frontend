@@ -206,7 +206,6 @@ dr:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ dr:
       original_consultation: مشاورهء اصلی
       ran_from: این مشاوره اجرا میشود از
       respond_online: بصورت آنلاین پاسخ دهید
+      response_form:
       summary:
       visit_soon: به زودی بار دیگر از این صفحه دیدن نمایید تا نتیجه را از این  فیدبک عمومی دانلود نمایید
       ways_to_respond: طریقه هایی پاسخ دهی

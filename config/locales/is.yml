@@ -206,7 +206,6 @@ is:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ is:
       original_consultation: Upprunaleg ráðgjöf
       ran_from: Þessi ráðgjöf stóð yfir frá
       respond_online: Svara á netinu
+      response_form:
       summary:
       visit_soon: Heimsæktu þessa síðu bráðlega aftur til að sækja útkomuna úr þessari opinberu endurgjöf.
       ways_to_respond: Leiðir til að svara

@@ -206,7 +206,6 @@ az:
       opens:
       original_call_for_evidence:
       ran_from:
-      response_form:
     call_for_evidence_outcome:
       name:
         one:
@@ -251,6 +250,7 @@ az:
       original_consultation: İlkin məsləhətləşmə
       ran_from: Bu məsləhətləşmə başlayır
       respond_online: Onlayn cavab verin
+      response_form:
       summary:
       visit_soon: Bu ictimai rəyin nəticəsini endirmək üçün bu səhifəyə tezliklə yenidən baş çəkin.
       ways_to_respond: Cavab vermək üçün yollar

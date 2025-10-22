@@ -196,7 +196,6 @@ ky:
       another_website_html: Бул далилдерди талап кылуу %{closed} <a href="%{url}">башка вебсайтта</a> суралган
       closed: Бул далилдерди талап кылуу жабылган
       closed_another_website_html:
-      closes: Ал жабылат
       closes_at: Бул далилдерди талап кылуу жабылат
       complete_a: Толтуруу
       description: Далилдерди талап кылуу сүрөттөмөсү

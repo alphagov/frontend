@@ -27,12 +27,15 @@ module ManualParts
       ]
     end
 
-    def manual_content_item
-      @manual_content_item ||= Services.content_store.content_item(base_path)
+    def manual_base_path
+      content_store_response["details"]["manual"]["base_path"]
     end
 
-    def parsed_content_item
-      manual_content_item.parsed_content
+    def manual
+      @manual ||= do
+        response = ContentItemLoaders::ContentStoreLoader.new.load(manual_base_path)
+        ContentItemFactory.build(response)
+      end
     end
   end
 

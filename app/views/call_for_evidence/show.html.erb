@@ -72,7 +72,7 @@
     <% end %>
 
     <%= render "shared/attachments_list",
-      title: t("formats.call_for_evidence.documents"),
+      title: t("formats.consultation.documents"),
       attachments_for_components: content_item.featured_attachments %>
 
     <%= render partial: "shared/phased/ways_to_respond" if content_item.ways_to_respond? %>

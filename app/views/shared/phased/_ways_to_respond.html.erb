@@ -9,7 +9,7 @@
 } do %>
   <% if content_item.respond_online_url %>
     <div class="call-to-action">
-      <p><%= link_to t("formats.#{content_item.schema_name}.respond_online"), content_item.respond_online_url %></p>
+      <p><%= link_to t("formats.consultation.respond_online"), content_item.respond_online_url %></p>
     </div>
 
     <% if content_item.email || content_item.postal_address %>

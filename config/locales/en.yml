@@ -199,7 +199,6 @@ en:
       closed: This call for evidence has closed
       closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>
       closes_at: This call for evidence closes at
-      complete_a: Complete a
       description: Call for evidence description
       either: either
       email_to: 'Email to:'

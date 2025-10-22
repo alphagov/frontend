@@ -32,7 +32,7 @@
   <% if content_item.held_on_another_website? %>
     <br><br>
     <strong>
-      <%= t("formats.#{content_item.schema_name}.another_website_html", closed: content_item.closed? ? t("common.was") : t("formats.#{content_item.schema_name}.is_being"), url: content_item.held_on_another_website_url) %>.
+      <%= t("formats.#{content_item.schema_name}.another_website_html", closed: content_item.closed? ? t("common.was") : t("formats.consultation.is_being"), url: content_item.held_on_another_website_url) %>.
     </strong>
   <% end %>
 <% end %>

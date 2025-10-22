@@ -210,7 +210,6 @@ be:
       complete_a:
       description:
       detail_of_outcome:
-      download_outcome:
       either:
       email_to:
       name:

@@ -210,7 +210,6 @@ en:
       ran_from: This call for evidence ran from
       response_form: response form
       ways_to_respond: Ways to respond
-      write_to: 'Write to:'
     call_for_evidence_outcome:
       name:
         one: Call for evidence outcome

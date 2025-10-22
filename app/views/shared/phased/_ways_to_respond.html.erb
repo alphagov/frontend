@@ -19,7 +19,7 @@
 
   <% if content_item.response_form? %>
     <p>
-      <%= t("formats.#{content_item.schema_name}.complete_a") %> <%= link_to "response form", content_item.attachment_url %> <%= t("common.and") %>
+      <%= t("formats.consultation.complete_a") %> <%= link_to "response form", content_item.attachment_url %> <%= t("common.and") %>
       <%= t("formats.#{content_item.schema_name}.either") if content_item.email && content_item.postal_address %>
     </p>
   <% end %>

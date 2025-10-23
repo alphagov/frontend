@@ -481,8 +481,8 @@ kk:
         other:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карталар
     medical_safety_alert:
       name:
         one:

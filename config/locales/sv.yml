@@ -481,8 +481,8 @@ sv:
         other:
     map:
       name:
-        one:
-        other:
+        one: Karta
+        other: Kartor
     medical_safety_alert:
       name:
         one:

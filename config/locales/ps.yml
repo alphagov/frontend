@@ -481,8 +481,8 @@ ps:
         other:
     map:
       name:
-        one:
-        other:
+        one: نقشه
+        other: نقشې
     medical_safety_alert:
       name:
         one:

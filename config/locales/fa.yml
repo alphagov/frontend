@@ -481,8 +481,8 @@ fa:
         other:
     map:
       name:
-        one:
-        other:
+        one: نقشه
+        other: نقشه‌ها
     medical_safety_alert:
       name:
         one:

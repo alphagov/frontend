@@ -481,8 +481,8 @@ lv:
         other:
     map:
       name:
-        one:
-        other:
+        one: Karte
+        other: Kartes
     medical_safety_alert:
       name:
         one:

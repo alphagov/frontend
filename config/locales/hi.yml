@@ -481,8 +481,8 @@ hi:
         other:
     map:
       name:
-        one:
-        other:
+        one: मानचित्र
+        other: मानचित्रों
     medical_safety_alert:
       name:
         one:

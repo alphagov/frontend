@@ -481,8 +481,8 @@ de:
         other:
     map:
       name:
-        one:
-        other:
+        one: Karte
+        other: Karten
     medical_safety_alert:
       name:
         one:

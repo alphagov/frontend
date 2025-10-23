@@ -481,8 +481,8 @@ bg:
         other:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карти
     medical_safety_alert:
       name:
         one:

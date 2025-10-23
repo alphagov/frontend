@@ -481,8 +481,8 @@ es-419:
         other:
     map:
       name:
-        one:
-        other:
+        one: Mapa
+        other: Mapas
     medical_safety_alert:
       name:
         one:

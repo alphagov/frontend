@@ -384,8 +384,8 @@ et:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Sõltumatu aruanne
+        other: Sõltumatud aruanded
     international_development_fund:
       name:
         one:

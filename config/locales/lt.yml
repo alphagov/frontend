@@ -419,8 +419,8 @@ lt:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nepriklausoma ataskaita
+        other: Nepriklausomos ataskaitos
     international_development_fund:
       name:
         few:

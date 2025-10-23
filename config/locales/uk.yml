@@ -454,8 +454,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Незалежний звіт
+        other: Незалежні звіти
     international_development_fund:
       name:
         few:

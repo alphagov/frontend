@@ -522,8 +522,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: تقرير مستقل
+        other: تقارير مستقلة
         two:
         zero:
     international_development_fund:

@@ -453,8 +453,8 @@ gd:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Tuarascáil neamhspleách
+        other: Tuarascálacha neamhspleácha
         two:
     international_development_fund:
       name:

@@ -453,8 +453,8 @@ sl:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: neodvisno poročilo
+        other: neodvisna poročila
         two:
     international_development_fund:
       name:

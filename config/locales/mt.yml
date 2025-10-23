@@ -454,8 +454,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Rapport indipendenti
+        other: Rapporti indipendenti
     international_development_fund:
       name:
         few:

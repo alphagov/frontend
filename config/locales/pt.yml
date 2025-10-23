@@ -376,8 +376,8 @@ pt:
         third_party: Quando tivermos identificado qualquer informação sobre direitos de autor de terceiros, será necessário obter permissão dos detentores dos direitos de autor em questão.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Avaliação de impacto
+        other: Avaliações de impacto
     imported:
       name:
         one:

@@ -376,8 +376,8 @@
         third_party: Der vi har identifisert opphavsrettsinformasjon fra tredjepart, må du få tillatelse fra berørte opphavsrettsinnehavere.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Konsekvensutredning
+        other: Konsekvensanalyser
     imported:
       name:
         one:

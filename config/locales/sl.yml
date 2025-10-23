@@ -441,8 +441,8 @@ sl:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Presoja vpliva
+        other: Presoje vpliva
         two:
     imported:
       name:

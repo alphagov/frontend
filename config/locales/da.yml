@@ -376,8 +376,8 @@ da:
         third_party: Hvis vi har identificeret ophavsretlige oplysninger fra tredjepart, skal du indhente tilladelse fra de pågældende ophavsretsindehavere.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Konsekvensanalyse
+        other: Konsekvensanalyser
     imported:
       name:
         one:

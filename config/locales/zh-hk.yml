@@ -344,7 +344,7 @@ zh-hk:
         third_party: 如我們發現任何第三方之版權資訊，您將需獲得有關版權人之許可。
     impact_assessment:
       name:
-        other:
+        other: 影響評估
     imported:
       name:
         other:

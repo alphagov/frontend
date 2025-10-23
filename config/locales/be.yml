@@ -442,8 +442,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Ацэнка ўплыву
+        other: Ацэнкі ўплыву
     imported:
       name:
         few:

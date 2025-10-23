@@ -376,8 +376,8 @@ it:
         third_party: Laddove abbiamo identificato informazioni sul copyright di terzi, sarà necessario ottenere l'autorizzazione dai titolari del copyright interessati.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Valutazione dell’impatto
+        other: Valutazioni dell’impatto
     imported:
       name:
         one:

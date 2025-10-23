@@ -409,8 +409,8 @@ cs:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Posouzení dopadu
+        other: Posouzení dopadů
     imported:
       name:
         few:

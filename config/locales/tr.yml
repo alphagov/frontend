@@ -376,8 +376,8 @@ tr:
         third_party: Üçüncü taraf telif hakkı bilgilerini tespit etmemiz halinde, ilgili telif hakkı sahiplerinden izin almanız gerekir.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Etki değerlendirmesi
+        other: Etki değerlendirmeleri
     imported:
       name:
         one:

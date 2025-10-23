@@ -344,7 +344,7 @@ zh:
         third_party: '如果我们发现任何第三者的版权资料，您需要获得有关版权持有人的许可。  '
     impact_assessment:
       name:
-        other:
+        other: 影响评估
     imported:
       name:
         other:

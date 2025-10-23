@@ -376,8 +376,8 @@ ur:
         third_party: جہاں ہم کسی فریق ثالث کی کاپی رائٹ معلومات کی شناخت کی ہو آپ کو متعلقہ کاپی رائٹ ہولڈرز سے اجازت لینے کی ضرورت ہو گی۔
     impact_assessment:
       name:
-        one:
-        other:
+        one: اثر کی جانچ
+        other: اثر کی جانچیں
     imported:
       name:
         one:

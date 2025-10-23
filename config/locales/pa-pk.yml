@@ -376,8 +376,8 @@ pa-pk:
         third_party: "جتھے اسی تیجے بندے دی کاپی رائٹ دی معلومات دی شناخت کراں گے تے تہانوں اُس  کاپی رائٹ دے مالک توں اجازت لینا \nہوؤئے گی۔"
     impact_assessment:
       name:
-        one:
-        other:
+        one: اثر دی جانچ
+        other: اثر دی جانچ
     imported:
       name:
         one:

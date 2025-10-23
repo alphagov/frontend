@@ -506,8 +506,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: تقييم الأثر
+        other: تقييمات الأثر
         two:
         zero:
     imported:

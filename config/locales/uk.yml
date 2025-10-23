@@ -442,8 +442,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Оцінка впливу
+        other: Оцінки впливу
     imported:
       name:
         few:

@@ -376,8 +376,8 @@ es-419:
         third_party: Cuando identifiquemos cualquier información de derechos de autor de terceros, deberá obtener el permiso de los titulares de los derechos de autor correspondientes.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Análisis de impacto
+        other: Evaluaciones de impacto
     imported:
       name:
         one:

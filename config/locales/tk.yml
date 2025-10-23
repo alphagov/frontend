@@ -376,8 +376,8 @@ tk:
         third_party: Haýsydyr bir üçünji tarapyň awtorlyk hukugy baradaky maglumatlary kesgitlän ýerimizde, degişli awtorlyk hukugynyň eýelerinden rugsat almaly bolarsyňyz.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Täsir bahalandyrmasy
+        other: Täsir bahalandyrmalary
     imported:
       name:
         one:

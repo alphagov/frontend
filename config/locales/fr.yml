@@ -376,8 +376,8 @@ fr:
         third_party: Dans le cas où nous avons identifié des informations relatives à des droits d'auteur de tiers, vous devrez obtenir l'autorisation des détenteurs de droits d'auteur concernés.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Évaluation de l'impact
+        other: Évaluations de l'impact
     imported:
       name:
         one:

@@ -376,8 +376,8 @@ lv:
         third_party: Gadījumos, kur esam identificējuši trešo personu autortiesību informāciju, jums ir nepieciešams saņemt atļauju no attiecīgajiem autortiesību īpašniekiem.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Ietekmes novērtējums
+        other: Ietekmes novērtējumi
     imported:
       name:
         one:

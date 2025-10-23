@@ -376,8 +376,8 @@ nl:
         third_party: Als we auteursrechtinformatie van derden hebben geïdentificeerd, moet u toestemming vragen aan de betrokken auteursrechthebbenden.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Effectbeoordeling
+        other: Effectbeoordelingen
     imported:
       name:
         one:

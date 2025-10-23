@@ -504,8 +504,8 @@ sv:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Officiell statistik
+        other: Officiell statistik
     official_statistics_announcement:
       name:
         one:

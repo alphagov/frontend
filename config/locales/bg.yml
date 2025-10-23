@@ -504,8 +504,8 @@ bg:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Официална статистика
+        other: Официална статистика
     official_statistics_announcement:
       name:
         one:

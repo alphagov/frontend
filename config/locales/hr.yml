@@ -552,8 +552,8 @@ hr:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Službena statistika
+        other: Službena statistika
     official_statistics_announcement:
       name:
         few:

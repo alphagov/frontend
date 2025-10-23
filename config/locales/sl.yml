@@ -599,8 +599,8 @@ sl:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Uradna statistika
+        other: Uradna statistika
         two:
     official_statistics_announcement:
       name:

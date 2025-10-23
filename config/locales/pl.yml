@@ -600,8 +600,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Statystyki
+        other: Statystyki
     official_statistics_announcement:
       name:
         few:

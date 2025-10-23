@@ -504,8 +504,8 @@ az:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Rəsmi statistika
+        other: Rəsmi statistika
     official_statistics_announcement:
       name:
         one:

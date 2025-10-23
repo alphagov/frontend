@@ -600,8 +600,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Офіційна статистика
+        other: Офіційна статистика
     official_statistics_announcement:
       name:
         few:

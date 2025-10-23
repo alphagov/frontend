@@ -504,8 +504,8 @@ kk:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Ресми статистика
+        other: Ресми статистика
     official_statistics_announcement:
       name:
         one:

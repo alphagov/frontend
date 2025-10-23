@@ -552,8 +552,8 @@ ro:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistică oficială
+        other: Statistică oficială
     official_statistics_announcement:
       name:
         few:

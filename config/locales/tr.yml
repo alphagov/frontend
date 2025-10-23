@@ -504,8 +504,8 @@ tr:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Resmi İstatistikler
+        other: Resmi İstatistikler
     official_statistics_announcement:
       name:
         one:

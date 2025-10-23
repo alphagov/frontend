@@ -552,8 +552,8 @@ cs:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Oficiální statistiky
+        other: Oficiální statistiky
     official_statistics_announcement:
       name:
         few:

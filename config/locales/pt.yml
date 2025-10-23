@@ -504,8 +504,8 @@ pt:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Estatísticas Oficiais
+        other: Estatísticas Oficiais
     official_statistics_announcement:
       name:
         one:

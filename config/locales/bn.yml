@@ -548,8 +548,8 @@ bn:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: প্রোমোশন সম্পর্কিত উপকরণ
+        other: প্রোমোশন সম্পর্কিত উপকরণ
     publication:
       details: বিস্তারিত
       documents:

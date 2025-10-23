@@ -663,8 +663,8 @@ sl:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Promocijski material
+        other: Promocijski material
         two:
     publication:
       details: Podrobnosti

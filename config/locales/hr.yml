@@ -606,8 +606,8 @@ hr:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Promidžbeni materijal
+        other: Promidžbeni materijal
     publication:
       details: Detalji
       documents:

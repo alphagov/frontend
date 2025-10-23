@@ -548,8 +548,8 @@ el:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Προωθητικό υλικό
+        other: Προωθητικό υλικό
     publication:
       details: Λεπτομέρειες
       documents:

@@ -548,8 +548,8 @@ tr:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Promosyon malzemesi
+        other: Promosyon malzemesi
     publication:
       details: Ayrıntılar
       documents:

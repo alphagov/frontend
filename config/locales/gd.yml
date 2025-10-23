@@ -663,8 +663,8 @@ gd:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Ábhar cur chun cinn
+        other: Ábhar cur chun cinn
         two:
     publication:
       details: Sonraí

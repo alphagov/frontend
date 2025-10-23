@@ -664,8 +664,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рекламний матеріал
+        other: Рекламний матеріал
     publication:
       details: Деталі
       documents:

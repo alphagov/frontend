@@ -664,8 +664,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рекламный материал
+        other: Рекламные материалы
     publication:
       details: Детали
       documents:

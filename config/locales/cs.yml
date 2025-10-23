@@ -606,8 +606,8 @@ cs:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Propagační materiály
+        other: Propagační materiály
     publication:
       details: Podrobnosti
       documents:

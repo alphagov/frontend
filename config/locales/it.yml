@@ -548,8 +548,8 @@ it:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Materiale promozionale
+        other: Materiale promozionale
     publication:
       details: Dettagli
       documents:

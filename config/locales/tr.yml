@@ -420,8 +420,8 @@ tr:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Uluslararası anlaşma
+        other: Uluslararası anlaşmalar
     licence:
       change:
     local_transaction:

@@ -420,8 +420,8 @@ ta:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: சர்வதேச உடன்படிக்கை
+        other: சர்வதேச உடன்படிக்கைகள்
     licence:
       change:
     local_transaction:

@@ -494,8 +494,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Міжнароднае пагадненне
+        other: Міжнародныя пагадненнi
     licence:
       change:
     local_transaction:

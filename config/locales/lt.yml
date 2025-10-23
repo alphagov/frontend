@@ -457,8 +457,8 @@ lt:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tarptautinė sutartis
+        other: Tarptautinės sutartys
     licence:
       change:
     local_transaction:

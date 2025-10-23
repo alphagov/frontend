@@ -420,8 +420,8 @@ gu:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: આંતરરાષ્ટ્રીય સંધિ
+        other: આંતરરાષ્ટ્રીય સંધિઓ
     licence:
       change:
     local_transaction:

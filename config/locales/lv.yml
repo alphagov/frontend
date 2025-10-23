@@ -420,8 +420,8 @@ lv:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Starptautiskais līgums
+        other: Starptautiskie līgumi
     licence:
       change:
     local_transaction:

@@ -457,8 +457,8 @@ ro:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tratat internațional
+        other: Tratate internaționale
     licence:
       change:
     local_transaction:

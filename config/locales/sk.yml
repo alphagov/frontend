@@ -457,8 +457,8 @@ sk:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Medzinárodná zmluva
+        other: Medzinárodné zmluvy
     licence:
       change:
     local_transaction:

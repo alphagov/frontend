@@ -420,8 +420,8 @@ et:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Rahvusvaheline leping
+        other: Rahvusvahelised lepingud
     licence:
       change:
     local_transaction:

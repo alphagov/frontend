@@ -420,8 +420,8 @@ sq:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Traktat ndërkombëtar
+        other: Traktate ndërkombëtare
     licence:
       change:
     local_transaction:

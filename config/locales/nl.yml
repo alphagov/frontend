@@ -420,8 +420,8 @@ nl:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationaal verdrag
+        other: Internationale verdragen
     licence:
       change:
     local_transaction:

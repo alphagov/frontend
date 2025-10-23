@@ -420,8 +420,8 @@ el:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Διεθνής συνθήκη
+        other: Διεθνείς συνθήκες
     licence:
       change:
     local_transaction:

@@ -420,8 +420,8 @@ da:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: International traktat
+        other: Internationale traktater
     licence:
       change:
     local_transaction:

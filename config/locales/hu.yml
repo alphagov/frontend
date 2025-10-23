@@ -420,8 +420,8 @@ hu:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Nemzetközi egyezmény
+        other: Nemzetközi egyezmények
     licence:
       change:
     local_transaction:

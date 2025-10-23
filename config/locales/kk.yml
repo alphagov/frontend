@@ -420,8 +420,8 @@ kk:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Халықаралық келісім
+        other: Халықаралық келісімдер
     licence:
       change:
     local_transaction:

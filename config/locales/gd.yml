@@ -493,8 +493,8 @@ gd:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Conradh idirnáisiúnta
+        other: Conarthaí idirnáisiúnta
         two:
     licence:
       change:

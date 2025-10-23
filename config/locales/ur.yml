@@ -420,8 +420,8 @@ ur:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: عالمی معاہدہ
+        other: عالمی معاہدے
     licence:
       change:
     local_transaction:

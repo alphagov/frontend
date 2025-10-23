@@ -420,8 +420,8 @@ fr:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Traité international
+        other: Traités internationaux
     licence:
       change:
     local_transaction:

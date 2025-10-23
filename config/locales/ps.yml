@@ -420,8 +420,8 @@ ps:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: نړیوال تړون
+        other: نړیوال تړونونه
     licence:
       change:
     local_transaction:

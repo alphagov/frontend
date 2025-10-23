@@ -423,8 +423,8 @@ dr:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: معاهده بین المللی
+        other: معاهدات بین المللی
     licence:
       change:
     local_transaction:

@@ -420,8 +420,8 @@ hi:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: अंतरराष्ट्रीय संधि
+        other: अंतरराष्ट्रीय संधियां
     licence:
       change:
     local_transaction:

@@ -420,8 +420,8 @@ az:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Beynəlxalq saziş
+        other: Beynəlxalq sazişlər
     licence:
       change:
     local_transaction:

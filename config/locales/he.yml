@@ -420,8 +420,8 @@ he:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: אמנה בינלאומית
+        other: אמנות בינלאומיות
     licence:
       change:
     local_transaction:

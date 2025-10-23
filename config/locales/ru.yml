@@ -494,8 +494,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Международное соглашение
+        other: Международные соглашения
     licence:
       change:
     local_transaction:

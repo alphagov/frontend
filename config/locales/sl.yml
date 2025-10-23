@@ -493,8 +493,8 @@ sl:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Mednarodni sporazum
+        other: Mednarodni sporazumi
         two:
     licence:
       change:

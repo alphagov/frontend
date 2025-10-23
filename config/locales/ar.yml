@@ -566,8 +566,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: معاهدة دولية
+        other: معاهدات دولية
         two:
         zero:
     licence:

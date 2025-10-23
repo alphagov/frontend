@@ -420,8 +420,8 @@ tk:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Halkara şertnama
+        other: Halkara şertnamalar
     licence:
       change:
     local_transaction:

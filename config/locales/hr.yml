@@ -457,8 +457,8 @@ hr:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Međunarodni ugovor
+        other: Međunarodni ugovori
     licence:
       change:
     local_transaction:

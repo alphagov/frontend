@@ -286,8 +286,8 @@ tk:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Karar
+        other: Kararlar
     detailed_guide:
       name:
         one: Gözkezme

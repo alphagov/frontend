@@ -322,8 +322,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Решение
+        other: Решения
     detailed_guide:
       name:
         few:

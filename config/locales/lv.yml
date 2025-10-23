@@ -286,8 +286,8 @@ lv:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Lēmums
+        other: Lēmumi
     detailed_guide:
       name:
         one: Detalizētas norādes

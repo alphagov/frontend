@@ -286,8 +286,8 @@ kk:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Шешім
+        other: Шешімдер
     detailed_guide:
       name:
         one: Нұсқаулық

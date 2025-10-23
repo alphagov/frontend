@@ -321,8 +321,8 @@ gd:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Cinneadh
+        other: Cinntí
         two:
     detailed_guide:
       name:

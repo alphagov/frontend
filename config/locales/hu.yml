@@ -286,8 +286,8 @@ hu:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Döntés
+        other: Döntések
     detailed_guide:
       name:
         one: Útmutató

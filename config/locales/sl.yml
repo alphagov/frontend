@@ -321,8 +321,8 @@ sl:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Odločitev
+        other: Odločitve
         two:
     detailed_guide:
       name:

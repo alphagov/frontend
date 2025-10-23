@@ -304,8 +304,8 @@ lt:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Sprendimas
+        other: Sprendimai
     detailed_guide:
       name:
         few:

@@ -496,8 +496,8 @@ fr:
         other: Actualités
     notice:
       name:
-        one:
-        other:
+        one: Notification
+        other: Notifications
     official:
       name:
         one:

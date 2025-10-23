@@ -587,8 +587,8 @@ sl:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Obvestilo
+        other: Obvestila
         two:
     official:
       name:

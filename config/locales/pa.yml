@@ -496,8 +496,8 @@ pa:
         other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ
     notice:
       name:
-        one:
-        other:
+        one: ਨੋਟਿਸ
+        other: ਨੋਟਿਸ
     official:
       name:
         one:

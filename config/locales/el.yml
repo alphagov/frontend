@@ -496,8 +496,8 @@ el:
         other: Ιστορίες ειδήσεων
     notice:
       name:
-        one:
-        other:
+        one: Σημείωση
+        other: Σημειώσεις
     official:
       name:
         one:

@@ -496,8 +496,8 @@ ps:
         other: د خبرونو کیسې
     notice:
       name:
-        one:
-        other:
+        one: خبرتیا
+        other: خبرتیاوې
     official:
       name:
         one:

@@ -542,8 +542,8 @@ ro:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Notificare
+        other: Notificări
     official:
       name:
         few:

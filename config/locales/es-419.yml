@@ -496,8 +496,8 @@ es-419:
         other: Reportajes de noticias
     notice:
       name:
-        one:
-        other:
+        one: Aviso
+        other: Avisos
     official:
       name:
         one:

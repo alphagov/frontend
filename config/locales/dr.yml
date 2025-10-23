@@ -499,8 +499,8 @@ dr:
         other: گزارشات خبری
     notice:
       name:
-        one:
-        other:
+        one: اطلاعیه
+        other: اطلاعیه ها
     official:
       name:
         one:

@@ -496,8 +496,8 @@ fi:
         other: Uutisia
     notice:
       name:
-        one:
-        other:
+        one: Ilmoitus
+        other: Ilmoitukset
     official:
       name:
         one:

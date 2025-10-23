@@ -588,8 +588,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Заметка
+        other: Заметки
     official:
       name:
         few:

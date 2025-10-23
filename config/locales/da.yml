@@ -496,8 +496,8 @@ da:
         other: Nyhedshistorier
     notice:
       name:
-        one:
-        other:
+        one: Meddelelse
+        other: Meddelelser
     official:
       name:
         one:

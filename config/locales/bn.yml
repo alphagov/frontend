@@ -496,8 +496,8 @@ bn:
         other: সংবাদের বিষয়াবলী
     notice:
       name:
-        one:
-        other:
+        one: বিজ্ঞপ্তি
+        other: বিজ্ঞপ্তিসমূহ
     official:
       name:
         one:

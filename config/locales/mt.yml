@@ -588,8 +588,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Avviż
+        other: Avviżi
     official:
       name:
         few:

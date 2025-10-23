@@ -496,8 +496,8 @@ nl:
         other: Nieuwsberichten
     notice:
       name:
-        one:
-        other:
+        one: Mededeling
+        other: Mededelingen
     official:
       name:
         one:

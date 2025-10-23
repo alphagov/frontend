@@ -496,8 +496,8 @@ ne:
         other: समाचार कथाहरु
     notice:
       name:
-        one:
-        other:
+        one: सूचना
+        other: सूचनाहरु
     official:
       name:
         one:

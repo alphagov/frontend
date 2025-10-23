@@ -542,8 +542,8 @@ hr:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Obavijest
+        other: Obavijesti
     official:
       name:
         few:

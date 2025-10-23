@@ -496,8 +496,8 @@ et:
         other: Uudislood
     notice:
       name:
-        one:
-        other:
+        one: Märkus
+        other: Märkused
     official:
       name:
         one:

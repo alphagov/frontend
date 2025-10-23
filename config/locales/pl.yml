@@ -588,8 +588,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Powiadomienie
+        other: Powiadomienia
     official:
       name:
         few:

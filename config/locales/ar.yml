@@ -678,8 +678,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: إشعار
+        other: إشعارات
         two:
         zero:
     official:

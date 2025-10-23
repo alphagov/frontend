@@ -387,8 +387,8 @@ tk:
         other: Hökümetiň jogaplary
     guidance:
       name:
-        one:
-        other:
+        one: Gözkezme
+        other: Gözkezme
     guide:
       pages_in_guide: Bu gollanmadaky sahypalar
       skip_contents:

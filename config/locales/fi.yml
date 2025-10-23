@@ -412,8 +412,8 @@ fi:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Riippumaton raportti
+        other: Riippumattomat raportit
     international_development_fund:
       name:
         one:

@@ -447,8 +447,8 @@ hr:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezavisno izvješće
+        other: Nezavisna izvješća
     international_development_fund:
       name:
         few:

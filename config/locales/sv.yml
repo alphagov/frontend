@@ -412,8 +412,8 @@ sv:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Oberoende rapport
+        other: Oberoende rapporter
     international_development_fund:
       name:
         one:

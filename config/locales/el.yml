@@ -412,8 +412,8 @@ el:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Ανεξάρτητη έκθεση
+        other: Ανεξάρτητες εκθέσεις
     international_development_fund:
       name:
         one:

@@ -1,6 +1,44 @@
 RSpec.describe LocaleHelper do
   include described_class
 
+
+  describe "#content_item_locale" do
+    context "when the content item is in english" do
+      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "publication") }
+
+      it "returns en" do
+        expect(content_item_locale).to eq("en")
+      end
+    end
+
+    context "when the content item is not in english" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:publication, example_name: "publication").tap do |example|
+          example["locale"] = "cy"
+        end
+      end
+
+      it "returns the appropriate code" do
+        expect(content_item_locale).to eq("cy")
+      end
+    end
+
+    context "with no content item" do
+      let(:content_item) { nil }
+
+      it "returns en" do
+        expect(content_item_locale).to eq("en")
+      end
+    end
+  end
+
+  describe "#native_language_name_for" do
+    it "returns the native language name for the given locale" do
+      expect(native_language_name_for(:en)).to eq("English")
+      expect(native_language_name_for(:cy)).to eq("Cymraeg")
+    end
+  end
+
   describe "#translations_for_nav" do
     it "returns translations in a suitable format for the translation nav component" do
       translations = [

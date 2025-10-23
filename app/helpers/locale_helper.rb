@@ -1,4 +1,10 @@
 module LocaleHelper
+  def content_item_locale
+    return content_item.locale if content_item
+
+    I18n.default_locale
+  end
+
   def lang_attribute
     locale = content_item&.locale
     "lang=#{locale}" unless I18n.default_locale.to_s == locale.to_s

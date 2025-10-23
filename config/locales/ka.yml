@@ -548,8 +548,8 @@ ka:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: პრომო მასალა
+        other: პრომო მასალები
     publication:
       details: დეტალები
       documents:

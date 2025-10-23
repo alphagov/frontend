@@ -606,8 +606,8 @@ lt:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Reklaminė medžiaga
+        other: Reklaminė medžiaga
     publication:
       details: Informacija
       documents:

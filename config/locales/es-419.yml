@@ -548,8 +548,8 @@ es-419:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Material promocional
+        other: Material promocional
     publication:
       details: Detalles
       documents:

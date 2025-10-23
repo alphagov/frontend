@@ -548,8 +548,8 @@ pt:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Material promocional
+        other: Material promocional
     publication:
       details: Detalhes
       documents:

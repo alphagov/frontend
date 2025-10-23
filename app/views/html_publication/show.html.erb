@@ -28,6 +28,7 @@
   padding_top: 6,
   padding_bottom: 6,
   subtext: @presenter.last_changed,
+  dir: page_text_direction,
 } do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: content_item.title,
@@ -49,6 +50,7 @@
     description_govspeak: content_item.withdrawn_explanation&.html_safe,
     time: withdrawn_time_tag,
     lang: "en",
+    dir: page_text_direction,
   } %>
 <% end %>
 
@@ -84,7 +86,7 @@
     </div>
   </div>
 
-  <div class="govuk-grid-row">
+  <div class="govuk-grid-row back-to-top-wrapper">
     <%= render "govuk_publishing_components/components/back_to_top_link", href: "#contents", text: "Back to top" %>
   </div>
 </div>

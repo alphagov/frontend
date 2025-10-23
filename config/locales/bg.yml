@@ -509,8 +509,8 @@ bg:
         other: Репортажи
     notice:
       name:
-        one:
-        other:
+        one: Известие
+        other: Известия
     official:
       name:
         one:

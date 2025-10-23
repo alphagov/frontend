@@ -509,8 +509,8 @@ lv:
         other: Ziņas
     notice:
       name:
-        one:
-        other:
+        one: Paziņojums
+        other: Paziņojumi
     official:
       name:
         one:

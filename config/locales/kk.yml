@@ -509,8 +509,8 @@ kk:
         other: Жаңалықтар оқиғалары
     notice:
       name:
-        one:
-        other:
+        one: Ескертпе
+        other: Ескертпелер
     official:
       name:
         one:

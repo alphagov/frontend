@@ -509,8 +509,8 @@ tk:
         other: Habarlar
     notice:
       name:
-        one:
-        other:
+        one: Bellik
+        other: Bellikler
     official:
       name:
         one:

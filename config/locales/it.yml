@@ -509,8 +509,8 @@ it:
         other: Storie di notizie
     notice:
       name:
-        one:
-        other:
+        one: Avviso
+        other: Avvisi
     official:
       name:
         one:

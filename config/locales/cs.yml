@@ -555,8 +555,8 @@ cs:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Oznámení
+        other: Oznámení
     official:
       name:
         few:

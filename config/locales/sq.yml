@@ -509,8 +509,8 @@ sq:
         other: Ngjarje
     notice:
       name:
-        one:
-        other:
+        one: Njoftim
+        other: Njoftime
     official:
       name:
         one:

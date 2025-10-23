@@ -381,8 +381,6 @@ ti:
       name:
         one: ኣህጉራዊ ውዕል
         other: ኣህጉራዊ ውዕላት
-    licence:
-      change: ለውጢ
     local_transaction:
       change:
       choose_address:

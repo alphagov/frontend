@@ -381,8 +381,6 @@ ku:
       name:
         one: پەیمانی نێودەوڵەتی
         other: پەیمانی نێودەوڵەتی
-    licence:
-      change: گوڕین
     local_transaction:
       change:
       choose_address:

@@ -525,8 +525,6 @@ ar:
         other:
         two:
         zero:
-    licence:
-      change:
     local_transaction:
       change:
       choose_address:

@@ -383,8 +383,6 @@ en:
       name:
         one: International treaty
         other: International treaties
-    licence:
-      change: Change
     local_transaction:
       change: Change
       choose_address: Choose your address

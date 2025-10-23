@@ -453,8 +453,6 @@ sl:
         one:
         other:
         two:
-    licence:
-      change:
     local_transaction:
       change:
       choose_address:

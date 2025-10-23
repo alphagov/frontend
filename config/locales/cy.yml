@@ -527,8 +527,6 @@ cy:
         other: Cytuniadau rhyngwladol
         two:
         zero:
-    licence:
-      change: Newid
     local_transaction:
       change: Newid
       choose_address: Dewiswch eich cyfeiriad

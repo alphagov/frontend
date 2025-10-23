@@ -381,8 +381,6 @@ bg:
       name:
         one:
         other:
-    licence:
-      change:
     local_transaction:
       change:
       choose_address:

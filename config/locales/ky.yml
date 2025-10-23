@@ -381,8 +381,6 @@ ky:
       name:
         one: Эл аралык келишим
         other: Эл аралык келишимдер
-    licence:
-      change:
     local_transaction:
       change:
       choose_address:

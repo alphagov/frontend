@@ -468,8 +468,8 @@ bg:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карти
     medical_safety_alert:
       name:
         one:

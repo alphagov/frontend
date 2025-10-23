@@ -468,8 +468,8 @@ pa-pk:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشہ
+        other: نقشے
     medical_safety_alert:
       name:
         one:

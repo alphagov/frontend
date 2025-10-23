@@ -468,8 +468,8 @@ it:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Mappa
+        other: Mappe
     medical_safety_alert:
       name:
         one:

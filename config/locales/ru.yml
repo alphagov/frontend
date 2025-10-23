@@ -546,8 +546,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Карта
+        other: Карты
     medical_safety_alert:
       name:
         few:

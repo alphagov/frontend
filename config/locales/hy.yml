@@ -468,8 +468,8 @@ hy:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Քարտեզ
+        other: Քարտեզներ
     medical_safety_alert:
       name:
         one:

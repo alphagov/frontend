@@ -468,8 +468,8 @@ bn:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: মানচিত্র
+        other: মানচিত্রসমূহ
     medical_safety_alert:
       name:
         one:

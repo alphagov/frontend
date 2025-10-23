@@ -468,8 +468,8 @@ el:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Χάρτης
+        other: Χάρτες
     medical_safety_alert:
       name:
         one:

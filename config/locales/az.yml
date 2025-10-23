@@ -468,8 +468,8 @@ az:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Xəritə
+        other: Xəritələr
     medical_safety_alert:
       name:
         one:

@@ -468,8 +468,8 @@ he:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: מפה
+        other: מפות
     medical_safety_alert:
       name:
         one:

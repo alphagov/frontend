@@ -622,8 +622,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: خريطة
+        other: خرائط
         two:
         zero:
     medical_safety_alert:

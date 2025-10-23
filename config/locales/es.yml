@@ -468,8 +468,8 @@ es:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Mapa
+        other: Mapas
     medical_safety_alert:
       name:
         one:

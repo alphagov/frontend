@@ -468,8 +468,8 @@ kk:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карталар
     medical_safety_alert:
       name:
         one:

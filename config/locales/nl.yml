@@ -468,8 +468,8 @@ nl:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kaart
+        other: Kaarten
     medical_safety_alert:
       name:
         one:

@@ -468,8 +468,8 @@ fr:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Carte
+        other: Cartes
     medical_safety_alert:
       name:
         one:

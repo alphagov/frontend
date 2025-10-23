@@ -507,8 +507,8 @@ cs:
     map:
       name:
         few:
-        one:
-        other:
+        one: Mapa
+        other: Mapy
     medical_safety_alert:
       name:
         few:

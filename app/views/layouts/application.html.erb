@@ -24,6 +24,9 @@
     <% if content_item&.meta_section.present? %>
       <meta name="govuk:section" content="<%= content_item.meta_section %>">
     <% end %>
+    <% if show_ios_banner? %>
+      <meta name="apple-itunes-app" content="app-id=6572293285">
+    <% end %>
   <% end %>
 <% end %>
 <%

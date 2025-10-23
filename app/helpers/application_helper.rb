@@ -26,4 +26,16 @@ module ApplicationHelper
 
     true
   end
+
+  def show_ios_banner?
+    return false unless content_item && content_item.base_path
+
+    [
+      "/get-vehicle-information-from-dvla",
+      "/bring-pet-to-great-britain",
+      "/state-pension",
+      "/sign-in-to-manage-your-student-loan-balance",
+      "/school-term-holiday-dates",
+    ].include?(content_item.base_path)
+  end
 end

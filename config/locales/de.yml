@@ -7,19 +7,6 @@ de:
     version:
     visit_govuk_html:
   account:
-    cookies_and_feedback:
-      cookie_consent:
-        description:
-        field:
-          heading:
-        heading:
-      feedback_consent:
-        description:
-        field:
-          heading:
-        heading:
-      heading:
-      success:
     your_account:
       about_description_html:
       about_detail_description_html:

@@ -7,19 +7,6 @@ en:
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   account:
-    cookies_and_feedback:
-      cookie_consent:
-        description: We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.
-        field:
-          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
-        heading: Change your cookie settings
-      feedback_consent:
-        description: As we add new features to your GOV.UK account, we would like to email you to find out any thoughts or suggestions you might have.
-        field:
-          heading: Can we email you to ask for feedback about your account?
-        heading: Change your feedback settings
-      heading: Cookie and feedback settings
-      success: Your feedback and cookie settings have been changed.
     your_account:
       about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’re working on adding more features and services.</p>
       about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>

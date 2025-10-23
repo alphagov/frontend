@@ -454,8 +454,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Незалежная справаздача
+        other: Незалежныя справаздачы
     international_development_fund:
       name:
         few:

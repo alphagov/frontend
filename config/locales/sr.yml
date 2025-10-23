@@ -419,8 +419,8 @@ sr:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezavisni izveštaj
+        other: Nezavisni izveštaji
     international_development_fund:
       name:
         few:

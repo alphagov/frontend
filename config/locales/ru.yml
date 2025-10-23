@@ -454,8 +454,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Независимый отчет
+        other: Независимые отчеты
     international_development_fund:
       name:
         few:

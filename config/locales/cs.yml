@@ -419,8 +419,8 @@ cs:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezávislá zpráva
+        other: Nezávislé zprávy
     international_development_fund:
       name:
         few:

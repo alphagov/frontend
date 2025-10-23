@@ -384,8 +384,8 @@ nl:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Onafhankelijk rapport
+        other: Onafhankelijke rapporten
     international_development_fund:
       name:
         one:

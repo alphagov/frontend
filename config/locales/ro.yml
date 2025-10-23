@@ -419,8 +419,8 @@ ro:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Raport independent
+        other: Rapoarte independente
     international_development_fund:
       name:
         few:

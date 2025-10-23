@@ -419,8 +419,8 @@ sk:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezávislá správa
+        other: Nezávislé správy
     international_development_fund:
       name:
         few:

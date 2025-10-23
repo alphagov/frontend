@@ -469,8 +469,8 @@ gd:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Anailís tionchair
+        other: Anailísí tionchair
         two:
     imported:
       name:

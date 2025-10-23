@@ -844,9 +844,6 @@ ti:
     logo_alt_text:
   'no': አይኮንን
   or: ወይ
-  place:
-    children_social_care: ኣብቲ ቤት ምኽሪ ንዘሎ ናይ ህጻናት ማሕበራዊ ክንክን ጉጅለ ክትድውል ትኽእል ኢኻ
-    go_to_website: ናብ መርበብ ሓበሬታኦም ኪድ
   roadmap:
     actions_section:
       heading:

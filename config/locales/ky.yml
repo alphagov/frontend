@@ -844,9 +844,6 @@ ky:
     logo_alt_text: Аккредиттелген расмий статистика
   'no':
   or: же
-  place:
-    children_social_care:
-    go_to_website:
   roadmap:
     actions_section:
       heading:

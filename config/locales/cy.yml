@@ -1165,9 +1165,6 @@ cy:
     logo_alt_text: Ystadegau swyddogol achrededig
   'no': Na
   or:
-  place:
-    children_social_care: Gallwch alw'r tîm gofal cymdeithasol i blant yn y cyngor yn
-    go_to_website: Mynd i'w gwefan
   roadmap:
     actions_section:
       heading: Beth rydyn ni'n gweithio arno

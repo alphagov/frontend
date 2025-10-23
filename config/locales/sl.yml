@@ -303,8 +303,8 @@ sl:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Poročilo podjetja
+        other: Poročila podjetja
         two:
     correspondence:
       name:

@@ -289,8 +289,8 @@ ro:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Raport de companie
+        other: Rapoarte de companie
     correspondence:
       name:
         few:

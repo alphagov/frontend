@@ -289,8 +289,8 @@ sr:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Organizacioni izveštaj
+        other: Organizacioni izveštaji
     correspondence:
       name:
         few:

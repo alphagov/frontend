@@ -6,19 +6,6 @@ sq:
     two_versions:
     version:
     visit_govuk_html:
-  account:
-    your_account:
-      about_description_html:
-      about_detail_description_html:
-      about_detail_title:
-      about_heading:
-      emails:
-        heading:
-        manage_emails_link_text:
-        no_emails_description:
-        no_emails_inset:
-        see_and_manage:
-      heading:
   attachment:
     virus_check:
       intro:

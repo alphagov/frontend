@@ -6,19 +6,6 @@ en:
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
-  account:
-    your_account:
-      about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’re working on adding more features and services.</p>
-      about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
-      about_detail_title: More about GOV.UK accounts
-      about_heading: About GOV.UK accounts
-      emails:
-        heading: Your GOV.UK email subscriptions
-        manage_emails_link_text: Manage your GOV.UK email subscriptions
-        no_emails_description: Some GOV.UK pages have a link to 'get emails'. You can use that link to subscribe to pages or topics you’re interested in.
-        no_emails_inset: You do not currently have any GOV.UK email subscriptions.
-        see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
-      heading: Your GOV.UK account
   attachment:
     virus_check:
       intro: This attachment is being virus checked.

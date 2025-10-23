@@ -6,19 +6,6 @@ cy:
     two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.
-  account:
-    your_account:
-      about_description_html:
-      about_detail_description_html:
-      about_detail_title:
-      about_heading:
-      emails:
-        heading:
-        manage_emails_link_text:
-        no_emails_description:
-        no_emails_inset:
-        see_and_manage:
-      heading:
   attachment:
     virus_check:
       intro: Mae'r atodiad hwn yn cael ei wirio am feirysau.

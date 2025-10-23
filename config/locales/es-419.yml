@@ -250,8 +250,8 @@ es-419:
         other: Informes de la empresa
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondencia
+        other: Correspondencias
     countryside_stewardship_grant:
       name:
         one:

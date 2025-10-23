@@ -266,8 +266,8 @@ cs:
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korespondence
+        other: Korespondence
     countryside_stewardship_grant:
       name:
         few:

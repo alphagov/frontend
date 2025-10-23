@@ -250,8 +250,8 @@ es:
         other: Informes corporativos
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondencia
+        other: Correspondencias
     countryside_stewardship_grant:
       name:
         one:

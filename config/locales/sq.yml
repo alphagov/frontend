@@ -250,8 +250,8 @@ sq:
         other: Raporte te organizatës
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondencë
+        other: Korrespondencat
     countryside_stewardship_grant:
       name:
         one:

@@ -312,8 +312,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: مراسلة
+        other: مراسلات
         two:
         zero:
     countryside_stewardship_grant:

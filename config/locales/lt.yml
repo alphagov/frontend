@@ -266,8 +266,8 @@ lt:
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korespondencija
+        other: Korespondencija
     countryside_stewardship_grant:
       name:
         few:

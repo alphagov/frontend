@@ -250,8 +250,8 @@ nl:
         other: Bedrijfsverslagen
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondentie
+        other: Correspondentie
     countryside_stewardship_grant:
       name:
         one:

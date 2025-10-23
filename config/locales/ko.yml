@@ -282,7 +282,7 @@ ko:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: FOI 발표
     form:
       name:
         other: 양식

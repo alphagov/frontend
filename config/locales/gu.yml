@@ -309,8 +309,8 @@ gu:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: માહિતીની સ્વતંત્રતા રીલીઝ
+        other: માહિતીની સ્વતંત્રતા રીલીઝ
     form:
       name:
         one: પત્રક

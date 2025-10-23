@@ -309,8 +309,8 @@ pa-pk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: فریڈم آف انفارمیشن جاری کرنا
+        other: فریڈم آف انفارمیشن جاری کرنا
     form:
       name:
         one: 'فارم '

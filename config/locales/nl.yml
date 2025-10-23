@@ -309,8 +309,8 @@ nl:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Vrijheid van informatie-vrijgave
+        other: Vrijheid van informatie-vrijgaven
     form:
       name:
         one: Formulier

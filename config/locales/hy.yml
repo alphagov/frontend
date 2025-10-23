@@ -309,8 +309,8 @@ hy:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Տեղեկատվության ազատության հրապարակում
+        other: Տեղեկատվության ազատության հրապարակումներ
     form:
       name:
         one: Ձևաթուղթ

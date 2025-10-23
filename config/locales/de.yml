@@ -309,8 +309,8 @@ de:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Freigabe gemäß Informationsfreiheitsgesetz
+        other: Freigaben gemäß Informationsfreiheitsgesetz
     form:
       name:
         one: Formular

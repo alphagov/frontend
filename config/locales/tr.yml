@@ -309,8 +309,8 @@ tr:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Bilgi Özgürlüğü duyurusu
+        other: Bilgi Özgürlüğü duyuruları
     form:
       name:
         one: Form

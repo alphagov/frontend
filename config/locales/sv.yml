@@ -309,8 +309,8 @@ sv:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI-utlämnande
+        other: FOI-meddelanden
     form:
       name:
         one: Formulär

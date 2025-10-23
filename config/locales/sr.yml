@@ -337,8 +337,8 @@ sr:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Odgovor na zahtev za pristup informacijama od javnog značaja
+        other: Odgovori na zahteve za pristup informacijama od javnog značaja
     form:
       name:
         few:

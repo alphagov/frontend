@@ -337,8 +337,8 @@ sk:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Zverejnenie slobody informácií
+        other: Zverejnenia slobody informácií
     form:
       name:
         few:

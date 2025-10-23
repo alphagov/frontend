@@ -309,8 +309,8 @@ hu:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Információhoz való joggal kapcsolatos közlemény
+        other: Információhoz való joggal kapcsolatos közlemények
     form:
       name:
         one: Űrlap

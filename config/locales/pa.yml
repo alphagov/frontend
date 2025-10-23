@@ -309,8 +309,8 @@ pa:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI ਰਿਲੀਜ਼
+        other: FOI ਰਿਲੀਜ਼
     form:
       name:
         one: ਫਾਰਮ

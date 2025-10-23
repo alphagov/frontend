@@ -309,8 +309,8 @@ sw:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Taarifa ya FOI
+        other: Taarifa za FOI
     form:
       name:
         one: Fomu

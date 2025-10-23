@@ -309,8 +309,8 @@ bn:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI ছাড়পত্র
+        other: FOI ছাড়পত্রসমূহ
     form:
       name:
         one: ফর্ম

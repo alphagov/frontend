@@ -309,8 +309,8 @@ tk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI goýberilişi
+        other: FOI goýberişleri
     form:
       name:
         one: Forma

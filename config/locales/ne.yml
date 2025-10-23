@@ -309,8 +309,8 @@ ne:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: जानकारीको स्वतन्त्रता विज्ञप्ति
+        other: जानकारीको स्वतन्त्रता विज्ञप्तिहरू
     form:
       name:
         one: फारम

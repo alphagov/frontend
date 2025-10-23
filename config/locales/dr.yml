@@ -309,8 +309,8 @@ dr:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: انتشار آزادی اطلاعات
+        other: انتشارات آزادی اطلاعات
     form:
       name:
         one: فارم

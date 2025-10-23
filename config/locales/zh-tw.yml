@@ -569,7 +569,7 @@ zh-tw:
         other:
     transparency:
       name:
-        other:
+        other: 透明數據
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議非必要的旅行，不要前往該國部分地區。

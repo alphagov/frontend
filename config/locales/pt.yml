@@ -645,8 +645,8 @@ pt:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Dados de transparência
+        other: Dados de transparência
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: O <abbr title="Foreign and Commonwealth Office">FCO</abbr> desaconselha todas as viagens, exceto as essenciais, a algumas zonas do país.

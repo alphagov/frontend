@@ -645,8 +645,8 @@ he:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: שקיפות מידע
+        other: שקיפות מידע
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: ' <abbr title="Foreign and Commonwealth Office">FCO</abbr> להמליץ על כל נסיעות מלבד חיוניות לחלקי הארץ.'

@@ -645,8 +645,8 @@ is:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Gögn um gagnsæi
+        other: Gögn um gagnsæi
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ráðleggur gegn öllum ferðalögum til hluta landsins nema þeim allra nauðsynlegustu.

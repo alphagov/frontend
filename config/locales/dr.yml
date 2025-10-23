@@ -648,8 +648,8 @@ dr:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: داده هایی شفافیت
+        other: داده هایی شفافیت
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: این<abbr title="Foreign and Commonwealth Office">FCO</abbr> در مورد هر گونه سفر ضروری به تمام نقاط کشور توصیه مینماید.

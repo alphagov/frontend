@@ -645,8 +645,8 @@ bn:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: স্বচ্ছতার তথ্য
+        other: স্বচ্ছতার তথ্য
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> দেশের কিছু অংশে শুধু প্রয়োজনীয় ভ্রমণ ছাড়া সকল ধরনের ভ্রমণের বিরুদ্ধে পরামর্শ দিয়েছে।

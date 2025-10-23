@@ -799,8 +799,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Дані прозорості
+        other: Дані прозорості
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Міністерство закордонних справ<abbr title="Foreign and Commonwealth Office">(FCO)</abbr> забороняє будь-які поїздки, крім необхідних, до певних областей країни.

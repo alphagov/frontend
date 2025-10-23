@@ -645,8 +645,8 @@ fi:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Avoimuustiedot
+        other: Avoimuustiedot
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia muita kuin välttämättömiä matkoja osissa maata.

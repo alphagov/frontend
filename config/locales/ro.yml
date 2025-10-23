@@ -722,8 +722,8 @@ ro:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Date privind transparența
+        other: Date privind transparența
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile neesențiale în anumite părți ale țării.

@@ -569,7 +569,7 @@ zh-hk:
         other:
     transparency:
       name:
-        other:
+        other: 透明化數據
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="外交及聯邦事務部">FCO</abbr> 建議，如非必要，請勿前往該國部份地區。

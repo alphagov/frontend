@@ -645,8 +645,8 @@ et:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Läbipaistvuse andmed
+        other: Läbipaistvuse andmed
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida riigi osadesse muidu kui hädavajadusel.

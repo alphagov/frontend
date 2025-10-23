@@ -645,8 +645,8 @@ ps:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: د شفافیت معلومات
+        other: د شفافیت معلومات
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> د هیواد برخو ته د لازمي سفر پرته ټولو ته مشوره ورکوي.

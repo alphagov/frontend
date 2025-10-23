@@ -429,8 +429,8 @@ lt:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tarptautinė sutartis
+        other: Tarptautinės sutartys
     local_transaction:
       choose_address:
       contact_council:

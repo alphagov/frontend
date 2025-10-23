@@ -466,8 +466,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Міжнародний договір
+        other: Міжнародні договори
     local_transaction:
       choose_address:
       contact_council:

@@ -392,8 +392,8 @@ el:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Διεθνής συνθήκη
+        other: Διεθνείς συνθήκες
     local_transaction:
       choose_address:
       contact_council:

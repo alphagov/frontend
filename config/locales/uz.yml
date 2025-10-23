@@ -392,8 +392,8 @@ uz:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Халқаро шартнома
+        other: Халқаро шартномалар
     local_transaction:
       choose_address:
       contact_council:

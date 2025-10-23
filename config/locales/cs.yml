@@ -429,8 +429,8 @@ cs:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Mezinárodní smlouva
+        other: Mezinárodní smlouvy
     local_transaction:
       choose_address:
       contact_council:

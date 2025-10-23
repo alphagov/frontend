@@ -392,8 +392,8 @@ es:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Tratado internacional
+        other: Tratados internacionales
     local_transaction:
       choose_address:
       contact_council:

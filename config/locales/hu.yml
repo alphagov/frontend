@@ -392,8 +392,8 @@ hu:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Nemzetközi egyezmény
+        other: Nemzetközi egyezmények
     local_transaction:
       choose_address:
       contact_council:

@@ -392,8 +392,8 @@ pa-pk:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: بین الاقوامی معاہدہ
+        other: بین الاقوامی معایدے
     local_transaction:
       choose_address:
       contact_council:

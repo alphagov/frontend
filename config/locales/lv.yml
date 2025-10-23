@@ -392,8 +392,8 @@ lv:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Starptautiskais līgums
+        other: Starptautiskie līgumi
     local_transaction:
       choose_address:
       contact_council:

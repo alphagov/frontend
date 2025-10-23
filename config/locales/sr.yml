@@ -429,8 +429,8 @@ sr:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Međunarodni sporazum
+        other: Međunarodni sporazumi
     local_transaction:
       choose_address:
       contact_council:

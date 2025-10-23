@@ -466,8 +466,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Trattat internazzjonali
+        other: Trattati internazzjonali
     local_transaction:
       choose_address:
       contact_council:

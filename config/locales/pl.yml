@@ -466,8 +466,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Traktat międzynarodowy
+        other: Traktaty międzynarodowe
     local_transaction:
       choose_address:
       contact_council:

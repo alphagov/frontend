@@ -392,8 +392,8 @@ nl:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationaal verdrag
+        other: Internationale verdragen
     local_transaction:
       choose_address:
       contact_council:

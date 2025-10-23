@@ -429,8 +429,8 @@ sk:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Medzinárodná zmluva
+        other: Medzinárodné zmluvy
     local_transaction:
       choose_address:
       contact_council:

@@ -392,8 +392,8 @@ bg:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Международен договор
+        other: Международни договори
     local_transaction:
       choose_address:
       contact_council:

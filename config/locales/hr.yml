@@ -429,8 +429,8 @@ hr:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Međunarodni ugovor
+        other: Međunarodni ugovori
     local_transaction:
       choose_address:
       contact_council:

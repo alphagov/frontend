@@ -392,8 +392,8 @@ bn:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: ইন্টারন্যাশনাল চুক্তি
+        other: ইন্টারন্যাশনাল চুক্তিসমূহ
     local_transaction:
       choose_address:
       contact_council:

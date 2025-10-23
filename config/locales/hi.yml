@@ -392,8 +392,8 @@ hi:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: अंतरराष्ट्रीय संधि
+        other: अंतरराष्ट्रीय संधियां
     local_transaction:
       choose_address:
       contact_council:

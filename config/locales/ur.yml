@@ -392,8 +392,8 @@ ur:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: عالمی معاہدہ
+        other: عالمی معاہدے
     local_transaction:
       choose_address:
       contact_council:

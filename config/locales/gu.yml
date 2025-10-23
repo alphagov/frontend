@@ -392,8 +392,8 @@ gu:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: આંતરરાષ્ટ્રીય સંધિ
+        other: આંતરરાષ્ટ્રીય સંધિઓ
     local_transaction:
       choose_address:
       contact_council:

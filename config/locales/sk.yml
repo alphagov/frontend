@@ -600,8 +600,8 @@ sk:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Strategický dokument
+        other: Strategické dokumenty
     press_release:
       name:
         few:

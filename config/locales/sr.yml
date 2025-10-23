@@ -600,8 +600,8 @@ sr:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Predlog politike
+        other: Predlozi politike
     press_release:
       name:
         few:

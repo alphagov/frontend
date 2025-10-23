@@ -546,8 +546,8 @@ lv:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politikas dokuments
+        other: Politikas dokumenti
     press_release:
       name:
         one: Paziņojums presei

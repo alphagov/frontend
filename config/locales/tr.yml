@@ -546,8 +546,8 @@ tr:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politika belgesi
+        other: Politika belgeleri
     press_release:
       name:
         one: Basın duyurusu

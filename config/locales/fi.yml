@@ -546,8 +546,8 @@ fi:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Toimintapoliittinen asiakirja
+        other: Toimintapoliittiset asiakirjat
     press_release:
       name:
         one: Lehdistötiedote

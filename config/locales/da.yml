@@ -359,8 +359,8 @@ da:
         other: Regeringens reaktioner
     guidance:
       name:
-        one:
-        other:
+        one: Vejledning
+        other: Vejledning
     guide:
       pages_in_guide: Sider i denne vejledning
       skip_contents:

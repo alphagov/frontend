@@ -390,8 +390,8 @@ sk:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Poradenstvo
+        other: Poradenstvo
     guide:
       pages_in_guide: Stránky v tejto príručke
       skip_contents:

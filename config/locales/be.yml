@@ -421,8 +421,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Кіраўніцтва
+        other: Кіраўніцтва
     guide:
       pages_in_guide: Старонкі ў гэтым кіраўніцтве
       skip_contents:

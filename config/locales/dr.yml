@@ -359,8 +359,8 @@ dr:
         other: پاسخ هایی حکومت
     guidance:
       name:
-        one:
-        other:
+        one: راهنمایی
+        other: راهنمایی
     guide:
       pages_in_guide: صفحات موجود در این راهنما
       skip_contents:

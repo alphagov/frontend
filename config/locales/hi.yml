@@ -359,8 +359,8 @@ hi:
         other: सरकारी जवाब
     guidance:
       name:
-        one:
-        other:
+        one: मार्गदर्शन
+        other: मार्गदर्शन
     guide:
       pages_in_guide: इस गाइड में पेज
       skip_contents:

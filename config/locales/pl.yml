@@ -421,8 +421,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Wskazówki
+        other: Wskazówki
     guide:
       pages_in_guide: Strony w tym przewodniku
       skip_contents:

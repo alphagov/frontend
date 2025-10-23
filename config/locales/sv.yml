@@ -359,8 +359,8 @@ sv:
         other: Regeringens svar
     guidance:
       name:
-        one:
-        other:
+        one: Vägledning
+        other: Vägledning
     guide:
       pages_in_guide: Sidor i den här guiden
       skip_contents:

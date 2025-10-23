@@ -390,8 +390,8 @@ sr:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Detaljno uputstvo
+        other: Detaljno uputstvo
     guide:
       pages_in_guide: Stranice u ovom vodiču
       skip_contents:

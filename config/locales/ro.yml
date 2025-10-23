@@ -390,8 +390,8 @@ ro:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Orientări
+        other: Orientări
     guide:
       pages_in_guide: Paginile din acest ghid
       skip_contents:

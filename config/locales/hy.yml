@@ -359,8 +359,8 @@ hy:
         other: Կառավարության արձագանքներ
     guidance:
       name:
-        one:
-        other:
+        one: Ուղեցույց
+        other: Ուղեցույց
     guide:
       pages_in_guide: Այս ուղեցույցում առկա էջերը
       skip_contents:

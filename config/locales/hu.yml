@@ -359,8 +359,8 @@ hu:
         other: Kormányválaszok
     guidance:
       name:
-        one:
-        other:
+        one: Útmutató
+        other: Útmutató
     guide:
       pages_in_guide: A jelen útmutató oldalai
       skip_contents:

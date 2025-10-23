@@ -359,8 +359,8 @@ tr:
         other: Devletin yanıtları
     guidance:
       name:
-        one:
-        other:
+        one: Rehberlik
+        other: Rehberlik
     guide:
       pages_in_guide: Bu kılavuzdaki sayfalar
       skip_contents:

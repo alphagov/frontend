@@ -359,8 +359,8 @@ es:
         other: Respuestas gubernamentales
     guidance:
       name:
-        one:
-        other:
+        one: Instrucciones
+        other: Instrucciones
     guide:
       pages_in_guide: Páginas de esta guía
       skip_contents:

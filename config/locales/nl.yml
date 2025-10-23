@@ -359,8 +359,8 @@ nl:
         other: Overheidsantwoorden
     guidance:
       name:
-        one:
-        other:
+        one: Richtlijn
+        other: Richtlijn
     guide:
       pages_in_guide: Pagina's in deze gids
       skip_contents:

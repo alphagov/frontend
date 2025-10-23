@@ -359,8 +359,8 @@ uz:
         other: Ҳукумат жавоблари
     guidance:
       name:
-        one:
-        other:
+        one: Қўлланма
+        other: Қўлланма
     guide:
       pages_in_guide: Ушбу қўлланмадаги саҳифалар
       skip_contents:

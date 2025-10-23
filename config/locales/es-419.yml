@@ -359,8 +359,8 @@ es-419:
         other: Respuestas gubernamentales
     guidance:
       name:
-        one:
-        other:
+        one: Orientación
+        other: Orientación
     guide:
       pages_in_guide: Páginas en esta guía
       skip_contents:

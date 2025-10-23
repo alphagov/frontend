@@ -359,8 +359,8 @@ az:
         other: Hökumətin reaksiyaları
     guidance:
       name:
-        one:
-        other:
+        one: Göstəriş
+        other: Göstəriş
     guide:
       pages_in_guide: Bu təlimatdakı səhifələr
       skip_contents:

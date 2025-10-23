@@ -359,8 +359,8 @@ lv:
         other: Valdības atbildes
     guidance:
       name:
-        one:
-        other:
+        one: Norādes
+        other: Norādes
     guide:
       pages_in_guide: Lapas šajā ceļvedī
       skip_contents:

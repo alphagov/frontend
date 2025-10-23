@@ -359,8 +359,8 @@ it:
         other: Risposte del governo
     guidance:
       name:
-        one:
-        other:
+        one: Guida
+        other: Guida
     guide:
       pages_in_guide: Pagine in questa guida
       skip_contents:

@@ -359,8 +359,8 @@ bg:
         other: Отговори на правителството
     guidance:
       name:
-        one:
-        other:
+        one: Насока
+        other: Насока
     guide:
       pages_in_guide: Страници в това ръководство
       skip_contents:

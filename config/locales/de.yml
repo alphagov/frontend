@@ -359,8 +359,8 @@ de:
         other: Antworten der Regierung
     guidance:
       name:
-        one:
-        other:
+        one: Detaillierte Hinweise
+        other: Detaillierte Hinweise
     guide:
       pages_in_guide: Seiten in diesem Leitfaden
       skip_contents:

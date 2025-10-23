@@ -390,8 +390,8 @@ hr:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Upute
+        other: Upute
     guide:
       pages_in_guide: Stranice u ovom vodiču
       skip_contents:

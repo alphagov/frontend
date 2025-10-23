@@ -359,8 +359,8 @@
         other: Myndighetenes svar
     guidance:
       name:
-        one:
-        other:
+        one: Veiledning
+        other: Veiledning
     guide:
       pages_in_guide: Sider i denne veiledningen
       skip_contents:

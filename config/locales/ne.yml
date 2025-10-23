@@ -359,8 +359,8 @@ ne:
         other: सरकारको प्रतिक्रियाहरू
     guidance:
       name:
-        one:
-        other:
+        one: मार्गदर्शन
+        other: मार्गदर्शन
     guide:
       pages_in_guide: यस गाइडका पृष्ठहरू
       skip_contents:

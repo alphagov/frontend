@@ -365,8 +365,8 @@ lt:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: 'Informacijos laisvė: pranešimas'
+        other: 'Informacijos laisvė: pranešimai'
     form:
       name:
         few:

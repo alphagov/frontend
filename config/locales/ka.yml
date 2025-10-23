@@ -496,8 +496,8 @@ ka:
         other: ახალი ამბები
     notice:
       name:
-        one:
-        other:
+        one: შენიშვნა
+        other: შენიშვნები
     official:
       name:
         one:

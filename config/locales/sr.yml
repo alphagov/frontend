@@ -542,8 +542,8 @@ sr:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Obaveštenje
+        other: Obaveštenja
     official:
       name:
         few:

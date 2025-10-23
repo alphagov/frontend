@@ -496,8 +496,8 @@ is:
         other: Fréttir
     notice:
       name:
-        one:
-        other:
+        one: Tilkynning
+        other: Tilkynningar
     official:
       name:
         one:

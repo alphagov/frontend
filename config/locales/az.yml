@@ -496,8 +496,8 @@ az:
         other: Xəbərləri əks etdirən materiallar
     notice:
       name:
-        one:
-        other:
+        one: Bildiriş
+        other: Bildirişlər
     official:
       name:
         one:

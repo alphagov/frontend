@@ -496,8 +496,8 @@ hy:
         other: Տեղեկատվական նյութեր
     notice:
       name:
-        one:
-        other:
+        one: Ծանուցում
+        other: Ծանուցումներ
     official:
       name:
         one:

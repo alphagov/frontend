@@ -496,8 +496,8 @@
         other: Nyheter
     notice:
       name:
-        one:
-        other:
+        one: Merknad
+        other: Merknader
     official:
       name:
         one:

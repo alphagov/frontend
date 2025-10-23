@@ -496,8 +496,8 @@ hu:
         other: Hírek
     notice:
       name:
-        one:
-        other:
+        one: Értesítés
+        other: Értesítések
     official:
       name:
         one:

@@ -496,8 +496,8 @@ hi:
         other: समाचार कथाएं
     notice:
       name:
-        one:
-        other:
+        one: नोटिस
+        other: नोटिस
     official:
       name:
         one:

@@ -496,8 +496,8 @@ tr:
         other: Haber hikayeleri
     notice:
       name:
-        one:
-        other:
+        one: Bildirim
+        other: Bildirimler
     official:
       name:
         one:

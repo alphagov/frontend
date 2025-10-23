@@ -542,8 +542,8 @@ sk:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Oznámenie
+        other: Oznámenia
     official:
       name:
         few:

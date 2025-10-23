@@ -496,8 +496,8 @@ es:
         other: Noticias
     notice:
       name:
-        one:
-        other:
+        one: Aviso
+        other: Avisos
     official:
       name:
         one:

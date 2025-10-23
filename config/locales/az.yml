@@ -250,8 +250,8 @@ az:
         other: Şirkətin fəaliyyəti üzrə hesabatlar
     correspondence:
       name:
-        one:
-        other:
+        one: Yazışma
+        other: Yazışmalar
     countryside_stewardship_grant:
       name:
         one:

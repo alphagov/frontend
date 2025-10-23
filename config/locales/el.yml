@@ -250,8 +250,8 @@ el:
         other: Εταιρικές εκθέσεις
     correspondence:
       name:
-        one:
-        other:
+        one: Αλληλογραφία
+        other: Αλληλογραφίες
     countryside_stewardship_grant:
       name:
         one:

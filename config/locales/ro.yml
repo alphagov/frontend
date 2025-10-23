@@ -266,8 +266,8 @@ ro:
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Corespondență
+        other: Corespondențe
     countryside_stewardship_grant:
       name:
         few:

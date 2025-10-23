@@ -250,8 +250,8 @@ et:
         other: Ettevõtte aruanded
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondents
+        other: Korrespondentsid
     countryside_stewardship_grant:
       name:
         one:

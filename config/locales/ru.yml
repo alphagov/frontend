@@ -282,8 +282,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Корреспонденция
+        other: Корреспонденция
     countryside_stewardship_grant:
       name:
         few:

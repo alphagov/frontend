@@ -250,8 +250,8 @@ fr:
         other: Rapports de l'entreprise
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondance
+        other: Correspondances
     countryside_stewardship_grant:
       name:
         one:

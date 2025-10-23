@@ -250,8 +250,8 @@ sv:
         other: Företagsrapporter
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondens
+        other: Korrespondens
     countryside_stewardship_grant:
       name:
         one:

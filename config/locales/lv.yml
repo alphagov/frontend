@@ -250,8 +250,8 @@ lv:
         other: Korporatīvie ziņojumi
     correspondence:
       name:
-        one:
-        other:
+        one: Sarakste
+        other: Sarakstes
     countryside_stewardship_grant:
       name:
         one:

@@ -250,8 +250,8 @@ da:
         other: Virksomhedsrapporter
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondance
+        other: Korrespondancer
     countryside_stewardship_grant:
       name:
         one:

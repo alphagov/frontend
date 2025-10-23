@@ -282,8 +282,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Korrispondenza
+        other: Korrispondenzi
     countryside_stewardship_grant:
       name:
         few:

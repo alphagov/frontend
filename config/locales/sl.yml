@@ -281,8 +281,8 @@ sl:
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korespondenca
+        other: Korespondenca
         two:
     countryside_stewardship_grant:
       name:

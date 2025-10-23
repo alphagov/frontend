@@ -266,8 +266,8 @@ sk:
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korešpondencia
+        other: Korešpondencie
     countryside_stewardship_grant:
       name:
         few:

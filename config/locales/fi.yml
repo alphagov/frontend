@@ -564,8 +564,8 @@ fi:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Asetus
+        other: Asetukset
     research:
       name:
         one: Tutkimus ja analyysi

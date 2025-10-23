@@ -564,8 +564,8 @@ hy:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Կանոնադրություն
+        other: Կանոնադրություններ
     research:
       name:
         one: Հետազոտություն և վերլուծություն

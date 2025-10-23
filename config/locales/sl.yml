@@ -687,8 +687,8 @@ sl:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Uredba
+        other: Uredbe
         two:
     research:
       name:

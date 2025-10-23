@@ -688,8 +688,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Rozporządzenie
+        other: Rozporządzenia
     research:
       name:
         few:

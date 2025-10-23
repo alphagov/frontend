@@ -564,8 +564,8 @@ hu:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Szabályozás
+        other: Szabályozások
     research:
       name:
         one: Kutatás és elemzés

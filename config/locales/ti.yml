@@ -141,7 +141,6 @@ ti:
     description: ኩሉ ናይ GOV.UK ኢመይል ሳብስክራይባትካ ርኣይን ኣመሓድርን።
     subscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ኢመይላት ሳብስክራይብ ጌርካ ኣለኻ
     unsubscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ዝመጽእ ኢመይላት ወጺእካ/አንሳብስክራይብ ጌርካ ኣለኻ
-  error: ጌጋ
   find: ርኸብ
   formats:
     aaib_report:

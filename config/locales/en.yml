@@ -143,7 +143,6 @@ en:
     description: See and manage all your GOV.UK email subscriptions
     subscribe_title: You’ve subscribed to emails about this page
     unsubscribe_title: You’ve unsubscribed from emails about this page
-  error: Error
   find: Find
   formats:
     aaib_report:

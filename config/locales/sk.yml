@@ -141,7 +141,6 @@ sk:
     description:
     subscribe_title:
     unsubscribe_title:
-  error:
   find:
   formats:
     aaib_report:

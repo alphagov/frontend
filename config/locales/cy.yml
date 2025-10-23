@@ -143,7 +143,6 @@ cy:
     description:
     subscribe_title:
     unsubscribe_title:
-  error:
   find: Ffeindio
   formats:
     aaib_report:

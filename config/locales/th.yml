@@ -569,7 +569,7 @@ th:
         other:
     transparency:
       name:
-        other:
+        other: ข้อมูลความโปร่งใส
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปยังบางส่วนของประเทศ นอกจากมีเหตุจำเป็น

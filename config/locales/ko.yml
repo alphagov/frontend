@@ -569,7 +569,7 @@ ko:
         other:
     transparency:
       name:
-        other:
+        other: 투명성 데이터
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가의 각지를 여행하지 말라고 권고합니다.

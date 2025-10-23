@@ -645,8 +645,8 @@ da:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Data om gennemsigtighed
+        other: Data om gennemsigtighed
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Den <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til dele af landet.

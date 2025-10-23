@@ -645,8 +645,8 @@ el:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Δεδομένα διαφάνειας
+        other: Δεδομένα διαφάνειας
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια, πλην των απαραίτητων, σε μέρη της χώρας.

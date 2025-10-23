@@ -645,8 +645,8 @@ hy:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Թափանցիկության տվյալներ
+        other: Թափանցիկության տվյալներ
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկրի ամբողջ տարածք, բացառությամբ էական նշանակություն ունեցող հատվածների։

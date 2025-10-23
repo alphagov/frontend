@@ -722,8 +722,8 @@ lt:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Skaidrumo informacija
+        other: Skaidrumo informacija
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> pataria keliauti į skirtingas šalies vietas tik būtinais tikslais.

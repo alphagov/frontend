@@ -645,8 +645,8 @@ fa:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: داده‌های شفافیت
+        other: داده‌های شفافیت
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: وزارت امور خارجه بریتانیا <abbr title="Foreign and Commonwealth Office">(FCO)</abbr> توصیه می‌کند از سفرهای غیر ضروری به بخش‌هایی از این کشور خودداری کنید.

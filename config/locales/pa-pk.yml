@@ -645,8 +645,8 @@ pa-pk:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: شفافیت دے اعدادوشمار
+        other: شفافیت دے اعدادوشمار
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> مُلک دے سارے علاقیاں وچ  ضروری سفر کرن  لئی کیتی گئی نصحیت۔

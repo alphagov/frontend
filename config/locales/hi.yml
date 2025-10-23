@@ -645,8 +645,8 @@ hi:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: पारदर्शिता आंकड़े
+        other: पारदर्शिता आंकड़े
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> देश के कुछ हिस्सों में अनिवार्य यात्रा को छोड़कर बाकी सबके विरुद्ध सलाह देता है।

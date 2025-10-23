@@ -645,8 +645,8 @@ bg:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Данни за прозрачност
+        other: Данни за прозрачност
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува до някои части на страната, освен ако това не е необходимо.

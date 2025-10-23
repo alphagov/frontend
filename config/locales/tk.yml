@@ -645,8 +645,8 @@ tk:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Aç-açanlyk maglumatlar
+        other: Aç-açanlyk maglumatlar
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ýurduň käbir ýerlerine zerur syýahatdan başga-da maslahat berýär.

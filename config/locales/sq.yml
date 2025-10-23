@@ -645,8 +645,8 @@ sq:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Të dhëna për transparencën
+        other: Të dhëna për transparencën
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> këshillon kundër të gjitha udhëtimeve përveçse thelbësore në pjesë të vendit.

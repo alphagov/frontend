@@ -798,8 +798,8 @@ sl:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Podatki o preglednosti
+        other: Podatki o preglednosti
         two:
     travel_advice:
       alert_status:

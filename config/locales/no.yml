@@ -645,8 +645,8 @@
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Åpenhetsdata
+        other: Åpenhetsdata
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråder alle reiser, unntatt viktige reiser, til deler av landet.

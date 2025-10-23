@@ -645,8 +645,8 @@ pa:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
+        other: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ਦੇਸ਼ ਦੇ ਕੁਝ ਹਿੱਸਿਆਂ ਦੀ ਜ਼ਰੂਰੀ ਯਾਤਰਾ ਨੂੰ ਛੱਡ ਕੇ ਬਾਕੀ ਦੇ ਵਿਰੁੱਧ ਸਲਾਹ ਦਿੰਦਾ ਹੈ।

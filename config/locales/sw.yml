@@ -645,8 +645,8 @@ sw:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Data ya uwazi
+        other: Data ya uwazi
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote isipokuwa usafiri muhimu katika sehemu fulani za nchi.

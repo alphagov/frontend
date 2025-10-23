@@ -468,8 +468,8 @@ sv:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Karta
+        other: Kartor
     medical_safety_alert:
       name:
         one:

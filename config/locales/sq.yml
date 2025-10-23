@@ -468,8 +468,8 @@ sq:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Hartë
+        other: Harta
     medical_safety_alert:
       name:
         one:

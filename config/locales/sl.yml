@@ -545,8 +545,8 @@ sl:
     map:
       name:
         few:
-        one:
-        other:
+        one: Zemljevid
+        other: Zemljevidi
         two:
     medical_safety_alert:
       name:

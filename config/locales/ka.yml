@@ -468,8 +468,8 @@ ka:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: რუკა
+        other: რუკები
     medical_safety_alert:
       name:
         one:

@@ -507,8 +507,8 @@ sr:
     map:
       name:
         few:
-        one:
-        other:
+        one: Mapa
+        other: Mape
     medical_safety_alert:
       name:
         few:

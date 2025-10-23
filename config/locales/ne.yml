@@ -468,8 +468,8 @@ ne:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: नक्शा
+        other: नक्साहरू
     medical_safety_alert:
       name:
         one:

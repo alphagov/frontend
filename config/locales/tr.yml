@@ -468,8 +468,8 @@ tr:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Harita
+        other: Haritalar
     medical_safety_alert:
       name:
         one:

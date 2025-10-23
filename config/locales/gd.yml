@@ -545,8 +545,8 @@ gd:
     map:
       name:
         few:
-        one:
-        other:
+        one: Roghchlár
+        other: Cártaí
         two:
     medical_safety_alert:
       name:

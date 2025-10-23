@@ -468,8 +468,8 @@ ps:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشه
+        other: نقشې
     medical_safety_alert:
       name:
         one:

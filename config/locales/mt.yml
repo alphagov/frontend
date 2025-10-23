@@ -546,8 +546,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Mappa
+        other: Mapep
     medical_safety_alert:
       name:
         few:

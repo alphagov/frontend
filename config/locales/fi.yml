@@ -468,8 +468,8 @@ fi:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kartta
+        other: Kartat
     medical_safety_alert:
       name:
         one:

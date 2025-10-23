@@ -471,8 +471,8 @@ dr:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشه
+        other: نقشه ها
     medical_safety_alert:
       name:
         one:

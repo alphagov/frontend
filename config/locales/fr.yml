@@ -532,8 +532,8 @@ fr:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Document de politique générale
+        other: Documents de politique générale
     press_release:
       name:
         one: Communiqué de presse

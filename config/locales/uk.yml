@@ -640,8 +640,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Програмний документ
+        other: Програмні документи
     press_release:
       name:
         few:

@@ -532,8 +532,8 @@ fa:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: سند سیاست
+        other: اسناد سیاست
     press_release:
       name:
         one: بیانیه مطبوعاتی

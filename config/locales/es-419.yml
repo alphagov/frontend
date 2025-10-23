@@ -532,8 +532,8 @@ es-419:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Documento normativo
+        other: Documentos normativos
     press_release:
       name:
         one: Comunicado de prensa

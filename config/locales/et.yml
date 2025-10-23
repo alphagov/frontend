@@ -532,8 +532,8 @@ et:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Eeskirjade dokument
+        other: Eeskirjade dokumendid
     press_release:
       name:
         one: Pressiteade

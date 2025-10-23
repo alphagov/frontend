@@ -532,8 +532,8 @@ ur:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: پالیسی کا کاغذ
+        other: پالیسی کے کاغذات
     press_release:
       name:
         one: پریس ریلیز

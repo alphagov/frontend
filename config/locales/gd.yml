@@ -639,8 +639,8 @@ gd:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Doiciméad beartais
+        other: Doiciméid bheartais
         two:
     press_release:
       name:

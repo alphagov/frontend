@@ -586,8 +586,8 @@ cs:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Politický dokument
+        other: Politické dokumenty
     press_release:
       name:
         few:

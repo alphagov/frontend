@@ -640,8 +640,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Dokument programowy
+        other: Dokumenty programowe
     press_release:
       name:
         few:

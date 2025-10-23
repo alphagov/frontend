@@ -532,8 +532,8 @@ hi:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: नीति पत्र
+        other: नीति पत्र
     press_release:
       name:
         one: प्रेस विज्ञप्ति

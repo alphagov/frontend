@@ -532,8 +532,8 @@ gu:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: પોલિસી પેપર
+        other: પોલિસી પેપર્સ
     press_release:
       name:
         one: પ્રેસ રીલીઝ

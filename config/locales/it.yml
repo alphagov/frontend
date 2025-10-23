@@ -532,8 +532,8 @@ it:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Documento politico
+        other: Documenti politici
     press_release:
       name:
         one: Comunicato stampa

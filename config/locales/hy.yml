@@ -532,8 +532,8 @@ hy:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Քաղաքականության փաստաթուղթ
+        other: Քաղաքականության փաստաթղթեր
     press_release:
       name:
         one: Կոմյունիկե

@@ -640,8 +640,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Директивный документ
+        other: Директивные документы
     press_release:
       name:
         few:

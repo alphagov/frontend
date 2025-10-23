@@ -532,8 +532,8 @@ sq:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Dokument politikash
+        other: Dokumente politikash
     press_release:
       name:
         one: Njoftimi shtypi

@@ -532,8 +532,8 @@ ta:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: கொள்கை ஆவணம்
+        other: கொள்கை ஆவணங்கள்
     press_release:
       name:
         one: செய்திக் குறிப்பு

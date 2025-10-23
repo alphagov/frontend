@@ -774,8 +774,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Официальные рекомендации
+        other: Официальные рекомендации
     tax_tribunal_decision:
       name:
         few:

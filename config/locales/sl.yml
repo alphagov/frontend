@@ -773,8 +773,8 @@ sl:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Zakonski napotki
+        other: Zakonski napotki
         two:
     tax_tribunal_decision:
       name:

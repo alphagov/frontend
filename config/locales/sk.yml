@@ -700,8 +700,8 @@ sk:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Zákonné usmernenia
+        other: Zákonné usmernenia
     tax_tribunal_decision:
       name:
         few:

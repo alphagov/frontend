@@ -631,8 +631,8 @@ ro:
     research:
       name:
         few:
-        one:
-        other:
+        one: Cercetare și analiză
+        other: Cercetare și analiză
     residential_property_tribunal_decision:
       name:
         few:

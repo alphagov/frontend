@@ -568,8 +568,8 @@ pa-pk:
         other:
     research:
       name:
-        one:
-        other:
+        one: 'کھوج تے تجزیہ '
+        other: 'کھوج تے تجزیہ '
     residential_property_tribunal_decision:
       name:
         one:

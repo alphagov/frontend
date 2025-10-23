@@ -693,8 +693,8 @@ gd:
     research:
       name:
         few:
-        one:
-        other:
+        one: Taighde agus anailís
+        other: Taighde agus anailís
         two:
     residential_property_tribunal_decision:
       name:

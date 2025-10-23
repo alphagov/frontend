@@ -631,8 +631,8 @@ lt:
     research:
       name:
         few:
-        one:
-        other:
+        one: Tyrimas ir analizė
+        other: Tyrimai ir analizės
     residential_property_tribunal_decision:
       name:
         few:

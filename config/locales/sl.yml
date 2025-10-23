@@ -693,8 +693,8 @@ sl:
     research:
       name:
         few:
-        one:
-        other:
+        one: Raziskovanje in analiza
+        other: Raziskovanje in analiza
         two:
     residential_property_tribunal_decision:
       name:

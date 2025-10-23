@@ -398,8 +398,8 @@ gd:
     form:
       name:
         few:
-        one:
-        other:
+        one: Foirm
+        other: Foirmeacha
         two:
     get_involved:
       civil_service:

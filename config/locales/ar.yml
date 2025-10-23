@@ -455,8 +455,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: نموذج
+        other: نماذج
         two:
         zero:
     get_involved:

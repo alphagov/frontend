@@ -57,6 +57,9 @@ ja:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 掲載日
+      updated: 更新済み
     nations:
       england-and-wales:
       england-and-wales_for:

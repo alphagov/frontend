@@ -57,6 +57,9 @@ vi:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Đã xuất bản
+      updated: Đã cập nhật
     nations:
       england-and-wales:
       england-and-wales_for:

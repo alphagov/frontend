@@ -57,6 +57,9 @@ si:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: පළ කළේ
+      updated: යාවත්කාලීන කෙරිණි
     nations:
       england-and-wales:
       england-and-wales_for:

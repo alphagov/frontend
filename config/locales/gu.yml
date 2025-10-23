@@ -57,6 +57,9 @@ gu:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: પ્રકાશિત
+      updated: અપડેટ થયેલ
     nations:
       england-and-wales:
       england-and-wales_for:

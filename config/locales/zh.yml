@@ -57,6 +57,9 @@ zh:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 已发布
+      updated: 已更新
     nations:
       england-and-wales:
       england-and-wales_for:

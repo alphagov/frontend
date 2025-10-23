@@ -57,6 +57,9 @@ ti:
     email_and_print_link: 'ነዚ ገጽ ፕሪንት ንምባል ወይ ውን ንኢመይላት ተመዝገቡ '
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: ተሓቲሙ
+      updated: ዝተመሓየሸ
     nations:
       england-and-wales:
       england-and-wales_for:

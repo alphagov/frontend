@@ -57,6 +57,9 @@ hu:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: közzététel dátuma
+      updated: Frissítve
     nations:
       england-and-wales:
       england-and-wales_for:

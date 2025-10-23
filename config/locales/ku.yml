@@ -57,6 +57,9 @@ ku:
     email_and_print_link: ناوت تۆمار بکە بۆ ئیمەیڵه‌كان یان ئەم لاپەڕەیە پرنت بکە
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: بڵاوکراوەتەوە
+      updated: نوێ کراوەتەوە
     nations:
       england-and-wales:
       england-and-wales_for:

@@ -57,6 +57,9 @@ ky:
     email_and_print_link: Электрондук каттарга жазылуу же бул баракчаны басып чыгаруу
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Жарыяланды
+      updated: Жаңыртылды
     nations:
       england-and-wales:
       england-and-wales_for:

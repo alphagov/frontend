@@ -57,6 +57,9 @@ en:
     email_and_print_link: Sign up for emails or print this page
     extra_bank_holiday: Extra bank holiday
     holiday_entitlement_html: Your employer does not have to give you <a href="/holiday-entitlement-rights" title="Holiday entitlement rights" class="govuk-link">paid leave on bank or public holidays</a>.
+    metadata:
+      published: Published
+      updated: Updated
     nations:
       england-and-wales: England and Wales
       england-and-wales_for: for England and Wales

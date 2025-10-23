@@ -57,6 +57,9 @@ ro:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Publicat
+      updated: Actualizat
     nations:
       england-and-wales:
       england-and-wales_for:

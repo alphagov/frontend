@@ -836,25 +836,6 @@ fi:
     updates_section:
       heading:
       items:
-  sessions:
-    first_time:
-      cookie_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      description_html:
-      feedback_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      invalid:
-      title:
   shared:
     historically_political: Tämä julkaistiin osoitteessa %{government}
   sign_up:

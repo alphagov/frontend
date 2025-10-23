@@ -12,7 +12,7 @@
   } %>
 
   <p class="govuk-body">
-    <strong><%= @postcode %></strong> <%= link_to t("formats.place.change"), @change_path, class: "govuk-link" %>
+    <strong><%= @postcode %></strong> <%= link_to t("common.change"), @change_path, class: "govuk-link" %>
   </p>
 
   <%= form_tag(@onward_path, method: :post) do -%>

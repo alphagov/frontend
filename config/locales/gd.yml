@@ -742,8 +742,8 @@ gd:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Caighdeán
+        other: Caighdeáin
         two:
     start_now:
     statement_to_parliament:

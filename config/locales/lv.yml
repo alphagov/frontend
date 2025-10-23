@@ -605,8 +605,8 @@ lv:
       written_on: Uzrakstīts uz
     standard:
       name:
-        one:
-        other:
+        one: Standarts
+        other: Standarti
     start_now:
     statement_to_parliament:
       name:

@@ -605,8 +605,8 @@ pt:
       written_on: Escrito em
     standard:
       name:
-        one:
-        other:
+        one: Norma
+        other: Normas
     start_now:
     statement_to_parliament:
       name:

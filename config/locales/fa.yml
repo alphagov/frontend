@@ -605,8 +605,8 @@ fa:
       written_on: نوشته شده در
     standard:
       name:
-        one:
-        other:
+        one: استاندارد
+        other: استانداردها
     start_now:
     statement_to_parliament:
       name:

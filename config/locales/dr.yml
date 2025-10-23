@@ -608,8 +608,8 @@ dr:
       written_on: نوشته شده است د
     standard:
       name:
-        one:
-        other:
+        one: استندرد
+        other: استندرد ها
     start_now:
     statement_to_parliament:
       name:

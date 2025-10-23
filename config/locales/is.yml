@@ -605,8 +605,8 @@ is:
       written_on: Skrifað þann
     standard:
       name:
-        one:
-        other:
+        one: Staðall
+        other: Staðlar
     start_now:
     statement_to_parliament:
       name:

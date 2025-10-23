@@ -605,8 +605,8 @@ si:
       written_on: ලියන ලද දිනය
     standard:
       name:
-        one:
-        other:
+        one: ප්‍රමිතිය
+        other: ප්‍රමිති
     start_now:
     statement_to_parliament:
       name:

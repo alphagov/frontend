@@ -605,8 +605,8 @@ es:
       written_on: Escrito en
     standard:
       name:
-        one:
-        other:
+        one: Estándar
+        other: Estándares
     start_now:
     statement_to_parliament:
       name:

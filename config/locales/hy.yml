@@ -605,8 +605,8 @@ hy:
       written_on: Գրվել է
     standard:
       name:
-        one:
-        other:
+        one: Ստանդարտ
+        other: Ստանդարտներ
     start_now:
     statement_to_parliament:
       name:

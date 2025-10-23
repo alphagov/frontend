@@ -605,8 +605,8 @@ ur:
       written_on: تحریر کردہ بتاریخ
     standard:
       name:
-        one:
-        other:
+        one: معیار
+        other: معیارات
     start_now:
     statement_to_parliament:
       name:

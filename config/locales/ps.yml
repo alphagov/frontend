@@ -605,8 +605,8 @@ ps:
       written_on: باندې لیکل شوی
     standard:
       name:
-        one:
-        other:
+        one: معیاري
+        other: معیارونه
     start_now:
     statement_to_parliament:
       name:

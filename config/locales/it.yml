@@ -605,8 +605,8 @@ it:
       written_on: Scritto il
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standard
     start_now:
     statement_to_parliament:
       name:

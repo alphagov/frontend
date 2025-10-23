@@ -605,8 +605,8 @@ hu:
       written_on: 'Írás időpontja:'
     standard:
       name:
-        one:
-        other:
+        one: Szabvány
+        other: Szabványok
     start_now:
     statement_to_parliament:
       name:

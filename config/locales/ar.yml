@@ -879,8 +879,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: معيار
+        other: معايير
         two:
         zero:
     start_now:

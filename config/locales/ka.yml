@@ -605,8 +605,8 @@ ka:
       written_on: დაწერილი
     standard:
       name:
-        one:
-        other:
+        one: სტანდარტი
+        other: სტანდარტები
     start_now:
     statement_to_parliament:
       name:

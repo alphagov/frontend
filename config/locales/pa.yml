@@ -605,8 +605,8 @@ pa:
       written_on: "'ਤੇ ਲਿਖਿਆ ਗਿਆ"
     standard:
       name:
-        one:
-        other:
+        one: ਮਿਆਰੀ
+        other: ਮਿਆਰ
     start_now:
     statement_to_parliament:
       name:

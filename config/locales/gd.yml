@@ -813,8 +813,8 @@ gd:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Sonraí trédhearcachta
+        other: Sonraí trédhearcachta
         two:
     travel_advice:
       alert_status:

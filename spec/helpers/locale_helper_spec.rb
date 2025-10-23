@@ -1,6 +1,78 @@
 RSpec.describe LocaleHelper do
   include described_class
 
+  describe "#content_item_locale" do
+    context "when the content item is in english" do
+      let(:content_item) { ContentItem.new(GovukSchemas::Example.find(:publication, example_name: "publication")) }
+
+      it "returns en" do
+        expect(content_item_locale).to eq("en")
+      end
+    end
+
+    context "when the content item is not in english" do
+      let(:content_item) do
+        ContentItem.new(GovukSchemas::Example.find(:publication, example_name: "publication").tap do |example|
+          example["locale"] = "cy"
+        end)
+      end
+
+      it "returns the appropriate code" do
+        expect(content_item_locale).to eq("cy")
+      end
+    end
+
+    context "with no content item" do
+      let(:content_item) { nil }
+
+      it "returns en" do
+        expect(content_item_locale).to eq("en")
+      end
+    end
+  end
+
+  describe "#with_content_item_locale" do
+    context "when the content item is in english" do
+      let(:content_item) { ContentItem.new(GovukSchemas::Example.find(:publication, example_name: "publication")) }
+
+      it "runs the inside of the block in english" do
+        expect {
+          with_content_item_locale do
+            puts(I18n.t("language_names.cy"))
+          end
+        }.to output("Welsh\n").to_stdout
+      end
+    end
+
+    context "when the content item is not in english" do
+      let(:content_item) do
+        ContentItem.new(GovukSchemas::Example.find(:publication, example_name: "publication").tap do |example|
+          example["locale"] = "cy"
+        end)
+      end
+
+      it "runs the inside of the block in the appropriate language" do
+        expect {
+          with_content_item_locale do
+            puts(I18n.t("language_names.cy"))
+          end
+        }.to output("Cymraeg\n").to_stdout
+      end
+    end
+
+    context "with no content item" do
+      let(:content_item) { nil }
+
+      it "runs the inside of the block in english" do
+        expect {
+          with_content_item_locale do
+            puts(I18n.t("language_names.cy"))
+          end
+        }.to output("Welsh\n").to_stdout
+      end
+    end
+  end
+
   describe "#translations_for_nav" do
     it "returns translations in a suitable format for the translation nav component" do
       translations = [

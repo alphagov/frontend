@@ -261,8 +261,8 @@ sk:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Podniková správa
+        other: Podnikové správy
     correspondence:
       name:
         few:

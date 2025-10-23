@@ -246,8 +246,8 @@
       welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Bedriftsrapport
+        other: Bedriftsrapporter
     correspondence:
       name:
         one:

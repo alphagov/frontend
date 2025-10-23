@@ -246,8 +246,8 @@ hu:
       welsh_language_scheme_html: 'Tájékozódjon az információk közzétételével kapcsolatos elkötelezettségünkről: %{link}'
     corporate_report:
       name:
-        one:
-        other:
+        one: Testületi beszámoló
+        other: Testületi beszámolók
     correspondence:
       name:
         one:

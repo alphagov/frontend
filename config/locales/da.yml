@@ -246,8 +246,8 @@ da:
       welsh_language_scheme_html: Learn more about our commitment to% {link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Virksomhedsrapport
+        other: Virksomhedsrapporter
     correspondence:
       name:
         one:

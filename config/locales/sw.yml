@@ -246,8 +246,8 @@ sw:
       welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ripoti ya shirika
+        other: Ripoti za shirika
     correspondence:
       name:
         one:

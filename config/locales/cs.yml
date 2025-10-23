@@ -261,8 +261,8 @@ cs:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Podniková zpráva
+        other: Podnikové zprávy
     correspondence:
       name:
         few:

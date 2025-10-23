@@ -246,8 +246,8 @@ es-419:
       welsh_language_scheme_html: Conozca nuestro compromiso con %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Informe de la empresa
+        other: Informes de la empresa
     correspondence:
       name:
         one:

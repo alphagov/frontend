@@ -246,8 +246,8 @@ bg:
       welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Фирмен доклад
+        other: Фирмени доклади
     correspondence:
       name:
         one:

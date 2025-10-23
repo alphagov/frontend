@@ -246,8 +246,8 @@ is:
       welsh_language_scheme_html: Kynntu þér skuldbindingu okkar við %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Skýrsla fyrirtækis
+        other: Skýrslur fyrirtækja
     correspondence:
       name:
         one:

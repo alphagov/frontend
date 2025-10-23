@@ -246,8 +246,8 @@ ne:
       welsh_language_scheme_html: "%{link} को हाम्रो प्रतिबद्धताको बारेमा जानकारी पाउनुहोस्।"
     corporate_report:
       name:
-        one:
-        other:
+        one: निगम प्रतिवेदन
+        other: निगम प्रतिवेदनहरू
     correspondence:
       name:
         one:

@@ -246,8 +246,8 @@ ka:
       welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: კორპორატიული ანგარიში
+        other: კორპორატიული ანგარიშები
     correspondence:
       name:
         one:

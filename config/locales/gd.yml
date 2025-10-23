@@ -275,8 +275,8 @@ gd:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Tuarascáil cuideachta
+        other: Tuarascálacha cuideachta
         two:
     correspondence:
       name:

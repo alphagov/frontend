@@ -246,8 +246,8 @@ et:
       welsh_language_scheme_html: Lisateave meie pühendumuse kohta %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ettevõtte aruanne
+        other: Ettevõtte aruanded
     correspondence:
       name:
         one:

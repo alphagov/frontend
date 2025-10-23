@@ -246,8 +246,8 @@ el:
       welsh_language_scheme_html: Μάθετε για τη δέσμευσή μας στο %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Εταιρική έκθεση
+        other: Εταιρικές εκθέσεις
     correspondence:
       name:
         one:

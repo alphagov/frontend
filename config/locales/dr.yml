@@ -246,8 +246,8 @@ dr:
       welsh_language_scheme_html: از تعهد ما به %{link} مطلع شوید.
     corporate_report:
       name:
-        one:
-        other:
+        one: گزارش شرکت
+        other: گزارشات شرکت
     correspondence:
       name:
         one:

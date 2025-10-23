@@ -246,8 +246,8 @@ gu:
       welsh_language_scheme_html: "%{link} પ્રત્યે અમારી પ્રતિબદ્ધતા અંગે જાણો."
     corporate_report:
       name:
-        one:
-        other:
+        one: કોર્પોરેટ અહેવાલ
+        other: કોર્પોરેટ અહેવાલો
     correspondence:
       name:
         one:

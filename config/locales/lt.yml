@@ -261,8 +261,8 @@ lt:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Bendra ataskaita
+        other: Bendros ataskaitos
     correspondence:
       name:
         few:

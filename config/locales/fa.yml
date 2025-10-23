@@ -246,8 +246,8 @@ fa:
       welsh_language_scheme_html: درباره تعهد ما نسبت به %{link} اطلاعات کسب کنید.
     corporate_report:
       name:
-        one:
-        other:
+        one: گزارش شرکتی
+        other: گزارشات شرکتی
     correspondence:
       name:
         one:

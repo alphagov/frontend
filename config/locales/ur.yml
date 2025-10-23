@@ -246,8 +246,8 @@ ur:
       welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
     corporate_report:
       name:
-        one:
-        other:
+        one: کارپوریٹ رپورٹ
+        other: کارپوریٹ رپورٹس
     correspondence:
       name:
         one:

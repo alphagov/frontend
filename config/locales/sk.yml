@@ -640,8 +640,8 @@ sk:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Nariadenie
+        other: Nariadenia
     research:
       name:
         few:

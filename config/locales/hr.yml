@@ -640,8 +640,8 @@ hr:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Regulacija
+        other: Regulacije
     research:
       name:
         few:

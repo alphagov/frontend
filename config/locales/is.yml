@@ -578,8 +578,8 @@ is:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Reglugerð
+        other: Reglugerðir
     research:
       name:
         one: Rannsóknir og greining

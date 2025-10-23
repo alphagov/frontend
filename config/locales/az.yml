@@ -578,8 +578,8 @@ az:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Tənzimləmə
+        other: Tənzimləmələr
     research:
       name:
         one: Araşdırma və təhlil

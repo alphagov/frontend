@@ -578,8 +578,8 @@ el:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Κανονισμός λειτουργίας
+        other: Κανονισμοί λειτουργίας
     research:
       name:
         one: Έρευνα και ανάλυση

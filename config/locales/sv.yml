@@ -578,8 +578,8 @@ sv:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Förordning
+        other: Förordningar
     research:
       name:
         one: Forskning och analys

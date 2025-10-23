@@ -578,8 +578,8 @@ da:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Forordning
+        other: Forordninger
     research:
       name:
         one: Forskning og analyse

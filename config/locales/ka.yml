@@ -578,8 +578,8 @@ ka:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: რეგულირება
+        other: რეგულირებები
     research:
       name:
         one: კვლევა და ანალიზი

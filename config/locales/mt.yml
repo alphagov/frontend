@@ -702,8 +702,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Regolament
+        other: Regolamenti
     research:
       name:
         few:

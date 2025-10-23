@@ -605,8 +605,8 @@ ne:
       written_on: मा लेखिएको छ
     standard:
       name:
-        one:
-        other:
+        one: मानक
+        other: मानकहरू
     start_now:
     statement_to_parliament:
       name:

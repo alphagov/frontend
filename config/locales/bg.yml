@@ -605,8 +605,8 @@ bg:
       written_on: Написано на
     standard:
       name:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарти
     start_now:
     statement_to_parliament:
       name:

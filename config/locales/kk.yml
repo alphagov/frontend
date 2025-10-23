@@ -605,8 +605,8 @@ kk:
       written_on: Жазылған күні
     standard:
       name:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарттар
     start_now:
     statement_to_parliament:
       name:

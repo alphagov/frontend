@@ -605,8 +605,8 @@ az:
       written_on: Yazılma tarixi
     standard:
       name:
-        one:
-        other:
+        one: Standart
+        other: Standartlar
     start_now:
     statement_to_parliament:
       name:

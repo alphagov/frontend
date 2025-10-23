@@ -605,8 +605,8 @@ fi:
       written_on: Kirjoitettu
     standard:
       name:
-        one:
-        other:
+        one: Standardi
+        other: Standardit
     start_now:
     statement_to_parliament:
       name:

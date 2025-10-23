@@ -742,8 +742,8 @@ sl:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standard
+        other: Standardi
         two:
     start_now:
     statement_to_parliament:

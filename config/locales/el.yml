@@ -605,8 +605,8 @@ el:
       written_on: Γράφτηκε στις
     standard:
       name:
-        one:
-        other:
+        one: Πρότυπο
+        other: Πρότυπα
     start_now:
     statement_to_parliament:
       name:

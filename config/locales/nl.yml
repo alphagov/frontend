@@ -605,8 +605,8 @@ nl:
       written_on: Geschreven op
     standard:
       name:
-        one:
-        other:
+        one: Standaard
+        other: Standaarden
     start_now:
     statement_to_parliament:
       name:

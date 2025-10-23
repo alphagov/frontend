@@ -605,8 +605,8 @@ sq:
       written_on: Shkruar në
     standard:
       name:
-        one:
-        other:
+        one: Standardi
+        other: Standarde
     start_now:
     statement_to_parliament:
       name:

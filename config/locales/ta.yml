@@ -605,8 +605,8 @@ ta:
       written_on: எழுதப்பட்ட தேதி
     standard:
       name:
-        one:
-        other:
+        one: தரநிலை
+        other: தரநிலைகள்
     start_now:
     statement_to_parliament:
       name:

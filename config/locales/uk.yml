@@ -743,8 +743,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарти
     start_now:
     statement_to_parliament:
       name:

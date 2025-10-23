@@ -674,8 +674,8 @@ hr:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standard
+        other: Standardi
     start_now:
     statement_to_parliament:
       name:

@@ -605,8 +605,8 @@ fr:
       written_on: Rédigé le
     standard:
       name:
-        one:
-        other:
+        one: norme
+        other: normes
     start_now:
     statement_to_parliament:
       name:

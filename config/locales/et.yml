@@ -605,8 +605,8 @@ et:
       written_on: Kirjutatud
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standardid
     start_now:
     statement_to_parliament:
       name:

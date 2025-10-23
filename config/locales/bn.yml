@@ -605,8 +605,8 @@ bn:
       written_on: যখন লেখা হয়েছে
     standard:
       name:
-        one:
-        other:
+        one: স্ট্যান্ডার্ড
+        other: স্ট্যান্ডার্ডসমূহ
     start_now:
     statement_to_parliament:
       name:

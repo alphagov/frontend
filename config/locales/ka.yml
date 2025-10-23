@@ -532,8 +532,8 @@ ka:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: საკანონომდებლო დოკუმენტი
+        other: საკანონომდებლო დოკუმენტები
     press_release:
       name:
         one: პრეს რელიზი

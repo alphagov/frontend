@@ -586,8 +586,8 @@ ro:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Document de politică
+        other: Documente de politică
     press_release:
       name:
         few:

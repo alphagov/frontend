@@ -586,8 +586,8 @@ hr:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Dokument o pravilima
+        other: Dokumenti o pravilima
     press_release:
       name:
         few:

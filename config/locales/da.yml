@@ -532,8 +532,8 @@ da:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politikdokument
+        other: Politikdokumenter
     press_release:
       name:
         one: Pressemeddelelse

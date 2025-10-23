@@ -586,8 +586,8 @@ lt:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Strategijos dokumentas
+        other: Strategijų dokumentai
     press_release:
       name:
         few:

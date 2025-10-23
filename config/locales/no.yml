@@ -532,8 +532,8 @@
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Skriv om retningslinjer
+        other: Skriv om retningslinjer
     press_release:
       name:
         one: Pressemelding

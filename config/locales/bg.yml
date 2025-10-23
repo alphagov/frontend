@@ -532,8 +532,8 @@ bg:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Политически документ
+        other: Политически документи
     press_release:
       name:
         one: Съобщение за пресата

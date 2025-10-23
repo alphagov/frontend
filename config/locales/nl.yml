@@ -532,8 +532,8 @@ nl:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Beleidsnota
+        other: Beleidsnota's
     press_release:
       name:
         one: Persbericht

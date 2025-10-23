@@ -640,8 +640,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Dokument tal-Politika
+        other: Dokumenti tal-Politika
     press_release:
       name:
         few:

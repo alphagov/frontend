@@ -639,8 +639,8 @@ sl:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Politični dokument
+        other: Politični dokumenti
         two:
     press_release:
       name:

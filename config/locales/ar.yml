@@ -746,8 +746,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: ورقة تتعلق بالسياسات
+        other: أوراق تتعلق بالسياسات
         two:
         zero:
     press_release:

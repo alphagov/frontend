@@ -535,8 +535,8 @@ dr:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: مقاله سیاست
+        other: اوراق سیاست
     press_release:
       name:
         one: بیانیه مطبوعاتی

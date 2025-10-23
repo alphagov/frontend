@@ -532,8 +532,8 @@ bn:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: পলিসি পেপার
+        other: পলিসি পেপারসমূহ
     press_release:
       name:
         one: প্রেস বিজ্ঞপ্তি

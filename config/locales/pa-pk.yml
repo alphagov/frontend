@@ -532,8 +532,8 @@ pa-pk:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: حکمت عملی دا کاغذ
+        other: حکمتِ عملی دے کاغذات
     press_release:
       name:
         one: خبراں دینا

@@ -71,7 +71,6 @@ en:
     st_patrick: St Patrick’s Day
     summer: Summer bank holiday
     year: Year
-  cancel: cancel
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     and: and

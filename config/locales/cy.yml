@@ -71,7 +71,6 @@ cy:
     st_patrick: Gŵyl Sant Padrig
     summer: Gŵyl banc yr haf
     year: Blwyddyn
-  cancel:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
     and: a

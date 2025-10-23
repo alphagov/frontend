@@ -309,8 +309,8 @@ es-419:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Publicación sobre Libertad de Información (FOI)
+        other: Publicaciones sobre Libertad de Informacion (FOI)
     form:
       name:
         one: Formulario

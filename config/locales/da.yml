@@ -309,8 +309,8 @@ da:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI frigivelse
+        other: FOI frigivelser
     form:
       name:
         one: Formular

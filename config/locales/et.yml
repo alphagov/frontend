@@ -309,8 +309,8 @@ et:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI väljaanne
+        other: FOI väljaanded
     form:
       name:
         one: Vorm

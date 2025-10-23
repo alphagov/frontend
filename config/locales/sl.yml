@@ -364,8 +364,8 @@ sl:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Izjava o svobodi informacij
+        other: Izjave o svobodi informacij
         two:
     form:
       name:

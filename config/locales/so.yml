@@ -309,8 +309,8 @@ so:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Baahinta FOI
+        other: Warbixinaha FOI
     form:
       name:
         one: Foomka

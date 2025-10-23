@@ -365,8 +365,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Informacja zgodnie z ustawą o wolnosci informacji
+        other: Informacje zgodnie z ustawą o wolności informacji
     form:
       name:
         few:

@@ -309,8 +309,8 @@ si:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI නිකුත් කිරීම
+        other: FOI නිකුත් කිරීම්
     form:
       name:
         one: ආකෘති පත්‍රය

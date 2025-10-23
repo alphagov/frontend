@@ -309,8 +309,8 @@ fa:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: موارد انتشار آزادی اطلاعات
+        other: موارد انتشار آزادی اطلاعات
     form:
       name:
         one: فرم

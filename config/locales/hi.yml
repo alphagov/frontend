@@ -309,8 +309,8 @@ hi:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: एफओआई की विज्ञप्ति
+        other: एफओआई की विज्ञप्तियां
     form:
       name:
         one: प्रपत्र

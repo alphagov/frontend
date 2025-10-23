@@ -309,8 +309,8 @@ sq:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Njoftim mbi Lirinë e Informacionit
+        other: Njoftime mbi Lirinë e Informacionit
     form:
       name:
         one: Formular

@@ -309,8 +309,8 @@
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Informasjonsfrihetstillatelse
+        other: Informasjonsfrihetstillatelser
     form:
       name:
         one: Skjema

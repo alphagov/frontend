@@ -309,8 +309,8 @@ fi:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Tiedonvälityksen vapaus julkaisu
+        other: Tiedonvälityksen vapaus julkaisut
     form:
       name:
         one: Lomake

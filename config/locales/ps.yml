@@ -309,8 +309,8 @@ ps:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: د د معلوماتو د آزادۍ قانون خوشې کول
+        other: د معلوماتو د آزادۍ قانون خپروي
     form:
       name:
         one: فورمه

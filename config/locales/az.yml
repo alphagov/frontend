@@ -309,8 +309,8 @@ az:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Məlumat əldə etmə azadlığı buraxılışı
+        other: Məlumat əldə etmə azadlığı buraxılışları
     form:
       name:
         one: Forma

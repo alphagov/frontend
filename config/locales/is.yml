@@ -309,8 +309,8 @@ is:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Upplýsingafrelsi (FOI) útgáfa
+        other: Upplýsingafrelsi (FOI) útgáfur
     form:
       name:
         one: Eyðublað

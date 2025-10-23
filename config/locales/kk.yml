@@ -309,8 +309,8 @@ kk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI шығарылымы
+        other: FOI шығарылымдары
     form:
       name:
         one: Форма

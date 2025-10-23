@@ -309,8 +309,8 @@ ka:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: ინფორმაციის თავისუფლების გამოცემა
+        other: ინფორმაციის თავისუფლების გამოცემებ
     form:
       name:
         one: ფორმა

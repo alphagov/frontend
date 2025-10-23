@@ -309,8 +309,8 @@ pt:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Comunicado de Liberdade de Informação
+        other: Comunicados de Liberdade de Informação
     form:
       name:
         one: Formulário

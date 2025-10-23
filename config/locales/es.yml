@@ -309,8 +309,8 @@ es:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Nota de prensa de Freedom of Information
+        other: Boletines de FOI
     form:
       name:
         one: Formulario

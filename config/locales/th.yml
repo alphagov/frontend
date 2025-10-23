@@ -282,7 +282,7 @@ th:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: การออก FOI
     form:
       name:
         other: แบบฟอร์ม

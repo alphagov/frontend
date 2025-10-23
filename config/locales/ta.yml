@@ -309,8 +309,8 @@ ta:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: தகவல் சுதந்திர வெளியீடு
+        other: தகவல் சுதந்திர வெளியீடுகள்
     form:
       name:
         one: படிவம்

@@ -309,8 +309,8 @@ bg:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Свобода на информацията издание
+        other: Свобода на информацията издания
     form:
       name:
         one: Формуляр

@@ -309,8 +309,8 @@ fr:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Communiqué d'accès à l'information
+        other: Communiqués d'accès à l'information
     form:
       name:
         one: Formulaire

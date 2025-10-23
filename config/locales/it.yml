@@ -309,8 +309,8 @@ it:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Pubblicazione sulla libertà d’informazione (FOI)
+        other: Pubblicazioni sulla libertà d’informazione (FOI)
     form:
       name:
         one: Modulo

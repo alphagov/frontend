@@ -337,8 +337,8 @@ cs:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Zveřejnění informací
+        other: Zveřejnění informací
     form:
       name:
         few:

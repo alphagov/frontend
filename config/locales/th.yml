@@ -75,6 +75,7 @@ th:
   cancel:
   common:
     add_holiday_ics:
+    and: และ
     at: เมื่อ
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ th:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ th:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'เยี่ยมชม:'
+    was: เคย
   components:
     share_links:
       share_this_page: แชร์หน้านี้
@@ -185,34 +188,18 @@ th:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ th:
         other:
     consultation:
       analysing_feedback:
-      and: และ
       another_website_html: การให้คำปรึกษา %{closed} นี้จัดขึ้นใน <a href="%{url}">เว็บไซต์อื่น</a>
       closes: ปิดเมื่อ
       closes_at: การให้คำปรึกษานี้ปิดเมื่อ
@@ -249,13 +235,12 @@ th:
         other: การให้คำปรึกษา
       not_open_yet: ยังไม่เปิดการให้คำปรึกษา
       opens: การให้คำปรึกษานี้เปิดแล้ว
-      or:
       original_consultation: การให้คำปรึกษาดั้งเดิม
       ran_from: การให้คำปรึกษานี้เริ่มจาก
       respond_online: ตอบกลับทางออนไลน์
+      response_form:
       summary:
       visit_soon: เยี่ยมชมหน้านี้อีกครั้งในเร็วๆ นี้เพื่อดาวน์โหลดผลลัพธ์สำหรับข้อคิดเห็นสาธารณะนี้
-      was: เคย
       ways_to_respond: วิธีการตอบกลับ
       write_to: 'เขียนข้อความถึง:'
     consultation_outcome:

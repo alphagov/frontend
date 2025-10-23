@@ -75,6 +75,7 @@ pl:
   cancel:
   common:
     add_holiday_ics:
+    and: i
     at: o
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ pl:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ pl:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Odwiedź:'
+    was: był
   components:
     share_links:
       share_this_page: Udostępnij tę stronę
@@ -200,20 +203,11 @@ pl:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         many:
@@ -222,15 +216,8 @@ pl:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,7 +250,6 @@ pl:
         other:
     consultation:
       analysing_feedback:
-      and: i
       another_website_html: Te konsultacje %{closed} odbyły się na <a href="%{url}">innej stronie internetowej</a>
       closes: Kończy się o
       closes_at: Te konsultacje kończą się o
@@ -285,13 +271,12 @@ pl:
         other: Konsultacje
       not_open_yet: Te konsultacje jeszcze się nie rozpoczęły
       opens: Konsultacje rozpoczynają się
-      or:
       original_consultation: Pierwotne konsultacje
       ran_from: Te konsultacje trwały od
       respond_online: Odpowiedz online
+      response_form:
       summary:
       visit_soon: Odwiedź tę stronę ponownie, aby pobrać informacje zwrotne.
-      was: był
       ways_to_respond: Sposoby wysłania odpowiedzi
       write_to: 'Napisz do:'
     consultation_outcome:

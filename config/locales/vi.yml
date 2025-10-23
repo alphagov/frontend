@@ -75,6 +75,7 @@ vi:
   cancel:
   common:
     add_holiday_ics:
+    and: và
     at: lúc
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ vi:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ vi:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Truy cập:'
+    was: là
   components:
     share_links:
       share_this_page: Chia sẻ trang này
@@ -185,34 +188,18 @@ vi:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ vi:
         other:
     consultation:
       analysing_feedback:
-      and: và
       another_website_html: Buổi tham vấn này %{closed} được tổ chức trên <a href="%{url}">một trang web khác</a>
       closes: Và kết thúc lúc
       closes_at: Buổi tham vấn này kết thúc lúc
@@ -249,13 +235,12 @@ vi:
         other: Tham vấn
       not_open_yet: Buổi tham vấn này chưa mở
       opens: Buổi tham vấn này đang diễn ra
-      or:
       original_consultation: Buổi tham vấn nguyên bản
       ran_from: Buổi tham vấn này bắt đầu từ
       respond_online: Trả lời trực tuyến
+      response_form:
       summary:
       visit_soon: Hãy sớm truy cập lại trang này để tải xuống kết quả cho phản hồi công khai này.
-      was: là
       ways_to_respond: Cách trả lời
       write_to: 'Gửi thư đến:'
     consultation_outcome:

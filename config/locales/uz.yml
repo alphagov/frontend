@@ -75,6 +75,7 @@ uz:
   cancel:
   common:
     add_holiday_ics:
+    and: ва
     at: да
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ uz:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ uz:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Ташриф буюринг:'
+    was: бўлган
   components:
     share_links:
       share_this_page: Саҳифа билан бўлишиш
@@ -190,35 +193,19 @@ uz:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ uz:
         other:
     consultation:
       analysing_feedback:
-      and: ва
       another_website_html: Ушбу маслаҳат %{closed} бошқа <a href="%{url}"> веб-сайтда ўтказилди</a>
       closes: да якунланади
       closes_at: Ушбу маслаҳат да якунланади
@@ -261,13 +247,12 @@ uz:
         other: Маслаҳатлар
       not_open_yet: Маслаҳат ҳали бошланмади
       opens: Маслаҳат бошланмоқда
-      or:
       original_consultation: Дастлабки маслаҳат
       ran_from: Ушбу маслаҳат дан ўтказилган
       respond_online: Онлайн жавоб бериш
+      response_form:
       summary:
       visit_soon: Мазкур саҳифага яқин вақтда яна бир марта ташриф буюринг ва ушбу шарҳга натижаларни юклаб олинг.
-      was: бўлган
       ways_to_respond: Жавоб бериш усули
       write_to: 'Ёзиш:'
     consultation_outcome:

@@ -75,6 +75,7 @@ zh-hk:
   cancel:
   common:
     add_holiday_ics:
+    and: 及
     at: 位於
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ zh-hk:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ zh-hk:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 訪問：
+    was: 曾是
   components:
     share_links:
       share_this_page: 轉載此一頁面
@@ -185,34 +188,18 @@ zh-hk:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ zh-hk:
         other:
     consultation:
       analysing_feedback:
-      and: 及
       another_website_html: 本次諮詢 %{closed} 在 <a href="%{url}">另一網站舉行</a>
       closes: 截止日期為
       closes_at: 本次諮詢結束於
@@ -249,13 +235,12 @@ zh-hk:
         other: 諮詢
       not_open_yet: 諮詢仍未開始
       opens: 本次諮詢開始
-      or:
       original_consultation: 原有諮詢
       ran_from: 本次諮詢開始於
       respond_online: 線上回覆
+      response_form:
       summary:
       visit_soon: 請儘快再次訪問本頁面，以下載此一公共 回饋意見。
-      was: 曾是
       ways_to_respond: 回應方式
       write_to: 致函：
     consultation_outcome:

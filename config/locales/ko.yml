@@ -75,6 +75,7 @@ ko:
   cancel:
   common:
     add_holiday_ics:
+    and: 그리고
     at: 때
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ko:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ko:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: '방문:'
+    was: 그랬음
   components:
     share_links:
       share_this_page: 이 페이지 공유하기
@@ -185,34 +188,18 @@ ko:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ ko:
         other:
     consultation:
       analysing_feedback:
-      and: 그리고
       another_website_html: 이 상담 %{closed} 은 <a href="%{url}">다른 웹사이트</a>에서 진행되었습니다
       closes: 종결 시점
       closes_at: 이 상담은 다음 시점에 종결됩니다
@@ -249,13 +235,12 @@ ko:
         other: 상담
       not_open_yet: 이 상담이 아직 공개되지 않았습니다
       opens: 이 상담이 공개되었습니다
-      or:
       original_consultation: 기존 상담
       ran_from: 상담 실행 장소
       respond_online: 온라인으로 응답하기
+      response_form:
       summary:
       visit_soon: 이 페이지에 다시 방문하여 이 공공 피드백의 결과를 다운로드하십시오.
-      was: 그랬음
       ways_to_respond: 응답 방법
       write_to: '다음에 작성:'
     consultation_outcome:

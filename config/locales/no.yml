@@ -75,6 +75,7 @@
   cancel:
   common:
     add_holiday_ics:
+    and: og
     at: på
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Besøk:'
+    was: var
   components:
     share_links:
       share_this_page: Del denne siden
@@ -190,35 +193,19 @@
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@
         other:
     consultation:
       analysing_feedback:
-      and: og
       another_website_html: Denne konsultasjonen %{closed} ble avholdt på <a href="%{url}">et annet nettsted</a>
       closes: Den avsluttes klokken
       closes_at: Denne konsultasjonen avsluttes klokken
@@ -261,13 +247,12 @@
         other: Konsultasjoner
       not_open_yet: Denne konsultasjonen er ikke åpen ennå
       opens: Denne konsultasjonen åpner
-      or:
       original_consultation: Opprinnelig konsultasjon
       ran_from: Denne konsultasjonen varte fra
       respond_online: Svar online
+      response_form:
       summary:
       visit_soon: Besøk denne siden igjen snart for å laste ned resultatet til denne public feedback.
-      was: var
       ways_to_respond: Måter å svare på
       write_to: 'Skriv til:'
     consultation_outcome:

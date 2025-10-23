@@ -75,6 +75,7 @@ it:
   cancel:
   common:
     add_holiday_ics:
+    and: e
     at: in
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ it:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ it:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Visita:'
+    was: era
   components:
     share_links:
       share_this_page: Condividi questa pagina
@@ -190,35 +193,19 @@ it:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ it:
         other:
     consultation:
       analysing_feedback:
-      and: e
       another_website_html: Questa consultazione %{closed} tenuta su <a href=”%{url}”>un altro sito web</a>
       closes: Si chiude alle
       closes_at: Questa consultazione si chiude alle
@@ -261,13 +247,12 @@ it:
         other: Consultazioni
       not_open_yet: Questa consultazione non è ancora aperta
       opens: Questa consultazione si apre
-      or:
       original_consultation: Consultazione originale
       ran_from: Questa consultazione è partita da
       respond_online: Rispondi online
+      response_form:
       summary:
       visit_soon: Visita presto questa pagina per scaricare il risultato in questo feedback pubblico.
-      was: era
       ways_to_respond: Modi di rispondere
       write_to: 'Scrivi a:'
     consultation_outcome:

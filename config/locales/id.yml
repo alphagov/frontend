@@ -75,6 +75,7 @@ id:
   cancel:
   common:
     add_holiday_ics:
+    and: dan
     at: pada
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ id:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ id:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Kunjungan:'
+    was: "."
   components:
     share_links:
       share_this_page: Bagikan halaman ini
@@ -185,34 +188,18 @@ id:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ id:
         other:
     consultation:
       analysing_feedback:
-      and: dan
       another_website_html: Konsultasi ini %{closed} diadakan di <a href="%{url}">situs web lain</a>
       closes: Tutup pada
       closes_at: Konsultasi ini ditutup pada
@@ -249,13 +235,12 @@ id:
         other: Konsultasi
       not_open_yet: Konsultasi ini belum dibuka
       opens: Konsultasi ini sudah dibuka
-      or:
       original_consultation: Konsultasi asli
       ran_from: Konsultasi ini berlangsung dari
       respond_online: Respons online
+      response_form:
       summary:
       visit_soon: Segera kunjungi lagi halaman ini untuk mengunduh hasil dari umpan balik publik ini.
-      was: "."
       ways_to_respond: Cara merespons
       write_to: 'Tulis kepada:'
     consultation_outcome:

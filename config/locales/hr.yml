@@ -75,6 +75,7 @@ hr:
   cancel:
   common:
     add_holiday_ics:
+    and: i
     at: u
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ hr:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ hr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Posjetite:'
+    was: bio
   components:
     share_links:
       share_this_page: Podijelite ovu stranicu
@@ -195,20 +198,11 @@ hr:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         one:
@@ -216,15 +210,8 @@ hr:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -252,7 +239,6 @@ hr:
         other:
     consultation:
       analysing_feedback:
-      and: i
       another_website_html: Ovo savjetovanje %{closed} održano je na <ahref="%{url}">drugoj web stranici</a>
       closes: Zatvara se u
       closes_at: Ovo savjetovanje završava se u
@@ -273,13 +259,12 @@ hr:
         other: Konzultacije
       not_open_yet: Ovo savjetovanje još nije otvoreno
       opens: Ovo savjetovanje se otvara
-      or:
       original_consultation: Originalno savjetovanje
       ran_from: Ovo savjetovanje je trajalo od
       respond_online: Odgovorite na mreži
+      response_form:
       summary:
       visit_soon: Uskoro ponovno posjetite ovu stranicu kako biste rezultat prenijeli na ovu javnu public povratnu informaciju.
-      was: bio
       ways_to_respond: Načini reagiranja
       write_to: 'Pišite na:'
     consultation_outcome:

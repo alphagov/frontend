@@ -75,6 +75,7 @@ hy:
   cancel:
   common:
     add_holiday_ics:
+    and: և
     at: վեբ կայքում՝
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ hy:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ hy:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: Այցելել՝
+    was: էր
   components:
     share_links:
       share_this_page: Կիսվել այս էջով
@@ -190,35 +193,19 @@ hy:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ hy:
         other:
     consultation:
       analysing_feedback:
-      and: և
       another_website_html: Այս խորհրդակցությունը %{closed} անցկացվել է <a href="%{url}">մեկ այլ</a>
       closes: Այն ավարտվում է
       closes_at: Այս խորհրդակցությունն ավարտվում է
@@ -261,13 +247,12 @@ hy:
         other: Խորհրդակցություններ
       not_open_yet: Այս խորհրդակցությունը դեռևս չի սկսվել
       opens: Այս խորհրդակցությունը կսկսվի
-      or:
       original_consultation: Սկզբնական խորհրդակցություն
       ran_from: Այս խորհրդակցությունն իրականացվել է
       respond_online: Պատասխանել առցանց
+      response_form:
       summary:
       visit_soon: 'Կրկին այցելել այս էջը՝ այս հասարակական& nbsp;արձանքի արդյունքը ներբեռնելու համար:'
-      was: էր
       ways_to_respond: Պատասխանելու եղանակներ
       write_to: Գրել՝
     consultation_outcome:

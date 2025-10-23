@@ -75,6 +75,7 @@ de:
   cancel:
   common:
     add_holiday_ics:
+    and: und
     at: um
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ de:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ de:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Besuchen Sie:'
+    was: war
   components:
     share_links:
       share_this_page: Diese Seite teilen
@@ -190,35 +193,19 @@ de:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ de:
         other:
     consultation:
       analysing_feedback:
-      and: und
       another_website_html: Diese Anhörung %{closed} fand auf einer <a href="%{url}">anderen Website</a> statt
       closes: Sie schließt um
       closes_at: Diese Anhörung endet um
@@ -261,13 +247,12 @@ de:
         other: Beratungen
       not_open_yet: Diese Anhörung ist noch nicht eröffnet
       opens: Diese Anhörung wird eröffnet
-      or:
       original_consultation: Originale Anhörung
       ran_from: Diese Anhörung lief ab
       respond_online: Online antworten
+      response_form:
       summary:
       visit_soon: Besuchen Sie diese Seite bald wieder, um das Ergebnis dieser öffentlichen Rückmeldung herunterzuladen.
-      was: war
       ways_to_respond: Möglichkeiten, um zu antworten
       write_to: 'Schreiben Sie an:'
     consultation_outcome:

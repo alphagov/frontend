@@ -75,6 +75,7 @@ so:
   cancel:
   common:
     add_holiday_ics:
+    and: iyo
     at: ee
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ so:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ so:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Booqo:'
+    was: waxay ahayd
   components:
     share_links:
       share_this_page: Lawadaag bogan
@@ -190,35 +193,19 @@ so:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ so:
         other:
     consultation:
       analysing_feedback:
-      and: iyo
       another_website_html: Latalintan %{closed} held on <a href="%{url}">websaayt kale</a>
       closes: U dhaw goobta
       closes_at: Latalintan waxay aad ugu dhawdahay meesha
@@ -261,13 +247,12 @@ so:
         other: Latalino
       not_open_yet: Latalinta aan wali furnayn
       opens: Latalintan waxay furantahay
-      or:
       original_consultation: Latalinta asalka ah
       ran_from: Latalinta waxay ka timid
       respond_online: Jawaab onlaayn ah
+      response_form:
       summary:
       visit_soon: Markale booqo boga si aad udejisato maxsuulka dejisan ee dadwaynaha & nbsp;falcelinta.
-      was: waxay ahayd
       ways_to_respond: Hababka loo jawaabo
       write_to: 'Loogu qoro:'
     consultation_outcome:

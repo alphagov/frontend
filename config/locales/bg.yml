@@ -75,6 +75,7 @@ bg:
   cancel:
   common:
     add_holiday_ics:
+    and: и
     at: на
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ bg:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ bg:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Посетете:'
+    was: бе
   components:
     share_links:
       share_this_page: Споделяне на тази страница
@@ -190,35 +193,19 @@ bg:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ bg:
         other:
     consultation:
       analysing_feedback:
-      and: и
       another_website_html: Тази консултация %{closed} се намира на <a href="%{url}">друг уебсайт</a>
       closes: Закрива се в
       closes_at: Тази консултация се закрива в
@@ -261,13 +247,12 @@ bg:
         other: Консултации
       not_open_yet: Тази консултация все още не е открита
       opens: Тази консултация се отваря
-      or:
       original_consultation: Първоначална консултация
       ran_from: Тази консултация се управлява от
       respond_online: Отговор онлайн
+      response_form:
       summary:
       visit_soon: В скоро време посетете отново тази страница, за да изтеглите резултатите от тази обществена обратна връзка.
-      was: бе
       ways_to_respond: Начини за отговор
       write_to: 'Пишете до:'
     consultation_outcome:

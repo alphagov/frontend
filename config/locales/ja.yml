@@ -75,6 +75,7 @@ ja:
   cancel:
   common:
     add_holiday_ics:
+    and: および
     at: 時間：
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ja:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ja:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 訪問：
+    was: 終了
   components:
     share_links:
       share_this_page: このページを共有
@@ -185,34 +188,18 @@ ja:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ ja:
         other:
     consultation:
       analysing_feedback:
-      and: および
       another_website_html: この審議%{closed}は、<ahref = "%{url}">別のウェブサイト</a>で行われました
       closes: 終了時間：
       closes_at: 審議終了時間：
@@ -249,13 +235,12 @@ ja:
         other: 審議
       not_open_yet: この審議はまだ開かれていません
       opens: この審議が始まります
-      or:
       original_consultation: 当初の審議
       ran_from: この審議が始まった時間：
       respond_online: オンラインで返信する
+      response_form:
       summary:
       visit_soon: この一般向けフィードバックの結果をダウンロードするには、すぐにこのページにアクセスしてください。
-      was: 終了
       ways_to_respond: 対応方法
       write_to: 書き込み先：
     consultation_outcome:

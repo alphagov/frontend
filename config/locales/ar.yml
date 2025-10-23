@@ -75,6 +75,7 @@ ar:
   cancel:
   common:
     add_holiday_ics:
+    and: و
     at: في
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ar:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ar:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'تفضّل بزيارة:'
+    was: كان
   components:
     share_links:
       share_this_page: شارك هذه الصفحة
@@ -210,20 +213,11 @@ ar:
         two:
         zero:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         many:
@@ -234,15 +228,8 @@ ar:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -285,7 +272,6 @@ ar:
         zero:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: عُقدت هذه الاستشارة %{closed} على <a href="%{url}">موقع ويب آخر</a>
       closes: موعد الإغلاق
       closes_at: تُغلق هذه الاستشارة تغلق في
@@ -309,13 +295,12 @@ ar:
         zero:
       not_open_yet: هذه الاستشارة لم تُفتح بعد
       opens: تفتح هذه الاستشارة
-      or:
       original_consultation: الاستشارة الأصلية
       ran_from: أجريت هذه الاستشارة من
       respond_online: الرد عبر الإنترنت
+      response_form:
       summary:
       visit_soon: قم بزيارة هذه الصفحة مرة أخرى قريبًا لتنزيل النتيجة لهذه التعليقات العامة.
-      was: كان
       ways_to_respond: طرق الرد
       write_to: 'قم بمراسلة:'
     consultation_outcome:

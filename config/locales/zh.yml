@@ -75,6 +75,7 @@ zh:
   cancel:
   common:
     add_holiday_ics:
+    and: 和
     at: 在
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ zh:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ zh:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 访问：
+    was: 是
   components:
     share_links:
       share_this_page: 分享本页面
@@ -185,34 +188,18 @@ zh:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ zh:
         other:
     consultation:
       analysing_feedback:
-      and: 和
       another_website_html: 本咨询 %{closed} 位于 <a href="%{url}">另一个网站</a>
       closes: 它的结束时间
       closes_at: 本咨询的结束时间
@@ -249,13 +235,12 @@ zh:
         other: 咨询
       not_open_yet: 本咨询尚未开始
       opens: 本咨询开始
-      or:
       original_consultation: 最初咨询
       ran_from: 本咨询的时间
       respond_online: 在线回复
+      response_form:
       summary:
       visit_soon: 请尽快再次访问此页面，将结果下载给公众 反馈。
-      was: 是
       ways_to_respond: 回复方法
       write_to: 收件人：
     consultation_outcome:

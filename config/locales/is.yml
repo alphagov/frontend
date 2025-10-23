@@ -75,6 +75,7 @@ is:
   cancel:
   common:
     add_holiday_ics:
+    and: og
     at: þann
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ is:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ is:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Heimsæktu:'
+    was: var
   components:
     share_links:
       share_this_page: Deila þessari síðu
@@ -190,35 +193,19 @@ is:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ is:
         other:
     consultation:
       analysing_feedback:
-      and: og
       another_website_html: Þessi ráðgjöf %{closed} var haldin á <a href="%{url}">annarri vefsíðu</a>
       closes: Henni lýkur
       closes_at: Þessari ráðgjöf lýkur
@@ -261,13 +247,12 @@ is:
         other: Ráðgjafir
       not_open_yet: Þessi ráðgjöf er ekki enn opin
       opens: Þessi ráðgjöf opnar
-      or:
       original_consultation: Upprunaleg ráðgjöf
       ran_from: Þessi ráðgjöf stóð yfir frá
       respond_online: Svara á netinu
+      response_form:
       summary:
       visit_soon: Heimsæktu þessa síðu bráðlega aftur til að sækja útkomuna úr þessari opinberu endurgjöf.
-      was: var
       ways_to_respond: Leiðir til að svara
       write_to: 'Skrifa til:'
     consultation_outcome:

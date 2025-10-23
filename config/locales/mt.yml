@@ -75,6 +75,7 @@ mt:
   cancel:
   common:
     add_holiday_ics:
+    and: u
     at: fi
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ mt:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ mt:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Żur:'
+    was: kien
   components:
     share_links:
       share_this_page: Aqsam din il-paġna ma'
@@ -200,20 +203,11 @@ mt:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         many:
@@ -222,15 +216,8 @@ mt:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,7 +250,6 @@ mt:
         other:
     consultation:
       analysing_feedback:
-      and: u
       another_website_html: Din il-konsultazzjoni %{closed} tinsab fuq  <a href="%{url}">websajt oħra</a>
       closes: Din tagħlaq fil
       closes_at: Din il-konsultazzjoni tagħlaq nhar
@@ -285,13 +271,12 @@ mt:
         other: Konsultazzjonijiet
       not_open_yet: Din il-konsultazzjoni għada m'hijiex miftuħa
       opens: Din il-konsultazzjoni tiftaħ
-      or:
       original_consultation: Konsultazzjoni oriġinali
       ran_from: Din il-konsultazzjoni bdiet minn
       respond_online: Irrispondi onlajn
+      response_form:
       summary:
       visit_soon: Żur din il-paġna darb'oħra biex tniżżel ir-riżultat għall-feedback pubbliku.
-      was: kien
       ways_to_respond: Metodi kif twieġeb
       write_to: 'Ikteb lil:'
     consultation_outcome:

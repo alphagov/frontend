@@ -75,6 +75,7 @@ he:
   cancel:
   common:
     add_holiday_ics:
+    and: ו
     at: ב-
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ he:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ he:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'בקר:'
+    was: היה
   components:
     share_links:
       share_this_page: שתף דף זה
@@ -190,35 +193,19 @@ he:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ he:
         other:
     consultation:
       analysing_feedback:
-      and: ו
       another_website_html: דיון זה %{closed} התקיים ב <a href="%{url}">אתר אחר</a>
       closes: הוא נסגר ב
       closes_at: דיון זו נסגר ב
@@ -261,13 +247,12 @@ he:
         other: דיונים
       not_open_yet: הדיון הזה עדיין לא פתוח
       opens: דיון זה נפתח
-      or:
       original_consultation: דיון מקורי
       ran_from: דיון זו נערך מ-
       respond_online: להגיב באינטרנט
+      response_form:
       summary:
       visit_soon: בקר בדף זה שוב בקרוב כדי להוריד את התוצאה &nbspלמשוב הציבורי הזה
-      was: היה
       ways_to_respond: דרכים להגיב
       write_to: 'כתוב ל:'
     consultation_outcome:

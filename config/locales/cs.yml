@@ -75,6 +75,7 @@ cs:
   cancel:
   common:
     add_holiday_ics:
+    and: a
     at: na
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ cs:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ cs:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Navštivte:'
+    was: byl
   components:
     share_links:
       share_this_page: Sdílet tuto stránku
@@ -195,20 +198,11 @@ cs:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         one:
@@ -216,15 +210,8 @@ cs:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -252,7 +239,6 @@ cs:
         other:
     consultation:
       analysing_feedback:
-      and: a
       another_website_html: Tato konzultace %{closed} se konala na <a href="%{url}">jiné webové stránce</a>
       closes: Uzavírá se v
       closes_at: Tato konzultace končí v
@@ -273,13 +259,12 @@ cs:
         other: Konzultace
       not_open_yet: Tato konzultace ještě není otevřena
       opens: Tato konzultace zahajuje
-      or:
       original_consultation: Původní konzultace
       ran_from: Tato konzultace probíhala od
       respond_online: Reagovat online
+      response_form:
       summary:
       visit_soon: Brzy tuto stránku znovu navštivte a stáhněte si výsledek této veřejné zpětné vazby.
-      was: byl
       ways_to_respond: Způsoby reakce
       write_to: 'Napište na adresu:'
     consultation_outcome:

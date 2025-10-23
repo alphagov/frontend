@@ -75,6 +75,7 @@ pt:
   cancel:
   common:
     add_holiday_ics:
+    and: e
     at: às
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ pt:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ pt:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Visite:'
+    was: foi
   components:
     share_links:
       share_this_page: Partilhar esta página
@@ -190,35 +193,19 @@ pt:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ pt:
         other:
     consultation:
       analysing_feedback:
-      and: e
       another_website_html: Esta consulta %{closed} foi realizada <a href="%{url}">noutro site</a>
       closes: Encerra às
       closes_at: Esta consulta encerra às
@@ -261,13 +247,12 @@ pt:
         other: Consultas
       not_open_yet: Esta consulta ainda não está aberta
       opens: Esta consulta abre
-      or:
       original_consultation: Consulta original
       ran_from: Esta consulta decorreu de
       respond_online: Responder online
+      response_form:
       summary:
       visit_soon: Visite esta página novamente em breve para transferir o resultado para este feedback público.
-      was: foi
       ways_to_respond: Formas de resposta
       write_to: 'Escreva para:'
     consultation_outcome:

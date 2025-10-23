@@ -75,6 +75,7 @@ sl:
   cancel:
   common:
     add_holiday_ics:
+    and: in
     at: na
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ sl:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ sl:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Obiščite:'
+    was: je bilo
   components:
     share_links:
       share_this_page: Deli to stran
@@ -200,20 +203,11 @@ sl:
         other:
         two:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         one:
@@ -222,15 +216,8 @@ sl:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,7 +250,6 @@ sl:
         two:
     consultation:
       analysing_feedback:
-      and: in
       another_website_html: To posvetovanje %{closed} poteka na <a href="%{url}">drugi spletni strani</a>
       closes: Zapre se ob
       closes_at: To posvetovanje se zapre ob
@@ -285,13 +271,12 @@ sl:
         two:
       not_open_yet: To posvetovanje še ni začeto
       opens: Posvetovanje se začne
-      or:
       original_consultation: Izvirno posvetovanje
       ran_from: To posvetovanje je trajalo od
       respond_online: Odgovori na spletu
+      response_form:
       summary:
       visit_soon: Kmalu znova obiščite to stran in naložite rezultat v te javne& nbsp;povratne informacije.
-      was: je bilo
       ways_to_respond: Načini odziva
       write_to: 'Pišite na:'
     consultation_outcome:

@@ -75,6 +75,7 @@ sq:
   cancel:
   common:
     add_holiday_ics:
+    and: dhe
     at: në
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ sq:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ sq:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Vizitoni:'
+    was: ishte
   components:
     share_links:
       share_this_page: Shpërdaj këtë faqe
@@ -190,35 +193,19 @@ sq:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ sq:
         other:
     consultation:
       analysing_feedback:
-      and: dhe
       another_website_html: Ky konsultim %{closed} u mbajt <a href="%{url}">uebfaqe tjetër</a>
       closes: Mbyllet në
       closes_at: Ky konsultim mbyllet në
@@ -261,13 +247,12 @@ sq:
         other: Konsultime
       not_open_yet: Ky konsultim nuk është hapur ende
       opens: Ky konsultim hapet
-      or:
       original_consultation: Konsultimi origjinal
       ran_from: Ky konsultim filloi nga
       respond_online: Përgjigju online
+      response_form:
       summary:
       visit_soon: Vizitoni përsëri këtë faqe së shpejti për të shkarkuar rezultatin në këtë & nbsp; reagimi.
-      was: ishte
       ways_to_respond: Mënyrat për tu përgjigjur
       write_to: 'Shkruaj tek:'
     consultation_outcome:

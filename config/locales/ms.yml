@@ -75,6 +75,7 @@ ms:
   cancel:
   common:
     add_holiday_ics:
+    and: dan
     at: di
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ms:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ms:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Lawati:'
+    was: adalah
   components:
     share_links:
       share_this_page: Kongsi laman ini
@@ -185,34 +188,18 @@ ms:
       name:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         other:
@@ -230,7 +217,6 @@ ms:
         other:
     consultation:
       analysing_feedback:
-      and: dan
       another_website_html: Perundingan ini %{closed} telah diadakan di <a href="%{url}">laman web lain</a>
       closes: Ditutup pada
       closes_at: Perundingan ini ditutup pada
@@ -249,13 +235,12 @@ ms:
         other: Rundingan
       not_open_yet: Perundingan ini masih belum dibuka
       opens: Perundingan ini dibuka
-      or:
       original_consultation: Perundingan asal
       ran_from: Perundingan ini berjalan dari
       respond_online: Jawab dalam talian
+      response_form:
       summary:
       visit_soon: Lawati laman ini semula untuk muat turun hasil maklum balas awam ini.
-      was: adalah
       ways_to_respond: Cara untuk menjawab
       write_to: 'Tulis kepada:'
     consultation_outcome:

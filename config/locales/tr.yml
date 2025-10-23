@@ -75,6 +75,7 @@ tr:
   cancel:
   common:
     add_holiday_ics:
+    and: ve
     at: şurada
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ tr:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ tr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Ziyaret et:'
+    was: idi
   components:
     share_links:
       share_this_page: Bu sayfayı paylaş
@@ -190,35 +193,19 @@ tr:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ tr:
         other:
     consultation:
       analysing_feedback:
-      and: ve
       another_website_html: Bu danışma %{closed} başka bir websitesinde<a href="%{url}">gerçekleşti</a>
       closes: şurada kapanıyor
       closes_at: Bu danışma şurada kapanıyor
@@ -261,13 +247,12 @@ tr:
         other: Danışmalar
       not_open_yet: Bu danışma henüz açık değil
       opens: Bu danışma açılıyor
-      or:
       original_consultation: Orijinal danışma
       ran_from: Bu danışma şuradan başladı
       respond_online: Çevrimiçi yanıtla
+      response_form:
       summary:
       visit_soon: Sonucu bu açık geri bildirime yüklemek için sayfayı kısa süre sonra tekrar ziyaret edin.
-      was: idi
       ways_to_respond: Yanıtlama şekilleri
       write_to: 'Şuraya yaz:'
     consultation_outcome:

@@ -75,6 +75,7 @@ hi:
   cancel:
   common:
     add_holiday_ics:
+    and: और
     at: पर
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ hi:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ hi:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'इस पर जाएं:'
+    was: था
   components:
     share_links:
       share_this_page: यह पेज शेयर करें
@@ -190,35 +193,19 @@ hi:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ hi:
         other:
     consultation:
       analysing_feedback:
-      and: और
       another_website_html: यह परामर्श %{closed} <a href="%{url}">एक अन्य वेबसाइट</a>पर आयोजित किया गया
       closes: यह बंद होता है
       closes_at: यह परामर्श पर बंद होता है
@@ -261,13 +247,12 @@ hi:
         other: परामर्श
       not_open_yet: यह परामर्श अभी तक खोला नहीं गया है
       opens: यह परामर्श खुलता है
-      or:
       original_consultation: असली परामर्श
       ran_from: यह परामर्श चला था
       respond_online: ऑनलाइन जवाब दें
+      response_form:
       summary:
       visit_soon: जल्द ही इस पेज में वापस आकर इस सार्वजनिक प्रतिक्रिया का परिणाम डाउनलोड करें।
-      was: था
       ways_to_respond: जवाब देने के तरीके
       write_to: 'इसे लिखें:'
     consultation_outcome:

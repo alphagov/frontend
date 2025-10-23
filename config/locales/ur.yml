@@ -75,6 +75,7 @@ ur:
   cancel:
   common:
     add_holiday_ics:
+    and: اور
     at: پر
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ur:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ur:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'ملاحظہ کریں:'
+    was: تھا
   components:
     share_links:
       share_this_page: اس صفحے کو شیئر کریں
@@ -190,35 +193,19 @@ ur:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ ur:
         other:
     consultation:
       analysing_feedback:
-      and: اور
       another_website_html: یہ مشاورت %{closed} <a href="%{url}">ایک اور ویب سائٹ پر ہوئی تھی</a>
       closes: یہ درج ذیل پر بند ہوتی ہے
       closes_at: یہ مشاورت درج ذیل پر بند ہوتی ہے
@@ -261,13 +247,12 @@ ur:
         other: مشاورتیں
       not_open_yet: یہ مشاورت ابھی تک کھلی نہیں ہے
       opens: یہ مشاورت درج ذیل پر کھلتی ہے
-      or:
       original_consultation: اصل مشاورت
       ran_from: اس مشاورت میں درج ذیل ختم ہو گیا
       respond_online: آن لائن جواب دیں
+      response_form:
       summary:
       visit_soon: اس عوامی فیڈ بیک کا نتیجہ ڈاؤن لوڈ کرنے کے لیے اس صفحے کا دوبارہ جلد دورہ کریں۔
-      was: تھا
       ways_to_respond: جواب دینے کے طریقے
       write_to: 'لکھیں بنام:'
     consultation_outcome:

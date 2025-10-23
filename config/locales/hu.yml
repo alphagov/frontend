@@ -75,6 +75,7 @@ hu:
   cancel:
   common:
     add_holiday_ics:
+    and: és
     at: 'itt:'
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ hu:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ hu:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Látogassa meg:'
+    was: volt
   components:
     share_links:
       share_this_page: Oldal megosztása
@@ -190,35 +193,19 @@ hu:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ hu:
         other:
     consultation:
       analysing_feedback:
-      and: és
       another_website_html: A konzultáció %{closed} egy <a href="%{url}">másik weboldalon kerül megrendezésre</a>
       closes: 'Lezárul ekkor:'
       closes_at: 'A konzultáció lezárul ekkor:'
@@ -261,13 +247,12 @@ hu:
         other: Konzultációk
       not_open_yet: A konzultáció még nem nyitott
       opens: A konzultáció megnyílik
-      or:
       original_consultation: Eredeti konzultáció
       ran_from: 'A konzultáció kezdőidőpontja:'
       respond_online: Válasz online
+      response_form:
       summary:
       visit_soon: Látogassa meg újra az oldalt a közeljövőben a jelen nyilvános visszajelzés kimenetelének megtekintése érdekében.
-      was: volt
       ways_to_respond: Válaszadási lehetőségek
       write_to: 'Levélírás a következőnek:'
     consultation_outcome:

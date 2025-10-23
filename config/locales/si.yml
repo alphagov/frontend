@@ -75,6 +75,7 @@ si:
   cancel:
   common:
     add_holiday_ics:
+    and: සහ
     at: දී
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ si:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ si:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'පිවිසෙන්න:'
+    was: විය
   components:
     share_links:
       share_this_page: මෙම පිටුව බෙදාගන්න
@@ -190,35 +193,19 @@ si:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ si:
         other:
     consultation:
       analysing_feedback:
-      and: සහ
       another_website_html: මෙම උපදේශනය %{closed} <a href="%{url}">වෙනත් වෙබ් අඩවියක</a> පවත් වනු ලැබේ
       closes: එය වසන වේලාව
       closes_at: මෙම උපදේශනය වසන වේලාව
@@ -261,13 +247,12 @@ si:
         other: උපදේශන
       not_open_yet: මෙම උපදේශනය තවමත් විවෘත කර නැත
       opens: මෙම උපදේශනය විවෘත වේ
-      or:
       original_consultation: මුල් උපදේශනය
       ran_from: මෙම උපදේශනය ක්‍රියාත්මක වුනේ
       respond_online: මාර්ගගතව ප්රතිචාර දක්වන්න
+      response_form:
       summary:
       visit_soon: මෙම මහජන ප්රතිපෝෂණය සඳහා වූ ප්රතිඵල බාගත කිරීම සඳහා ළඟදීම නැවත මෙම පිටුවට පිවිසෙන්න.
-      was: විය
       ways_to_respond: ප්රතිචාර දැක්විමේ ක්‍රම
       write_to: 'ලියන්න:'
     consultation_outcome:

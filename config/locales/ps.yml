@@ -75,6 +75,7 @@ ps:
   cancel:
   common:
     add_holiday_ics:
+    and: او
     at: په
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ps:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ps:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'لیدنه:'
+    was: وه
   components:
     share_links:
       share_this_page: دا پاه شریکه کړئ
@@ -190,35 +193,19 @@ ps:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ ps:
         other:
     consultation:
       analysing_feedback:
-      and: او
       another_website_html: دا مشوره <a href="%{url}">په بله ویبپا ڼه  کې %{closed}ترسره شوه</a>
       closes: په کې بندیږي
       closes_at: دا مشوره په پای کې پای ته رسیږي
@@ -261,13 +247,12 @@ ps:
         other: مشورې
       not_open_yet: دا مشوره لاهم خلاص نده
       opens: دا مشوره خلاصیږي
-      or:
       original_consultation: اصلي مشوره
       ran_from: دا مشوره له دې ځایه روانه وه
       respond_online: آنلاین ځواب ورکړئ
+      response_form:
       summary:
       visit_soon: ژر تر ژره دې پاڼه څخه لیدنه وکړئ ترڅو دې عامه & nbsp feedback نظریاتو ته پایله ډاونلوډ کړئ.
-      was: وه
       ways_to_respond: د ځواب ویلو لارې
       write_to: 'ته یې ولیکئ:'
     consultation_outcome:

@@ -75,6 +75,7 @@ ro:
   cancel:
   common:
     add_holiday_ics:
+    and: și
     at: la
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ro:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ro:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Accesați:'
+    was: a fost
   components:
     share_links:
       share_this_page: Distribuiți această pagină
@@ -195,20 +198,11 @@ ro:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         one:
@@ -216,15 +210,8 @@ ro:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -252,7 +239,6 @@ ro:
         other:
     consultation:
       analysing_feedback:
-      and: și
       another_website_html: Această consultație %{closed} s-a ținut pe <a href="%{url}">un alt website</a>
       closes: Se închide la
       closes_at: Această consultație se închide la
@@ -273,13 +259,12 @@ ro:
         other: Consultații
       not_open_yet: Această consultație nu este deschisă încă
       opens: Această consultație se deschide
-      or:
       original_consultation: Consultație originală
       ran_from: Această consultație a început la
       respond_online: Răspundeți online
+      response_form:
       summary:
       visit_soon: Accesați din această pagină în curând pentru a descărca rezultatul acestui feedback public.
-      was: a fost
       ways_to_respond: Modalități de a răspunde
       write_to: 'Scrieți la:'
     consultation_outcome:

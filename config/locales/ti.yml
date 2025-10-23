@@ -75,6 +75,7 @@ ti:
   cancel: ሰርዝ
   common:
     add_holiday_ics:
+    and: ከምኡ ውን
     at: ኣብ
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ti:
       scotland_slug:
     next_holiday_in_is:
     'on': አብ
+    or: ወይ
     past_bank_holidays:
     print_link: ነዚ ገጽ ሕተሞ
     substitute_day:
@@ -105,6 +107,7 @@ ti:
     united-kingdom_slug: ዩናይትድ ኪንንግደም
     upcoming_bank_holidays:
     visit: ምብጻሕ፥
+    was: ነይሩ
   components:
     share_links:
       share_this_page: ነዚ ፔጅ ሼር ግበርዎ
@@ -190,35 +193,19 @@ ti:
         one: ናይ ቢዝነስ ፋይናንስ ደገፍ መደብ
         other: ናይ ቢዝነስ ፋይናንስ ደገፍ መደባት
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ ti:
         other: ጉዳያት በዓል መዚ ውድድርን ዕዳጋታትን
     consultation:
       analysing_feedback: ርእይቶኹም ንትንትን ኣለና
-      and: ከምኡ ውን
       another_website_html: እዚ ምምኽኻር %{closed} ኣብ <a href="%{url}">ካልእ መርበብ ሓበሬታ</a> ዝተኻየደ እዩ።
       closes: ዝዕጸወሉ ድማ
       closes_at: እዚ ምምኽኻር ዝዕጸወሉ ኣብ
@@ -261,13 +247,12 @@ ti:
         other: ምምኽኻራት
       not_open_yet: እዚ ምምኽኻር ገና ክፉት ኣይኮነን ዘሎ
       opens: እዚ ምምኽኻር ይኽፈት
-      or: ወይ
       original_consultation: ኦርጅናል ምምኽኻር
       ran_from: እዚ ምምኽኻር ዝካየደሉ ካብ
       respond_online: ብኦንላይን መልሲ ሃብ
+      response_form:
       summary: መጠቃለሊ
       visit_soon: እቲ ውጽኢት ናብዚ ህዝባዊ ርእይቶ ንምውራድ ኣብ ቀረባ እዋን ደጊምኩም ኣብዚ ገጽ ተወከሱ።
-      was: ነይሩ
       ways_to_respond: መልሲ ዝወሃብሉ መንገድታት
       write_to: ናብዚ ጽሓፍ፣
     consultation_outcome:

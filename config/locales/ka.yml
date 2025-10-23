@@ -75,6 +75,7 @@ ka:
   cancel:
   common:
     add_holiday_ics:
+    and: და
     at: ზე
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ka:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ ka:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'ეწვიეთ:'
+    was: იყო
   components:
     share_links:
       share_this_page: ამ გვერდის გაზიარება
@@ -190,35 +193,19 @@ ka:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ ka:
         other:
     consultation:
       analysing_feedback:
-      and: და
       another_website_html: ეს კონსულტაცია %{closed} ჩატარდა <a href="%{url}">სხვა ვებგვერდზე</a>
       closes: იხურება
       closes_at: ეს კონსულტაცია იხურება
@@ -261,13 +247,12 @@ ka:
         other: კონსულტაციები
       not_open_yet: ეს კონსულტაცია ჯერ არ გახსნილა
       opens: ეს კონსულტაცია იხსნება
-      or:
       original_consultation: ორიგინალი კონსულტაცია
       ran_from: ეს კონსულტაცია ამოიწურა
       respond_online: ონლაინ პასუხი
+      response_form:
       summary:
       visit_soon: ეწვიეთ გვერდს ისევ მალე, რათა გადმოწეროთ შედეგი ამ public ფიდბექისთვის.
-      was: იყო
       ways_to_respond: პასუხის გზები
       write_to: 'მიწერეთ:'
     consultation_outcome:

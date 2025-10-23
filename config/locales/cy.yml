@@ -75,6 +75,7 @@ cy:
   cancel:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
+    and: a
     at: am
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
     bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.
@@ -98,6 +99,7 @@ cy:
       scotland_slug: yr-alban
     next_holiday_in_is: Yr ŵyl banc nesaf %{in_nation} yw
     'on': ar
+    or:
     past_bank_holidays: Gwyliau banc blaenorol
     print_link: Argraffu'r dudalen hon
     substitute_day: Diwrnod amgen
@@ -105,6 +107,7 @@ cy:
     united-kingdom_slug:
     upcoming_bank_holidays: Gwyliau banc i ddod
     visit: 'Ymweld:'
+    was: roedd
   components:
     share_links:
       share_this_page: Rhannu'r dudalen hon
@@ -212,20 +215,11 @@ cy:
         two:
         zero:
     call_for_evidence:
-      and: a
       another_website_html:
       closed: Mae'r alwad hon am dystiolaeth wedi cau
       closed_another_website_html:
-      closes: Mae'n cau am
       closes_at: Mae'r alwad hon am dystiolaeth yn cau am
-      complete_a: Cwblhau
       description: Disgrifiad yr alwad o dystiolaeth
-      detail_of_outcome: Manylion am y canlyniad
-      documents: Dogfennau
-      download_outcome: Llwytho'r canlyniad llawn i lawr
-      either: naill ai
-      email_to: 'E-bostio at:'
-      is_being: yn cael ei
       name:
         few:
         many:
@@ -236,15 +230,8 @@ cy:
       not_open_yet: Nid yw'r alwad am dystiolaeth hon ar agor eto
       open_another_website_html: Cedwir yr alwad hon am dystiolaeth ar <a href="%{url}">wefan arall</a>
       opens: Mae'r alwad am dystiolaeth yn agor
-      or:
       original_call_for_evidence: Yr alwad wreiddiol am dystiolaeth
       ran_from: Roedd yr alwad hon am dystiolaeth yn rhedeg o
-      respond_online: Ymateb ar-lein
-      response_form: ffurflen ymateb
-      summary: Crynodeb
-      was: roedd
-      ways_to_respond: Ffyrdd o ymateb
-      write_to: 'Ysgrifennu at:'
     call_for_evidence_outcome:
       name:
         few:
@@ -287,7 +274,6 @@ cy:
         zero:
     consultation:
       analysing_feedback: Rydym yn dadansoddi eich adborth
-      and: a
       another_website_html: Cynhaliwyd yr ymgynghoriad hwn %{closed} ar <a href="%{url}">wefan arall</a>
       closes: Mae'n cau am
       closes_at: Mae'r ymgynghoriad hwn yn cau am
@@ -311,13 +297,12 @@ cy:
         zero:
       not_open_yet: Nid yw'r ymgynghoriad hwn wedi agor eto
       opens: Mae'r ymgynghoriad hwn yn agor
-      or:
       original_consultation: Ymgynghoriad gwreiddiol
       ran_from: Roedd yr ymgynghoriad hwn yn rhedeg o
       respond_online: Ymateb ar-lein
+      response_form: ffurflen ymateb
       summary: Crynodeb
       visit_soon: Dewch yn ôl at y wefan hon yn fuan i lwytho'r canlyniad i lawr ar gyfer yr adborth cyhoeddus hwn.
-      was: roedd
       ways_to_respond: Ffyrdd o ymateb
       write_to: 'Ysgrifennu at:'
     consultation_outcome:

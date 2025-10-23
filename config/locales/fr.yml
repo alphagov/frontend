@@ -75,6 +75,7 @@ fr:
   cancel:
   common:
     add_holiday_ics:
+    and: et
     at: à
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ fr:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ fr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Visiter:'
+    was: était
   components:
     share_links:
       share_this_page: Partagez cette page
@@ -190,35 +193,19 @@ fr:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ fr:
         other:
     consultation:
       analysing_feedback:
-      and: et
       another_website_html: Cette consultation %{closed} s'est tenue sur <a href="%{url}">un autre site Web</a>
       closes: Elle s'achève à
       closes_at: Cette consultation s'achève à
@@ -261,13 +247,12 @@ fr:
         other: Consultations
       not_open_yet: Cette consultation n'a pas encore débuté.
       opens: Cette consultation a débuté.
-      or:
       original_consultation: Consultation originale
       ran_from: Cette consultation s'est tenue du
       respond_online: Répondre en ligne
+      response_form:
       summary:
       visit_soon: Consultez à nouveau cette page prochainement pour télécharger le résultat de ce feedback public.
-      was: était
       ways_to_respond: Moyens de répondre
       write_to: 'Écrire à :'
     consultation_outcome:

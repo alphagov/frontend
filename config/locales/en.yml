@@ -75,6 +75,7 @@ en:
   cancel: cancel
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
+    and: and
     at: at
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
@@ -98,6 +99,7 @@ en:
       scotland_slug: scotland
     next_holiday_in_is: The next bank holiday %{in_nation} is
     'on': 'on'
+    or: or
     past_bank_holidays: Past bank holidays
     print_link: Print this page
     substitute_day: Substitute day
@@ -105,6 +107,7 @@ en:
     united-kingdom_slug: united-kingdom
     upcoming_bank_holidays: Upcoming bank holidays
     visit: 'Visit:'
+    was: was
   components:
     share_links:
       share_this_page: Share this page
@@ -192,35 +195,19 @@ en:
         one: Business finance support scheme
         other: Business finance support schemes
     call_for_evidence:
-      and: and
       another_website_html: This call for evidence %{closed} held on <a href="%{url}">another website</a>
       closed: This call for evidence has closed
       closed_another_website_html: This call for evidence was held on <a href="%{url}">another website</a>
-      closes: It closes at
       closes_at: This call for evidence closes at
-      complete_a: Complete a
       description: Call for evidence description
-      detail_of_outcome: Detail of outcome
-      documents: Documents
-      download_outcome: Read the full outcome
-      either: either
-      email_to: 'Email to:'
-      is_being: is being
       name:
         one: Call for evidence
         other: Calls for evidence
       not_open_yet: This call for evidence isn't open yet
       open_another_website_html: This call for evidence is being held on <a href="%{url}">another website</a>
       opens: This call for evidence opens
-      or: or
       original_call_for_evidence: Original call for evidence
       ran_from: This call for evidence ran from
-      respond_online: Respond online
-      response_form: response form
-      summary: Summary
-      was: was
-      ways_to_respond: Ways to respond
-      write_to: 'Write to:'
     call_for_evidence_outcome:
       name:
         one: Call for evidence outcome
@@ -243,7 +230,6 @@ en:
         other: Competition and Markets Authority cases
     consultation:
       analysing_feedback: We are analysing your feedback
-      and: and
       another_website_html: This consultation %{closed} held on <a href="%{url}">another website</a>
       closes: It closes at
       closes_at: This consultation closes at
@@ -263,13 +249,12 @@ en:
         other: Consultations
       not_open_yet: This consultation isn't open yet
       opens: This consultation opens
-      or: or
       original_consultation: Original consultation
       ran_from: This consultation ran from
       respond_online: Respond online
+      response_form: response form
       summary: Summary
       visit_soon: Visit this page again soon to download the outcome to this public feedback.
-      was: was
       ways_to_respond: Ways to respond
       write_to: 'Write to:'
     consultation_outcome:

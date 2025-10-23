@@ -75,6 +75,7 @@ ku:
   cancel: ڕاگرتن
   common:
     add_holiday_ics:
+    and: له‌گه‌ڵ
     at: لە
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ ku:
       scotland_slug:
     next_holiday_in_is:
     'on': لەسەر
+    or: یان
     past_bank_holidays:
     print_link: ئەم لاپەڕەیە پرنت بکە
     substitute_day:
@@ -105,6 +107,7 @@ ku:
     united-kingdom_slug: شانشینی یەکگرتوو
     upcoming_bank_holidays:
     visit: 'سەردانی : '
+    was: 'بووە بە '
   components:
     share_links:
       share_this_page: ئەم په‌یجه‌ هاوبه‌ش بکەن
@@ -190,35 +193,19 @@ ku:
         one: پلانی هاوكاری دارایی بازرگانی
         other: پلانی هاوكاری دارایی بازرگانی
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ ku:
         other: کەیسەکانی دەسەڵاتی کێبڕکێ و بازاڕەکان
     consultation:
       analysing_feedback: ئێمە خەریکی شیکردنەوەی فیدباکەکانتانین
-      and: له‌گه‌ڵ
       another_website_html: ئەم ڕاوێژکارییە %{closed} لە <a href="%{url}">ماڵپەڕێکی تر</a> بەڕێوەچوو
       closes: 'دادەخرێت لە '
       closes_at: 'ئەم راوێژکارییە دادەخرێت لە '
@@ -261,13 +247,12 @@ ku:
         other: ڕاوێژکاری
       not_open_yet: ئەم ڕاوێژکارییە هێشتا کراوە نییە
       opens: ئەم ڕاوێژکارییە کراوەیە
-      or: یان
       original_consultation: ڕاوێژکاری ئەسڵی
       ran_from: ئەم ڕاوێژکارییە بەڕێوە دەچێت لە
       respond_online: بە شێوەی ئۆنلاین وەڵام بدەرەوە
+      response_form:
       summary: پوختە
       visit_soon: بەم زووانە سەردانی ئەم پەیجە بکەرەوە بۆ دابەزاندنی دەرئەنجامەکە بۆ ئەم فیدباکە گشتییە.
-      was: 'بووە بە '
       ways_to_respond: 'ڕیگاکانی وەڵامدانەوە  '
       write_to: 'بنووسە بۆ : '
     consultation_outcome:

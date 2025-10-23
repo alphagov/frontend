@@ -75,6 +75,7 @@ uk:
   cancel:
   common:
     add_holiday_ics:
+    and: та
     at: о
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ uk:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ uk:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'Відвідайте:'
+    was: був
   components:
     share_links:
       share_this_page: Поділіться цією сторінкою
@@ -200,20 +203,11 @@ uk:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         few:
         many:
@@ -222,15 +216,8 @@ uk:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         few:
@@ -263,7 +250,6 @@ uk:
         other:
     consultation:
       analysing_feedback:
-      and: та
       another_website_html: Ця консультація %{closed} проведена на <a href="%{url}">іншому вебсайті</a>
       closes: Вона завершиться о
       closes_at: Ця консультація завершиться о
@@ -285,13 +271,12 @@ uk:
         other: Консультації
       not_open_yet: Ця консультація ще не розпочалася
       opens: Ця консультація розпочинається
-      or:
       original_consultation: Первісна консультація
       ran_from: Ця консультація розпочалася з
       respond_online: Відповідати онлайн
+      response_form:
       summary:
       visit_soon: Відвідайте цю сторінку незабаром, щоб завантажити результат до цього загальнодоступного public відгуку.
-      was: був
       ways_to_respond: Способи реагування
       write_to: 'Написати:'
     consultation_outcome:

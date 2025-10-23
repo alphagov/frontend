@@ -75,6 +75,7 @@ dr:
   cancel:
   common:
     add_holiday_ics:
+    and: و
     at: در
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ dr:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ dr:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'بازدید:'
+    was: بود
   components:
     share_links:
       share_this_page: این صفحه را به اشتراک بگذارید
@@ -190,35 +193,19 @@ dr:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ dr:
         other:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: این مشاوره%{closed}برگزار میشود در<a href="%{url}">ویبسایت دیگر</a>
       closes: این بسته میشود در
       closes_at: این مشاوره بسته میشود در
@@ -261,13 +247,12 @@ dr:
         other: مشاوره ها
       not_open_yet: مشاوره تا هنوز شروع نشده است
       opens: مشاوره شروع میشود
-      or:
       original_consultation: مشاورهء اصلی
       ran_from: این مشاوره اجرا میشود از
       respond_online: بصورت آنلاین پاسخ دهید
+      response_form:
       summary:
       visit_soon: به زودی بار دیگر از این صفحه دیدن نمایید تا نتیجه را از این  فیدبک عمومی دانلود نمایید
-      was: بود
       ways_to_respond: طریقه هایی پاسخ دهی
       write_to: 'نوشته کنید به:'
     consultation_outcome:

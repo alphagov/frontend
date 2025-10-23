@@ -75,6 +75,7 @@ fa:
   cancel:
   common:
     add_holiday_ics:
+    and: و
     at: در
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ fa:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ fa:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'بازدید کنید:'
+    was: بود
   components:
     share_links:
       share_this_page: اشتراک‌گذاری این صفحه
@@ -190,35 +193,19 @@ fa:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ fa:
         other:
     consultation:
       analysing_feedback:
-      and: و
       another_website_html: این مشاوره %{closed} در <a href="%{url}">وب‌سات دیگر برگزار شد</a>
       closes: بسته می‌شود در
       closes_at: این مشاوره بسته می‌شود در
@@ -261,13 +247,12 @@ fa:
         other: مشاوره‌ها
       not_open_yet: این مشاوره هنوز باز نشده است
       opens: این مشاوره باز می‌شود
-      or:
       original_consultation: مشاوره اصلی
       ran_from: این مشاوره در حال اجرا است از
       respond_online: آنلاین پاسخ دهید
+      response_form:
       summary:
       visit_soon: برای دانلود نتیجه این بازخورد عمومی، خیلی زود دوباره از این صفحه بازدید کنید.
-      was: بود
       ways_to_respond: راه‌های پاسخ
       write_to: 'پیام دهید به:'
     consultation_outcome:

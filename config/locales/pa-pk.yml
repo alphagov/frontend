@@ -75,6 +75,7 @@ pa-pk:
   cancel:
   common:
     add_holiday_ics:
+    and: ہور
     at: ایندے تے
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
@@ -98,6 +99,7 @@ pa-pk:
       scotland_slug:
     next_holiday_in_is:
     'on':
+    or:
     past_bank_holidays:
     print_link:
     substitute_day:
@@ -105,6 +107,7 @@ pa-pk:
     united-kingdom_slug:
     upcoming_bank_holidays:
     visit: 'ویکھو:'
+    was: او سی
   components:
     share_links:
       share_this_page: ایہ ورقہ تقسیم کرو
@@ -190,35 +193,19 @@ pa-pk:
         one:
         other:
     call_for_evidence:
-      and:
       another_website_html:
       closed:
       closed_another_website_html:
-      closes:
       closes_at:
-      complete_a:
       description:
-      detail_of_outcome:
-      documents:
-      download_outcome:
-      either:
-      email_to:
-      is_being:
       name:
         one:
         other:
       not_open_yet:
       open_another_website_html:
       opens:
-      or:
       original_call_for_evidence:
       ran_from:
-      respond_online:
-      response_form:
-      summary:
-      was:
-      ways_to_respond:
-      write_to:
     call_for_evidence_outcome:
       name:
         one:
@@ -241,7 +228,6 @@ pa-pk:
         other:
     consultation:
       analysing_feedback:
-      and: ہور
       another_website_html: ایہ مشورہ  %{closed}ایندے تے وقوعہ ہویا <a href="%{url}">دُوسری ویب سائٹ</a>
       closes: ایہ ایندے تے بند ہوندا اے
       closes_at: ایہ مشاورت ایندے تے بند ہوندی اے
@@ -261,13 +247,12 @@ pa-pk:
         other: 'مشورے '
       not_open_yet: ایہ مشاورت ہلے نئیں کُھلی
       opens: ایہ مشاورت کُھل گئی اے
-      or:
       original_consultation: اصلی مشاورت
       ran_from: ایہ مشاورت داچلایا ہویا فارم اے
       respond_online: آن لائن جاب دیوؤ
+      response_form:
       summary:
       visit_soon: ایس ورقے تے چھیتی واپس آؤ عوام ولوں دتے گئے جواب نوں ڈاؤن لوڈ کرو جواب۔
-      was: او سی
       ways_to_respond: جواب دین دے طریقے
       write_to: اینوں لکھو
     consultation_outcome:

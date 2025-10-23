@@ -480,8 +480,8 @@ hu:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nemzeti statisztikák
+        other: Nemzeti statisztikák
     national_statistics_announcement:
       name:
         one:

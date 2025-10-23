@@ -480,8 +480,8 @@ is:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Hagstofa
+        other: Hagstofa
     national_statistics_announcement:
       name:
         one:

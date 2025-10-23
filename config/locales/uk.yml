@@ -564,8 +564,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Національна статистика
+        other: Національна статистика
     national_statistics_announcement:
       name:
         few:

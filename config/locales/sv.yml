@@ -480,8 +480,8 @@ sv:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationell statistik
+        other: Nationell statistik
     national_statistics_announcement:
       name:
         one:

@@ -563,8 +563,8 @@ gd:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Staitisticí náisiúnta
+        other: Staitisticí náisiúnta
         two:
     national_statistics_announcement:
       name:

@@ -480,8 +480,8 @@ hy:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ազգային վիճակագրություն
+        other: Ազգային վիճակագրություն
     national_statistics_announcement:
       name:
         one:

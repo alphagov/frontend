@@ -480,8 +480,8 @@ ps:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: ملي احصایې
+        other: ملي احصایې
     national_statistics_announcement:
       name:
         one:

@@ -522,8 +522,8 @@ lt:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistika - nacionalinė statistika
+        other: Statistika - nacionalinė statistika
     national_statistics_announcement:
       name:
         few:

@@ -480,8 +480,8 @@ nl:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationale statistieken
+        other: Nationale statistieken
     national_statistics_announcement:
       name:
         one:

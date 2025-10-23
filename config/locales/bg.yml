@@ -480,8 +480,8 @@ bg:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Национална статистика
+        other: Национална статистика
     national_statistics_announcement:
       name:
         one:

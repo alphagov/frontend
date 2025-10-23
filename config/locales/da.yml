@@ -313,8 +313,8 @@ da:
         other:
     form:
       name:
-        one:
-        other:
+        one: Formular
+        other: Formularer
     get_involved:
       civil_service:
       civil_service_quarterly:

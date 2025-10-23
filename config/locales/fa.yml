@@ -313,8 +313,8 @@ fa:
         other:
     form:
       name:
-        one:
-        other:
+        one: فرم
+        other: فرم‌ها
     get_involved:
       civil_service:
       civil_service_quarterly:

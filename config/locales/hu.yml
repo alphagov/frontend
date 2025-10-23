@@ -313,8 +313,8 @@ hu:
         other:
     form:
       name:
-        one:
-        other:
+        one: Űrlap
+        other: Űrlapok
     get_involved:
       civil_service:
       civil_service_quarterly:

@@ -313,8 +313,8 @@ ka:
         other:
     form:
       name:
-        one:
-        other:
+        one: ფორმა
+        other: ფორმები
     get_involved:
       civil_service:
       civil_service_quarterly:

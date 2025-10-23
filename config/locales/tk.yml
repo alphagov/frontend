@@ -313,8 +313,8 @@ tk:
         other:
     form:
       name:
-        one:
-        other:
+        one: Forma
+        other: Formalar
     get_involved:
       civil_service:
       civil_service_quarterly:

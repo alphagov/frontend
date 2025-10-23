@@ -313,8 +313,8 @@ sv:
         other:
     form:
       name:
-        one:
-        other:
+        one: Formulär
+        other: Formulär
     get_involved:
       civil_service:
       civil_service_quarterly:

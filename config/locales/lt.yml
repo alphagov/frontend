@@ -342,8 +342,8 @@ lt:
     form:
       name:
         few:
-        one:
-        other:
+        one: Forma
+        other: Formos
     get_involved:
       civil_service:
       civil_service_quarterly:

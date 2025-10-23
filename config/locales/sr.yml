@@ -342,8 +342,8 @@ sr:
     form:
       name:
         few:
-        one:
-        other:
+        one: Formular
+        other: Obrasci
     get_involved:
       civil_service:
       civil_service_quarterly:

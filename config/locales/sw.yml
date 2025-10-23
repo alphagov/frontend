@@ -313,8 +313,8 @@ sw:
         other:
     form:
       name:
-        one:
-        other:
+        one: Fomu
+        other: Fomu
     get_involved:
       civil_service:
       civil_service_quarterly:

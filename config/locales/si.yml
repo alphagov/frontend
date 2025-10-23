@@ -313,8 +313,8 @@ si:
         other:
     form:
       name:
-        one:
-        other:
+        one: ආකෘති පත්‍රය
+        other: ආකෘති පත්‍ර
     get_involved:
       civil_service:
       civil_service_quarterly:

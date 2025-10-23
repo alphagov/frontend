@@ -313,8 +313,8 @@ pa-pk:
         other:
     form:
       name:
-        one:
-        other:
+        one: 'فارم '
+        other: فارمز
     get_involved:
       civil_service:
       civil_service_quarterly:

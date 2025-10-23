@@ -313,8 +313,8 @@ bg:
         other:
     form:
       name:
-        one:
-        other:
+        one: Формуляр
+        other: Формуляри
     get_involved:
       civil_service:
       civil_service_quarterly:

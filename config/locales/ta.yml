@@ -313,8 +313,8 @@ ta:
         other:
     form:
       name:
-        one:
-        other:
+        one: படிவம்
+        other: படிவங்கள்
     get_involved:
       civil_service:
       civil_service_quarterly:

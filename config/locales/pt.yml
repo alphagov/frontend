@@ -313,8 +313,8 @@ pt:
         other:
     form:
       name:
-        one:
-        other:
+        one: Formulário
+        other: Formulários
     get_involved:
       civil_service:
       civil_service_quarterly:

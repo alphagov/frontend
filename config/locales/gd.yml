@@ -996,7 +996,6 @@ gd:
       items:
   shared:
     historically_political: Foilsíodh an doiciméad seo go deimhin faoi chuimsiú an %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

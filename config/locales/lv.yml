@@ -838,7 +838,6 @@ lv:
       items:
   shared:
     historically_political: Šis tika publicēts saskaņā ar %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

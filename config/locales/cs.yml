@@ -917,7 +917,6 @@ cs:
       items:
   shared:
     historically_political: Tento dokument byl zveřejněn pod hlavičkou %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

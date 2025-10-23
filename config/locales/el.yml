@@ -838,7 +838,6 @@ el:
       items:
   shared:
     historically_political: Αυτό δημοσιεύτηκε στο %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

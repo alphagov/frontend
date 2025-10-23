@@ -838,7 +838,6 @@ tk:
       items:
   shared:
     historically_political: Bu %{government} garamagynda neşir edildi
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

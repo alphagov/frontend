@@ -996,7 +996,6 @@ be:
       items:
   shared:
     historically_political: Гэта было апублікавана пад%{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

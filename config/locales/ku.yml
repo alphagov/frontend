@@ -838,7 +838,6 @@ ku:
       items:
   shared:
     historically_political: " %{حکومەت}ئەمە لە ژێر بڵاوکراوەتەوە."
-  sign_up: ناوت تۆمار بکە
   time:
     formats:
       short_ordinal: "%e %B %Y"

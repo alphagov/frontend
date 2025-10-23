@@ -759,7 +759,6 @@ ja:
       items:
   shared:
     historically_political: 本件は、%{government}で公開されました
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

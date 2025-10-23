@@ -838,7 +838,6 @@ es:
       items:
   shared:
     historically_political: Esto se publicó en %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

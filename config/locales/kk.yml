@@ -838,7 +838,6 @@ kk:
       items:
   shared:
     historically_political: Бұл %{government} кезінде жарияланды
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

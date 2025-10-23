@@ -838,7 +838,6 @@ sq:
       items:
   shared:
     historically_political: Kjo u botua nën %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

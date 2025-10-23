@@ -838,7 +838,6 @@ tr:
       items:
   shared:
     historically_political: "%{government} kapsamında yayınlandı"
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

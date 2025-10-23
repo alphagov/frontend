@@ -917,7 +917,6 @@ lt:
       items:
   shared:
     historically_political: Tai buvo publikuota pagal %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

@@ -838,7 +838,6 @@ so:
       items:
   shared:
     historically_political: Tani waxa la daabacayaa iyadoo kujirta %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

@@ -838,7 +838,6 @@ ka:
       items:
   shared:
     historically_political: ეს გამოქვეყნდა %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

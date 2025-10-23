@@ -838,7 +838,6 @@ si:
       items:
   shared:
     historically_political: මෙය %{government} යටතේ ප්‍රකාශණය කරණ ලදී
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

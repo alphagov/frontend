@@ -838,7 +838,6 @@ hu:
       items:
   shared:
     historically_political: A jelen kiadvány a(z) %{government} alatt került kiadásra
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

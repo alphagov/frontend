@@ -838,7 +838,6 @@ ps:
       items:
   shared:
     historically_political: دا د%{government} لاندې خپور شوی
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

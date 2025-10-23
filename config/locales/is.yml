@@ -838,7 +838,6 @@ is:
       items:
   shared:
     historically_political: Þetta var gefið út undir %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

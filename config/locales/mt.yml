@@ -996,7 +996,6 @@ mt:
       items:
   shared:
     historically_political: Din ma ġietx ippubblikata taħt il- %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

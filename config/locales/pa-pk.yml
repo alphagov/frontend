@@ -838,7 +838,6 @@ pa-pk:
       items:
   shared:
     historically_political: اینوں ایس دے تحت شائع کیتا گیا %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

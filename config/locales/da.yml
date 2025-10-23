@@ -838,7 +838,6 @@ da:
       items:
   shared:
     historically_political: Dette blev udgivet under %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

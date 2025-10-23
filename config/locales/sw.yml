@@ -838,7 +838,6 @@ sw:
       items:
   shared:
     historically_political: Hii ilichapishwa chini ya %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

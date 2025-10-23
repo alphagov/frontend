@@ -838,7 +838,6 @@ es-419:
       items:
   shared:
     historically_political: Esto fue publicado bajo el %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

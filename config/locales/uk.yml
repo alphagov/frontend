@@ -996,7 +996,6 @@ uk:
       items:
   shared:
     historically_political: Це було опубліковано при %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

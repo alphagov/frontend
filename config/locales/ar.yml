@@ -1154,7 +1154,6 @@ ar:
       items:
   shared:
     historically_political: تم نشره بموجب %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

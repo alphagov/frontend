@@ -838,7 +838,6 @@ az:
       items:
   shared:
     historically_political: Bu %{government} əsasən dərc edilmişdir
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

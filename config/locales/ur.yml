@@ -838,7 +838,6 @@ ur:
       items:
   shared:
     historically_political: اسے %{government} کے تحت شائع کیا گیا تھا
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

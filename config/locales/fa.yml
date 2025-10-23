@@ -838,7 +838,6 @@ fa:
       items:
   shared:
     historically_political: این مورد تحت %{government} منتشر شده است
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

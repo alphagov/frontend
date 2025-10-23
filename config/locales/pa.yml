@@ -838,7 +838,6 @@ pa:
       items:
   shared:
     historically_political: ਇਹ %{government} ਦੇ ਅਧੀਨ ਪ੍ਰਕਾਸ਼ਿਤ ਕੀਤਾ ਗਿਆ ਸੀ
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

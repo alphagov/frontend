@@ -838,7 +838,6 @@ et:
       items:
   shared:
     historically_political: See avaldati %{government} all
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

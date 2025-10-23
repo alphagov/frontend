@@ -838,7 +838,6 @@ fi:
       items:
   shared:
     historically_political: Tämä julkaistiin osoitteessa %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

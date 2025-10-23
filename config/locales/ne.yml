@@ -838,7 +838,6 @@ ne:
       items:
   shared:
     historically_political: यो %{government} अन्तर्गत प्रकाशित भएको थियो
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

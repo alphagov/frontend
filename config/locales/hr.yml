@@ -917,7 +917,6 @@ hr:
       items:
   shared:
     historically_political: Ovo je objavljeno pod %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

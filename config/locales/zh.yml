@@ -759,7 +759,6 @@ zh:
       items:
   shared:
     historically_political: 这是由 %{government} 发布的。
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

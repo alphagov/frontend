@@ -838,7 +838,6 @@ bg:
       items:
   shared:
     historically_political: Това е публикувано под %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

@@ -1168,7 +1168,6 @@ cy:
         heading_text: Blog Tu mewn i GOV.UK
   shared:
     historically_political: Cyhoeddwyd hwn o dan y %{government}
-  sign_up: Cofrestru
   time:
     formats:
       short_ordinal: "%e %B %Y"

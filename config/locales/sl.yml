@@ -996,7 +996,6 @@ sl:
       items:
   shared:
     historically_political: To je bilo objavljeno pod %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

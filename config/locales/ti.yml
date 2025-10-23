@@ -838,7 +838,6 @@ ti:
       items:
   shared:
     historically_political: እዚ ኣብ ትሕቲ %{government} ዝተሓትመ እዩ።
-  sign_up: ተመዝገብ
   time:
     formats:
       short_ordinal: "%e %B %Y"

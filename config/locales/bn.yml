@@ -838,7 +838,6 @@ bn:
       items:
   shared:
     historically_political: এটি %{government}-এর অধীনে প্রকাশিত হয়েছে
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

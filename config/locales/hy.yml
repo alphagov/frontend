@@ -838,7 +838,6 @@ hy:
       items:
   shared:
     historically_political: Սույնը հրապարակվել է %{government} բաժնում
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

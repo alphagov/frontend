@@ -917,7 +917,6 @@ sr:
       items:
   shared:
     historically_political: Ovo je objavljeno u okviru %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

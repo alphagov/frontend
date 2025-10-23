@@ -759,7 +759,6 @@ id:
       items:
   shared:
     historically_political: Ini diterbitkan di bawah %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

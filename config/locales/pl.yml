@@ -996,7 +996,6 @@ pl:
       items:
   shared:
     historically_political: Zostało to opublikowane w ramach %{government}
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

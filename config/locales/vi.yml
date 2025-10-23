@@ -757,7 +757,6 @@ vi:
     updates_section:
       heading:
       items:
-  save:
   sessions:
     first_time:
       cookie_consent:

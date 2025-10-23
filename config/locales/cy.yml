@@ -1166,7 +1166,6 @@ cy:
       - href: https://insidegovuk.blog.gov.uk/
         image_src: roadmap/updates-blog.jpg
         heading_text: Blog Tu mewn i GOV.UK
-  save:
   sessions:
     first_time:
       cookie_consent:

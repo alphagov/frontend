@@ -1086,7 +1086,6 @@ en:
       - href: https://insidegovuk.blog.gov.uk/
         image_src: roadmap/updates-blog.jpg
         heading_text: Inside GOV.UK blog
-  save: Save
   sessions:
     first_time:
       cookie_consent:

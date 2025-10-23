@@ -359,8 +359,8 @@ et:
         other: Valitsuse vastused
     guidance:
       name:
-        one:
-        other:
+        one: Juhised
+        other: Juhised
     guide:
       pages_in_guide: Selle juhendi leheküljed
       skip_contents:

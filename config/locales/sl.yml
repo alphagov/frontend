@@ -420,8 +420,8 @@ sl:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Smernice
+        other: Smernice
         two:
     guide:
       pages_in_guide: Strani v tem vodiču

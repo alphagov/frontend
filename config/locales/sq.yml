@@ -359,8 +359,8 @@ sq:
         other: Reagime qeveritare
     guidance:
       name:
-        one:
-        other:
+        one: Udhëzime
+        other: Udhëzime
     guide:
       pages_in_guide: Faqet në këtë udhëzim
       skip_contents:

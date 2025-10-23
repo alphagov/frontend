@@ -390,8 +390,8 @@ lt:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Informacija
+        other: Informacija
     guide:
       pages_in_guide: Puslapiai šiame vadove
       skip_contents:

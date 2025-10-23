@@ -421,8 +421,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Руководство
+        other: Руководство
     guide:
       pages_in_guide: Страница в руководстве
       skip_contents:

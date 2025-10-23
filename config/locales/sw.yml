@@ -359,8 +359,8 @@ sw:
         other: Hatua zilizochukuliwa na serikali
     guidance:
       name:
-        one:
-        other:
+        one: Mwongozo
+        other: Mwongozo
     guide:
       pages_in_guide: Kurasa za mwongozo huu
       skip_contents:

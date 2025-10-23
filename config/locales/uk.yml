@@ -421,8 +421,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Довідник
+        other: Довідник
     guide:
       pages_in_guide: Сторінки цього посібника
       skip_contents:

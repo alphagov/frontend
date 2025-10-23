@@ -359,8 +359,8 @@ ta:
         other: அரசாங்க பதில்கள்
     guidance:
       name:
-        one:
-        other:
+        one: வழிகாட்டுதல்
+        other: வழிகாட்டுதல்
     guide:
       pages_in_guide: இந்த வழிகாட்டுதலில் உள்ள பக்கங்கள்
       skip_contents:

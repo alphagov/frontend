@@ -359,8 +359,8 @@ is:
         other: Viðbrögð stjórnvalda
     guidance:
       name:
-        one:
-        other:
+        one: Leiðbeiningar
+        other: Leiðbeiningar
     guide:
       pages_in_guide: Síður í þessum leiðbeiningum
       skip_contents:

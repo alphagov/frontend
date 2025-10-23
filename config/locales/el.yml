@@ -359,8 +359,8 @@ el:
         other: Κυβερνητικές απαντήσεις
     guidance:
       name:
-        one:
-        other:
+        one: Οδηγία
+        other: Οδηγία
     guide:
       pages_in_guide: Σελίδες σε αυτόν τον οδηγό
       skip_contents:

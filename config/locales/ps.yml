@@ -359,8 +359,8 @@ ps:
         other: د حکومت غبرګون
     guidance:
       name:
-        one:
-        other:
+        one: لارښود
+        other: لارښود
     guide:
       pages_in_guide: په دې لارښود کې پاڼې
       skip_contents:

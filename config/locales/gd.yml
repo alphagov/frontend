@@ -420,8 +420,8 @@ gd:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Treoshuíomh
+        other: Treoshuímh
         two:
     guide:
       pages_in_guide: Leathanaigh na treorach seo

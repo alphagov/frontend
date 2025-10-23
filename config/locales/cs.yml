@@ -390,8 +390,8 @@ cs:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Směrnice
+        other: Směrnice
     guide:
       pages_in_guide: Stránky v této příručce
       skip_contents:

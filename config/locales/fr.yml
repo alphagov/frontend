@@ -359,8 +359,8 @@ fr:
         other: Réponses du gouvernement
     guidance:
       name:
-        one:
-        other:
+        one: Orientation
+        other: Orientation
     guide:
       pages_in_guide: Pages de ce guide
       skip_contents:

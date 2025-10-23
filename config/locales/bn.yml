@@ -359,8 +359,8 @@ bn:
         other: সরকারের সাড়া
     guidance:
       name:
-        one:
-        other:
+        one: পরিচালনা
+        other: পরিচালনা
     guide:
       pages_in_guide: এই নির্দেশিকাতে পৃষ্ঠা
       skip_contents:

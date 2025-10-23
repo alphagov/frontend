@@ -359,8 +359,8 @@ fi:
         other: Hallituksen vastaukset
     guidance:
       name:
-        one:
-        other:
+        one: Ohjaus
+        other: Ohjaus
     guide:
       pages_in_guide: Tämän oppaan sivut
       skip_contents:

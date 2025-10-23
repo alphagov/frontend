@@ -359,8 +359,8 @@ kk:
         other: Мемлекет жауаптары
     guidance:
       name:
-        one:
-        other:
+        one: Нұсқаулық
+        other: Нұсқаулық
     guide:
       pages_in_guide: Бұл нұсқаулықтағы беттер
       skip_contents:

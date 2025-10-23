@@ -258,8 +258,8 @@ az:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Qərar
+        other: Qərarlar
     detailed_guide:
       name:
         one: Göstəriş

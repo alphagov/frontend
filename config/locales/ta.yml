@@ -258,8 +258,8 @@ ta:
         other:
     decision:
       name:
-        one:
-        other:
+        one: முடிவு
+        other: முடிவுகள்
     detailed_guide:
       name:
         one: வழிகாட்டுதல்

@@ -276,8 +276,8 @@ sk:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Rozhodnutie
+        other: Rozhodnutia
     detailed_guide:
       name:
         few:

@@ -258,8 +258,8 @@ es:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Decisión
+        other: Decisiones
     detailed_guide:
       name:
         one: Orientación detallada

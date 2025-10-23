@@ -258,8 +258,8 @@ fa:
         other:
     decision:
       name:
-        one:
-        other:
+        one: تصمیم
+        other: تصمیمات
     detailed_guide:
       name:
         one: راهنمایی

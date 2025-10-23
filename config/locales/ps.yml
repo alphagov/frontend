@@ -258,8 +258,8 @@ ps:
         other:
     decision:
       name:
-        one:
-        other:
+        one: پریکړه
+        other: پریکړې
     detailed_guide:
       name:
         one: لارښود

@@ -258,8 +258,8 @@ dr:
         other:
     decision:
       name:
-        one:
-        other:
+        one: تصمیم
+        other: تصامیم
     detailed_guide:
       name:
         one: راهنمایی

@@ -328,8 +328,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: قرار
+        other: قرارات
         two:
         zero:
     detailed_guide:

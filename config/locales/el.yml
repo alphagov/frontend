@@ -258,8 +258,8 @@ el:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Απόφαση
+        other: Αποφάσεις
     detailed_guide:
       name:
         one: Οδηγία

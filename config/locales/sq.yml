@@ -258,8 +258,8 @@ sq:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Vendimi
+        other: Vendimet
     detailed_guide:
       name:
         one: Udhëzim

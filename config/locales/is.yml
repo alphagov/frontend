@@ -258,8 +258,8 @@ is:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Ákvörðun
+        other: Ákvarðanir
     detailed_guide:
       name:
         one: Leiðsögn

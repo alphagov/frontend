@@ -276,8 +276,8 @@ cs:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Rozhodnutí
+        other: Rozhodnutí
     detailed_guide:
       name:
         few:

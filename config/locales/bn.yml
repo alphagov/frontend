@@ -258,8 +258,8 @@ bn:
         other:
     decision:
       name:
-        one:
-        other:
+        one: সিদ্ধান্ত
+        other: সিদ্ধান্তসমূহ
     detailed_guide:
       name:
         one: পরিচালনা

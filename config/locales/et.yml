@@ -258,8 +258,8 @@ et:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Otsus
+        other: Otsused
     detailed_guide:
       name:
         one: Juhised

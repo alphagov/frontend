@@ -276,8 +276,8 @@ hr:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Odluka
+        other: Odluke
     detailed_guide:
       name:
         few:

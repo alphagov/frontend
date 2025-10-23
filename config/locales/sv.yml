@@ -258,8 +258,8 @@ sv:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Beslut
+        other: Beslut
     detailed_guide:
       name:
         one: Vägledning

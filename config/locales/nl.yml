@@ -258,8 +258,8 @@ nl:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Besluit
+        other: Besluiten
     detailed_guide:
       name:
         one: Richtsnoer

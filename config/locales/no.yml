@@ -258,8 +258,8 @@
         other:
     decision:
       name:
-        one:
-        other:
+        one: Beslutning
+        other: Beslutninger
     detailed_guide:
       name:
         one: Veiledning

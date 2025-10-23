@@ -241,7 +241,7 @@ ko:
         other:
     decision:
       name:
-        other:
+        other: 판결
     detailed_guide:
       name:
         other: 지침

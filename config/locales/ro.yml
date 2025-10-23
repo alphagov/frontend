@@ -276,8 +276,8 @@ ro:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Decizie
+        other: Decizii
     detailed_guide:
       name:
         few:

@@ -626,8 +626,8 @@ bn:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: বিধিবদ্ধ নির্দেশনা
+        other: বিধিবদ্ধ নির্দেশনা
     tax_tribunal_decision:
       name:
         one:

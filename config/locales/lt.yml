@@ -700,8 +700,8 @@ lt:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Įstatyminė informacija
+        other: Įstatyminė informacija
     tax_tribunal_decision:
       name:
         few:

@@ -774,8 +774,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Нормативне керівництво
+        other: Нормативне керівництво
     tax_tribunal_decision:
       name:
         few:

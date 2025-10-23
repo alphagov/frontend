@@ -773,8 +773,8 @@ gd:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Treoir reachtúil
+        other: Treoir reachtúil
         two:
     tax_tribunal_decision:
       name:

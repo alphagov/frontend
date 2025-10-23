@@ -774,8 +774,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Wytyczne ustawowe
+        other: Wytyczne ustawowe
     tax_tribunal_decision:
       name:
         few:

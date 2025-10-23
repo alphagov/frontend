@@ -700,8 +700,8 @@ sr:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Zakonska uputstva
+        other: Zakonska uputstva
     tax_tribunal_decision:
       name:
         few:

@@ -774,8 +774,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Заканадаўчае кіраўніцтва
+        other: Заканадаўчае кіраўніцтва
     tax_tribunal_decision:
       name:
         few:

@@ -565,8 +565,8 @@ sk:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Oficiálne štatistiky
+        other: Oficiálne štatistiky
     official_statistics_announcement:
       name:
         few:

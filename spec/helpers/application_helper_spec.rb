@@ -58,4 +58,38 @@ RSpec.describe ApplicationHelper do
       end
     end
   end
+
+  describe "iOS banner" do
+    describe "when the page is in the list" do
+      let(:content_item) { ContentItem.new({ "base_path" => "/state-pension" }) }
+
+      it "shows the banner" do
+        expect(show_ios_banner?).to be(true)
+      end
+    end
+
+    describe "when the page is not in the list" do
+      let(:content_item) { ContentItem.new({ "base_path" => "/government/speeches/charles-hendrys-speech-to-the-fuellers-lecture-25th-anniversary" }) }
+
+      it "does not show the banner" do
+        expect(show_ios_banner?).to be(false)
+      end
+    end
+
+    describe "when the page does not have a base path" do
+      let(:content_item) { ContentItem.new({}) }
+
+      it "does not show the banner" do
+        expect(show_ios_banner?).to be(false)
+      end
+    end
+
+    describe "when the page does not have a content item" do
+      let(:content_item) { nil }
+
+      it "does not show the banner" do
+        expect(show_ios_banner?).to be(false)
+      end
+    end
+  end
 end

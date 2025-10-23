@@ -49,6 +49,11 @@
   margin-bottom: 40px;
 }
 
+.direction-rtl .back-to-top-wrapper {
+  direction: rtl;
+  text-align: start;
+}
+
 // Required to display a separate meta data page when printing
 @include govuk-media-query($media-type: print) {
   .print-metadata {

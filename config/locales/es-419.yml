@@ -564,8 +564,8 @@ es-419:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regulación
+        other: Regulaciones
     research:
       name:
         one: Investigación y análisis

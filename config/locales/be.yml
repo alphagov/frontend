@@ -688,8 +688,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Тэзіс
+        other: Тэзісы
     research:
       name:
         few:

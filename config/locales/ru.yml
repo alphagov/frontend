@@ -688,8 +688,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Требование
+        other: Требования
     research:
       name:
         few:

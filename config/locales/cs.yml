@@ -626,8 +626,8 @@ cs:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Nařízení
+        other: nařízení
     research:
       name:
         few:

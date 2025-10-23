@@ -564,8 +564,8 @@ it:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regolamento
+        other: Regolamenti
     research:
       name:
         one: Ricerca e analisi

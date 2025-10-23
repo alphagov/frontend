@@ -564,8 +564,8 @@ si:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: නියාමනය
+        other: නියාමන
     research:
       name:
         one: පර්යේෂණය සහ විශ්ලේෂණය

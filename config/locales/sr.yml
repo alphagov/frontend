@@ -626,8 +626,8 @@ sr:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Propis
+        other: Propisi
     research:
       name:
         few:

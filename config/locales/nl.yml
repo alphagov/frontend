@@ -564,8 +564,8 @@ nl:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regelgeving
+        other: Regelgeving
     research:
       name:
         one: Onderzoek en analyse

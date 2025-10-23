@@ -2,7 +2,11 @@ module LocaleHelper
   def content_item_locale
     return content_item.locale if content_item
 
-    I18n.default_locale
+    I18n.default_locale.to_s
+  end
+
+  def with_content_item_locale(&block)
+    I18n.with_locale(content_item_locale, &block)
   end
 
   def lang_attribute

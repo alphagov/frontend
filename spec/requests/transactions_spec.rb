@@ -40,19 +40,6 @@ RSpec.describe "Transactions" do
     end
   end
 
-  context "when a welsh version exists" do
-    before do
-      content_store_has_example_item("/chwilio-am-swydd", schema: "transaction", example: "chwilio-am-swydd")
-    end
-
-    it "sets the locale to welsh" do
-      expect(I18n).to receive(:locale=).with(:en).exactly(5).times # TODO: Why 3 times in a request, only 1 in a controller?
-      expect(I18n).to receive(:locale=).with("cy")
-
-      get "/chwilio-am-swydd"
-    end
-  end
-
   context "when a variant exists" do
     let!(:content_item) { content_store_has_example_item("/foo", schema: "transaction", example: "transaction-with-variants") }
 

@@ -32,7 +32,6 @@ ps:
         no_emails_inset:
         see_and_manage:
       heading:
-  and:
   attachment:
     virus_check:
       intro:

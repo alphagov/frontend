@@ -32,7 +32,6 @@ en:
         no_emails_inset: You do not currently have any GOV.UK email subscriptions.
         see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
       heading: Your GOV.UK account
-  and: and
   attachment:
     virus_check:
       intro: This attachment is being virus checked.

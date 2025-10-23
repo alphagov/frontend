@@ -32,7 +32,6 @@ cy:
         no_emails_inset:
         see_and_manage:
       heading:
-  and: a
   attachment:
     virus_check:
       intro: Mae'r atodiad hwn yn cael ei wirio am feirysau.

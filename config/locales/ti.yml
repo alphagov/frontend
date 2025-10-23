@@ -382,7 +382,6 @@ ti:
         one: ኣህጉራዊ ውዕል
         other: ኣህጉራዊ ውዕላት
     local_transaction:
-      change:
       choose_address:
       contact_council:
       council_tax:

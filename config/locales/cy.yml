@@ -528,7 +528,6 @@ cy:
         two:
         zero:
     local_transaction:
-      change: Newid
       choose_address: Dewiswch eich cyfeiriad
       contact_council:
       council_tax: treth gyngor

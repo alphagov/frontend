@@ -346,7 +346,6 @@ zh-tw:
       name:
         other:
     local_transaction:
-      change:
       choose_address:
       contact_council:
       council_tax:

@@ -384,7 +384,6 @@ en:
         one: International treaty
         other: International treaties
     local_transaction:
-      change: Change
       choose_address: Choose your address
       contact_council: contact your council
       council_tax: council tax

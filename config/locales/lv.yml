@@ -480,8 +480,8 @@ lv:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Statistika - valsts dati
+        other: Statistika - valsts dati
     national_statistics_announcement:
       name:
         one:

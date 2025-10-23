@@ -480,8 +480,8 @@
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nasjonal statistikk
+        other: Nasjonal statistikk
     national_statistics_announcement:
       name:
         one:

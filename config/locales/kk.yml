@@ -480,8 +480,8 @@ kk:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ұлттық статистика
+        other: Ұлттық статистика
     national_statistics_announcement:
       name:
         one:

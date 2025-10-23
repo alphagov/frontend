@@ -480,8 +480,8 @@ ne:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: राष्ट्रिय तथ्याङ्क
+        other: राष्ट्रिय तथ्याङ्क
     national_statistics_announcement:
       name:
         one:

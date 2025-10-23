@@ -480,8 +480,8 @@ da:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationale statistikker
+        other: Nationale statistikker
     national_statistics_announcement:
       name:
         one:

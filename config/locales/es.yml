@@ -480,8 +480,8 @@ es:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Estadísticas - cifras nacionales
+        other: Estadísticas - cifras nacionales
     national_statistics_announcement:
       name:
         one:

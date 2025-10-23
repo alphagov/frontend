@@ -563,8 +563,8 @@ sl:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Državna statistika
+        other: Državna statistika
         two:
     national_statistics_announcement:
       name:

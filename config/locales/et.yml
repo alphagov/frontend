@@ -480,8 +480,8 @@ et:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Riiklik statistika
+        other: Riiklik statistika
     national_statistics_announcement:
       name:
         one:

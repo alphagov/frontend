@@ -480,8 +480,8 @@ pt:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Estatísticas Nacionais
+        other: Estatísticas Nacionais
     national_statistics_announcement:
       name:
         one:

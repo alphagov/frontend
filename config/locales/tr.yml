@@ -480,8 +480,8 @@ tr:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ulusal İstatistikler
+        other: Ulusal İstatistikler
     national_statistics_announcement:
       name:
         one:

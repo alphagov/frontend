@@ -522,8 +522,8 @@ sr:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Državna statistika
+        other: Državna statistika
     national_statistics_announcement:
       name:
         few:

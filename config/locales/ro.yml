@@ -522,8 +522,8 @@ ro:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistică națională
+        other: Statistică națională
     national_statistics_announcement:
       name:
         few:

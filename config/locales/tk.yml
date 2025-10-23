@@ -480,8 +480,8 @@ tk:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Milli statistika
+        other: Milli statistika
     national_statistics_announcement:
       name:
         one:

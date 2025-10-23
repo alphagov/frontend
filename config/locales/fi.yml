@@ -480,8 +480,8 @@ fi:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Kansalliset tilastot
+        other: Kansalliset tilastot
     national_statistics_announcement:
       name:
         one:

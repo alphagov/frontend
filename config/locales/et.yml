@@ -392,8 +392,8 @@ et:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Rahvusvaheline leping
+        other: Rahvusvahelised lepingud
     local_transaction:
       choose_address:
       contact_council:

@@ -392,8 +392,8 @@ tr:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Uluslararası anlaşma
+        other: Uluslararası anlaşmalar
     local_transaction:
       choose_address:
       contact_council:

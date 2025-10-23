@@ -392,8 +392,8 @@ si:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: ජාත්යන්තර ගිවිසුම
+        other: ජාත්යන්තර ගිවිසුම්
     local_transaction:
       choose_address:
       contact_council:

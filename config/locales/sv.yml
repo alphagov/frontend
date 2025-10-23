@@ -392,8 +392,8 @@ sv:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationellt fördrag
+        other: Internationella fördrag
     local_transaction:
       choose_address:
       contact_council:

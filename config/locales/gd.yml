@@ -465,8 +465,8 @@ gd:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Conradh idirnáisiúnta
+        other: Conarthaí idirnáisiúnta
         two:
     local_transaction:
       choose_address:

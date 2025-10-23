@@ -429,8 +429,8 @@ ro:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tratat internațional
+        other: Tratate internaționale
     local_transaction:
       choose_address:
       contact_council:

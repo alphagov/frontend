@@ -392,8 +392,8 @@ sw:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Mkataba wa kimataifa
+        other: Mikataba ya kimataifa
     local_transaction:
       choose_address:
       contact_council:

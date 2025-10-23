@@ -392,8 +392,8 @@ hy:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Միջազգային պայմանագիր
+        other: Միջազգային պայմանագրեր
     local_transaction:
       choose_address:
       contact_council:

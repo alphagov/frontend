@@ -392,8 +392,8 @@ pa:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀ
+        other: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀਆਂ
     local_transaction:
       choose_address:
       contact_council:

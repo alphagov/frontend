@@ -392,8 +392,8 @@ he:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: אמנה בינלאומית
+        other: אמנות בינלאומיות
     local_transaction:
       choose_address:
       contact_council:

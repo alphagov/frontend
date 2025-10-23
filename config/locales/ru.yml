@@ -466,8 +466,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Международное соглашение
+        other: Международные соглашения
     local_transaction:
       choose_address:
       contact_council:

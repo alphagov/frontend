@@ -258,8 +258,8 @@ pt:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Decisão
+        other: Decisões
     detailed_guide:
       name:
         one: Orientação

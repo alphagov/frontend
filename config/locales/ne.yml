@@ -258,8 +258,8 @@ ne:
         other:
     decision:
       name:
-        one:
-        other:
+        one: निर्णय
+        other: निर्णयहरु
     detailed_guide:
       name:
         one: मार्गदर्शन

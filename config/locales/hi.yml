@@ -258,8 +258,8 @@ hi:
         other:
     decision:
       name:
-        one:
-        other:
+        one: फैसला
+        other: फैसले
     detailed_guide:
       name:
         one: मार्गदर्शन

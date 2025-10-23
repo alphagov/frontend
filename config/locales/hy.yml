@@ -258,8 +258,8 @@ hy:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Որոշում
+        other: Որոշումներ
     detailed_guide:
       name:
         one: Ուղեցույց

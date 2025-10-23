@@ -258,8 +258,8 @@ si:
         other:
     decision:
       name:
-        one:
-        other:
+        one: තීරණය
+        other: තීරණ
     detailed_guide:
       name:
         one: මාර්ගෝපදේශය

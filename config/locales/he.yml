@@ -258,8 +258,8 @@ he:
         other:
     decision:
       name:
-        one:
-        other:
+        one: החלטה
+        other: החלטות
     detailed_guide:
       name:
         one: הדרכה

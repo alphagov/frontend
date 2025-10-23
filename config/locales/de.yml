@@ -258,8 +258,8 @@ de:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Entscheidung
+        other: Entscheidungen
     detailed_guide:
       name:
         one: Detaillierte Hinweise

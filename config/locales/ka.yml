@@ -258,8 +258,8 @@ ka:
         other:
     decision:
       name:
-        one:
-        other:
+        one: გადაწყვეტილება
+        other: გადაწყვეტილებები
     detailed_guide:
       name:
         one: ხელძღვანელობა

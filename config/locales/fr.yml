@@ -258,8 +258,8 @@ fr:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Décision
+        other: Décisions
     detailed_guide:
       name:
         one: Orientations

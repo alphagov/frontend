@@ -258,8 +258,8 @@ it:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Decisione
+        other: Decisioni
     detailed_guide:
       name:
         one: Guida

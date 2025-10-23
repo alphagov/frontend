@@ -620,8 +620,8 @@ sv:
       written_on: Skrivet på
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standarder
     start_now:
     statement_to_parliament:
       name:

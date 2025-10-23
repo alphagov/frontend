@@ -758,8 +758,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Standard
+        other: Standardy
     start_now:
     statement_to_parliament:
       name:

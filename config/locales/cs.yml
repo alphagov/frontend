@@ -689,8 +689,8 @@ cs:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standardní
+        other: Standardy
     start_now:
     statement_to_parliament:
       name:

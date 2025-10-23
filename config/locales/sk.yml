@@ -689,8 +689,8 @@ sk:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Štandard
+        other: Štandardy
     start_now:
     statement_to_parliament:
       name:

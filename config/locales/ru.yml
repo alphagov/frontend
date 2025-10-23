@@ -758,8 +758,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарты
     start_now:
     statement_to_parliament:
       name:

@@ -631,8 +631,8 @@ cs:
     research:
       name:
         few:
-        one:
-        other:
+        one: Výzkum a analýza
+        other: Výzkum a analýza
     residential_property_tribunal_decision:
       name:
         few:

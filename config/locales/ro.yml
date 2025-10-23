@@ -409,8 +409,8 @@ ro:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Evaluarea impactului
+        other: Evaluările impactului
     imported:
       name:
         few:

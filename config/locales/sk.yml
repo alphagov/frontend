@@ -409,8 +409,8 @@ sk:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Posúdenie vplyvu
+        other: Posúdenia vplyvu
     imported:
       name:
         few:

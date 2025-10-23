@@ -376,8 +376,8 @@ sq:
         third_party: Aty ku kemi identifikuar ndonjë informacion të palës së tretë për të drejtën e autorit, do t'ju duhet të merrni leje nga mbajtësit e të drejtave të autorit në fjalë.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Vlerësim i ndikimit
+        other: Vlerësime te ndikimit
     imported:
       name:
         one:

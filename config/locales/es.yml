@@ -376,8 +376,8 @@ es:
         third_party: Cuando hayamos identificado cualquier información de copyright de terceros, deberá obtener permiso de los titulares de los derechos de autor correspondientes.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Evaluación del impacto
+        other: Evaluaciones del impacto
     imported:
       name:
         one:

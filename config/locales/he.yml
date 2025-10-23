@@ -376,8 +376,8 @@ he:
         third_party: כאשר זיהינו מידע על זכויות יוצרים של צד שלישי, יהיה עליך לקבל הרשאה מבעלי זכויות היוצרים הנוגעים בדבר.
     impact_assessment:
       name:
-        one:
-        other:
+        one: הערכת השפעה
+        other: הערכת השפעות
     imported:
       name:
         one:

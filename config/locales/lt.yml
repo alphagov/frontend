@@ -409,8 +409,8 @@ lt:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Poveikio įvertinimas
+        other: Poveikio įvertinimai
     imported:
       name:
         few:

@@ -376,8 +376,8 @@ az:
         third_party: Hər hansı üçüncü tərəfin müəllif hüququ üzrə məlumatını müəyyən etdiyimiz yerlərdə müvafiq müəllif hüququ sahiblərindən icazə almalı olacaqsınız.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Təsirin dəyərləndirilməsi
+        other: Təsirin dəyərləndirilmələri
     imported:
       name:
         one:

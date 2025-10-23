@@ -376,8 +376,8 @@ is:
         third_party: Þar sem við höfum auðkennt að eitthvað fellur undir höfundarrétt þriðja aðila munt þú þurfa leyfi frá þeim höfundarrétthafa.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Áhrifamat
+        other: Áhrifamöt
     imported:
       name:
         one:

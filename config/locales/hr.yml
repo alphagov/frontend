@@ -409,8 +409,8 @@ hr:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Procjena utjecaja
+        other: Procjene utjecaja
     imported:
       name:
         few:

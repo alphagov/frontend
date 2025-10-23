@@ -442,8 +442,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Оценка воздействия
+        other: Оценки воздействия
     imported:
       name:
         few:

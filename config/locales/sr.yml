@@ -409,8 +409,8 @@ sr:
     impact_assessment:
       name:
         few:
-        one:
-        other:
+        one: Procena efekta
+        other: Procene efekata
     imported:
       name:
         few:

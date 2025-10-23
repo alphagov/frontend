@@ -376,8 +376,8 @@ et:
         third_party: Kui oleme tuvastanud kolmanda osapoole autoriõiguse teabe, peate hankima loa vastavalt autoriõiguse hoidjalt.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Mõju hindamine
+        other: Mõju hindamised
     imported:
       name:
         one:

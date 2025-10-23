@@ -344,7 +344,7 @@ ja:
         third_party: 第三者の著作権情報を特定した場合は、関係する著作権所有者から許可を得る必要があります。
     impact_assessment:
       name:
-        other:
+        other: 影響評価
     imported:
       name:
         other:

@@ -376,8 +376,8 @@ sw:
         third_party: Tukitambua maelezo yoyote ya hakimiliki ya watu wengine, utahitaji kupata ruhusa kutoka kwa wamiliki wa hakimiliki husika.
     impact_assessment:
       name:
-        one:
-        other:
+        one: Utathmini wa athari
+        other: Tathmini za athari
     imported:
       name:
         one:

@@ -344,7 +344,7 @@ vi:
         third_party: Khi chúng tôi xác định được bất kỳ thông tin bản quyền nào của bên thứ ba, bạn sẽ cần phải xin phép chủ sở hữu bản quyền liên quan.
     impact_assessment:
       name:
-        other:
+        other: Đánh giá tác động
     imported:
       name:
         other:

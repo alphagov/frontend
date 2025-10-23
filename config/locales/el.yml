@@ -313,8 +313,8 @@ el:
         other:
     form:
       name:
-        one:
-        other:
+        one: Φόρμα
+        other: Φόρμες
     get_involved:
       civil_service:
       civil_service_quarterly:

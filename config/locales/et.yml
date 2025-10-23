@@ -313,8 +313,8 @@ et:
         other:
     form:
       name:
-        one:
-        other:
+        one: Vorm
+        other: Vormid
     get_involved:
       civil_service:
       civil_service_quarterly:

@@ -342,8 +342,8 @@ hr:
     form:
       name:
         few:
-        one:
-        other:
+        one: Obrazac
+        other: Obrasci
     get_involved:
       civil_service:
       civil_service_quarterly:

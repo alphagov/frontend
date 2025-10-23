@@ -313,8 +313,8 @@ gu:
         other:
     form:
       name:
-        one:
-        other:
+        one: પત્રક
+        other: પત્રકો
     get_involved:
       civil_service:
       civil_service_quarterly:

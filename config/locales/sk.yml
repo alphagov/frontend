@@ -342,8 +342,8 @@ sk:
     form:
       name:
         few:
-        one:
-        other:
+        one: Formulár
+        other: Formuláre
     get_involved:
       civil_service:
       civil_service_quarterly:

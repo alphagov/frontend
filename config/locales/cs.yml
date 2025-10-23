@@ -342,8 +342,8 @@ cs:
     form:
       name:
         few:
-        one:
-        other:
+        one: Formulář
+        other: Formuláře
     get_involved:
       civil_service:
       civil_service_quarterly:

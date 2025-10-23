@@ -313,8 +313,8 @@ ps:
         other:
     form:
       name:
-        one:
-        other:
+        one: فورمه
+        other: فورمې
     get_involved:
       civil_service:
       civil_service_quarterly:

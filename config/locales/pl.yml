@@ -371,8 +371,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Formularz
+        other: Formularze
     get_involved:
       civil_service:
       civil_service_quarterly:

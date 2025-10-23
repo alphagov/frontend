@@ -313,8 +313,8 @@ so:
         other:
     form:
       name:
-        one:
-        other:
+        one: Foomka
+        other: Foomamka
     get_involved:
       civil_service:
       civil_service_quarterly:

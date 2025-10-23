@@ -313,8 +313,8 @@ tr:
         other:
     form:
       name:
-        one:
-        other:
+        one: Form
+        other: Formlar
     get_involved:
       civil_service:
       civil_service_quarterly:

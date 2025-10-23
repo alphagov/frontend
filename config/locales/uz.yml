@@ -313,8 +313,8 @@ uz:
         other:
     form:
       name:
-        one:
-        other:
+        one: Шакл
+        other: Шакллар
     get_involved:
       civil_service:
       civil_service_quarterly:

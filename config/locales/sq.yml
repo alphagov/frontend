@@ -313,8 +313,8 @@ sq:
         other:
     form:
       name:
-        one:
-        other:
+        one: Formular
+        other: Formularë
     get_involved:
       civil_service:
       civil_service_quarterly:

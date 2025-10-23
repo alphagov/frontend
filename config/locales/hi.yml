@@ -313,8 +313,8 @@ hi:
         other:
     form:
       name:
-        one:
-        other:
+        one: प्रपत्र
+        other: प्रपत्र
     get_involved:
       civil_service:
       civil_service_quarterly:

@@ -313,8 +313,8 @@ it:
         other:
     form:
       name:
-        one:
-        other:
+        one: Modulo
+        other: Moduli
     get_involved:
       civil_service:
       civil_service_quarterly:

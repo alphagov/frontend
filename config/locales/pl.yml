@@ -310,8 +310,8 @@ pl:
       name:
         few:
         many:
-        one:
-        other:
+        one: Korespondencja
+        other: Korespondencje
     countryside_stewardship_grant:
       name:
         few:

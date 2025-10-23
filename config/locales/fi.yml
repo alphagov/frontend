@@ -278,8 +278,8 @@ fi:
         other: Yritysraportit
     correspondence:
       name:
-        one:
-        other:
+        one: Kirjeenvaihto
+        other: Kirjeenvaihto
     countryside_stewardship_grant:
       name:
         one:

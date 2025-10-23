@@ -278,8 +278,8 @@ tr:
         other: Kurumsal raporlar
     correspondence:
       name:
-        one:
-        other:
+        one: Yazışma
+        other: Yazışmalar
     countryside_stewardship_grant:
       name:
         one:

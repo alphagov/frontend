@@ -278,8 +278,8 @@ bg:
         other: Фирмени доклади
     correspondence:
       name:
-        one:
-        other:
+        one: Кореспонденция
+        other: Кореспонденции
     countryside_stewardship_grant:
       name:
         one:

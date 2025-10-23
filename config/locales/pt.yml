@@ -278,8 +278,8 @@ pt:
         other: Relatórios empresariais
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondência
+        other: Correspondências
     countryside_stewardship_grant:
       name:
         one:

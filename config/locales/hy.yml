@@ -278,8 +278,8 @@ hy:
         other: Կորպորատիվ զեկույցներ
     correspondence:
       name:
-        one:
-        other:
+        one: Նամակագրություն
+        other: Նամակագրություններ
     countryside_stewardship_grant:
       name:
         one:

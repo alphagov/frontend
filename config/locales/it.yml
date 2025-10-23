@@ -278,8 +278,8 @@ it:
         other: Report aziendali
     correspondence:
       name:
-        one:
-        other:
+        one: Corrispondenza
+        other: Corrispondenze
     countryside_stewardship_grant:
       name:
         one:

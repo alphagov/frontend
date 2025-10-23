@@ -246,8 +246,8 @@ pt:
       welsh_language_scheme_html: Saiba mais sobre o nosso compromisso para com %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Relatório empresarial
+        other: Relatórios empresariais
     correspondence:
       name:
         one:

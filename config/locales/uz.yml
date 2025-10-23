@@ -246,8 +246,8 @@ uz:
       welsh_language_scheme_html: "%{link} да бизнинг содиқлилигимиз ҳақида билиб олинг ."
     corporate_report:
       name:
-        one:
-        other:
+        one: Корпорация фаолияти тўғрисида ҳисобот
+        other: Корпорация фаолияти тўғрисида ҳисоботлар
     correspondence:
       name:
         one:

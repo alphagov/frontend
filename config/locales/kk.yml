@@ -246,8 +246,8 @@ kk:
       welsh_language_scheme_html: "%{link} қосқан үлесіміз туралы оқыңыз."
     corporate_report:
       name:
-        one:
-        other:
+        one: Корпоративтік есеп
+        other: Корпоративтік есептер
     correspondence:
       name:
         one:

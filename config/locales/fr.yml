@@ -246,8 +246,8 @@ fr:
       welsh_language_scheme_html: Découvrez comment nous nous engageons sur %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Rapport de l'entreprise
+        other: Rapports de l'entreprise
     correspondence:
       name:
         one:

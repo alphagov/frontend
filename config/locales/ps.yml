@@ -246,8 +246,8 @@ ps:
       welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
     corporate_report:
       name:
-        one:
-        other:
+        one: د کارپوریټ راپور
+        other: د شرکت راپورونه
     correspondence:
       name:
         one:

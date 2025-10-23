@@ -246,8 +246,8 @@ de:
       welsh_language_scheme_html: Informieren Sie sich über unser Engagement für %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Unternehmensbericht
+        other: Unternehmensberichte
     correspondence:
       name:
         one:

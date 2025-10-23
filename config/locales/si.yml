@@ -246,8 +246,8 @@ si:
       welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
     corporate_report:
       name:
-        one:
-        other:
+        one: ආයතනික වාර්තාව
+        other: ආයතනික වාර්තා
     correspondence:
       name:
         one:

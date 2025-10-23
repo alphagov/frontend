@@ -246,8 +246,8 @@ fi:
       welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Yrityksen raportti
+        other: Yritysraportit
     correspondence:
       name:
         one:

@@ -261,8 +261,8 @@ hr:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Korporativno izvješće
+        other: Korporativna izvješća
     correspondence:
       name:
         few:

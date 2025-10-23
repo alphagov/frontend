@@ -246,8 +246,8 @@ pa-pk:
       welsh_language_scheme_html: ساڈی وابستگی دے بارے جانو %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: کاروبار دی رپورٹ
+        other: کاروبار دیاں رپورٹاں
     correspondence:
       name:
         one:

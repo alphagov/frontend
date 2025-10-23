@@ -246,8 +246,8 @@ hy:
       welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
     corporate_report:
       name:
-        one:
-        other:
+        one: Կորպորատիվ զեկույց
+        other: Կորպորատիվ զեկույցներ
     correspondence:
       name:
         one:

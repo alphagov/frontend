@@ -246,8 +246,8 @@ pa:
       welsh_language_scheme_html: "%{link} ਪ੍ਰਤੀ ਸਾਡੀ ਵਚਨਬੱਧਤਾ ਬਾਰੇ ਜਾਣੋ।"
     corporate_report:
       name:
-        one:
-        other:
+        one: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟ
+        other: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟਾਂ
     correspondence:
       name:
         one:

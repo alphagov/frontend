@@ -232,7 +232,7 @@ ko:
       welsh_language_scheme_html: "%{link} 에서 정보 공개에 대한 내용."
     corporate_report:
       name:
-        other:
+        other: 기업 보고서
     correspondence:
       name:
         other:

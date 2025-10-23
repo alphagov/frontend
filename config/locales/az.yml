@@ -246,8 +246,8 @@ az:
       welsh_language_scheme_html: "%{link} ilə bağlı öhdəliyimiz barədə öyrənin."
     corporate_report:
       name:
-        one:
-        other:
+        one: Şirkətin fəaliyyəti üzrə hesabat
+        other: Şirkətin fəaliyyəti üzrə hesabatlar
     correspondence:
       name:
         one:

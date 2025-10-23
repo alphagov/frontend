@@ -246,8 +246,8 @@ es:
       welsh_language_scheme_html: Encuentre más sobre nuestro compromiso de publicar en %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Informe corporativo
+        other: Informes corporativos
     correspondence:
       name:
         one:

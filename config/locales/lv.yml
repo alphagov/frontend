@@ -246,8 +246,8 @@ lv:
       welsh_language_scheme_html: Vairāk par mūsu apņemšanos nodrošināt informācijas pieejamību %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Korporatīvais ziņojums
+        other: Korporatīvie ziņojumi
     correspondence:
       name:
         one:

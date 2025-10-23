@@ -246,8 +246,8 @@ sv:
       welsh_language_scheme_html: Ta reda på vårt åtagande om %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Företagsrapport
+        other: Företagsrapporter
     correspondence:
       name:
         one:

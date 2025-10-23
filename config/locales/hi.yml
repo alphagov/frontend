@@ -246,8 +246,8 @@ hi:
       welsh_language_scheme_html: हमारी प्रकाशन के प्रति वचनबद्धता के बारे में जानें %(link)।
     corporate_report:
       name:
-        one:
-        other:
+        one: कॉरपोरेट विवरण
+        other: कॉरपोरेट विवरण
     correspondence:
       name:
         one:

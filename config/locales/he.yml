@@ -246,8 +246,8 @@ he:
       welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}
     corporate_report:
       name:
-        one:
-        other:
+        one: דו"ח משותף
+        other: דו"חות משותפים
     correspondence:
       name:
         one:

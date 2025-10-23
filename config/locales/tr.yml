@@ -246,8 +246,8 @@ tr:
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
     corporate_report:
       name:
-        one:
-        other:
+        one: Kurumsal rapor
+        other: Kurumsal raporlar
     correspondence:
       name:
         one:

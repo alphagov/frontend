@@ -246,8 +246,8 @@ tk:
       welsh_language_scheme_html: Niýetimiz barada %{link}-da okaň.
     corporate_report:
       name:
-        one:
-        other:
+        one: Korperatiw hasabat
+        other: Korperatiw hasabatlar
     correspondence:
       name:
         one:

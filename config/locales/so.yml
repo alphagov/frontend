@@ -246,8 +246,8 @@ so:
       welsh_language_scheme_html: Raadi waxyaabaha ku saabsan ka go'naanshahayaga %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Warbixinta shirkada
+        other: Warbixinaha shirkada
     correspondence:
       name:
         one:

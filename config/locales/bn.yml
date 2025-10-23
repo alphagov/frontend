@@ -246,8 +246,8 @@ bn:
       welsh_language_scheme_html: "%{link}-এ আপনার আমাদের অঙ্গীকার সম্পর্কে জানুন।"
     corporate_report:
       name:
-        one:
-        other:
+        one: কর্পোরেট রিপোর্ট
+        other: কর্পোরেট রিপোর্টসমূহ
     correspondence:
       name:
         one:

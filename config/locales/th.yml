@@ -232,7 +232,7 @@ th:
       welsh_language_scheme_html: ดูข้อมูลเพิ่มเติมเกี่ยวกับพันธกิจของเราสำหรับ %{link}
     corporate_report:
       name:
-        other:
+        other: รายงานของบริษัท
     correspondence:
       name:
         other:

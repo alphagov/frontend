@@ -246,8 +246,8 @@ nl:
       welsh_language_scheme_html: Lees meer over onze inzet voor %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ondernemingsverslag
+        other: Bedrijfsverslagen
     correspondence:
       name:
         one:

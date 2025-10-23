@@ -246,8 +246,8 @@ ta:
       welsh_language_scheme_html: "%{link}-க்கு எங்கள் கடப்பாடு குறித்துக் கண்டறியுங்கள்."
     corporate_report:
       name:
-        one:
-        other:
+        one: குழும அறிக்கை
+        other: குழும அறிக்கைகள்
     correspondence:
       name:
         one:

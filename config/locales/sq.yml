@@ -246,8 +246,8 @@ sq:
       welsh_language_scheme_html: Mësoni rreth angazhimit tonë ndaj %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Raport i organizatës
+        other: Raporte te organizatës
     correspondence:
       name:
         one:

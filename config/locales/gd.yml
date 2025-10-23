@@ -599,8 +599,8 @@ gd:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Staitisticí oifigiúla
+        other: Staitisticí oifigiúla
         two:
     official_statistics_announcement:
       name:

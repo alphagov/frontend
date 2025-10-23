@@ -552,8 +552,8 @@ lt:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistika
+        other: Statistika
     official_statistics_announcement:
       name:
         few:

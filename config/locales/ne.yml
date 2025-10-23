@@ -504,8 +504,8 @@ ne:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: आधिकारिक तथ्याङ्क
+        other: आधिकारिक तथ्याङ्क
     official_statistics_announcement:
       name:
         one:

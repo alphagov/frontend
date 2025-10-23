@@ -504,8 +504,8 @@ nl:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Officiële statistieken
+        other: Officiële statistieken
     official_statistics_announcement:
       name:
         one:

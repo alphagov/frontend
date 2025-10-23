@@ -504,8 +504,8 @@ fi:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Viralliset tilastot
+        other: Viralliset tilastot
     official_statistics_announcement:
       name:
         one:

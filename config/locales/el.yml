@@ -504,8 +504,8 @@ el:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Επίσημη Στατιστικά Στοιχεία
+        other: Επίσημη Στατιστικά Στοιχεία
     official_statistics_announcement:
       name:
         one:

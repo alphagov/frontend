@@ -552,8 +552,8 @@ sr:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Zvanična statistika
+        other: Zvanična statistika
     official_statistics_announcement:
       name:
         few:

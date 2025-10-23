@@ -504,8 +504,8 @@ bn:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: দাপ্তরিক পরিসংখ্যান
+        other: দাপ্তরিক পরিসংখ্যান
     official_statistics_announcement:
       name:
         one:

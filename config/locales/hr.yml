@@ -535,8 +535,8 @@ hr:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Nacionalna statistika
+        other: Nacionalna statistika
     national_statistics_announcement:
       name:
         few:

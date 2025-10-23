@@ -535,8 +535,8 @@ sk:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Národné štatistiky
+        other: Národné štatistiky
     national_statistics_announcement:
       name:
         few:

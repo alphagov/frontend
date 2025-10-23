@@ -493,8 +493,8 @@ es-419:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Estadísticas nacionales
+        other: Estadísticas nacionales
     national_statistics_announcement:
       name:
         one:

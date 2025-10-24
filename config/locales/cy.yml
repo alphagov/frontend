@@ -835,7 +835,6 @@ cy:
         two:
         zero:
     simple_smart_answer:
-      change: Newid
       next_step: Cam nesaf
       please_answer: Mae angen ateb y cwestiwn hwn
       start_again: Dechrau eto

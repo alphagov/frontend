@@ -575,7 +575,6 @@ en:
         one: Service Standard Report
         other: Service Standard Reports
     simple_smart_answer:
-      change: Change
       next_step: Next step
       please_answer: Please answer this question
       start_again: Start again

@@ -570,7 +570,6 @@ ti:
         one: ጸብጻብ ደረጃ ኣገልግሎት
         other: ጸብጻባት ደረጃ ኣገልግሎት
     simple_smart_answer:
-      change: ለውጥ
       next_step: ዝቕጽል ስጉምቲ
       please_answer: ብኽብረትካ እዛ ሕቶ እዚኣ መልስ
       start_again: እንደገና ጀምር

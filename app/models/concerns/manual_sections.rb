@@ -30,6 +30,13 @@ module ManualSections
     def manual_base_path
       content_store_response&.dig("details", "manual", "base_path")
     end
+
+    def manual_content_item
+      @manual_content_item ||= begin
+        response = ContentItemLoaders::ContentStoreLoader.new.load(base_path: manual_base_path)
+        ContentItemFactory.build(response)
+      end
+    end
   end
 
 private

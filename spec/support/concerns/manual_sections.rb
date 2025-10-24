@@ -1,3 +1,5 @@
+require "gds_api/test_helpers/content_store"
+
 RSpec.shared_examples "it can have manual title" do |document_type, example_name|
   let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
@@ -94,5 +96,36 @@ RSpec.shared_examples "it can have manual base path" do |document_type, example_
 
   it "returns the manual base path" do
     expect(described_class.new(content_item).manual_base_path).to eq(content_item.dig("details", "manual", "base_path"))
+  end
+end
+
+RSpec.shared_examples "it can have manual content item" do |_document_type, _example_name|
+  include GdsApi::TestHelpers::ContentStore
+
+  let(:base_path) { "/test-manual" }
+
+  let(:content_item) do
+    {
+      "base_path" => base_path,
+      "details" => {
+        "body" => "Test manual",
+        "headers" => [],
+        "manual" => {
+          "base_path" => "/test-manual",
+        },
+      },
+      "title" => "Manual Content Item",
+      "manual" => { "title" => "Test manual" },
+      "document_type" => "manual_section",
+    }
+  end
+
+  before do
+    stub_content_store_has_item(base_path, content_item)
+  end
+
+  it "returns the manual content item" do
+    manual = described_class.new(content_item).manual_content_item
+    expect(manual.content_store_response.parsed_content).to include(content_item)
   end
 end

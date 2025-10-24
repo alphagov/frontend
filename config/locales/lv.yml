@@ -84,6 +84,9 @@ lv:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: publicēts
+      updated: atjaunināts
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -271,20 +274,20 @@ lv:
       welsh_language_scheme_html: Vairāk par mūsu apņemšanos nodrošināt informācijas pieejamību %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Korporatīvais ziņojums
+        other: Korporatīvie ziņojumi
     correspondence:
       name:
-        one:
-        other:
+        one: Sarakste
+        other: Sarakstes
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Lēmums
+        other: Lēmumi
     detailed_guide:
       name:
         one: Detalizētas norādes
@@ -334,12 +337,12 @@ lv:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Informācijas atklātības datu publicēšana
+        other: Informācijas atklātības datu publicēšana
     form:
       name:
-        one:
-        other:
+        one: Forma
+        other: Formas
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -384,31 +387,41 @@ lv:
         other: Valdības atbildes
     guidance:
       name:
-        one:
-        other:
+        one: Norādes
+        other: Norādes
     guide:
       pages_in_guide: Lapas šajā ceļvedī
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Šī publikācija ir pieejama vietnē %{url}
+        copyright: "© Britu sadraudzības autortiesības %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Šī publikācija ir licencēta saskaņā ar valsts izsniegtās atklātās licences v3.0 nosacījumiem, izņemot, ja norādīts citādi. Lai skatītu šo licenci, apmeklējiet <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> vai rakstiet uz adresi Information Policy Team, The National Archives, Kew, London TW9 4DU vai e-pasta adresi: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Gadījumos, kur esam identificējuši trešo personu autortiesību informāciju, jums ir nepieciešams saņemt atļauju no attiecīgajiem autortiesību īpašniekiem.
+    impact_assessment:
+      name:
+        one: Ietekmes novērtējums
+        other: Ietekmes novērtējumi
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Neatkarīgs ziņojums
+        other: Neatkarīgi ziņojumi
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Starptautiskais līgums
+        other: Starptautiskie līgumi
     licence:
       change:
     local_transaction:
@@ -468,8 +481,8 @@ lv:
         other:
     map:
       name:
-        one:
-        other:
+        one: Karte
+        other: Kartes
     medical_safety_alert:
       name:
         one:
@@ -480,8 +493,8 @@ lv:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Statistika - valsts dati
+        other: Statistika - valsts dati
     national_statistics_announcement:
       name:
         one:
@@ -496,16 +509,16 @@ lv:
         other: Ziņas
     notice:
       name:
-        one:
-        other:
+        one: Paziņojums
+        other: Paziņojumi
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Statistika
+        other: Statistika
     official_statistics_announcement:
       name:
         one:
@@ -533,8 +546,8 @@ lv:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politikas dokuments
+        other: Politikas dokumenti
     press_release:
       name:
         one: Paziņojums presei
@@ -549,8 +562,8 @@ lv:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Reklāmas materiāls
+        other: Reklāmas materiāli
     publication:
       details: Detalizēta informācija
       documents:
@@ -565,12 +578,12 @@ lv:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regula
+        other: Regulas
     research:
       name:
-        one:
-        other:
+        one: Izpēte un analīze
+        other: Izpēte un analīze
     residential_property_tribunal_decision:
       name:
         one:
@@ -607,8 +620,8 @@ lv:
       written_on: Uzrakstīts uz
     standard:
       name:
-        one:
-        other:
+        one: Standarts
+        other: Standarti
     start_now:
     statement_to_parliament:
       name:
@@ -628,8 +641,8 @@ lv:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Saistošās vadlīnijas
+        other: Saistošās vadlīnijas
     tax_tribunal_decision:
       name:
         one:
@@ -647,8 +660,8 @@ lv:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Atklātības dati
+        other: Atklātības dati
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> iesaka izvairīties no jebkādas ceļošanas, izņemot neatliekamus braucienus uz noteiktām valsts daļām.

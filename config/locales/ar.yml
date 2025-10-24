@@ -84,6 +84,9 @@ ar:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: تاريخ النشر
+      updated: تاريخ التحديث
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -329,16 +332,16 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: تقرير الشركة
+        other: تقارير الشركة
         two:
         zero:
     correspondence:
       name:
         few:
         many:
-        one:
-        other:
+        one: مراسلة
+        other: مراسلات
         two:
         zero:
     countryside_stewardship_grant:
@@ -353,8 +356,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: قرار
+        other: قرارات
         two:
         zero:
     detailed_guide:
@@ -444,16 +447,16 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: إصدار  حرية تداول المعلومات
+        other: إصدارات حرية تداول المعلومات
         two:
         zero:
     form:
       name:
         few:
         many:
-        one:
-        other:
+        one: نموذج
+        other: نماذج
         two:
         zero:
     get_involved:
@@ -507,18 +510,32 @@ ar:
         few:
         many:
         one:
-        other:
+        other: توجيه
         two:
         zero:
     guide:
       pages_in_guide: الصفحات في هذا الدليل
       skip_contents:
+    html_publication:
+      name:
+        few:
+        many:
+        one: HTML Publication
+        other: HTML Publications
+        two:
+        zero:
+      print_meta_data:
+        available_at: يتاح المنشور على %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'رقم ISBN:'
+        licence_html: 'تم ترخيص هذا المنشور بموجب شروط الترخيص الحكومي المفتوح (الإصدار v3.0) ما لم ينص على خلاف ذلك. للاطلاع على هذا الترخيص، تفضَّل بزيارة <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> أو اكتب خطابًا موجهًا إلى Information Policy Team, The National Archives, Kew, London TW9 4DU، أو تواصل عبر البريد الإلكتروني: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: في الحالات التي نحدد فيها أي معلومات متعلقة بحقوق الطبع والنشر لطرفٍ ثالث، ستحتاج إلى الحصول على إذن من أصحاب حقوق الطبع والنشر المعنيين.
     impact_assessment:
       name:
         few:
         many:
-        one:
-        other:
+        one: تقييم الأثر
+        other: تقييمات الأثر
         two:
         zero:
     imported:
@@ -533,8 +550,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: تقرير مستقل
+        other: تقارير مستقلة
         two:
         zero:
     international_development_fund:
@@ -549,8 +566,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: معاهدة دولية
+        other: معاهدات دولية
         two:
         zero:
     licence:
@@ -618,8 +635,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: خريطة
+        other: خرائط
         two:
         zero:
     medical_safety_alert:
@@ -643,7 +660,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: الإحصاءات الوطنية
         two:
         zero:
     national_statistics_announcement:
@@ -674,8 +691,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: إشعار
+        other: إشعارات
         two:
         zero:
     official:
@@ -691,7 +708,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: الإحصاءات الرسمية
         two:
         zero:
     official_statistics_announcement:
@@ -743,8 +760,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: ورقة تتعلق بالسياسات
+        other: أوراق تتعلق بالسياسات
         two:
         zero:
     press_release:
@@ -776,7 +793,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: مادة ترويجية
         two:
         zero:
     publication:
@@ -807,8 +824,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: لائحة
+        other: لوائح
         two:
         zero:
     research:
@@ -816,7 +833,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: البحث والتحليل
         two:
         zero:
     residential_property_tribunal_decision:
@@ -877,8 +894,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: معيار
+        other: معايير
         two:
         zero:
     start_now:
@@ -919,7 +936,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: التوجيه القانوني
         two:
         zero:
     tax_tribunal_decision:
@@ -950,7 +967,7 @@ ar:
         few:
         many:
         one:
-        other:
+        other: بيانات الشفافية
         two:
         zero:
     travel_advice:

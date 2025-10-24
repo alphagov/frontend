@@ -84,6 +84,9 @@ ja:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 掲載日
+      updated: 更新済み
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -257,16 +260,16 @@ ja:
       welsh_language_scheme_html: 情報公開の詳細については %{link} をご覧下さい。
     corporate_report:
       name:
-        other:
+        other: 企業報告書
     correspondence:
       name:
-        other:
+        other: 対応
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: 決定
     detailed_guide:
       name:
         other: ガイダンス
@@ -307,10 +310,10 @@ ja:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: FOI（情報公開）発表
     form:
       name:
-        other:
+        other: フォーム
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -354,25 +357,34 @@ ja:
         other: 政府の対応
     guidance:
       name:
-        other:
+        other: ガイダンス
     guide:
       pages_in_guide: このガイドのページ
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: この出版物は%{url}で入手できます
+        copyright: "© Crown copyright %{year}"
+        isbn: ISBN：
+        licence_html: 本書は、特に明記されていない限り、Open Government License v 3.0の条件に基づいてライセンスされています。このライセンスを確認するには、<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> にアクセスするか、Information Policy Team、The National Archives、Kew、London TW 9 4 DU、またはEメールにて <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>までお問い合わせください。
+        third_party: 第三者の著作権情報を特定した場合は、関係する著作権所有者から許可を得る必要があります。
+    impact_assessment:
+      name:
+        other: 影響評価
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: 第三者による報告
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: 国際条約
     licence:
       change:
     local_transaction:
@@ -431,7 +443,7 @@ ja:
         other:
     map:
       name:
-        other:
+        other: 地図
     medical_safety_alert:
       name:
         other:
@@ -440,7 +452,7 @@ ja:
         other:
     national_statistics:
       name:
-        other:
+        other: 国家統計
     national_statistics_announcement:
       name:
         other:
@@ -452,13 +464,13 @@ ja:
         other: ニュースストーリー
     notice:
       name:
-        other:
+        other: お知らせ
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: 公式統計
     official_statistics_announcement:
       name:
         other:
@@ -481,7 +493,7 @@ ja:
         other:
     policy_paper:
       name:
-        other:
+        other: 方針書
     press_release:
       name:
         other: プレスリリース
@@ -493,7 +505,7 @@ ja:
         other:
     promotional:
       name:
-        other:
+        other: 販促資料
     publication:
       details: 詳細
       documents:
@@ -505,10 +517,10 @@ ja:
         other:
     regulation:
       name:
-        other:
+        other: 規則
     research:
       name:
-        other:
+        other: 調査と分析
     residential_property_tribunal_decision:
       name:
         other:
@@ -540,7 +552,7 @@ ja:
       written_on: 記述日：
     standard:
       name:
-        other:
+        other: 標準
     start_now:
     statement_to_parliament:
       name:
@@ -556,7 +568,7 @@ ja:
         other:
     statutory_guidance:
       name:
-        other:
+        other: 法定ガイダンス
     tax_tribunal_decision:
       name:
         other:
@@ -572,7 +584,7 @@ ja:
         other:
     transparency:
       name:
-        other:
+        other: 透明性データ
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title = "Foreign and Commonwealth Office">FCO</abbr> は、国内一部地域への必要不可欠ものを除くすべての移動を控えるよう勧告しています。

@@ -84,6 +84,9 @@ lt:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: publikuota
+      updated: atnaujinta
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -286,13 +289,13 @@ lt:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Bendra ataskaita
+        other: Bendros ataskaitos
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korespondencija
+        other: Korespondencija
     countryside_stewardship_grant:
       name:
         few:
@@ -301,8 +304,8 @@ lt:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Sprendimas
+        other: Sprendimai
     detailed_guide:
       name:
         few:
@@ -362,13 +365,13 @@ lt:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: 'Informacijos laisvė: pranešimas'
+        other: 'Informacijos laisvė: pranešimai'
     form:
       name:
         few:
-        one:
-        other:
+        one: Forma
+        other: Formos
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -415,16 +418,27 @@ lt:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Informacija
+        other: Informacija
     guide:
       pages_in_guide: Puslapiai šiame vadove
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         one:
         other:
+      print_meta_data:
+        available_at: Šis leidinys prieinamas %{url}
+        copyright: "© Karūnos autorių teisės %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Šis leidinys licencijuojamas laikantis atviros vyriausybės licencijos v3.0, nebent nurodyta kitaip. Norėdami peržiūrėti šią licenciją, apsilankykite <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> arba kreipkitės raštu į mūsų informacijos strategijos komandą adresu The National Archives, Kew, London TW9 4DU arba el. paštu: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: ei nustatėme trečiosios šalies autorių teisių informaciją, turėsite gauti atitinkamų autorių teisių savininkų leidimą.
+    impact_assessment:
+      name:
+        few:
+        one: Poveikio įvertinimas
+        other: Poveikio įvertinimai
     imported:
       name:
         few:
@@ -433,8 +447,8 @@ lt:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nepriklausoma ataskaita
+        other: Nepriklausomos ataskaitos
     international_development_fund:
       name:
         few:
@@ -443,8 +457,8 @@ lt:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tarptautinė sutartis
+        other: Tarptautinės sutartys
     licence:
       change:
     local_transaction:
@@ -506,8 +520,8 @@ lt:
     map:
       name:
         few:
-        one:
-        other:
+        one: Žemėlapis
+        other: Žemėlapiai
     medical_safety_alert:
       name:
         few:
@@ -521,8 +535,8 @@ lt:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistika - nacionalinė statistika
+        other: Statistika - nacionalinė statistika
     national_statistics_announcement:
       name:
         few:
@@ -541,8 +555,8 @@ lt:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Pranešimas
+        other: Pranešimai
     official:
       name:
         few:
@@ -551,8 +565,8 @@ lt:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistika
+        other: Statistika
     official_statistics_announcement:
       name:
         few:
@@ -586,8 +600,8 @@ lt:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Strategijos dokumentas
+        other: Strategijų dokumentai
     press_release:
       name:
         few:
@@ -606,8 +620,8 @@ lt:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Reklaminė medžiaga
+        other: Reklaminė medžiaga
     publication:
       details: Informacija
       documents:
@@ -626,13 +640,13 @@ lt:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Reglamentas
+        other: Reglamentai
     research:
       name:
         few:
-        one:
-        other:
+        one: Tyrimas ir analizė
+        other: Tyrimai ir analizės
     residential_property_tribunal_decision:
       name:
         few:
@@ -675,8 +689,8 @@ lt:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standartas
+        other: Standartai
     start_now:
     statement_to_parliament:
       name:
@@ -701,8 +715,8 @@ lt:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Įstatyminė informacija
+        other: Įstatyminė informacija
     tax_tribunal_decision:
       name:
         few:
@@ -723,8 +737,8 @@ lt:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Skaidrumo informacija
+        other: Skaidrumo informacija
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> pataria keliauti į skirtingas šalies vietas tik būtinais tikslais.

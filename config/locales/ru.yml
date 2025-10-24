@@ -84,6 +84,9 @@ ru:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Опубликовано
+      updated: обновлено
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -301,14 +304,14 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Корпоративный отчет
+        other: Корпоративные отчеты
     correspondence:
       name:
         few:
         many:
-        one:
-        other:
+        one: Корреспонденция
+        other: Корреспонденция
     countryside_stewardship_grant:
       name:
         few:
@@ -319,8 +322,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Решение
+        other: Решения
     detailed_guide:
       name:
         few:
@@ -390,14 +393,14 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Новая редакция Закона о Свободе Распространения Информации
+        other: Новые редакции Закона о Свободе Распространения Информации
     form:
       name:
         few:
         many:
-        one:
-        other:
+        one: Форма
+        other: Формы
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -446,17 +449,29 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Руководство
+        other: Руководство
     guide:
       pages_in_guide: Страница в руководстве
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         many:
         one:
         other:
+      print_meta_data:
+        available_at: Данная публикация доступна на %{url}
+        copyright: "© Авторское право короны %{year}"
+        isbn: 'Международный Стандартный Книжный Номер:'
+        licence_html: 'Данная публикация лицензирована по условиям Открытой государственной лицензии  v3.0, за исключением тех случаев, где указано иное. для просмотра лицензии, посетите <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> либо обратитесь к Команде по Информационной политике, в Национальный Архив, по адресу Кью, Лондон   TW9 4DU, либо по электронной почте: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: 'В случае обнаружения нами информации авторского права третьей стороны, Вам будет необходимо получить разрешение владельцев авторского права, имеющих к ней отношение. '
+    impact_assessment:
+      name:
+        few:
+        many:
+        one: Оценка воздействия
+        other: Оценки воздействия
     imported:
       name:
         few:
@@ -467,8 +482,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Независимый отчет
+        other: Независимые отчеты
     international_development_fund:
       name:
         few:
@@ -479,8 +494,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Международное соглашение
+        other: Международные соглашения
     licence:
       change:
     local_transaction:
@@ -544,8 +559,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Карта
+        other: Карты
     medical_safety_alert:
       name:
         few:
@@ -562,8 +577,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Национальная статистика
+        other: Национальная статистика
     national_statistics_announcement:
       name:
         few:
@@ -586,8 +601,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Заметка
+        other: Заметки
     official:
       name:
         few:
@@ -598,8 +613,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Официальная Статистика
+        other: Официальная Статистика
     official_statistics_announcement:
       name:
         few:
@@ -639,8 +654,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Директивный документ
+        other: Директивные документы
     press_release:
       name:
         few:
@@ -663,8 +678,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рекламный материал
+        other: Рекламные материалы
     publication:
       details: Детали
       documents:
@@ -687,14 +702,14 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Требование
+        other: Требования
     research:
       name:
         few:
         many:
-        one:
-        other:
+        one: Исследования и аналитика
+        other: Исследования и аналитика
     residential_property_tribunal_decision:
       name:
         few:
@@ -743,8 +758,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарты
     start_now:
     statement_to_parliament:
       name:
@@ -774,8 +789,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Официальные рекомендации
+        other: Официальные рекомендации
     tax_tribunal_decision:
       name:
         few:
@@ -799,8 +814,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Прозрачность данных
+        other: Прозрачность данных
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> Все поездки не реккомендуются, за исключением необходимых в части страны.

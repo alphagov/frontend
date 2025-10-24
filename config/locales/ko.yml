@@ -84,6 +84,9 @@ ko:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 발행
+      updated: 업데이트
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -257,16 +260,16 @@ ko:
       welsh_language_scheme_html: "%{link} 에서 정보 공개에 대한 내용."
     corporate_report:
       name:
-        other:
+        other: 기업 보고서
     correspondence:
       name:
-        other:
+        other: 통신
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: 판결
     detailed_guide:
       name:
         other: 지침
@@ -307,10 +310,10 @@ ko:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: FOI 발표
     form:
       name:
-        other:
+        other: 양식
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -354,25 +357,34 @@ ko:
         other: 정부 대응
     guidance:
       name:
-        other:
+        other: 지침
     guide:
       pages_in_guide: 이 지침 내 페이지
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: 이 발행물은 %{url}에서 이용할 수 있습니다
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 본 출판물은 달리 명시된 경우를 제외하고 정부 공개 라이선스 v3.0의 조항에 따라 라이선스됩니다. 이 라이선스를 보려면 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> 에 방문하거나, 정보 정책 팀(Information Policy Team), 국립 아카이브(The National Archives), Kew, London TW9 4DU에 문의를 남기거나 다음 주소로 이메일을 보내십시오. <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>
+        third_party: 서드파티 저작권 정보를 확인한 경우, 해당 저작권자의 허가를 받아야 합니다.
+    impact_assessment:
+      name:
+        other: 영향 평가
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: 독립적 보고서
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: 국제 조약
     licence:
       change:
     local_transaction:
@@ -431,7 +443,7 @@ ko:
         other:
     map:
       name:
-        other:
+        other: 지도
     medical_safety_alert:
       name:
         other:
@@ -440,7 +452,7 @@ ko:
         other:
     national_statistics:
       name:
-        other:
+        other: 국내 통계
     national_statistics_announcement:
       name:
         other:
@@ -452,13 +464,13 @@ ko:
         other: 뉴스 스토리
     notice:
       name:
-        other:
+        other: 공지
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: 공식 통계
     official_statistics_announcement:
       name:
         other:
@@ -481,7 +493,7 @@ ko:
         other:
     policy_paper:
       name:
-        other:
+        other: 정책 문서
     press_release:
       name:
         other: 보도자료
@@ -493,7 +505,7 @@ ko:
         other:
     promotional:
       name:
-        other:
+        other: 홍보 자료
     publication:
       details: 세부 정보
       documents:
@@ -505,10 +517,10 @@ ko:
         other:
     regulation:
       name:
-        other:
+        other: 규제
     research:
       name:
-        other:
+        other: 조사 및 분석
     residential_property_tribunal_decision:
       name:
         other:
@@ -540,7 +552,7 @@ ko:
       written_on: 작성 날짜
     standard:
       name:
-        other:
+        other: 표준
     start_now:
     statement_to_parliament:
       name:
@@ -556,7 +568,7 @@ ko:
         other:
     statutory_guidance:
       name:
-        other:
+        other: 법정지도
     tax_tribunal_decision:
       name:
         other:
@@ -572,7 +584,7 @@ ko:
         other:
     transparency:
       name:
-        other:
+        other: 투명성 데이터
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> 는 해당 국가의 각지를 여행하지 말라고 권고합니다.

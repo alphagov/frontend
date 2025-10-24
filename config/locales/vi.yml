@@ -84,6 +84,9 @@ vi:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Đã xuất bản
+      updated: Đã cập nhật
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -257,16 +260,16 @@ vi:
       welsh_language_scheme_html: Tìm hiểu về cam kết của chúng tôi đối với %{link}.
     corporate_report:
       name:
-        other:
+        other: Báo cáo của doanh nghiệp
     correspondence:
       name:
-        other:
+        other: Thư từ
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: Quyết định
     detailed_guide:
       name:
         other: Hướng dẫn
@@ -307,10 +310,10 @@ vi:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: Công bố FOI
     form:
       name:
-        other:
+        other: Biểu mẫu
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -354,25 +357,34 @@ vi:
         other: Phản hồi của chính phủ
     guidance:
       name:
-        other:
+        other: Hướng dẫn
     guide:
       pages_in_guide: Các trang trong hướng dẫn này
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: Ấn phẩm này có sẵn tại %{url}
+        copyright: "© Bản quyền Crown %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ấn phẩm này được cấp phép theo các điều khoản của Giấy phép Chính phủ Mở pb3.0 trừ khi có quy định khác. Để xem giấy phép này, hãy truy cập <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> hoặc gửi thư cho Nhóm Chính sách Thông tin, Cơ quan Lưu trữ Quốc gia, Kew, London TW9 4DU hoặc gửi email đến: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Khi chúng tôi xác định được bất kỳ thông tin bản quyền nào của bên thứ ba, bạn sẽ cần phải xin phép chủ sở hữu bản quyền liên quan.
+    impact_assessment:
+      name:
+        other: Đánh giá tác động
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: Báo cáo độc lập
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: Hiệp ước quốc tế
     licence:
       change:
     local_transaction:
@@ -431,7 +443,7 @@ vi:
         other:
     map:
       name:
-        other:
+        other: Bản đồ
     medical_safety_alert:
       name:
         other:
@@ -440,7 +452,7 @@ vi:
         other:
     national_statistics:
       name:
-        other:
+        other: Thống kê Quốc gia
     national_statistics_announcement:
       name:
         other:
@@ -452,13 +464,13 @@ vi:
         other: Bài phóng sự
     notice:
       name:
-        other:
+        other: Thông báo
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: Thống kê Chính thức
     official_statistics_announcement:
       name:
         other:
@@ -481,7 +493,7 @@ vi:
         other:
     policy_paper:
       name:
-        other:
+        other: Tài liệu chính sách
     press_release:
       name:
         other: Thông cáo báo chí
@@ -493,7 +505,7 @@ vi:
         other:
     promotional:
       name:
-        other:
+        other: Tài liệu quảng cáo
     publication:
       details: Chi tiết
       documents:
@@ -505,10 +517,10 @@ vi:
         other:
     regulation:
       name:
-        other:
+        other: Quy định
     research:
       name:
-        other:
+        other: Nghiên cứu và phân tích
     residential_property_tribunal_decision:
       name:
         other:
@@ -540,7 +552,7 @@ vi:
       written_on: Ngày viết
     standard:
       name:
-        other:
+        other: Tiêu chuẩn
     start_now:
     statement_to_parliament:
       name:
@@ -556,7 +568,7 @@ vi:
         other:
     statutory_guidance:
       name:
-        other:
+        other: Hướng dẫn theo luật định
     tax_tribunal_decision:
       name:
         other:
@@ -572,7 +584,7 @@ vi:
         other:
     transparency:
       name:
-        other:
+        other: Dữ liệu về tính minh bạch
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> khuyến cáo chỉ nên đi đến một số nơi ở quốc gia này khi thật cần thiết.

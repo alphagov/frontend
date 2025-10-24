@@ -466,6 +466,24 @@ ku:
       name:
         one: ڕاپۆرتی لقی لێکۆڵینەوەی ڕووداوی دەریایی
         other: ڕاپۆرتەکانی لقی لێکۆڵینەوە لە ڕووداوە دەریاییەکان
+    manuals:
+      breadcrumb_contents: گەڕانەوە بۆ ناوەڕۆک
+      contents_list_breadcrumb_contents: لاپەڕەی سەرەکی ڕێنماییەکان
+      contents_title: ناوقەرۆکەکان
+      hmrc_manual_type: ڕێنمایی ناوخۆیی HMRC
+      hmrc_title: "%{title}ڕێنمایی ناوخۆیی HMRC"
+      next_page: لاپەڕەی داهاتوو
+      pages_in_manual_section: لاپەڕەکانی بەشی ڕێنمایی
+      previous_page: لاپەڕەی پێشوو
+      search_this_manual: بگەڕێ لەم ڕێنامییانەدا
+      see_all_updates: هەموو نوێکارییەکان ببینە
+      summary_title: پوختە
+      title: "%{title} ڕێنمایی"
+      updated: نوێ کراوەتەوە
+      updates_amendments: هەموارکردنەوەکانی بڵاوکراوە
+      updates_description: لیستی نوێکارییەکان بۆ '%{title}'.
+      updates_page_title: "%{title}' نوێکاری"
+      updates_title: "%{title}' نوێکارییەکان"
     map:
       name:
         one: نەخشە

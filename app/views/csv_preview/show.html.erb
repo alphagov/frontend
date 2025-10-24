@@ -46,7 +46,7 @@
       <p class="govuk-body csv-preview__updated">
         Updated <%= I18n.l(Time.zone.parse(@content_item["public_updated_at"]), format: "%-d %B %Y") %>
         <br>
-        <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata["url"], class: "csv-preview__download-link") %>
+        <%= link_to("<strong>Download CSV</strong> #{number_to_human_size(@attachment_metadata['file_size'])}".html_safe, @attachment_metadata["url"], class: "govuk-link govuk-link--inverse") %>
       </p>
     <% end %>
   </div>

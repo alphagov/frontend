@@ -510,7 +510,6 @@ lv:
         one: Mutisks paziņojums parlamentam
         other: Mutiski paziņojumi parlamentam
     place:
-      change:
       find_results:
       postcode:
       select_address:

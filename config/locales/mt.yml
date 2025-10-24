@@ -612,7 +612,6 @@ mt:
         one: Dikjarazzjoni verbali lill-Parlament
         other: Dikjarazzjonijiet verbali lill-Parlament
     place:
-      change:
       find_results:
       postcode:
       select_address:

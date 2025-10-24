@@ -612,7 +612,6 @@ uk:
         one: Усна заява до Парламенту
         other: Усні заяви до Парламенту
     place:
-      change:
       find_results:
       postcode:
       select_address:

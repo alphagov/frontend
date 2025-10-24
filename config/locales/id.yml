@@ -459,7 +459,6 @@ id:
       name:
         other: Pernyataan lisan kepada Parlemen
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ ps:
         one: پارلماني غونډې ته وینا
         other: پارلمان ته شفاهي څرګندونې
     place:
-      change:
       find_results:
       postcode:
       select_address:

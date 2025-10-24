@@ -459,7 +459,6 @@ th:
       name:
         other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ so:
         one: Bayaanka loogu talogalay Baarlamaanka
         other: Bayaanada loogu talogalay Baarlamaanka
     place:
-      change:
       find_results:
       postcode:
       select_address:

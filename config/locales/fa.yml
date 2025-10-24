@@ -510,7 +510,6 @@ fa:
         one: بیانیه شفاهی به پارلمان
         other: بیانیه‌های شفاهی به پارلمان
     place:
-      change:
       find_results:
       postcode:
       select_address:

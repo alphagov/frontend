@@ -510,7 +510,6 @@ nl:
         one: Mondelinge verklaring voor het Parlement
         other: Mondelinge verklaringen aan het Parlement
     place:
-      change:
       find_results:
       postcode:
       select_address:

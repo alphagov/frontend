@@ -510,7 +510,6 @@ el:
         one: Προφορική δήλωση στη Βουλή
         other: Προφορικές δηλώσεις στη Βουλή
     place:
-      change:
       find_results:
       postcode:
       select_address:

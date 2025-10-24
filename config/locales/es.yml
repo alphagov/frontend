@@ -510,7 +510,6 @@ es:
         one: Declaración formulada oralmente
         other: Declaraciones formuladas oralmente
     place:
-      change:
       find_results:
       postcode:
       select_address:

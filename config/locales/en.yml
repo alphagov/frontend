@@ -515,7 +515,6 @@ en:
         one: Oral statement to Parliament
         other: Oral statements to Parliament
     place:
-      change: Change
       find_results: Find results near you
       postcode: Postcode
       select_address: Select an address

@@ -612,7 +612,6 @@ pl:
         one: Ustne oświadczenie przed parlamentem
         other: Ustne oświadczenia przed parlamentem
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ bn:
         one: সংসদে মৌখিক বিবৃতি
         other: সংসদে মৌখিক বিবৃতিসমূহ
     place:
-      change:
       find_results:
       postcode:
       select_address:

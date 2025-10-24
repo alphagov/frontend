@@ -719,7 +719,6 @@ cy:
         two:
         zero:
     place:
-      change: Newid
       find_results: Darganfod canlyniadau yn agos i chi
       postcode: Cod post
       select_address: Dewiswch gyfeiriad

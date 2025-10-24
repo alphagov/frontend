@@ -459,7 +459,6 @@ ja:
       name:
         other: 議会への口頭声明
     place:
-      change:
       find_results:
       postcode:
       select_address:

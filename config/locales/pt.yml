@@ -510,7 +510,6 @@ pt:
         one: Declaração oral ao Parlamento
         other: Declarações orais ao Parlamento
     place:
-      change:
       find_results:
       postcode:
       select_address:

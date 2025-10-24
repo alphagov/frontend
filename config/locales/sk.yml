@@ -561,7 +561,6 @@ sk:
         one: Ústne vyhlásenie pred Parlamentom
         other: Ústne vyhlásenia pred Parlamentom
     place:
-      change:
       find_results:
       postcode:
       select_address:

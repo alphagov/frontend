@@ -510,7 +510,6 @@ it:
         one: Dichiarazione orale al Parlamento
         other: Dichiarazioni orali al Parlamento
     place:
-      change:
       find_results:
       postcode:
       select_address:

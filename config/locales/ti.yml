@@ -510,7 +510,6 @@ ti:
         one: ኣፋዊ መግለጺ ናብ ባይቶ
         other: ኣፋዊ መግለጺታት ናብ ባይቶ
     place:
-      change: ለውጢ
       find_results: ኣብ ጥቓኻ ውጽኢት ርኸብ
       postcode: ፖስታ ኮድ
       select_address: ኣድራሻ ምረጽ

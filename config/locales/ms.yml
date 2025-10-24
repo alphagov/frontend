@@ -459,7 +459,6 @@ ms:
       name:
         other: Kenyataan lisan kepada Parlimen
     place:
-      change:
       find_results:
       postcode:
       select_address:

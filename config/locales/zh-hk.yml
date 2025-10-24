@@ -459,7 +459,6 @@ zh-hk:
       name:
         other: 提交國會的口頭聲明
     place:
-      change:
       find_results:
       postcode:
       select_address:

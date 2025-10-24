@@ -561,7 +561,6 @@ ro:
         one: Expunere orală către Parlament
         other: Expuneri orale către Parlament
     place:
-      change:
       find_results:
       postcode:
       select_address:

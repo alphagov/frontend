@@ -510,7 +510,6 @@ pa:
         one: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
         other: ਸੰਸਦ ਨੂੰ ਜ਼ਬਾਨੀ ਬਿਆਨ
     place:
-      change:
       find_results:
       postcode:
       select_address:

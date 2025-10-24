@@ -561,7 +561,6 @@ hr:
         one: Usmena izjava Parlamentu
         other: Usmene izjave Parlamentu
     place:
-      change:
       find_results:
       postcode:
       select_address:

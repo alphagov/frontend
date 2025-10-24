@@ -561,7 +561,6 @@ cs:
         one: Ústní prohlášení pro Parlament
         other: Ústní prohlášení pro Parlament
     place:
-      change:
       find_results:
       postcode:
       select_address:

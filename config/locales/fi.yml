@@ -510,7 +510,6 @@ fi:
         one: Suullinen lausuma parlamentille
         other: Suulliset lausumat parlamentille
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ tr:
         one: Parlamentoya sözlü açıklama
         other: Parlamentoya sözlü açıklamalar
     place:
-      change:
       find_results:
       postcode:
       select_address:

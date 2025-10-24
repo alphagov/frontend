@@ -510,7 +510,6 @@ hy:
         one: Խորհրդարանին ուղղված բանավոր հայտարարություն
         other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -561,7 +561,6 @@ sr:
         one: Usmeno obraćanje Parlamentu
         other: Usmena obraćanja Parlamentu
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ da:
         one: Mundtlig erklæring til Parlamentet
         other: Mundtlige erklæring til Parlamentet
     place:
-      change:
       find_results:
       postcode:
       select_address:

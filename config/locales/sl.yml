@@ -612,7 +612,6 @@ sl:
         other: Ustne izjave za parlament
         two:
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ hi:
         one: संसद में मौखिक बयान
         other: संसद में मौखिक बयान
     place:
-      change:
       find_results:
       postcode:
       select_address:

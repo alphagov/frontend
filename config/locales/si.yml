@@ -510,7 +510,6 @@ si:
         one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
         other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
     place:
-      change:
       find_results:
       postcode:
       select_address:

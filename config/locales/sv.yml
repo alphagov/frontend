@@ -510,7 +510,6 @@ sv:
         one: Muntligt uttalande till parlamentet
         other: Muntliga uttalanden till parlamentet
     place:
-      change:
       find_results:
       postcode:
       select_address:

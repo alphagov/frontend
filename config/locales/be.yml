@@ -612,7 +612,6 @@ be:
         one: Вусная заява ў парламенце
         other: Вусныя даклады ў парламенце
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@
         one: Muntlig uttalelse til Stortinget
         other: Muntlige uttalelser til Stortinget
     place:
-      change:
       find_results:
       postcode:
       select_address:

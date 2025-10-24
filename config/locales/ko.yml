@@ -459,7 +459,6 @@ ko:
       name:
         other: 의회로 구두 성명
     place:
-      change:
       find_results:
       postcode:
       select_address:

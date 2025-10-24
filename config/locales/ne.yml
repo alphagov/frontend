@@ -510,7 +510,6 @@ ne:
         one: संसदमा मौखिक वक्तव्य
         other: 'संसदमा मौखिक वक्तव्यहरू '
     place:
-      change:
       find_results:
       postcode:
       select_address:

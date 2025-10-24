@@ -510,7 +510,6 @@ ka:
         one: ზეპირი განცხადება პარლამენტში
         other: ზეპირი განცხადებები პარლამენტში
     place:
-      change:
       find_results:
       postcode:
       select_address:

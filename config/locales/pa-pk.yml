@@ -510,7 +510,6 @@ pa-pk:
         one: قومی مجلس دے سامنے زبانی بیان
         other: قومی مجلس دے سامنے زبانی بیانات
     place:
-      change:
       find_results:
       postcode:
       select_address:

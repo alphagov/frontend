@@ -612,7 +612,6 @@ gd:
         other: Ráitis ó bhéal sa Pharlaimint
         two:
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ et:
         one: Suuline avaldus parlamendile
         other: Suulised avaldused parlamendile
     place:
-      change:
       find_results:
       postcode:
       select_address:

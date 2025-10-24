@@ -510,7 +510,6 @@ uz:
         one: Парламентга оғзаки баёнот
         other: Парламентга оғзаки баёнотлар
     place:
-      change:
       find_results:
       postcode:
       select_address:

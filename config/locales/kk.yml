@@ -510,7 +510,6 @@ kk:
         one: Парламентке ауызша мәлімдеме
         other: Парламентке ауызша мәлімдемелер
     place:
-      change:
       find_results:
       postcode:
       select_address:

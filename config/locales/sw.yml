@@ -510,7 +510,6 @@ sw:
         one: Taarifa ya Matamshi kwa Bunge
         other: Taarifa za Matamshi kwa Bunge
     place:
-      change:
       find_results:
       postcode:
       select_address:

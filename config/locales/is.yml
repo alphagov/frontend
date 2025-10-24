@@ -510,7 +510,6 @@ is:
         one: Munnleg yfirlýsing til Þingsins
         other: Munnlegar yfirlýsingar til Þingsins
     place:
-      change:
       find_results:
       postcode:
       select_address:

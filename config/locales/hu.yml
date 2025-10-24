@@ -510,7 +510,6 @@ hu:
         one: Parlamenti felszólalás
         other: Parlamenti felszólalások
     place:
-      change:
       find_results:
       postcode:
       select_address:

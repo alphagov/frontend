@@ -510,7 +510,6 @@ gu:
         one: સંસદમાં મૌખિક નિવેદન
         other: સંસદમાં મૌખિક નિવેદનો
     place:
-      change:
       find_results:
       postcode:
       select_address:

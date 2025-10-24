@@ -510,7 +510,6 @@ ky:
         one: Парламентте ооз эки арыз
         other: Парламентте ооз эки арыздар
     place:
-      change:
       find_results:
       postcode:
       select_address:

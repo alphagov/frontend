@@ -612,7 +612,6 @@ ru:
         one: Устное заявление парламенту
         other: Устные заявления парламенту
     place:
-      change:
       find_results:
       postcode:
       select_address:

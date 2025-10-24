@@ -510,7 +510,6 @@ sq:
         one: Deklarata gojore në Parlament
         other: Deklarata gojore në Parlament
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -510,7 +510,6 @@ tk:
         one: Mejlise dilden beýan
         other: Mejlise dilden beýanlar
     place:
-      change:
       find_results:
       postcode:
       select_address:

@@ -8,14 +8,6 @@
   }
 }
 
-.csv-preview__download-link {
-  color: govuk-colour("white");
-
-  &:focus {
-    color: govuk-colour("black");
-  }
-}
-
 .csv-preview__outer {
   border: govuk-spacing(1) solid govuk-colour("light-grey");
   margin-bottom: govuk-spacing(6);

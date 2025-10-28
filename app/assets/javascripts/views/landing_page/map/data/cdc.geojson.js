@@ -123,7 +123,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Bishop Auckland CDC',
         address: 'Bishop Auckland, DL14 6AD',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000050'
       }
@@ -235,7 +235,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Brierley Hill CDC',
         address: 'Brierley Hill, DY5 1RU',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000062'
       }
@@ -543,7 +543,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Dorset Health Village, South Walks CDC',
         address: 'Dorchester, DT1 1EE',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000041'
       }
@@ -804,20 +804,6 @@ window.GOVUK.cdcGeojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-2.721072, 52.068212]
-      },
-      properties: {
-        name: 'Wye Valley Community Diagnostic and Treatment Centre',
-        address: 'Hereford, HR4 9SB',
-        isOpen12_7: 'No',
-        services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',
-        icbCode: 'E54000019'
-      }
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
         coordinates: [-2.88202, 54.051494]
       },
       properties: {
@@ -921,7 +907,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Island CDC',
         address: 'Newport, PO30 5TG',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000042'
       }
@@ -989,7 +975,7 @@ window.GOVUK.cdcGeojson = {
         coordinates: [-1.470904, 53.80659]
       },
       properties: {
-        name: 'Leeds CDC',
+        name: 'Leeds Seacroft CDC',
         address: 'Leeds, LS14 6UH',
         isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
@@ -1159,7 +1145,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Milford Community Hospital CDC',
         address: 'Godalming, GU7 1UG',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences',
         icbCode: 'E54000063'
       }
@@ -1243,7 +1229,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North Bedfordshire CDC',
         address: 'Bedford, MK40 2NU',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000024'
       }
@@ -1271,7 +1257,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North East Lincolnshire CDC',
         address: 'Grimsby, DN31 1QL',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Physiological Sciences, Other Tests',
         icbCode: 'E54000051'
       }
@@ -1299,7 +1285,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'North Lincolnshire CDC',
         address: 'Scunthorpe, DN15 6QU',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000051'
       }
@@ -1761,7 +1747,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Skegness CDC',
         address: 'Skegness, PE25 3RR',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000013'
       }
@@ -1845,7 +1831,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'South Petherton CDC',
         address: 'South Petherton, TA24 6DF',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000038'
       }
@@ -1999,7 +1985,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Taunton Central CDC',
         address: 'Taunton, TA1 1NW',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000038'
       }
@@ -2041,7 +2027,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Thurrock CDC',
         address: 'Thurrock, RM16 2PX',
-        isOpen12_7: 'No',
+        isOpen12_7: 'Yes',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000026'
       }
@@ -2223,7 +2209,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'West Mendip CDC',
         address: 'West Mendip, TA1 2PX',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Endoscopy, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000038'
       }
@@ -2293,7 +2279,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Whitehouse CDC',
         address: 'Milton Keynes, MK8 1EQ',
-        isOpen12_7: 'Yes',
+        isOpen12_7: 'No',
         services: 'Imaging, Pathology, Physiological Sciences, Other Tests',
         icbCode: 'E54000024'
       }
@@ -2335,7 +2321,7 @@ window.GOVUK.cdcGeojson = {
       properties: {
         name: 'Wisbech CDC',
         address: 'Wisbech, PE13 3AB',
-        isOpen12_7: 'No',
+        isOpen12_7: 'N/A',
         services: 'Imaging, Pathology, Physiological Sciences',
         icbCode: 'E54000056'
       }
@@ -2380,6 +2366,20 @@ window.GOVUK.cdcGeojson = {
         isOpen12_7: 'No',
         services: 'Imaging, Pathology, Other Tests',
         icbCode: 'E54000050'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-2.721072, 52.068212]
+      },
+      properties: {
+        name: 'Wye Valley Community Diagnostic and Treatment Centre CDC',
+        address: 'Hereford, HR4 9SB',
+        isOpen12_7: 'Yes',
+        services: 'Imaging, Endoscopy, Physiological Sciences, Other Tests',
+        icbCode: 'E54000019'
       }
     }
   ]

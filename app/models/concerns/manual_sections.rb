@@ -3,7 +3,7 @@ module ManualSections
 
   MOJ_ORGANISATION_CONTENT_ID = "dcc907d6-433c-42df-9ffb-d9c68be5dc4d".freeze
   included do
-    def title
+    def manual_title
       linked("manual").first.title
     end
 
@@ -42,7 +42,7 @@ module ManualSections
 private
 
   def breadcrumb
-    content_store_response["details"]["section_id"] || title
+    content_store_response["details"]["section_id"] || manual_title
   end
 
   def manual_page_title

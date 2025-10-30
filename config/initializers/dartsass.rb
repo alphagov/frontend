@@ -38,6 +38,7 @@ APP_STYLESHEETS = {
   "views/_landing_page/themes/prime-ministers-office-10-downing-street.scss" => "views/_landing_page/themes/prime-ministers-office-10-downing-street.css",
 }.freeze
 
-Rails.application.config.dartsass.builds = APP_STYLESHEETS
+all_stylesheets = APP_STYLESHEETS.merge(GovukPublishingComponents::Config.component_guide_stylesheet)
+Rails.application.config.dartsass.builds = all_stylesheets
 Rails.application.config.dartsass.build_options << " --quiet-deps"
 Rails.application.config.dartsass.build_options << " --silence-deprecation=import"

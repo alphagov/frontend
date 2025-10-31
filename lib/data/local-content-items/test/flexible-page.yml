@@ -240,7 +240,38 @@ details:
 
       <p>He has captured the hearts of the Great British public and the press teams often camped outside the front door. In turn the nation sends him gifts and treats daily.</p>
       <p>Larry spends his days greeting guests to the house, inspecting security defences and testing antique furniture for napping quality. His day-to-day responsibilities also include contemplating a solution to the mouse occupancy of the house. Larry says this is still ‘in tactical planning stage’.</p>
+  - type: feed
+    feed_heading_text: Latest
+    email_signup_link: "/something"
+    items:
+      - link:
+          text: "Alternative provision"
+          path: "/government/publications/alternative-provision"
+        metadata:
+          public_updated_at: "2025-10-31 10:00:00 +0000"
+          document_type: "Statutory guidance"
+      - link:
+          text: "Behaviour and discipline in schools: guide for governing bodies"
+          path: "/government/publications/behaviour-and-discipline-in-schools-guidance-for-governing-bodies"
+        metadata:
+          public_updated_at: "2025-10-31 10:00:00 +0000"
+          document_type: "Statutory guidance"
+      - link:
+          text: "Children missing education"
+          path: "/government/publications/children-missing-education"
+        metadata:
+          public_updated_at: "2025-10-31 10:00:00 +0000"
+          document_type: "Statutory guidance"
+    see_all_items_link: "/search/all"
+    share_links_heading_text: Follow us
+    share_links:
+      - href: "/facebook-share-link"
+        text: "Facebook"
+        icon: "facebook"
+        data_attributes:
+          module: "example"
 links:
   parent:
   - base_path: "/government/history"
     title: "History of the UK Government"
+

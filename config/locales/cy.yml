@@ -6,33 +6,6 @@ cy:
     two_versions: Mae 2 fersiwn o'r dudalen hon. Rydych chi'n gweld y
     version: fersiwn
     visit_govuk_html: Ewch i <a href="/" class="govuk-link">hafan GOV.UK</a> i weld gwasanaethau a gwybodaeth y llywodraeth.
-  account:
-    cookies_and_feedback:
-      cookie_consent:
-        description:
-        field:
-          heading:
-        heading:
-      feedback_consent:
-        description:
-        field:
-          heading:
-        heading:
-      heading:
-      success:
-    your_account:
-      about_description_html:
-      about_detail_description_html:
-      about_detail_title:
-      about_heading:
-      emails:
-        heading:
-        manage_emails_link_text:
-        no_emails_description:
-        no_emails_inset:
-        see_and_manage:
-      heading:
-  and: a
   attachment:
     virus_check:
       intro: Mae'r atodiad hwn yn cael ei wirio am feirysau.
@@ -72,7 +45,6 @@ cy:
     st_patrick: Gŵyl Sant Padrig
     summer: Gŵyl banc yr haf
     year: Blwyddyn
-  cancel:
   common:
     add_holiday_ics: Ychwanegu'r gwyliau banc %{for_nation} at eich calendr (ICS, 14KB)
     and: a
@@ -80,6 +52,7 @@ cy:
     bank_holiday_benefits_html: Efallai bydd gwyliau banc yn effeithio ar <a href="/how-to-have-your-benefits-paid" class="govuk-link">sut a phryd caiff eich budd-daliadau eu talu</a>.
     bank_holiday_on_wkend: Os yw gŵyl banc yn cwympo ar benwythnos, bydd dydd o'r wythnos yn dod yn ŵyl banc 'amgen' yn ei le, fel arfer y dydd Llun canlynol.
     bank_holiday_translation_html: Mae'r canllaw hwn hefyd ar gael <a href="/bank-holidays" title="UK bank holidays" class="govuk-link">yn Saesneg (English)</a>.
+    change: Newid
     download_ics: Llwythwch y dyddiadau hyn i lawr er mwyn eu hychwanegu at raglen calendr fel iCal neu Outlook
     email_and_print_link:
     extra_bank_holiday: Gŵyl banc ychwanegol
@@ -171,7 +144,6 @@ cy:
     description:
     subscribe_title:
     unsubscribe_title:
-  error:
   find: Ffeindio
   formats:
     aaib_report:
@@ -555,10 +527,7 @@ cy:
         other: Cytuniadau rhyngwladol
         two:
         zero:
-    licence:
-      change: Newid
     local_transaction:
-      change: Newid
       choose_address: Dewiswch eich cyfeiriad
       contact_council:
       council_tax: treth gyngor
@@ -750,7 +719,6 @@ cy:
         two:
         zero:
     place:
-      change: Newid
       find_results: Darganfod canlyniadau yn agos i chi
       postcode: Cod post
       select_address: Dewiswch gyfeiriad
@@ -867,7 +835,6 @@ cy:
         two:
         zero:
     simple_smart_answer:
-      change: Newid
       next_step: Cam nesaf
       please_answer: Mae angen ateb y cwestiwn hwn
       start_again: Dechrau eto
@@ -1164,10 +1131,6 @@ cy:
   national_statistics:
     logo_alt_text: Ystadegau swyddogol achrededig
   'no': Na
-  or:
-  place:
-    children_social_care: Gallwch alw'r tîm gofal cymdeithasol i blant yn y cyngor yn
-    go_to_website: Mynd i'w gwefan
   roadmap:
     actions_section:
       heading: Beth rydyn ni'n gweithio arno
@@ -1198,29 +1161,8 @@ cy:
       - href: https://insidegovuk.blog.gov.uk/
         image_src: roadmap/updates-blog.jpg
         heading_text: Blog Tu mewn i GOV.UK
-  save:
-  sessions:
-    first_time:
-      cookie_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      description_html:
-      feedback_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      invalid:
-      title:
   shared:
     historically_political: Cyhoeddwyd hwn o dan y %{government}
-  sign_up: Cofrestru
   time:
     formats:
       short_ordinal: "%e %B %Y"

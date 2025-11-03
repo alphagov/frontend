@@ -49,7 +49,7 @@ private
         value: question.label,
         edit: {
           href: change_completed_question_path(completed_question_counter),
-          link_text: t("formats.simple_smart_answer.change"),
+          link_text: t("common.change"),
           data_attributes: {
             module: "ga4-link-tracker",
             ga4_link: {

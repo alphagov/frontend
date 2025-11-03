@@ -6,33 +6,6 @@ ti:
     two_versions:
     version:
     visit_govuk_html:
-  account:
-    cookies_and_feedback:
-      cookie_consent:
-        description:
-        field:
-          heading:
-        heading:
-      feedback_consent:
-        description:
-        field:
-          heading:
-        heading:
-      heading:
-      success:
-    your_account:
-      about_description_html:
-      about_detail_description_html:
-      about_detail_title:
-      about_heading:
-      emails:
-        heading:
-        manage_emails_link_text:
-        no_emails_description:
-        no_emails_inset:
-        see_and_manage:
-      heading:
-  and: ከምኡ ውን
   attachment:
     virus_check:
       intro: እዚ ኣታችመንት/ጥብቆ ካብ ቫይረስ ነጻ ሙኻኑን ዘይሙኻኑን ይምርመር ኣሎ።
@@ -72,7 +45,6 @@ ti:
     st_patrick:
     summer:
     year:
-  cancel: ሰርዝ
   common:
     add_holiday_ics:
     and: ከምኡ ውን
@@ -80,6 +52,7 @@ ti:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    change: ለውጢ
     download_ics:
     email_and_print_link: 'ነዚ ገጽ ፕሪንት ንምባል ወይ ውን ንኢመይላት ተመዝገቡ '
     extra_bank_holiday:
@@ -169,7 +142,6 @@ ti:
     description: ኩሉ ናይ GOV.UK ኢመይል ሳብስክራይባትካ ርኣይን ኣመሓድርን።
     subscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ኢመይላት ሳብስክራይብ ጌርካ ኣለኻ
     unsubscribe_title: ብዛዕባ’ዚ ገጽ’ዚ ዝምልከት ዝመጽእ ኢመይላት ወጺእካ/አንሳብስክራይብ ጌርካ ኣለኻ
-  error: ጌጋ
   find: ርኸብ
   formats:
     aaib_report:
@@ -409,10 +381,7 @@ ti:
       name:
         one: ኣህጉራዊ ውዕል
         other: ኣህጉራዊ ውዕላት
-    licence:
-      change: ለውጢ
     local_transaction:
-      change:
       choose_address:
       contact_council:
       council_tax:
@@ -541,7 +510,6 @@ ti:
         one: ኣፋዊ መግለጺ ናብ ባይቶ
         other: ኣፋዊ መግለጺታት ናብ ባይቶ
     place:
-      change: ለውጢ
       find_results: ኣብ ጥቓኻ ውጽኢት ርኸብ
       postcode: ፖስታ ኮድ
       select_address: ኣድራሻ ምረጽ
@@ -602,7 +570,6 @@ ti:
         one: ጸብጻብ ደረጃ ኣገልግሎት
         other: ጸብጻባት ደረጃ ኣገልግሎት
     simple_smart_answer:
-      change: ለውጥ
       next_step: ዝቕጽል ስጉምቲ
       please_answer: ብኽብረትካ እዛ ሕቶ እዚኣ መልስ
       start_again: እንደገና ጀምር
@@ -843,10 +810,6 @@ ti:
   national_statistics:
     logo_alt_text:
   'no': አይኮንን
-  or: ወይ
-  place:
-    children_social_care: ኣብቲ ቤት ምኽሪ ንዘሎ ናይ ህጻናት ማሕበራዊ ክንክን ጉጅለ ክትድውል ትኽእል ኢኻ
-    go_to_website: ናብ መርበብ ሓበሬታኦም ኪድ
   roadmap:
     actions_section:
       heading:
@@ -868,29 +831,8 @@ ti:
     updates_section:
       heading:
       items:
-  save: መዝግብ/ዓቅብ
-  sessions:
-    first_time:
-      cookie_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      description_html:
-      feedback_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      invalid:
-      title:
   shared:
     historically_political: እዚ ኣብ ትሕቲ %{government} ዝተሓትመ እዩ።
-  sign_up: ተመዝገብ
   time:
     formats:
       short_ordinal: "%e %B %Y"

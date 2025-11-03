@@ -6,33 +6,6 @@ en:
     two_versions: There are 2 versions of this page. You are viewing the
     version: version
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
-  account:
-    cookies_and_feedback:
-      cookie_consent:
-        description: We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.
-        field:
-          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
-        heading: Change your cookie settings
-      feedback_consent:
-        description: As we add new features to your GOV.UK account, we would like to email you to find out any thoughts or suggestions you might have.
-        field:
-          heading: Can we email you to ask for feedback about your account?
-        heading: Change your feedback settings
-      heading: Cookie and feedback settings
-      success: Your feedback and cookie settings have been changed.
-    your_account:
-      about_description_html: <p class="govuk-body">GOV.UK accounts are new. At the moment you can only use your account to manage your GOV.UK email subscriptions.</p><p class="govuk-body">We’re working on adding more features and services.</p>
-      about_detail_description_html: <p class="govuk-body">GOV.UK accounts are a first step towards creating a single account that you can use to sign in to all government services.</p><p class="govuk-body">They will eventually replace all other government accounts.</p><p class="govuk-body">At the moment, GOV.UK accounts are separate from <a class="govuk-link" href="/sign-in">other government accounts</a> (for example Government Gateway or Universal Credit).</p>
-      about_detail_title: More about GOV.UK accounts
-      about_heading: About GOV.UK accounts
-      emails:
-        heading: Your GOV.UK email subscriptions
-        manage_emails_link_text: Manage your GOV.UK email subscriptions
-        no_emails_description: Some GOV.UK pages have a link to 'get emails'. You can use that link to subscribe to pages or topics you’re interested in.
-        no_emails_inset: You do not currently have any GOV.UK email subscriptions.
-        see_and_manage: See and manage the emails you get about updates to pages on GOV.UK.
-      heading: Your GOV.UK account
-  and: and
   attachment:
     virus_check:
       intro: This attachment is being virus checked.
@@ -72,7 +45,6 @@ en:
     st_patrick: St Patrick’s Day
     summer: Summer bank holiday
     year: Year
-  cancel: cancel
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)
     and: and
@@ -80,6 +52,7 @@ en:
     bank_holiday_benefits_html: Bank holidays might affect <a href="/how-to-have-your-benefits-paid" class="govuk-link">how and when your benefits are paid</a>.
     bank_holiday_on_wkend: If a bank holiday is on a weekend, a ‘substitute’ weekday becomes a bank holiday, normally the following Monday.
     bank_holiday_translation_html: This guide is also available <a href="/gwyliau-banc" title="Gwyliau banc y DU" class="govuk-link">in Welsh (Cymraeg)</a>.
+    change: Change
     download_ics: Download these dates so you can add them to a calendar application such as iCal or Outlook
     email_and_print_link: Sign up for emails or print this page
     extra_bank_holiday: Extra bank holiday
@@ -171,7 +144,6 @@ en:
     description: See and manage all your GOV.UK email subscriptions
     subscribe_title: You’ve subscribed to emails about this page
     unsubscribe_title: You’ve unsubscribed from emails about this page
-  error: Error
   find: Find
   formats:
     aaib_report:
@@ -411,10 +383,7 @@ en:
       name:
         one: International treaty
         other: International treaties
-    licence:
-      change: Change
     local_transaction:
-      change: Change
       choose_address: Choose your address
       contact_council: contact your council
       council_tax: council tax
@@ -546,7 +515,6 @@ en:
         one: Oral statement to Parliament
         other: Oral statements to Parliament
     place:
-      change: Change
       find_results: Find results near you
       postcode: Postcode
       select_address: Select an address
@@ -607,7 +575,6 @@ en:
         one: Service Standard Report
         other: Service Standard Reports
     simple_smart_answer:
-      change: Change
       next_step: Next step
       please_answer: Please answer this question
       start_again: Start again
@@ -991,10 +958,6 @@ en:
   national_statistics:
     logo_alt_text: Accredited official statistics
   'no': 'No'
-  or: or
-  place:
-    children_social_care: You can call the children's social care team at the council in
-    go_to_website: Go to their website
   roadmap:
     actions_section:
       heading: What we’re working on
@@ -1118,42 +1081,8 @@ en:
       - href: https://insidegovuk.blog.gov.uk/
         image_src: roadmap/updates-blog.jpg
         heading_text: Inside GOV.UK blog
-  save: Save
-  sessions:
-    first_time:
-      cookie_consent:
-        description_html: |
-          <p class="govuk-body">We’d like to use cookies to collect anonymised analytics about how you use GOV.UK, for example what pages you visit and what you click on.</p>
-          <p class="govuk-body">This data shows us what is and isn’t working, and helps us understand where we can make improvements to GOV.UK.</p>
-        field:
-          heading: Can we use cookies to learn about how you use GOV.UK while you’re signed in to your account?
-          hint: You’ll be able to update this later in your privacy settings if you’re not sure or you change your mind.
-          invalid: Choose whether or not you agree to analytics cookies while you’re signed in to your account.
-        heading: Data about how you use GOV.UK
-      description_html: |
-        <p class="govuk-body">Your GOV.UK account will only store the information you’ve chosen to provide about yourself. You can access, update or permanently delete your account and all the information stored in it at any time.</p>
-        <p class="govuk-body">We will never:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>sell or rent your information to third parties</li>
-          <li>share your information with third parties for marketing purposes</li>
-        </ul>
-        <p class="govuk-body">As we add new features to your account, we may ask if we can share your information with other organisations to help us provide more efficient online services that are relevant to you. We will always ask your permission beforehand.</p>
-        <p class="govuk-body">We may also use your information to produce anonymised reports to help us get a better understanding of GOV.UK account users. For example, to create a report on the proportion of users who are students in the UK. We’ll use this data to decide what features or services to add to GOV.UK accounts in future. These reports will not identify you personally.</p>
-        <p class="govuk-body">You can read the <a href="https://www.gov.uk/government/publications/govuk-accounts-trial-full-privacy-notice-and-accessibility-statement" class="govuk-link">full privacy notice</a> for more detail on how your information is stored, shared and used.</p>
-      feedback_consent:
-        description_html: '<p class="govuk-body">As we add more features to your account, we would like to email you to find out any thoughts or suggestions you might have.</p>
-
-          '
-        field:
-          heading: Can we email you to ask for feedback about your account?
-          hint: You can update this later in your privacy settings if you’re not sure or you change your mind.
-          invalid: Choose whether or not you agree to receive emails asking for feedback about your account.
-        heading: Feedback about your GOV.UK account
-      invalid: There was a problem
-      title: Control how we use information about you
   shared:
     historically_political: This was published under the %{government}
-  sign_up: Sign up
   time:
     formats:
       short_ordinal: "%e %B %Y"

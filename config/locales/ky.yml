@@ -6,33 +6,6 @@ ky:
     two_versions:
     version:
     visit_govuk_html:
-  account:
-    cookies_and_feedback:
-      cookie_consent:
-        description:
-        field:
-          heading:
-        heading:
-      feedback_consent:
-        description:
-        field:
-          heading:
-        heading:
-      heading:
-      success:
-    your_account:
-      about_description_html:
-      about_detail_description_html:
-      about_detail_title:
-      about_heading:
-      emails:
-        heading:
-        manage_emails_link_text:
-        no_emails_description:
-        no_emails_inset:
-        see_and_manage:
-      heading:
-  and: жана
   attachment:
     virus_check:
       intro:
@@ -72,7 +45,6 @@ ky:
     st_patrick:
     summer:
     year:
-  cancel:
   common:
     add_holiday_ics:
     and: жана
@@ -80,6 +52,7 @@ ky:
     bank_holiday_benefits_html:
     bank_holiday_on_wkend:
     bank_holiday_translation_html:
+    change:
     download_ics:
     email_and_print_link: Электрондук каттарга жазылуу же бул баракчаны басып чыгаруу
     extra_bank_holiday:
@@ -169,7 +142,6 @@ ky:
     description: Бардык GOV.UK электрондук почта жазылууларыңызды көрүп
     subscribe_title: Сиз бул баракча тууралуу электрондук каттарга жазылгансыз
     unsubscribe_title: Сиз бул баракча тууралуу электрондук каттарга жазылуудан баш тарткансыз
-  error:
   find:
   formats:
     aaib_report:
@@ -409,10 +381,7 @@ ky:
       name:
         one: Эл аралык келишим
         other: Эл аралык келишимдер
-    licence:
-      change:
     local_transaction:
-      change:
       choose_address:
       contact_council:
       council_tax:
@@ -541,7 +510,6 @@ ky:
         one: Парламентте ооз эки арыз
         other: Парламентте ооз эки арыздар
     place:
-      change:
       find_results:
       postcode:
       select_address:
@@ -602,7 +570,6 @@ ky:
         one: Кызмат көрсөтүү стандарттары боюнча отчет
         other: Кызмат көрсөтүү стандарттары боюнча отчеттор
     simple_smart_answer:
-      change:
       next_step:
       please_answer:
       start_again:
@@ -843,10 +810,6 @@ ky:
   national_statistics:
     logo_alt_text: Аккредиттелген расмий статистика
   'no':
-  or: же
-  place:
-    children_social_care:
-    go_to_website:
   roadmap:
     actions_section:
       heading:
@@ -868,29 +831,8 @@ ky:
     updates_section:
       heading:
       items:
-  save:
-  sessions:
-    first_time:
-      cookie_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      description_html:
-      feedback_consent:
-        description_html:
-        field:
-          heading:
-          hint:
-          invalid:
-        heading:
-      invalid:
-      title:
   shared:
     historically_political: Бул %{government} астында жарыяланган
-  sign_up:
   time:
     formats:
       short_ordinal: "%e %B %Y"

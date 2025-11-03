@@ -24,4 +24,16 @@ RSpec.describe TravelAdvice do
       expect(alert_statuses).to be_empty
     end
   end
+
+  describe "#map_download_file_size" do
+    it "returns the file size when present" do
+      content_store_response["details"]["document"] = {
+        "url" => "https://example.com/map.pdf",
+        "file_size" => 201_672,
+      }
+
+      travel_advice = described_class.new(content_store_response)
+      expect(travel_advice.map_download_file_size).to eq(201_672)
+    end
+  end
 end

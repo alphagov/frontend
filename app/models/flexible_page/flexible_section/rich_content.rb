@@ -8,7 +8,6 @@ module FlexiblePage::FlexibleSection
       super
 
       @contents_list = ContentsOutline.new(flexible_section_hash["contents_list"])
-      @govspeak = flexible_section_hash["govspeak"]
 
       if flexible_section_hash["image"].present?
         alt, src = flexible_section_hash.fetch("image").values_at("alt", "src")

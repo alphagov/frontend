@@ -67,11 +67,11 @@ RSpec.describe "FlexiblePage" do
       it "with a see all link" do
         visit base_path
 
-        within "p.govuk-body[data-flexible-section=feed_see_all]" do
+        within "[data-flexible-section=feed_document_list] ul + p" do
           expect(page).to have_link("See all", href: "/search/all")
         end
 
-        ga4_link_data = JSON.parse(page.first("p.govuk-body[data-flexible-section=feed_see_all]")["data-ga4-link"])
+        ga4_link_data = JSON.parse(page.first("[data-flexible-section=feed_document_list] ul + p")["data-ga4-link"])
         expected_tracking = { "event_name" => "navigation", "type" => "see all", "section" => "Latest" }
         expect(ga4_link_data).to eq(expected_tracking)
       end
@@ -79,11 +79,11 @@ RSpec.describe "FlexiblePage" do
       it "with subscription links" do
         visit base_path
 
-        within "section[data-flexible-section=feed_subscription_links]" do
+        within "[data-flexible-section=feed_document_list] .gem-c-subscription-links" do
           expect(page).to have_link("Get emails", href: "/something")
         end
 
-        ga4_link_data = JSON.parse(page.first("section[data-flexible-section=feed_subscription_links]")["data-ga4-link"])
+        ga4_link_data = JSON.parse(page.first("[data-flexible-section=feed_document_list] .gem-c-subscription-links")["data-ga4-link"])
         expected_tracking = { "event_name" => "navigation", "type" => "subscribe", "index_link" => 1, "index_total" => 1, "section" => "Latest" }
         expect(ga4_link_data).to eq(expected_tracking)
       end

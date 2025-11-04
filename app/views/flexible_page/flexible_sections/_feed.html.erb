@@ -14,14 +14,13 @@
     },
   } %>
 
-  <%= tag.p(class: "govuk-body", data: { flexible_section: "feed_see_all", module: "ga4-link-tracker", ga4_link: { event_name: "navigation", type: "see all", section: flexible_section.feed_heading_text }.to_json }) do %>
+  <%= tag.p(class: "govuk-body", data: { module: "ga4-link-tracker", ga4_link: { event_name: "navigation", type: "see all", section: flexible_section.feed_heading_text }.to_json }) do %>
     <%= link_to("See all", flexible_section.see_all_items_link, class: "govuk-link") %>
   <% end %>
 
   <%= render "govuk_publishing_components/components/subscription_links", {
     email_signup_link: flexible_section.email_signup_link,
     data_attributes: {
-      flexible_section: "feed_subscription_links",
       module: "ga4-link-tracker",
       ga4_link: { "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": flexible_section.feed_heading_text }.to_json,
     },
@@ -39,7 +38,7 @@
   <%= render "govuk_publishing_components/components/share_links", {
     square_icons: true,
     flexbox: true,
-    links: flexible_section.share_links,
+    links: flexible_section.share_links.map(&:symbolize_keys),
     track_as_follow: true,
   } %>
 </div>

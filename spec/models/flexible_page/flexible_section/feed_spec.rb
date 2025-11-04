@@ -27,9 +27,10 @@ RSpec.describe FlexiblePage::FlexibleSection::Feed do
       ])
       expect(feed.see_all_items_link).to eq("/test-see-all")
       expect(feed.share_links_heading_text).to eq("share links")
-      expect(feed.share_links).to eq([
-        { href: "/blue-sky", text: "Blue Sky", icon: "bluesky", data_attributes: { module: "example" } },
-      ])
+      expect(feed.share_links).to eq([{ "data_attributes" => { module: "example" },
+                                        "href" => "/blue-sky",
+                                        "icon" => "bluesky",
+                                        "text" => "Blue Sky" }])
     end
   end
 end

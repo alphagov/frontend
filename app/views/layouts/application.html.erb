@@ -1,24 +1,11 @@
-<% emergency_banner = render("govuk_web_banners/emergency_banner") %>
-<% global_banner = render("govuk_web_banners/global_banner") %>
-<% content_for :body do %>
-  <%= yield :before_content %>
-  <div class="govuk-width-container">
-    <% if show_breadcrumbs?(content_item) %>
-      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
-    <% end %>
-    <%= render "govuk_web_banners/recruitment_banner" %>
-    <main role="main" id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
-      <span id="Top"></span>
-      <%= yield %>
-    </main>
-  </div>
-  <%= yield :after_content %>
-<% end %>
+<%
+  page_title = yield :title
+  page_title = page_title.presence || page_title(content_item) || "GOV.UK"
+%>
+
 <%= content_for :head do %>
   <%= csp_meta_tag %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
-  <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
-  <%= yield :extra_javascript %>
   <% if content_item.to_h %>
     <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
     <% if content_item&.meta_section.present? %>
@@ -28,16 +15,32 @@
       <meta name="apple-itunes-app" content="app-id=6572293285">
     <% end %>
   <% end %>
+
+  <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
+  <%= yield :extra_javascript %>
 <% end %>
-<%
-  page_title = yield :title
-  page_title = page_title.presence || page_title(content_item) || "GOV.UK"
-%>
+
 <%= render "govuk_publishing_components/components/layout_for_public", {
     draft_watermark: draft_host?,
     title: page_title,
-    emergency_banner:,
-    global_banner:,
+    emergency_banner: render("govuk_web_banners/emergency_banner"),
+    global_banner: render("govuk_web_banners/global_banner"),
   } do %>
-  <%= yield :body %>
+  <%= yield :before_content %>
+
+  <div class="govuk-width-container">
+
+    <% if show_breadcrumbs?(content_item) %>
+      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+    <% end %>
+
+    <%= render "govuk_web_banners/recruitment_banner" %>
+
+    <main role="main" id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
+      <span id="Top"></span>
+      <%= yield %>
+    </main>
+  </div>
+
+  <%= yield :after_content %>
 <% end %>

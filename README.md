@@ -68,6 +68,7 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/vehicle-tax|
 |                       ||https://www.gov.uk/find-a-job|
 | Working group         |[working_group](https://docs.publishing.service.gov.uk/content-schemas/working_group.html)|https://www.gov.uk/government/groups/abstraction-reform|
+|Worldwide office page|[worldwide_office](https://docs.publishing.service.gov.uk/content-schemas/worldwide_office.html)|https://www.gov.uk/world/organisations/high-commission-victoria/office/british-high-commission-victoria|
 
 ## Nomenclature
 

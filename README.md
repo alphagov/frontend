@@ -64,6 +64,7 @@ some hard-coded routes.
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|
 |                       ||https://www.gov.uk/find-a-job|
+|Worldwide office page|[worldwide_office](https://docs.publishing.service.gov.uk/content-schemas/worldwide_office.html)|https://www.gov.uk/world/organisations/high-commission-victoria/office/british-high-commission-victoria|
 
 ## Nomenclature
 

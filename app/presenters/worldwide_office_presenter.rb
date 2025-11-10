@@ -1,6 +1,6 @@
 class WorldwideOfficePresenter < ContentItemPresenter
-  include ContentItem::ContentsList
-  include WorldwideOrganisation::Branding
+  include ContentsList
+  include WorldwideOrganisationBranding
 
   def formatted_title
     worldwide_organisation&.formatted_title
@@ -21,9 +21,9 @@ class WorldwideOfficePresenter < ContentItemPresenter
   end
 
   def worldwide_organisation
-    return unless content_item.dig("links", "worldwide_organisation")
+    return unless content_item.worldwide_organisation
 
-    WorldwideOrganisationPresenter.new(content_item.dig("links", "worldwide_organisation").first, requested_path, view_context)
+    WorldwideOrganisationPresenter.new(content_item.worldwide_organisation)
   end
 
   def sponsoring_organisations

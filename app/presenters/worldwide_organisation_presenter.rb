@@ -5,7 +5,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   WorldwideOffice = Struct.new(:contact, :has_access_and_opening_times?, :public_url, keyword_init: true)
 
   def formatted_title
-    content_item.dig("details", "logo", "formatted_title")
+    content_item.content_store_response["details"]["logo"]["formatted_title"]
   end
 
   def sponsoring_organisation_links
@@ -21,7 +21,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def world_location_links
     return if world_locations.empty?
 
-    world_location_name_translations = content_item.dig("details", "world_location_names")
+    world_location_name_translations = content_item.content_store_response["details"]["world_location_names"]
 
     links = world_locations.map do |location|
       world_location_translation = world_location_name_translations.find do |translation|
@@ -37,8 +37,12 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
     false
   end
 
+  def logo
+    content_item.content_store_response["details"]["logo"] || []
+  end
+
   def social_media_accounts
-    content_item.dig("details", "social_media_links") || []
+    content_item.content_store_response["details"]["social_media_links"] || []
   end
 
   def show_our_people_section?
@@ -48,7 +52,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def person_in_primary_role
     return unless content_item["links"]["primary_role_person"]
 
-    person = content_item.dig("links", "primary_role_person").first
+    person = content_item.content_store_response["details"]["primary_role_person"].first
     current_roles = roles_for_person(person["content_id"])
 
     {
@@ -119,7 +123,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def sponsoring_organisations
-    content_item.dig("links", "sponsoring_organisations") || []
+    content_item.content_store_response["links"]["sponsoring_organisations"] || []
   end
 
 private
@@ -165,6 +169,6 @@ private
   end
 
   def world_locations
-    content_item.dig("links", "world_locations") || []
+    content_item.content_store_response["links"]["world_locations"] || []
   end
 end

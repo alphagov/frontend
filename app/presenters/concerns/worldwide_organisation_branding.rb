@@ -1,5 +1,4 @@
-module WorldwideOrganisation
-  module Branding
+module WorldwideOrganisationBranding
     DEFAULT_ORGANISATION_LOGO = "single-identity".freeze
 
     def organisation_logo
@@ -13,5 +12,4 @@ module WorldwideOrganisation
         brand: sponsoring_organisation&.dig("details", "brand") || DEFAULT_ORGANISATION_LOGO,
       }
     end
-  end
 end

@@ -1,5 +1,5 @@
 class WorldwideOrganisationPresenter < ContentItemPresenter
-  include WorldwideOrganisation::Branding
+  include WorldwideOrganisationBranding
   include ActionView::Helpers::UrlHelper
 
   WorldwideOffice = Struct.new(:contact, :has_access_and_opening_times?, :public_url, keyword_init: true)

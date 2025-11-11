@@ -4,6 +4,6 @@ class WorldwideOffice < ContentItem
   end
 
   def contact
-    linked("contact")
+    linked("contact").first
   end
 end

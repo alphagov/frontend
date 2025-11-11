@@ -786,6 +786,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-i18n
   rails_translation_manager
+  rinku (~> 2.0)
   rspec-rails
   rubocop-govuk
   simplecov

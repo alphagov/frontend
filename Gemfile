@@ -52,3 +52,5 @@ group :test do
 end
 
 gem "govspeak", "~> 10.6"
+
+gem "rinku", "~> 2.0", require: "rails_rinku"

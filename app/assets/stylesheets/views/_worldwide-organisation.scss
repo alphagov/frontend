@@ -1,0 +1,48 @@
+.govuk-frontend-supported {
+  .worldwide-organisation-header {
+    .show-other-content {
+      all: inherit;
+      display: inline;
+      margin-left: .3em;
+      white-space: nowrap;
+      color: $govuk-link-colour;
+      cursor: pointer;
+      @include govuk-link-common;
+      @include govuk-font(16);
+    }
+  }
+}
+
+.worldwide-organisation-header__metadata {
+  margin: 0;
+  @include govuk-text-colour;
+  @include govuk-font($size: 16);
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: govuk-spacing(2);
+  }
+
+  dt,
+  dd {
+    display: block;
+    line-height: 1.5em;
+    margin: 0;
+  }
+}
+
+.worldwide-organisation-contact-section {
+  a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  address {
+    font-style: normal;
+
+    .adr {
+      margin-block: 0;
+    }
+  }
+}

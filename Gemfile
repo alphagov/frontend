@@ -50,3 +50,5 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
+
+gem "govspeak", "~> 10.6"

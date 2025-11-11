@@ -11,9 +11,7 @@ class WorldwideOfficePresenter < ContentItemPresenter
   end
 
   def contact
-    contact = content_item.dig("links", "contact")&.first
-
-    WorldwideOrganisation::LinkedContactPresenter.new(contact)
+    LinkedContactPresenter.new(content_item.contact)
   end
 
   def show_default_breadcrumbs?

@@ -6,7 +6,12 @@
 <article class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
     <%= render "govuk_publishing_components/components/contents_list",
-      contents: @content_item.contents,
+      contents: [
+        {
+          href: "#first-thing",
+          text: "TODO",
+        },
+      ],
       underline_links: true %>
   </div>
 
@@ -21,8 +26,8 @@
 
       <hr class="govuk-section-break govuk-section-break--visible">
       <div class="govuk-!-padding-top-6 govuk-!-padding-bottom-6 govuk-clearfix">
-        <%= render partial: "content_items/worldwide_organisation/contact", locals: {
-          contact: @content_item.contact,
+        <%= render partial: "worldwide_organisation/contact", locals: {
+          contact: @presenter.contact,
           hide_title: true,
         } %>
       </div>

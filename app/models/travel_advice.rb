@@ -20,6 +20,10 @@ class TravelAdvice < ContentItem
     content_store_response["details"].dig("document", "url")
   end
 
+  def map_download_file_size
+    content_store_response["details"].dig("document", "file_size")
+  end
+
   def email_signup_link
     content_store_response["details"]["email_signup_link"]
   end

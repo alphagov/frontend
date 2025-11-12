@@ -165,11 +165,19 @@ RSpec.describe "TravelAdvice" do
         end
       end
 
-      it "displays the map" do
-        visit base_path
+      context "with map download" do
+        let(:content_store_response) do
+          response = GovukSchemas::Example.find("travel_advice", example_name: "full-country")
+          response["details"]["document"]["file_size"] = 201_672
+          response
+        end
 
-        expect(page).to have_css(".map img[src=\"#{content_store_response['details']['image']['url']}\"]")
-        expect(page).to have_css(".map figcaption a[href=\"#{content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF)")
+        it "displays the map" do
+          visit base_path
+
+          expect(page).to have_css(".map img[src=\"#{content_store_response['details']['image']['url']}\"]")
+          expect(page).to have_css(".map figcaption a[href=\"#{content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF, 197 KB)")
+        end
       end
     end
 

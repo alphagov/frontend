@@ -15,7 +15,7 @@
     <% if content_item.map_download_url %>
       <figcaption>
         <%= render "components/download_link", {
-          text: "Download a more detailed map (PDF)",
+          text: "Download a more detailed map (PDF, #{number_to_human_size(content_item.map_download_file_size)})",
           href: content_item.map_download_url,
         } %>
       </figcaption>

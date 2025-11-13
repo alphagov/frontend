@@ -42,6 +42,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "faker"
   gem "govuk_schemas"
   gem "i18n-coverage"
   gem "rails-controller-testing"

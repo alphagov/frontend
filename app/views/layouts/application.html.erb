@@ -4,6 +4,7 @@
 %>
 
 <%= content_for :head do %>
+  <link rel="manifest" href="<%= asset_path('manifest.json') %>">
   <%= csp_meta_tag %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <% if content_item.to_h %>
@@ -27,6 +28,8 @@
     global_banner: render("govuk_web_banners/global_banner"),
   } do %>
   <%= yield :before_content %>
+
+  <button id="btnInstall" hidden>Install App</button>
 
   <div class="govuk-width-container">
 

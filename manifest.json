@@ -1,0 +1,27 @@
+{
+  "short_name": "MyApp",
+  "name": "My Awesome App",
+  "icons": [
+    {
+      "src": "/assets/images/app-promo/govuk-app-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/app-promo/govuk-app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#3367D6",
+  "theme_color": "#3367D6",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "uk.gov.govuk"
+    }
+  ]
+}

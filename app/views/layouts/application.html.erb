@@ -4,7 +4,7 @@
 %>
 
 <%= content_for :head do %>
-  <link rel="manifest" href="<%= asset_path('manifest.json') %>">
+  <link rel="manifest" href="<%= asset_path('app_manifest.json') %>">
   <%= csp_meta_tag %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <% if content_item.to_h %>

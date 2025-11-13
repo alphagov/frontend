@@ -3,12 +3,12 @@
   "name": "My Awesome App",
   "icons": [
     {
-      "src": "/assets/images/app-promo/govuk-app-icon.png",
+      "src": "/assets/frontend/app-promo/govuk-app-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/images/app-promo/govuk-app-icon.png",
+      "src": "/assets/frontend/app-promo/govuk-app-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }

@@ -96,3 +96,16 @@ $govuk-include-default-font-face: true;
     text-align: start;
   }
 }
+
+.govuk-app-banner {
+  align-items: center;
+  background: govuk-colour("light-grey");
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  min-height: 100px;
+
+  h2 {
+    color: govuk-color("white");
+  }
+}

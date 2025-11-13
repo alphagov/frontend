@@ -4,17 +4,18 @@
 //= require govuk_publishing_components/dependencies
 
 let deferredPrompt
-const btnInstall = document.getElementById('btnInstall')
+const govukAppBanner = document.getElementById('govukAppBanner')
+const govukAppBannerButton = document.getElementById('govukAppBannerButton')
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault()
   deferredPrompt = e
-  btnInstall.hidden = false
+  govukAppBanner.hidden = false
 })
 
-btnInstall.addEventListener('click', async () => {
+govukAppBannerButton.addEventListener('click', async () => {
   // Hide the install button
-  btnInstall.style.display = 'none'
+  govukAppBannerButton.style.display = 'none'
 
   if (deferredPrompt) {
     deferredPrompt.prompt()

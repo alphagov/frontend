@@ -5,6 +5,7 @@ APP_STYLESHEETS = {
   "views/_cookie-settings.scss" => "views/_cookie-settings.css",
   "views/_csv_preview.scss" => "views/_csv_preview.css",
   "views/_flexible-content.scss" => "views/_flexible-content.css",
+  "views/_event.scss" => "views/_event.css",
   "views/_guide.scss" => "views/_guide.css",
   "views/_homepage.scss" => "views/_homepage.css",
   "views/_html-publication.scss" => "views/_html-publication.css",

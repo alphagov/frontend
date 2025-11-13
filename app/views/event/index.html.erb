@@ -1,0 +1,69 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_event", media: "all" %>
+<% end %>
+
+<% content_for :main_classes do %>event<% end %>
+
+<%= render "govuk_publishing_components/components/inverse_header", {} do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs", {
+      collapse_on_mobile: true,
+      margin_bottom: 8,
+      breadcrumbs: [
+        {
+          title: "Home",
+          url: "/"
+        },
+      ]
+    } %>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "VE Day and VJ Day 80th anniversaries",
+          font_size: "xl",
+          margin_bottom: 6,
+          heading_level: 1,
+        } %>
+
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: "2025 marks the 80th anniversaries of VE Day (Victory in Europe Day) on 8th May and VJ Day (Victory over Japan Day) on 15th August."
+        } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body">It is an opportunity for the nation to come together to honour and pay tribute to the Second World War generation from across the UK and Commonwealth, through a series of national and local events and activities.</p>
+      <p class="govuk-body">You can also find ways to get involved on the VE VJ website at <a href="" class="govuk-link">/ve-vjday80.gov.uk/</a></p>
+    </div>
+  </div>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Featured",
+    padding: true,
+    border_top: 2,
+    margin_bottom: 4,
+  } %>
+
+  <%
+    number_of_articles = Array.new(4)
+    s = "Following a thorough review of existing procedure, a government body has today announced that further work is necessary."
+  %>
+  <div class="event-grid">
+    <% number_of_articles.each do |item| %>
+      <div class="event-grid__item">
+        <%= render "govuk_publishing_components/components/image_card", {
+          href: "/also-not-a-page",
+          image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+          image_alt: "some meaningful alt text please",
+          heading_text: "Government does things",
+          description: "#{s.slice(0, rand(s.size) + 20)}..."
+        } %>
+      </div>
+    <% end %>
+  </div>
+</div>

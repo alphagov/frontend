@@ -1,4 +1,6 @@
 module GovspeakContentsList
+  include TypographyHelper
+
   MINIMUM_CHARACTER_COUNT = 415
   MINIMUM_CHARACTER_COUNT_IF_IMAGE_PRESENT = 224
   MINIMUM_TABLE_ROW_COUNT = 13

@@ -123,6 +123,8 @@ Rails.application.routes.draw do
 
     get "/statistical-data-sets/:slug", to: "statistical_data_set#show"
 
+    get "/statistics/announcements/:slug", to: "statistics_announcement#show"
+
     get "/topical-events/:slug/about", to: "flexible_page#show"
   end
 

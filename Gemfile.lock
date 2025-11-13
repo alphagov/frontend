@@ -148,6 +148,8 @@ GEM
     factory_bot_rails (6.5.1)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
+    faker (3.5.2)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.1)
     find_a_port (1.0.1)
     gds-api-adapters (101.0.0)
@@ -762,6 +764,7 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   factory_bot_rails
+  faker
   gds-api-adapters
   govspeak (~> 10.6)
   govuk_ab_testing

@@ -1,0 +1,42 @@
+.event {
+  padding: 0;
+}
+
+.event-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+
+.event-grid__item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  // width: 30%;
+  flex-basis: 30%;
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    // flex-grow: 2;
+  }
+}
+/*
+.gem-c-image-card {
+  max-width: 480px;
+}
+*/
+
+/*
+// grid doesn't like elements being different sizes, and struggles with that particularly if you
+// don't know how many items you're going to have
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 1fr 1fr 1fr;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.event-grid__item {
+}
+*/

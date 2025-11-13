@@ -1,0 +1,199 @@
+schema_name: landing_page
+document_type: landing_page
+base_path: test
+details:
+  theme: prime-ministers-office-10-downing-street
+  image:
+    url: https://assets.publishing.service.gov.uk/media/675090c72956d2d4b1632afd/PFC_GOV_UK_960x640-100.jpg
+  navigation_groups:
+  - id: Top Menu
+    name: Plan for Change
+    links:
+    - text: Plan for Change
+      links:
+        - text: Our Missions
+          href: /missions
+    - text: Strong Foundations
+      links:
+        - text: Economic Stability
+          href: /missions/strong-foundations#economic-stability
+        - text: Secure Borders
+          href: /missions/strong-foundations#secure-borders
+        - text: National Security
+          href: /missions/strong-foundations#national-security
+
+    - text: Missions
+      links:
+        - text: Kickstarting Economic Growth
+          href: /missions/economic-growth
+        - text: An NHS Fit for the Future
+          href: /missions/nhs
+        - text: Safer Streets
+          href: /missions/safer-streets
+        - text: Break Down Barriers to Opportunity
+          href: /missions/opportunity
+        - text: Make Britain a Clean Energy Superpower
+          href: /missions/clean-energy
+  - id: Sidebar
+    title: Foundations and Missions
+    links:
+      - text: Strong Foundations
+        href: /missions/strong-foundations
+      - text: Kickstarting Economic Growth
+        href: /missions/economic-growth
+      - text: An NHS Fit for the Future
+        href: /missions/nhs
+      - text: Safer Streets
+        href: /missions/safer-streets
+      - text: Break Down Barriers to Opportunity
+        href: /missions/opportunity
+      - text: Make Britain a Clean Energy Superpower
+        href: /missions/clean-energy
+  breadcrumbs:
+  - title: Home
+    href: /
+  blocks:
+  - type: main_navigation
+    navigation_group_id: Top Menu
+  - type: hero
+    theme_colour: 5
+    image:
+      sources:
+        desktop: https://assets.publishing.service.gov.uk/media/67471ea1886c31e352d8d0a3/hero_desktop_2x_E_Desktop_HD-50.jpg
+        desktop_2x: https://assets.publishing.service.gov.uk/media/67471ea1886c31e352d8d0a3/hero_desktop_2x_E_Desktop_HD-50.jpg
+        mobile: https://assets.publishing.service.gov.uk/media/67471eaca72d7eb7f348c03c/hero_mobile_2x_E_MOBILE_HD-50.jpg
+        mobile_2x: https://assets.publishing.service.gov.uk/media/67471eaca72d7eb7f348c03c/hero_mobile_2x_E_MOBILE_HD-50.jpg
+        tablet: https://assets.publishing.service.gov.uk/media/67471eb6cf0d45234dd8d09d/hero_tablet_2x_E_Tablet_HD-50.jpg
+        tablet_2x: https://assets.publishing.service.gov.uk/media/67471eb6cf0d45234dd8d09d/hero_tablet_2x_E_Tablet_HD-50.jpg
+    hero_content:
+      blocks:
+        - type: heading
+          heading_level: 1
+          font_size: xl
+          content: "Plan for Change: delivering reduced waiting times"
+        - type: button
+          text: Press me (not searchable)
+        - type: govspeak
+          content: |
+            <p>As part of his <a href="https://www.gov.uk/missions" class="govuk-link">Plan for Change</a> the Prime Minister and the Secretary of State for Health and Social Care have committed to cutting waiting times; meaning patients will be seen and treated faster.</p>
+  - type: two_column_layout
+    theme: two_thirds_one_third
+    blocks:
+    - type: blocks_container
+      blocks:
+      - type: govspeak
+        content: |
+          <p>We set ourselves the ambitious milestone of meeting the NHS standard of treating 92% of patients within 18 weeks of referral, and we're making great progress towards reaching that.</p>
+          <p>Alongside our 10 Year Health Plan – part of the government's health mission to create a new model of care, fit for the future – we are supporting the NHS to hit this target by rolling out and expanding new services, including Community Diagnostic Centres (CDCs) to provide tests checks and scans faster and closer to home, and surgical hubs to deliver millions more operations.</p>
+  - type: map
+  - type: two_column_layout
+    theme: two_thirds_one_third
+    full_width_background: true
+    blocks:
+    - type: blocks_container
+      blocks:
+      - type: heading
+        content: What we've done so far
+        heading_level: 2
+        margin_bottom: 0
+      - type: columns_layout
+        columns: 3
+        blocks:
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>&pound;26B</em>
+                Invested in the health service
+              </p>
+            </div>
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>170</em>
+                CDCs open
+              </p>
+            </div>
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>32</em>
+                More CDCs open 12/7 since July 2024
+              </p>
+            </div>
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>4.5M</em>
+                Tests, checks and scans carried out in CDCs between July 2024 and February 2025
+              </p>
+            </div>
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>17</em>
+                New surgical hubs since July 2024
+              </p>
+            </div>
+        - type: govspeak
+          content: |
+            <div class="stat-headline">
+              <p>
+                <em>201K</em>
+                Waiting list cut by 201,000 since July 2024
+              </p>
+            </div>
+      - type: govspeak
+        content: |
+          <p class="govuk-body govuk-!-margin-bottom-0">Last update on 2025/07/11</p>
+  - type: two_column_layout
+    theme: two_thirds_one_third
+    blocks:
+    - type: blocks_container
+      blocks:
+      - type: heading
+        content: What is a Community Diagnostic Centre?
+        heading_level: 2
+      - type: govspeak
+        content: |
+          <p>Community Diagnostic Centres (CDCs) are 'one stop shops' that provide a broad range of tests, checks and scans. They are based in a single location, often away from hospitals and closer to people’s homes and communities.</p>
+          <p>They help relieve pressure on hospitals, increase the number of appointments on offer and give patients quicker and more convenient access to tests so they can be diagnosed and treated faster.</p>
+          <p>CDCs bring together all the NHS staff and technology required to provide patients with a range of services, under one roof, in a single visit. This means a patient could get an MRI, blood test, ultrasound all in a single visit without stepping out of the building.</p>
+      - type: heading
+        content: What services do CDCs provide?
+        font_size: m
+        heading_level: 3
+      - type: govspeak
+        content: |
+          <ul>
+            <li>
+              <strong>Imaging</strong>
+              <br>
+              e.g. CT, MRI, ultrasound, X-ray, Dexa, mammography
+            </li>
+            <li>
+              <strong>Endoscopy</strong>
+              <br>
+              e.g. gastroscopy, flexi sigmoidoscopy, colonoscopy
+            </li>
+            <li>
+              <strong>Pathology</strong>
+              <br>
+              e.g. blood testing and point of care testing
+            </li>
+            <li>
+              <strong>Physical tests</strong>
+              <br>
+              e.g. respiratory, cardiology, sleep studies, audiology
+            </li>
+          </ul>
+      - type: heading
+        content: What is a surgical hub?
+        heading_level: 2
+      - type: govspeak
+        content: |
+          <p>Surgical hubs carry out some simpler surgical procedures to save you going into hospital. They bring together skilled doctors and nurses under one roof. This will reduce waiting times for some of the most common procedures such as cataract surgeries and hip replacements.</p>

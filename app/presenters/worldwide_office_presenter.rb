@@ -1,5 +1,4 @@
 class WorldwideOfficePresenter < ContentItemPresenter
-  include ContentsList
   include WorldwideOrganisationBranding
 
   def formatted_title
@@ -7,7 +6,7 @@ class WorldwideOfficePresenter < ContentItemPresenter
   end
 
   def body
-    content_item.dig("details", "access_and_opening_times")
+    content_item.content_store_response["details"]["access_and_opening_times"]
   end
 
   def contact

@@ -14,10 +14,6 @@
     canonical_url: Plek.new.website_root + content_item.current_part_path,
     body: content_item.current_part_body.presence,
   } %>
-
-  <% if content_item.is_evisa? %>
-    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker" data-ga4-track-type="headings">
-  <% end %>
 <% end %>
 
 <% if content_item.first_part? %>

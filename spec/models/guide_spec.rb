@@ -35,22 +35,6 @@ RSpec.describe Guide do
     end
   end
 
-  describe "#is_evisa?" do
-    it "returns false" do
-      expect(guide.is_evisa?).to be false
-    end
-
-    context "when the base_path is /evisa" do
-      let(:content_store_response) do
-        GovukSchemas::Example.find("guide", example_name: "guide").tap { |i| i.merge!("base_path" => "/evisa") }
-      end
-
-      it "returns true" do
-        expect(guide.is_evisa?).to be true
-      end
-    end
-  end
-
   describe "#part_of_step_navs?" do
     it "returns false" do
       expect(guide.part_of_step_navs?).to be false

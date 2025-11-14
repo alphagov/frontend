@@ -1,30 +1,29 @@
-require "test_helper"
-
-class TypographyHelperTest < ActionView::TestCase
+RSpec.describe TypographyHelper do
+  include described_class
   include ERB::Util
 
-  test "nbsp_between_last_two_words" do
-    assert_equal "this and&nbsp;that", nbsp_between_last_two_words("this and that")
-    assert_equal "this and&nbsp;that", nbsp_between_last_two_words("this and that ")
-    assert_equal "this and&nbsp;that.", nbsp_between_last_two_words("this and that.")
-    assert_equal "this and&nbsp;that.", nbsp_between_last_two_words("this and that. ")
-    assert_equal "this and&nbsp;that", nbsp_between_last_two_words("this and that\n\n")
-    assert_equal "multiline\nthis and&nbsp;that", nbsp_between_last_two_words("multiline\nthis and that")
-    assert_equal "NCS is for 16 and 17 year&nbsp;olds.", nbsp_between_last_two_words("NCS is for 16 and 17 year olds.")
+  it "nbsp_between_last_two_words" do
+    expect(nbsp_between_last_two_words("this and that")).to eq("this and&nbsp;that")
+    expect(nbsp_between_last_two_words("this and that ")).to eq("this and&nbsp;that")
+    expect(nbsp_between_last_two_words("this and that.")).to eq("this and&nbsp;that.")
+    expect(nbsp_between_last_two_words("this and that. ")).to eq("this and&nbsp;that.")
+    expect(nbsp_between_last_two_words("this and that\n\n")).to eq("this and&nbsp;that")
+    expect(nbsp_between_last_two_words("multiline\nthis and that")).to eq("multiline\nthis and&nbsp;that")
+    expect(nbsp_between_last_two_words("NCS is for 16 and 17 year olds.")).to eq("NCS is for 16 and 17 year&nbsp;olds.")
   end
 
-  test "nbsp_between_last_two_words leaves alone single words" do
-    assert_equal "this", nbsp_between_last_two_words("this")
+  it "nbsp_between_last_two_words leaves alone single words" do
+    expect(nbsp_between_last_two_words("this")).to eq("this")
   end
 
-  test "nbsp_between_last_two_words isn't unsafe" do
-    assert_equal "&lt;b&gt;this&lt;b&gt; &amp; that&nbsp;thing", nbsp_between_last_two_words("<b>this<b> & that thing")
-    assert_equal "&lt;b&gt;this&lt;b&gt; &amp;&nbsp;that", nbsp_between_last_two_words("<b>this<b> &amp; that")
+  it "nbsp_between_last_two_words isn't unsafe" do
+    expect(nbsp_between_last_two_words("<b>this<b> & that thing")).to eq("&lt;b&gt;this&lt;b&gt; &amp; that&nbsp;thing")
+    expect(nbsp_between_last_two_words("<b>this<b> &amp; that")).to eq("&lt;b&gt;this&lt;b&gt; &amp;&nbsp;that")
   end
 
-  test "nbsp_between_last_two_words handles nil descriptions" do
-    assert_nothing_raised do
-      assert_nil nbsp_between_last_two_words(nil)
-    end
+  it "nbsp_between_last_two_words handles nil descriptions" do
+    expect {
+      nbsp_between_last_two_words(nil)
+    }.not_to raise_error
   end
 end

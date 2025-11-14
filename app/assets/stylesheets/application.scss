@@ -101,9 +101,15 @@ $govuk-include-default-font-face: true;
   align-items: center;
   background: govuk-colour("light-grey");
   display: flex;
-  gap: 10px;
   justify-content: center;
   min-height: 100px;
+
+  .govuk-app-banner__container {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
 
   h2 {
     color: govuk-color("white");

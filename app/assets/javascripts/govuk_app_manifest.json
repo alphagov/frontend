@@ -1,6 +1,6 @@
 {
-  "short_name": "MyApp",
-  "name": "My Awesome App",
+  "short_name": "GovUkApp",
+  "name": "GOV.UK App",
   "icons": [
     {
       "src": "/assets/frontend/app-promo2/govuk-app-icon.png",

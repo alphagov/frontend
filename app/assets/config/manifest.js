@@ -3,7 +3,7 @@
 //= link main.js
 //= link dependencies.js
 //= link test-dependencies.js
-//= link app_manifest.json
+//= link govuk_app_manifest.json
 //= link views/travel-advice.js
 //= link views/landing_page/map/leaflet.js
 //= link views/landing_page/map/data/lookup.js

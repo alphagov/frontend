@@ -4,7 +4,7 @@
 %>
 
 <%= content_for :head do %>
-  <link rel="manifest" href="<%= asset_path('app_manifest.json') %>">
+  <link rel="manifest" href="<%= asset_path("govuk_app_manifest.json") %>">
   <%= csp_meta_tag %>
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <% if content_item.to_h %>
@@ -31,11 +31,13 @@
 
   <div id="govukAppBanner" class="govuk-app-banner">
     <div class="govuk-width-container">
-      <img width="60" alt src="<%= asset_path("app-promo/govuk-app-icon.png") %>">
-      <h2 class="govuk-!-font-size-24 govuk-!-font-weight-regular govuk-!-margin-bottom-0 govuk-heading-m">
-        Download the GOV.UK App on Google Play
-      </h2>
-      <button id="govukAppBannerButton" class="govuk-!-margin-bottom-0 govuk-button govuk-button--inverse" hidden>Install App</button>
+      <div class="govuk-app-banner__container">
+        <img width="60" alt src="<%= asset_path("app-promo/govuk-app-icon.png") %>">
+        <h2 class="govuk-!-font-size-24 govuk-!-font-weight-regular govuk-!-margin-bottom-0 govuk-heading-m">
+          Download the GOV.UK App on Google Play
+        </h2>
+        <button id="govukAppBannerButton" class="govuk-!-margin-bottom-0 govuk-button govuk-button--inverse" hidden>Install App</button>
+      </div>
     </div>
   </div>
 

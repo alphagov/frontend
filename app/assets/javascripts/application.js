@@ -3,7 +3,7 @@
 //= require main
 //= require govuk_publishing_components/dependencies
 
-let deferredPrompt
+var deferredPrompt
 const govukAppBanner = document.getElementById('govukAppBanner')
 const govukAppBannerButton = document.getElementById('govukAppBannerButton')
 
@@ -15,7 +15,8 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 govukAppBannerButton.addEventListener('click', async () => {
   // Hide the install button
-  govukAppBannerButton.style.display = 'none'
+  govukAppBanner.style.display = 'none'
+  console.log(deferredPrompt)
 
   if (deferredPrompt) {
     deferredPrompt.prompt()

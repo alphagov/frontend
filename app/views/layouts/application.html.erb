@@ -30,11 +30,13 @@
   <%= yield :before_content %>
 
   <div id="govukAppBanner" class="govuk-app-banner">
-    <img width="60" alt src="<%= asset_path("app-promo/govuk-app-icon.png") %>">
-    <h2 class="govuk-!-font-size-24 govuk-!-font-weight-regular govuk-!-margin-bottom-0 govuk-heading-m">
-      Download the GOV.UK App on Google Play
-    </h2>
-    <button id="govukAppBannerButton" class="govuk-!-margin-bottom-0 govuk-button govuk-button--inverse" hidden>Install App</button>
+    <div class="govuk-width-container">
+      <img width="60" alt src="<%= asset_path("app-promo/govuk-app-icon.png") %>">
+      <h2 class="govuk-!-font-size-24 govuk-!-font-weight-regular govuk-!-margin-bottom-0 govuk-heading-m">
+        Download the GOV.UK App on Google Play
+      </h2>
+      <button id="govukAppBannerButton" class="govuk-!-margin-bottom-0 govuk-button govuk-button--inverse" hidden>Install App</button>
+    </div>
   </div>
 
   <div class="govuk-width-container">

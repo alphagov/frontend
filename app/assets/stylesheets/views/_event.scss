@@ -1,42 +1,88 @@
+@import "govuk_publishing_components/individual_component_support";
+
 .event {
-  padding: 0;
+  padding-top: 0;
 }
 
-.event-grid {
+.details-wrapper {
+  background: white;
+}
+
+.hero {
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.hero__container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  column-gap: 30px;
-}
+  justify-content: flex-end;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 1024px;
+  background: $govuk-brand-colour;
+  background: #d2e2f1;
 
-.event-grid__item {
-  flex-grow: 1;
-  flex-shrink: 1;
-  // width: 30%;
-  flex-basis: 30%;
-
-  &:nth-child(1),
-  &:nth-child(2) {
-    // flex-grow: 2;
+  @include govuk-media-query($until: tablet) {
+    display: block;
   }
 }
-/*
-.gem-c-image-card {
-  max-width: 480px;
-}
-*/
 
-/*
-// grid doesn't like elements being different sizes, and struggles with that particularly if you
-// don't know how many items you're going to have
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // 1fr 1fr 1fr;
-  gap: 30px;
-  justify-content: space-between;
+.hero__detail {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+  max-width: 450px;
+  padding: 0 30px;
+  // box-shadow: 0 0 5px inset black;
+  flex-shrink: 1;
+
+  @include govuk-media-query($until: tablet) {
+    max-width: none;
+    padding: 0 15px;
+  }
 }
 
-.event-grid__item {
+.hero__image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 50%;
+  overflow: hidden;
+  // box-shadow: 0 0 5px inset yellow;
+
+  @include govuk-media-query($until: tablet) {
+    width: auto;
+  }
 }
-*/
+
+.figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.figure__image {
+  // max-width: 100%;
+  // max-height: 35vh;
+  // min-height: 100%;
+  // display: block;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+
+  @include govuk-media-query($until: tablet) {
+    position: relative;
+    height: auto;
+    max-height: 50vh;
+    display: block;
+  }
+}
+
+.figure__caption {
+
+}

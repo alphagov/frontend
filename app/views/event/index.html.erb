@@ -4,35 +4,52 @@
 
 <% content_for :main_classes do %>event<% end %>
 
-<%= render "govuk_publishing_components/components/inverse_header", {} do %>
-  <div class="govuk-width-container">
-    <%= render "govuk_publishing_components/components/breadcrumbs", {
-      collapse_on_mobile: true,
-      margin_bottom: 8,
-      breadcrumbs: [
-        {
-          title: "Home",
-          url: "/"
-        },
-      ]
-    } %>
+<div class="hero">
+  <div class="hero__container">
+    <div class="hero__detail">
+      <%= render "govuk_publishing_components/components/breadcrumbs", {
+        collapse_on_mobile: true,
+        margin_bottom: 8,
+        # inverse: true,
+        breadcrumbs: [
+          {
+            title: "Home",
+            url: "/"
+          },
+        ]
+      } %>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-one-half">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: "VE Day and VJ Day 80th anniversaries",
-          font_size: "xl",
-          margin_bottom: 6,
-          heading_level: 1,
-        } %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "VE Day and VJ Day 80th anniversaries",
+        font_size: "xl",
+        margin_bottom: 6,
+        heading_level: 1,
+        # inverse: true,
+      } %>
 
-        <%= render "govuk_publishing_components/components/lead_paragraph", {
-          text: "2025 marks the 80th anniversaries of VE Day (Victory in Europe Day) on 8th May and VJ Day (Victory over Japan Day) on 15th August."
-        } %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
+        text: "2025 marks the 80th anniversaries of VE Day (Victory in Europe Day) on 8th May and VJ Day (Victory over Japan Day) on 15th August.",
+        # inverse: true,
+      } %>
+
+      <div class="details-wrapper">
+        <%= render "govuk_publishing_components/components/details", {
+          title: "Make this text bigger"
+        } do %>
+          We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
+        <% end %>
       </div>
     </div>
+    <div class="hero__image-wrapper">
+      <figure class="figure">
+        <%= image_tag("events/image.jpg", :alt => "an image", :class => "figure__image") %>
+        <figcaption class="figure__caption">
+        </figcaption>
+      </figure>
+    </div>
   </div>
-<% end %>
+</div>
+
 
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
@@ -50,20 +67,53 @@
   } %>
 
   <%
-    number_of_articles = Array.new(4)
+    articles = Array.new(3)
+    number_of_articles = articles.length
     s = "Following a thorough review of existing procedure, a government body has today announced that further work is necessary."
   %>
-  <div class="event-grid">
-    <% number_of_articles.each do |item| %>
-      <div class="event-grid__item">
-        <%= render "govuk_publishing_components/components/image_card", {
-          href: "/also-not-a-page",
-          image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
-          image_alt: "some meaningful alt text please",
-          heading_text: "Government does things",
-          description: "#{s.slice(0, rand(s.size) + 20)}..."
-        } %>
-      </div>
+  <% if number_of_articles == 1 %>
+    <% articles.each do |item| %>
+      <%= render "govuk_publishing_components/components/image_card", {
+        href: "/also-not-a-page",
+        image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+        image_alt: "some meaningful alt text please",
+        heading_text: "Government does things",
+        description: "#{s.slice(0, rand(s.size) + 20)}...",
+        large: true,
+      } %>
     <% end %>
-  </div>
+  <% elsif number_of_articles == 2 || number_of_articles == 4 %>
+    <div class="govuk-grid-row">
+      <% articles.each do |item| %>
+        <div class="govuk-grid-column-one-half">
+          <%= render "govuk_publishing_components/components/image_card", {
+            href: "/also-not-a-page",
+            image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+            image_alt: "some meaningful alt text please",
+            heading_text: "Government does things",
+            description: "#{s.slice(0, rand(s.size) + 20)}...",
+          } %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="govuk-grid-row">
+      <% articles.each.with_index(1) do |item, index| %>
+        <div class="govuk-grid-column-one-third">
+          <%= render "govuk_publishing_components/components/image_card", {
+            href: "/also-not-a-page",
+            image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+            image_alt: "some meaningful alt text please",
+            heading_text: "Government does things",
+            description: "#{s.slice(0, rand(s.size) + 20)}..."
+          } %>
+        </div>
+        <% if index % 3 == 0 %>
+          </div>
+          <div class="govuk-grid-row">
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
 </div>

@@ -3,6 +3,7 @@ class CalendarController < ContentItemsController
   include BankHolAbTestable
 
   before_action :set_cors_headers, if: :json_request?
+  before_action :set_locale
   rescue_from Calendar::CalendarNotFound, with: :simple_404
   skip_before_action :set_expiry, only: [:division]
 

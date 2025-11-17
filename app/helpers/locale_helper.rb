@@ -11,7 +11,7 @@ module LocaleHelper
 
   def lang_attribute
     locale = content_item&.locale
-    "lang=#{locale}" unless I18n.default_locale.to_s == locale.to_s
+    "lang=\"#{locale}\"" unless I18n.default_locale.to_s == locale.to_s
   end
 
   def page_text_direction

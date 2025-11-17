@@ -10,7 +10,6 @@
       <%= render "govuk_publishing_components/components/breadcrumbs", {
         collapse_on_mobile: true,
         margin_bottom: 8,
-        # inverse: true,
         breadcrumbs: [
           {
             title: "Home",
@@ -29,7 +28,6 @@
 
       <%= render "govuk_publishing_components/components/lead_paragraph", {
         text: "2025 marks the 80th anniversaries of VE Day (Victory in Europe Day) on 8th May and VJ Day (Victory over Japan Day) on 15th August.",
-        # inverse: true,
       } %>
 
       <div class="details-wrapper">
@@ -50,7 +48,6 @@
   </div>
 </div>
 
-
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -67,7 +64,7 @@
   } %>
 
   <%
-    articles = Array.new(3)
+    articles = Array.new(4)
     number_of_articles = articles.length
     s = "Following a thorough review of existing procedure, a government body has today announced that further work is necessary."
   %>
@@ -84,7 +81,7 @@
     <% end %>
   <% elsif number_of_articles == 2 || number_of_articles == 4 %>
     <div class="govuk-grid-row">
-      <% articles.each do |item| %>
+      <% articles.each.with_index(1) do |item, index| %>
         <div class="govuk-grid-column-one-half">
           <%= render "govuk_publishing_components/components/image_card", {
             href: "/also-not-a-page",
@@ -94,6 +91,10 @@
             description: "#{s.slice(0, rand(s.size) + 20)}...",
           } %>
         </div>
+        <% if index % 2 == 0 %>
+          </div>
+          <div class="govuk-grid-row">
+        <% end %>
       <% end %>
     </div>
   <% else %>
@@ -115,5 +116,4 @@
       <% end %>
     </div>
   <% end %>
-
 </div>

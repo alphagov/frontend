@@ -509,8 +509,8 @@ sq:
         other: Statistikat Zyrtare
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Njoftimi i statistikave zyrtare
+        other: Njoftime të statistikave zyrtare
     open_call_for_evidence:
       name:
         one:

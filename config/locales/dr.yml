@@ -495,8 +495,8 @@ dr:
         other:
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه آمار رسمی
+        other: اطلاعیه آمار رسمی
     open_call_for_evidence:
       name:
         one:

@@ -495,8 +495,8 @@ he:
         other:
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: הודעה סטטיסטית רשמית
+        other: הודעות סטטיסטיות רשמיות
     open_call_for_evidence:
       name:
         one:

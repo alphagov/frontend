@@ -495,8 +495,8 @@ es:
         other:
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Anuncio de estadísticas oficiales
+        other: Anuncios de estadísticas oficiales
     open_call_for_evidence:
       name:
         one:

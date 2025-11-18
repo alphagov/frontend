@@ -495,8 +495,8 @@ hu:
         other:
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Hivatalos statisztikai bejelentés
+        other: Hivatalos statisztikai bejelentések
     open_call_for_evidence:
       name:
         one:

@@ -495,8 +495,8 @@ kk:
         other:
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ресми статистика хабарландыруы
+        other: Ресми статистика хабарландырулары
     open_call_for_evidence:
       name:
         one:

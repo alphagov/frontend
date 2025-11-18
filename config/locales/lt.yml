@@ -566,8 +566,8 @@ lt:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oficialios statistikos pranešimas
+        other: Oficialios statistikos pranešimai
     open_call_for_evidence:
       name:
         few:

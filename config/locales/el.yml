@@ -516,8 +516,8 @@ el:
         other: Επίσημη Στατιστικά Στοιχεία
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Επίσημη ανακοίνωση στατιστικών
+        other: Επίσημες ανακοινώσεις στατιστικών
     open_call_for_evidence:
       name:
         one:

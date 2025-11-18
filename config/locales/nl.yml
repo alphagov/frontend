@@ -516,8 +516,8 @@ nl:
         other: Officiële statistieken
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Aankondiging van officiële statistieken
+        other: Aankondigingen van officiële statistieken
     open_call_for_evidence:
       name:
         one:

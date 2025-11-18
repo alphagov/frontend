@@ -516,8 +516,8 @@ lv:
         other: Statistika
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Paziņojums par oficiālo statistiku
+        other: Paziņojumi par oficiālo statistiku
     open_call_for_evidence:
       name:
         one:

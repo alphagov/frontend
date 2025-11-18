@@ -516,8 +516,8 @@ ka:
         other: ოფიციალური სტატისტიკა
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: ოფიციალური სტატისტიკის განცხადება
+        other: ოფიციალური სტატისტიკის განცხადებები
     open_call_for_evidence:
       name:
         one:

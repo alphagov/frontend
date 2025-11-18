@@ -516,8 +516,8 @@ fi:
         other: Viralliset tilastot
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Virallinen tilastoilmoitus
+        other: Viralliset tilastotiedot
     open_call_for_evidence:
       name:
         one:

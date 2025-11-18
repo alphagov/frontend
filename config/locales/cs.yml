@@ -566,8 +566,8 @@ cs:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oficiální statistické oznámení
+        other: Oficiální statistická oznámení
     open_call_for_evidence:
       name:
         few:

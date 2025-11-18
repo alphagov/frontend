@@ -516,8 +516,8 @@ pa-pk:
         other: سرکاری اعدادوشمار
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: سرکاری اعدادوشمار دا اعلان
+        other: سرکاری اعدادوشمار دے اعلانات
     open_call_for_evidence:
       name:
         one:

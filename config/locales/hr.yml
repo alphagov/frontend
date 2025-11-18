@@ -566,8 +566,8 @@ hr:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Objava službene statistike
+        other: Objave službene statistike
     open_call_for_evidence:
       name:
         few:

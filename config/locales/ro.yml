@@ -566,8 +566,8 @@ ro:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Anunț oficial de statistică
+        other: Anunțuri oficiale de statistică
     open_call_for_evidence:
       name:
         few:

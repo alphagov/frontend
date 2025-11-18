@@ -516,8 +516,8 @@ tk:
         other: Resmi statistika
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Resmi statistika bildirişi
+        other: Resmi statistika bildirişleri
     open_call_for_evidence:
       name:
         one:

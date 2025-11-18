@@ -516,8 +516,8 @@ it:
         other: Statistiche ufficiali
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Annuncio statistico ufficiale
+        other: Annunci statistici ufficiali
     open_call_for_evidence:
       name:
         one:

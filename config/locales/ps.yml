@@ -516,8 +516,8 @@ ps:
         other: رسمي احصایې
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: د رسمي احصایې اعلان
+        other: د رسمي احصایې اعلانونه
     open_call_for_evidence:
       name:
         one:

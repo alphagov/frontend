@@ -516,8 +516,8 @@ tr:
         other: Resmi İstatistikler
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ulusal İstatistik duyurusu
+        other: Ulusal İstatistik duyuruları
     open_call_for_evidence:
       name:
         one:

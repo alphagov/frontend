@@ -516,8 +516,8 @@ bn:
         other: দাপ্তরিক পরিসংখ্যান
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: দাপ্তরিক পরিসংখ্যানের ঘোষণা
+        other: দাপ্তরিক পরিসংখ্যানের ঘোষণাসমূহ
     open_call_for_evidence:
       name:
         one:

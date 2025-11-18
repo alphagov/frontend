@@ -516,8 +516,8 @@ bg:
         other: Официална статистика
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Съобщение от официалната статистика
+        other: Съобщения от официалните статистики
     open_call_for_evidence:
       name:
         one:

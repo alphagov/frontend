@@ -516,8 +516,8 @@ ne:
         other: आधिकारिक तथ्याङ्क
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: आधिकारिक तथ्याङ्क घोषणा
+        other: आधिकारिक तथ्याङ्क घोषणाहरु
     open_call_for_evidence:
       name:
         one:

@@ -516,8 +516,8 @@ hy:
         other: Պաշտոնական վիճակագրություն
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Պաշտոնական վիճակագրական հայտարարություն
+        other: Պաշտոնական վիճակագրական հայտարարություններ
     open_call_for_evidence:
       name:
         one:

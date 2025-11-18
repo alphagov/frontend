@@ -516,8 +516,8 @@ da:
         other: Officielle statistikker
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Officielle statistikmeddelelse
+        other: Officielle statistikmeddelelser
     open_call_for_evidence:
       name:
         one:

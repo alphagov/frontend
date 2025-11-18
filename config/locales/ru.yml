@@ -616,8 +616,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Доклад по официальным статистическим данным
+        other: Доклады по официальным статистическим данным
     open_call_for_evidence:
       name:
         few:

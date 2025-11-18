@@ -615,8 +615,8 @@ gd:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Fógra staitisticí oifigiúla
+        other: Fógraí staitisticí oifigiúla
         two:
     open_call_for_evidence:
       name:

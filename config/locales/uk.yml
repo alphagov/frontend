@@ -616,8 +616,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Оголошення даних офіційної статистики
+        other: Оголошення даних офіційної статистики
     open_call_for_evidence:
       name:
         few:

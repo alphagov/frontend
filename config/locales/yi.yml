@@ -368,6 +368,12 @@ yi:
       name:
         one:
         other:
+      print_meta_data:
+        available_at:
+        copyright:
+        isbn:
+        licence_html:
+        third_party:
     impact_assessment:
       name:
         one:

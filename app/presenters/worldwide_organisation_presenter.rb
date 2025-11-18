@@ -33,10 +33,6 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
     links.to_sentence.html_safe
   end
 
-  def show_default_breadcrumbs?
-    false
-  end
-
   def logo
     content_item.content_store_response["details"]["logo"] || []
   end

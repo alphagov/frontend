@@ -609,8 +609,8 @@
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Kunngjøring om statistikk
+        other: Kunngjøringer om statistikk
     statutory_guidance:
       name:
         one:

@@ -609,8 +609,8 @@ el:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Ανακοίνωση έκδοσης στατιστικών
+        other: Ανακοινώσεις έκδοσης στατιστικών
     statutory_guidance:
       name:
         one:

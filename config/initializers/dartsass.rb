@@ -8,6 +8,7 @@ APP_STYLESHEETS = {
   "views/_csv_preview.scss" => "views/_csv_preview.css",
   "views/_guide.scss" => "views/_guide.css",
   "views/_homepage.scss" => "views/_homepage.css",
+  "views/_image-test.scss" => "views/_image-test.css",
   "views/_local-transaction.scss" => "views/_local-transaction.css",
   "views/_location_form.scss" => "views/_location_form.css",
   "views/_place-list.scss" => "views/_place-list.css",

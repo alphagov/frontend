@@ -1,0 +1,2 @@
+RSpec.describe StatisticsAnnouncement do
+end

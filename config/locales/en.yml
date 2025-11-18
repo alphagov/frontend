@@ -366,6 +366,10 @@ en:
     guide:
       pages_in_guide: Pages in this guide
       skip_contents: Skip contents
+    html_publication:
+      name:
+        one: HTML Publication
+        other: HTML Publications
     impact_assessment:
       name:
         one: Impact assessment

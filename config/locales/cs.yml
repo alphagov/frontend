@@ -395,6 +395,11 @@ cs:
     guide:
       pages_in_guide: Stránky v této příručce
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
     impact_assessment:
       name:
         few:

@@ -426,6 +426,12 @@ pl:
     guide:
       pages_in_guide: Strony w tym przewodniku
       skip_contents:
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
     impact_assessment:
       name:
         few:

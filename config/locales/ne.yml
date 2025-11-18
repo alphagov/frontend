@@ -364,6 +364,10 @@ ne:
     guide:
       pages_in_guide: यस गाइडका पृष्ठहरू
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one:

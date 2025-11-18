@@ -333,6 +333,9 @@ zh-tw:
     guide:
       pages_in_guide: 本指南中的頁面
       skip_contents:
+    html_publication:
+      name:
+        other:
     impact_assessment:
       name:
         other:

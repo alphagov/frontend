@@ -364,6 +364,10 @@ ku:
     guide:
       pages_in_guide: لاپەڕەکانی ئەم ڕێنماییە
       skip_contents: ناوەڕۆکەکان بەجێبهێڵە
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one: هەڵسەنگاندنی کاریگەرییەکان

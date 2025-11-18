@@ -426,6 +426,12 @@ gd:
     guide:
       pages_in_guide: Leathanaigh na treorach seo
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
+        two:
     impact_assessment:
       name:
         few:

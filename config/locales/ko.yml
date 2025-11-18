@@ -333,6 +333,9 @@ ko:
     guide:
       pages_in_guide: 이 지침 내 페이지
       skip_contents:
+    html_publication:
+      name:
+        other:
     impact_assessment:
       name:
         other:

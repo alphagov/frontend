@@ -509,8 +509,8 @@ sv:
         other: Officiell statistik
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelande om officiell statistik
+        other: Meddelanden om officiell statistik
     open_call_for_evidence:
       name:
         one:

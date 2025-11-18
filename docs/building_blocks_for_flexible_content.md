@@ -230,13 +230,13 @@ Compound blocks generally render more than one component and can contain nested 
 
 #### Box
 
-A box block renders its `content` value as a [Heading component](https://components.publishing.service.gov.uk/component-guide/heading). If an `href:` is specified, the heading will link to that location. Subblocks are laid out vertically beneath the heading.
+A box block renders its `content` value as a plain text, styled in bold with a large font-size. If an `href:` is specified, the content will link to that location. Subblocks are laid out vertically beneath the content section.
 
 Box blocks have a light grey background and can be styled with a predefined top border for colour-coded content using the `theme_colour` property.
 
 ```yaml
 - type: box
-  content: This is a heading
+  content: This is the content
   href: https://www.gov.uk
   theme_colour: 1
   box_content:

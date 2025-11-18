@@ -629,9 +629,17 @@ gu:
         one:
         other:
     statistics_announcement:
+      cancellation_date: રદ કર્યાની તારીખ
+      cancelled: આંકડાનું પ્રકશન રદ થયું
+      changed_date: રીલીઝ તારીખ બદલવામાં આવી છે
+      forthcoming: આ આંકડાઓ રીલીઝ કરાશે
       name:
         one: આંકડા જારી કરવાની જાહેરાત
         other: આંકડા જારી કરવાની જાહેરાતો
+      previous_date: પાછલી તારીખ
+      proposed_date: પ્રસ્તાવિત રીલીઝ
+      reason_for_change: પરીવર્તન માટેનું કારણ
+      release_date: રીલીઝ તારીખ
     statutory_guidance:
       name:
         one: વૈધાનિક માર્ગદર્શન

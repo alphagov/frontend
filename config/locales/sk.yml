@@ -702,10 +702,18 @@ sk:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Dátum zrušenia
+      cancelled: Zrušené vydávanie štatistík
+      changed_date: Dátum vydania bol zmenený
+      forthcoming: Tieto štatistiky budú zverejnené
       name:
         few:
         one: Oznámenie o vydaní štatistík
         other: Oznámenia o vydaní štatistík
+      previous_date: Predchádzajúci dátum
+      proposed_date: Navrhované vydanie
+      reason_for_change: Dôvod zmeny
+      release_date: Dátum vydania
     statutory_guidance:
       name:
         few:

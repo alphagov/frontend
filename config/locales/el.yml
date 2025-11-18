@@ -629,9 +629,17 @@ el:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Ημερομηνία ακύρωσης
+      cancelled: Η στατιστική έκδοση ακυρώθηκε
+      changed_date: Η ημερομηνία κυκλοφορίας άλλαξε
+      forthcoming: Αυτά τα στατιστικά στοιχεία θα δημοσιοποιηθούν
       name:
         one: Ανακοίνωση έκδοσης στατιστικών
         other: Ανακοινώσεις έκδοσης στατιστικών
+      previous_date: Προηγούμενη ημερομηνία
+      proposed_date: Προτεινόμενη κυκλοφορία
+      reason_for_change: Λόγος για την αλλαγή
+      release_date: Ημερομηνία κυκλοφορίας
     statutory_guidance:
       name:
         one: Νομικές οδηγίες

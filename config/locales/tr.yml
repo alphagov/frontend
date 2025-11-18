@@ -629,9 +629,17 @@ tr:
         one:
         other:
     statistics_announcement:
+      cancellation_date: İptal tarihi
+      cancelled: İstatistik açıklaması iptal edildi
+      changed_date: Açıklama tarihi değiştirildi
+      forthcoming: İstatistikler açıklanacak
       name:
         one: İstatistik açıklama duyurusu
         other: İstatistik açıklama duyuruları
+      previous_date: Önceki tarih
+      proposed_date: Önerilen açıklama
+      reason_for_change: Değişiklik gerekçesi
+      release_date: Açıklama tarihi
     statutory_guidance:
       name:
         one: Mevzuat rehberi

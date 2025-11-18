@@ -629,9 +629,17 @@ az:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Ləğvetmə tarixi
+      cancelled: Statistik məlumat buraxılışı ləğv edilib
+      changed_date: Bu statistik məlumat dəyişdirilib
+      forthcoming: Bu statistik məlumat buraxılacaq
       name:
         one: Statistik məlumat elanı
         other: Statistik məlumat elanları
+      previous_date: Əvvəlki tarix
+      proposed_date: Təklif edilmiş buraxılış
+      reason_for_change: Dəyişikliyin səbəbi
+      release_date: Buraxılış tarixi
     statutory_guidance:
       name:
         one: Normativ göstərişlər

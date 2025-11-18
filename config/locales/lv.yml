@@ -629,9 +629,17 @@ lv:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Atcelšanas datums
+      cancelled: Statistikas publiskošana atcelta
+      changed_date: Publiskošanas datums ir mainīts
+      forthcoming: Statistika tiks publiskota
       name:
         one: Statistikas publiskošanas paziņojums
         other: Statistikas publiskošanas paziņojumi
+      previous_date: Iepriekšējais datums
+      proposed_date: Paredzētā publiskošana
+      reason_for_change: Izmaiņu iemesls
+      release_date: Publiskošanas datums
     statutory_guidance:
       name:
         one: Saistošās vadlīnijas

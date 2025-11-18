@@ -629,9 +629,17 @@ ka:
         one:
         other:
     statistics_announcement:
+      cancellation_date: გაუქმების თარიღი
+      cancelled: სტატისტიკის გამოშვება გაუქმდა
+      changed_date: გამოსვლის თარიღი შეიცვალა
+      forthcoming: ეს სტატისტიკა გამოქვეყნდება
       name:
         one: სტატისტიკის გამოქვეყნების განცხადება
         other: სტატისტიკის გამოქვეყნების განცხადებები
+      previous_date: წინა თარიღი
+      proposed_date: შეთავაზებული გაცემა
+      reason_for_change: შეცვლის მიზეზი
+      release_date: გამოშვების თარიღი
     statutory_guidance:
       name:
         one: კანონიერი ხელმძღვანელობა

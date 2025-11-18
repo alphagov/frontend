@@ -629,9 +629,17 @@ nl:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Datum van annulering
+      cancelled: Statistieken vrijgave geannuleerd
+      changed_date: De releasedatum is gewijzigd
+      forthcoming: Deze statistieken zullen worden vrijgegeven
       name:
         one: Aankondiging van vrijgegeven statistieken
         other: Aankondigingen van vrijgegeven statistieken
+      previous_date: Vorige datum
+      proposed_date: Voorgestelde vrijgave
+      reason_for_change: Reden voor wijziging
+      release_date: Publicatiedatum
     statutory_guidance:
       name:
         one: Statutaire richtsnoeren

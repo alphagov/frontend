@@ -629,9 +629,17 @@ fi:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Peruutuspäivä
+      cancelled: Tilastotiedote peruttu
+      changed_date: Julkaisupäivää on muutettu
+      forthcoming: Nämä tilastot julkaistaan
       name:
         one: Tilastojen julkaisuilmoitus
         other: Tilastojen julkaisuilmoitukset
+      previous_date: Edellinen päivämäärä
+      proposed_date: Ehdotettu julkaisu
+      reason_for_change: Muutoksen syy
+      release_date: Julkaisupäivä
     statutory_guidance:
       name:
         one: Lakisääteiset ohjeet

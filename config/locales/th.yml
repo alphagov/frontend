@@ -556,8 +556,16 @@ th:
       name:
         other:
     statistics_announcement:
+      cancellation_date: วันที่ยกเลิก
+      cancelled: ยกเลิกการออกข้อมูลสถิติ
+      changed_date: วันที่ออกมีการเปลี่ยนแปลง
+      forthcoming: สถิติเหล่านี้จะถูกเผยแพร่
       name:
         other: ประกาศออกข้อมูลสถิติ
+      previous_date: วันที่ก่อนหน้า
+      proposed_date: วันเผยแพร่ที่เสนอ
+      reason_for_change: สาเหตุที่เปลี่ยน
+      release_date: วันเผยแพร่
     statutory_guidance:
       name:
         other: คำแนะนำทางกฎหมาย

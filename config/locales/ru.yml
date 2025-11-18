@@ -775,11 +775,19 @@ ru:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Дата отмены
+      cancelled: Выпуск статистических данных отменен
+      changed_date: Дата выпуска была изменена
+      forthcoming: Данные статистические данные будут опубликованы
       name:
         few:
         many:
         one: Объявление о публикации статистических данных
         other: Объявления о публикации статистических данных
+      previous_date: Предыдущая дата
+      proposed_date: Предложенный выпуск
+      reason_for_change: Причина изменения
+      release_date: Дата выпуска
     statutory_guidance:
       name:
         few:

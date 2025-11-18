@@ -629,9 +629,17 @@ fa:
         one:
         other:
     statistics_announcement:
+      cancellation_date: تاریخ لغو
+      cancelled: انتشار آمار لغو شد
+      changed_date: تاریخ انتشار تغییر کرده است
+      forthcoming: این آمارها منتشر خواهد شد
       name:
         one: اطلاعیه انتشار آمار
         other: اطلاعیه‌های انتشار آمار
+      previous_date: تاریخ قبلی
+      proposed_date: انتاشر پیشنهادی
+      reason_for_change: دلیل تغییر
+      release_date: تاریخ انتشار
     statutory_guidance:
       name:
         one: راهنمای قانونی

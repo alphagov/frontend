@@ -629,9 +629,17 @@ si:
         one:
         other:
     statistics_announcement:
+      cancellation_date: අවලංගු කිරීමේ දිනය
+      cancelled: සංඛ්යාලේඛන නිකුත් කිරීම අවලංගු කෙරිණි
+      changed_date: නිකුත් කිරීමේ දිනය වෙනස් කර ඇත
+      forthcoming: මෙම සංඛ්යාලේඛන නිකුත් කරනු ලබන්නේ
       name:
         one: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදනය
         other: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදන
+      previous_date: පෙර දිනය
+      proposed_date: යෝජිත නිකුතුව
+      reason_for_change: වෙනස් වීමට හේතුව
+      release_date: නිකුත් කිරීමේ දිනය
     statutory_guidance:
       name:
         one: ව්යවස්ථාපිත මඟ පෙන්වීම

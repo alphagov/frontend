@@ -629,9 +629,17 @@ so:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Taariikhda la joojiyay
+      cancelled: Ku dhawaaqisaha xog ururinta la joojiyay
+      changed_date: Taariikhda ku dhawaaqista waa la badalay
+      forthcoming: Xog ururintan waxa lasii dayn doonaa
       name:
         one: Ogeysiiska warbixinta tirokoobka
         other: Ogeysiisyada warbixinta tirokoobka
+      previous_date: Taariikh hore
+      proposed_date: Ku dhawaaqis dib u dhacday
+      reason_for_change: Sababta loo badalay
+      release_date: Taariikhda sii daynta
     statutory_guidance:
       name:
         one: Tilmaamta sharciga

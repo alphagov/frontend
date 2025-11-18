@@ -629,9 +629,17 @@ it:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Data di cancellazione
+      cancelled: Rilascio statistico cancellato
+      changed_date: La data di rilascio è stata modificata
+      forthcoming: Queste statistiche verranno rilasciate
       name:
         one: Annuncio di rilascio statistico
         other: Annunci di rilascio statistico
+      previous_date: Data precedente
+      proposed_date: Rilascio proposto
+      reason_for_change: Motivo della modifica
+      release_date: Data di rilascio
     statutory_guidance:
       name:
         one: Guida statutaria

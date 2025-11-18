@@ -629,9 +629,17 @@ hu:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Lemondás időpontja
+      cancelled: A statisztikák közzététele törölve
+      changed_date: A kiadás időpontja megváltozott.
+      forthcoming: Ezek a statisztikák kiadásra kerülnek a jövőben
       name:
         one: Statisztika közzétételének bejelentése
         other: Statisztika közzétételének bejelentései
+      previous_date: Korábbi időpont
+      proposed_date: Javasolt kiadás
+      reason_for_change: Változás oka
+      release_date: Kiadás időpontja
     statutory_guidance:
       name:
         one: Törvényi előírás

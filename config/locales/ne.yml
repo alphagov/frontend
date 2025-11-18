@@ -629,9 +629,17 @@ ne:
         one:
         other:
     statistics_announcement:
+      cancellation_date: रद्द मिति
+      cancelled: तथ्याङ्क बिज्ञप्ति रद्द
+      changed_date: बिज्ञप्ति मिति परिवर्तन गरिएको छ
+      forthcoming: तथ्याङ्क जारी गरिनेछ
       name:
         one: तथ्याङ्क बिज्ञप्ति घोषणा
         other: तथ्याङ्क बिज्ञप्ति घोषणाहरू
+      previous_date: अघिल्लो मिति
+      proposed_date: प्रस्तावित बिज्ञप्ति
+      reason_for_change: परिवर्तनको कारण
+      release_date: बिज्ञप्ति मिति
     statutory_guidance:
       name:
         one: वैधानिक मार्गदर्शन

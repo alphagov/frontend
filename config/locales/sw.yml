@@ -629,9 +629,17 @@ sw:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Tarehe ya kughairiwa
+      cancelled: Taarifa ya kutangazwa kwa takwimu imeghairiwa
+      changed_date: Tarehe ya kutangazwa imebadilishwa
+      forthcoming: Takwimu hizi zitatangazwa
       name:
         one: Tangazo la kutolewa kwa takwimu
         other: Matangazo ya kutolewa kwa takwimu
+      previous_date: Tarehe ya awali
+      proposed_date: Tarehe ya kutangazwa inayopendekezwa
+      reason_for_change: Sababu ya kubadilishwa
+      release_date: Tarehe ya kutangazwa
     statutory_guidance:
       name:
         one: Mwongozo wa kisheria

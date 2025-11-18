@@ -629,9 +629,17 @@ et:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Tühistamise kuupäev
+      cancelled: Statistika avaldamine tühistati
+      changed_date: Väljaandmiskuupäeva on muudetud
+      forthcoming: See statistika avaldatakse
       name:
         one: Teade statistika avaldamisest
         other: Teated statistika avaldamisest
+      previous_date: Eelmine kuupäev
+      proposed_date: Kavandatud avaldamine
+      reason_for_change: Põhjus muutumiseks
+      release_date: Väljaande kuupäev
     statutory_guidance:
       name:
         one: Seadusjärgsed juhised

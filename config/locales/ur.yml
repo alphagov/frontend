@@ -629,9 +629,17 @@ ur:
         one:
         other:
     statistics_announcement:
+      cancellation_date: منسوخی کی تاریخ
+      cancelled: شماریات کے اجراء کو منسوخ کر دیا گیا
+      changed_date: اجراء کی تاریخ تبدیل ہو گئی ہے
+      forthcoming: یہ شماریات جاری کی جائیں گے
       name:
         one: شماریات کے اجراء کا اعلان
         other: شماریات کے اجراء کا اعلانات
+      previous_date: گزشتہ تاریخ
+      proposed_date: تجویز کردہ اجراء
+      reason_for_change: تبدیلی کی وجہ
+      release_date: اجراء کی تاریخ
     statutory_guidance:
       name:
         one: قانونی رہنمائی

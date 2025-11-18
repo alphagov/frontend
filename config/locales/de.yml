@@ -629,9 +629,17 @@ de:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Annullierungsdatum
+      cancelled: Veröffentlichung von Statistiken annulliert
+      changed_date: Das Veröffentlichungsdatum wurde geändert
+      forthcoming: Diese Statistiken werden veröffentlicht
       name:
         one: Veröffentlichung von Statistikinformationen
         other: Veröffentlichungen von Statistikinformationen
+      previous_date: Vorheriges Datum
+      proposed_date: Geplante Veröffentlichung
+      reason_for_change: Grund für die Änderung
+      release_date: Veröffentlichungsdatum
     statutory_guidance:
       name:
         one: Gesetzlicher Leitfaden

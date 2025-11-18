@@ -775,11 +775,19 @@ gd:
         other:
         two:
     statistics_announcement:
+      cancellation_date: Dáta scriosadh an phoist
+      cancelled: Cealaítear an scaoileadh staitisticí
+      changed_date: Athraíodh an dáta scaoilte
+      forthcoming: Déanfar na foilseacháin staitisticí seo
       name:
         few:
         one: Fógra maidir le scaoileadh staidrimh
         other: Fógraí scaipthe staidrimh
         two:
+      previous_date: Dáta roimhe seo
+      proposed_date: Scaipeadh beartaithe
+      reason_for_change: Cúis leis an athrú
+      release_date: Dáta foilsithe
     statutory_guidance:
       name:
         few:

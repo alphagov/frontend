@@ -775,11 +775,19 @@ uk:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Дата скасування
+      cancelled: Випуск даних статистики скасовано
+      changed_date: Дата випуску змінена
+      forthcoming: Ці дані статистики будуть оприлюднені
       name:
         few:
         many:
         one: Оголошення про випуск статистичних даних
         other: Оголошення про випуск статистичних даних
+      previous_date: Попередня дата
+      proposed_date: Пропонований випуск
+      reason_for_change: Причина змін
+      release_date: Дата виходу
     statutory_guidance:
       name:
         few:

@@ -775,11 +775,19 @@ sl:
         other:
         two:
     statistics_announcement:
+      cancellation_date: Datum preklica
+      cancelled: Statistična objava je bila preklicana
+      changed_date: Datum objave seje spremenil
+      forthcoming: Ta statistika bo objavljena
       name:
         few:
         one: Statistična objava
         other: Statistične objave
         two:
+      previous_date: Prejšnji datum
+      proposed_date: Predlagana objava
+      reason_for_change: Razlog za spremembo
+      release_date: Datum objave
     statutory_guidance:
       name:
         few:

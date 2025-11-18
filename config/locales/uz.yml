@@ -629,9 +629,17 @@ uz:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Бекор қилиш санаси
+      cancelled: Статистик маълумотларнинг чиқарилиши бекор қилинган
+      changed_date: Нашр санаси ўзгартирилган
+      forthcoming: Ушбу статистик маълумотлар чиқарилган бўлади
       name:
         one: Статистик маълумотларни чиқариш ҳақида эълон
         other: Статистик маълумотларни чиқариш ҳақида эълонлар
+      previous_date: Олдинги сана
+      proposed_date: Режалаштирилган нашр
+      reason_for_change: Ўзгариш киритилиш сабаблари
+      release_date: Нашр санаси
     statutory_guidance:
       name:
         one: Норматив қўлланма

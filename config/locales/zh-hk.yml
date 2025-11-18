@@ -556,8 +556,16 @@ zh-hk:
       name:
         other:
     statistics_announcement:
+      cancellation_date: 取消日期
+      cancelled: 統計資料發佈已取消
+      changed_date: 發佈日期已更改
+      forthcoming: 統計資料已發佈
       name:
         other: 統計數據資料發佈公告
+      previous_date: 之前日期
+      proposed_date: 擬議發佈
+      reason_for_change: 更改原因
+      release_date: 發佈日期
     statutory_guidance:
       name:
         other: 法定指引

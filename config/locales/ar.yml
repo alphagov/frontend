@@ -921,6 +921,10 @@ ar:
         two:
         zero:
     statistics_announcement:
+      cancellation_date: تاريخ الإلغاء
+      cancelled: تم إلغاء إصدار الإحصائيات
+      changed_date: تغير تاريخ الإصدار
+      forthcoming: سيتم إصدار هذه الإحصائيات
       name:
         few:
         many:
@@ -928,6 +932,10 @@ ar:
         other: إعلانات إصدار الإحصائيات
         two:
         zero:
+      previous_date: التاريخ السابق
+      proposed_date: الإصدار المقترح
+      reason_for_change: سبب التغيير
+      release_date: تاريخ الإصدار
     statutory_guidance:
       name:
         few:

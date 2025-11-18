@@ -556,8 +556,16 @@ ms:
       name:
         other:
     statistics_announcement:
+      cancellation_date: Tarikh pembatalan
+      cancelled: Hebahan statistik dibatalkan
+      changed_date: Tarikh hebahan telah ditukar
+      forthcoming: Statistik ini akan dihebahkan
       name:
         other: Pengumuman hebahan statistik
+      previous_date: Tarikh sebelumnya
+      proposed_date: Tarikh yang dicadangkan
+      reason_for_change: Sebab bagi penukaran
+      release_date: Tarikh hebahan
     statutory_guidance:
       name:
         other: Panduan berkanun

@@ -629,9 +629,17 @@ ku:
         one:
         other:
     statistics_announcement:
+      cancellation_date: بەرواری هەڵوەشاندنەوە
+      cancelled: هەڵوەشاندنەوەی ئامارە بڵاوکراوەکان
+      changed_date: وادەی بڵاوکردنەوە گۆڕاوە
+      forthcoming: ئەم ئامارانە بڵاودەکرێنەوە
       name:
         one: ڕاگەیاندنی بڵاوکردنەوەی ئامارەکان
         other: ئامارەکان ڕاگەیاندنەکانی بڵاوکردەوە
+      previous_date: بەرواری پێشوو
+      proposed_date: بڵاوکراوەی پێشنیارکراو
+      reason_for_change: هۆکاری گۆڕانکاری
+      release_date: بەرواری بڵاوکردنەوە
     statutory_guidance:
       name:
         one: ڕێنمایی یاسایی

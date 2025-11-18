@@ -556,8 +556,16 @@ ja:
       name:
         other:
     statistics_announcement:
+      cancellation_date: キャンセル日
+      cancelled: 統計発表がキャンセルされました
+      changed_date: 発表日程が変更されました
+      forthcoming: これらの統計は公開されます
       name:
         other: 統計リリースの発表
+      previous_date: 以前の日程
+      proposed_date: 予定されている発表
+      reason_for_change: 変更理由
+      release_date: 発表日程
     statutory_guidance:
       name:
         other: 法定ガイダンス

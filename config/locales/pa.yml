@@ -629,9 +629,17 @@ pa:
         one:
         other:
     statistics_announcement:
+      cancellation_date: ਰੱਦ ਕਰਨ ਦੀ ਤਾਰੀਖ
+      cancelled: ਅੰਕੜੇ ਜਾਰੀ ਰੱਦ
+      changed_date: ਰਿਲੀਜ਼ ਦੀ ਤਾਰੀਖ ਬਦਲ ਦਿੱਤੀ ਗਈ ਹੈ
+      forthcoming: ਇਹ ਅੰਕੜੇ ਜਾਰੀ ਕੀਤੇ ਜਾਣਗੇ
       name:
         one: ਅੰਕੜੇ ਜਾਰੀ ਘੋਸ਼ਣਾ
         other: ਅੰਕੜੇ ਜਾਰੀ ਘੋਸ਼ਣਾਵਾਂ
+      previous_date: ਪਿਛਲੀ ਤਾਰੀਖ
+      proposed_date: ਪ੍ਰਸਤਾਵਿਤ ਰਿਹਾਈ
+      reason_for_change: ਤਬਦੀਲੀ ਦਾ ਕਾਰਨ
+      release_date: ਰਿਹਾਈ ਤਾਰੀਖ
     statutory_guidance:
       name:
         one: ਕਨੂੰਨੀ ਸੇਧ

@@ -556,8 +556,16 @@ id:
       name:
         other:
     statistics_announcement:
+      cancellation_date: Tanggal pembatalan
+      cancelled: Rilis statistik dibatalkan
+      changed_date: Tanggal rilis telah berubah
+      forthcoming: Statistik ini akan dirilis
       name:
         other: Pengumuman rilis statistik
+      previous_date: Tanggal sebelumnya
+      proposed_date: Rilis yang diusulkan
+      reason_for_change: Alasan perubahan
+      release_date: Tanggal rilis
     statutory_guidance:
       name:
         other: Panduan perundang-undangan

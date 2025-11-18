@@ -629,9 +629,17 @@ he:
         one:
         other:
     statistics_announcement:
+      cancellation_date: תאריך ביטול
+      cancelled: פרסום סטטיסטיקה בוטל
+      changed_date: תאריך הפרסם שונה
+      forthcoming: סטטיסטיקה זו יפורסמה
       name:
         one: הודעת פרסום סטטיסטיקה
         other: הודעות פרסום סטטיסטיקה
+      previous_date: 'תאריך קודם '
+      proposed_date: הצעה לפרסם
+      reason_for_change: סיבה לשינוי
+      release_date: תאריך פרסם
     statutory_guidance:
       name:
         one: הדרכה סטטוטורית

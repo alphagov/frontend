@@ -629,9 +629,17 @@ ps:
         one:
         other:
     statistics_announcement:
+      cancellation_date: د لغوه کولو نیټه
+      cancelled: د احصایې خپریدل لغوه شول
+      changed_date: د خپریدو نیټه بدله شوې
+      forthcoming: دا احصایې به خپاره شي
       name:
         one: د احصایې خپریدو اعلان
         other: احصایې اعلانات خپروي
+      previous_date: پخوانۍ نیټه
+      proposed_date: وړاندیز شوی خوشې کول
+      reason_for_change: د بدلون لپاره دلیل
+      release_date: دخپریدو نیټه
     statutory_guidance:
       name:
         one: قانوني لارښود

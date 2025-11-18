@@ -629,9 +629,17 @@ hy:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Չեղարկման ամսաթիվ
+      cancelled: Վիճակագրության հրապարակումը չեղարկվել է
+      changed_date: Հրապարակման ամսաթիվը փոխվել է
+      forthcoming: Այս վիճակագրությունը կհրապարակվի
       name:
         one: Վիճակագրության հրապարակման հայտարարություն
         other: Վիճակագրության հրապարակման հայտարարություններ
+      previous_date: Նախորդ ամսաթիվ
+      proposed_date: Առաջարկվող հրապարակում
+      reason_for_change: Փոփոխության պատճառը
+      release_date: Հրապարակման ամսաթիվ
     statutory_guidance:
       name:
         one: Կանոնադրական ուղեցույց

@@ -629,9 +629,17 @@ da:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Afbestillingsdato
+      cancelled: Meddelelser om frigivelse af statistik
+      changed_date: Udgivelsesdatoen er blevet ændret
+      forthcoming: Disse statistikker vil blive frigivet
       name:
         one: Meddelelse om frigivelse af statistik
         other: Meddelelser om frigivelse af statistik
+      previous_date: Forrige dato
+      proposed_date: Foreslået udgivelse
+      reason_for_change: Årsag til ændring
+      release_date: Udgivelsesdato
     statutory_guidance:
       name:
         one: Lovpligtig vejledning

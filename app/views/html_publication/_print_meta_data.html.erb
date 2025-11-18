@@ -1,0 +1,20 @@
+<p>
+  <%= image_tag "open-government-licence-min.png", class: "print-metadata__licence" %>
+</p>
+<p>
+  <%= t("formats.html_publication.print_meta_data.copyright", year: content_item.copyright_year) %>
+</p>
+<p>
+  <%= t("formats.html_publication.print_meta_data.licence_html") %>
+</p>
+<p>
+  <%= t("formats.html_publication.print_meta_data.third_party") %>
+</p>
+<p>
+  <%= t("formats.html_publication.print_meta_data.available_at", url: @presenter.full_path(request)) %>
+</p>
+<% unless content_item.isbn.blank? %>
+  <p>
+    <%= t("formats.html_publication.print_meta_data.isbn") %> <%= content_item.isbn %>
+  </p>
+<% end %>

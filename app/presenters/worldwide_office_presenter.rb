@@ -14,10 +14,6 @@ class WorldwideOfficePresenter < ContentItemPresenter
     LinkedContactPresenter.new(content_item.contact)
   end
 
-  def show_default_breadcrumbs?
-    false
-  end
-
   def worldwide_organisation
     return unless content_item.worldwide_organisation
 

@@ -471,8 +471,8 @@ dr:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه آمار ملی
+        other: اطلاعیه آمار ملی
     news_article:
       name:
         one: مقاله خبری

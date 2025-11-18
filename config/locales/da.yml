@@ -471,8 +471,8 @@ da:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Nationale statistikmeddelelse
+        other: Nationale statistikmeddelelser
     news_article:
       name:
         one: Nyhedsartikel

@@ -471,8 +471,8 @@ tk:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Milli statistika bildirişi
+        other: Milli statistika bildirişleri
     news_article:
       name:
         one: Habar makalasy

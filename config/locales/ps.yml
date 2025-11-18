@@ -471,8 +471,8 @@ ps:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: د ملي احصایې اعلان
+        other: د ملي احصایې اعلانونه
     news_article:
       name:
         one: د خبر مقاله

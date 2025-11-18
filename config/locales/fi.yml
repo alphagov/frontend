@@ -471,8 +471,8 @@ fi:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Kansallinen tilastoilmoitus
+        other: Kansalliset tilastoilmoitukset
     news_article:
       name:
         one: Uutisartikkeli

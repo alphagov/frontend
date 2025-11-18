@@ -471,8 +471,8 @@ et:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Riiklik statistikateade
+        other: Riiklikud statistikateated
     news_article:
       name:
         one: Uudiste artikkel

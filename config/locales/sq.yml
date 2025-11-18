@@ -471,8 +471,8 @@ sq:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Njoftimi i statistikave kombëtare
+        other: Njoftime të statistikave kombëtare
     news_article:
       name:
         one: Artikull lajmesh

@@ -471,8 +471,8 @@ lv:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Paziņojums par valsts statistiku
+        other: Paziņojumi par valsts statistiku
     news_article:
       name:
         one: Raksts

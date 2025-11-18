@@ -471,8 +471,8 @@ hy:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ազգային վիճակագրական հայտարարություն
+        other: Ազգային վիճակագրական հայտարարություններ
     news_article:
       name:
         one: Տեղեկատվական հոդված

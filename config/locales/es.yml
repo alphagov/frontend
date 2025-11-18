@@ -471,8 +471,8 @@ es:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Anuncio de estadísticas nacionales
+        other: Anuncios de estadísticas nacionales
     news_article:
       name:
         one: Artículo

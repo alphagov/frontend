@@ -471,8 +471,8 @@ fa:
         other:
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه آمار ملی
+        other: اطلاعیه‌های آمار ملی
     news_article:
       name:
         one: مقاله خبری

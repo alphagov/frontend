@@ -16,6 +16,7 @@ RSpec.describe HtmlPublication do
   end
 
   it_behaves_like "it can be withdrawn", "html_publication", "withdrawn"
+  it_behaves_like "it has historical government information", "html_publication", "published_with_history_mode"
 
   context "when there are no headers" do
     let(:content_store_response) { GovukSchemas::Example.find("html_publication", example_name: "prime_ministers_office") }

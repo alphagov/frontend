@@ -1,4 +1,6 @@
 class HtmlPublication < ContentItem
+  include Political
+
   def parent
     linked("parent").first
   end

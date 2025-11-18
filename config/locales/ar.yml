@@ -488,6 +488,14 @@ ar:
     guide:
       pages_in_guide: الصفحات في هذا الدليل
       skip_contents:
+    html_publication:
+      name:
+        few:
+        many:
+        one: HTML Publication
+        other: HTML Publications
+        two:
+        zero:
     impact_assessment:
       name:
         few:

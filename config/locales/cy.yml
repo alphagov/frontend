@@ -490,6 +490,14 @@ cy:
     guide:
       pages_in_guide: Tudalennau yn y canllaw hwn
       skip_contents: Sgipio cynnwys
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
+        two:
+        zero:
     impact_assessment:
       name:
         few:

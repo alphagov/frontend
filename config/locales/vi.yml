@@ -333,6 +333,9 @@ vi:
     guide:
       pages_in_guide: Các trang trong hướng dẫn này
       skip_contents:
+    html_publication:
+      name:
+        other:
     impact_assessment:
       name:
         other:

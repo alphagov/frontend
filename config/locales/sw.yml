@@ -364,6 +364,10 @@ sw:
     guide:
       pages_in_guide: Kurasa za mwongozo huu
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one:

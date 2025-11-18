@@ -395,6 +395,11 @@ lt:
     guide:
       pages_in_guide: Puslapiai šiame vadove
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
     impact_assessment:
       name:
         few:

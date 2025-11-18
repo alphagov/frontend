@@ -426,6 +426,12 @@ sl:
     guide:
       pages_in_guide: Strani v tem vodiču
       skip_contents:
+    html_publication:
+      name:
+        few:
+        one:
+        other:
+        two:
     impact_assessment:
       name:
         few:

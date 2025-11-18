@@ -426,6 +426,12 @@ be:
     guide:
       pages_in_guide: Старонкі ў гэтым кіраўніцтве
       skip_contents:
+    html_publication:
+      name:
+        few:
+        many:
+        one:
+        other:
     impact_assessment:
       name:
         few:

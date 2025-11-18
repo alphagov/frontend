@@ -364,6 +364,10 @@ ky:
     guide:
       pages_in_guide: Бул жетектемедеги баракчалар
       skip_contents: Мазмунду өткөрүп жиберүү
+    html_publication:
+      name:
+        one:
+        other:
     impact_assessment:
       name:
         one: Таасирдин баалоосу

@@ -630,8 +630,8 @@ az:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Statistik məlumat elanı
+        other: Statistik məlumat elanları
     statutory_guidance:
       name:
         one: Normativ göstərişlər

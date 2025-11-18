@@ -630,8 +630,8 @@ fi:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Tilastojen julkaisuilmoitus
+        other: Tilastojen julkaisuilmoitukset
     statutory_guidance:
       name:
         one: Lakisääteiset ohjeet

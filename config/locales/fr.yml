@@ -630,8 +630,8 @@ fr:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Annonce de la publication de statistiques
+        other: Annonces de la publication de statistiques
     statutory_guidance:
       name:
         one: Orientation statutaire

@@ -777,8 +777,8 @@ sl:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Statistična objava
+        other: Statistične objave
         two:
     statutory_guidance:
       name:

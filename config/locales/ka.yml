@@ -630,8 +630,8 @@ ka:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: სტატისტიკის გამოქვეყნების განცხადება
+        other: სტატისტიკის გამოქვეყნების განცხადებები
     statutory_guidance:
       name:
         one: კანონიერი ხელმძღვანელობა

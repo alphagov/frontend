@@ -630,8 +630,8 @@ bg:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Съобщение за издадена статистика
+        other: Съобщения за издадена статистика
     statutory_guidance:
       name:
         one: Законови указания

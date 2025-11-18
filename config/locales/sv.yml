@@ -630,8 +630,8 @@ sv:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelande om offentliggörande av statistik
+        other: Meddelanden om offentliggöranden av statistik
     statutory_guidance:
       name:
         one: Lagstadgad vägledning

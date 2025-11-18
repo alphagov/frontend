@@ -630,8 +630,8 @@ tr:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: İstatistik açıklama duyurusu
+        other: İstatistik açıklama duyuruları
     statutory_guidance:
       name:
         one: Mevzuat rehberi

@@ -630,8 +630,8 @@ bn:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: পরিসংখ্যান প্রকাশের ঘোষণা
+        other: পরিসংখ্যান প্রকাশের ঘোষণাসমূহ
     statutory_guidance:
       name:
         one: বিধিবদ্ধ নির্দেশনা

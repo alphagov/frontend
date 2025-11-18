@@ -630,8 +630,8 @@ sq:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Njoftimi për publikimin e statistikave
+        other: Njoftime për publikimin e statistikave
     statutory_guidance:
       name:
         one: Udhëzim ligjor

@@ -630,8 +630,8 @@ nl:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Aankondiging van vrijgegeven statistieken
+        other: Aankondigingen van vrijgegeven statistieken
     statutory_guidance:
       name:
         one: Statutaire richtsnoeren

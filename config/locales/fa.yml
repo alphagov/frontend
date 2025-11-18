@@ -630,8 +630,8 @@ fa:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه انتشار آمار
+        other: اطلاعیه‌های انتشار آمار
     statutory_guidance:
       name:
         one: راهنمای قانونی

@@ -630,8 +630,8 @@ hy:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Վիճակագրության հրապարակման հայտարարություն
+        other: Վիճակագրության հրապարակման հայտարարություններ
     statutory_guidance:
       name:
         one: Կանոնադրական ուղեցույց

@@ -777,8 +777,8 @@ gd:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Fógra maidir le scaoileadh staidrimh
+        other: Fógraí scaipthe staidrimh
         two:
     statutory_guidance:
       name:

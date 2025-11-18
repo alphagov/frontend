@@ -630,8 +630,8 @@ ur:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: شماریات کے اجراء کا اعلان
+        other: شماریات کے اجراء کا اعلانات
     statutory_guidance:
       name:
         one: قانونی رہنمائی

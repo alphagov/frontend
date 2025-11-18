@@ -778,8 +778,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Объявление о публикации статистических данных
+        other: Объявления о публикации статистических данных
     statutory_guidance:
       name:
         few:

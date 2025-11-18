@@ -630,8 +630,8 @@ de:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Veröffentlichung von Statistikinformationen
+        other: Veröffentlichungen von Statistikinformationen
     statutory_guidance:
       name:
         one: Gesetzlicher Leitfaden

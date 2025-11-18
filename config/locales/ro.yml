@@ -704,8 +704,8 @@ ro:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Anunț eliberare documente statistice
+        other: Anunțuri eliberare documente statistice
     statutory_guidance:
       name:
         few:

@@ -630,8 +630,8 @@ ps:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: د احصایې خپریدو اعلان
+        other: احصایې اعلانات خپروي
     statutory_guidance:
       name:
         one: قانوني لارښود

@@ -630,8 +630,8 @@ gu:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: આંકડા જારી કરવાની જાહેરાત
+        other: આંકડા જારી કરવાની જાહેરાતો
     statutory_guidance:
       name:
         one: વૈધાનિક માર્ગદર્શન

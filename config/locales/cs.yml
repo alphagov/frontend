@@ -704,8 +704,8 @@ cs:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oznámení o zveřejnění statistik
+        other: Oznámení o zveřejnění statistik
     statutory_guidance:
       name:
         few:

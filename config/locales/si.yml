@@ -630,8 +630,8 @@ si:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදනය
+        other: සංඛ්යාලේඛන නිකුත් කිරීමේ නිවේදන
     statutory_guidance:
       name:
         one: ව්යවස්ථාපිත මඟ පෙන්වීම

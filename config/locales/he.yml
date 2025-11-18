@@ -630,8 +630,8 @@ he:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: הודעת פרסום סטטיסטיקה
+        other: הודעות פרסום סטטיסטיקה
     statutory_guidance:
       name:
         one: הדרכה סטטוטורית

@@ -630,8 +630,8 @@ pa-pk:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: اعدادو شمار جاری کرن دا اعلان
+        other: اعدادوشمار جاری کرن دے اعلانات
     statutory_guidance:
       name:
         one: قانونی رہنمائی

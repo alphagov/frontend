@@ -630,8 +630,8 @@ it:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Annuncio di rilascio statistico
+        other: Annunci di rilascio statistico
     statutory_guidance:
       name:
         one: Guida statutaria

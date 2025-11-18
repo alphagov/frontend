@@ -630,8 +630,8 @@ uz:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Статистик маълумотларни чиқариш ҳақида эълон
+        other: Статистик маълумотларни чиқариш ҳақида эълонлар
     statutory_guidance:
       name:
         one: Норматив қўлланма

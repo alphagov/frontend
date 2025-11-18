@@ -630,8 +630,8 @@ da:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelelse om frigivelse af statistik
+        other: Meddelelser om frigivelse af statistik
     statutory_guidance:
       name:
         one: Lovpligtig vejledning

@@ -630,8 +630,8 @@ kk:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Статистикалық шығарылым хабарландыруы
+        other: Статистикалық шығарылым хабарландырулары
     statutory_guidance:
       name:
         one: Заң нұсқаулығы

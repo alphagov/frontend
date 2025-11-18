@@ -704,8 +704,8 @@ sr:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Saopštenje o objavljenim statističkim podacima
+        other: Saopštenja o objavljenim statističkim podacima
     statutory_guidance:
       name:
         few:

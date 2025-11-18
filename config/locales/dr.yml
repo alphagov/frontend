@@ -633,8 +633,8 @@ dr:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه انتشار آمار
+        other: اطلاعیه هایی انتشار آمار
     statutory_guidance:
       name:
         one: راهنمایی قانونی

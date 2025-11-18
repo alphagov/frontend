@@ -630,8 +630,8 @@ lv:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Statistikas publiskošanas paziņojums
+        other: Statistikas publiskošanas paziņojumi
     statutory_guidance:
       name:
         one: Saistošās vadlīnijas

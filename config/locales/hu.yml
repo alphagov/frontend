@@ -630,8 +630,8 @@ hu:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Statisztika közzétételének bejelentése
+        other: Statisztika közzétételének bejelentései
     statutory_guidance:
       name:
         one: Törvényi előírás

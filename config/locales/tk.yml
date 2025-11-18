@@ -630,8 +630,8 @@ tk:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Statistiki habarnama
+        other: Statistiki habarnamalar
     statutory_guidance:
       name:
         one: Kanun boýunça görkezme

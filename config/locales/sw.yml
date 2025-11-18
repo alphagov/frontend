@@ -630,8 +630,8 @@ sw:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Tangazo la kutolewa kwa takwimu
+        other: Matangazo ya kutolewa kwa takwimu
     statutory_guidance:
       name:
         one: Mwongozo wa kisheria

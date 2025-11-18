@@ -630,8 +630,8 @@ hi:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: सांख्यिकी विज्ञप्ति की घोषणा
+        other: सांख्यिकी विज्ञप्ति की घोषणाएं
     statutory_guidance:
       name:
         one: वैधानिक मार्गदर्शन

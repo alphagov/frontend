@@ -630,8 +630,8 @@ is:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Tilkynning um útgáfu tölfræðigagna
+        other: Tilkynningar um útgáfu tölfræðigagna
     statutory_guidance:
       name:
         one: Lagalegar leiðbeiningar

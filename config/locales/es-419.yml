@@ -630,8 +630,8 @@ es-419:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Anuncio y difusión de estadísticas
+        other: Anuncios y difusión de estadísticas
     statutory_guidance:
       name:
         one: Orientaciones reglamentarias

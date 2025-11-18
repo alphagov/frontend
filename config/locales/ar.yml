@@ -924,8 +924,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: إعلان إصدار الإحصائيات
+        other: إعلانات إصدار الإحصائيات
         two:
         zero:
     statutory_guidance:

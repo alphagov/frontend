@@ -630,8 +630,8 @@ et:
         other:
     statistics_announcement:
       name:
-        one:
-        other:
+        one: Teade statistika avaldamisest
+        other: Teated statistika avaldamisest
     statutory_guidance:
       name:
         one: Seadusjärgsed juhised

@@ -704,8 +704,8 @@ hr:
     statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Najava objavljivanja statistike
+        other: Najave objavljivanja statistike
     statutory_guidance:
       name:
         few:

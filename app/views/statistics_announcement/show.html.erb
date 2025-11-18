@@ -1,6 +1,7 @@
 <% content_for :extra_headers do %>
   <meta name="description" content="<%= content_item.description %>">
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+<% end %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -16,7 +17,12 @@
   </div>
 </div>
 
-<%= render "shared/publisher_metadata_with_logo" %>
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(@presenter.contributor_links),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+  } %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

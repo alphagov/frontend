@@ -2,3 +2,4 @@
 //= require dependencies
 //= require main
 //= require govuk_publishing_components/dependencies
+//= require govuk_web_banners/dependencies

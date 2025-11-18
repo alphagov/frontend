@@ -41,11 +41,11 @@
           <%= render "govuk_publishing_components/components/metadata", {
             inverse: true,
             other: {
-              t("statistics_announcement.previous_date") => content_item.previous_release_date,
-              t("statistics_announcement.reason_for_change") => content_item.release_date_change_reason,
+              t("formats.statistics_announcement.previous_date") => content_item.previous_release_date,
+              t("formats.statistics_announcement.reason_for_change") => content_item.release_date_change_reason,
             },
             margin_bottom: 0,
-            title: t("statistics_announcement.changed_date"),
+            title: t("formats.statistics_announcement.changed_date"),
           } %>
         <% end %>
       </div>
@@ -53,7 +53,7 @@
 
     <% if content_item.cancelled? %>
       <%= render "govuk_publishing_components/components/notice",
-          title: t("statistics_announcement.cancelled"),
+          title: t("formats.statistics_announcement.cancelled"),
           description_text: content_item.cancellation_reason %>
     <% end %>
 

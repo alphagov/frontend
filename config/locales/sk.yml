@@ -536,8 +536,8 @@ sk:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oznámenie o národných štatistikách
+        other: Oznámenia o národných štatistikách
     news_article:
       name:
         few:

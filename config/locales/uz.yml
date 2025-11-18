@@ -492,8 +492,8 @@ uz:
         other: Давлат статистик маълумотлар
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Давлат статистик маълумотлар эълони
+        other: Давлат статистик маълумотлар эълонлари
     news_article:
       name:
         one: Янгилик мақоласи

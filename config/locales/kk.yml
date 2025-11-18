@@ -492,8 +492,8 @@ kk:
         other: Ұлттық статистика
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ұлттық статистика хабарландыруы
+        other: Ұлттық статистика хабарландырулары
     news_article:
       name:
         one: Жаңалықтар мақаласы

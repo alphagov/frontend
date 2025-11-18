@@ -492,8 +492,8 @@ pa:
         other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾ
+        other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ ਘੋਸ਼ਣਾਵਾਂ
     news_article:
       name:
         one: ਖਬਰ ਲੇਖ

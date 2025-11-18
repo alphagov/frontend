@@ -492,8 +492,8 @@ hi:
         other: राष्ट्रीय सांख्यिकी
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: राष्ट्रीय सांख्यिकी की घोषणा
+        other: राष्ट्रीय सांख्यिकी की घोषणाएं
     news_article:
       name:
         one: समाचार लेख

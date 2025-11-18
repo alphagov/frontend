@@ -579,8 +579,8 @@ gd:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Fógra staitisticí náisiúnta
+        other: Fógraí staitisticí náisiúnta
         two:
     news_article:
       name:

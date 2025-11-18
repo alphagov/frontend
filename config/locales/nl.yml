@@ -492,8 +492,8 @@ nl:
         other: Nationale statistieken
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Aankondigingen nationale statistieken
+        other: Aankondigingen nationale statistieken
     news_article:
       name:
         one: Nieuwsartikel

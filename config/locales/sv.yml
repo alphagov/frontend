@@ -492,8 +492,8 @@ sv:
         other: Nationell statistik
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelande om nationell statistik
+        other: Meddelanden om nationell statistik
     news_article:
       name:
         one: Nyhetsartikel

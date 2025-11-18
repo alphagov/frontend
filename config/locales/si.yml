@@ -492,8 +492,8 @@ si:
         other: ජාතික සංඛ්යාලේඛන
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: ජාතික සංඛ්යාලේඛන නිවේදනය
+        other: ජාතික සංඛ්යාලේඛන නිවේදන
     news_article:
       name:
         one: පුවත් ලිපිය

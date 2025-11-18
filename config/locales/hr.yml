@@ -536,8 +536,8 @@ hr:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Najava nacionalne statistike
+        other: Najave nacionalne statistike
     news_article:
       name:
         few:

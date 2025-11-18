@@ -492,8 +492,8 @@ pt:
         other: Estatísticas Nacionais
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Anúncio de estatísticas nacionais
+        other: Anúncios de estatísticas nacionais
     news_article:
       name:
         one: Artigo noticioso

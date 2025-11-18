@@ -579,8 +579,8 @@ sl:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Objava državne statistike
+        other: Objave državne statistike
         two:
     news_article:
       name:

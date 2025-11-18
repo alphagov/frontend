@@ -492,8 +492,8 @@ ka:
         other: ეროვნული სტატისტიკა
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: ეროვნული სტატისტიკის განცხადება
+        other: ეროვნული სტატისტიკის განცხადებები
     news_article:
       name:
         one: ახალი ამბების სტატია

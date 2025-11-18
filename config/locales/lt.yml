@@ -536,8 +536,8 @@ lt:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Nacionalinės statistikos pranešimas
+        other: Nacionalinės statistikos pranešimai
     news_article:
       name:
         few:

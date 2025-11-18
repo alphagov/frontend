@@ -536,8 +536,8 @@ ro:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Anunț de statistică națională
+        other: Anunțuri de statistică națională
     news_article:
       name:
         few:

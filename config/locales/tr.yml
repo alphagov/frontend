@@ -492,8 +492,8 @@ tr:
         other: Ulusal İstatistikler
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ulusal İstatistik duyurusu
+        other: Ulusal İstatistik duyuruları
     news_article:
       name:
         one: Haber makalesi

@@ -492,8 +492,8 @@ hu:
         other: Nemzeti statisztikák
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Nemzeti statisztikai bejelentés
+        other: Nemzeti statisztikai bejelentések
     news_article:
       name:
         one: Cikk

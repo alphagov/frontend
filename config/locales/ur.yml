@@ -492,8 +492,8 @@ ur:
         other: قومی شماریات
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: قومی شماریاتی اعلان
+        other: قومی شماریاتی اعلانات
     news_article:
       name:
         one: خبروں کا مضمون

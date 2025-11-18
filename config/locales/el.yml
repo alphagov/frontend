@@ -492,8 +492,8 @@ el:
         other: Εθνική Στατιστική Υπηρεσία
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ανακοίνωση εθνικής στατιστικής υπηρεσίας
+        other: Ανακοινώσεις εθνικής στατιστικής υπηρεσίας
     news_article:
       name:
         one: Άρθρο ειδήσεων

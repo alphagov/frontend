@@ -492,8 +492,8 @@ az:
         other: Milli statistika
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Milli statistika elanı
+        other: Milli statistika elanları
     news_article:
       name:
         one: Xəbərləri əks etdirən məqalə

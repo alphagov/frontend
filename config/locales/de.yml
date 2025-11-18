@@ -492,8 +492,8 @@ de:
         other: Nationale Statistik
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Veröffentlichung der Nationalen Statistik
+        other: Veröffentlichungen der Nationalen Statistik
     news_article:
       name:
         one: Nachrichtenartikel

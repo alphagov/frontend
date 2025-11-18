@@ -580,8 +580,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Оголошення даних державної статистики
+        other: Оголошення даних державної статистики
     news_article:
       name:
         few:

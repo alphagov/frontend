@@ -536,8 +536,8 @@ sr:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Najava državne statistike
+        other: Najave državne statistike
     news_article:
       name:
         few:

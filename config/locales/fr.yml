@@ -492,8 +492,8 @@ fr:
         other: Statistiques nationales
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Annonce des statistiques nationales
+        other: Annonces des statistiques nationales
     news_article:
       name:
         one: Article d'actualité

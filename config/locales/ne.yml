@@ -492,8 +492,8 @@ ne:
         other: राष्ट्रिय तथ्याङ्क
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: राष्ट्रिय तथ्याङ्क घोषणा
+        other: राष्ट्रिय तथ्याङ्क घोषणाहरू
     news_article:
       name:
         one: समाचार लेख

@@ -492,8 +492,8 @@ so:
         other: Tirokoobka qaranka
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ogeysiiska tirokoobka qaranka
+        other: Ogeysiisyada tirokoobka qaranka
     news_article:
       name:
         one: Maqaal war ah

@@ -492,8 +492,8 @@ is:
         other: Hagstofa
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Tilkynning Hagstofu
+        other: Tilkynningar Hagstofur
     news_article:
       name:
         one: Fréttagrein

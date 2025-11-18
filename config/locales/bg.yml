@@ -492,8 +492,8 @@ bg:
         other: Национална статистика
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Съобщение от националната статистика
+        other: Съобщения от националните статистики
     news_article:
       name:
         one: Информационна статия

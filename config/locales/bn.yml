@@ -492,8 +492,8 @@ bn:
         other: জাতীয় পরিসংখ্যান
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: জাতীয় পরিসংখ্যানের ঘোষণা
+        other: জাতীয় পরিসংখ্যানের ঘোষণাসমূহ
     news_article:
       name:
         one: সংবাদের নিবন্ধ

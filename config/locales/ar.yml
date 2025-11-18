@@ -666,8 +666,8 @@ ar:
       name:
         few:
         many:
-        one:
-        other:
+        one: إعلان للإحصاءات الوطنية
+        other: إعلانات للإحصاءات الوطنية
         two:
         zero:
     news_article:

@@ -492,8 +492,8 @@ pa-pk:
         other: قومی اعدادوشمار
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: قومی اعدادوشمار دا اعلان
+        other: قومی اعدادوشمار دے اعلانات
     news_article:
       name:
         one: خبراں دا مضمون

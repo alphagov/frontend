@@ -492,8 +492,8 @@ sw:
         other: Takwimu za Kitaifa
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Tangazo la takwimu za kitaifa
+        other: Matangazo ya takwimu za kitaifa
     news_article:
       name:
         one: Makala ya habari

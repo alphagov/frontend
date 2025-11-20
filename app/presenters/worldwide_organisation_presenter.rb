@@ -46,9 +46,9 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def person_in_primary_role
-    return unless content_item["links"]["primary_role_person"]
+    return unless content_item.content_store_response["links"]["primary_role_person"]
 
-    person = content_item.content_store_response["details"]["primary_role_person"].first
+    person = content_item.content_store_response["links"]["primary_role_person"].first
     current_roles = roles_for_person(person["content_id"])
 
     {
@@ -61,8 +61,8 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def people_in_non_primary_roles
-    secondary_role_person = content_item["links"]["secondary_role_person"] || []
-    office_staff = content_item["links"]["office_staff"] || []
+    secondary_role_person = content_item.content_store_response["links"]["secondary_role_person"] || []
+    office_staff = content_item.content_store_response["links"]["office_staff"] || []
     people = secondary_role_person + office_staff
     return [] unless people.any?
 
@@ -78,7 +78,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def main_office
-    return unless (office_item = content_item.dig("links", "main_office")&.first)
+    return unless (office_item = content_item.content_store_response["links"]["main_office"])&.first
 
     office_contact_item = contact_for_office(office_item["content_id"])
     return unless office_contact_item
@@ -87,7 +87,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def home_page_offices
-    return [] unless content_item.dig("links", "home_page_offices")
+    return [] unless content_item.content_store_response["links"]["home_page_offices"]
 
     content_item.dig("links", "home_page_offices").map { |office|
       contact = contact_for_office(office["content_id"])
@@ -152,12 +152,13 @@ private
 
   def roles_for_person(person_content_id)
     content_item
+    .content_store_response
     .dig("details", "people_role_associations")
     .select { |people_role_association| people_role_association["person_content_id"] == person_content_id }
     .first["role_appointments"]
     .pluck("role_content_id")
     .map { |role_content_id|
-      content_item.dig("links", "roles").select do |role|
+      content_item.content_store_response.dig("links", "roles").select do |role|
         role["content_id"] == role_content_id
       end
     }

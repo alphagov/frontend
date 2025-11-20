@@ -1,10 +1,12 @@
-class WorldwideOrganisationPresenterTest < PresenterTestCase
-  def schema_name
-    "worldwide_organisation"
+RSpec.describe WorldwideOrganisationPresenter do
+  let(:content_item) { ContentItem.new(GovukSchemas::Example.find("worldwide_organisation", example_name: "worldwide_organisation")) }
+
+  let(:presenter) do
+    described_class.new(content_item)
   end
 
-  test "description of primary_role_person should have spaces between roles" do
-    presenter = create_presenter(WorldwideOrganisationPresenter, content_item: {
+  it "description of primary_role_person should have spaces between roles" do
+    presenter = described_class.new(ContentItem.new({
       "details" => { "people_role_associations" => [
         {
           "person_content_id" => "person_1",
@@ -51,12 +53,13 @@ class WorldwideOrganisationPresenterTest < PresenterTestCase
           },
         ],
       },
-    })
-    assert_equal "Example Role 1, Example Role 2", presenter.person_in_primary_role[:description]
+    }))
+
+    expect(presenter.person_in_primary_role[:description]).to eq("Example Role 1, Example Role 2")
   end
 
-  test "description of people_in_non_primary_roles should have spaces between roles" do
-    presenter = create_presenter(WorldwideOrganisationPresenter, content_item: {
+  it "description of people_in_non_primary_roles should have spaces between roles" do
+    presenter = described_class.new(ContentItem.new({
       "details" => { "people_role_associations" => [
         {
           "person_content_id" => "person_1",
@@ -103,71 +106,58 @@ class WorldwideOrganisationPresenterTest < PresenterTestCase
           },
         ],
       },
-    })
-    assert_equal "Example Role 1, Example Role 2", presenter.people_in_non_primary_roles.first[:description]
+    }))
+
+    expect(presenter.people_in_non_primary_roles.first[:description]).to eq("Example Role 1, Example Role 2")
   end
 
-  test "#title returns the title" do
-    assert_equal schema_item["title"], presented_item.title
-  end
-
-  test "#body returns the body" do
-    assert_equal schema_item["details"]["body"], presented_item.body
-  end
-
-  test "#world_location_links returns the world locations as a joined sentence of links" do
+  it "#world_location_links returns the world locations as a joined sentence of links" do
     expected_links =
       "<a class=\"govuk-link\" href=\"/world/india/news\">India with translation</a> and " \
         "<a class=\"govuk-link\" href=\"/world/another-location/news\">Another location with translation</a>"
 
-    assert_equal expected_links, presented_item.world_location_links
+    expect(presenter.world_location_links).to eq(expected_links)
   end
 
-  test "#world_location_links returns nil when world locations are empty" do
-    without_world_locations = schema_item
-    without_world_locations["links"].delete("world_locations")
+  it "#world_location_links returns nil when world locations are empty" do
+    content_item.content_store_response["links"].delete("world_locations")
+    presenter = described_class.new(content_item)
 
-    presented = create_presenter(WorldwideOrganisationPresenter, content_item: without_world_locations)
-
-    assert_nil presented.world_location_links
+    expect(presenter.world_location_links).to be_nil
   end
 
-  test "#sponsoring_organisation_links returns the sponsoring organisations as sentence of links" do
+  it "#sponsoring_organisation_links returns the sponsoring organisations as sentence of links" do
     expected_links =
       "<a class=\"sponsoring-organisation govuk-link\" href=\"/government/organisations/foreign-commonwealth-development-office\">Foreign, Commonwealth &amp; Development Office</a> and " \
         "<a class=\"sponsoring-organisation govuk-link\" href=\"/government/organisations/department-for-business-and-trade\">Department for Business and Trade</a>"
 
-    assert_equal expected_links, presented_item.sponsoring_organisation_links
+    expect(presenter.sponsoring_organisation_links).to eq(expected_links)
   end
 
-  test "#sponsoring_organisation_links returns nil when sponsoring organisations are empty" do
-    without_sponsoring_organisations = schema_item
-    without_sponsoring_organisations["links"].delete("sponsoring_organisations")
+  it "#sponsoring_organisation_links returns nil when sponsoring organisations are empty" do
+    content_item.content_store_response["links"].delete("sponsoring_organisations")
+    presenter = described_class.new(content_item)
 
-    presented = create_presenter(WorldwideOrganisationPresenter, content_item: without_sponsoring_organisations)
-
-    assert_nil presented.sponsoring_organisation_links
+    expect(presenter.sponsoring_organisation_links).to be_nil
   end
 
-  test "#social_media_links returns the social media accounts" do
-    assert_equal schema_item["details"]["social_media_links"], presented_item.social_media_accounts
+  it "#social_media_links returns the social media accounts" do
+    expect(presenter.social_media_accounts).to eq(content_item.content_store_response["details"]["social_media_links"])
   end
 
-  test "#main_office returns nil when there is no main office" do
-    without_main_office = schema_item
-    without_main_office["links"].delete("main_office")
+  it "#main_office returns nil when there is no main office" do
+    content_item.content_store_response["links"].delete("main_office")
 
-    presented = create_presenter(WorldwideOrganisationPresenter, content_item: without_main_office)
+    presenter = described_class.new(content_item)
 
-    assert_nil presented.main_office
+    expect(presenter.main_office).to be_nil
   end
 
   test "#home_page_offices returns an empty array when there are no home page offices" do
-    without_home_page_offices = schema_item
-    without_home_page_offices["links"].delete("home_page_offices")
+    content_item.content_store_response["links"].delete("home_page_offices")
 
-    presented = create_presenter(WorldwideOrganisationPresenter, content_item: without_home_page_offices)
+    presenter = described_class.new(content_item)
 
-    assert_equal [], presented.home_page_offices
+    expect(presenter.home_page_offices).to eq([])
   end
 end

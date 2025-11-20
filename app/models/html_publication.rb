@@ -1,5 +1,6 @@
 class HtmlPublication < ContentItem
   include Political
+  include NationalApplicability
 
   def parent
     linked("parent").first

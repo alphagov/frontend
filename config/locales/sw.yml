@@ -57,6 +57,9 @@ sw:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Ilichapishwa
+      updated: Ilisasishwa
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ sw:
       welsh_language_scheme_html: Pata maelezo kuhusu wajibu wetu wa %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ripoti ya shirika
+        other: Ripoti za shirika
     correspondence:
       name:
-        one:
-        other:
+        one: Mawasiliano
+        other: Mawasiliano
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Uamuzi
+        other: Maamuzi
     detailed_guide:
       name:
         one: Mwongozo
@@ -306,12 +309,12 @@ sw:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Taarifa ya FOI
+        other: Taarifa za FOI
     form:
       name:
-        one:
-        other:
+        one: Fomu
+        other: Fomu
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ sw:
         other: Hatua zilizochukuliwa na serikali
     guidance:
       name:
-        one:
-        other:
+        one: Mwongozo
+        other: Mwongozo
     guide:
       pages_in_guide: Kurasa za mwongozo huu
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Chapisho hili linapatikana katika %{url}
+        copyright: "© Hakimiliki ya Crown %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Chapisho hili limepewa leseni chini ya sheria na masharti ya Open Government Licence v3.0 isipokuwa ibainishwe vinginevyo. Ili uone leseni, tembelea <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> au andika barua kwa Information Policy Team, The National Archives, Kew, London TW9 4DU au tuma barua pepe: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Tukitambua maelezo yoyote ya hakimiliki ya watu wengine, utahitaji kupata ruhusa kutoka kwa wamiliki wa hakimiliki husika.
+    impact_assessment:
+      name:
+        one: Utathmini wa athari
+        other: Tathmini za athari
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Ripoti huru
+        other: Ripoti huru
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Mkataba wa kimataifa
+        other: Mikataba ya kimataifa
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ sw:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Ramani
+        other: Ramani
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ sw:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Takwimu za Kitaifa
+        other: Takwimu za Kitaifa
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ sw:
         other: Taarifa za habari
     notice:
       name:
-        one:
-        other:
+        one: Notisi
+        other: Notisi
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Takwimu Rasmi
+        other: Takwimu Rasmi
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ sw:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Hati ya sera
+        other: Hati za sera
     press_release:
       name:
         one: Taarifa kwa vyombo vya habari
@@ -535,8 +548,8 @@ sw:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Nyenzo ya matangazo
+        other: Nyenzo ya matangazo
     publication:
       details: Maelezo
       documents:
@@ -551,12 +564,12 @@ sw:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Kanuni
+        other: Kanuni
     research:
       name:
-        one:
-        other:
+        one: Utafiti na uchanganuzi
+        other: Utafiti na uchanganuzi
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ sw:
       written_on: Iliandikwa mnamo
     standard:
       name:
-        one:
-        other:
+        one: Kiwango
+        other: Viwango
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ sw:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Mwongozo wa kisheria
+        other: Mwongozo wa kisheria
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ sw:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Data ya uwazi
+        other: Data ya uwazi
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Ushauri wa <abbr title="Foreign and Commonwealth Office">FCO</abbr> dhidi ya usafiri wote isipokuwa usafiri muhimu katika sehemu fulani za nchi.

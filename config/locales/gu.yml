@@ -57,6 +57,9 @@ gu:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: પ્રકાશિત
+      updated: અપડેટ થયેલ
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ gu:
       welsh_language_scheme_html: "%{link} પ્રત્યે અમારી પ્રતિબદ્ધતા અંગે જાણો."
     corporate_report:
       name:
-        one:
-        other:
+        one: કોર્પોરેટ અહેવાલ
+        other: કોર્પોરેટ અહેવાલો
     correspondence:
       name:
-        one:
-        other:
+        one: પત્રવ્યવહાર
+        other: પત્રવ્યવહાર
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: નિર્ણય
+        other: નિર્ણયો
     detailed_guide:
       name:
         one: માર્ગદર્શન
@@ -306,12 +309,12 @@ gu:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: માહિતીની સ્વતંત્રતા રીલીઝ
+        other: માહિતીની સ્વતંત્રતા રીલીઝ
     form:
       name:
-        one:
-        other:
+        one: પત્રક
+        other: પત્રકો
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ gu:
         other: સરકારના પ્રતિભાવો
     guidance:
       name:
-        one:
-        other:
+        one: માર્ગદર્શન
+        other: માર્ગદર્શન
     guide:
       pages_in_guide: આ માર્ગદર્શિકામાંના પૃષ્ઠો
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: આ પ્રકાશન %{url} પર ઉપલબ્ધ છે
+        copyright: "© ક્રાઉન કૉપીરાઇટ %{year}"
+        isbn: 'ISBN:'
+        licence_html: આ પ્રકાશન ઓપન ગવર્નમેંટ લાઇસન્સ v3.0ની શરતો હેઠળ લાઇસન્સ પ્રાપ્ત છે, સિવાય કે અન્યથા જણાવેલ હોય.લાઇસન્સ જોવા માટે, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a>ની મુલાકાત લો અથવા ઇન્ફોર્મેશન પોલિસી ટીમ, ધ નેશનલ આર્કાઇવ્સ, કિઉ, લંડન TW- 4DU ને લખો અથવા ઈમેલ કરો:<a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.
+        third_party: જ્યાં અમે કોઈ તૃતીય પક્ષની કૉપીરાઇટ માહિતી આપી છે, ત્યાં તમારે સંબંધિત કૉપીરાઇટ ધારકોની પરવાનગી મેળવવી આવશ્યક રહેશે.
+    impact_assessment:
+      name:
+        one: અસરનું મૂલ્યાંકન
+        other: અસરના મૂલ્યાંકનો
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: સ્વતંત્ર અહેવાલ
+        other: સ્વતંત્ર અહેવાલો
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: આંતરરાષ્ટ્રીય સંધિ
+        other: આંતરરાષ્ટ્રીય સંધિઓ
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ gu:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: નકશો
+        other: નકશાઓ
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ gu:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: રાષ્ટ્રીય આંકડા
+        other: રાષ્ટ્રીય આંકડા
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ gu:
         other: ન્યૂઝ સ્ટોરીઝ
     notice:
       name:
-        one:
-        other:
+        one: સૂચના
+        other: સૂચનાઓ
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: અધિકૃત આંકડા
+        other: અધિકૃત આંકડા
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ gu:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: પોલિસી પેપર
+        other: પોલિસી પેપર્સ
     press_release:
       name:
         one: પ્રેસ રીલીઝ
@@ -535,8 +548,8 @@ gu:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: પ્રચાર સામગ્રી
+        other: પ્રચાર સામગ્રી
     publication:
       details: વિગતો
       documents:
@@ -551,12 +564,12 @@ gu:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: નિયમન
+        other: નિયમનો
     research:
       name:
-        one:
-        other:
+        one: સંશોધન અને વિશ્લેષણ
+        other: સંશોધન અને વિશ્લેષણ
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ gu:
       written_on: પર લખેલ
     standard:
       name:
-        one:
-        other:
+        one: સ્ટાન્ડર્ડ
+        other: સ્ટાન્ડર્ડ્સ
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ gu:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: વૈધાનિક માર્ગદર્શન
+        other: વૈધાનિક માર્ગદર્શન
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ gu:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: પારદર્શિતા ડેટા
+        other: પારદર્શિતા ડેટા
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">વિદેશી - કોમનવેલ્થ અને વિકાસ કચેરી</abbr> જરૂરી મુસાફરી સિવાય દેશના કેટલાક ભાગોમાં પ્રવાસ ન કરવાની સલાહ આપે છે.

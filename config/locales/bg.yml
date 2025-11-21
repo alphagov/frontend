@@ -57,6 +57,9 @@ bg:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Публикуван
+      updated: Актуализиран
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ bg:
       welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Фирмен доклад
+        other: Фирмени доклади
     correspondence:
       name:
-        one:
-        other:
+        one: Кореспонденция
+        other: Кореспонденции
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Решение
+        other: Решения
     detailed_guide:
       name:
         one: Насока
@@ -306,12 +309,12 @@ bg:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Свобода на информацията издание
+        other: Свобода на информацията издания
     form:
       name:
-        one:
-        other:
+        one: Формуляр
+        other: Формуляри
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ bg:
         other: Отговори на правителството
     guidance:
       name:
-        one:
-        other:
+        one: Насока
+        other: Насока
     guide:
       pages_in_guide: Страници в това ръководство
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Тази публикация е налична на адрес %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Тази публикация е лицензирана съгласно условията на Open Government Licence v3.0, освен ако не е посочено друго. За да разгледате този лиценз, посетете <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> или пишете до екипа за информационна политика, The National Archives, Kew, Лондон TW9 4DU, или изпратете имейл до: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Когато идентифицираме информация за авторски права на трети страни, ще трябва да получите разрешение от съответните носители на авторските права.
+    impact_assessment:
+      name:
+        one: Оценка на въздействието
+        other: Оценки на въздействието
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Независим доклад
+        other: Независими доклади
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Международен договор
+        other: Международни договори
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ bg:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карти
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ bg:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Национална статистика
+        other: Национална статистика
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ bg:
         other: Репортажи
     notice:
       name:
-        one:
-        other:
+        one: Известие
+        other: Известия
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Официална статистика
+        other: Официална статистика
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ bg:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Политически документ
+        other: Политически документи
     press_release:
       name:
         one: Съобщение за пресата
@@ -535,8 +548,8 @@ bg:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Рекламен материал
+        other: Рекламен материал
     publication:
       details: Подробности
       documents:
@@ -551,12 +564,12 @@ bg:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Наредба
+        other: Наредби
     research:
       name:
-        one:
-        other:
+        one: Проучване и анализ
+        other: Проучване и анализ
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ bg:
       written_on: Написано на
     standard:
       name:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарти
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ bg:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Законови указания
+        other: Законови указания
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ bg:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Данни за прозрачност
+        other: Данни за прозрачност
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> препоръчва да не се пътува до някои части на страната, освен ако това не е необходимо.

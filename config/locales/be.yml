@@ -57,6 +57,9 @@ be:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Апублікаваны
+      updated: Адноўлена
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -273,14 +276,14 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Карпаратыўная справаздача
+        other: Карпаратыўныя справаздачы
     correspondence:
       name:
         few:
         many:
-        one:
-        other:
+        one: Перапіска
+        other: Перапіска
     countryside_stewardship_grant:
       name:
         few:
@@ -291,8 +294,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Пастанова
+        other: Пастановы
     detailed_guide:
       name:
         few:
@@ -362,14 +365,14 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рэліз у межах Закона аб свабодзе інфармацыі
+        other: Рэлізы ў межах Закона аб свабодзе інфармацыі
     form:
       name:
         few:
         many:
-        one:
-        other:
+        one: Форма
+        other: Формы
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -418,17 +421,29 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Кіраўніцтва
+        other: Кіраўніцтва
     guide:
       pages_in_guide: Старонкі ў гэтым кіраўніцтве
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         many:
         one:
         other:
+      print_meta_data:
+        available_at: Дадзеная публікацыя даступная па адрасе %{url}
+        copyright: "© Аўтарскае права Кароны %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Дадзеная публікацыя ліцэнзавана на ўмовах Open Government Licence v3.0, калі не паказана іншае. Каб азнаёміцца з гэтай ліцэнзіяй, наведайце <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> oнапісаць у Аддзел інфармацыйнай палітыкі, Нацыянальны архіў, К''ю, Лондан TW9 4DU, ці па электроннай пошце: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Калі мы выявілі інфармацыю пра аўтарскія правы трэціх асоб, вам патрэбна атрымаць дазвол ад адпаведных праваўладальнікаў.
+    impact_assessment:
+      name:
+        few:
+        many:
+        one: Ацэнка ўплыву
+        other: Ацэнкі ўплыву
     imported:
       name:
         few:
@@ -439,8 +454,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Незалежная справаздача
+        other: Незалежныя справаздачы
     international_development_fund:
       name:
         few:
@@ -451,8 +466,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Міжнароднае пагадненне
+        other: Міжнародныя пагадненнi
     local_transaction:
       choose_address:
       contact_council:
@@ -531,8 +546,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Карта
+        other: Карты
     medical_safety_alert:
       name:
         few:
@@ -549,8 +564,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Нацыянальная статыстыка
+        other: Нацыянальная статыстыка
     national_statistics_announcement:
       name:
         few:
@@ -573,8 +588,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Паведамленне
+        other: Паведамленні
     official:
       name:
         few:
@@ -585,8 +600,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Афіцыйная статыстыка
+        other: Афіцыйная статыстыка
     official_statistics_announcement:
       name:
         few:
@@ -625,8 +640,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Праграмны дакумент
+        other: Праграмныя дакументы
     press_release:
       name:
         few:
@@ -649,8 +664,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рэкламны матэрыял
+        other: Рэкламны матэрыял
     publication:
       details: Дэталi
       documents:
@@ -673,14 +688,14 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Тэзіс
+        other: Тэзісы
     research:
       name:
         few:
         many:
-        one:
-        other:
+        one: Даследаванні і аналіз
+        other: Даследаванні і аналіз
     residential_property_tribunal_decision:
       name:
         few:
@@ -728,8 +743,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарты
     start_now:
     statement_to_parliament:
       name:
@@ -759,8 +774,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Заканадаўчае кіраўніцтва
+        other: Заканадаўчае кіраўніцтва
     tax_tribunal_decision:
       name:
         few:
@@ -784,8 +799,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Адкрытыя дадзеныя
+        other: Адкрытыя дадзеныя
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Міністэрства замежных спраў і па справах Садружнасці <abbr title="Foreign and Commonwealth Office">FCO</abbr> раяць устрымацца ад усіх падарожжаў, апроч самых патрэбных, у некаторыя раёны краіны.

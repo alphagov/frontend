@@ -57,6 +57,9 @@ si:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: පළ කළේ
+      updated: යාවත්කාලීන කෙරිණි
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ si:
       welsh_language_scheme_html: "%{link} සඳහා අපේ කැපවීම ගැන සොයා බලන්න."
     corporate_report:
       name:
-        one:
-        other:
+        one: ආයතනික වාර්තාව
+        other: ආයතනික වාර්තා
     correspondence:
       name:
-        one:
-        other:
+        one: ලිපි හුවමාරුව
+        other: ලිපි හුවමාරු
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: තීරණය
+        other: තීරණ
     detailed_guide:
       name:
         one: මාර්ගෝපදේශය
@@ -306,12 +309,12 @@ si:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI නිකුත් කිරීම
+        other: FOI නිකුත් කිරීම්
     form:
       name:
-        one:
-        other:
+        one: ආකෘති පත්‍රය
+        other: ආකෘති පත්‍ර
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ si:
         other: රජයේ ප්රතිචාර
     guidance:
       name:
-        one:
-        other:
+        one: මාර්ගෝපදේශය
+        other: මාර්ගෝපදේශය
     guide:
       pages_in_guide: මෙම මාර්ගෝපදේශයෙහි තුළ පිටු
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: මෙම ප්රකාශනය %{url} වෙතින් ලබා ගත හැකිය
+        copyright: "© රාජ්‍ය කතුහිමිකම %{year}"
+        isbn: 'ISBN:'
+        licence_html: මෙම ප්රකාශනයට වෙනත් ආකාරයකින් සඳහන් කර ඇති අවස්ථාවන්හි හැර විවෘත රාජ්ය බලපත්ර v3.0 හි නියමයන් යටතේ බලපත්ර ලබා දී ඇත. මෙම බලපත්‍රය බැලීමට, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> වෙත පිවිසෙන්න නැතහොත් The Information Policy Team, The National Archives, Kew, London TW9 4DU වෙත ලියන්න නැතහොත් <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk </a> වෙත විද්‍යුත් තැපෑලක් එවන්න.
+        third_party: අපි යම් තෙවන පාර්ශවීය ප්රකාශන හිමිකම් තොරතුරු හඳුනාගෙන ඇති අවස්ථාවක ඔබ අදාළ ප්රකාශන හිමිකම් හිමියන්ගෙන් අවසර ලබා ගත යුතුය.
+    impact_assessment:
+      name:
+        one: බලපෑම තක්සේරුව
+        other: බලපෑම තක්සේරු
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: ස්වාධීන වාර්තාව
+        other: ස්වාධීන වාර්තා
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: ජාත්යන්තර ගිවිසුම
+        other: ජාත්යන්තර ගිවිසුම්
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ si:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: සිතියම
+        other: සිතියම්
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ si:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: ජාතික සංඛ්යාලේඛන
+        other: ජාතික සංඛ්යාලේඛන
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ si:
         other: පුවත් කතා
     notice:
       name:
-        one:
-        other:
+        one: දැන්වීම
+        other: දැන්වීම්
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: නිල සංඛ්යාලේඛන
+        other: නිල සංඛ්යාලේඛන
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ si:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: ප්රතිපත්ති පත්‍රිකාව
+        other: ප්රතිපත්ති පත්‍රිකා
     press_release:
       name:
         one: මාධ්ය නිවේදනය
@@ -535,8 +548,8 @@ si:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: ප්රවර්ධන ද්රව්ය
+        other: ප්රවර්ධන ද්රව්ය
     publication:
       details: විස්තර
       documents:
@@ -551,12 +564,12 @@ si:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: නියාමනය
+        other: නියාමන
     research:
       name:
-        one:
-        other:
+        one: පර්යේෂණය සහ විශ්ලේෂණය
+        other: පර්යේෂණය සහ විශ්ලේෂණය
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ si:
       written_on: ලියන ලද දිනය
     standard:
       name:
-        one:
-        other:
+        one: ප්‍රමිතිය
+        other: ප්‍රමිති
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ si:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: ව්යවස්ථාපිත මඟ පෙන්වීම
+        other: ව්යවස්ථාපිත මඟ පෙන්වීම
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ si:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: විනිවිදභාව දත්ත
+        other: විනිවිදභාව දත්ත
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> රටේ කොටස් වලට සියලු සංචාරවලට එරෙහිව උපදෙස් ලබා දෙන නමුත් අත්‍යවශ්‍ය සංවාරයක යෙදිය හැකිය.

@@ -57,6 +57,9 @@ yi:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published:
+      updated:
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -356,11 +359,21 @@ yi:
         other:
     guidance:
       name:
-        one:
+        one: גיידאַנס
         other:
     guide:
       pages_in_guide:
       skip_contents:
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at:
+        copyright:
+        isbn:
+        licence_html:
+        third_party:
     impact_assessment:
       name:
         one:

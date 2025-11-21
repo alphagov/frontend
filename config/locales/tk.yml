@@ -57,6 +57,9 @@ tk:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Çap edilen
+      updated: Täzelenen
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ tk:
       welsh_language_scheme_html: Niýetimiz barada %{link}-da okaň.
     corporate_report:
       name:
-        one:
-        other:
+        one: Korperatiw hasabat
+        other: Korperatiw hasabatlar
     correspondence:
       name:
-        one:
-        other:
+        one: Gabat gelme
+        other: Gabat gelmeler
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Karar
+        other: Kararlar
     detailed_guide:
       name:
         one: Gözkezme
@@ -306,12 +309,12 @@ tk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI goýberilişi
+        other: FOI goýberişleri
     form:
       name:
-        one:
-        other:
+        one: Forma
+        other: Formalar
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ tk:
         other: Hökümetiň jogaplary
     guidance:
       name:
-        one:
-        other:
+        one: Gözkezme
+        other: Gözkezme
     guide:
       pages_in_guide: Bu gollanmadaky sahypalar
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Bu neşir %{url} -da elýeterlidir
+        copyright: "© Crown awtorlyk hukugy %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Bu neşir başgaça bellenilip geçilmese açyk hökümet ygtyýarnamasy v3.0 şertlerinde ygtyýarlandyrylýar. Bu ygtyýarnamany görmek üçin <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3 girip görüň</a> ýa-da Maglumat syýasaty toparyna, Milli arhiw, Kew, London TW9 4DU ýa-da e-poçta ýazyň: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Haýsydyr bir üçünji tarapyň awtorlyk hukugy baradaky maglumatlary kesgitlän ýerimizde, degişli awtorlyk hukugynyň eýelerinden rugsat almaly bolarsyňyz.
+    impact_assessment:
+      name:
+        one: Täsir bahalandyrmasy
+        other: Täsir bahalandyrmalary
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Garaşsyz hasabat
+        other: Garaşsyz hasabatlar
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Halkara şertnama
+        other: Halkara şertnamalar
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ tk:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Karta
+        other: Kartalar
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ tk:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Milli statistika
+        other: Milli statistika
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ tk:
         other: Habarlar
     notice:
       name:
-        one:
-        other:
+        one: Bellik
+        other: Bellikler
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Resmi statistika
+        other: Resmi statistika
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ tk:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Syýasat kagyzy
+        other: Syýasat kagyzlary
     press_release:
       name:
         one: Goýberiliş neşiri
@@ -535,8 +548,8 @@ tk:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Mahabat materialy
+        other: Mahabat materialy
     publication:
       details: Içgin maglumatlar
       documents:
@@ -551,12 +564,12 @@ tk:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Düzgünnama
+        other: Düzgünnamalar
     research:
       name:
-        one:
-        other:
+        one: Gözleg we derňew
+        other: Gözleg we derňew
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ tk:
       written_on: 'Ýazylan:'
     standard:
       name:
-        one:
-        other:
+        one: Standart
+        other: Standartlar
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ tk:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Kanun boýunça görkezme
+        other: Kanun boýunça görkezme
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ tk:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Aç-açanlyk maglumatlar
+        other: Aç-açanlyk maglumatlar
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ýurduň käbir ýerlerine zerur syýahatdan başga-da maslahat berýär.

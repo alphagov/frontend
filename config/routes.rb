@@ -195,6 +195,10 @@ Rails.application.routes.draw do
     get "*path", to: "flexible_page#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("html_publication") do
+    get "*path(.:locale)", to: "html_publication#show"
+  end
+
   constraints FullPathFormatRoutingConstraint.new("landing_page") do
     get "*path", to: "landing_page#show"
   end

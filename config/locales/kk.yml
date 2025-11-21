@@ -57,6 +57,9 @@ kk:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Жарияланды
+      updated: Жаңартылды
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ kk:
       welsh_language_scheme_html: "%{link} қосқан үлесіміз туралы оқыңыз."
     corporate_report:
       name:
-        one:
-        other:
+        one: Корпоративтік есеп
+        other: Корпоративтік есептер
     correspondence:
       name:
-        one:
-        other:
+        one: Хат алмасу
+        other: Хат алмасулар
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Шешім
+        other: Шешімдер
     detailed_guide:
       name:
         one: Нұсқаулық
@@ -306,12 +309,12 @@ kk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI шығарылымы
+        other: FOI шығарылымдары
     form:
       name:
-        one:
-        other:
+        one: Форма
+        other: Формалар
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ kk:
         other: Мемлекет жауаптары
     guidance:
       name:
-        one:
-        other:
+        one: Нұсқаулық
+        other: Нұсқаулық
     guide:
       pages_in_guide: Бұл нұсқаулықтағы беттер
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Бұл жарияланым %{url} сайтында қолжетімді
+        copyright: "© Crown авторлық құқығы %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Бұл жарияланым басқаша көрсетілмеген жағдайларды қоспағанда, v3.0 Ашық Үкімет лицензиясының шарттары бойынша лицензияланған. Осы лицензияны көру үшін, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> веб-сайтына өтіңіз немесе немесе Ақпараттық саясат тобына, Ұлттық мұрағаттарға, Kew, London TW9 4DU жазыңыз немесе төмендегі мекенжайға электрондық хат жазыңыз: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Егер біз авторлық құқық туралы кез келген үшінші тарап ақпаратын анықтаған болсақ, сізге тиісті авторлық құқық иелерінен рұқсат алу қажет болады.
+    impact_assessment:
+      name:
+        one: Ықпалын бағалау
+        other: Ықпалын бағалаулар
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Тәуелсіз есеп
+        other: Тәуелсіз есептер
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Халықаралық келісім
+        other: Халықаралық келісімдер
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ kk:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Карта
+        other: Карталар
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ kk:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ұлттық статистика
+        other: Ұлттық статистика
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ kk:
         other: Жаңалықтар оқиғалары
     notice:
       name:
-        one:
-        other:
+        one: Ескертпе
+        other: Ескертпелер
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Ресми статистика
+        other: Ресми статистика
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ kk:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Саяси құжат
+        other: Саяси құжаттар
     press_release:
       name:
         one: Пресс-релиз
@@ -535,8 +548,8 @@ kk:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Жарнамалық материал
+        other: Жарнамалық материал
     publication:
       details: Толық мәліметтер
       documents:
@@ -551,12 +564,12 @@ kk:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Ереже
+        other: Ережелер
     research:
       name:
-        one:
-        other:
+        one: Зерттеу және талдау
+        other: Зерттеу және талдау
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ kk:
       written_on: Жазылған күні
     standard:
       name:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарттар
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ kk:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Заң нұсқаулығы
+        other: Заң нұсқаулығы
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ kk:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Ашықтық деректері
+        other: Ашықтық деректері
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> маңыздысынан басқа елдің барлық аймақтарына барудан бас тартуға кеңес береді.

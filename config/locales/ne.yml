@@ -57,6 +57,9 @@ ne:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: प्रकाशित
+      updated: अद्यावधिक गरियो
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ ne:
       welsh_language_scheme_html: "%{link} को हाम्रो प्रतिबद्धताको बारेमा जानकारी पाउनुहोस्।"
     corporate_report:
       name:
-        one:
-        other:
+        one: निगम प्रतिवेदन
+        other: निगम प्रतिवेदनहरू
     correspondence:
       name:
-        one:
-        other:
+        one: पत्राचार
+        other: पत्राचारहरू
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: निर्णय
+        other: निर्णयहरु
     detailed_guide:
       name:
         one: मार्गदर्शन
@@ -306,12 +309,12 @@ ne:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: जानकारीको स्वतन्त्रता विज्ञप्ति
+        other: जानकारीको स्वतन्त्रता विज्ञप्तिहरू
     form:
       name:
-        one:
-        other:
+        one: फारम
+        other: फारमहरु
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ ne:
         other: सरकारको प्रतिक्रियाहरू
     guidance:
       name:
-        one:
-        other:
+        one: मार्गदर्शन
+        other: मार्गदर्शन
     guide:
       pages_in_guide: यस गाइडका पृष्ठहरू
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: यो प्रकाशन %{url} मा उपलब्ध छ
+        copyright: "© क्राउन प्रतिलिपि अधिकार %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'यो प्रकाशन कुनै ठाउँमा तोकिएको बाहेक खुला सरकार इजाजतपत्र v3.0 को शर्तहरु अन्तर्गत इजाजतपत्र प्राप्त छ। यो इजाजतपत्र हेर्नको लागी <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> मा जानुहोस् वा सूचना नीति टोलि, राष्ट्रिय अभिलेखालय, किउ, लन्डन TW9 4DU मा पत्र लेख्नुहोस् वा ईमेल पठाउनुहोस्: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: यदि हामीले कुनै तेस्रो पक्ष प्रतिलिपि अधिकार जानकारीको पहिचान गरेका छौं भने तपाईंले सम्बन्धित प्रतिलिपि अधिकार धारकहरु बाट अनुमति प्राप्त गर्न आवश्यक छ।
+    impact_assessment:
+      name:
+        one: प्रभाव मूल्यांकन
+        other: प्रभाव मूल्यांकनहरू
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: स्वतन्त्र प्रतिवेदन
+        other: स्वतन्त्र प्रतिवेदनहरू
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: अन्तर्राष्ट्रिय सन्धि
+        other: अन्तर्राष्ट्रिय सन्धिहरु
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ ne:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: नक्शा
+        other: नक्साहरू
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ ne:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: राष्ट्रिय तथ्याङ्क
+        other: राष्ट्रिय तथ्याङ्क
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ ne:
         other: समाचार कथाहरु
     notice:
       name:
-        one:
-        other:
+        one: सूचना
+        other: सूचनाहरु
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: आधिकारिक तथ्याङ्क
+        other: आधिकारिक तथ्याङ्क
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ ne:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: नीति पत्र
+        other: नीति पत्रहरू
     press_release:
       name:
         one: प्रेस विज्ञप्ति
@@ -535,8 +548,8 @@ ne:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: प्रचार सामग्री
+        other: प्रचार सामग्री
     publication:
       details: विवरण
       documents:
@@ -551,12 +564,12 @@ ne:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: नियम
+        other: नियमहरु
     research:
       name:
-        one:
-        other:
+        one: अनुसन्धान र विश्लेषण
+        other: अनुसन्धान र विश्लेषण
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ ne:
       written_on: मा लेखिएको छ
     standard:
       name:
-        one:
-        other:
+        one: मानक
+        other: मानकहरू
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ ne:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: वैधानिक मार्गदर्शन
+        other: वैधानिक मार्गदर्शन
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ ne:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: पारदर्शिता जानकारी
+        other: पारदर्शिता जानकारी
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">विदेश, राष्ट्रमंडल र विकास कार्यालय</abbr> ले जरूरी यात्रा बाहेक देशको केहि भागमा सबै यात्रा बिरूद्ध सल्लाह दिएको छ।

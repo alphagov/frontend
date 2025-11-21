@@ -57,6 +57,9 @@ de:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Veröffentlicht
+      updated: Aktualisiert
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ de:
       welsh_language_scheme_html: Informieren Sie sich über unser Engagement für %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Unternehmensbericht
+        other: Unternehmensberichte
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondenz
+        other: Korrespondenzen
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Entscheidung
+        other: Entscheidungen
     detailed_guide:
       name:
         one: Detaillierte Hinweise
@@ -306,12 +309,12 @@ de:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Freigabe gemäß Informationsfreiheitsgesetz
+        other: Freigaben gemäß Informationsfreiheitsgesetz
     form:
       name:
-        one:
-        other:
+        one: Formular
+        other: Formulare
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ de:
         other: Antworten der Regierung
     guidance:
       name:
-        one:
-        other:
+        one: Detaillierte Hinweise
+        other: Detaillierte Hinweise
     guide:
       pages_in_guide: Seiten in diesem Leitfaden
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Diese Veröffentlichung ist verfügbar unter %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Diese Veröffentlichung unterliegt, sofern nicht anders angegeben, den Bedingungen der Open Government Licence v3.0. Um diese Lizenz einzusehen, gehen Sie auf <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> oder schreiben Sie an das Information Policy Team, The National Archives, Kew, London TW9 4DU, oder senden Sie eine Email: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Wenn wir urheberrechtlich geschützte Informationen von Dritten identifiziert haben, müssen Sie die Erlaubnis der betreffenden Urheberrechtsinhaber einholen.
+    impact_assessment:
+      name:
+        one: Folgenabschätzung
+        other: Folgenabschätzungen
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Unabhängiger Bericht
+        other: Unabhängige Berichte
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationaler Vertrag
+        other: Internationale Verträge
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ de:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Karte
+        other: Karten
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ de:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationale Statistik
+        other: Nationale Statistik
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ de:
         other: Meldungen
     notice:
       name:
-        one:
-        other:
+        one: Hinweis
+        other: Hinweise
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Statistiken
+        other: Statistiken
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ de:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Grundsatzpapier
+        other: Grundsatzpapiere
     press_release:
       name:
         one: Pressemitteilung
@@ -535,8 +548,8 @@ de:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Werbematerial
+        other: Werbematerial
     publication:
       details: Einzelheiten
       documents:
@@ -551,12 +564,12 @@ de:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regulierung
+        other: Regulierungen
     research:
       name:
-        one:
-        other:
+        one: Forschung und Analyse
+        other: Forschung und Analyse
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ de:
       written_on: Geschrieben am
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standards
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ de:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Gesetzlicher Leitfaden
+        other: Gesetzlicher Leitfaden
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ de:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Transparenzdaten
+        other: Transparenzdaten
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Das <abbr title="Foreign and Commonwealth Office">FCO</abbr> rät von allen Reisen in Teile des Landes ab, die nicht unbedingt erforderlich sind.

@@ -57,6 +57,9 @@ so:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Daabacaada
+      updated: La cusboonaysiiyay
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ so:
       welsh_language_scheme_html: Raadi waxyaabaha ku saabsan ka go'naanshahayaga %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Warbixinta shirkada
+        other: Warbixinaha shirkada
     correspondence:
       name:
-        one:
-        other:
+        one: Xidhiidhka
+        other: Xidhiidhada
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Go'aan
+        other: Go'aamo
     detailed_guide:
       name:
         one: Tilmaam
@@ -306,12 +309,12 @@ so:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Baahinta FOI
+        other: Warbixinaha FOI
     form:
       name:
-        one:
-        other:
+        one: Foomka
+        other: Foomamka
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ so:
         other: Jawaabaha dawlada
     guidance:
       name:
-        one:
-        other:
+        one: Tilmaam
+        other: Tilmaam
     guide:
       pages_in_guide: Bogaga tilmaamahan
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Daabacaadan waxa laga heli karaa %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Daabacaadani waxay ku diwaangashantahay xeerarka kujira Liisanka Furan ee Dawlada v3.0 marka laga reebo halka kuwo kale lagu xusay. Si aad dib ugu dheehato, booqo <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ama qor Macluumaadka Kooxda Siyaasada, The National Archives, Kew, London TW9 4DU, ama iimayl u dir: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Halkaas oo aan aqoonsanay macluumaad kasta oo gacan sadexaad xaq u leedahay waxaad u baahan doontaa inaad hesho ogolaansho la xidhiidha qofka xuquuqda iska leh.
+    impact_assessment:
+      name:
+        one: Qiimeynta Saamenta
+        other: Qiimeynta Saamaynaha
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Warbixin madax banaan
+        other: Warbixino madax banaan
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Heshiis caalamiya
+        other: Heshiisyo caalamiya
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ so:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Maab
+        other: Maabab
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ so:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Tirokoobka qaranka
+        other: Tirokoobka qaranka
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ so:
         other: Warar
     notice:
       name:
-        one:
-        other:
+        one: Ogeysiis
+        other: Ogeysiisyo
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Tirokoobka rasmiga ah
+        other: Tirokoobka rasmiga ah
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ so:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Warqada siyaasada
+        other: Waraaqaha siyaasada
     press_release:
       name:
         one: War-saxaafadeed
@@ -535,8 +548,8 @@ so:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Agab xayeysiis
+        other: Agab xayeysiis
     publication:
       details: Faah-faahin
       documents:
@@ -551,12 +564,12 @@ so:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Sharci
+        other: Shuruuc
     research:
       name:
-        one:
-        other:
+        one: Cilmi-baadhis iyo falanqeyn
+        other: Cilmi-baadhis iyo falanqeyn
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ so:
       written_on: Lagu qoray
     standard:
       name:
-        one:
-        other:
+        one: Heerka
+        other: Heerarka
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ so:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Tilmaamta sharciga
+        other: Tilmaamta sharciga
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ so:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Xog daah furan
+        other: Xog daah furan
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> talo dhamaan kasoo wada horjeeda lakin socdaal muhiim ah oo qaybaha dalka oo dhan ah.

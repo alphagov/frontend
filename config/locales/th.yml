@@ -57,6 +57,9 @@ th:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: เผยแพร่แล้ว
+      updated: ปรับปรุงแล้ว
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -229,16 +232,16 @@ th:
       welsh_language_scheme_html: ดูข้อมูลเพิ่มเติมเกี่ยวกับพันธกิจของเราสำหรับ %{link}
     corporate_report:
       name:
-        other:
+        other: รายงานของบริษัท
     correspondence:
       name:
-        other:
+        other: จดหมายโต้ตอบ
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: การตัดสินใจ
     detailed_guide:
       name:
         other: คำแนะนำ
@@ -279,10 +282,10 @@ th:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: การออก FOI
     form:
       name:
-        other:
+        other: แบบฟอร์ม
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -326,25 +329,34 @@ th:
         other: คำตอบของรัฐบาล
     guidance:
       name:
-        other:
+        other: คำแนะนำ
     guide:
       pages_in_guide: หน้าในคู่มือนี้
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: สิ่งพิมพ์นี้สามารถดูได้ที่ %{url}
+        copyright: ลิขสิทธิ์ © Crown %{year}
+        isbn: 'ISBN:'
+        licence_html: 'สิ่งพิมพ์นี้ได้รับอนุญาตภายใต้ข้อกำหนดของ Open Government License v3.0 เว้นแต่จะระบุไว้เป็นอย่างอื่น เพื่อดูใบอนุญาตนี้ โปรดไปที่ <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> หรือส่งจดหมายถึงInformation Policy Team, The National Archives, Kew, London TW9 4DU หรือส่งอีเมลไปที่: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>'
+        third_party: ในกรณีที่เราพบข้อมูลลิขสิทธิ์ของบุคคลที่สามใดๆ คุณจะต้องขอรับการอนุญาตจากผู้ถือลิขสิทธิ์ที่เกี่ยวข้องนั้นๆ
+    impact_assessment:
+      name:
+        other: การประเมินผลกระทบ
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: รายงานอิสระ
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: สนธิสัญญาระหว่างประเทศ
     local_transaction:
       choose_address:
       contact_council:
@@ -418,7 +430,7 @@ th:
       updates_title:
     map:
       name:
-        other:
+        other: แผนที่
     medical_safety_alert:
       name:
         other:
@@ -427,7 +439,7 @@ th:
         other:
     national_statistics:
       name:
-        other:
+        other: สถิติแห่งชาติ
     national_statistics_announcement:
       name:
         other:
@@ -439,13 +451,13 @@ th:
         other: เนื้อหาข่าว
     notice:
       name:
-        other:
+        other: ประกาศ
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: สถิติของราชการ
     official_statistics_announcement:
       name:
         other:
@@ -467,7 +479,7 @@ th:
         other:
     policy_paper:
       name:
-        other:
+        other: เอกสารนโยบาย
     press_release:
       name:
         other: ข่าวประชาสัมพันธ์
@@ -479,7 +491,7 @@ th:
         other:
     promotional:
       name:
-        other:
+        other: สื่อวัสดุส่งเสริมการขาย
     publication:
       details: รายละเอียด
       documents:
@@ -491,10 +503,10 @@ th:
         other:
     regulation:
       name:
-        other:
+        other: ระเบียบข้อบังคับ
     research:
       name:
-        other:
+        other: การวิจัยและการวิเคราะห์
     residential_property_tribunal_decision:
       name:
         other:
@@ -525,7 +537,7 @@ th:
       written_on: เขียนเมื่อ
     standard:
       name:
-        other:
+        other: มาตรฐาน
     start_now:
     statement_to_parliament:
       name:
@@ -541,7 +553,7 @@ th:
         other:
     statutory_guidance:
       name:
-        other:
+        other: คำแนะนำทางกฎหมาย
     tax_tribunal_decision:
       name:
         other:
@@ -557,7 +569,7 @@ th:
         other:
     transparency:
       name:
-        other:
+        other: ข้อมูลความโปร่งใส
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ไม่แนะนำให้เดินทางไปยังบางส่วนของประเทศ นอกจากมีเหตุจำเป็น

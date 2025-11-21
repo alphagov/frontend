@@ -57,6 +57,9 @@ hi:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: प्रकाशित
+      updated: अपडेट किया गया
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ hi:
       welsh_language_scheme_html: हमारी प्रकाशन के प्रति वचनबद्धता के बारे में जानें %(link)।
     corporate_report:
       name:
-        one:
-        other:
+        one: कॉरपोरेट विवरण
+        other: कॉरपोरेट विवरण
     correspondence:
       name:
-        one:
-        other:
+        one: पत्र व्यवहार
+        other: पत्र व्यवहार
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: फैसला
+        other: फैसले
     detailed_guide:
       name:
         one: मार्गदर्शन
@@ -306,12 +309,12 @@ hi:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: एफओआई की विज्ञप्ति
+        other: एफओआई की विज्ञप्तियां
     form:
       name:
-        one:
-        other:
+        one: प्रपत्र
+        other: प्रपत्र
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ hi:
         other: सरकारी जवाब
     guidance:
       name:
-        one:
-        other:
+        one: मार्गदर्शन
+        other: मार्गदर्शन
     guide:
       pages_in_guide: इस गाइड में पेज
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: यह प्रकाशन %{url} पर उपलब्ध है
+        copyright: "© क्राउन कॉपीराइट %{year}"
+        isbn: 'आईएसबीएन:'
+        licence_html: 'यह प्रकाशन ओपन गवर्नमेंट लाइसेंस v3.0 के नियमों के तहत लाइसेंस प्राप्त है, जहां अन्यथा कहा गया है उसे छोड़कर। यह लाइसेंस देखने के लिए, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> पर जाएं, या Information Policy Team, The National Archives, Kew, London TW9 4DU को लिखें, या ईमेल करें: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>।'
+        third_party: जहां हमने किसी तीसरे पक्ष की कॉपीराइट जानकारी को मान्य किया हो, वहां आपको संबंधित कॉपीराइट धारकों से अनुमति लेनी होगी।
+    impact_assessment:
+      name:
+        one: प्रभाव का आंकलन
+        other: प्रभाव का आंकलन
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: स्वतंत्र रिपोर्ट
+        other: स्वतंत्र रिपोर्टें
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: अंतरराष्ट्रीय संधि
+        other: अंतरराष्ट्रीय संधियां
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ hi:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: मानचित्र
+        other: मानचित्रों
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ hi:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: राष्ट्रीय सांख्यिकी
+        other: राष्ट्रीय सांख्यिकी
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ hi:
         other: समाचार कथाएं
     notice:
       name:
-        one:
-        other:
+        one: नोटिस
+        other: नोटिस
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: आधिकारिक सांख्यिकी
+        other: आधिकारिक सांख्यिकी
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ hi:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: नीति पत्र
+        other: नीति पत्र
     press_release:
       name:
         one: प्रेस विज्ञप्ति
@@ -535,8 +548,8 @@ hi:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: प्रचार सामग्री
+        other: प्रचार सामग्री
     publication:
       details: विवरण
       documents:
@@ -551,12 +564,12 @@ hi:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: विनियमन
+        other: विनियमों
     research:
       name:
-        one:
-        other:
+        one: अनुसंधान एवं विश्लेषण
+        other: अनुसंधान एवं विश्लेषण
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ hi:
       written_on: पर लिखा
     standard:
       name:
-        one:
-        other:
+        one: मानक
+        other: मानकों
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ hi:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: वैधानिक मार्गदर्शन
+        other: वैधानिक मार्गदर्शन
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ hi:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: पारदर्शिता आंकड़े
+        other: पारदर्शिता आंकड़े
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> देश के कुछ हिस्सों में अनिवार्य यात्रा को छोड़कर बाकी सबके विरुद्ध सलाह देता है।

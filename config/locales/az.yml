@@ -57,6 +57,9 @@ az:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Dərc edilib
+      updated: Yenilənib
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ az:
       welsh_language_scheme_html: "%{link} ilə bağlı öhdəliyimiz barədə öyrənin."
     corporate_report:
       name:
-        one:
-        other:
+        one: Şirkətin fəaliyyəti üzrə hesabat
+        other: Şirkətin fəaliyyəti üzrə hesabatlar
     correspondence:
       name:
-        one:
-        other:
+        one: Yazışma
+        other: Yazışmalar
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Qərar
+        other: Qərarlar
     detailed_guide:
       name:
         one: Göstəriş
@@ -306,12 +309,12 @@ az:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Məlumat əldə etmə azadlığı buraxılışı
+        other: Məlumat əldə etmə azadlığı buraxılışları
     form:
       name:
-        one:
-        other:
+        one: Forma
+        other: Formalar
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ az:
         other: Hökumətin reaksiyaları
     guidance:
       name:
-        one:
-        other:
+        one: Göstəriş
+        other: Göstəriş
     guide:
       pages_in_guide: Bu təlimatdakı səhifələr
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Bu nəşr %{url} ünvanında mövcuddur
+        copyright: "© Böyük Britaniyanın müəllif hüququ %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Bu nəşr v3.0 Açıq dövlət lisenziyasının şərtlərinə uyğun olaraq lisenziya ilə təmin edilmişdir (başqa cür nəzərdə tutulmadığı halda). Bu lisenziyaya baxmaq üçün <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ünvanına baş çəkin və ya Information Policy Team, The National Archives, Kew, London TW9 4DU ünvanına yazın, yaxud aşağıdakı ünvana e-məktub göndərin: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Hər hansı üçüncü tərəfin müəllif hüququ üzrə məlumatını müəyyən etdiyimiz yerlərdə müvafiq müəllif hüququ sahiblərindən icazə almalı olacaqsınız.
+    impact_assessment:
+      name:
+        one: Təsirin dəyərləndirilməsi
+        other: Təsirin dəyərləndirilmələri
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Müstəqil hesabat
+        other: Müstəqil hesabatlar
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Beynəlxalq saziş
+        other: Beynəlxalq sazişlər
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ az:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Xəritə
+        other: Xəritələr
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ az:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Milli statistika
+        other: Milli statistika
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ az:
         other: Xəbərləri əks etdirən materiallar
     notice:
       name:
-        one:
-        other:
+        one: Bildiriş
+        other: Bildirişlər
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Rəsmi statistika
+        other: Rəsmi statistika
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ az:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Siyasət sənədi
+        other: Siyasət sənədləri
     press_release:
       name:
         one: Press-reliz
@@ -535,8 +548,8 @@ az:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Reklam materialı
+        other: Reklam materialı
     publication:
       details: Təəffüratlar
       documents:
@@ -551,12 +564,12 @@ az:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Tənzimləmə
+        other: Tənzimləmələr
     research:
       name:
-        one:
-        other:
+        one: Araşdırma və təhlil
+        other: Araşdırma və təhlil
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ az:
       written_on: Yazılma tarixi
     standard:
       name:
-        one:
-        other:
+        one: Standart
+        other: Standartlar
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ az:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Normativ göstərişlər
+        other: Normativ göstərişlər
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ az:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Məlumatla bağlı şəffaflıq
+        other: Məlumatla bağlı şəffaflıq
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ölkənin bölgələrinə zəruri səyahət istisna olmaqla heç birini məsləhət görmürlər.

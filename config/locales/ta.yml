@@ -57,6 +57,9 @@ ta:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: வெளியிடப்பட்டது
+      updated: புதுப்பிக்கப்பட்டது
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ ta:
       welsh_language_scheme_html: "%{link}-க்கு எங்கள் கடப்பாடு குறித்துக் கண்டறியுங்கள்."
     corporate_report:
       name:
-        one:
-        other:
+        one: குழும அறிக்கை
+        other: குழும அறிக்கைகள்
     correspondence:
       name:
-        one:
-        other:
+        one: கடிதத் தொடர்பு
+        other: கடிதத் தொடர்புகள்
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: முடிவு
+        other: முடிவுகள்
     detailed_guide:
       name:
         one: வழிகாட்டுதல்
@@ -306,12 +309,12 @@ ta:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: தகவல் சுதந்திர வெளியீடு
+        other: தகவல் சுதந்திர வெளியீடுகள்
     form:
       name:
-        one:
-        other:
+        one: படிவம்
+        other: படிவங்கள்
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ ta:
         other: அரசாங்க பதில்கள்
     guidance:
       name:
-        one:
-        other:
+        one: வழிகாட்டுதல்
+        other: வழிகாட்டுதல்
     guide:
       pages_in_guide: இந்த வழிகாட்டுதலில் உள்ள பக்கங்கள்
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: "%{url}-ல் இந்த வெளியீடு உள்ளது"
+        copyright: "© Crown காப்புரிமை %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'வேறு வகையில் குறிப்பிடப்படாதவரையில் இந்த வெளியீடானது திறந்த அரசு உரிமம் v3.0-வின் விதிமுறைகளின்கீழ் உரிமம் பெற்றது. இந்த உரிமத்தைப் பார்வையிட <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> பக்கத்துக்கு வருகைதாருங்கள் அல்லது தகவல் கொள்கைக் குழுவுக்கு The National Archives, Kew, London TW9 4DU என்ற முகவரிக்கு எழுதுங்கள் அல்லது பின்வரும் முகவரிக்கு மின்னஞ்சல் செய்யுங்கள்: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: தொடர்புடைய காப்புரிமைதாரர்களிடமிருந்து அனுமதி பெறுவதற்கு உங்களுக்குத் தேவையான ஏதேனும் மூன்றாம் நபர் காப்புரிமைத் தகவல்கள் நாங்கள் அடையாளம் காணுமிடத்தில்.
+    impact_assessment:
+      name:
+        one: தாக்க மதிப்பீடு
+        other: தாக்க மதிப்பீடுகள்
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: தற்சார்பு அறிக்கை
+        other: தற்சார்பு அறிக்கைகள்
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: சர்வதேச உடன்படிக்கை
+        other: சர்வதேச உடன்படிக்கைகள்
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ ta:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: வரைபடம்
+        other: வரைபடங்கள்
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ ta:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: தேசிய புள்ளியியல்
+        other: தேசிய புள்ளியியல்
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ ta:
         other: செய்திகள்
     notice:
       name:
-        one:
-        other:
+        one: அறிவிப்பு
+        other: அறிவிப்புகள்
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: அதிகாரப்பூர்வ புள்ளியியல்
+        other: அதிகாரப்பூர்வ புள்ளியியல்
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ ta:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: கொள்கை ஆவணம்
+        other: கொள்கை ஆவணங்கள்
     press_release:
       name:
         one: செய்திக் குறிப்பு
@@ -535,8 +548,8 @@ ta:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: விளம்பரப் பொருள்
+        other: விளம்பரப் பொருள்
     publication:
       details: விபரங்கள்
       documents:
@@ -551,12 +564,12 @@ ta:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: ஒழுங்குமுறை
+        other: ஒழுங்குமுறைகள்
     research:
       name:
-        one:
-        other:
+        one: ஆராய்ச்சி மற்றும் பகுப்பாய்வு
+        other: ஆராய்ச்சி மற்றும் பகுப்பாய்வு
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ ta:
       written_on: எழுதப்பட்ட தேதி
     standard:
       name:
-        one:
-        other:
+        one: தரநிலை
+        other: தரநிலைகள்
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ ta:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: சட்டப்பூர்வ வழிகாட்டுதல்
+        other: சட்டப்பூர்வ வழிகாட்டுதல்
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ ta:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: வெளிப்படையான தரவு
+        other: வெளிப்படையான தரவு
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">அயல்நாடு, காமன்வெல்த் அலுவலகம்</abbr> நாட்டின் பகுதிகளுக்கு அத்தியாவசிய பயணம் செய்வது குறித்து அனைவருக்குமான ஆலோசனை தருகிறது.

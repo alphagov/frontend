@@ -57,6 +57,9 @@ sq:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Publikuar
+      updated: Përditësuar
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ sq:
       welsh_language_scheme_html: Mësoni rreth angazhimit tonë ndaj %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Raport i organizatës
+        other: Raporte te organizatës
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondencë
+        other: Korrespondencat
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Vendimi
+        other: Vendimet
     detailed_guide:
       name:
         one: Udhëzim
@@ -306,12 +309,12 @@ sq:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Njoftim mbi Lirinë e Informacionit
+        other: Njoftime mbi Lirinë e Informacionit
     form:
       name:
-        one:
-        other:
+        one: Formular
+        other: Formularë
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ sq:
         other: Reagime qeveritare
     guidance:
       name:
-        one:
-        other:
+        one: Udhëzime
+        other: Udhëzime
     guide:
       pages_in_guide: Faqet në këtë udhëzim
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Ky publikim është i disponueshëm në %{url}
+        copyright: "© Crown e drejta e autorit %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ky publikim është i licencuar sipas kushteve të Licencës së Qeverisë së Hapur v3.0, përveç rasteve kur përcaktohet ndryshe. Për të parë këtë licencë, vizitoni <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ose i shkruani Ekipit të Politikave të Informacionit, Arkivave Kombëtare, Kew, London TW9 4DU, ose email: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Aty ku kemi identifikuar ndonjë informacion të palës së tretë për të drejtën e autorit, do t'ju duhet të merrni leje nga mbajtësit e të drejtave të autorit në fjalë.
+    impact_assessment:
+      name:
+        one: Vlerësim i ndikimit
+        other: Vlerësime te ndikimit
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Raport i pavarur
+        other: Raporte të pavarur
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Traktat ndërkombëtar
+        other: Traktate ndërkombëtare
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ sq:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Hartë
+        other: Harta
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ sq:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Statistikat Kombëtare
+        other: Statistikat Kombëtare
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ sq:
         other: Ngjarje
     notice:
       name:
-        one:
-        other:
+        one: Njoftim
+        other: Njoftime
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Statistikat Zyrtare
+        other: Statistikat Zyrtare
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ sq:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Dokument politikash
+        other: Dokumente politikash
     press_release:
       name:
         one: Njoftimi shtypi
@@ -535,8 +548,8 @@ sq:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Material promovues
+        other: Material promovues
     publication:
       details: Detajet
       documents:
@@ -551,12 +564,12 @@ sq:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Rregullore
+        other: Rregulloret
     research:
       name:
-        one:
-        other:
+        one: Kërkime dhe analiza
+        other: Kërkime dhe analiza
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ sq:
       written_on: Shkruar në
     standard:
       name:
-        one:
-        other:
+        one: Standardi
+        other: Standarde
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ sq:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Udhëzim ligjor
+        other: Udhëzim ligjor
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ sq:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Të dhëna për transparencën
+        other: Të dhëna për transparencën
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> këshillon kundër të gjitha udhëtimeve përveçse thelbësore në pjesë të vendit.

@@ -57,6 +57,9 @@ ms:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Diterbitkan
+      updated: Dikemas kini
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -229,16 +232,16 @@ ms:
       welsh_language_scheme_html: Ketahui tentang komitmen kami kepada %{link}.
     corporate_report:
       name:
-        other:
+        other: Laporan korporat
     correspondence:
       name:
-        other:
+        other: Perwakilan
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: Keputusan
     detailed_guide:
       name:
         other: Panduan
@@ -279,10 +282,10 @@ ms:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: Hebahan Kebebasan Maklumat (FOI)
     form:
       name:
-        other:
+        other: Borang
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -326,25 +329,34 @@ ms:
         other: Respons kerajaan
     guidance:
       name:
-        other:
+        other: Panduan
     guide:
       pages_in_guide: Laman dalam panduan ini
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: Penerbitan ini tersedia di %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'Nombor Buku Standard Antarabangsa (ISBN):'
+        licence_html: 'Penerbitan ini dilesenkan di bawah terma Lesen Kerajaan Terbuka v3.0 kecuali dinyatakan sebaliknya. Untuk melihat lesen ini, lawati <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> atau tulis kepada Pasukan Dasar Maklumat, Arkib Negara, Kew, London TW9 4DU, atau e-mel: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Di mana kami telah mengenal pasti mana-mana maklumat hak cipta pihak ketiga, anda perlu mendapatkan kebenaran daripada pemegang hak cipta tersebut.
+    impact_assessment:
+      name:
+        other: Penilaian impak
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: Laporan bebas
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: Perjanjian antarabangsa
     local_transaction:
       choose_address:
       contact_council:
@@ -418,7 +430,7 @@ ms:
       updates_title:
     map:
       name:
-        other:
+        other: Peta
     medical_safety_alert:
       name:
         other:
@@ -427,7 +439,7 @@ ms:
         other:
     national_statistics:
       name:
-        other:
+        other: Statistik Nasional
     national_statistics_announcement:
       name:
         other:
@@ -439,13 +451,13 @@ ms:
         other: Berita
     notice:
       name:
-        other:
+        other: Notis
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: Statistik Rasmi
     official_statistics_announcement:
       name:
         other:
@@ -467,7 +479,7 @@ ms:
         other:
     policy_paper:
       name:
-        other:
+        other: Kertas dasar
     press_release:
       name:
         other: Siaran akhbar
@@ -479,7 +491,7 @@ ms:
         other:
     promotional:
       name:
-        other:
+        other: Bahan promosi
     publication:
       details: Butiran
       documents:
@@ -491,10 +503,10 @@ ms:
         other:
     regulation:
       name:
-        other:
+        other: Peraturan
     research:
       name:
-        other:
+        other: Penyelidikan dan analisis
     residential_property_tribunal_decision:
       name:
         other:
@@ -525,7 +537,7 @@ ms:
       written_on: Ditulis pada
     standard:
       name:
-        other:
+        other: Standard
     start_now:
     statement_to_parliament:
       name:
@@ -541,7 +553,7 @@ ms:
         other:
     statutory_guidance:
       name:
-        other:
+        other: Panduan berkanun
     tax_tribunal_decision:
       name:
         other:
@@ -557,7 +569,7 @@ ms:
         other:
     transparency:
       name:
-        other:
+        other: Data ketelusan
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> menasihati supaya tidak membuat perjalanan kecuali yang perlu sahaja ke bahagian-bahagian tertentu negara ini.

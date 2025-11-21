@@ -57,6 +57,9 @@ et:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Avaldatud
+      updated: Uuendatud
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ et:
       welsh_language_scheme_html: Lisateave meie pühendumuse kohta %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ettevõtte aruanne
+        other: Ettevõtte aruanded
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondents
+        other: Korrespondentsid
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Otsus
+        other: Otsused
     detailed_guide:
       name:
         one: Juhised
@@ -306,12 +309,12 @@ et:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI väljaanne
+        other: FOI väljaanded
     form:
       name:
-        one:
-        other:
+        one: Vorm
+        other: Vormid
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ et:
         other: Valitsuse vastused
     guidance:
       name:
-        one:
-        other:
+        one: Juhised
+        other: Juhised
     guide:
       pages_in_guide: Selle juhendi leheküljed
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: See publikatsioon on saadaval aadressil %{url}
+        copyright: "© Crowni autoriõigus %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'See publikatsioon on litsentsitud valitsuse avatud litsentsi v3.0 kohaselt, kui pole märgitud teisiti. Selle litsentsi vaatamiseks külastage saiti <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> või kirjutage aadressil Information Policy Team, The National Archives, Kew, London TW9 4DU või saatke e-kiri: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Kui oleme tuvastanud kolmanda osapoole autoriõiguse teabe, peate hankima loa vastavalt autoriõiguse hoidjalt.
+    impact_assessment:
+      name:
+        one: Mõju hindamine
+        other: Mõju hindamised
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Sõltumatu aruanne
+        other: Sõltumatud aruanded
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Rahvusvaheline leping
+        other: Rahvusvahelised lepingud
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ et:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kaart
+        other: Kaardid
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ et:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Riiklik statistika
+        other: Riiklik statistika
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ et:
         other: Uudislood
     notice:
       name:
-        one:
-        other:
+        one: Märkus
+        other: Märkused
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Ametlik statistika
+        other: Ametlik statistika
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ et:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Eeskirjade dokument
+        other: Eeskirjade dokumendid
     press_release:
       name:
         one: Pressiteade
@@ -535,8 +548,8 @@ et:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Reklaammaterjal
+        other: Reklaammaterjal
     publication:
       details: Üksikasjad
       documents:
@@ -551,12 +564,12 @@ et:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Määrus
+        other: Määrused
     research:
       name:
-        one:
-        other:
+        one: Uurimine ja analüüs
+        other: Uurimine ja analüüs
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ et:
       written_on: Kirjutatud
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standardid
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ et:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Seadusjärgsed juhised
+        other: Seadusjärgsed juhised
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ et:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Läbipaistvuse andmed
+        other: Läbipaistvuse andmed
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> soovitab mitte reisida riigi osadesse muidu kui hädavajadusel.

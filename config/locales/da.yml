@@ -57,6 +57,9 @@ da:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: offentliggjort
+      updated: Opdateret
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ da:
       welsh_language_scheme_html: Learn more about our commitment to% {link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Virksomhedsrapport
+        other: Virksomhedsrapporter
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondance
+        other: Korrespondancer
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Beslutning
+        other: Beslutninger
     detailed_guide:
       name:
         one: Vejledning
@@ -306,12 +309,12 @@ da:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI frigivelse
+        other: FOI frigivelser
     form:
       name:
-        one:
-        other:
+        one: Formular
+        other: Formularer
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ da:
         other: Regeringens reaktioner
     guidance:
       name:
-        one:
-        other:
+        one: Vejledning
+        other: Vejledning
     guide:
       pages_in_guide: Sider i denne vejledning
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Denne publikation er tilgængelig på %{url}
+        copyright: "© Krown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'This publication is licensed under the terms of the open government license v3.0, unless otherwise stated. Hvis du vil se denne licens, kan du besøge <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> eller skrive til Information Policy Team, The National Archives, Kew, London TW9 4DU eller e-mail: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Hvis vi har identificeret ophavsretlige oplysninger fra tredjepart, skal du indhente tilladelse fra de pågældende ophavsretsindehavere.
+    impact_assessment:
+      name:
+        one: Konsekvensanalyse
+        other: Konsekvensanalyser
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Uafhængig rapport
+        other: Uafhængige rapporter
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: International traktat
+        other: Internationale traktater
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ da:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kort
+        other: Kort
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ da:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationale statistikker
+        other: Nationale statistikker
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ da:
         other: Nyhedshistorier
     notice:
       name:
-        one:
-        other:
+        one: Meddelelse
+        other: Meddelelser
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Officielle statistikker
+        other: Officielle statistikker
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ da:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politikdokument
+        other: Politikdokumenter
     press_release:
       name:
         one: Pressemeddelelse
@@ -535,8 +548,8 @@ da:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Reklamemateriale
+        other: Reklamemateriale
     publication:
       details: Detaljer
       documents:
@@ -551,12 +564,12 @@ da:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Forordning
+        other: Forordninger
     research:
       name:
-        one:
-        other:
+        one: Forskning og analyse
+        other: Forskning og analyse
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ da:
       written_on: Skrevet på
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standarder
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ da:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Lovpligtig vejledning
+        other: Lovpligtig vejledning
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ da:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Data om gennemsigtighed
+        other: Data om gennemsigtighed
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Den <abbr title="Foreign and Commonwealth Office">FCO</abbr> fraråde alle, men væsentlige rejser til dele af landet.

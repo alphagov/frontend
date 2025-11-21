@@ -57,6 +57,9 @@ hr:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Objavljeno
+      updated: Ažurirano
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -258,13 +261,13 @@ hr:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Korporativno izvješće
+        other: Korporativna izvješća
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Prepiska
+        other: Prepiske
     countryside_stewardship_grant:
       name:
         few:
@@ -273,8 +276,8 @@ hr:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Odluka
+        other: Odluke
     detailed_guide:
       name:
         few:
@@ -334,13 +337,13 @@ hr:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Izdanje slobode informacija
+        other: Izdanje slobode informacija
     form:
       name:
         few:
-        one:
-        other:
+        one: Obrazac
+        other: Obrasci
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -387,16 +390,27 @@ hr:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Upute
+        other: Upute
     guide:
       pages_in_guide: Stranice u ovom vodiču
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         one:
         other:
+      print_meta_data:
+        available_at: Ova je publikacija dostupna na %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ova je publikacija licencirana pod uvjetima Licenca otvorene vlade v3.0, osim ako nije drugačije navedeno. Za pregled ove licence posjetite <ahref="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3"> nationalarchives.gov.uk/doc/open-government-licence/ verziju/3 </a> ili pišite timu za politiku informiranja, Nacionalni arhiv, Kew, London TW9 4DU, ili pošaljite e -poštu: <ahref="mailto:psi@nationalarchives.gov.uk"> psi@nationalarchives.gov. uk </a>.'
+        third_party: Ako smo identificirali bilo koje podatke o autorskim pravima trećih strana, morat ćete dobiti dopuštenje od dotičnih vlasnika autorskih prava.
+    impact_assessment:
+      name:
+        few:
+        one: Procjena utjecaja
+        other: Procjene utjecaja
     imported:
       name:
         few:
@@ -405,8 +419,8 @@ hr:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezavisno izvješće
+        other: Nezavisna izvješća
     international_development_fund:
       name:
         few:
@@ -415,8 +429,8 @@ hr:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Međunarodni ugovor
+        other: Međunarodni ugovori
     local_transaction:
       choose_address:
       contact_council:
@@ -493,8 +507,8 @@ hr:
     map:
       name:
         few:
-        one:
-        other:
+        one: Karta
+        other: Karte
     medical_safety_alert:
       name:
         few:
@@ -508,8 +522,8 @@ hr:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Nacionalna statistika
+        other: Nacionalna statistika
     national_statistics_announcement:
       name:
         few:
@@ -528,8 +542,8 @@ hr:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Obavijest
+        other: Obavijesti
     official:
       name:
         few:
@@ -538,8 +552,8 @@ hr:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Službena statistika
+        other: Službena statistika
     official_statistics_announcement:
       name:
         few:
@@ -572,8 +586,8 @@ hr:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Dokument o pravilima
+        other: Dokumenti o pravilima
     press_release:
       name:
         few:
@@ -592,8 +606,8 @@ hr:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Promidžbeni materijal
+        other: Promidžbeni materijal
     publication:
       details: Detalji
       documents:
@@ -612,13 +626,13 @@ hr:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Regulacija
+        other: Regulacije
     research:
       name:
         few:
-        one:
-        other:
+        one: Istraživanje i analiza
+        other: Istraživanje i analiza
     residential_property_tribunal_decision:
       name:
         few:
@@ -660,8 +674,8 @@ hr:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standard
+        other: Standardi
     start_now:
     statement_to_parliament:
       name:
@@ -686,8 +700,8 @@ hr:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Zakonske smjernice
+        other: Zakonske smjernice
     tax_tribunal_decision:
       name:
         few:
@@ -708,8 +722,8 @@ hr:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Podaci o transparentnosti
+        other: Podaci o transparentnosti
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> savjetuje protiv svih, osim bitnih putovanja u dijelova zemlje.

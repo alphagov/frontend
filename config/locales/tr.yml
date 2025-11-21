@@ -57,6 +57,9 @@ tr:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Yayınlanan
+      updated: Güncelleme
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ tr:
       welsh_language_scheme_html: "%{link} bağlantısına taahhüdümüzü okuyun."
     corporate_report:
       name:
-        one:
-        other:
+        one: Kurumsal rapor
+        other: Kurumsal raporlar
     correspondence:
       name:
-        one:
-        other:
+        one: Yazışma
+        other: Yazışmalar
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Karar
+        other: Kararlar
     detailed_guide:
       name:
         one: Rehberlik
@@ -306,12 +309,12 @@ tr:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Bilgi Özgürlüğü duyurusu
+        other: Bilgi Özgürlüğü duyuruları
     form:
       name:
-        one:
-        other:
+        one: Form
+        other: Formlar
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ tr:
         other: Devletin yanıtları
     guidance:
       name:
-        one:
-        other:
+        one: Rehberlik
+        other: Rehberlik
     guide:
       pages_in_guide: Bu kılavuzdaki sayfalar
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Bu yayına %{url} üzerinden ulaşılabilir
+        copyright: "© Crown telif hakkı %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Aksi ifade edilmedikçe, bu yayın Açık Hükümet Lisansı v3.0 hükümleri kapsamında lisanslıdır. Bu lisansı görüntülemek için, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> adresini ziyaret edin veya The National Archives, Kew, London TW9 4DU adresindeki Bilgi Politikası Ekibine yazın ya da şuraya e-posta gönderin: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Üçüncü taraf telif hakkı bilgilerini tespit etmemiz halinde, ilgili telif hakkı sahiplerinden izin almanız gerekir.
+    impact_assessment:
+      name:
+        one: Etki değerlendirmesi
+        other: Etki değerlendirmeleri
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Bağımsız rapor
+        other: Bağımsız raporlar
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Uluslararası anlaşma
+        other: Uluslararası anlaşmalar
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ tr:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Harita
+        other: Haritalar
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ tr:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ulusal İstatistikler
+        other: Ulusal İstatistikler
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ tr:
         other: Haber hikayeleri
     notice:
       name:
-        one:
-        other:
+        one: Bildirim
+        other: Bildirimler
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Resmi İstatistikler
+        other: Resmi İstatistikler
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ tr:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Politika belgesi
+        other: Politika belgeleri
     press_release:
       name:
         one: Basın duyurusu
@@ -535,8 +548,8 @@ tr:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Promosyon malzemesi
+        other: Promosyon malzemesi
     publication:
       details: Ayrıntılar
       documents:
@@ -551,12 +564,12 @@ tr:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Düzenleme
+        other: Düzenlemeler
     research:
       name:
-        one:
-        other:
+        one: Arama ve analiz
+        other: Arama ve analiz
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ tr:
       written_on: 'Yazılma tarihi:'
     standard:
       name:
-        one:
-        other:
+        one: Standart
+        other: Standartlar
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ tr:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Mevzuat rehberi
+        other: Mevzuat rehberi
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ tr:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Şeffaflık verileri
+        other: Şeffaflık verileri
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ülkenin bazı bölgelerine zorunlu seyahatler haricinde seyahat edilmemesini tavsiye etmektedir.

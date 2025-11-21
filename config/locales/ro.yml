@@ -57,6 +57,9 @@ ro:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Publicat
+      updated: Actualizat
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -258,13 +261,13 @@ ro:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Raport de companie
+        other: Rapoarte de companie
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Corespondență
+        other: Corespondențe
     countryside_stewardship_grant:
       name:
         few:
@@ -273,8 +276,8 @@ ro:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Decizie
+        other: Decizii
     detailed_guide:
       name:
         few:
@@ -334,13 +337,13 @@ ro:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Document eliberat privind libertatea informației
+        other: Documente eliberate privind libertatea informației
     form:
       name:
         few:
-        one:
-        other:
+        one: Formular
+        other: Formulare
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -387,16 +390,27 @@ ro:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Orientări
+        other: Orientări
     guide:
       pages_in_guide: Paginile din acest ghid
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         one:
         other:
+      print_meta_data:
+        available_at: Această publicație este disponibilă la %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Această publicație este licență conform condițiilor Open Government Licence v3.0, cu excepția cazurilor în care se specifică contrariul. Pentru a vedea licența, accesați <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> sau scrieți echipei Information Policy, The National Archives, Kew, Londra TW9 4DU, sau trimiteți e-mail la: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Acolo unde am identificat informații de terță parte cu drept de autor, va trebui să obțineți permisiunea de la deținătorii drepturilor de autor în cauză.
+    impact_assessment:
+      name:
+        few:
+        one: Evaluarea impactului
+        other: Evaluările impactului
     imported:
       name:
         few:
@@ -405,8 +419,8 @@ ro:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Raport independent
+        other: Rapoarte independente
     international_development_fund:
       name:
         few:
@@ -415,8 +429,8 @@ ro:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Tratat internațional
+        other: Tratate internaționale
     local_transaction:
       choose_address:
       contact_council:
@@ -493,8 +507,8 @@ ro:
     map:
       name:
         few:
-        one:
-        other:
+        one: Hartă
+        other: Hărți
     medical_safety_alert:
       name:
         few:
@@ -508,8 +522,8 @@ ro:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistică națională
+        other: Statistică națională
     national_statistics_announcement:
       name:
         few:
@@ -528,8 +542,8 @@ ro:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Notificare
+        other: Notificări
     official:
       name:
         few:
@@ -538,8 +552,8 @@ ro:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Statistică oficială
+        other: Statistică oficială
     official_statistics_announcement:
       name:
         few:
@@ -572,8 +586,8 @@ ro:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Document de politică
+        other: Documente de politică
     press_release:
       name:
         few:
@@ -592,8 +606,8 @@ ro:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Material promoțional
+        other: Material promoțional
     publication:
       details: Detalii
       documents:
@@ -612,13 +626,13 @@ ro:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Reglementare
+        other: Reglementări
     research:
       name:
         few:
-        one:
-        other:
+        one: Cercetare și analiză
+        other: Cercetare și analiză
     residential_property_tribunal_decision:
       name:
         few:
@@ -660,8 +674,8 @@ ro:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standard
+        other: Standarde
     start_now:
     statement_to_parliament:
       name:
@@ -686,8 +700,8 @@ ro:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Orientări privind dispozițiile legale
+        other: Orientări privind dispozițiile legale
     tax_tribunal_decision:
       name:
         few:
@@ -708,8 +722,8 @@ ro:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Date privind transparența
+        other: Date privind transparența
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> nu recomandă călătoriile neesențiale în anumite părți ale țării.

@@ -57,6 +57,9 @@ sv:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Publicerad
+      updated: Uppdaterad
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ sv:
       welsh_language_scheme_html: Ta reda på vårt åtagande om %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Företagsrapport
+        other: Företagsrapporter
     correspondence:
       name:
-        one:
-        other:
+        one: Korrespondens
+        other: Korrespondens
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Beslut
+        other: Beslut
     detailed_guide:
       name:
         one: Vägledning
@@ -306,12 +309,12 @@ sv:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI-utlämnande
+        other: FOI-meddelanden
     form:
       name:
-        one:
-        other:
+        one: Formulär
+        other: Formulär
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ sv:
         other: Regeringens svar
     guidance:
       name:
-        one:
-        other:
+        one: Vägledning
+        other: Vägledning
     guide:
       pages_in_guide: Sidor i den här guiden
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Den här publikationen finns på %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Denna publikation är licensierad enligt villkoren i Open Government Licence v3.0, om inget annat anges. För att se licensen, besök <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> eller skriv till Information Policy Team, The National Archives, The National Archives, Kew, London TW9 4DU, eller skicka e-post: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Om vi har identifierat upphovsrättslig information från tredje part måste du få tillstånd från de berörda upphovsrättsinnehavarna.
+    impact_assessment:
+      name:
+        one: Konsekvensbedömning
+        other: Konsekvensbedömningar
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Oberoende rapport
+        other: Oberoende rapporter
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationellt fördrag
+        other: Internationella fördrag
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ sv:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Karta
+        other: Kartor
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ sv:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationell statistik
+        other: Nationell statistik
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ sv:
         other: Nyheter
     notice:
       name:
-        one:
-        other:
+        one: Meddelande
+        other: Meddelanden
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Officiell statistik
+        other: Officiell statistik
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ sv:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Policydokument
+        other: Policydokument
     press_release:
       name:
         one: Pressmeddelande
@@ -535,8 +548,8 @@ sv:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Material för marknadsföring
+        other: Material för marknadsföring
     publication:
       details: Detaljer
       documents:
@@ -551,12 +564,12 @@ sv:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Förordning
+        other: Förordningar
     research:
       name:
-        one:
-        other:
+        one: Forskning och analys
+        other: Forskning och analys
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ sv:
       written_on: Skrivet på
     standard:
       name:
-        one:
-        other:
+        one: Standard
+        other: Standarder
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ sv:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Lagstadgad vägledning
+        other: Lagstadgad vägledning
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ sv:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Öppenhetsuppgifter
+        other: Öppenhetsuppgifter
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> avråder från alla utom nödvändiga resor till delar av landet.

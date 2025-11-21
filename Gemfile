@@ -42,6 +42,7 @@ end
 
 group :test do
   gem "capybara"
+  gem "faker"
   gem "govuk_schemas"
   gem "i18n-coverage"
   gem "rails-controller-testing"
@@ -50,3 +51,7 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
+
+gem "govspeak", "~> 10.6"
+
+gem "rinku", "~> 2.0", require: "rails_rinku"

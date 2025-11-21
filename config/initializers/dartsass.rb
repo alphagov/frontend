@@ -22,6 +22,7 @@ APP_STYLESHEETS = {
   "views/_sign-in.scss" => "views/_sign-in.css",
   "views/_specialist-document.scss" => "views/_specialist-document.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
+  "views/_worldwide-organisation.scss" => "views/_worldwide-organisation.css",
   "views/_landing_page.scss" => "views/_landing_page.css",
   "views/_landing_page/block-error.scss" => "views/_landing_page/block-error.css",
   "views/_landing_page/box.scss" => "views/_landing_page/box.css",

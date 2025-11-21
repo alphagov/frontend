@@ -45,7 +45,7 @@
     "jasmine-core": "^5.12.1",
     "nyc": "^17.1.0",
     "standardx": "^7.0.0",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.0",
     "stylelint-config-gds": "^2.0.0"
   },
   "resolutions": {

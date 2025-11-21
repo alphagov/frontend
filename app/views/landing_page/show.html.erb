@@ -19,13 +19,23 @@
 
 <% content_for :landing_page_blocks do %>
   <% @content_item.blocks.each do |block| %>
-    <%= tag.div class: ["govuk-block govuk-block__#{block.type}", ("govuk-block--background" if block.full_width_background?)] do %>
-      <% if block.full_width? %>
-        <%= render_block(block) %>
-      <% else %>
-        <div class="govuk-width-container">
+    <%
+      block_classes = %W[govuk-block govuk-block__#{block.type}]
+      block_classes << "govuk-block--background" if block.full_width_background?
+    %>
+    <% if block.type == 'main_navigation' %>
+      <% content_for :main_navigation do %>
+        <%= tag.div(render_block(block), class: block_classes) %>
+      <% end %>
+    <% else %>
+      <%= tag.div class: block_classes do %>
+        <% if block.full_width? %>
           <%= render_block(block) %>
-        </div>
+        <% else %>
+          <div class="govuk-width-container">
+            <%= render_block(block) %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

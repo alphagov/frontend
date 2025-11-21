@@ -5,6 +5,11 @@
   background-color: govuk-colour("light-grey");
 }
 
+.box__content {
+  @include govuk-font(24, $weight: bold);
+  @include govuk-responsive-margin(4, "bottom");
+}
+
 @include govuk-media-query($media-type: print) {
   .box {
     background: none;

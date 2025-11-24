@@ -57,6 +57,9 @@ pa-pk:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: شائع ہویا
+      updated: تازہ ترین حال
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ pa-pk:
       welsh_language_scheme_html: ساڈی وابستگی دے بارے جانو %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: کاروبار دی رپورٹ
+        other: کاروبار دیاں رپورٹاں
     correspondence:
       name:
-        one:
-        other:
+        one: خط وکتابت
+        other: خط وکتابت
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: فیصلہ
+        other: فیصلے
     detailed_guide:
       name:
         one: 'رہنمائی '
@@ -306,12 +309,12 @@ pa-pk:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: فریڈم آف انفارمیشن جاری کرنا
+        other: فریڈم آف انفارمیشن جاری کرنا
     form:
       name:
-        one:
-        other:
+        one: 'فارم '
+        other: فارمز
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ pa-pk:
         other: حکومت دے جوابات
     guidance:
       name:
-        one:
-        other:
+        one: رہنمائی
+        other: 'رہنمائی '
     guide:
       pages_in_guide: ایس ہدایت نامے وچ ورقے
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: ایہ اشاعت ایتھے موجود اے %{url}
+        copyright: "%{year}© کراؤن کاپی رائٹ"
+        isbn: 'ISBN:'
+        licence_html: 'ایہ اشاعت نوں حکومت دے لائسنس  وی 3۔0 دی شرائط دے تحت لائسنس ملیا اے سوائے اُس تھاں جتھے ایس توں علاوہ ہور کُج لکھیا اے۔ ایس لائسنس نوں ویکھن لئی ایہ ملاحظہ کرو۔ , visit <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> or write to the Information Policy Team, The National Archives, Kew, London TW9 4DU, or email: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: "جتھے اسی تیجے بندے دی کاپی رائٹ دی معلومات دی شناخت کراں گے تے تہانوں اُس  کاپی رائٹ دے مالک توں اجازت لینا \nہوؤئے گی۔"
+    impact_assessment:
+      name:
+        one: اثر دی جانچ
+        other: اثر دی جانچ
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: خودمُختار رپورٹ
+        other: خودمُختار رپورٹس
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: بین الاقوامی معاہدہ
+        other: بین الاقوامی معایدے
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ pa-pk:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشہ
+        other: نقشے
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ pa-pk:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: قومی اعدادوشمار
+        other: قومی اعدادوشمار
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ pa-pk:
         other: خبراں دیاں کہانیاں
     notice:
       name:
-        one:
-        other:
+        one: نوٹس
+        other: ںوٹسز
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: سرکاری اعدادوشمار
+        other: سرکاری اعدادوشمار
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ pa-pk:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: حکمت عملی دا کاغذ
+        other: حکمتِ عملی دے کاغذات
     press_release:
       name:
         one: خبراں دینا
@@ -535,8 +548,8 @@ pa-pk:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: اشتہاری مواد
+        other: اشتہاری مواد
     publication:
       details: تفصیلات
       documents:
@@ -551,12 +564,12 @@ pa-pk:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: قانون
+        other: قوانین
     research:
       name:
-        one:
-        other:
+        one: 'کھوج تے تجزیہ '
+        other: 'کھوج تے تجزیہ '
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ pa-pk:
       written_on: ایس  تے لکھیا گیا
     standard:
       name:
-        one:
-        other:
+        one: سٹینڈرڈ
+        other: سٹینڈرڈز
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ pa-pk:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: قانونی رہنمائی
+        other: قانونی رہنمائی
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ pa-pk:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: شفافیت دے اعدادوشمار
+        other: شفافیت دے اعدادوشمار
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: ایہ<abbr title="Foreign and Commonwealth Office">FCO</abbr> مُلک دے سارے علاقیاں وچ  ضروری سفر کرن  لئی کیتی گئی نصحیت۔

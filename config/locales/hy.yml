@@ -57,6 +57,9 @@ hy:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Հրապարակված
+      updated: Թարմացված
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ hy:
       welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
     corporate_report:
       name:
-        one:
-        other:
+        one: Կորպորատիվ զեկույց
+        other: Կորպորատիվ զեկույցներ
     correspondence:
       name:
-        one:
-        other:
+        one: Նամակագրություն
+        other: Նամակագրություններ
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Որոշում
+        other: Որոշումներ
     detailed_guide:
       name:
         one: Ուղեցույց
@@ -306,12 +309,12 @@ hy:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Տեղեկատվության ազատության հրապարակում
+        other: Տեղեկատվության ազատության հրապարակումներ
     form:
       name:
-        one:
-        other:
+        one: Ձևաթուղթ
+        other: Ձևաթղթեր
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ hy:
         other: Կառավարության արձագանքներ
     guidance:
       name:
-        one:
-        other:
+        one: Ուղեցույց
+        other: Ուղեցույց
     guide:
       pages_in_guide: Այս ուղեցույցում առկա էջերը
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Այս հրապարակումը հասանելի էt %{url} հասցեով
+        copyright: "© Crown copyright %{year}"
+        isbn: ISBN՝
+        licence_html: 'Այս հրապարակումը լիցենզավորված է Open Government Licence v3.0 հրապարակման սերվերի դրույթների ներքո, բացառությամբ այլ դեպքերի: Այս լիցենզիան դիտելու համար այցելեք <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> կամ գրեք Տեղեկատվական քաղաքականության թիմին, Ազգային արխիվին, Kew, London TW9 4DU կամ ուղարկեք էլ. Նամակ հետևյալ հասցեին՝ <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>։'
+        third_party: Եթե բացահայտենք երրորդ կողմի հեղինակային իրավունքի որևէ տեղեկություն, ձեզնից կպահանջվի ստանալ թույլտվություն հեղինակային իրավունքի համապատասխան սեփականատերերից։
+    impact_assessment:
+      name:
+        one: Ազդեցության գնահատում
+        other: Ազդեցության գնահատումներ
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Անկախ զեկույց
+        other: Անկախ զեկույցներ
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Միջազգային պայմանագիր
+        other: Միջազգային պայմանագրեր
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ hy:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Քարտեզ
+        other: Քարտեզներ
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ hy:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Ազգային վիճակագրություն
+        other: Ազգային վիճակագրություն
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ hy:
         other: Տեղեկատվական նյութեր
     notice:
       name:
-        one:
-        other:
+        one: Ծանուցում
+        other: Ծանուցումներ
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Պաշտոնական վիճակագրություն
+        other: Պաշտոնական վիճակագրություն
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ hy:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Քաղաքականության փաստաթուղթ
+        other: Քաղաքականության փաստաթղթեր
     press_release:
       name:
         one: Կոմյունիկե
@@ -535,8 +548,8 @@ hy:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Գովազդային նյութ
+        other: Գովազդային նյութ
     publication:
       details: Մանրամասներ
       documents:
@@ -551,12 +564,12 @@ hy:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Կանոնադրություն
+        other: Կանոնադրություններ
     research:
       name:
-        one:
-        other:
+        one: Հետազոտություն և վերլուծություն
+        other: Հետազոտություն և վերլուծություն
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ hy:
       written_on: Գրվել է
     standard:
       name:
-        one:
-        other:
+        one: Ստանդարտ
+        other: Ստանդարտներ
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ hy:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Կանոնադրական ուղեցույց
+        other: Կանոնադրական ուղեցույց
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ hy:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Թափանցիկության տվյալներ
+        other: Թափանցիկության տվյալներ
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr>-ը խորհուրդ է տալիս չմեկնել տվյալ երկրի ամբողջ տարածք, բացառությամբ էական նշանակություն ունեցող հատվածների։

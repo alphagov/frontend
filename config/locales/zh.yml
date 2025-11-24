@@ -57,6 +57,9 @@ zh:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 已发布
+      updated: 已更新
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -229,16 +232,16 @@ zh:
       welsh_language_scheme_html: 查看我们对 %{link} 的承诺。
     corporate_report:
       name:
-        other:
+        other: 公司报告
     correspondence:
       name:
-        other:
+        other: 通信
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: 决策
     detailed_guide:
       name:
         other: 指南
@@ -279,10 +282,10 @@ zh:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: FOI 发布
     form:
       name:
-        other:
+        other: 表格
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -326,25 +329,34 @@ zh:
         other: 政府回应
     guidance:
       name:
-        other:
+        other: 指南
     guide:
       pages_in_guide: 本指南的页面
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: 本发表内容可在 %{url} 获取。
+        copyright: "© Crown 版权所有 %{year}"
+        isbn: ISBN：
+        licence_html: 除非另有说明，本发表内容根据开放政府许可证3.0版的条款授权。  要浏览此许可证，请访问 <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> 或写信给资讯政策组，The National Archives, Kew, London TW9 4DU，或发送电子邮件：<a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.
+        third_party: '如果我们发现任何第三者的版权资料，您需要获得有关版权持有人的许可。  '
+    impact_assessment:
+      name:
+        other: 影响评估
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: 独立报告
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: 国际条约
     local_transaction:
       choose_address:
       contact_council:
@@ -418,7 +430,7 @@ zh:
       updates_title:
     map:
       name:
-        other:
+        other: 地图
     medical_safety_alert:
       name:
         other:
@@ -427,7 +439,7 @@ zh:
         other:
     national_statistics:
       name:
-        other:
+        other: 国家统计局
     national_statistics_announcement:
       name:
         other:
@@ -439,13 +451,13 @@ zh:
         other: 新闻故事
     notice:
       name:
-        other:
+        other: 通知
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: 官方统计
     official_statistics_announcement:
       name:
         other:
@@ -467,7 +479,7 @@ zh:
         other:
     policy_paper:
       name:
-        other:
+        other: 政策文件
     press_release:
       name:
         other: 新闻稿
@@ -479,7 +491,7 @@ zh:
         other:
     promotional:
       name:
-        other:
+        other: 宣传资料
     publication:
       details: 详细信息
       documents:
@@ -491,10 +503,10 @@ zh:
         other:
     regulation:
       name:
-        other:
+        other: 条例
     research:
       name:
-        other:
+        other: 研究和分析
     residential_property_tribunal_decision:
       name:
         other:
@@ -525,7 +537,7 @@ zh:
       written_on: 书写日期
     standard:
       name:
-        other:
+        other: 标准
     start_now:
     statement_to_parliament:
       name:
@@ -541,7 +553,7 @@ zh:
         other:
     statutory_guidance:
       name:
-        other:
+        other: 法定指南
     tax_tribunal_decision:
       name:
         other:
@@ -557,7 +569,7 @@ zh:
         other:
     transparency:
       name:
-        other:
+        other: 透明度数据
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: '<abbr title="Foreign and Commonwealth Office">FCO</abbr> 建议除非必要，否则不要前往该国部分地区。  '

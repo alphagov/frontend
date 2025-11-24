@@ -57,6 +57,9 @@ ku:
     email_and_print_link: ناوت تۆمار بکە بۆ ئیمەیڵه‌كان یان ئەم لاپەڕەیە پرنت بکە
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: بڵاوکراوەتەوە
+      updated: نوێ کراوەتەوە
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -361,6 +364,16 @@ ku:
     guide:
       pages_in_guide: لاپەڕەکانی ئەم ڕێنماییە
       skip_contents: ناوەڕۆکەکان بەجێبهێڵە
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: ئەم بڵاوکراوەیە لە %{url} بەردەستە.
+        copyright: "© مافی چاپکردنی تاج %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'ئەم بڵاوکراوە بەپێی مەرجەکانی مۆڵەتی حکومەتی کراوە v3.0 مۆڵەتی پێدراوە جگە لەو شوێنانەی کە بە پێچەوانەوە ئاماژەیان پێکراوە. بۆ بینینی ئەم مۆڵەتە، سەردانی <ahref="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> بکەن یان نامە بنووسە  بۆ تیمی سیاسەتی زانیاری، ئەرشیفی نیشتمانی، کیو، لەندەن TW9 4DU، یان ئیمەیڵ: <a href="mailto:psi@nationalarchives.gov.uk">psi@ئnationalarchives.gov.uk</a>.'
+        third_party: لەو شوێنانەی کە ئێمە هەر زانیارییەکی مافی کۆپیکردنی لایەنی سێیەممان دەستنیشان کردووە پێویستە مۆڵەت لە خاوەن مافی کۆپیکردنی پەیوەندیدار وەربگریت.
     impact_assessment:
       name:
         one: هەڵسەنگاندنی کاریگەرییەکان

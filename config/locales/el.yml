@@ -57,6 +57,9 @@ el:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Δημοσιεύθηκε
+      updated: Ενημερωμένο
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ el:
       welsh_language_scheme_html: Μάθετε για τη δέσμευσή μας στο %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Εταιρική έκθεση
+        other: Εταιρικές εκθέσεις
     correspondence:
       name:
-        one:
-        other:
+        one: Αλληλογραφία
+        other: Αλληλογραφίες
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Απόφαση
+        other: Αποφάσεις
     detailed_guide:
       name:
         one: Οδηγία
@@ -306,12 +309,12 @@ el:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Κυκλοφορία ελευθερία της πληροφόρησης
+        other: Κυκλοφορίες ελευθερία της πληροφόρησης
     form:
       name:
-        one:
-        other:
+        one: Φόρμα
+        other: Φόρμες
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ el:
         other: Κυβερνητικές απαντήσεις
     guidance:
       name:
-        one:
-        other:
+        one: Οδηγία
+        other: Οδηγία
     guide:
       pages_in_guide: Σελίδες σε αυτόν τον οδηγό
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Αυτή η δημοσίευση είναι διαθέσιμη στο %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Αυτή η δημοσίευση έχει άδεια σύμφωνα με τους όρους της Άδειας Ανοικτής Κυβέρνησης v3.0, εκτός εάν αναφέρεται διαφορετικά. Για να δείτε αυτήν την άδεια, επισκεφτείτε την διεύθυνση <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ή γράψτε στην Information Policy Team, The National Archives, Kew, London TW9 4DU, ή στείλτε email: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Όπου έχουμε εντοπίσει οποιαδήποτε στοιχεία πνευματικών δικαιωμάτων τρίτου μέρους, θα χρειαστεί να λάβετε άδεια από τους ενδιαφερόμενους κατόχους πνευματικών δικαιωμάτων.
+    impact_assessment:
+      name:
+        one: Εκτίμηση επίπτωσης
+        other: Εκτιμήσεις επιπτώσεων
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Ανεξάρτητη έκθεση
+        other: Ανεξάρτητες εκθέσεις
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Διεθνής συνθήκη
+        other: Διεθνείς συνθήκες
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ el:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Χάρτης
+        other: Χάρτες
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ el:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Εθνική Στατιστική Υπηρεσία
+        other: Εθνική Στατιστική Υπηρεσία
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ el:
         other: Ιστορίες ειδήσεων
     notice:
       name:
-        one:
-        other:
+        one: Σημείωση
+        other: Σημειώσεις
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Επίσημη Στατιστικά Στοιχεία
+        other: Επίσημη Στατιστικά Στοιχεία
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ el:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Έγγραφο πολιτικής
+        other: Έγγραφα πολιτικής
     press_release:
       name:
         one: Δελτίο τύπου
@@ -535,8 +548,8 @@ el:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Προωθητικό υλικό
+        other: Προωθητικό υλικό
     publication:
       details: Λεπτομέρειες
       documents:
@@ -551,12 +564,12 @@ el:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Κανονισμός λειτουργίας
+        other: Κανονισμοί λειτουργίας
     research:
       name:
-        one:
-        other:
+        one: Έρευνα και ανάλυση
+        other: Έρευνα και ανάλυση
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ el:
       written_on: Γράφτηκε στις
     standard:
       name:
-        one:
-        other:
+        one: Πρότυπο
+        other: Πρότυπα
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ el:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Νομικές οδηγίες
+        other: Νομικές οδηγίες
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ el:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Δεδομένα διαφάνειας
+        other: Δεδομένα διαφάνειας
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Το <abbr title="Foreign and Commonwealth Office">FCO</abbr> σας συμβουλεύει να αποφύγετε τα ταξίδια, πλην των απαραίτητων, σε μέρη της χώρας.

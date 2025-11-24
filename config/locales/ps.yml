@@ -57,6 +57,9 @@ ps:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: خپور شوی
+      updated: تازه شوی
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ ps:
       welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
     corporate_report:
       name:
-        one:
-        other:
+        one: د کارپوریټ راپور
+        other: د شرکت راپورونه
     correspondence:
       name:
-        one:
-        other:
+        one: لیکنه
+        other: لیکنې
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: پریکړه
+        other: پریکړې
     detailed_guide:
       name:
         one: لارښود
@@ -306,12 +309,12 @@ ps:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: د د معلوماتو د آزادۍ قانون خوشې کول
+        other: د معلوماتو د آزادۍ قانون خپروي
     form:
       name:
-        one:
-        other:
+        one: فورمه
+        other: فورمې
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ ps:
         other: د حکومت غبرګون
     guidance:
       name:
-        one:
-        other:
+        one: لارښود
+        other: لارښود
     guide:
       pages_in_guide: په دې لارښود کې پاڼې
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: دا خپرونه په%{url} کې شتون لري
+        copyright: "© {year}% کراون د چاپ حق"
+        isbn: 'ISBN:'
+        licence_html: 'دا نشریه د حکومت د آزاد جواز د قوانینو v3.0 مطابق دغه نشریه د حکومت د آزاد جواز د شرائطو v3.0 مطابق دقانوي جواز لرونکې نشریه ده،مګر په هغه صورت کې چې پروړاندې یې د بل ضد قانون یاونه شویې وي. که غواړئ دغه جواز وګورئ، نو <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ته مراجعه وکړئ یا د معلوماتو د پالیسۍ ټیم ته چې په The National Archives, Kew, London TW9 4DU  یا دغه آدرس ته ایمېل وکړئ: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.کې موقعیت لري لیک واستوئ'
+        third_party: چیرې چې موږ د دریمې ډلې د چاپ حق معلومات پیژندلي تاسو به اړتیا ولرئ د اړونده کاپي حق لرونکو څخه اجازه ترلاسه کړئ.
+    impact_assessment:
+      name:
+        one: د اغیز ارزونه
+        other: د اغیزو ارزونه
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: خپلواک راپور
+        other: خپلواک راپورونه
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: نړیوال تړون
+        other: نړیوال تړونونه
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ ps:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشه
+        other: نقشې
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ ps:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: ملي احصایې
+        other: ملي احصایې
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ ps:
         other: د خبرونو کیسې
     notice:
       name:
-        one:
-        other:
+        one: خبرتیا
+        other: خبرتیاوې
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: رسمي احصایې
+        other: رسمي احصایې
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ ps:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: د پالیسۍ پاڼه
+        other: د پالیسۍ ڼې
     press_release:
       name:
         one: مطبوعاتي اعلامیه
@@ -535,8 +548,8 @@ ps:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: تشویقي مواد
+        other: تشویقي مواد
     publication:
       details: جزیات
       documents:
@@ -551,12 +564,12 @@ ps:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: مقررات
+        other: مقررات
     research:
       name:
-        one:
-        other:
+        one: څیړنه او تحلیل
+        other: څیړنه او تحلیل
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ ps:
       written_on: باندې لیکل شوی
     standard:
       name:
-        one:
-        other:
+        one: معیاري
+        other: معیارونه
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ ps:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: قانوني لارښود
+        other: قانوني لارښود
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ ps:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: د شفافیت معلومات
+        other: د شفافیت معلومات
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> د هیواد برخو ته د لازمي سفر پرته ټولو ته مشوره ورکوي.

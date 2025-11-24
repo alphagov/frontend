@@ -57,6 +57,9 @@ ka:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: პუბლიკაცია
+      updated: განახლება
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ ka:
       welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: კორპორატიული ანგარიში
+        other: კორპორატიული ანგარიშები
     correspondence:
       name:
-        one:
-        other:
+        one: მიმოწერა
+        other: მიმოწერები
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: გადაწყვეტილება
+        other: გადაწყვეტილებები
     detailed_guide:
       name:
         one: ხელძღვანელობა
@@ -306,12 +309,12 @@ ka:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: ინფორმაციის თავისუფლების გამოცემა
+        other: ინფორმაციის თავისუფლების გამოცემებ
     form:
       name:
-        one:
-        other:
+        one: ფორმა
+        other: ფორმები
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ ka:
         other: მთავრობის პასუხები
     guidance:
       name:
-        one:
-        other:
+        one: გზამკვლევი
+        other: გზამკვლევი
     guide:
       pages_in_guide: გვერდები ამ სახელმძღვანელოში
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: ეს პუბლიკაცია ხელმისაწვდომია %{url}-ზე
+        copyright: "© გვირგვინის საავტორო უფლებ ა%{year}"
+        isbn: 'ISBN:'
+        licence_html: 'ეს პუბლიკაცია ლიცენზირებულია ღია მმართველობის ლიცენზიის v3.0 პირობებით, გარდა სხვა შემთხვევებისა. ამ ლიცენზიის სანახავად ეწვიეთ <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a>  ან მოგვწერეთ საინფორმაციო პოლიტიკის ჯგუფში, ეროვნულ არქივში, Kew, London TW9 4DU, ან ელ.ფოსტაზე: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: სადაც ჩვენ გამოვავლინეთ მესამე მხარის საავტორო უფლებების შესახებ ინფორმაცია, თქვენ დაგჭირდებათ ნებართვის მიღება შესაბამისი საავტორო უფლებების მფლობელებისგან.
+    impact_assessment:
+      name:
+        one: ზემოქმედების შეფასება
+        other: ზემოქმედების შეფასებები
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: დამოუკიდებელი ანგარიში
+        other: დამოუკიდებელი ანგარიშები
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: საერთაშორისო ხელშეკრულება
+        other: საერთაშორისო ხელშეკრულებები
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ ka:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: რუკა
+        other: რუკები
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ ka:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: ეროვნული სტატისტიკა
+        other: ეროვნული სტატისტიკა
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ ka:
         other: ახალი ამბები
     notice:
       name:
-        one:
-        other:
+        one: შენიშვნა
+        other: შენიშვნები
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: ოფიციალური სტატისტიკა
+        other: ოფიციალური სტატისტიკა
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ ka:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: საკანონომდებლო დოკუმენტი
+        other: საკანონომდებლო დოკუმენტები
     press_release:
       name:
         one: პრეს რელიზი
@@ -535,8 +548,8 @@ ka:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: პრომო მასალა
+        other: პრომო მასალები
     publication:
       details: დეტალები
       documents:
@@ -551,12 +564,12 @@ ka:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: რეგულირება
+        other: რეგულირებები
     research:
       name:
-        one:
-        other:
+        one: კვლევა და ანალიზი
+        other: კვლევა და ანალიზი
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ ka:
       written_on: დაწერილი
     standard:
       name:
-        one:
-        other:
+        one: სტანდარტი
+        other: სტანდარტები
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ ka:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: კანონიერი ხელმძღვანელობა
+        other: კანონიერი ხელმძღვანელობა
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ ka:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: გამჭვირვალობის მონაცემები
+        other: გამჭვირვალობის მონაცემები
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: The <abbr title="Foreign and Commonwealth Office">FCO</abbr> რჩევა ყველას წინააღმდეგ, გარდა ესენციური მოგზაურობებისა ქვეყნის ზოგიერთ ნაწილებში.

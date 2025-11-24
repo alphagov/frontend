@@ -57,6 +57,9 @@ nl:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Gepubliceerd
+      updated: Bijgewerkt
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ nl:
       welsh_language_scheme_html: Lees meer over onze inzet voor %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Ondernemingsverslag
+        other: Bedrijfsverslagen
     correspondence:
       name:
-        one:
-        other:
+        one: Correspondentie
+        other: Correspondentie
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Besluit
+        other: Besluiten
     detailed_guide:
       name:
         one: Richtsnoer
@@ -306,12 +309,12 @@ nl:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Vrijheid van informatie-vrijgave
+        other: Vrijheid van informatie-vrijgaven
     form:
       name:
-        one:
-        other:
+        one: Formulier
+        other: Formulieren
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ nl:
         other: Overheidsantwoorden
     guidance:
       name:
-        one:
-        other:
+        one: Richtlijn
+        other: Richtlijn
     guide:
       pages_in_guide: Pagina's in deze gids
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Deze publicatie is beschikbaar op %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Voor deze publicatie is een licentie verleend onder de voorwaarden van de Open Overheidslicentie v3.0, tenzij anders vermeld. Om deze licentie te bekijken, ga naar <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> of schrijf naar het Informatiebeleidsteam, The National Archives, Kew, Londen TW9 4DU, of stuur een e-mail: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Als we auteursrechtinformatie van derden hebben geïdentificeerd, moet u toestemming vragen aan de betrokken auteursrechthebbenden.
+    impact_assessment:
+      name:
+        one: Effectbeoordeling
+        other: Effectbeoordelingen
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Onafhankelijk rapport
+        other: Onafhankelijke rapporten
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Internationaal verdrag
+        other: Internationale verdragen
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ nl:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kaart
+        other: Kaarten
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ nl:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nationale statistieken
+        other: Nationale statistieken
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ nl:
         other: Nieuwsberichten
     notice:
       name:
-        one:
-        other:
+        one: Mededeling
+        other: Mededelingen
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Officiële statistieken
+        other: Officiële statistieken
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ nl:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Beleidsnota
+        other: Beleidsnota's
     press_release:
       name:
         one: Persbericht
@@ -535,8 +548,8 @@ nl:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Promotiemateriaal
+        other: Promotiemateriaal
     publication:
       details: Details
       documents:
@@ -551,12 +564,12 @@ nl:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Regelgeving
+        other: Regelgeving
     research:
       name:
-        one:
-        other:
+        one: Onderzoek en analyse
+        other: Onderzoek en analyse
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ nl:
       written_on: Geschreven op
     standard:
       name:
-        one:
-        other:
+        one: Standaard
+        other: Standaarden
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ nl:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Statutaire richtsnoeren
+        other: Statutaire richtsnoeren
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ nl:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Transparantiegegevens
+        other: Transparantiegegevens
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Het <abbr title="Foreign and Commonwealth Office">FCO</abbr> raadt alle, behalve essentiële, reizen naar delen van het land af.

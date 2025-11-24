@@ -57,6 +57,9 @@ zh-tw:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: 發布
+      updated: 更新
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -229,16 +232,16 @@ zh-tw:
       welsh_language_scheme_html: 了解我們對 %{link} 的承諾。
     corporate_report:
       name:
-        other:
+        other: 企業報告
     correspondence:
       name:
-        other:
+        other: 信函
     countryside_stewardship_grant:
       name:
         other:
     decision:
       name:
-        other:
+        other: 決定
     detailed_guide:
       name:
         other: 指導
@@ -279,10 +282,10 @@ zh-tw:
       valid_postcode_no_locations:
     foi_release:
       name:
-        other:
+        other: 資訊自由發布
     form:
       name:
-        other:
+        other: 形式
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -326,25 +329,34 @@ zh-tw:
         other: 政府回應
     guidance:
       name:
-        other:
+        other: 指導
     guide:
       pages_in_guide: 本指南中的頁面
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         other:
+      print_meta_data:
+        available_at: 該出版物可在 %{url} 取得
+        copyright: "© Crown copyright %{year}"
+        isbn: ISBN：
+        licence_html: 除非另有說明，否則本出版物獲得政府資料開放授權條款 v3.0 許可。查看此許可，請探訪<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/ version/3</a>或寫信至倫敦，基尤，英國國家檔案館的資訊政策團隊，國家檔案館， TW9 4DU，或發送電子郵件：<a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.
+        third_party: 此處用以我們確定任何第三方版權資訊，你會需要獲得相關版權所有者的許可。
+    impact_assessment:
+      name:
+        other: 影響評估
     imported:
       name:
         other:
     independent_report:
       name:
-        other:
+        other: 獨立報告
     international_development_fund:
       name:
         other:
     international_treaty:
       name:
-        other:
+        other: 國際條約
     local_transaction:
       choose_address:
       contact_council:
@@ -418,7 +430,7 @@ zh-tw:
       updates_title:
     map:
       name:
-        other:
+        other: 地圖
     medical_safety_alert:
       name:
         other:
@@ -427,7 +439,7 @@ zh-tw:
         other:
     national_statistics:
       name:
-        other:
+        other: 國家統計
     national_statistics_announcement:
       name:
         other:
@@ -439,13 +451,13 @@ zh-tw:
         other: 新聞報導
     notice:
       name:
-        other:
+        other: 通知
     official:
       name:
         other:
     official_statistics:
       name:
-        other:
+        other: 官方統計
     official_statistics_announcement:
       name:
         other:
@@ -467,7 +479,7 @@ zh-tw:
         other:
     policy_paper:
       name:
-        other:
+        other: 政策文件
     press_release:
       name:
         other: 新聞稿
@@ -479,7 +491,7 @@ zh-tw:
         other:
     promotional:
       name:
-        other:
+        other: 宣傳資料
     publication:
       details: 細節
       documents:
@@ -491,10 +503,10 @@ zh-tw:
         other:
     regulation:
       name:
-        other:
+        other: 法規
     research:
       name:
-        other:
+        other: 研究與分析
     residential_property_tribunal_decision:
       name:
         other:
@@ -525,7 +537,7 @@ zh-tw:
       written_on: 寫在
     standard:
       name:
-        other:
+        other: 標準
     start_now:
     statement_to_parliament:
       name:
@@ -541,7 +553,7 @@ zh-tw:
         other:
     statutory_guidance:
       name:
-        other:
+        other: 法令指導
     tax_tribunal_decision:
       name:
         other:
@@ -557,7 +569,7 @@ zh-tw:
         other:
     transparency:
       name:
-        other:
+        other: 透明數據
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">外交和英聯邦事務部</abbr> 建議非必要的旅行，不要前往該國部分地區。

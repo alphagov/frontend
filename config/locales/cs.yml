@@ -57,6 +57,9 @@ cs:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Zveřejněno
+      updated: Aktualizováno
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -258,13 +261,13 @@ cs:
     corporate_report:
       name:
         few:
-        one:
-        other:
+        one: Podniková zpráva
+        other: Podnikové zprávy
     correspondence:
       name:
         few:
-        one:
-        other:
+        one: Korespondence
+        other: Korespondence
     countryside_stewardship_grant:
       name:
         few:
@@ -273,8 +276,8 @@ cs:
     decision:
       name:
         few:
-        one:
-        other:
+        one: Rozhodnutí
+        other: Rozhodnutí
     detailed_guide:
       name:
         few:
@@ -334,13 +337,13 @@ cs:
     foi_release:
       name:
         few:
-        one:
-        other:
+        one: Zveřejnění informací
+        other: Zveřejnění informací
     form:
       name:
         few:
-        one:
-        other:
+        one: Formulář
+        other: Formuláře
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -387,16 +390,27 @@ cs:
     guidance:
       name:
         few:
-        one:
-        other:
+        one: Směrnice
+        other: Směrnice
     guide:
       pages_in_guide: Stránky v této příručce
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         one:
         other:
+      print_meta_data:
+        available_at: Tato publikace je k dispozici na adrese %{url}
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Tato publikace je licencována podle podmínek Open Government Licence v3.0, pokud není uvedeno jinak. Chcete-li si tuto licenci prohlédnout, navštivte <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> nebo napište na adresu Information Policy Team, The National Archives, Kew, London TW9 4DU, nebo pošlete e-mail: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: V případě, že jsme identifikovali informace o autorských právech třetích stran, budete muset získat povolení od příslušných držitelů autorských práv.
+    impact_assessment:
+      name:
+        few:
+        one: Posouzení dopadu
+        other: Posouzení dopadů
     imported:
       name:
         few:
@@ -405,8 +419,8 @@ cs:
     independent_report:
       name:
         few:
-        one:
-        other:
+        one: Nezávislá zpráva
+        other: Nezávislé zprávy
     international_development_fund:
       name:
         few:
@@ -415,8 +429,8 @@ cs:
     international_treaty:
       name:
         few:
-        one:
-        other:
+        one: Mezinárodní smlouva
+        other: Mezinárodní smlouvy
     local_transaction:
       choose_address:
       contact_council:
@@ -493,8 +507,8 @@ cs:
     map:
       name:
         few:
-        one:
-        other:
+        one: Mapa
+        other: Mapy
     medical_safety_alert:
       name:
         few:
@@ -508,8 +522,8 @@ cs:
     national_statistics:
       name:
         few:
-        one:
-        other:
+        one: Národní statistiky
+        other: Národní statistiky
     national_statistics_announcement:
       name:
         few:
@@ -528,8 +542,8 @@ cs:
     notice:
       name:
         few:
-        one:
-        other:
+        one: Oznámení
+        other: Oznámení
     official:
       name:
         few:
@@ -538,8 +552,8 @@ cs:
     official_statistics:
       name:
         few:
-        one:
-        other:
+        one: Oficiální statistiky
+        other: Oficiální statistiky
     official_statistics_announcement:
       name:
         few:
@@ -572,8 +586,8 @@ cs:
     policy_paper:
       name:
         few:
-        one:
-        other:
+        one: Politický dokument
+        other: Politické dokumenty
     press_release:
       name:
         few:
@@ -592,8 +606,8 @@ cs:
     promotional:
       name:
         few:
-        one:
-        other:
+        one: Propagační materiály
+        other: Propagační materiály
     publication:
       details: Podrobnosti
       documents:
@@ -612,13 +626,13 @@ cs:
     regulation:
       name:
         few:
-        one:
-        other:
+        one: Nařízení
+        other: nařízení
     research:
       name:
         few:
-        one:
-        other:
+        one: Výzkum a analýza
+        other: Výzkum a analýza
     residential_property_tribunal_decision:
       name:
         few:
@@ -660,8 +674,8 @@ cs:
     standard:
       name:
         few:
-        one:
-        other:
+        one: Standardní
+        other: Standardy
     start_now:
     statement_to_parliament:
       name:
@@ -686,8 +700,8 @@ cs:
     statutory_guidance:
       name:
         few:
-        one:
-        other:
+        one: Zákonné směrnice
+        other: Zákonné směrnice
     tax_tribunal_decision:
       name:
         few:
@@ -708,8 +722,8 @@ cs:
     transparency:
       name:
         few:
-        one:
-        other:
+        one: Údaje o transparentnosti
+        other: Údaje o transparentnosti
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">Úřad pro zahraniční věci, společenství národů a rozvoj</abbr> nedoporučuje cestovat do některých částí země, s výjimkou nezbytných.

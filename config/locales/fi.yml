@@ -57,6 +57,9 @@ fi:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Julkaistu
+      updated: Päivitetty
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ fi:
       welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
     corporate_report:
       name:
-        one:
-        other:
+        one: Yrityksen raportti
+        other: Yritysraportit
     correspondence:
       name:
-        one:
-        other:
+        one: Kirjeenvaihto
+        other: Kirjeenvaihto
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Päätös
+        other: Päätökset
     detailed_guide:
       name:
         one: Ohjaus
@@ -306,12 +309,12 @@ fi:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Tiedonvälityksen vapaus julkaisu
+        other: Tiedonvälityksen vapaus julkaisut
     form:
       name:
-        one:
-        other:
+        one: Lomake
+        other: Lomakkeet
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ fi:
         other: Hallituksen vastaukset
     guidance:
       name:
-        one:
-        other:
+        one: Ohjaus
+        other: Ohjaus
     guide:
       pages_in_guide: Tämän oppaan sivut
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: Tämä julkaisu on saatavilla osoitteessa %{url}
+        copyright: "© kruunun tekijänoikeus %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Tämä julkaisu on lisensoitu Open Government Licence v3.0 lisenssin ehdoilla, ellei toisin mainita. Voit tutustua tähän lisenssiin osoitteessa <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> tai kirjallisesti osoitteeseen Information Policy Team, Kansallisarkisto, Kew, Lontoo TW9 4DU, tai sähköpostitse: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Jos olemme tunnistaneet kolmannen osapuolen tekijänoikeustietoja, sinun on hankittava lupa tekijänoikeuksien haltijoilta huolestunut.
+    impact_assessment:
+      name:
+        one: Vaikutuksen arviointi
+        other: Vaikutustenarvioinnit
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Riippumaton raportti
+        other: Riippumattomat raportit
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Kansainvälinen sopimus
+        other: Kansainväliset sopimukset
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ fi:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Kartta
+        other: Kartat
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ fi:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Kansalliset tilastot
+        other: Kansalliset tilastot
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ fi:
         other: Uutisia
     notice:
       name:
-        one:
-        other:
+        one: Ilmoitus
+        other: Ilmoitukset
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Viralliset tilastot
+        other: Viralliset tilastot
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ fi:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Toimintapoliittinen asiakirja
+        other: Toimintapoliittiset asiakirjat
     press_release:
       name:
         one: Lehdistötiedote
@@ -535,8 +548,8 @@ fi:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Myynninedistämismateriaali
+        other: Myynninedistämismateriaali
     publication:
       details: Yksityiskohdat
       documents:
@@ -551,12 +564,12 @@ fi:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Asetus
+        other: Asetukset
     research:
       name:
-        one:
-        other:
+        one: Tutkimus ja analyysi
+        other: Tutkimus ja analyysi
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ fi:
       written_on: Kirjoitettu
     standard:
       name:
-        one:
-        other:
+        one: Standardi
+        other: Standardit
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ fi:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Lakisääteiset ohjeet
+        other: Lakisääteiset ohjeet
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ fi:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Avoimuustiedot
+        other: Avoimuustiedot
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> kehottaa välttämään kaikkia muita kuin välttämättömiä matkoja osissa maata.

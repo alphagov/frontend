@@ -57,6 +57,9 @@ pa:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: ਪ੍ਰਕਾਸ਼ਿਤ
+      updated: ਅੱਪਡੇਟ ਕੀਤਾ
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ pa:
       welsh_language_scheme_html: "%{link} ਪ੍ਰਤੀ ਸਾਡੀ ਵਚਨਬੱਧਤਾ ਬਾਰੇ ਜਾਣੋ।"
     corporate_report:
       name:
-        one:
-        other:
+        one: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟ
+        other: ਕਾਰਪੋਰੇਟ ਰਿਪੋਰਟਾਂ
     correspondence:
       name:
-        one:
-        other:
+        one: ਪੱਤਰ -ਵਿਹਾਰ
+        other: ਪੱਤਰ -ਵਿਹਾਰ
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: ਫੈਸਲਾ
+        other: ਫੈਸਲੇ
     detailed_guide:
       name:
         one: ਸੇਧ
@@ -306,12 +309,12 @@ pa:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: FOI ਰਿਲੀਜ਼
+        other: FOI ਰਿਲੀਜ਼
     form:
       name:
-        one:
-        other:
+        one: ਫਾਰਮ
+        other: ਫਾਰਮ
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ pa:
         other: ਸਰਕਾਰ ਦੇ ਜਵਾਬ
     guidance:
       name:
-        one:
-        other:
+        one: ਸੇਧ
+        other: ਸੇਧ
     guide:
       pages_in_guide: ਇਸ ਗਾਈਡ ਦੇ ਪੰਨੇ
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: ਇਹ ਪ੍ਰਕਾਸ਼ਨ %{url} ਤੇ ਉਪਲਬਧ ਹੈ
+        copyright: "©ਕ੍ਰਾਊਨ ਕਾਪੀਰਾਈਟ %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'ਇਹ ਪ੍ਰਕਾਸ਼ਨ ਓਪਨ ਗਵਰਨਮੈਂਟ ਲਾਇਸੈਂਸ v3.0 ਦੀਆਂ ਸ਼ਰਤਾਂ ਦੇ ਅਧੀਨ ਲਾਇਸੈਂਸਸ਼ੁਦਾ ਹੈ, ਸਿਵਾਏ ਜਿੱਥੇ ਹੋਰ ਨਹੀਂ ਕਿਹਾ ਗਿਆ ਹੈ। ਇਸ ਲਾਇਸੈਂਸ ਨੂੰ ਦੇਖਣ ਲਈ, <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3"> nationalarchives.gov.uk/doc/open-government-licence/version/3 </a> ਜਾਂ ਸੂਚਨਾ ਨੀਤੀ ਟੀਮ, ਦਿ ਨੈਸ਼ਨਲ ਆਰਕਾਈਵਜ਼, ਕੇਵ, ਲੰਡਨ TW9 4DU, ਜਾਂ ਈਮੇਲ ਨੂੰ ਲਿਖੋ: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>।'
+        third_party: ਜਿੱਥੇ ਅਸੀਂ ਕਿਸੇ ਤੀਜੀ ਧਿਰ ਦੀ ਕਾਪੀਰਾਈਟ ਜਾਣਕਾਰੀ ਦੀ ਪਛਾਣ ਕੀਤੀ ਹੈ ਤੁਹਾਨੂੰ ਸਬੰਧਤ ਕਾਪੀਰਾਈਟ ਧਾਰਕਾਂ ਤੋਂ ਇਜਾਜ਼ਤ ਲੈਣ ਦੀ ਜ਼ਰੂਰਤ ਹੋਏਗੀ।
+    impact_assessment:
+      name:
+        one: ਪ੍ਰਭਾਵ ਮੁਲਾਂਕਣ
+        other: ਪ੍ਰਭਾਵ ਮੁਲਾਂਕਣ
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: ਸੁਤੰਤਰ ਰਿਪੋਰਟ
+        other: ਸੁਤੰਤਰ ਰਿਪੋਰਟਾਂ
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀ
+        other: ਅੰਤਰਰਾਸ਼ਟਰੀ ਸੰਧੀਆਂ
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ pa:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: ਨਕਸ਼ਾ
+        other: ਨਕਸ਼ੇ
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ pa:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ
+        other: ਰਾਸ਼ਟਰੀ ਅੰਕੜੇ
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ pa:
         other: ਖ਼ਬਰਾਂ ਦੀਆਂ ਕਹਾਣੀਆਂ
     notice:
       name:
-        one:
-        other:
+        one: ਨੋਟਿਸ
+        other: ਨੋਟਿਸ
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: ਅਧਿਕਾਰਤ ਅੰਕੜੇ
+        other: ਅਧਿਕਾਰਤ ਅੰਕੜੇ
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ pa:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: ਨੀਤੀ ਪੇਪਰ
+        other: ਨੀਤੀ ਦੇ ਕਾਗਜ਼
     press_release:
       name:
         one: ਪੱਤਰਕਾਰਾਂ ਨੂੰ ਦਿੱਤੀ ਗਈ ਅਧਕਾਰਿਤ ਰਿਪੋਰਟ
@@ -535,8 +548,8 @@ pa:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: ਪ੍ਰਚਾਰ ਸਮੱਗਰੀ
+        other: ਪ੍ਰਚਾਰ ਸਮੱਗਰੀ
     publication:
       details: ਵੇਰਵੇ
       documents:
@@ -551,12 +564,12 @@ pa:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: ਨਿਯਮ
+        other: ਨਿਯਮ
     research:
       name:
-        one:
-        other:
+        one: ਖੋਜ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ
+        other: ਖੋਜ ਅਤੇ ਵਿਸ਼ਲੇਸ਼ਣ
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ pa:
       written_on: "'ਤੇ ਲਿਖਿਆ ਗਿਆ"
     standard:
       name:
-        one:
-        other:
+        one: ਮਿਆਰੀ
+        other: ਮਿਆਰ
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ pa:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: ਕਨੂੰਨੀ ਸੇਧ
+        other: ਕਨੂੰਨੀ ਸੇਧ
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ pa:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
+        other: ਪਾਰਦਰਸ਼ਤਾ ਡਾਟਾ
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> ਦੇਸ਼ ਦੇ ਕੁਝ ਹਿੱਸਿਆਂ ਦੀ ਜ਼ਰੂਰੀ ਯਾਤਰਾ ਨੂੰ ਛੱਡ ਕੇ ਬਾਕੀ ਦੇ ਵਿਰੁੱਧ ਸਲਾਹ ਦਿੰਦਾ ਹੈ।

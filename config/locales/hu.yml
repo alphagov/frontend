@@ -57,6 +57,9 @@ hu:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: közzététel dátuma
+      updated: Frissítve
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ hu:
       welsh_language_scheme_html: 'Tájékozódjon az információk közzétételével kapcsolatos elkötelezettségünkről: %{link}'
     corporate_report:
       name:
-        one:
-        other:
+        one: Testületi beszámoló
+        other: Testületi beszámolók
     correspondence:
       name:
-        one:
-        other:
+        one: Levelezés
+        other: Levelezések
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: Döntés
+        other: Döntések
     detailed_guide:
       name:
         one: Útmutató
@@ -306,12 +309,12 @@ hu:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: Információhoz való joggal kapcsolatos közlemény
+        other: Információhoz való joggal kapcsolatos közlemények
     form:
       name:
-        one:
-        other:
+        one: Űrlap
+        other: Űrlapok
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ hu:
         other: Kormányválaszok
     guidance:
       name:
-        one:
-        other:
+        one: Útmutató
+        other: Útmutató
     guide:
       pages_in_guide: A jelen útmutató oldalai
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: 'A kiadvány elérhető a következő helyen: %{url}'
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'A jelen kiadvány licenceit a Nyílt Közigazgatási Engedélyek 3.0 biztosítja, kivéve, ha másként van jelölve. A licenc megtekintéséhez látogassa meg a(z)  <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> vagy írjon az Információkezeléssel foglalkozó Csapatnak, The National Archives, Kew, London TW9 4DU, vagy e-mailt a következő címre: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Enegdélyt kell kérnie az érintett szerzői jogok tulajdonosaitól abban az esetben, ha harmadik fél szerzői jogi információkat közöltünk.
+    impact_assessment:
+      name:
+        one: Hatásvizsgálat
+        other: Hatásvizsgálatok
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: Független beszámoló
+        other: Független beszámolók
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: Nemzetközi egyezmény
+        other: Nemzetközi egyezmények
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ hu:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: Térkép
+        other: Térképek
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ hu:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: Nemzeti statisztikák
+        other: Nemzeti statisztikák
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ hu:
         other: Hírek
     notice:
       name:
-        one:
-        other:
+        one: Értesítés
+        other: Értesítések
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: Hivatalos statisztika
+        other: Hivatalos statisztikák
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ hu:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: Irányelvi dokumentum
+        other: Irányelvi dokumentumok
     press_release:
       name:
         one: Sajtóközlemény
@@ -535,8 +548,8 @@ hu:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: Promóciós anyag
+        other: Promóciós anyagok
     publication:
       details: Részletek
       documents:
@@ -551,12 +564,12 @@ hu:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: Szabályozás
+        other: Szabályozások
     research:
       name:
-        one:
-        other:
+        one: Kutatás és elemzés
+        other: Kutatás és elemzés
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ hu:
       written_on: 'Írás időpontja:'
     standard:
       name:
-        one:
-        other:
+        one: Szabvány
+        other: Szabványok
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ hu:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: Törvényi előírás
+        other: Törvényi előírás
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ hu:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: Átláthatósági adatok
+        other: Átláthatósági adatok
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: A <abbr title="Foreign and Commonwealth Office">FCO</abbr> azt javasolja, hogy az ország bizonyos részeire csak feltétlenül szükséges esetben utazzanak.

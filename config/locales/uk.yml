@@ -57,6 +57,9 @@ uk:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: Опубліковано
+      updated: Оновлено
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -273,14 +276,14 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Звіт про діяльність корпорації
+        other: Звіти про діяльність корпорації
     correspondence:
       name:
         few:
         many:
-        one:
-        other:
+        one: Кореспонденція
+        other: Кореспонденція
     countryside_stewardship_grant:
       name:
         few:
@@ -291,8 +294,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рішення
+        other: Рішення
     detailed_guide:
       name:
         few:
@@ -362,14 +365,14 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Випуск закону про свободу інформації
+        other: Випуски закону про свободу інформації
     form:
       name:
         few:
         many:
-        one:
-        other:
+        one: Форма
+        other: Форми
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -418,17 +421,29 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Довідник
+        other: Довідник
     guide:
       pages_in_guide: Сторінки цього посібника
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         few:
         many:
         one:
         other:
+      print_meta_data:
+        available_at: Ця публікація доступна за адресою %{url}
+        copyright: "© Авторське право належить короні %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Ця публікація ліцензована на умовах Відкритої державної ліцензії v3.0, якщо не зазначено інше. Щоб переглянути цю ліцензію, відвідайте <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> або надішліть запит Команді з політики роботи з інформацією, Національний архів, Кью, Лондон TW9 4DU, або надішліть електронною поштою: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Якщо ми виявимо будь-яку інформацію про авторські права третіх сторін, вам необхідно буде отримати дозвіл від відповідних правовласників.
+    impact_assessment:
+      name:
+        few:
+        many:
+        one: Оцінка впливу
+        other: Оцінки впливу
     imported:
       name:
         few:
@@ -439,8 +454,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Незалежний звіт
+        other: Незалежні звіти
     international_development_fund:
       name:
         few:
@@ -451,8 +466,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Міжнародний договір
+        other: Міжнародні договори
     local_transaction:
       choose_address:
       contact_council:
@@ -531,8 +546,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Карта
+        other: Карти
     medical_safety_alert:
       name:
         few:
@@ -549,8 +564,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Національна статистика
+        other: Національна статистика
     national_statistics_announcement:
       name:
         few:
@@ -573,8 +588,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Повідомлення
+        other: Повідомлення
     official:
       name:
         few:
@@ -585,8 +600,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Офіційна статистика
+        other: Офіційна статистика
     official_statistics_announcement:
       name:
         few:
@@ -625,8 +640,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Програмний документ
+        other: Програмні документи
     press_release:
       name:
         few:
@@ -649,8 +664,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Рекламний матеріал
+        other: Рекламний матеріал
     publication:
       details: Деталі
       documents:
@@ -673,14 +688,14 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Норма
+        other: Норми
     research:
       name:
         few:
         many:
-        one:
-        other:
+        one: Дослідження та аналіз
+        other: Дослідження та аналіз
     residential_property_tribunal_decision:
       name:
         few:
@@ -728,8 +743,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Стандарт
+        other: Стандарти
     start_now:
     statement_to_parliament:
       name:
@@ -759,8 +774,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Нормативне керівництво
+        other: Нормативне керівництво
     tax_tribunal_decision:
       name:
         few:
@@ -784,8 +799,8 @@ uk:
       name:
         few:
         many:
-        one:
-        other:
+        one: Дані прозорості
+        other: Дані прозорості
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: Міністерство закордонних справ<abbr title="Foreign and Commonwealth Office">(FCO)</abbr> забороняє будь-які поїздки, крім необхідних, до певних областей країни.

@@ -57,6 +57,9 @@ ur:
     email_and_print_link:
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: شائع کردہ
+      updated: اپ ڈیٹ کردہ
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -243,20 +246,20 @@ ur:
       welsh_language_scheme_html: "%{link} کے ساتھ ہماری وابستگی کے بارے میں جانیں۔"
     corporate_report:
       name:
-        one:
-        other:
+        one: کارپوریٹ رپورٹ
+        other: کارپوریٹ رپورٹس
     correspondence:
       name:
-        one:
-        other:
+        one: خط و کتابت
+        other: خط و کتابت
     countryside_stewardship_grant:
       name:
         one:
         other:
     decision:
       name:
-        one:
-        other:
+        one: فیصلہ
+        other: فیصلے
     detailed_guide:
       name:
         one: رہنمائی
@@ -306,12 +309,12 @@ ur:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one:
-        other:
+        one: رہائی تھی۔
+        other: رہائی تھی۔
     form:
       name:
-        one:
-        other:
+        one: فارم
+        other: فارمز
     get_involved:
       civil_service:
       civil_service_quarterly:
@@ -356,31 +359,41 @@ ur:
         other: حکومت کے جوابات
     guidance:
       name:
-        one:
-        other:
+        one: رہنمائی
+        other: رہنمائی
     guide:
       pages_in_guide: اس رہنما میں موجود صفحات
       skip_contents:
-    impact_assessment:
+    html_publication:
       name:
         one:
         other:
+      print_meta_data:
+        available_at: یہ پبلیکیشن %{url} پر دستیاب ہے
+        copyright: "© Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'یہ پبلیکیشن اوپن گورنمنٹ لائسنس v3.0 کے تحت لائسنس یافتہ ہے سوائے اس کے جو بصورت دیگر بیان کردہ ہے۔ لائسنس دیکھنے کے لیے، <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> کو ملاحظہ کریں یا معلوماتی پالیسی کی ٹیم، قومی آرکائیوز، کیو، لندن TW9 4DUپر پیغام بھیجیں، یا یہاں ای میل کریں: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: جہاں ہم کسی فریق ثالث کی کاپی رائٹ معلومات کی شناخت کی ہو آپ کو متعلقہ کاپی رائٹ ہولڈرز سے اجازت لینے کی ضرورت ہو گی۔
+    impact_assessment:
+      name:
+        one: اثر کی جانچ
+        other: اثر کی جانچیں
     imported:
       name:
         one:
         other:
     independent_report:
       name:
-        one:
-        other:
+        one: خودمختار رپورٹ
+        other: خودمختار رپورٹس
     international_development_fund:
       name:
         one:
         other:
     international_treaty:
       name:
-        one:
-        other:
+        one: عالمی معاہدہ
+        other: عالمی معاہدے
     local_transaction:
       choose_address:
       contact_council:
@@ -455,8 +468,8 @@ ur:
       updates_title:
     map:
       name:
-        one:
-        other:
+        one: نقشہ
+        other: نقشے
     medical_safety_alert:
       name:
         one:
@@ -467,8 +480,8 @@ ur:
         other:
     national_statistics:
       name:
-        one:
-        other:
+        one: قومی شماریات
+        other: قومی شماریات
     national_statistics_announcement:
       name:
         one:
@@ -483,16 +496,16 @@ ur:
         other: خبروں کی کہانیاں
     notice:
       name:
-        one:
-        other:
+        one: نوٹس
+        other: نوٹسز
     official:
       name:
         one:
         other:
     official_statistics:
       name:
-        one:
-        other:
+        one: سرکاری شماریات
+        other: سرکاری شماریات
     official_statistics_announcement:
       name:
         one:
@@ -519,8 +532,8 @@ ur:
         other:
     policy_paper:
       name:
-        one:
-        other:
+        one: پالیسی کا کاغذ
+        other: پالیسی کے کاغذات
     press_release:
       name:
         one: پریس ریلیز
@@ -535,8 +548,8 @@ ur:
         other:
     promotional:
       name:
-        one:
-        other:
+        one: تشہیری مواد
+        other: تشہیری مواد
     publication:
       details: تفصیلات
       documents:
@@ -551,12 +564,12 @@ ur:
         other:
     regulation:
       name:
-        one:
-        other:
+        one: ضابطہ
+        other: ضابطے
     research:
       name:
-        one:
-        other:
+        one: تحقیق اور تجزیہ
+        other: تحقیق اور تجزیہ
     residential_property_tribunal_decision:
       name:
         one:
@@ -592,8 +605,8 @@ ur:
       written_on: تحریر کردہ بتاریخ
     standard:
       name:
-        one:
-        other:
+        one: معیار
+        other: معیارات
     start_now:
     statement_to_parliament:
       name:
@@ -613,8 +626,8 @@ ur:
         other:
     statutory_guidance:
       name:
-        one:
-        other:
+        one: قانونی رہنمائی
+        other: قانونی رہنمائی
     tax_tribunal_decision:
       name:
         one:
@@ -632,8 +645,8 @@ ur:
         other:
     transparency:
       name:
-        one:
-        other:
+        one: شفافیت کا ڈیٹا
+        other: شفافیت کا ڈیٹا
     travel_advice:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign and Commonwealth Office">FCO</abbr> سوائے ملک کے کچھ حصوں میں ضروری سفر کرنے کے ہر قسم کے سفر کے خلاف مشاورت فراہم کرتا ہے۔

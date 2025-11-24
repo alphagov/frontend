@@ -1,0 +1,64 @@
+@import "govuk_publishing_components/individual_component_support";
+
+.publication-external {
+  margin-bottom: govuk-spacing(4);
+  position: relative;
+
+  // design calls for the logos at the top to always be left aligned
+  .direction-rtl & {
+    direction: ltr;
+  }
+
+  .organisation-logos {
+    margin: 0;
+  }
+}
+
+.offset-empty-contents-list {
+  @include govuk-media-query($from: desktop) {
+    float: right;
+
+    .direction-rtl & {
+      float: left;
+    }
+  }
+}
+
+.contents-list-container {
+  @include govuk-media-query($from: desktop) {
+    position: sticky;
+    top: govuk-spacing(2);
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-bottom: govuk-spacing(4);
+  }
+
+  .direction-rtl & {
+    float: right;
+  }
+}
+
+.print-metadata {
+  display: none;
+}
+
+.print-metadata__licence {
+  width: 78px;
+  height: auto;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.direction-rtl .back-to-top-wrapper {
+  direction: rtl;
+  text-align: start;
+}
+
+// Required to display a separate meta data page when printing
+@include govuk-media-query($media-type: print) {
+  .print-metadata {
+    page-break-before: always;
+    page-break-after: always;
+    display: block;
+  }
+}

@@ -57,6 +57,9 @@ ti:
     email_and_print_link: 'ነዚ ገጽ ፕሪንት ንምባል ወይ ውን ንኢመይላት ተመዝገቡ '
     extra_bank_holiday:
     holiday_entitlement_html:
+    metadata:
+      published: ተሓቲሙ
+      updated: ዝተመሓየሸ
     nations:
       england-and-wales:
       england-and-wales_for:
@@ -306,8 +309,8 @@ ti:
       valid_postcode_no_locations:
     foi_release:
       name:
-        one: 'ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)  '
-        other: 'ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI) '
+        one: ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)
+        other: ምዝርጋሕ ናይ ኤፍ.ኦ.አይ/(FOI)
     form:
       name:
         one: ቅጥዒ
@@ -361,6 +364,16 @@ ti:
     guide:
       pages_in_guide: ገጻት ኣብዚ መምርሒ
       skip_contents: ትሕዝቶታት ዝለል
+    html_publication:
+      name:
+        one:
+        other:
+      print_meta_data:
+        available_at: እዚ ሕታም እዚ ኣብ %{url} ይርከብ።
+        copyright: "© መሰል ቅዳሕ ዘውዲ %{year}"
+        isbn: 'ኣይ.ኤስ.ቢ.ኤን/ISBN:'
+        licence_html: እዚ ሕታም እዚ ብዘይካ እቲ ዝተገልጸ ብመሰረት ውዕላት ፍቓድ ክፉት መንግስቲ/ኦፐን ጋቨርመምት ቪ/v3.0 ፍቓድ ተዋሂብዎ ኣሎ። ነዚ ፍቓድ ንምርኣይ፡ ኣብ <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ተወከሱ ወይ ድማ ናብ ጉጅለ ፖሊሲ ሓበሬታ፡ ወይ ናብ ሃገራዊ ማህደር/ናሽናል ኣርካይቭስ፡ ኪው፡ ለንደን ቲ.ደብሊዩ9 4ዲ.ዩ/TW9 4DU፡ ወይ ብኢመይል ጽሓፉ፡ <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.
+        third_party: ዝኾነ ናይ ሳልሳይ ወገን መሰል ቅዳሕ ሓበሬታ ኣብ ዘለለናሉ እዋን ፣ ካብቶም ዝምልከቶም ወነንቲ መሰል ቅዳሕ ፍቓድ ክትረኽቡ ከድልየኩም እዩ።
     impact_assessment:
       name:
         one: ናይ ጽልዋ ገምጋም

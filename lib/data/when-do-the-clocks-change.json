@@ -41,6 +41,18 @@
           "date": "31/10/2027",
           "notes": "when_do_the_clocks_change.end_notes"
         }
+      ],
+      "2028": [
+        {
+          "title": "when_do_the_clocks_change.start_title",
+          "date": "26/03/2028",
+          "notes": "when_do_the_clocks_change.start_notes"
+        },
+        {
+          "title": "when_do_the_clocks_change.end_title",
+          "date": "29/10/2028",
+          "notes": "when_do_the_clocks_change.end_notes"
+        }
       ]
     }
   }

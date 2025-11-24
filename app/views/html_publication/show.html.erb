@@ -10,6 +10,8 @@
   <%= stylesheet_link_tag "views/_csv_preview" %>
 <% end %>
 
+<% content_for :title, "#{@presenter.page_title} - GOV.UK" %>
+
 <% if content_item.organisations %>
   <div class="publication-external">
     <ul class="organisation-logos">

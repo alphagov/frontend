@@ -1,12 +1,7 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .govuk-block__main_navigation {
-  margin-bottom: govuk-spacing(9);
-
-  // most of the time navigation is followed by a hero, so should have zero margin bottom
-  &:has(+ .govuk-block__hero) {
-    margin-bottom: 0;
-  }
+  margin-bottom: govuk-spacing(0);
 }
 
 .main-nav {

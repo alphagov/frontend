@@ -211,6 +211,10 @@ Rails.application.routes.draw do
     get "*path", to: "landing_page#show"
   end
 
+  constraints FullPathFormatRoutingConstraint.new("manual") do
+    get "*path", to: "manual#show"
+  end
+
   # Publications - these are all under /government/publications or /government/statistics
   # but they are not the _only_ things in those routes, so we need a full pathformat constraint
   constraints FullPathFormatRoutingConstraint.new("publication") do

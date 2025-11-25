@@ -3,7 +3,7 @@
   "need_id": 100933,
   "content_id": "41c78b38-f70e-4729-815b-680f9b90db30",
   "description": "when_do_the_clocks_change.calendar.description",
-  "last_updated": "27/11/2024",
+  "last_updated": "24/11/2025",
   "divisions": {
     "common.united-kingdom_slug": {
       "2025": [
@@ -39,6 +39,18 @@
         {
           "title": "when_do_the_clocks_change.end_title",
           "date": "31/10/2027",
+          "notes": "when_do_the_clocks_change.end_notes"
+        }
+      ],
+      "2028": [
+        {
+          "title": "when_do_the_clocks_change.start_title",
+          "date": "26/03/2028",
+          "notes": "when_do_the_clocks_change.start_notes"
+        },
+        {
+          "title": "when_do_the_clocks_change.end_title",
+          "date": "29/10/2028",
           "notes": "when_do_the_clocks_change.end_notes"
         }
       ]

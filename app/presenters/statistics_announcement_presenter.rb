@@ -1,14 +1,17 @@
 class StatisticsAnnouncementPresenter < ContentItemPresenter
+  include StatisticsAnnouncementHelper
+
   def important_metadata
-    super.tap do |m|
-      if cancelled?
-        m.merge!(
-          I18n.t("statistics_announcement.proposed_date") => release_date,
-          I18n.t("statistics_announcement.cancellation_date") => cancellation_date,
-        )
-      else
-        m.merge!(I18n.t("statistics_announcement.release_date") => release_date_and_status)
-      end
+    metadata = {}
+    if content_item.cancelled?
+      metadata.merge!(
+        I18n.t("formats.statistics_announcement.proposed_date") => content_item.release_date,
+        I18n.t("formats.statistics_announcement.cancellation_date") => content_item.cancellation_date,
+      )
+    else
+      metadata.merge!(I18n.t("formats.statistics_announcement.release_date") => content_item.release_date_and_status)
     end
+
+    metadata
   end
 end

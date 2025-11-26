@@ -326,6 +326,18 @@ window.GOVUK.hubGeojson = {
         icbCode: 'E54000031'
       }
     },
+    // {
+    //   type: 'Feature',
+    //   geometry: {
+    //     type: 'Point',
+    //     coordinates: [-0.44498461, 53.7767334],
+    //   },
+    //   properties: {
+    //     name: 'Daisy Childrens Unit @ Castle Hill',
+    //     address: 'Castle Road, Cottingham, HU16 5JQ',
+    //     icbCode: '',
+    //   }
+    // },
     {
       type: 'Feature',
       geometry: {

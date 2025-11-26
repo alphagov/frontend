@@ -1,2 +1,3 @@
 class StatisticsAnnouncementPresenter < ContentItemPresenter
+  include StatisticsAnnouncementHelper
 end

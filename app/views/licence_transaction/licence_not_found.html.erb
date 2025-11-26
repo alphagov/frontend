@@ -9,10 +9,10 @@
 
   <article role="article" class="group content-block">
     <div class="inner">
+      <%= render partial: "licensify_unavailable" %>
       <div id="overview">
         <%= render "govuk_publishing_components/components/govspeak", {
         } do %>
-          <%= render partial: "licensify_unavailable" %>
           <%= raw content_item.body %>
         <% end %>
       </div>

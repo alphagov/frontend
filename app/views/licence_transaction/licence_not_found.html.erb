@@ -8,14 +8,12 @@
   <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
 
   <article role="article" class="group content-block">
-    <div class="inner">
-      <div id="overview">
-        <%= render "govuk_publishing_components/components/govspeak", {
-        } do %>
-          <%= render partial: "licensify_unavailable" %>
-          <%= raw content_item.body %>
-        <% end %>
-      </div>
+    <%= render partial: "licensify_unavailable" %>
+    <div id="overview">
+      <%= render "govuk_publishing_components/components/govspeak", {
+      } do %>
+        <%= raw content_item.body %>
+      <% end %>
     </div>
   </article>
 <% end %>

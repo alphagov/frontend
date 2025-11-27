@@ -14,4 +14,16 @@ RSpec.describe StatisticsAnnouncement do
       expect(official_statistics.release_date).to eq("20 January 2016 9:30am")
     end
   end
+
+  describe "#release_date_changed?" do
+    let(:statistics_announcement_date_changed) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "release_date_changed")) }
+
+    it "returns true if the release date was changed" do
+      expect(statistics_announcement_date_changed.release_date_changed?).to be true
+    end
+
+    it "returns false if the release date hasn't changed" do
+      expect(official_statistics.release_date_changed?).to be false
+    end
+  end
 end

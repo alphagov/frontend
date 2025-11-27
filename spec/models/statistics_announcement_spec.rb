@@ -5,7 +5,7 @@ RSpec.describe StatisticsAnnouncement do
 
   describe "#release_date" do
     it "returns the release date" do
-      expect(official_statistics.release_date).to eq("2016-09-05T14:00:00+01:00")
+      expect(official_statistics.release_date).to eq("20 January 2016 9:30am")
     end
   end
 end

@@ -30,13 +30,11 @@
         text: "2025 marks the 80th anniversaries of VE Day (Victory in Europe Day) on 8th May and VJ Day (Victory over Japan Day) on 15th August.",
       } %>
 
-      <div class="details-wrapper">
-        <%= render "govuk_publishing_components/components/details", {
-          title: "Make this text bigger"
-        } do %>
-          We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
-        <% end %>
-      </div>
+      <%= render "govuk_publishing_components/components/details", {
+        title: "Some more information"
+      } do %>
+        We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
+      <% end %>
     </div>
     <div class="hero__image-wrapper">
       <figure class="figure">
@@ -64,7 +62,7 @@
   } %>
 
   <%
-    articles = Array.new(4)
+    articles = Array.new(7)
     number_of_articles = articles.length
     s = "Following a thorough review of existing procedure, a government body has today announced that further work is necessary."
   %>

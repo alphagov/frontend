@@ -56,11 +56,6 @@ Rails.application.routes.draw do
     get "/home", to: "account_home#show", as: :account_home
   end
 
-  # Detailed guidance pages
-  scope "/guidance" do
-    get "/:slug(.:locale)", to: "detailed_guide#show", as: :detailed_guide
-  end
-
   # Help pages
   scope "/help" do
     get "/:slug", to: "help_page#show", constraints: { slug: /(?!(ab-testing|cookies)$).*/ }
@@ -141,6 +136,11 @@ Rails.application.routes.draw do
   # Static error page routes - in practice used only during deploy, these don't have a
   # published route so can't be accessed from outside
   get "/static-error-pages/:error_code.html", to: "static_error_pages#show"
+
+  # Detailed guide page route placed before answer/guide routes so it handles /guidance/* first
+  constraints FullPathFormatRoutingConstraint.new("detailed_guide") do
+    get "guidance/*path(.:locale)", to: "detailed_guide#show"
+  end
 
   # Answer pages
   constraints FormatRoutingConstraint.new("answer") do

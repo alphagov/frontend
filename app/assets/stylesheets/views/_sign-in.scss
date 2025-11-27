@@ -8,17 +8,4 @@
   @include govuk-media-query($from: "tablet") {
     margin-top: govuk-spacing(9);
   }
-
-  .gem-c-image-card {
-    display: flex;
-    margin-bottom: 0;
-  }
-
-  .gem-c-image-card__description {
-    text-wrap: balance;
-  }
-
-  .gem-c-image-card__image-wrapper.gem-c-image-card__image-wrapper--one-third {
-    flex-basis: 100px;
-  }
 }

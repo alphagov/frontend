@@ -5,6 +5,16 @@ class StatisticsAnnouncement < ContentItem
     content_store_response.dig("details", "display_date")
   end
 
+  def release_date_and_status
+    return "#{release_date} (#{state})" unless cancelled?
+
+    release_date
+  end
+
+  def release_date_changed?
+    content_store_response["details"].include?("previous_display_date")
+  end
+
   def cancelled?
     state == "cancelled"
   end

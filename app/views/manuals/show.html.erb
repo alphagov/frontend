@@ -3,7 +3,7 @@
   <%= render "content_items/manuals/header", {
     content_item: @content_item,
     heading_level: 1,
-    margin_bottom: 3
+    margin_bottom: 3,
   } %>
 <% end %>
 
@@ -17,9 +17,9 @@
               path: section["base_path"],
               description: section["description"],
               full_size_description: true,
-            }
+            },
           }
-        end
+        end,
     } %>
   <% end %>
 <% end %>

@@ -1,0 +1,2 @@
+class Manuals < ContentItem
+end

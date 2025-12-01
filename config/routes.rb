@@ -56,11 +56,6 @@ Rails.application.routes.draw do
     get "/home", to: "account_home#show", as: :account_home
   end
 
-  # Detailed guidance pages
-  scope "/guidance" do
-    get "/:slug(.:locale)", to: "detailed_guide#show", as: :detailed_guide
-  end
-
   # Help pages
   scope "/help" do
     get "/:slug", to: "help_page#show", constraints: { slug: /(?!(ab-testing|cookies)$).*/ }
@@ -189,6 +184,10 @@ Rails.application.routes.draw do
   # Transaction pages
   constraints FormatRoutingConstraint.new("transaction") do
     get ":slug(/:variant)", to: "transaction#show"
+  end
+
+  constraints FullPathFormatRoutingConstraint.new("detailed_guide") do
+    get "*path(.:locale)", to: "detailed_guide#show"
   end
 
   constraints FullPathFormatRoutingConstraint.new("flexible_page") do

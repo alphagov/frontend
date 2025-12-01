@@ -1,5 +1,6 @@
 RSpec.describe "Detailed Guide" do
   before do
+    stub_content_store_does_not_have_item("/guidance")
     content_store_has_example_item("/guidance/salary-sacrifice-and-the-effects-on-paye", schema: :detailed_guide)
   end
 

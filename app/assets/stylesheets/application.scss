@@ -22,12 +22,10 @@ $govuk-include-default-font-face: true;
 @import "govuk_publishing_components/components/details";
 @import "govuk_publishing_components/components/devolved-nations";
 @import "govuk_publishing_components/components/document-list";
-@import "govuk_publishing_components/components/emergency-banner";
 @import "govuk_publishing_components/components/error-message";
 @import "govuk_publishing_components/components/error-summary";
 @import "govuk_publishing_components/components/feedback";
 @import "govuk_publishing_components/components/figure";
-@import "govuk_publishing_components/components/global-banner";
 @import "govuk_publishing_components/components/govspeak";
 @import "govuk_publishing_components/components/govspeak-html-publication";
 @import "govuk_publishing_components/components/heading";
@@ -35,7 +33,6 @@ $govuk-include-default-font-face: true;
 @import "govuk_publishing_components/components/image-card";
 @import "govuk_publishing_components/components/input";
 @import "govuk_publishing_components/components/inset-text";
-@import "govuk_publishing_components/components/intervention";
 @import "govuk_publishing_components/components/inverse-header";
 @import "govuk_publishing_components/components/label";
 @import "govuk_publishing_components/components/layout-footer";
@@ -73,6 +70,8 @@ $govuk-include-default-font-face: true;
 
 @import "components/calendar";
 @import "components/download-link";
+
+@import "govuk_web_banners/dependencies";
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/content-bottom-margin";

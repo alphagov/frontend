@@ -332,6 +332,8 @@ RSpec.describe ContentItemLoader do
       end
 
       context "with graphql param=true" do
+        subject(:content_item_loader) { described_class.for_request(request) }
+
         let(:request) do
           instance_double(
             ActionDispatch::Request,
@@ -341,7 +343,23 @@ RSpec.describe ContentItemLoader do
           )
         end
 
-        include_examples "rendered from Content Store"
+        before do
+          stub_publishing_api_graphql_has_item(
+            "/my-random-item",
+            { data: { edition: { schema_name: "some_other_schema" } } },
+          )
+        end
+
+        include_examples "rendered from GraphQL"
+
+        it "sets the appropriate prometheus labels" do
+          content_item_loader.load("/my-random-item")
+
+          expect(request.env["govuk.prometheus_labels"]).to include({
+            "graphql_status_code" => 200,
+            "graphql_api_timeout" => false,
+          })
+        end
       end
 
       context "when the GraphQL A/B test selects the Content Store variant" do

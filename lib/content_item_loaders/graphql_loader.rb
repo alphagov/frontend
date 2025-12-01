@@ -5,8 +5,6 @@ module ContentItemLoaders
     GRAPHQL_TRAFFIC_RATES = {
       # These are decimal versions of a percentage, so can be between 0 and 1
       "news_article" => 0.5,
-      "transaction" => 0,
-      "travel_advice" => 0,
     }.freeze
     GRAPHQL_ALLOWED_SCHEMAS = GRAPHQL_TRAFFIC_RATES.keys
 
@@ -21,13 +19,14 @@ module ContentItemLoaders
       return false if draft_host?
 
       schema_from_content_store = content_store_loader.load(base_path:)["schema_name"]
-      return false unless GRAPHQL_ALLOWED_SCHEMAS.include?(schema_from_content_store)
 
       if request.params["graphql"] == "true"
         return true
       elsif request.params["graphql"] == "false"
         return false
       end
+
+      return false unless GRAPHQL_ALLOWED_SCHEMAS.include?(schema_from_content_store)
 
       random_number = Random.rand(1.0)
       random_number < GRAPHQL_TRAFFIC_RATES.fetch(schema_from_content_store)

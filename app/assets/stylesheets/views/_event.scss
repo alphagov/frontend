@@ -53,6 +53,17 @@
   @include govuk-media-query($until: tablet) {
     width: auto;
   }
+
+  .figure {
+    height: 100%;
+    display: flex;
+  }
+
+  .figure__logo {
+    margin: 0;
+    padding: govuk-spacing(4);
+    box-sizing: border-box;
+  }
 }
 
 .figure {
@@ -74,4 +85,9 @@
     max-height: 40vh;
     display: block;
   }
+}
+
+.figure__logo {
+  max-width: 100%;
+  margin: govuk-spacing(4);
 }

@@ -20,7 +20,7 @@ some hard-coded routes.
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
 |Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|
 |                             |                                   |https://www.gov.uk/government/organisations/forensic-science-regulator/about/accessible-documents-policy|
-|Detailed Guide        |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/guidance-on-devolution|
+|Detailed Guide        |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/selling-second-hand-vehicles-using-a-vat-margin-scheme|
 |Document collection    |[document_collection](https://docs.publishing.service.gov.uk/content-schemas/document_collection.html)|https://www.gov.uk/government/collections/statutory-guidance-schools|
 |Fatality notice        |[fatality_notice](https://docs.publishing.service.gov.uk/content-schemas/fatality_notice.html)|https://www.gov.uk/government/fatalities/corporal-lee-churcher-dies-in-iraq|
 |Field of operation     |[field_of_operation](https://docs.publishing.service.gov.uk/document-types/field_of_operation.html)|https://www.gov.uk/government/fields-of-operation/united-kingdom|
@@ -29,7 +29,6 @@ some hard-coded routes.
 |Find local council     |hardcoded|https://www.gov.uk/find-local-council|
 |Foreign travel advice index |[travel_advice_index](https://docs.publishing.service.gov.uk/content-schemas/travel_advice_index.html)|https://www.gov.uk/foreign-travel-advice|
 |Foreign travel advice  |[travel_advice](https://docs.publishing.service.gov.uk/content-schemas/travel_advice.html)|https://www.gov.uk/foreign-travel-advice/azerbaijan|
-|Guidance               |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/travel-to-england-from-another-country-during-coronavirus-covid-19|
 |Guide                  |[guide](https://docs.publishing.service.gov.uk/content-schemas/guide.html)|https://www.gov.uk/log-in-register-hmrc-online-services|
 |Help index             |hardcoded|https://www.gov.uk/help|
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|

@@ -4,6 +4,14 @@
 
 <% content_for :main_classes do %>event<% end %>
 
+<% img_photo = capture do %>
+  <%= image_tag("events/photo.jpg", :alt => "A photograph of people celebrating", :class => "figure__image") %>
+<% end %>
+<% img_logo = capture do %>
+  <%= image_tag("events/logo.svg", :alt => "The GOV.UK crown logo", :class => "figure__logo") %>
+<% end %>
+<% #img_photo = nil %>
+
 <div class="hero">
   <div class="hero__container">
     <div class="hero__detail">
@@ -38,7 +46,11 @@
     </div>
     <div class="hero__image-wrapper">
       <figure class="figure">
-        <%= image_tag("events/image.jpg", :alt => "an image", :class => "figure__image") %>
+        <% if img_photo %>
+          <%= img_photo %>
+        <% else %>
+          <%= img_logo %>
+        <% end %>
         <figcaption class="figure__caption">
         </figcaption>
       </figure>
@@ -52,6 +64,16 @@
       <p class="govuk-body">It is an opportunity for the nation to come together to honour and pay tribute to the Second World War generation from across the UK and Commonwealth, through a series of national and local events and activities.</p>
       <p class="govuk-body">You can also find ways to get involved on the VE VJ website at <a href="" class="govuk-link">/ve-vjday80.gov.uk/</a></p>
     </div>
+
+    <% if img_photo %>
+      <div class="govuk-grid-column-one-third">
+        <figure class="figure">
+          <%= img_logo %>
+          <figcaption class="figure__caption">
+          </figcaption>
+        </figure>
+      </div>
+    <% end %>
   </div>
 
   <%= render "govuk_publishing_components/components/heading", {

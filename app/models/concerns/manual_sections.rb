@@ -57,7 +57,7 @@ private
   end
 
   def hmrc?
-    %w[hmrc_manual hmrc_manual_section].include?(schema_name)
+    %w[hmrc_manual hmrc_manual_section].include?(content_item.schema_name)
   end
 
   def show_contents_list?

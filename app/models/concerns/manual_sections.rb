@@ -37,6 +37,10 @@ module ManualSections
         ContentItemFactory.build(response)
       end
     end
+
+    def hmrc?
+      %w[hmrc_manual hmrc_manual_section].include?(schema_name)
+    end
   end
 
 private
@@ -54,10 +58,6 @@ private
     else
       I18n.t("formats.manuals.title", title:)
     end
-  end
-
-  def hmrc?
-    %w[hmrc_manual hmrc_manual_section].include?(schema_name)
   end
 
   def show_contents_list?

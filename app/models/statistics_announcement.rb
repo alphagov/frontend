@@ -15,6 +15,10 @@ class StatisticsAnnouncement < ContentItem
     content_store_response["details"].include?("previous_display_date")
   end
 
+  def forthcoming_publication?
+    !cancelled?
+  end
+
   def cancelled?
     state == "cancelled"
   end

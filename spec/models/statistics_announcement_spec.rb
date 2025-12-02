@@ -29,4 +29,13 @@ RSpec.describe StatisticsAnnouncement do
       expect(official_statistics.release_date_changed?).to be false
     end
   end
+
+  describe "#forthcoming_publication?" do
+    let(:cancelled_official_statistics) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "cancelled_official_statistics")) }
+
+    it "returns if an announcement is forthcoming" do
+      expect(official_statistics.forthcoming_publication?).to be true
+      expect(cancelled_official_statistics.forthcoming_publication?).to be false
+    end
+  end
 end

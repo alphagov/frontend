@@ -6,6 +6,6 @@ module Manual
   end
 
   def manual?
-    %w[manual manual_section].include?(schema_name)
+    %w[manual manual_section].include?(content_item.schema_name)
   end
 end

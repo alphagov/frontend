@@ -1,6 +1,8 @@
 class StatisticsAnnouncement < ContentItem
   include Updatable
 
+  FORTHCOMING_NOTICE = I18n.t("statistics_announcement.forthcoming").freeze
+
   def release_date
     content_store_response.dig("details", "display_date")
   end
@@ -17,6 +19,10 @@ class StatisticsAnnouncement < ContentItem
 
   def forthcoming_publication?
     !cancelled?
+  end
+
+  def forthcoming_notice_title
+    "#{FORTHCOMING_NOTICE} #{on_in_between_for_release_date(release_date)}"
   end
 
   def cancelled?

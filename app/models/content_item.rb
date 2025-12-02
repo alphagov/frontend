@@ -72,6 +72,10 @@ class ContentItem
     I18n.t("formats.#{document_type}.name", default: nil, count: 1)
   end
 
+  def section_groups
+    content_store_response.dig("details", "child_section_groups") || []
+  end
+
 private
 
   def linked(type)

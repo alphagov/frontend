@@ -6,7 +6,7 @@
 
     <% if @content_item.description.present? %>
       <%= render "govuk_publishing_components/components/heading", {
-        text: t("manuals.summary_title"),
+        text: t("formats.manuals.summary_title"),
         margin_bottom: 4,
       } %>
       <%= render "govuk_publishing_components/components/lead_paragraph", {
@@ -20,7 +20,7 @@
     <% end %>
 
     <%= render "govuk_publishing_components/components/heading", {
-      text: t("manuals.contents_title"),
+      text: t("formats.manuals.contents_title"),
       margin_bottom: 4,
     } %>
 

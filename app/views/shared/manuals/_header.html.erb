@@ -23,7 +23,7 @@
         margin_bottom: 8,
       } %>
 
-      <%= render 'govuk_publishing_components/components/metadata', content_item.manual_metadata %>
+      <%= render "govuk_publishing_components/components/metadata", content_item.manual_metadata %>
 
       <div class="in-manual-search">
         <%
@@ -37,10 +37,10 @@
               section: content_item.title,
               action: "search",
               url: "/search/all",
-            }
+            },
           }
         %>
-        <%= content_tag('form', action: "/search/all", data: form_data) do %>
+        <%= content_tag("form", action: "/search/all", data: form_data) do %>
           <input type='hidden' name="manual[]" value="<%= content_item.base_path %>">
           <%= render "govuk_publishing_components/components/search", {
             on_govuk_blue: true,

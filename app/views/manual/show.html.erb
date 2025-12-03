@@ -1,1 +1,24 @@
-<p> Placeholder for manual view </p>
+<% add_view_stylesheet("manual") %>
+<% content_for :header do %>
+  <%= render "content_items/manuals/header", {
+    content_item: @content_item,
+    heading_level: 1,
+  } %>
+<% end %>
+
+<%= render "content_items/manuals/manual_layout" do %>
+  <% @content_item.section_groups.each do |group| %>
+    <%= render "govuk_publishing_components/components/document_list", {
+        items: group["child_sections"].map do |section|
+          {
+            link: {
+              text: section["title"],
+              path: section["base_path"],
+              description: section["description"],
+              full_size_description: true,
+            }
+          }
+        end
+    } %>
+  <% end %>
+<% end %>

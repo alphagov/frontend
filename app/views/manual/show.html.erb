@@ -1,12 +1,12 @@
 <% add_view_stylesheet("manual") %>
 <% content_for :head do %>
-  <%= render "content_items/manuals/header", {
+  <%= render "shared/manuals/header", {
     content_item: @content_item,
     heading_level: 1,
   } %>
 <% end %>
 
-<%= render "content_items/manuals/manual_layout" do %>
+<%= render "shared/manuals/manual_layout" do %>
   <% @content_item.section_groups.each do |group| %>
     <%= render "govuk_publishing_components/components/document_list", {
         items: group["child_sections"].map do |section|

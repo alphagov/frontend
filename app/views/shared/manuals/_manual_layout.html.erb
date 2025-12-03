@@ -15,7 +15,7 @@
   <% end %>
   <% if @content_item.body.present? %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= raw(@content_item.body) %>
+      <%= @content_item.body.html_safe %>
     <% end %>
   <% end %>
 

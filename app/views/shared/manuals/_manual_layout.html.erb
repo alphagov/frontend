@@ -1,6 +1,8 @@
 <div id="manuals-frontend">
 
-  <%= machine_readable_metadata(schema: :article) %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :article,
+    content_item: content_item.to_h %>
 
   <% if @content_item.description.present? %>
     <%= render "govuk_publishing_components/components/heading", {

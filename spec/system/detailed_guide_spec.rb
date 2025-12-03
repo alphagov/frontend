@@ -7,6 +7,7 @@ RSpec.describe "DetailedGuide" do
 
   before do
     stub_content_store_has_item(base_path, content_store_response)
+    stub_content_store_does_not_have_item("/guidance")
     visit base_path
   end
 

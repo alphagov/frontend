@@ -3,11 +3,6 @@ RSpec.describe "Localisation" do
   let(:base_path) { content_item["base_path"] }
 
   before do
-    # Ensure we request the Content Store version of the page
-    stub_const(
-      "ContentItemLoaders::GraphqlLoader::GRAPHQL_TRAFFIC_RATES",
-      { "news_article" => 0 },
-    )
     stub_content_store_has_item(base_path, content_item)
     visit base_path
   end

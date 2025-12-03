@@ -8,6 +8,11 @@ RSpec.describe ContentItemLoader do
 
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
 
+  before do
+    Rails.application.config.graphql_traffic_rates = { "news_article" => 0.5 }
+    Rails.application.config.graphql_allowed_schemas = %w[news_article]
+  end
+
   shared_examples "rendered from Content Store" do
     it "calls the Content Store only" do
       content_item_loader.load(request.path)
@@ -107,7 +112,7 @@ RSpec.describe ContentItemLoader do
       end
     end
 
-    context "when the content item schema is in GRAPHQL_ALLOWED_SCHEMAS" do
+    context "when the content item schema is in Rails.application.config.graphql_allowed_schemas" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }) }
@@ -275,7 +280,7 @@ RSpec.describe ContentItemLoader do
       end
     end
 
-    context "when the content item schema is not in GRAPHQL_ALLOWED_SCHEMAS" do
+    context "when the content item schema is not in Rails.application.config.graphql_allowed_schemas" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
       let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "guide" }) }

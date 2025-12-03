@@ -39,4 +39,9 @@ RSpec.configure do |config|
   config.before(:each, type: :request) do
     Rails.application.config.emergency_banner_redis_client = instance_double(Redis, hgetall: {})
   end
+
+  config.before do
+    Rails.application.config.graphql_allowed_schemas = []
+    Rails.application.config.graphql_traffic_rates = {}
+  end
 end

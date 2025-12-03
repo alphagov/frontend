@@ -2,12 +2,6 @@ module ContentItemLoaders
   class GraphqlLoader
     include DraftHelper
 
-    GRAPHQL_TRAFFIC_RATES = {
-      # These are decimal versions of a percentage, so can be between 0 and 1
-      "news_article" => 0.5,
-    }.freeze
-    GRAPHQL_ALLOWED_SCHEMAS = GRAPHQL_TRAFFIC_RATES.keys
-
     def initialize(content_store_loader:, request:)
       @content_store_loader = content_store_loader
       @request = request
@@ -26,10 +20,10 @@ module ContentItemLoaders
         return false
       end
 
-      return false unless GRAPHQL_ALLOWED_SCHEMAS.include?(schema_from_content_store)
+      return false unless Rails.application.config.graphql_allowed_schemas.include?(schema_from_content_store)
 
       random_number = Random.rand(1.0)
-      random_number < GRAPHQL_TRAFFIC_RATES.fetch(schema_from_content_store)
+      random_number < Rails.application.config.graphql_traffic_rates.fetch(schema_from_content_store)
     end
 
     def load(base_path:)

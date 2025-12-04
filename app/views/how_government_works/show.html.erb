@@ -97,16 +97,16 @@
             ],
           } %>
 
-          <% if @content_item.prime_minister.present? %>
-            <p class="govuk-body">The Prime Minister is <%= link_to @content_item.prime_minister["title"], @content_item.prime_minister["base_path"], class: "govuk-link" %>.</p>
+          <% if content_item.prime_minister.present? %>
+            <p class="govuk-body">The Prime Minister is <%= link_to content_item.prime_minister["title"], content_item.prime_minister["base_path"], class: "govuk-link" %>.</p>
           <% end %>
 
           <p class="govuk-body govuk-!-margin-bottom-8">
             <%= link_to "Read more about the Prime Minister's Office, 10 Downing Street", "/government/organisations/prime-ministers-office-10-downing-street", class: "govuk-link" %>
           </p>
 
-          <% if @content_item.prime_minister.present? && @content_item.prime_minister_image_url.present? %>
-            <%= image_tag @content_item.prime_minister_image_url, { class: "constrained-image", alt:  @content_item.prime_minister_image_alt_text } %>
+          <% if content_item.prime_minister.present? && content_item.prime_minister_image_url.present? %>
+            <%= image_tag content_item.prime_minister_image_url, { class: "constrained-image", alt:  content_item.prime_minister_image_alt_text } %>
           <% else %>
             <%= image_tag "how-gov-works/10_downing_street.jpg", class: "constrained-image", alt: "10 Downing Street" %>
           <% end %>
@@ -141,11 +141,11 @@
           margin_bottom: 4,
         } %>
 
-        <% unless @content_item.reshuffle_in_progress? %>
+        <% unless content_item.reshuffle_in_progress? %>
           <div class="govuk-grid-row feature-ministers">
             <div class="govuk-grid-column-one-half">
               <%= render "govuk_publishing_components/components/big_number", {
-                number: @content_item.ministerial_role_counts["prime_minister"],
+                number: content_item.ministerial_role_counts["prime_minister"],
                 label: "Prime Minister",
                 href: "/government/ministers/prime-minister",
               } %>
@@ -153,7 +153,7 @@
 
             <div class="govuk-grid-column-one-half">
               <%= render "govuk_publishing_components/components/big_number", {
-                number: @content_item.ministerial_role_counts["cabinet_ministers"],
+                number: content_item.ministerial_role_counts["cabinet_ministers"],
                 label: "Cabinet ministers",
                 href: "/government/ministers#cabinet-ministers",
               } %>
@@ -163,7 +163,7 @@
           <div class="govuk-grid-row feature-ministers">
             <div class="govuk-grid-column-one-half">
               <%= render "govuk_publishing_components/components/big_number", {
-                number: @content_item.ministerial_role_counts["other_ministers"],
+                number: content_item.ministerial_role_counts["other_ministers"],
                 label: "Other ministers",
                 href: "/government/ministers#ministers-by-department",
               } %>
@@ -171,7 +171,7 @@
 
             <div class="govuk-grid-column-one-half">
               <%= render "govuk_publishing_components/components/big_number", {
-                number: @content_item.ministerial_role_counts["total_ministers"],
+                number: content_item.ministerial_role_counts["total_ministers"],
                 label: "Total ministers",
                 href: "/government/ministers",
               } %>
@@ -243,27 +243,27 @@
           </div>
         </div>
 
-        <% unless @content_item.reshuffle_in_progress? %>
+        <% unless content_item.reshuffle_in_progress? %>
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-full">
               <div class="depts">
                 <div class="depts__item govuk-!-display-inline-block">
                   <%= render "govuk_publishing_components/components/big_number", {
-                    number: @content_item.department_counts["ministerial_departments"],
+                    number: content_item.department_counts["ministerial_departments"],
                     label: "Ministerial departments",
                     href: "/government/organisations#departments",
                   } %>
                 </div>
                 <div class="depts__item govuk-!-display-inline-block">
                   <%= render "govuk_publishing_components/components/big_number", {
-                    number: @content_item.department_counts["non_ministerial_departments"],
+                    number: content_item.department_counts["non_ministerial_departments"],
                     label: "Non-ministerial departments",
                     href: "/government/organisations#non_ministerial_departments",
                   } %>
                 </div>
                 <div class="depts__item govuk-!-display-inline-block">
                   <%= render "govuk_publishing_components/components/big_number", {
-                    number: @content_item.agencies_and_other_public_bodies,
+                    number: content_item.agencies_and_other_public_bodies,
                     label: "Agencies and other public bodies",
                     href: "/government/organisations#agencies_and_other_public_bodies",
                   } %>

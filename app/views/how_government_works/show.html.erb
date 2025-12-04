@@ -82,16 +82,16 @@
             ],
           } %>
 
-          <% if content_item.prime_minister.present? %>
-            <p class="govuk-body">The Prime Minister is <%= link_to content_item.prime_minister["title"], content_item.prime_minister["base_path"], class: "govuk-link" %>.</p>
+          <% if content_item.current_prime_minister.present? %>
+            <p class="govuk-body">The Prime Minister is <%= link_to content_item.current_prime_minister.title, content_item.current_prime_minister.base_path, class: "govuk-link" %>.</p>
           <% end %>
 
           <p class="govuk-body govuk-!-margin-bottom-8">
             <%= link_to "Read more about the Prime Minister's Office, 10 Downing Street", "/government/organisations/prime-ministers-office-10-downing-street", class: "govuk-link" %>
           </p>
 
-          <% if content_item.prime_minister.present? && content_item.prime_minister_image_url.present? %>
-            <%= image_tag content_item.prime_minister_image_url, { class: "constrained-image", alt:  content_item.prime_minister_image_alt_text } %>
+          <% if content_item.current_prime_minister.present? && content_item.current_prime_minister.image["url"].present? %>
+            <%= image_tag content_item.current_prime_minister.image["url"], { class: "constrained-image", alt:  content_item.current_prime_minister.image["alt_text"] } %>
           <% else %>
             <%= image_tag "how-gov-works/10_downing_street.jpg", class: "constrained-image", alt: "10 Downing Street" %>
           <% end %>

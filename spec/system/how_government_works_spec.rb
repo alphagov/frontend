@@ -25,16 +25,16 @@ RSpec.describe "How Government Works" do
       expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'other_ministers')}.+Other ministers/m)
       expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'total_ministers')}.+Total ministers/m)
     end
+
+    it "displays the count of departments" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'ministerial_departments')}.+Ministerial departments/m)
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'non_ministerial_departments')}.+Non-ministerial departments/m)
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'agencies_and_other_public_bodies')}.+Agencies and other public bodies/m)
+    end
   end
 end
-
-# test "includes the count of departments" do
-#   setup_and_visit_content_item("reshuffle-mode-off")
-
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'department_counts', 'ministerial_departments')}.+Ministerial departments/m)
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'department_counts', 'non_ministerial_departments')}.+Non-ministerial departments/m)
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'department_counts', 'agencies_and_other_public_bodies')}.+Agencies and other public bodies/m)
-# end
 
 # test "does not include the count of ministers during a reshuffle" do
 #   setup_and_visit_content_item("reshuffle-mode-on")

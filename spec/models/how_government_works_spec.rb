@@ -27,4 +27,18 @@ RSpec.describe HowGovernmentWorks do
       expect(how_government_works.lead_paragraph).not_to be_blank
     end
   end
+
+  describe "#reshuffle_in_progress?" do
+    it "returns false" do
+      expect(how_government_works.reshuffle_in_progress?).to be false
+    end
+
+    context "when a reshuffle is in progress isn't a prime minister" do
+      let(:content_item) { GovukSchemas::Example.find("how_government_works", example_name: "reshuffle-mode-on") }
+
+      it "returns true" do
+        expect(how_government_works.reshuffle_in_progress?).to be true
+      end
+    end
+  end
 end

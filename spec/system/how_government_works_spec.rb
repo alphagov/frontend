@@ -33,6 +33,19 @@ RSpec.describe "How Government Works" do
       expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'non_ministerial_departments')}.+Non-ministerial departments/m)
       expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'agencies_and_other_public_bodies')}.+Agencies and other public bodies/m)
     end
+
+    context "when reshuffle mode is on" do
+      let(:content_item) { GovukSchemas::Example.find(:how_government_works, example_name: "reshuffle-mode-on") }
+
+      it "does not display the count of minister" do
+        visit base_path
+
+        expect(page).not_to have_selector(".gem-c-big-number", text: /Prime Minister/m)
+        expect(page).not_to have_selector(".gem-c-big-number", text: /Cabinet ministers/m)
+        expect(page).not_to have_selector(".gem-c-big-number", text: /Other ministers/m)
+        expect(page).not_to have_selector(".gem-c-big-number", text: /Total ministers/m)
+      end
+    end
   end
 end
 

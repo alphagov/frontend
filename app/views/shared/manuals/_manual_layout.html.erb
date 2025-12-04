@@ -4,18 +4,18 @@
     schema: :article,
     content_item: content_item.to_h %>
 
-  <% if @content_item.description.present? %>
+  <% if content_item.description.present? %>
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.manuals.summary_title"),
       margin_bottom: 4,
     } %>
     <%= render "govuk_publishing_components/components/lead_paragraph", {
-      text: @content_item.description,
+      text: content_item.description,
     } %>
   <% end %>
-  <% if @content_item.body.present? %>
+  <% if content_item.body.present? %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
-      <%= raw(@content_item.body.html_safe) %>
+      <%= raw(content_item.body.html_safe) %>
     <% end %>
   <% end %>
 

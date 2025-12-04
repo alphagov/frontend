@@ -22,9 +22,21 @@ RSpec.describe HowGovernmentWorks do
     end
   end
 
+  describe "#department_counts" do
+    it "returns the counts hash from the content item" do
+      expect(how_government_works.department_counts).to eq({ "agencies_and_public_bodies" => 1, "ministerial_departments" => 6, "non_ministerial_departments" => 1 })
+    end
+  end
+
   describe "#lead_paragraph" do
     it "returns the localisation key" do
       expect(how_government_works.lead_paragraph).not_to be_blank
+    end
+  end
+
+  describe "#ministerial_role_counts" do
+    it "returns the counts hash from the content item" do
+      expect(how_government_works.ministerial_role_counts).to eq({ "cabinet_ministers" => 2, "other_ministers" => 3, "prime_minister" => 1, "total_ministers" => 6 })
     end
   end
 

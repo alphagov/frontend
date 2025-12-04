@@ -366,6 +366,8 @@ en:
     guide:
       pages_in_guide: Pages in this guide
       skip_contents: Skip contents
+    how_government_works:
+      lead_paragraph: In the UK, the Prime Minister leads the government with the support of the Cabinet and ministers. You can find out <a href="#who-runs-government" class="govuk-link">who runs government</a> and <a href="#how-government-is-run" class="govuk-link">how government is run</a>, as well as learning about the <a href="#history-uk-government" class="govuk-link">history of government</a>.
     html_publication:
       name:
         one: HTML Publication

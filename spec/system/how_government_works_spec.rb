@@ -10,14 +10,14 @@ RSpec.describe "How Government Works" do
 
       expect(page).to have_title("How government works")
     end
+
+    it "displays the current prime minister" do
+      visit base_path
+
+      expect(page).to have_text(content_item.dig("links", "current_prime_minister", 0, "title"))
+    end
   end
 end
-
-# test "includes the current prime minister" do
-#   setup_and_visit_content_item("reshuffle-mode-off")
-
-#   assert page.has_text?(@content_item.dig("links", "current_prime_minister", 0, "title"))
-# end
 
 # test "includes the count of ministers" do
 #   setup_and_visit_content_item("reshuffle-mode-off")

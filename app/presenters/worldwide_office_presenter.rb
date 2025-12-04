@@ -1,6 +1,5 @@
 class WorldwideOfficePresenter < ContentItemPresenter
   include GovspeakContentsList
-  include WorldwideOrganisationBranding
 
   def formatted_title
     worldwide_organisation&.formatted_title

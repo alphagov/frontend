@@ -5,11 +5,11 @@
         text: "How government works",
         heading_level: 1,
         font_size: "xl",
-        margin_bottom: 8
+        margin_bottom: 8,
       } %>
 
       <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: sanitize("In the UK, the Prime Minister leads the government with the support of the Cabinet and ministers. You can find out #{link_to('who runs government', '#who-runs-government', class: 'govuk-link')} and #{link_to('how government is run', '#how-government-is-run', class: 'govuk-link')}, as well as learning about the #{link_to('history of government', '#history-uk-government', class: 'govuk-link')}.")
+        text: sanitize("In the UK, the Prime Minister leads the government with the support of the Cabinet and ministers. You can find out #{link_to('who runs government', '#who-runs-government', class: 'govuk-link')} and #{link_to('how government is run', '#how-government-is-run', class: 'govuk-link')}, as well as learning about the #{link_to('history of government', '#history-uk-government', class: 'govuk-link')}."),
       } %>
 
       <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
@@ -63,7 +63,7 @@
             {
               href: "#history-uk-government",
               text: "History of government",
-            }
+            },
           ],
         } %>
       </div>
@@ -94,7 +94,7 @@
               "oversees the operation of the Civil Service and government agencies",
               "appoints members of the government",
               "is the principal government figure in the House of Commons",
-            ]
+            ],
           } %>
 
           <% if @content_item.prime_minister.present? %>
@@ -106,9 +106,9 @@
           </p>
 
           <% if @content_item.prime_minister.present? && @content_item.prime_minister_image_url.present? %>
-            <%= image_tag @content_item.prime_minister_image_url, { class: 'constrained-image', alt:  @content_item.prime_minister_image_alt_text } %>
+            <%= image_tag @content_item.prime_minister_image_url, { class: "constrained-image", alt:  @content_item.prime_minister_image_alt_text } %>
           <% else %>
-            <%= image_tag 'how-gov-works/10_downing_street.jpg', class: 'constrained-image', alt: '10 Downing Street' %>
+            <%= image_tag "how-gov-works/10_downing_street.jpg", class: "constrained-image", alt: "10 Downing Street" %>
           <% end %>
         </section>
 
@@ -123,7 +123,7 @@
           <p class="govuk-body">The Cabinet is made up of the senior members of government. Every week during Parliament, members of the Cabinet (Secretaries of State from all departments and some other ministers) meet to discuss the most important issues for the government.</p>
           <p class="govuk-body govuk-!-margin-bottom-8"><%= link_to("See who is in the Cabinet", "/government/ministers", class: "govuk-link") %></p>
 
-          <%= image_tag 'how-gov-works/cabinet_01.jpg', class: 'constrained-image', alt: '' %>
+          <%= image_tag "how-gov-works/cabinet_01.jpg", class: "constrained-image", alt: "" %>
         </section>
       </section>
     </div>
@@ -147,7 +147,7 @@
               <%= render "govuk_publishing_components/components/big_number", {
                 number: @content_item.ministerial_role_counts["prime_minister"],
                 label: "Prime Minister",
-                href: "/government/ministers/prime-minister"
+                href: "/government/ministers/prime-minister",
               } %>
             </div>
 
@@ -155,7 +155,7 @@
               <%= render "govuk_publishing_components/components/big_number", {
                 number: @content_item.ministerial_role_counts["cabinet_ministers"],
                 label: "Cabinet ministers",
-                href: "/government/ministers#cabinet-ministers"
+                href: "/government/ministers#cabinet-ministers",
               } %>
             </div>
           </div>
@@ -165,7 +165,7 @@
               <%= render "govuk_publishing_components/components/big_number", {
                 number: @content_item.ministerial_role_counts["other_ministers"],
                 label: "Other ministers",
-                href: "/government/ministers#ministers-by-department"
+                href: "/government/ministers#ministers-by-department",
               } %>
             </div>
 
@@ -173,7 +173,7 @@
               <%= render "govuk_publishing_components/components/big_number", {
                 number: @content_item.ministerial_role_counts["total_ministers"],
                 label: "Total ministers",
-                href: "/government/ministers"
+                href: "/government/ministers",
               } %>
             </div>
           </div>
@@ -251,21 +251,21 @@
                   <%= render "govuk_publishing_components/components/big_number", {
                     number: @content_item.department_counts["ministerial_departments"],
                     label: "Ministerial departments",
-                    href: "/government/organisations#departments"
+                    href: "/government/organisations#departments",
                   } %>
                 </div>
                 <div class="depts__item govuk-!-display-inline-block">
                   <%= render "govuk_publishing_components/components/big_number", {
                     number: @content_item.department_counts["non_ministerial_departments"],
                     label: "Non-ministerial departments",
-                    href: "/government/organisations#non_ministerial_departments"
+                    href: "/government/organisations#non_ministerial_departments",
                   } %>
                 </div>
                 <div class="depts__item govuk-!-display-inline-block">
                   <%= render "govuk_publishing_components/components/big_number", {
                     number: @content_item.agencies_and_other_public_bodies,
                     label: "Agencies and other public bodies",
-                    href: "/government/organisations#agencies_and_other_public_bodies"
+                    href: "/government/organisations#agencies_and_other_public_bodies",
                   } %>
                 </div>
               </div>
@@ -299,7 +299,7 @@
             "running employment services",
             "staffing prisons",
             "issuing driving licences",
-          ]
+          ],
         } %>
 
         <p class="govuk-body">The <%= link_to "Civil Service", "/government/organisations/civil-service", class: "govuk-link" %> is on GOV.UK.</p>
@@ -410,11 +410,11 @@
           items: [
             "how much public money has been spent on what",
             "the job titles of senior civil servants and how much they are paid",
-            "how the government is doing against its objectives"
-          ]
+            "how the government is doing against its objectives",
+          ],
         } %>
 
-        <p class="govuk-body"><%= link_to 'See transparency releases on GOV.UK', "/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency", class: "govuk-link" %></p>
+        <p class="govuk-body"><%= link_to "See transparency releases on GOV.UK", "/search/transparency-and-freedom-of-information-releases?content_store_document_type=transparency", class: "govuk-link" %></p>
 
         <%= render "govuk_publishing_components/components/heading", {
           text: "Data",
@@ -445,8 +445,8 @@
             "education",
             "culture",
             "the environment",
-            "transport"
-          ]
+            "transport",
+          ],
         } %>
       </section>
 
@@ -479,8 +479,8 @@
           items: [
             "look at what the government is doing",
             "debate issues and pass new laws",
-            "set taxes"
-          ]
+            "set taxes",
+          ],
         } %>
 
         <p class="govuk-body">
@@ -502,7 +502,7 @@
         <p class="govuk-body">Read about past Prime Ministers, Chancellors and Foreign Secretaries in <%= link_to "notable people", "/government/history#notable-people", class: "govuk-link" %>. Learn more about historic <%= link_to "government buildings", "/government/history#government-buildings", class: "govuk-link" %> on Whitehall and around the UK.</p>
         <p class="govuk-body govuk-!-margin-bottom-8">You can also find links to <%= link_to "historical research", "/government/history#historical-research", class: "govuk-link" %>, documents and records.</p>
 
-        <%= image_tag 'how-gov-works/churchill_01.jpg', class: 'constrained-image', alt: '' %>
+        <%= image_tag "how-gov-works/churchill_01.jpg", class: "constrained-image", alt: "" %>
       </section>
     </div>
   </div>

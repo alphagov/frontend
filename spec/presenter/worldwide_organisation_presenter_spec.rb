@@ -141,7 +141,7 @@ RSpec.describe WorldwideOrganisationPresenter do
 
   it "#sponsoring_organisation_links returns nil when sponsoring organisations are empty" do
     content_item.content_store_response["links"].delete("sponsoring_organisations")
-    presenter = described_class.new(content_item)
+    described_class.new(content_item)
 
     expect(worldwide_organisation_presenter.sponsoring_organisation_links).to be_nil
   end
@@ -156,13 +156,13 @@ RSpec.describe WorldwideOrganisationPresenter do
         content_store_response.tap { |response| response["links"].delete("main_office") }
         ContentItem.new(content_store_response)
       end
+
       it "returns nil" do
         presenter = described_class.new(content_item)
         expect(presenter.main_office).to be_nil
       end
     end
   end
-
 
   describe "#home_page_offices" do
     context "when there are no home page offices" do

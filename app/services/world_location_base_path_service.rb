@@ -1,4 +1,4 @@
-class WorldLocationBasePath
+class WorldLocationBasePathService
   class << self
     def for(world_location_link)
       base_path = world_location_link["base_path"]

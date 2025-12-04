@@ -16,17 +16,17 @@ RSpec.describe "How Government Works" do
 
       expect(page).to have_text(content_item.dig("links", "current_prime_minister", 0, "title"))
     end
+
+    it "displays the count of ministers" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'prime_minister')}.+Prime Minister/m)
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'cabinet_ministers')}.+Cabinet ministers/m)
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'other_ministers')}.+Other ministers/m)
+      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'total_ministers')}.+Total ministers/m)
+    end
   end
 end
-
-# test "includes the count of ministers" do
-#   setup_and_visit_content_item("reshuffle-mode-off")
-
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'ministerial_role_counts', 'prime_minister')}.+Prime Minister/m)
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'ministerial_role_counts', 'cabinet_ministers')}.+Cabinet ministers/m)
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'ministerial_role_counts', 'other_ministers')}.+Other ministers/m)
-#   assert page.has_selector?(".gem-c-big-number", text: /#{@content_item.dig('details', 'ministerial_role_counts', 'total_ministers')}.+Total ministers/m)
-# end
 
 # test "includes the count of departments" do
 #   setup_and_visit_content_item("reshuffle-mode-off")

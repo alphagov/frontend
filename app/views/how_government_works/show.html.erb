@@ -1,21 +1,6 @@
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "How government works",
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
-      } %>
+<%= render "shared/header" %>
 
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: sanitize("In the UK, the Prime Minister leads the government with the support of the Cabinet and ministers. You can find out #{link_to('who runs government', '#who-runs-government', class: 'govuk-link')} and #{link_to('how government is run', '#how-government-is-run', class: 'govuk-link')}, as well as learning about the #{link_to('history of government', '#history-uk-government', class: 'govuk-link')}."),
-      } %>
-
-      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
-    </div>
-  </div>
-</div>
+<hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
 
 <div class="govuk-width-container">
   <div class="govuk-grid-row">

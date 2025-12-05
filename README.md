@@ -37,6 +37,7 @@ some hard-coded routes.
 |HTML Publication       |[html_publication](https://docs.publishing.service.gov.uk/content-schemas/html_publication.html)|https://www.gov.uk/government/publications/car-show-me-tell-me-vehicle-safety-questions/car-show-me-tell-me-vehicle-safety-questions|
 |                       ||https://www.gov.uk/government/publications/skilled-worker-visa-temporary-shortage-list/skilled-worker-visa-temporary-shortage-list|
 |                       ||https://www.gov.uk/government/publications/usa-apply-for-a-uk-visa/apply-for-a-uk-visa-in-the-usa|
+|How Government Works   |[how_government_works](https://docs.publishing.service.gov.uk/content-schemas/how_government_works.html)|https://www.gov.uk/government/how-government-works|
 |Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
 |Gone                   |[gone](https://docs.publishing.service.gov.uk/content-schemas/gone.html)|https://www.gov.uk/government/collections/greenhouse-gas-conversion-factors-for-company-reporting|
 |Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|

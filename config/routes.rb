@@ -105,6 +105,8 @@ Rails.application.routes.draw do
     get "/history", to: "flexible_page#show"
     get "/history/:slug", to: "flexible_page#show"
 
+    get "/how-government-works", to: "how_government_works#show"
+
     get "/news/:slug(.:locale)", to: "news_article#show"
 
     get "/organisations/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"

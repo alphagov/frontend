@@ -763,7 +763,7 @@ DEPENDENCIES
   pact_broker-client
   plek
   pry-byebug
-  rack-utf8_sanitizer
+  rack-utf8_sanitizer (= 1.10.1)
   rails (= 8.0.3)
   rails-controller-testing
   rails-i18n

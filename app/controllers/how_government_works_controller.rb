@@ -1,5 +1,7 @@
 class HowGovernmentWorksController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @presenter = HowGovernmentWorksPresenter.new(content_item)
+  end
 end

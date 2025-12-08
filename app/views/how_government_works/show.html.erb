@@ -230,29 +230,27 @@
 
         <% unless content_item.reshuffle_in_progress? %>
           <div class="govuk-grid-row">
-            <div class="govuk-grid-column-full">
-              <div class="depts">
-                <div class="depts__item govuk-!-display-inline-block">
-                  <%= render "govuk_publishing_components/components/big_number", {
-                    number: content_item.department_counts["ministerial_departments"],
-                    label: "Ministerial departments",
-                    href: "/government/organisations#departments",
-                  } %>
-                </div>
-                <div class="depts__item govuk-!-display-inline-block">
-                  <%= render "govuk_publishing_components/components/big_number", {
-                    number: content_item.department_counts["non_ministerial_departments"],
-                    label: "Non-ministerial departments",
-                    href: "/government/organisations#non_ministerial_departments",
-                  } %>
-                </div>
-                <div class="depts__item govuk-!-display-inline-block">
-                  <%= render "govuk_publishing_components/components/big_number", {
-                    number: @presenter.agencies_and_other_public_bodies,
-                    label: "Agencies and other public bodies",
-                    href: "/government/organisations#agencies_and_other_public_bodies",
-                  } %>
-                </div>
+            <div class="govuk-grid-column-two-thirds">
+              <div class="govuk-grid-column-one-third govuk-!-display-inline-block">
+                <%= render "govuk_publishing_components/components/big_number", {
+                  number: content_item.department_counts["ministerial_departments"],
+                  label: "Ministerial departments",
+                  href: "/government/organisations#departments",
+                } %>
+              </div>
+              <div class="govuk-grid-column-one-third govuk-!-display-inline-block">
+                <%= render "govuk_publishing_components/components/big_number", {
+                  number: content_item.department_counts["non_ministerial_departments"],
+                  label: "Non-ministerial departments",
+                  href: "/government/organisations#non_ministerial_departments",
+                } %>
+              </div>
+              <div class="govuk-grid-column-one-third govuk-!-display-inline-block">
+                <%= render "govuk_publishing_components/components/big_number", {
+                  number: @presenter.agencies_and_other_public_bodies,
+                  label: "Agencies and other public bodies",
+                  href: "/government/organisations#agencies_and_other_public_bodies",
+                } %>
               </div>
             </div>
           </div>

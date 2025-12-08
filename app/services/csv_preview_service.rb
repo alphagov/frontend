@@ -10,11 +10,14 @@ class CsvPreviewService
 
   def csv_rows
     truncated = false
+    original_error = nil
+    row_sep = :auto
+
     begin
       summary_csv = []
       trimmed_column_count = MAXIMUM_COLUMNS
 
-      CSV.new(@csv, encoding: encoding(@csv), headers: false).each.with_index do |row, i|
+      CSV.new(@csv, encoding: encoding(@csv), headers: false, row_sep:).each.with_index do |row, i|
         if i > MAXIMUM_ROWS
           truncated = true
           break
@@ -42,7 +45,16 @@ class CsvPreviewService
       end
     rescue Encoding::UndefinedConversionError
       raise FileEncodingError, "Character cannot be converted"
+    rescue CSV::MalformedCSVError => e
+      if original_error.nil?
+        original_error = e
+        row_sep = "\r\n"
+        retry
+      else
+        raise
+      end
     end
+
     [summary_csv, truncated]
   end
 

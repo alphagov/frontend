@@ -37,6 +37,28 @@ RSpec.describe CsvPreviewService do
       end
     end
 
+    context "with CSV containing CRLF line terminators and header text on multimple lines" do
+      let(:csv) { "header 1,\"header 2\nheader2 details\",header 3\r\ncontent 1,content 2,content 3\r\n" }
+      let(:parsed_csv) do
+        [
+          [
+            { text: "header 1" },
+            { text: "header 2\nheader2 details" },
+            { text: "header 3" },
+          ],
+          [
+            { text: "content 1" },
+            { text: "content 2" },
+            { text: "content 3" },
+          ],
+        ]
+      end
+
+      it "parses the CSV correctly" do
+        expect(csv_preview_service.csv_rows.first).to eq(parsed_csv)
+      end
+    end
+
     context "with CSV containing empty rows" do
       let(:csv) { "header 1,header 2,header 3\n,,\ncontent 1,content 2,content 3\n" }
 

@@ -364,6 +364,8 @@ ku:
     guide:
       pages_in_guide: لاپەڕەکانی ئەم ڕێنماییە
       skip_contents: ناوەڕۆکەکان بەجێبهێڵە
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

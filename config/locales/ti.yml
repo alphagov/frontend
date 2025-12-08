@@ -364,6 +364,8 @@ ti:
     guide:
       pages_in_guide: ገጻት ኣብዚ መምርሒ
       skip_contents: ትሕዝቶታት ዝለል
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

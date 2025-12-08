@@ -426,6 +426,8 @@ gd:
     guide:
       pages_in_guide: Leathanaigh na treorach seo
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

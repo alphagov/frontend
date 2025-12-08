@@ -364,6 +364,8 @@ da:
     guide:
       pages_in_guide: Sider i denne vejledning
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

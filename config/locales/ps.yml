@@ -364,6 +364,8 @@ ps:
     guide:
       pages_in_guide: په دې لارښود کې پاڼې
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

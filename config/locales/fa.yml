@@ -364,6 +364,8 @@ fa:
     guide:
       pages_in_guide: صفحات موجود در این راهنما
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

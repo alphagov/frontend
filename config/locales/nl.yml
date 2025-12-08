@@ -364,6 +364,8 @@ nl:
     guide:
       pages_in_guide: Pagina's in deze gids
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

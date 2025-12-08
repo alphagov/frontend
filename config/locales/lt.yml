@@ -395,6 +395,8 @@ lt:
     guide:
       pages_in_guide: Puslapiai šiame vadove
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

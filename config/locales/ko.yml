@@ -333,6 +333,8 @@ ko:
     guide:
       pages_in_guide: 이 지침 내 페이지
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         other:

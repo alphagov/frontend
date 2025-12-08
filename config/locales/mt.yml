@@ -426,6 +426,8 @@ mt:
     guide:
       pages_in_guide: Paġni f'dan il-gwida
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

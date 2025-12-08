@@ -364,6 +364,8 @@ hi:
     guide:
       pages_in_guide: इस गाइड में पेज
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

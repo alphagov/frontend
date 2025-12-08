@@ -364,6 +364,8 @@ ky:
     guide:
       pages_in_guide: Бул жетектемедеги баракчалар
       skip_contents: Мазмунду өткөрүп жиберүү
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

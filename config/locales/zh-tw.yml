@@ -333,6 +333,8 @@ zh-tw:
     guide:
       pages_in_guide: 本指南中的頁面
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         other:

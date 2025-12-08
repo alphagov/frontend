@@ -364,6 +364,8 @@ fi:
     guide:
       pages_in_guide: Tämän oppaan sivut
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

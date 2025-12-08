@@ -364,6 +364,8 @@ bn:
     guide:
       pages_in_guide: এই নির্দেশিকাতে পৃষ্ঠা
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

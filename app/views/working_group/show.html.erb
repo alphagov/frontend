@@ -5,36 +5,36 @@
 <% end %>
 
 <% @additional_body = capture do %>
-  <% if @content_item.policies.any? %>
+  <% if content_item.policies.any? %>
     <h2 id="policies"><%= t("working_group.policies") %></h2>
     <ul>
-      <% @content_item.policies.each do |policy| %>
+      <% content_item.policies.each do |policy| %>
         <li><%= link_to policy["title"], policy["base_path"] %></li>
       <% end %>
     </ul>
   <% end %>
 
-  <% if @content_item.email.present? %>
+  <% if content_item.email.present? %>
     <h2 id="contact-details"><%= t("working_group.contact_details") %></h2>
-    <p><%= mail_to @content_item.email, @content_item.email %></p>
+    <p><%= mail_to content_item.email, content_item.email %></p>
   <% end %>
 <% end %>
 
 <div class="govuk-grid-row translation-nav-header">
   <div class="govuk-grid-column-two-thirds translation-nav-header__child">
-    <%= render "govuk_publishing_components/components/heading", @content_item.heading_and_context %>
+    <%= render "govuk_publishing_components/components/heading", content_item.heading_and_context %>
   </div>
   <%= render "shared/translations" %>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @content_item.contents do %>
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item.contents do %>
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
       } do %>
-        <%= raw(@content_item.body) %>
+        <%= raw(content_item.body) %>
         <%= raw(@additional_body) %>
       <% end %>
     <% end %>

@@ -1,6 +1,6 @@
 <% content_for :extra_head_content do %>
   <%= machine_readable_metadata(
-    schema: :article
+    schema: :article,
   ) %>
 <% end %>
 
@@ -22,16 +22,16 @@
 
 <div class="govuk-grid-row translation-nav-header">
   <div class="govuk-grid-column-two-thirds translation-nav-header__child">
-    <%= render 'govuk_publishing_components/components/heading', @content_item.heading_and_context %>
+    <%= render "govuk_publishing_components/components/heading", @content_item.heading_and_context %>
   </div>
-  <%= render 'shared/translations' %>
+  <%= render "shared/translations" %>
 </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/lead_paragraph', text: @content_item.description %>
-    <%= render 'govuk_publishing_components/components/contents_list_with_body', contents: @content_item.contents do %>
-      <%= render 'govuk_publishing_components/components/govspeak', {
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @content_item.contents do %>
+      <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
       } do %>
         <%= raw(@content_item.body) %>

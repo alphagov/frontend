@@ -1,4 +1,4 @@
 class ManualSection < ContentItem
   include ManualSections
-  include Manual
+  include ManualLike
 end

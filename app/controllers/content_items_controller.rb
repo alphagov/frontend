@@ -3,7 +3,6 @@ class ContentItemsController < ApplicationController
 
   before_action :set_content_item_and_cache_control
   before_action :reroute_to_gone, if: -> { content_item.schema_name == "gone" }
-  before_action :set_locale, if: -> { request.format.html? }
 
   attr_reader :content_item
 
@@ -40,14 +39,6 @@ private
         public: !@cache_control.private?,
       )
     end
-  end
-
-  def set_locale
-    I18n.locale = if content_item.locale && I18n.available_locales.map(&:to_s).include?(content_item.locale)
-                    content_item.locale
-                  else
-                    I18n.default_locale
-                  end
   end
 
   def deny_framing

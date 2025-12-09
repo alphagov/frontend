@@ -22,10 +22,12 @@
   } do %>
   <%= yield :before_content %>
 
-  <main role="main" id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
-    <span id="Top"></span>
-    <%= yield %>
-  </main>
+  <% with_content_item_locale do %>
+    <main role="main" id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
+      <span id="Top"></span>
+      <%= yield %>
+    </main>
+  <% end %>
 
   <%= yield :after_content %>
 <% end %>

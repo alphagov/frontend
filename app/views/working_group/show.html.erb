@@ -14,10 +14,10 @@
         <%= raw(content_item.body) %>
 
         <% if content_item.policies.any? %>
-          <h2 id="policies"><%= t("working_group.policies") %></h2>
+          <h2 id="policies"><%= t("formats.working_group.policies") %></h2>
           <ul>
             <% content_item.policies.each do |policy| %>
-              <li><%= link_to policy["title"], policy["base_path"] %></li>
+              <li><%= link_to policy.title, policy.base_path %></li>
             <% end %>
           </ul>
         <% end %>

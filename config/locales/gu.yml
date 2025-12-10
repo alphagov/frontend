@@ -664,6 +664,9 @@ gu:
       name:
         one:
         other:
+    working_group:
+      contact_details: સંપર્ક વિગતો
+      policies: નીતિઓ
     world_news_story:
       name:
         one: વૈશ્વિક ન્યૂઝ સ્ટોરી

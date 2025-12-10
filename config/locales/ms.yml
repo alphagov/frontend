@@ -586,6 +586,9 @@ ms:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: Butiran hubungan
+      policies: Dasar
     world_news_story:
       name:
         other: Berita dunia

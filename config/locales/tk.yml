@@ -664,6 +664,9 @@ tk:
       name:
         one:
         other:
+    working_group:
+      contact_details: Habarlaşmak üçin maglumatlar
+      policies: Syýasatlar
     world_news_story:
       name:
         one: Dünýä habary

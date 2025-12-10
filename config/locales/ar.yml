@@ -976,6 +976,9 @@ ar:
         other:
         two:
         zero:
+    working_group:
+      contact_details: تفاصيل جهة الاتصال
+      policies: سياسات
     world_news_story:
       name:
         few:

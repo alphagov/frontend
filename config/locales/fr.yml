@@ -664,6 +664,9 @@ fr:
       name:
         one:
         other:
+    working_group:
+      contact_details: Détails du contact
+      policies: Politiques générales
     world_news_story:
       name:
         one: Actualité du monde

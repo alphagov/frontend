@@ -664,6 +664,9 @@ ku:
       name:
         one: بڕیاری دادگای تانەدانی کارگێڕی
         other: بڕیارەکانی دادگای تانەدانی کارگێڕی
+    working_group:
+      contact_details: وردەکاری پەیوەندیکردن
+      policies: سیاسەتەکان
     world_news_story:
       name:
         one: هەواڵی جیهانی

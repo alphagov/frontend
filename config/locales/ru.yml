@@ -820,6 +820,9 @@ ru:
         many:
         one:
         other:
+    working_group:
+      contact_details: Контактная информация
+      policies: Политика
     world_news_story:
       name:
         few:

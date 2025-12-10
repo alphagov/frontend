@@ -742,6 +742,9 @@ lt:
         few:
         one:
         other:
+    working_group:
+      contact_details: Kontaktiniai duomenys
+      policies: Strategijos
     world_news_story:
       name:
         few:

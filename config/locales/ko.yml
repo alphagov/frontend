@@ -586,6 +586,9 @@ ko:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: 콘택트 세부 정보
+      policies: 정책
     world_news_story:
       name:
         other: 세계 뉴스 스토리

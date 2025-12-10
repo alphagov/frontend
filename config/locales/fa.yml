@@ -664,6 +664,9 @@ fa:
       name:
         one:
         other:
+    working_group:
+      contact_details: جزئیات اطلاعات تماس
+      policies: سیاست ها
     world_news_story:
       name:
         one: گزارش خبری جهانی

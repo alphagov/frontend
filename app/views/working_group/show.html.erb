@@ -23,7 +23,7 @@
         <% end %>
 
         <% if content_item.email.present? %>
-          <h2 id="contact-details"><%= t("working_group.contact_details") %></h2>
+          <h2 id="contact-details"><%= t("formats.working_group.contact_details") %></h2>
           <p><%= mail_to content_item.email, content_item.email %></p>
         <% end %>
       <% end %>

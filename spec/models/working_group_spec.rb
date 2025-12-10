@@ -3,6 +3,22 @@ RSpec.describe WorkingGroup do
 
   let(:content_store_response) { GovukSchemas::Example.find("working_group", example_name: "long") }
 
+  describe "#email" do
+    context "when an email is present in the details hash" do
+      it "returns the email" do
+        expect(working_group.email).to eq("communications@btuh.nhs")
+      end
+    end
+
+    context "when there is no email in the details hash" do
+      let(:content_store_response) { GovukSchemas::Example.find("working_group", example_name: "best-practice-group") }
+
+      it "returns a blank string" do
+        expect(working_group.email).to be_blank
+      end
+    end
+  end
+
   describe "#headers" do
     context "when there are headers in the details hash" do
       it "returns a list of headings" do

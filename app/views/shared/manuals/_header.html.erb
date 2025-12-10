@@ -25,7 +25,7 @@
 
       <%= render "govuk_publishing_components/components/metadata", {
       from: govuk_styled_links_list(@manual_presenter.contributor_links),
-      first_published: display_date(@content_item.first_published_at),
+      first_published: display_date(content_item.first_published_at),
       other: @manual_presenter.other_metadata,
       inverse: true,
       inverse_compress: true,

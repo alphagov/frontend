@@ -5,12 +5,13 @@
 <% content_for :main_classes do %>event<% end %>
 
 <% img_photo = capture do %>
-  <%= image_tag("events/photo.jpg", :alt => "A photograph of people celebrating", :class => "figure__image") %>
+  <%= image_tag("events/logo_png.png", :alt => "King Charles logo", :class => "figure__image") %>
 <% end %>
 
 <% img_photo = capture do %>
-  <%= image_tag("events/logo_png.png", :alt => "King Charles logo", :class => "figure__image") %>
+  <%= image_tag("events/photo.jpg", :alt => "A photograph of people celebrating", :class => "figure__image") %>
 <% end %>
+
 
 <% img_logo = capture do %>
   <%= image_tag("events/logo.svg", :alt => "The GOV.UK crown logo", :class => "figure__logo") %>
@@ -44,7 +45,7 @@
       } %>
 
       <%= render "govuk_publishing_components/components/details", {
-        title: "Some more information"
+        title: "Show more text"
       } do %>
         We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
       <% end %>
@@ -67,7 +68,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body">It is an opportunity for the nation to come together to honour and pay tribute to the Second World War generation from across the UK and Commonwealth, through a series of national and local events and activities.</p>
-      <p class="govuk-body">You can also find ways to get involved on the VE VJ website at <a href="" class="govuk-link">/ve-vjday80.gov.uk/</a></p>
+      <p class="govuk-body">You can also find ways to get involved below.</p>
     </div>
 
     <% if img_photo %>

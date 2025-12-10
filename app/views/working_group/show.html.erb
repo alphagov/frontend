@@ -7,7 +7,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item.contents do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
       } do %>

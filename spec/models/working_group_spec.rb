@@ -15,8 +15,24 @@ RSpec.describe WorkingGroup do
 
       it "returns an empty array" do
         expect(working_group.headers).to eq([])
-        expect(content_item.headers).to eq([])
+      end
+    end
+  end
 
+  describe "#policies" do
+    context "when there are policy links" do
+      let(:content_store_response) { GovukSchemas::Example.find("working_group", example_name: "with_policies") }
+
+      it "returns an an array of policy title/paths" do
+        expect(working_group.policies.count).to eq(content_store_response["links"]["policies"].count)
+        expect(working_group.policies.first.title).to eq(content_store_response["links"]["policies"][0]["title"])
+        expect(working_group.policies.first.base_path).to eq(content_store_response["links"]["policies"][0]["base_path"])
+      end
+    end
+
+    context "when there are no policy links" do
+      it "returns an empty array" do
+        expect(working_group.policies).to eq([])
       end
     end
   end

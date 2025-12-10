@@ -4,11 +4,12 @@
 @import "_service_manual/related";
 
 .app-community-contact {
+  margin-bottom: govuk-spacing(4);
+
   @include govuk-media-query($from: tablet) {
     text-align: right;
     padding-top: govuk-spacing(8);
   }
-  margin-bottom: govuk-spacing(4);
 }
 
 .app-sticky-element {

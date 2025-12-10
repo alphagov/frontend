@@ -664,6 +664,9 @@ sv:
       name:
         one:
         other:
+    working_group:
+      contact_details: Kontaktuppgifter
+      policies: Policys
     world_news_story:
       name:
         one: Världsnyheter

@@ -586,6 +586,9 @@ zh-hk:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: 聯絡詳情
+      policies: 政策
     world_news_story:
       name:
         other: 世界新聞故事

@@ -820,6 +820,9 @@ mt:
         many:
         one:
         other:
+    working_group:
+      contact_details: Dettalji tal-kuntatt
+      policies: Politiki
     world_news_story:
       name:
         few:

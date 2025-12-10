@@ -820,6 +820,9 @@ pl:
         many:
         one:
         other:
+    working_group:
+      contact_details: Dane kontaktowe
+      policies: Polityka
     world_news_story:
       name:
         few:

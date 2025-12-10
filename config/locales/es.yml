@@ -664,6 +664,9 @@ es:
       name:
         one:
         other:
+    working_group:
+      contact_details: Datos de contacto
+      policies: Políticas
     world_news_story:
       name:
         one: Noticia internacional

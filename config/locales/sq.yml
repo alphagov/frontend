@@ -664,6 +664,9 @@ sq:
       name:
         one:
         other:
+    working_group:
+      contact_details: Detajet e kontaktit
+      policies: Politikat
     world_news_story:
       name:
         one: Historia e lajmeve botërore

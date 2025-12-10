@@ -586,6 +586,9 @@ ja:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: 連絡先の詳細
+      policies: 方針
     world_news_story:
       name:
         other: 世界のニュース記事

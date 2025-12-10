@@ -664,6 +664,9 @@ is:
       name:
         one:
         other:
+    working_group:
+      contact_details: Upplýsingar til að hafa samband
+      policies: Stefnur
     world_news_story:
       name:
         one: Heimsfrétt

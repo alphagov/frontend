@@ -586,6 +586,9 @@ zh:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: 联系方式
+      policies: 策略
     world_news_story:
       name:
         other: 世界新闻故事

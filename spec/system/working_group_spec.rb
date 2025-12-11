@@ -30,12 +30,12 @@ RSpec.describe "Working Group" do
         { text: "Contact details",    id: "contact-details" },
       ])
     end
+
+    it "includes body text" do
+      expect(page).to have_text("Benefits and Credits Consultation Group meeting 28 May 2014")
+    end
   end
 end
-
-# test "working groups" do
-#   assert page.has_text?("Benefits and Credits Consultation Group meeting 28 May 2014")
-# end
 
 # test "with_policies" do
 #   setup_and_visit_content_item("with_policies")

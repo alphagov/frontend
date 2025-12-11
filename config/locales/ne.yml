@@ -364,6 +364,8 @@ ne:
     guide:
       pages_in_guide: यस गाइडका पृष्ठहरू
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

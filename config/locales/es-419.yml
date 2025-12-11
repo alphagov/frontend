@@ -364,6 +364,8 @@ es-419:
     guide:
       pages_in_guide: Páginas en esta guía
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

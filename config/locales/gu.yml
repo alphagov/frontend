@@ -364,6 +364,8 @@ gu:
     guide:
       pages_in_guide: આ માર્ગદર્શિકામાંના પૃષ્ઠો
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

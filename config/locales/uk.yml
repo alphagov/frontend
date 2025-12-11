@@ -426,6 +426,8 @@ uk:
     guide:
       pages_in_guide: Сторінки цього посібника
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

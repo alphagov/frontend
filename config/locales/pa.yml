@@ -364,6 +364,8 @@ pa:
     guide:
       pages_in_guide: ਇਸ ਗਾਈਡ ਦੇ ਪੰਨੇ
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

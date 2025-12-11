@@ -364,6 +364,8 @@ el:
     guide:
       pages_in_guide: Σελίδες σε αυτόν τον οδηγό
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

@@ -488,6 +488,8 @@ ar:
     guide:
       pages_in_guide: الصفحات في هذا الدليل
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

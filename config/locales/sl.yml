@@ -426,6 +426,8 @@ sl:
     guide:
       pages_in_guide: Strani v tem vodiču
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

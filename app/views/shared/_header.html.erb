@@ -1,3 +1,4 @@
+<% h1_size ||= "l" %>
 <div class="govuk-grid-row gem-print-columns-none translation-nav-header">
   <div class="govuk-grid-column-two-thirds translation-nav-header__child">
     <%= render "govuk_publishing_components/components/heading",
@@ -6,7 +7,7 @@
       dir: page_text_direction,
       text: content_item.title,
       heading_level: 1,
-      font_size: "l",
+      font_size: h1_size,
       margin_bottom: 0 %>
   </div>
   <% if content_item.available_translations? %>

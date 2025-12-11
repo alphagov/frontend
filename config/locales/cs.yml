@@ -395,6 +395,8 @@ cs:
     guide:
       pages_in_guide: Stránky v této příručce
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

@@ -333,6 +333,8 @@ th:
     guide:
       pages_in_guide: หน้าในคู่มือนี้
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         other:

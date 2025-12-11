@@ -364,6 +364,8 @@ sv:
     guide:
       pages_in_guide: Sidor i den här guiden
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

@@ -364,6 +364,8 @@ si:
     guide:
       pages_in_guide: මෙම මාර්ගෝපදේශයෙහි තුළ පිටු
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

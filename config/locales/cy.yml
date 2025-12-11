@@ -490,6 +490,8 @@ cy:
     guide:
       pages_in_guide: Tudalennau yn y canllaw hwn
       skip_contents: Sgipio cynnwys
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         few:

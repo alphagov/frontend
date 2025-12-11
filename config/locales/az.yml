@@ -364,6 +364,8 @@ az:
     guide:
       pages_in_guide: Bu təlimatdakı səhifələr
       skip_contents:
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one:

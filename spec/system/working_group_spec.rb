@@ -1,10 +1,6 @@
 RSpec.describe "Working Group" do
 end
 
-# test "random but valid items do not error" do
-#   assert_nothing_raised { setup_and_visit_random_content_item }
-# end
-
 # test "working groups" do
 #   setup_and_visit_content_item("long")
 #   assert_has_component_title(@content_item["title"])
@@ -45,9 +41,4 @@ end
 # test "renders a content list" do
 #   setup_and_visit_content_item("with_policies")
 #   assert page.has_css?(".gem-c-contents-list", text: "Contents")
-# end
-
-# test "does not render with the single page notification button" do
-#   setup_and_visit_content_item("long")
-#   assert_not page.has_css?(".gem-c-single-page-notification-button")
 # end

@@ -21,12 +21,12 @@ RSpec.describe PartsNavigationHelper do
     it "gets the previous page and the next page when both are give" do
       expected_pages = {
         previous_page: {
-          url: part_one["full_path"],
+          href: part_one["full_path"],
           title: I18n.t("multi_page.previous_page"),
           label: part_one["title"],
         },
         next_page: {
-          url: part_two["full_path"],
+          href: part_two["full_path"],
           title: I18n.t("multi_page.next_page"),
           label: part_two["title"],
         },
@@ -37,7 +37,7 @@ RSpec.describe PartsNavigationHelper do
     it "gets the previous page when only the previous part is given" do
       expected_pages = {
         previous_page: {
-          url: part_one["full_path"],
+          href: part_one["full_path"],
           title: I18n.t("multi_page.previous_page"),
           label: part_one["title"],
         },
@@ -48,7 +48,7 @@ RSpec.describe PartsNavigationHelper do
     it "gets the next page when only the next part is given" do
       expected_pages = {
         next_page: {
-          url: part_two["full_path"],
+          href: part_two["full_path"],
           title: I18n.t("multi_page.next_page"),
           label: part_two["title"],
         },

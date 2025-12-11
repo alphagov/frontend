@@ -4,7 +4,7 @@ module PartsNavigationHelper
 
     if previous_part
       nav[:previous_page] = {
-        url: url_with_draft_token(previous_part["full_path"], draft_token),
+        href: url_with_draft_token(previous_part["full_path"], draft_token),
         title: I18n.t("multi_page.previous_page"),
         label: previous_part["title"],
       }
@@ -12,7 +12,7 @@ module PartsNavigationHelper
 
     if next_part
       nav[:next_page] = {
-        url: url_with_draft_token(next_part["full_path"], draft_token),
+        href: url_with_draft_token(next_part["full_path"], draft_token),
         title: I18n.t("multi_page.next_page"),
         label: next_part["title"],
       }

@@ -68,8 +68,3 @@ RSpec.describe "Working Group" do
     end
   end
 end
-
-# test "renders a content list" do
-#   setup_and_visit_content_item("with_policies")
-#   assert page.has_css?(".gem-c-contents-list", text: "Contents")
-# end

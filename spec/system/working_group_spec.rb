@@ -34,18 +34,28 @@ RSpec.describe "Working Group" do
     it "includes body text" do
       expect(page).to have_text("Benefits and Credits Consultation Group meeting 28 May 2014")
     end
+
+    context "when policy links are present" do
+      let(:content_item) { GovukSchemas::Example.find(:working_group, example_name: "with_policies") }
+
+      it "displays a policies header" do
+        expect(page).to have_text("Policies")
+        expect(page).to have_selector("h2#policies")
+      end
+
+      it "displays the policies" do
+        expect(page).to have_text(content_item["links"]["policies"][0]["title"])
+      end
+
+      it "includes policies in the contents list" do
+        expect(page).to have_contents_list([
+          { text: "Contact details",    id: "contact-details" },
+          { text: "Policies",           id: "policies" },
+        ])
+      end
+    end
   end
 end
-
-# test "with_policies" do
-#   setup_and_visit_content_item("with_policies")
-
-#   policy = @content_item["links"]["policies"][0]
-#   assert page.has_text?("Policies")
-#   assert page.has_text?(policy["title"])
-
-#   assert page.has_css?("h2#policies")
-# end
 
 # test "with a body that has no h2s" do
 #   item = get_content_example("short")

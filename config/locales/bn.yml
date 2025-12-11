@@ -87,6 +87,9 @@ bn:
   components:
     share_links:
       share_this_page: এই পেজটি শেয়ার করুন
+  contact:
+    contact_form: যোগাযোগের ফর্ম
+    email: ইমেইল
   continue:
   cookies:
     always_on:

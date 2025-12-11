@@ -87,6 +87,9 @@ hy:
   components:
     share_links:
       share_this_page: Կիսվել այս էջով
+  contact:
+    contact_form: Կոնտակտային ձև
+    email: Էլ․ փոստ
   continue:
   cookies:
     always_on:

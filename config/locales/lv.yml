@@ -87,6 +87,9 @@ lv:
   components:
     share_links:
       share_this_page: Kopīgot šo lapu
+  contact:
+    contact_form: Saziņas forma
+    email: E-pasts
   continue:
   cookies:
     always_on:

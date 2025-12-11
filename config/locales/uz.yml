@@ -87,6 +87,9 @@ uz:
   components:
     share_links:
       share_this_page: Саҳифа билан бўлишиш
+  contact:
+    contact_form: Алоқа шакли
+    email: Электрон почта
   continue:
   cookies:
     always_on:

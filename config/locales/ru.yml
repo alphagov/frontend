@@ -87,6 +87,9 @@ ru:
   components:
     share_links:
       share_this_page: 'Поделиться данной страницей '
+  contact:
+    contact_form: Форма обратной связи
+    email: Электронная почта
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ zh-hk:
   components:
     share_links:
       share_this_page: 轉載此一頁面
+  contact:
+    contact_form: 聯絡資料表
+    email: 電子郵件
   continue:
   cookies:
     always_on:

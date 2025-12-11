@@ -87,6 +87,9 @@ ta:
   components:
     share_links:
       share_this_page: இந்தப் பக்கத்தைப் பகிர்க
+  contact:
+    contact_form: தொடர்பு படிவம்
+    email: மின்னஞ்சல்
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ pa:
   components:
     share_links:
       share_this_page: ਇਸ ਪੇਜ ਨੂੰ ਸ਼ੇਅਰ ਕਰੋ
+  contact:
+    contact_form: ਸੰਪਰਕ ਫਾਰਮ
+    email: ਈ - ਮੇਲ
   continue:
   cookies:
     always_on:

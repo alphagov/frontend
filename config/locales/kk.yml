@@ -87,6 +87,9 @@ kk:
   components:
     share_links:
       share_this_page: Осы бетпен бөлісу
+  contact:
+    contact_form: Байланысу формасы
+    email: Электрондық пошта
   continue:
   cookies:
     always_on:

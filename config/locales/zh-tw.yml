@@ -87,6 +87,9 @@ zh-tw:
   components:
     share_links:
       share_this_page: 分享此頁面
+  contact:
+    contact_form: 聯繫表
+    email: 電子郵件
   continue:
   cookies:
     always_on:

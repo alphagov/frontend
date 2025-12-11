@@ -87,6 +87,9 @@ id:
   components:
     share_links:
       share_this_page: Bagikan halaman ini
+  contact:
+    contact_form: Formulir kontak
+    email: Email
   continue:
   cookies:
     always_on:

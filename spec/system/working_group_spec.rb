@@ -1,13 +1,30 @@
 RSpec.describe "Working Group" do
+  context "when visiting a working group page" do
+    let(:content_item) { GovukSchemas::Example.find(:working_group, example_name: "long") }
+    let(:base_path) { content_item["base_path"] }
+
+    before do
+      stub_content_store_has_item(base_path, content_item)
+      visit base_path
+    end
+
+    it "has a title" do
+      expect(page).to have_title(content_item["title"])
+    end
+
+    it "includes the description" do
+      expect(page).to have_text(content_item["description"])
+    end
+
+    it "includes contact details" do
+      expect(page).to have_selector("h2#contact-details")
+      expect(page).to have_text("Contact details")
+      expect(page).to have_text(content_item["details"]["email"])
+    end
+  end
 end
 
 # test "working groups" do
-#   setup_and_visit_content_item("long")
-#   assert_has_component_title(@content_item["title"])
-#   assert page.has_text?(@content_item["description"])
-#   assert page.has_text?("Contact details")
-#   assert page.has_text?(@content_item["details"]["email"])
-
 #   assert_has_contents_list([
 #     { text: "Membership",         id: "membership" },
 #     { text: "Terms of Reference", id: "terms-of-reference" },
@@ -16,7 +33,6 @@ end
 #   ])
 
 #   assert page.has_text?("Benefits and Credits Consultation Group meeting 28 May 2014")
-#   assert page.has_css?("h2#contact-details")
 # end
 
 # test "with_policies" do

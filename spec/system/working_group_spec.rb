@@ -54,17 +54,20 @@ RSpec.describe "Working Group" do
         ])
       end
     end
+
+    context "with a body that has no h2s" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:working_group, example_name: "short").tap do |item|
+          item["details"]["body"] = "<div class='govspeak'><p>Some content<p></div>"
+        end
+      end
+
+      it "displays the content" do
+        expect(page).to have_text("Some content")
+      end
+    end
   end
 end
-
-# test "with a body that has no h2s" do
-#   item = get_content_example("short")
-#   item["details"]["body"] = "<div class='govspeak'><p>Some content<p></div>"
-#   stub_content_store_has_item(item["base_path"], item.to_json)
-#   visit(item["base_path"])
-
-#   assert page.has_text?("Some content")
-# end
 
 # test "renders a content list" do
 #   setup_and_visit_content_item("with_policies")

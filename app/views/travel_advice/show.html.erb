@@ -71,7 +71,7 @@
         <%= raw(@content_item.current_part_body) %>
       <% end %>
 
-      <%= render "govuk_publishing_components/components/previous_and_next_navigation",
+      <%= render "govuk_publishing_components/components/pagination",
         previous_and_next_navigation(@content_item.previous_part, @content_item.next_part) %>
 
       <div class="responsive-bottom-margin">

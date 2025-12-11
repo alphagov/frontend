@@ -64,7 +64,7 @@
       <% end %>
 
       <% if @presenter.show_guide_navigation? %>
-        <%= render "govuk_publishing_components/components/previous_and_next_navigation",
+        <%= render "govuk_publishing_components/components/pagination",
           previous_and_next_navigation(content_item.previous_part, content_item.next_part, draft_token:) %>
 
         <div class="responsive-bottom-margin">

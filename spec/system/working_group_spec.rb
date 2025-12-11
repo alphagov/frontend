@@ -21,17 +21,19 @@ RSpec.describe "Working Group" do
       expect(page).to have_text("Contact details")
       expect(page).to have_text(content_item["details"]["email"])
     end
+
+    it "includes a contents list" do
+      expect(page).to have_contents_list([
+        { text: "Membership",         id: "membership" },
+        { text: "Terms of reference", id: "terms-of-reference" },
+        { text: "Meeting minutes",    id: "meeting-minutes" },
+        { text: "Contact details",    id: "contact-details" },
+      ])
+    end
   end
 end
 
 # test "working groups" do
-#   assert_has_contents_list([
-#     { text: "Membership",         id: "membership" },
-#     { text: "Terms of Reference", id: "terms-of-reference" },
-#     { text: "Meeting Minutes",    id: "meeting-minutes" },
-#     { text: "Contact details",    id: "contact-details" },
-#   ])
-
 #   assert page.has_text?("Benefits and Credits Consultation Group meeting 28 May 2014")
 # end
 

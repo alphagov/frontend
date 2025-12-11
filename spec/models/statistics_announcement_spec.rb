@@ -52,4 +52,23 @@ RSpec.describe StatisticsAnnouncement do
       expect(cancelled_official_statistics.forthcoming_publication?).to be false
     end
   end
+
+  describe '#on_in_between_for_release_date' do
+    it "returns 'on' if the date is an exact format" do
+      expect(official_statistics.on_in_between_for_release_date("10 January 2017 9:30am")).to eq("on 10 January 2017 9:30am")
+      expect(official_statistics.on_in_between_for_release_date("1 December 2010 11:30pm")).to eq("on 1 December 2010 11:30pm")
+    end
+
+    it "returns 'in' if the date is a one month format" do
+      expect(official_statistics.on_in_between_for_release_date("January 2018")).to eq("in January 2018")
+    end
+
+    it "returns 'between' and replaces 'to' with 'and' if the date is a two month format" do
+      expect(official_statistics.on_in_between_for_release_date("March to April 2018")).to eq("between March and April 2018")
+    end
+
+    it "returns the passed in string if it doesn't match any format" do
+      expect(official_statistics.on_in_between_for_release_date("some or other unexpected date format")).to eq("some or other unexpected date format")
+    end 
+  end
 end

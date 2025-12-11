@@ -87,6 +87,9 @@ si:
   components:
     share_links:
       share_this_page: මෙම පිටුව බෙදාගන්න
+  contact:
+    contact_form: සබඳතා ආකෘතිය
+    email: විද්‍යුත් තැපෑල
   continue:
   cookies:
     always_on:

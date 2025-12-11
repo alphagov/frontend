@@ -87,6 +87,9 @@ hu:
   components:
     share_links:
       share_this_page: Oldal megosztása
+  contact:
+    contact_form: Kapcsolatfelvételi űrlap
+    email: E-mail
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ ar:
   components:
     share_links:
       share_this_page: شارك هذه الصفحة
+  contact:
+    contact_form: نموذج الاتصال
+    email: البريد الإلكتروني
   continue:
   cookies:
     always_on:

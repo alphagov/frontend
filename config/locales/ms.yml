@@ -87,6 +87,9 @@ ms:
   components:
     share_links:
       share_this_page: Kongsi laman ini
+  contact:
+    contact_form: Borang hubungan
+    email: E-mel
   continue:
   cookies:
     always_on:

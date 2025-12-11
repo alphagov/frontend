@@ -87,6 +87,9 @@ so:
   components:
     share_links:
       share_this_page: Lawadaag bogan
+  contact:
+    contact_form: Foomka lagala xidhiidhayo
+    email: Iimaylka
   continue:
   cookies:
     always_on:

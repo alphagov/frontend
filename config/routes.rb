@@ -71,6 +71,10 @@ Rails.application.routes.draw do
   # comment out this line to return to using a local transaction
   get "/contact-electoral-registration-office" => "electoral#show", as: :electoral_services
 
+  # Most of these are under /government/organisations, but a handful are here
+  get "/courts-tribunals/:organisation_slug/about(.:locale)", to: "corporate_information_page#show"
+  get "/courts-tribunals/:organisation_slug/about/:slug(.:locale)", to: "corporate_information_page#show"
+
   # Specialist Publisher licences
   get "/find-licences/:slug", to: "licence_transaction#start", as: "licence_transaction"
   post "/find-licences/:slug", to: "licence_transaction#find" # Support for postcode submission which we treat as confidential data

@@ -63,6 +63,6 @@
     <% end %>
   </div>
   <div class="govuk-grid-column-one-third">
-    <%= render "govuk_publishing_components/components/related_navigation", content_item: content_item.content_item.parsed_content, context: :sidebar %>
+    <%= render "govuk_publishing_components/components/related_navigation", content_item: content_item.to_h, context: :sidebar %>
   </div>
 </div>

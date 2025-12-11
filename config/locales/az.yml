@@ -87,6 +87,9 @@ az:
   components:
     share_links:
       share_this_page: Bu səhifəni paylaşın
+  contact:
+    contact_form: Əlaqə saxlamaq üçün forma
+    email: E-poçt
   continue:
   cookies:
     always_on:

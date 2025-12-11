@@ -87,6 +87,9 @@ ku:
   components:
     share_links:
       share_this_page: ئەم په‌یجه‌ هاوبه‌ش بکەن
+  contact:
+    contact_form: فۆڕمی پەیوەندیکردن
+    email: 'ئیمەیڵ '
   continue: بەردەوام بوون
   cookies:
     always_on:

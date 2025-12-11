@@ -87,6 +87,9 @@ ka:
   components:
     share_links:
       share_this_page: ამ გვერდის გაზიარება
+  contact:
+    contact_form: საკონტაქტო ფორმა
+    email: ელ.ფოსტა
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ cy:
   components:
     share_links:
       share_this_page: Rhannu'r dudalen hon
+  contact:
+    contact_form: Ffurflen gysylltu
+    email: E-bost
   continue: Parhau
   cookies:
     always_on: Mae angen iddynt fod ymlaen bob amser.

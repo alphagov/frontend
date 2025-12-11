@@ -87,6 +87,9 @@ bg:
   components:
     share_links:
       share_this_page: Споделяне на тази страница
+  contact:
+    contact_form: Формуляр за контакт
+    email: Имейл
   continue:
   cookies:
     always_on:

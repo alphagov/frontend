@@ -87,6 +87,9 @@ sl:
   components:
     share_links:
       share_this_page: Deli to stran
+  contact:
+    contact_form: Dostop in odpiralni čas
+    email: E-pošta
   continue:
   cookies:
     always_on:

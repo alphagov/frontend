@@ -87,6 +87,9 @@ ky:
   components:
     share_links:
       share_this_page: Бул баракчаны бөлүшүү
+  contact:
+    contact_form: Байланыш формасы
+    email: Электрондук кат
   continue: Улантуу
   cookies:
     always_on:

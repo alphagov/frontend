@@ -87,6 +87,9 @@ fa:
   components:
     share_links:
       share_this_page: اشتراک‌گذاری این صفحه
+  contact:
+    contact_form: فرم تماس
+    email: ایمیل
   continue:
   cookies:
     always_on:

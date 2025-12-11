@@ -87,6 +87,9 @@ ur:
   components:
     share_links:
       share_this_page: اس صفحے کو شیئر کریں
+  contact:
+    contact_form: رابطے کا فارم
+    email: ای میل
   continue:
   cookies:
     always_on:

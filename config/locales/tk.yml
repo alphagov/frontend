@@ -87,6 +87,9 @@ tk:
   components:
     share_links:
       share_this_page: Bu sahypany paýlaşyň
+  contact:
+    contact_form: Habarlaşmak üçin forma
+    email: E-poçta
   continue:
   cookies:
     always_on:

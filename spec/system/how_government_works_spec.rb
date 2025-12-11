@@ -1,11 +1,17 @@
 RSpec.describe "How Government Works" do
+  context "when visiting /government/how-government-works" do
+    let(:content_item) { GovukSchemas::Example.find(:how_government_works, example_name: "reshuffle-mode-off") }
+    let(:base_path) { content_item["base_path"] }
+
+    before { stub_content_store_has_item(base_path, content_item) }
+
+    it "displays the title" do
+      visit base_path
+
+      expect(page).to have_title("How government works")
+    end
+  end
 end
-
-# test "includes the title" do
-#   setup_and_visit_content_item("reshuffle-mode-off")
-
-#   assert_has_component_title(@content_item["title"])
-# end
 
 # test "includes the current prime minister" do
 #   setup_and_visit_content_item("reshuffle-mode-off")

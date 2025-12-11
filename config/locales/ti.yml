@@ -87,6 +87,9 @@ ti:
   components:
     share_links:
       share_this_page: ነዚ ፔጅ ሼር ግበርዎ
+  contact:
+    contact_form: 'ቅጥዒ/ፎርም አድራሻ/ኮንታክት '
+    email: ኢመይል
   continue: ቀጽል
   cookies:
     always_on:

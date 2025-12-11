@@ -87,6 +87,9 @@ mt:
   components:
     share_links:
       share_this_page: Aqsam din il-paġna ma'
+  contact:
+    contact_form: Formola ta' kuntatt
+    email: Imejl
   continue:
   cookies:
     always_on:

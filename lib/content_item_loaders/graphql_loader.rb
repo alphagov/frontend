@@ -12,13 +12,13 @@ module ContentItemLoaders
 
       return false if draft_host?
 
-      schema_from_content_store = content_store_loader.load(base_path:)["schema_name"]
-
       if request.params["graphql"] == "true"
         return true
       elsif request.params["graphql"] == "false"
         return false
       end
+
+      schema_from_content_store = content_store_loader.load(base_path:)["schema_name"]
 
       return false unless Rails.application.config.graphql_allowed_schemas.include?(schema_from_content_store)
 

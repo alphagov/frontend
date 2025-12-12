@@ -77,6 +77,14 @@ RSpec.describe StatisticsAnnouncement do
     end
   end
 
+  describe "#release_date_change_reason" do
+    let(:statistics_announcement_with_release_date_changed) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "release_date_changed")) }
+
+    it "returns the reason the release date changed" do
+      expect(statistics_announcement_with_release_date_changed.release_date_change_reason).to eq("Amended after inputting an error.")
+    end
+  end
+
   describe '#on_in_between_for_release_date' do
     it "returns 'on' if the date is an exact format" do
       expect(official_statistics.on_in_between_for_release_date("10 January 2017 9:30am")).to eq("on 10 January 2017 9:30am")

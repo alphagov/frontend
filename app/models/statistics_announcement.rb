@@ -33,6 +33,10 @@ class StatisticsAnnouncement < ContentItem
     content_store_response["details"]["cancellation_reason"]
   end
 
+  def previous_release_date
+    content_store_response["details"]["previous_display_date"]
+  end
+
   def on_in_between_for_release_date(date)
     return "on #{date}" if date_is_exact_format?(date)
     return "in #{date}" if date_is_one_month_format?(date)

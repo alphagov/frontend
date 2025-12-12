@@ -2,10 +2,6 @@ class WorldwideOfficePresenter < ContentItemPresenter
   include WorldwideOrganisationBranding
   include ContentsList
 
-  def formatted_title
-    worldwide_organisation&.formatted_title
-  end
-
   def body
     content_item.content_store_response["details"]["access_and_opening_times"]
   end
@@ -18,10 +14,6 @@ class WorldwideOfficePresenter < ContentItemPresenter
     return unless content_item.worldwide_organisation
 
     WorldwideOrganisationPresenter.new(content_item.worldwide_organisation)
-  end
-
-  def sponsoring_organisations
-    worldwide_organisation&.sponsoring_organisations
   end
 
 private

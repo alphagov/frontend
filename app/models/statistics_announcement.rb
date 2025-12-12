@@ -29,6 +29,10 @@ class StatisticsAnnouncement < ContentItem
     Time.zone.parse(cancelled_at).strftime("%e %B %Y %-l:%M%P")
   end
 
+  def cancellation_reason
+    content_store_response["details"]["cancellation_reason"]
+  end
+
   def on_in_between_for_release_date(date)
     return "on #{date}" if date_is_exact_format?(date)
     return "in #{date}" if date_is_one_month_format?(date)

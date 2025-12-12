@@ -664,6 +664,9 @@ bn:
       name:
         one:
         other:
+    working_group:
+      contact_details: যোগাযোগের বিস্তারিত তথ্য
+      policies: নীতিমালা
     world_news_story:
       name:
         one: বিশ্ব সংবাদের বিষয়বস্তু

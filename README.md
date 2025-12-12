@@ -67,6 +67,7 @@ some hard-coded routes.
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|
 |                       ||https://www.gov.uk/find-a-job|
+| Working group         |[working_group](https://docs.publishing.service.gov.uk/content-schemas/working_group.html)|https://www.gov.uk/government/groups/abstraction-reform|
 
 ## Nomenclature
 

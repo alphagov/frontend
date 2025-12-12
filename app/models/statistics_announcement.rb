@@ -1,7 +1,6 @@
 class StatisticsAnnouncement < ContentItem
   include Updatable
-
-  FORTHCOMING_NOTICE = I18n.t("statistics_announcement.forthcoming").freeze
+  FORTHCOMING_NOTICE = I18n.t("formats.statistics_announcement.forthcoming").freeze
 
   def release_date
     content_store_response.dig("details", "display_date")

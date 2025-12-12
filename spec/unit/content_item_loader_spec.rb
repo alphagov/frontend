@@ -42,6 +42,15 @@ RSpec.describe ContentItemLoader do
     end
   end
 
+  shared_examples "rendered from GraphQL with query param" do
+    it "calls the GraphQL endpoint only" do
+      content_item_loader.load(request.path)
+
+      expect(item_request).not_to have_been_made
+      expect(graphql_request).to have_been_made
+    end
+  end
+
   describe ".for_request" do
     it "returns a new object per request" do
       request_1 = instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {})
@@ -222,7 +231,7 @@ RSpec.describe ContentItemLoader do
         end
         let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: { "graphql" => "true" }) }
 
-        include_examples "rendered from GraphQL"
+        include_examples "rendered from GraphQL with query param"
 
         it "sets the appropriate prometheus labels" do
           content_item_loader.load("/my-random-item")
@@ -355,7 +364,7 @@ RSpec.describe ContentItemLoader do
           )
         end
 
-        include_examples "rendered from GraphQL"
+        include_examples "rendered from GraphQL with query param"
 
         it "sets the appropriate prometheus labels" do
           content_item_loader.load("/my-random-item")

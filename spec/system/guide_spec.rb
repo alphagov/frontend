@@ -32,6 +32,8 @@ RSpec.describe "Guide" do
 
       expect(page).to have_css(".govuk-pagination")
       expect(page).to have_css('.govuk-link.govuk-link--no-visited-state[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
+
+      expect(page).to have_link("Next", href: "#{base_path}/#{content_store_response['details']['parts'][1]['slug']}")
     end
 
     it "shows the skip link" do

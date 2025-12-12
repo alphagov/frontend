@@ -87,6 +87,9 @@ hi:
   components:
     share_links:
       share_this_page: यह पेज शेयर करें
+  contact:
+    contact_form: संपर्क प्रपत्र
+    email: ईमेल
   continue:
   cookies:
     always_on:

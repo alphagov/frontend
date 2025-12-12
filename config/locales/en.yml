@@ -87,6 +87,9 @@ en:
   components:
     share_links:
       share_this_page: Share this page
+  contact:
+    contact_form: Contact form
+    email: Email
   continue: Continue
   cookies:
     always_on: They always need to be on.

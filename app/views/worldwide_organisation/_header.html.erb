@@ -1,0 +1,46 @@
+<header class="worldwide-organisation-header govuk-grid-row translation-nav-header">
+  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
+    <% locals = {
+        organisation: worldwide_organisation.organisation_logo,
+        inline: true,
+        heading_level: 1,
+      } %>
+
+      <% if show_header_title
+        locals.merge!(margin_bottom: 8)
+        locals.delete(:heading_level) %>
+        <%= render "govuk_publishing_components/components/organisation_logo", locals %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: @content_item.title,
+          heading_level: 1,
+          inline: true,
+          font_size: "l",
+          margin_bottom: 0,
+        } %>
+      <% else %>
+        <%= render "govuk_publishing_components/components/organisation_logo", locals %>
+      <% end %>
+  </div>
+
+  <div class="govuk-grid-column-one-third translation-nav-header__child">
+    <% if @content_item.available_translations.length > 1 %>
+      <%= render "govuk_publishing_components/components/translation_nav", {
+        no_margin_top: true,
+        margin_bottom: 4,
+        translations: @content_item.available_translations,
+      } %>
+    <% end %>
+
+    <dl class="worldwide-organisation-header__metadata">
+      <% if worldwide_organisation&.world_location_links.present? %>
+        <dt><%= t("worldwide_organisation.location") %>:</dt>
+        <dd data-module="hide-other-links"><%= worldwide_organisation.world_location_links %></dd>
+      <% end %>
+
+      <% if worldwide_organisation&.sponsoring_organisation_links.present? %>
+        <dt><%= t("worldwide_organisation.part_of") %>:</dt>
+        <dd lang="en"><%= worldwide_organisation&.sponsoring_organisation_links %></dd>
+      <% end %>
+    </dl>
+  </div>
+</header>

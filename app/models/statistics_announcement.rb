@@ -24,6 +24,11 @@ class StatisticsAnnouncement < ContentItem
     "#{FORTHCOMING_NOTICE} #{on_in_between_for_release_date(release_date)}"
   end
 
+  def cancellation_date
+    cancelled_at = content_store_response["details"]["cancelled_at"]
+    Time.zone.parse(cancelled_at).strftime("%e %B %Y %-l:%M%P")
+  end
+
   def on_in_between_for_release_date(date)
     return "on #{date}" if date_is_exact_format?(date)
     return "in #{date}" if date_is_one_month_format?(date)

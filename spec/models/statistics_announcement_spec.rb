@@ -41,6 +41,14 @@ RSpec.describe StatisticsAnnouncement do
     end
   end
 
+  describe "#cancellation_date" do
+    let(:cancelled_official_statistics) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "cancelled_official_statistics")) }
+  
+    it "returns the release date" do
+      expect(cancelled_official_statistics.cancellation_date).to eq("17 January 2016 2:19pm")
+    end
+  end
+
   describe "#forthcoming_publication?" do
     let(:cancelled_official_statistics) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "cancelled_official_statistics")) }
 

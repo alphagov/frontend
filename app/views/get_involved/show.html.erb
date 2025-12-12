@@ -69,11 +69,9 @@
         <%= render "govuk_publishing_components/components/heading", {
           text: @presenter.time_until_next_closure,
           heading_level: 3,
+          margin_bottom: 4,
         } %>
-        <p class="govuk-body">
-          <%= @content_item.next_closing_consultation["title"] %>
-        </p>
-        <%= link_to t("formats.get_involved.read_respond"), @content_item.next_closing_consultation["link"], class: "govuk-link" %>
+        <%= link_to @content_item.next_closing_consultation["title"], @content_item.next_closing_consultation["link"], class: "govuk-link" %>
       <% end %>
     <% end %>
   </div>

@@ -24,17 +24,34 @@ RSpec.describe "StatisticsAnnouncement" do
     end
   end
 
-  # test "national statistics" do
-  #   setup_and_visit_content_item("national_statistics")
+  context "when visiting a national statistics announcement page" do
+    let(:content_store_response) { GovukSchemas::Example.find("statistics_announcement", example_name: "national_statistics") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-  #   assert page.has_css?('img[alt="Accredited official statistics"]')
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   within ".important-metadata .gem-c-metadata" do
-  #     assert page.has_text?(:all, "Release date: January 2016 (provisional)")
-  #   end
-  # end
+    it "displays the title" do
+      expect(page).to have_title("UK armed forces quarterly personnel report: 1 October 2015")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
+
+    it "shows a logo" do
+      expect(page).to have_selector('img[alt="Accredited official statistics"]')
+    end
+
+    it "displays the description" do
+      expect(page).to have_text(content_store_response.dig("details", "description"))
+    end
+
+    it "displays the important metadata" do
+      within(".important-metadata .gem-c-metadata") do
+        expect(page).to have_content("Release date: January 2016 (provisional)")
+      end
+    end
+  end
 
   # test "cancelled statistics" do
   #   setup_and_visit_content_item("cancelled_official_statistics")

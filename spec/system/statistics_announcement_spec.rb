@@ -22,6 +22,10 @@ RSpec.describe "StatisticsAnnouncement" do
         expect(page).to have_content("20 January 2016 9:30am (confirmed)")
       end
     end
+
+    it "does not render with the single page notification button" do
+      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+    end
   end
 
   context "when visiting a national statistics announcement page" do
@@ -116,10 +120,5 @@ RSpec.describe "StatisticsAnnouncement" do
   #   setup_and_visit_content_item("cancelled_official_statistics")
 
   #   assert_not page.has_text?(StatisticsAnnouncementPresenter::FORTHCOMING_NOTICE)
-  # end
-
-  # test "does not render with the single page notification button" do
-  #   setup_and_visit_content_item("official_statistics")
-  #   assert_not page.has_css?(".gem-c-single-page-notification-button")
   # end
 end

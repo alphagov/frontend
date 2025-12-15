@@ -1,5 +1,6 @@
 class StatisticsAnnouncementPresenter < ContentItemPresenter
   include StatisticsAnnouncementHelper
+  include NationalStatisticsLogo
 
   def important_metadata
     metadata = {}

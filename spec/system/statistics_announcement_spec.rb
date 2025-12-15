@@ -53,21 +53,38 @@ RSpec.describe "StatisticsAnnouncement" do
     end
   end
 
-  # test "cancelled statistics" do
-  #   setup_and_visit_content_item("cancelled_official_statistics")
+  context "when visiting a cancelled statistics announcement page" do
+    let(:content_store_response) { GovukSchemas::Example.find("statistics_announcement", example_name: "cancelled_official_statistics") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-  #   within ".gem-c-notice" do
-  #     assert page.has_text?("Statistics release cancelled"), "is cancelled"
-  #     assert page.has_text?(@content_item["details"]["cancellation_reason"]), "displays cancelleation reason"
-  #   end
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   assert_has_important_metadata(
-  #     "Proposed release": "20 January 2016 9:30am",
-  #     "Cancellation date": "17 January 2016 2:19pm",
-  #   )
-  # end
+    it "displays the title" do
+      expect(page).to have_title("Diagnostic imaging dataset for September 2015")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
+
+    it "displays the description" do
+      expect(page).to have_text(content_store_response.dig("details", "description"))
+    end
+
+    it "displays the important metadata" do
+      within(".important-metadata .gem-c-metadata") do
+        expect(page).to have_content("Proposed release: 20 January 2016 9:30am")
+        expect(page).to have_content("Cancellation date: 17 January 2016 2:19pm")
+      end
+    end
+
+    it "displays the cancellation notice" do
+      within(".gem-c-notice") do
+        expect(page).to have_text("Statistics release cancelled")
+        expect(page).to have_text(content_store_response.dig("details", "canellation_reason"))
+      end
+    end
+  end
 
   # test "statistics with a changed release date" do
   #   setup_and_visit_content_item("release_date_changed")

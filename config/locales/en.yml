@@ -345,7 +345,6 @@ en:
       petition_paragraph:
         body_html: You can %{create_a_petition} to influence government and Parliament. If the petition gets at least 100,000 online signatures, it will be considered for debate in the House of Commons.
         create_a_petition: create a petition
-      read_respond: Read and respond
       recent_outcomes: Recent outcomes
       recently_opened: Recently opened
       respond_to_consultations: Respond to consultations

@@ -53,6 +53,10 @@ class StatisticsAnnouncement < ContentItem
     state == "cancelled"
   end
 
+  def national_statistics?
+    document_type == "national_statistics_announcement"
+  end
+
   private
 
   def state

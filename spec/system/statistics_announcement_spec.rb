@@ -1,12 +1,28 @@
 RSpec.describe "StatisticsAnnouncement" do
-  # test "official statistics" do
-  #   setup_and_visit_content_item("official_statistics")
+  context "when visiting an official statistics announcement page" do
+    let(:content_store_response) { GovukSchemas::Example.find("statistics_announcement", example_name: "official_statistics") }
+    let(:base_path) { content_store_response.fetch("base_path") }
+    
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
+    
+    it "displays the title" do
+      expect(page).to have_title("Diagnostic imaging dataset for September 2015")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
+    it "displays the description" do
+      expect(page).to have_text(content_store_response.dig("details", "description"))
+    end
 
-  #   assert_has_important_metadata("Release date": "20 January 2016 9:30am (confirmed)")
-  # end
+    it "displays the important metadata" do
+      within(".important-metadata .gem-c-metadata") do
+        expect(page).to have_content("20 January 2016 9:30am (confirmed)")
+      end
+    end
+  end
 
   # test "national statistics" do
   #   setup_and_visit_content_item("national_statistics")

@@ -23,6 +23,12 @@ RSpec.describe "StatisticsAnnouncement" do
       end
     end
 
+    it "display forthcoming notice" do
+      within(".gem-c-notice") do
+        expect(page).to have_text("These statistics will be released on #{content_store_response.dig("details", "display_date")}")
+      end
+    end
+
     it "does not render with the single page notification button" do
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
@@ -86,6 +92,12 @@ RSpec.describe "StatisticsAnnouncement" do
       within(".gem-c-notice") do
         expect(page).to have_text("Statistics release cancelled")
         expect(page).to have_text(content_store_response.dig("details", "canellation_reason"))
+      end
+    end
+
+    it "doesn't display forthcoming notice" do
+      within(".gem-c-notice") do
+        expect(page).not_to have_text("These statistics will be released on")
       end
     end
   end

@@ -102,35 +102,39 @@ RSpec.describe "StatisticsAnnouncement" do
     end
   end
 
-  # test "statistics with a changed release date" do
-  #   setup_and_visit_content_item("release_date_changed")
+  context "when visiting a statistics announcement page with a release date changed" do
+    let(:content_store_response) { GovukSchemas::Example.find("statistics_announcement", example_name: "release_date_changed") }
+    let(:base_path) { content_store_response.fetch("base_path") }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-  #   assert page.has_text?(:all, "Release date: 20 January 2016 9:30am (confirmed)")
+    before do
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+    end
 
-  #   within ".release-date-changed .gem-c-metadata" do
-  #     assert page.has_text?("The release date has been changed")
-  #     assert page.has_text?("Previous date")
-  #     assert page.has_text?("19 January 2016 9:30am")
-  #     assert page.has_text?("Reason for change")
-  #     assert page.has_text?(@content_item["details"]["latest_change_note"])
-  #   end
-  # end
+    it "displays the title" do
+      expect(page).to have_title("Diagnostic imaging dataset for September 2015")
+      expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
+    end
 
-  # test "statistics announcement that are not cancelled display forthcoming notice" do
-  #   setup_and_visit_content_item("official_statistics")
+    it "displays the description" do
+      expect(page).to have_text(content_store_response.dig("details", "description"))
+    end
 
-  #   within(".gem-c-notice") do
-  #     assert_nothing_raised do
-  #       assert_text "#{StatisticsAnnouncementPresenter::FORTHCOMING_NOTICE} on #{@content_item['details']['display_date']}"
-  #     end
-  #   end
-  # end
+    it "displays the important metadata" do
+      within(".important-metadata .gem-c-metadata") do
+        expect(page).to have_content("Release date: 20 January 2016 9:30am (confirmed")
+      end
+    end
 
-  # test "cancelled statistics announcements do not display the forthcoming notice" do
-  #   setup_and_visit_content_item("cancelled_official_statistics")
+    it "displays the release date change details" do
+      within(".release-date-changed .gem-c-metadata") do
+        expect(page).to have_text("The release date has been changed")
+        expect(page).to have_text("Previous date")
+        expect(page).to have_text("19 January 2016 9:30am")
+        expect(page).to have_text("Reason for change")
+        expect(page).to have_text(content_store_response.dig("details", "latest_change_note"))
 
-  #   assert_not page.has_text?(StatisticsAnnouncementPresenter::FORTHCOMING_NOTICE)
-  # end
+      end
+    end
+  end
 end

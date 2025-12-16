@@ -585,6 +585,9 @@ vi:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: Chi tiết liên hệ
+      policies: Chính sách
     world_news_story:
       name:
         other: Bài phóng sự thế giới

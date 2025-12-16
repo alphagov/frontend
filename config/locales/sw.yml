@@ -663,6 +663,9 @@ sw:
       name:
         one:
         other:
+    working_group:
+      contact_details: Anwani za mawasiliano
+      policies: Sera
     world_news_story:
       name:
         one: Taarifa ya habari za kimataifa

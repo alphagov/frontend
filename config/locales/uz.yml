@@ -663,6 +663,9 @@ uz:
       name:
         one:
         other:
+    working_group:
+      contact_details: Батафсил маълумотлар
+      policies: Сиёсатлар
     world_news_story:
       name:
         one: Янгилик сюжетлари

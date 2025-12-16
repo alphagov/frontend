@@ -668,6 +668,9 @@ en:
       name:
         one: Administrative appeals tribunal decision
         other: Administrative appeals tribunal decisions
+    working_group:
+      contact_details: Contact details
+      policies: Policies
     world_news_story:
       name:
         one: World news story

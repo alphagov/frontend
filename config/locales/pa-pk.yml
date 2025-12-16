@@ -663,6 +663,9 @@ pa-pk:
       name:
         one:
         other:
+    working_group:
+      contact_details: رابطہ تی تفصیلات
+      policies: حکمت عملی دا کاغذ
     world_news_story:
       name:
         one: دُنیا دیاں خبراں دی کہانی

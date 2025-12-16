@@ -663,6 +663,9 @@ fi:
       name:
         one:
         other:
+    working_group:
+      contact_details: Yhteystiedot
+      policies: Käytännöt
     world_news_story:
       name:
         one: Maailman uutinen

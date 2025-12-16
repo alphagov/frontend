@@ -819,6 +819,9 @@ gd:
         one:
         other:
         two:
+    working_group:
+      contact_details: Sonraí teagmhála
+      policies: Polasaithe
     world_news_story:
       name:
         few:

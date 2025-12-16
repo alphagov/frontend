@@ -663,6 +663,9 @@ nl:
       name:
         one:
         other:
+    working_group:
+      contact_details: Contact gegevens
+      policies: Beleid
     world_news_story:
       name:
         one: Wereldnieuwsbericht

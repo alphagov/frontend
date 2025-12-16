@@ -663,6 +663,9 @@ it:
       name:
         one:
         other:
+    working_group:
+      contact_details: Dettagli di contatto
+      policies: Informative
     world_news_story:
       name:
         one: Storia di notizie dal mondo

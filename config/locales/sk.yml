@@ -741,6 +741,9 @@ sk:
         few:
         one:
         other:
+    working_group:
+      contact_details: Kontaktné údaje
+      policies: Politiky
     world_news_story:
       name:
         few:

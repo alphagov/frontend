@@ -741,6 +741,9 @@ hr:
         few:
         one:
         other:
+    working_group:
+      contact_details: Kontakt podaci
+      policies: Pravila
     world_news_story:
       name:
         few:

@@ -663,6 +663,9 @@ ka:
       name:
         one:
         other:
+    working_group:
+      contact_details: საკონტაქტო დეტალები
+      policies: კანონები
     world_news_story:
       name:
         one: მსოფლიო ამბავი

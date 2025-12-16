@@ -663,6 +663,9 @@ ne:
       name:
         one:
         other:
+    working_group:
+      contact_details: सम्पर्क विवरण
+      policies: नीतिहरु
     world_news_story:
       name:
         one: विश्व समाचार कथा

@@ -980,6 +980,9 @@ cy:
         other: Penderfyniadau'r tribiwnlys apeliadau gweinyddol
         two:
         zero:
+    working_group:
+      contact_details: Manylion cyswllt
+      policies: Polisïau
     world_news_story:
       name:
         few:

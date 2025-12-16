@@ -663,6 +663,9 @@ ta:
       name:
         one:
         other:
+    working_group:
+      contact_details: தொடர்பு விபரங்கள்
+      policies: கொள்கைகள்
     world_news_story:
       name:
         one: உலகச் செய்தி

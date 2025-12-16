@@ -663,6 +663,9 @@ ti:
       name:
         one: ውሳኔ ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ
         other: 'ውሳኔታት ቤት ፍርዲ ኣብ ምምሕዳራዊ ይግባይ '
+    working_group:
+      contact_details: ዝርዝር ኣድራሻ/ኮንታክት
+      policies: ፖሊሲታት
     world_news_story:
       name:
         one: ዜና ዓለም

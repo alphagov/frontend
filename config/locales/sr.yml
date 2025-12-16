@@ -741,6 +741,9 @@ sr:
         few:
         one:
         other:
+    working_group:
+      contact_details: Detalji za kontakt
+      policies: Politike
     world_news_story:
       name:
         few:

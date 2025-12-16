@@ -663,6 +663,9 @@ si:
       name:
         one:
         other:
+    working_group:
+      contact_details: විමසීම් විස්තර
+      policies: ප්රතිපත්ති
     world_news_story:
       name:
         one: ලෝක පුවත් කතාව

@@ -663,6 +663,9 @@ kk:
       name:
         one:
         other:
+    working_group:
+      contact_details: Байланысу мәліметтері
+      policies: Саясаттар
     world_news_story:
       name:
         one: Әлемдегі жаңалықтар оқиғасы

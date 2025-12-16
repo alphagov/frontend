@@ -819,6 +819,9 @@ be:
         many:
         one:
         other:
+    working_group:
+      contact_details: Кантактныя дадзеныя
+      policies: Напрамкі дзейнасці
     world_news_story:
       name:
         few:

@@ -585,6 +585,9 @@ id:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: Detail kontak
+      policies: Kebijakan
     world_news_story:
       name:
         other: Cerita berita dunia

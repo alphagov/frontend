@@ -663,6 +663,9 @@ ps:
       name:
         one:
         other:
+    working_group:
+      contact_details: د اړیکو نیولو معلومات
+      policies: پالیسۍ
     world_news_story:
       name:
         one: د نړۍ خبرونه

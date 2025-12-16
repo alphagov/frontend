@@ -819,6 +819,9 @@ sl:
         one:
         other:
         two:
+    working_group:
+      contact_details: Kontaktni podatki
+      policies: Politike
     world_news_story:
       name:
         few:

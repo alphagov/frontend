@@ -741,6 +741,9 @@ ro:
         few:
         one:
         other:
+    working_group:
+      contact_details: Detalii de contact
+      policies: Politici
     world_news_story:
       name:
         few:

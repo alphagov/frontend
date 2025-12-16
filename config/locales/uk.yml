@@ -819,6 +819,9 @@ uk:
         many:
         one:
         other:
+    working_group:
+      contact_details: Контактні дані
+      policies: Політики
     world_news_story:
       name:
         few:

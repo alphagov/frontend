@@ -663,6 +663,9 @@ pt:
       name:
         one:
         other:
+    working_group:
+      contact_details: Informações de contacto
+      policies: Políticas
     world_news_story:
       name:
         one: Reportagem do mundo

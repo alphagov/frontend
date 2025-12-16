@@ -663,6 +663,9 @@ pa:
       name:
         one:
         other:
+    working_group:
+      contact_details: ਸੰਪਰਕ ਵੇਰਵੇ
+      policies: ਨੀਤੀਆਂ
     world_news_story:
       name:
         one: ਵਿਸ਼ਵ ਖ਼ਬਰਾਂ ਦੀ ਕਹਾਣੀ

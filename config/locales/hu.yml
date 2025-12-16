@@ -663,6 +663,9 @@ hu:
       name:
         one:
         other:
+    working_group:
+      contact_details: Elérhetőségek
+      policies: Irányelvek
     world_news_story:
       name:
         one: Nemzetközi hír

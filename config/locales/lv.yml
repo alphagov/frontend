@@ -663,6 +663,9 @@ lv:
       name:
         one:
         other:
+    working_group:
+      contact_details: Kontaktinformācija
+      policies: Politikas
     world_news_story:
       name:
         one: Pasaules ziņa

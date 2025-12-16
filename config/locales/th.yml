@@ -585,6 +585,9 @@ th:
     utaac_decision:
       name:
         other:
+    working_group:
+      contact_details: รายละเอียดการติดต่อ
+      policies: นโยบาย
     world_news_story:
       name:
         other: ข่าวสารรอบโลก

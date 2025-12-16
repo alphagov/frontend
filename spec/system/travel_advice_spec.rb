@@ -190,6 +190,7 @@ RSpec.describe "TravelAdvice" do
         expect(page).to have_title("#{part['title']} - #{content_store_response['title']} - GOV.UK")
         expect(page).to have_css("h1", text: part["title"])
         expect(page).to have_text("If you’re abroad and you need emergency help from the UK government, contact the nearest British embassy, consulate or high commission")
+        expect(page).to have_link("Previous", href: "#{base_path}/#{content_store_response['details']['parts'][-2]['slug']}")
       end
 
       it "does not display a map" do

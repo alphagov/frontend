@@ -2,12 +2,12 @@ RSpec.describe "StatisticsAnnouncement" do
   context "when visiting an official statistics announcement page" do
     let(:content_store_response) { GovukSchemas::Example.find("statistics_announcement", example_name: "official_statistics") }
     let(:base_path) { content_store_response.fetch("base_path") }
-    
+
     before do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
-    
+
     it "displays the title" do
       expect(page).to have_title("Diagnostic imaging dataset for September 2015")
       expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
@@ -25,7 +25,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "display forthcoming notice" do
       within(".gem-c-notice") do
-        expect(page).to have_text("These statistics will be released on #{content_store_response.dig("details", "display_date")}")
+        expect(page).to have_text("These statistics will be released on #{content_store_response.dig('details', 'display_date')}")
       end
     end
 
@@ -133,7 +133,6 @@ RSpec.describe "StatisticsAnnouncement" do
         expect(page).to have_text("19 January 2016 9:30am")
         expect(page).to have_text("Reason for change")
         expect(page).to have_text(content_store_response.dig("details", "latest_change_note"))
-
       end
     end
   end

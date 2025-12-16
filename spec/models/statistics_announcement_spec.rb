@@ -43,7 +43,7 @@ RSpec.describe StatisticsAnnouncement do
 
   describe "#cancellation_date" do
     let(:cancelled_official_statistics) { described_class.new(GovukSchemas::Example.find("statistics_announcement", example_name: "cancelled_official_statistics")) }
-  
+
     it "returns the release date" do
       expect(cancelled_official_statistics.cancellation_date).to eq("17 January 2016 2:19pm")
     end
@@ -85,7 +85,7 @@ RSpec.describe StatisticsAnnouncement do
     end
   end
 
-  describe '#on_in_between_for_release_date' do
+  describe "#on_in_between_for_release_date" do
     it "returns 'on' if the date is an exact format" do
       expect(official_statistics.on_in_between_for_release_date("10 January 2017 9:30am")).to eq("on 10 January 2017 9:30am")
       expect(official_statistics.on_in_between_for_release_date("1 December 2010 11:30pm")).to eq("on 1 December 2010 11:30pm")
@@ -101,6 +101,6 @@ RSpec.describe StatisticsAnnouncement do
 
     it "returns the passed in string if it doesn't match any format" do
       expect(official_statistics.on_in_between_for_release_date("some or other unexpected date format")).to eq("some or other unexpected date format")
-    end 
+    end
   end
 end

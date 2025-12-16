@@ -57,7 +57,7 @@ class StatisticsAnnouncement < ContentItem
     document_type == "national_statistics_announcement"
   end
 
-  private
+private
 
   def state
     content_store_response["details"]["state"]

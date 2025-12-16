@@ -73,7 +73,7 @@ RSpec.describe "Worldwide office page" do
       assert page.has_text?("Email")
       assert page.has_link?("ukinthephilippines@fco.gov.uk")
       assert page.has_text?("Contact form")
-      assert page.has_link?("http://www.gov.uk/cont...", href: "http://www.gov.uk/contact-consulate-manila")
+      assert page.has_link?("http://www.gov.uk/contact-consulate-manila", href: "http://www.gov.uk/contact-consulate-manila")
 
       assert page.has_text?("Telephone")
       assert page.has_text?("+63 (02) 8 858 2200 / +44 20 7136 6857 (line open 24/7)")

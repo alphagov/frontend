@@ -20,13 +20,12 @@
           <%= mail_to contact.email, class: "govuk-link" %>
         </p>
       <% end %>
-
-      <% if contact.contact_form_link.present? %>
-        <p class="govuk-body">
-          <%= t("contact.contact_form") %><br>
-          <%= link_to contact.contact_form_link.truncate(25), contact.contact_form_link, class: "govuk-link" %>
-        </p>
-      <% end %>
+        <% if contact.contact_form_link.present? %>
+          <p class="govuk-body">
+            <%= t("contact.contact_form") %><br>
+            <%= link_to contact.contact_form_link, contact.contact_form_link, class: "govuk-link" %>
+          </p>
+        <% end %>
 
       <% contact.phone_number_groups&.each do |number| %>
         <p class="govuk-body">

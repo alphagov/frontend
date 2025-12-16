@@ -27,5 +27,18 @@ RSpec.describe "Specialist Document" do
 
       expect(response).to honour_content_store_ttl
     end
+
+    context "when a licence transaction slips past" do
+      before do
+        content_store_has_example_item("/find-licences/new-licence", schema: "specialist_document", example: "licence-transaction")
+        content_store_has_example_item("/find-licences/new-licence/.well-known", schema: "specialist_document", example: "licence-transaction")
+      end
+
+      it "returns 404" do
+        get "/find-licences/new-licence/.well-known"
+
+        expect(response).to have_http_status(:not_found)
+      end
+    end
   end
 end

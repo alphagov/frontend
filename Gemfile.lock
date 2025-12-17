@@ -150,7 +150,7 @@ GEM
       railties (>= 6.1.0)
     ffi (1.17.1)
     find_a_port (1.0.1)
-    gds-api-adapters (101.0.0)
+    gds-api-adapters (101.2.0)
       addressable
       link_header
       null_logger
@@ -208,7 +208,7 @@ GEM
       reline
     htmlentities (4.4.2)
     http-accept (1.7.0)
-    http-cookie (1.0.8)
+    http-cookie (1.1.0)
       domain_name (~> 0.5)
     httparty (0.22.0)
       csv
@@ -265,7 +265,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0812)
+    mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (5.27.0)

@@ -87,6 +87,9 @@ tr:
   components:
     share_links:
       share_this_page: Bu sayfayı paylaş
+  contact:
+    contact_form: İrtibat formu
+    email: E-posta
   continue:
   cookies:
     always_on:

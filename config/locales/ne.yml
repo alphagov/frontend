@@ -87,6 +87,9 @@ ne:
   components:
     share_links:
       share_this_page: यो पृष्ठ साझा गर्नुहोस्
+  contact:
+    contact_form: सम्पर्क फारम
+    email: इमेल
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ sv:
   components:
     share_links:
       share_this_page: Dela den här sidan
+  contact:
+    contact_form: Kontaktformulär
+    email: E-post
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ et:
   components:
     share_links:
       share_this_page: Jaga seda lehte
+  contact:
+    contact_form: Kontaktivorm
+    email: E-post
   continue:
   cookies:
     always_on:

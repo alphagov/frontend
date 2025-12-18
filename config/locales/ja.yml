@@ -87,6 +87,9 @@ ja:
   components:
     share_links:
       share_this_page: このページを共有
+  contact:
+    contact_form: お問い合わせフォーム
+    email: Eメール
   continue:
   cookies:
     always_on:

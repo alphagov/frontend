@@ -11,6 +11,7 @@ APP_STYLESHEETS = {
   "views/_html-publication.scss" => "views/_html-publication.css",
   "views/_local-transaction.scss" => "views/_local-transaction.css",
   "views/_location_form.scss" => "views/_location_form.css",
+  "views/_manual.scss" => "views/_manual.css",
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_published-dates-button-group.scss" => "views/_published-dates-button-group.css",
   "views/_publisher_metadata.scss" => "views/_publisher_metadata.css",

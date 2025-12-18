@@ -2,6 +2,10 @@ class ManualController < ContentItemsController
   include Cacheable
 
   def show
-    @manual_presenter = ManualPresenter.new(content_item)
+    @presenter = ManualPresenter.new(content_item)
+  end
+
+  def manual_updates
+    @presenter = ManualUpdatesPresenter.new(content_item)
   end
 end

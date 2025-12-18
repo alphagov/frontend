@@ -1,5 +1,14 @@
 <%
   logo = locals[:logo]
+
+  metadata = {
+    from: locals[:from],
+    first_published: locals[:first_published],
+    last_updated: locals[:last_updated],
+  }
+  if locals.include?(:see_updates_link)
+    metadata[:see_updates_link] = locals[:see_updates_link]
+  end
 %>
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_publisher_metadata", media: "all" %>
@@ -8,12 +17,7 @@
 <div class="govuk-grid-row">
   <div class="metadata-wrapper gem-print-columns-none <%= "responsive-bottom-margin" if logo %>">
     <div class="govuk-grid-column-two-thirds metadata-column">
-      <%= render "govuk_publishing_components/components/metadata", {
-        from: locals[:from],
-        first_published: locals[:first_published],
-        last_updated: locals[:last_updated],
-        see_updates_link: locals[:see_updates_link],
-      } %>
+      <%= render "govuk_publishing_components/components/metadata", metadata %>
     </div>
     <div class="govuk-grid-column-one-third">
       <% if logo %>

@@ -215,6 +215,7 @@ Rails.application.routes.draw do
   end
 
   constraints FullPathFormatRoutingConstraint.new("manual") do
+    get "*path/updates", to: "manual#manual_updates"
     get "*path", to: "manual#show"
   end
 

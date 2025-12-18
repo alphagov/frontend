@@ -6,11 +6,11 @@
         heading_level: 1,
         id: "section-title",
         margin_bottom: 4,
-        text: t("manuals.updates_title", title: content_item.title),
+        text: t("formats.manuals.updates_title", title: content_item.title),
       } %>
     </div>
 
-    <% content_item.presented_change_notes.each do |year, updates_by_year| %>
+    <% @presenter.presented_change_notes.each do |year, updates_by_year| %>
       <div class="govuk-grid-column-two-thirds">
         <%= render "govuk_publishing_components/components/heading", {
           text: year,
@@ -42,7 +42,7 @@
                 ga4_event: {
                   event_name: 'select_content',
                   type: 'accordion',
-                  text: sanitize_manual_update_title(updated_documents.first),
+                  text: @presenter.sanitize_manual_update_title(updated_documents.first),
                   index: index,
                   index_total: updates_by_year.length,
                 }

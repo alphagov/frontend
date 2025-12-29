@@ -42,7 +42,7 @@ private
       # 12am on 10 January becomes 11:59pm on 9 January
       time -= 1.second
     end
-    I18n.l(time, format: "#{time_format} #{on} #{date_format}").gsub(":00", "").gsub("12pm", "midday").gsub("12am #{on} ", "").strip
+    I18n.l(time, format: "#{time_format} #{on} #{date_format}").gsub(":00", "").gsub("12pm", "midday").gsub("12yh", "ganol dydd").gsub("12am #{on} ", "").strip
   end
 
   def opening_date_midnight?(opening_date_time)

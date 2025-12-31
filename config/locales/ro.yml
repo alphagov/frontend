@@ -87,6 +87,9 @@ ro:
   components:
     share_links:
       share_this_page: Distribuiți această pagină
+  contact:
+    contact_form: Formular de contact
+    email: E-mail
   continue:
   cookies:
     always_on:

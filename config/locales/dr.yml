@@ -87,6 +87,9 @@ dr:
   components:
     share_links:
       share_this_page: این صفحه را به اشتراک بگذارید
+  contact:
+    contact_form: فورم تماس
+    email: ایمل
   continue:
   cookies:
     always_on:

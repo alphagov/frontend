@@ -87,6 +87,9 @@ gd:
   components:
     share_links:
       share_this_page: Comhroinn an leathanach seo
+  contact:
+    contact_form: Foirm teagmhála
+    email: R-phost
   continue:
   cookies:
     always_on:

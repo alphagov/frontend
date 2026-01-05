@@ -1,4 +1,6 @@
 class ManualUpdatesPresenter < ContentItemPresenter
+  include ActionView::Helpers
+  include ActionView::Context
 
   def other_metadata(_request)
     { I18n.t("formats.manuals.updated") => display_date(content_item.public_updated_at).to_s }

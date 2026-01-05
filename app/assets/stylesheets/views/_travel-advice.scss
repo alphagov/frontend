@@ -68,14 +68,6 @@
   }
 }
 
-.travel_advice {
-  @include parts;
-
-  .part-navigation {
-    margin-bottom: govuk-spacing(8);
-  }
-}
-
 .metadata__update {
   display: block;
   margin-bottom: govuk-spacing(2);

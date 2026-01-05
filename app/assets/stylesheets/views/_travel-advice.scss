@@ -81,18 +81,6 @@
   .part-navigation {
     margin-bottom: govuk-spacing(8);
   }
-
-  // TODO: Remove this when components can accept variable unidirectional spacing,
-  // the component above should have a bigger margin-bottom.
-  .map {
-    margin-top: govuk-spacing(6);
-    @include responsive-bottom-margin;
-
-    .map-image {
-      max-width: 100%;
-      margin-bottom: govuk-spacing(2);
-    }
-  }
 }
 
 .metadata__update {

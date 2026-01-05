@@ -86,7 +86,7 @@ $govuk-include-default-font-face: true;
   margin-bottom: govuk-spacing(6);
 
   @include govuk-media-query($from: tablet) {
-    @include responsive-bottom-margin;
+    margin-bottom: govuk-spacing(8);
   }
 }
 

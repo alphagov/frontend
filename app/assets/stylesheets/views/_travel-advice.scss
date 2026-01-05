@@ -68,14 +68,7 @@
   }
 }
 
-// TODO: remove input margin and border reset once the global input[type="text"]
-// styles are gone from static.
 .travel_advice {
-  #country-filter input { // stylelint-disable-line selector-max-id
-    border: 2px solid $govuk-input-border-colour;
-    margin: 0;
-  }
-
   @include parts;
 
   .part-navigation {

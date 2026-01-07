@@ -4,6 +4,7 @@ RSpec.describe Manual do
   it_behaves_like "it can be a manual", "manual", "content-design"
   it_behaves_like "it can have section groups", "manual", "content-design"
   it_behaves_like "it has no updates", "manual", "content-design"
+  it_behaves_like "it can have manual updates", "manual", "content-design"
 
   describe "#contributors" do
     it "returns the organisations" do

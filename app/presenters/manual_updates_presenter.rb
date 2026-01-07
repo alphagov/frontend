@@ -7,7 +7,7 @@ class ManualUpdatesPresenter < ContentItemPresenter
   end
 
   def presented_change_notes
-    group_updates_by_year(change_notes)
+    group_updates_by_year(content_item.change_notes)
   end
 
   def sanitize_manual_update_title(title)

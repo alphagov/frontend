@@ -68,33 +68,6 @@
   }
 }
 
-// TODO: remove input margin and border reset once the global input[type="text"]
-// styles are gone from static.
-.travel_advice {
-  #country-filter input { // stylelint-disable-line selector-max-id
-    border: 2px solid $govuk-input-border-colour;
-    margin: 0;
-  }
-
-  @include parts;
-
-  .part-navigation {
-    margin-bottom: govuk-spacing(8);
-  }
-
-  // TODO: Remove this when components can accept variable unidirectional spacing,
-  // the component above should have a bigger margin-bottom.
-  .map {
-    margin-top: govuk-spacing(6);
-    @include responsive-bottom-margin;
-
-    .map-image {
-      max-width: 100%;
-      margin-bottom: govuk-spacing(2);
-    }
-  }
-}
-
 .metadata__update {
   display: block;
   margin-bottom: govuk-spacing(2);

@@ -10,15 +10,18 @@
   } %>
 
 <% if content_item.map %>
-  <figure class="map">
-    <img src="<%= content_item.map["url"] %>" alt="<%= content_item.map["alt_text"] %>" class="map-image">
+  <% map_link = capture do %>
     <% if content_item.map_download_url %>
-      <figcaption>
-        <%= render "components/download_link", {
-          text: "Download a more detailed map (PDF, #{number_to_human_size(content_item.map_download_file_size)})",
-          href: content_item.map_download_url,
-        } %>
-      </figcaption>
+      <%= render "components/download_link", {
+        text: "Download a more detailed map (PDF, #{number_to_human_size(content_item.map_download_file_size)})",
+        href: content_item.map_download_url,
+      } %>
     <% end %>
-  </figure>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/figure", {
+    src: content_item.map["url"],
+    alt: content_item.map["alt_text"],
+    caption: map_link,
+  } %>
 <% end %>

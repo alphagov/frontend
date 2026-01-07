@@ -175,8 +175,8 @@ RSpec.describe "TravelAdvice" do
         it "displays the map" do
           visit base_path
 
-          expect(page).to have_css(".map img[src=\"#{content_store_response['details']['image']['url']}\"]")
-          expect(page).to have_css(".map figcaption a[href=\"#{content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF, 197 KB)")
+          expect(page).to have_css("figure img[src=\"#{content_store_response['details']['image']['url']}\"]")
+          expect(page).to have_css("figure figcaption a[href=\"#{content_store_response['details']['document']['url']}\"]", text: "Download a more detailed map (PDF, 197 KB)")
         end
       end
     end

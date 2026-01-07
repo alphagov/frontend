@@ -1,7 +1,0 @@
-.content-bottom-margin {
-  margin-bottom: govuk-spacing(4);
-
-  @include govuk-media-query($from: tablet) {
-    @include responsive-bottom-margin;
-  }
-}

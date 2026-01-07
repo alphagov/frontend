@@ -74,19 +74,23 @@ $govuk-include-default-font-face: true;
 @import "govuk_web_banners/dependencies";
 
 // Helper stylesheets (things on more than one page layout)
-@import "helpers/content-bottom-margin";
 @import "helpers/inverse-background";
 @import "helpers/sticky-element-container";
 @import "helpers/header";
 
-// frontend mixins
-@import "mixins/margins";
+.responsive-bottom-margin {
+  margin-bottom: govuk-spacing(3);
 
-.article-container {
+  @include govuk-media-query($from: tablet) {
+    margin-bottom: govuk-spacing(8);
+  }
+}
+
+.content-bottom-margin {
   margin-bottom: govuk-spacing(6);
 
   @include govuk-media-query($from: tablet) {
-    @include responsive-bottom-margin;
+    margin-bottom: govuk-spacing(8);
   }
 }
 

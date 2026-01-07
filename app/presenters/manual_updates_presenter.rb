@@ -22,10 +22,6 @@ private
     I18n.l(Time.zone.parse(timestamp), format:, locale: I18n.locale) if timestamp
   end
 
-  def change_notes
-    @content_item.content_store_response.dig("details", "change_notes") || []
-  end
-
   def updated_at(published_at)
     Time.zone.parse(published_at).to_date
   end

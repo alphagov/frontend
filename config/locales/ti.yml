@@ -288,6 +288,10 @@ ti:
       name:
         one: ውሳነ ቤት ፍርዲ ናይ ስራሕ
         other: ውሳነታት ቤት ፍርዲ ናይ ስራሕ
+    equality_and_diversity:
+      name:
+        one:
+        other:
     esi_fund:
       name:
         one: ኤውሮጳዊ መዋቕራውን ወፍርን ሓገዝ (ኢ.ኤስ.ኣይ.ኤፍ/ESIF)

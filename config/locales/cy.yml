@@ -390,6 +390,14 @@ cy:
         other: Penderfyniadau'r tribiwnlys cyflogaeth
         two:
         zero:
+    equality_and_diversity:
+      name:
+        few:
+        many:
+        one: Cydraddoldeb ac amrywiaeth
+        other: Cydraddoldeb ac amrywiaeth
+        two:
+        zero:
     esi_fund:
       name:
         few:

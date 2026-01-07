@@ -313,6 +313,10 @@ en:
       name:
         one: FOI release
         other: FOI releases
+    equality_and_diversity:
+      name:
+        one: Equality and diversity
+        other: Equality and diversity
     form:
       name:
         one: Form

@@ -288,6 +288,10 @@ ku:
       name:
         one: بڕیاری دادگای دامەزراندن
         other: بڕیارەکانی دادگای دامەزراندن
+    equality_and_diversity:
+      name:
+        one:
+        other:
     esi_fund:
       name:
         one: سندوقی پێکهاتەیی و وەبەرهێنانی ئەوروپا (ESIF)

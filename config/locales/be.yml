@@ -338,6 +338,12 @@ be:
         many:
         one:
         other:
+    equality_and_diversity:
+      name:
+        few:
+        many:
+        one:
+        other:
     esi_fund:
       name:
         few:

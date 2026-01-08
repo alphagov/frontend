@@ -64,4 +64,26 @@ RSpec.describe LocaleHelper do
       end
     end
   end
+
+  describe "#lang_attribute" do
+    it "returns a lang attribute if a non English locale exists" do
+      allow(self).to receive(:content_item).and_return(ContentItem.new({ "locale" => "cy" }))
+      expect(lang_attribute).to eq("lang=cy")
+    end
+
+    it "does not return if the locale is the default language (English)" do
+      allow(self).to receive(:content_item).and_return(ContentItem.new({ "locale" => "en" }))
+      expect(lang_attribute).to be_nil
+    end
+
+    it "does not return if a locale doesn't exist" do
+      allow(self).to receive(:content_item).and_return(ContentItem.new({}))
+      expect(lang_attribute).to be_nil
+    end
+
+    it "does not return if the locale is a blank string" do
+      allow(self).to receive(:content_item).and_return(ContentItem.new({ "locale" => "  " }))
+      expect(lang_attribute).to be_nil
+    end
+  end
 end

@@ -1,5 +1,9 @@
 <% add_view_stylesheet("manual") %>
 
+<% content_for :title do %>
+  <%= @presenter.page_title %> - GOV.UK
+<% end %>
+
 <% content_for :before_main do %>
   <div class="govuk-width-container">
     <%= render "shared/manuals/header", {

@@ -20,7 +20,7 @@ RSpec.describe ManualPresenter do
 
     context "when the request path is not the updates page" do
       let(:request_path) { content_item.base_path }
-      let(:updates_link) { "#{updates_path}\">See all updates</a>" }
+      let(:updates_link) { "<a href='#{updates_path}' class='govuk-link'>See all updates</a>" }
 
       it "returns the updated date with a link to see all updates" do
         expect(presenter.other_metadata(request)).to eq(

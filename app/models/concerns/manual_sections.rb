@@ -49,17 +49,6 @@ private
     content_store_response["details"]["section_id"] || manual_title
   end
 
-  def manual_page_title
-    title = content_store_response["title"] || ""
-    title += " - " if title.present?
-
-    if hmrc?
-      I18n.t("formats.manuals.hmrc_title", title:)
-    else
-      I18n.t("formats.manuals.title", title:)
-    end
-  end
-
   def show_contents_list?
     organisation_content_id == MOJ_ORGANISATION_CONTENT_ID
   end

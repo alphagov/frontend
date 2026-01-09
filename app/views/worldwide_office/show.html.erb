@@ -10,7 +10,7 @@
 <article class="govuk-grid-row">
   <div class="govuk-grid-column-one-third">
     <%= render "govuk_publishing_components/components/contents_list",
-      contents: @presenter.contents,
+      contents: @presenter.headers_for_contents_list_component,
       underline_links: true %>
   </div>
 

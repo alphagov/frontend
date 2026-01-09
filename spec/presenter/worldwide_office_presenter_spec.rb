@@ -1,7 +1,10 @@
 RSpec.describe WorldwideOfficePresenter do
-  let(:content_item) { WorldwideOffice.new(GovukSchemas::Example.find("worldwide_office", example_name: "worldwide_office")) }
+  let(:content_store_response) { GovukSchemas::Example.find("worldwide_office", example_name: "worldwide_office") }
+  let(:content_item) { WorldwideOffice.new(content_store_response) }
 
   let(:presenter) { described_class.new(content_item) }
+
+  it_behaves_like "it can have a contents list", "worldwide_office", "worldwide_office"
 
   it "#body returns the access and opening times of the schema item" do
     expect(content_item.content_store_response["details"]["access_and_opening_times"]).to eq(presenter.body)

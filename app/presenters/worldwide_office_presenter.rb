@@ -1,5 +1,5 @@
 class WorldwideOfficePresenter < ContentItemPresenter
-  include GovspeakContentsList
+  include ContentsList
 
   def body
     content_item.content_store_response["details"]["access_and_opening_times"]

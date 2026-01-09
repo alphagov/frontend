@@ -87,6 +87,9 @@ cs:
   components:
     share_links:
       share_this_page: Sdílet tuto stránku
+  contact:
+    contact_form: Kontaktní formulář
+    email: E-mail
   continue:
   cookies:
     always_on:

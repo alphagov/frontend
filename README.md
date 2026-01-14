@@ -81,7 +81,6 @@ See the [CONTRIBUTING](CONTRIBUTING.md) guide for more information.
 
 ### Dependencies
 
-- [alphagov/static](https://github.com/alphagov/static) - provides shared templates, styles, and JavaScript
 - [alphagov/content-store](https://github.com/alphagov/content-store) - provides raw data for rendering formats
 - [alphagov/local-links-manager](https://github.com/alphagov/local-links-manager) - provides council info lookups
 - [alphagov/locations-api](https://github.com/alphagov/locations-api) - provides postcode lookups
@@ -94,13 +93,13 @@ You can use the [GOV.UK Docker environment](https://github.com/alphagov/govuk-do
 
 If you are using GOV.UK Docker, remember to combine it with the commands that follow. See the [GOV.UK Docker usage instructions](https://github.com/alphagov/govuk-docker#usage) for examples.
 
-If you are using the `startup.sh` script, first run [static](https://github.com/alphagov/static) and execute the following command:
+If you are using the `startup.sh` script, execute the following command:
 
 ```
-PLEK_SERVICE_STATIC_URI=http://static.dev.gov.uk ./startup.sh --live
+./startup.sh --live
 ```
 
-which uses a local copy of static and content from production.
+which uses content from production.
 
 Note that you will have to have [GOV.UK Locations API](https://github.com/alphagov/locations-api) running locally. A valid dataset will have to be loaded for Locations API or postcode lookups will not succeed. This is part of the standard GOV.UK data replication steps.
 

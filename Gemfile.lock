@@ -165,7 +165,7 @@ GEM
     googleapis-common-protos-types (1.22.0)
       google-protobuf (~> 4.26)
     govuk_ab_testing (3.1.0)
-    govuk_app_config (9.23.0)
+    govuk_app_config (9.23.1)
       connection_pool (< 3)
       logstasher (~> 2.1)
       opentelemetry-exporter-otlp (>= 0.25, < 0.32)

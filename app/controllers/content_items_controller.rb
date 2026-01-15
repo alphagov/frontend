@@ -50,10 +50,6 @@ private
                   end
   end
 
-  def deny_framing
-    response.headers["X-Frame-Options"] = "DENY"
-  end
-
   def set_account_vary_header
     # Override the default from GovukPersonalisation::ControllerConcern so pages are cached on each flash message
     # variation, rather than caching pages per user

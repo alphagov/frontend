@@ -10,7 +10,7 @@ RSpec.describe "Local Transactions" do
     content_store_has_random_item(base_path: "/a-slug", schema: "local_transaction")
     get "/a-slug"
 
-    expect(response.headers["X-Frame-Options"]).to eq("DENY")
+    expect(response.headers["X-Frame-Options"]).to eq("SAMEORIGIN")
   end
 
   it "sets expiry headers for an edition" do

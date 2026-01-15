@@ -14,7 +14,7 @@ RSpec.describe "Transactions" do
       content_store_has_example_item("/foo", schema: "transaction")
       get "/foo"
 
-      expect(response.headers["X-Frame-Options"]).to eq("DENY")
+      expect(response.headers["X-Frame-Options"]).to eq("SAMEORIGIN")
     end
   end
 

@@ -3,7 +3,6 @@ class LocalTransactionController < ContentItemsController
   include Cacheable
   include SplitPostcodeSupport
 
-  before_action :deny_framing
   skip_before_action :verify_authenticity_token, only: [:find]
 
   INVALID_POSTCODE = "invalidPostcodeFormat".freeze

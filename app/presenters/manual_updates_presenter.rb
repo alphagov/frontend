@@ -60,15 +60,4 @@ private
     formatted_date = "#{formatted_date} #{updates_span}"
     sanitize(formatted_date)
   end
-
-  def manual_page_title
-    title = content_item.title || ""
-    title += " - " if title.present?
-
-    if content_item.hmrc?
-      I18n.t("formats.manuals.hmrc_title", title:)
-    else
-      I18n.t("formats.manuals.title", title:)
-    end
-  end
 end

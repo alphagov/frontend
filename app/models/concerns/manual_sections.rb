@@ -37,27 +37,16 @@ module ManualSections
         ContentItemFactory.build(response)
       end
     end
+
+    def hmrc?
+      %w[hmrc_manual hmrc_manual_section].include?(schema_name)
+    end
   end
 
 private
 
   def breadcrumb
     content_store_response["details"]["section_id"] || manual_title
-  end
-
-  def manual_page_title
-    title = content_store_response["title"] || ""
-    title += " - " if title.present?
-
-    if hmrc?
-      I18n.t("formats.manuals.hmrc_title", title:)
-    else
-      I18n.t("formats.manuals.title", title:)
-    end
-  end
-
-  def hmrc?
-    %w[hmrc_manual hmrc_manual_section].include?(schema_name)
   end
 
   def show_contents_list?

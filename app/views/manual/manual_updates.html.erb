@@ -1,6 +1,11 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_manual", media: "all" %>
 <% end %>
+
+<% content_for :title do %>
+  <%= @presenter.page_title %> - GOV.UK
+<% end %>
+
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
     content_item: @content_item, heading_level: 2

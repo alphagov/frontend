@@ -28,7 +28,7 @@ module ApplicationHelper
     true
   end
 
-  def show_ios_banner?
+  def show_app_promo_banner?
     return false unless content_item && content_item.base_path
 
     [

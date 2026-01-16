@@ -4,13 +4,11 @@
   <%= @presenter.page_title %> - GOV.UK
 <% end %>
 
-<% content_for :before_main do %>
-  <div class="govuk-width-container">
+<% content_for :before_main do %> 
     <%= render "shared/manuals/header", {
       content_item: content_item,
       heading_level: 1,
-    } %>
-  </div>
+    } %>  
 <% end %>
 
 <%= render "shared/manuals/manual_layout" do %>

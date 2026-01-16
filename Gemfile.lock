@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 593a023cb7607ab0e061cbf0400c016fac237393
+  branch: test-add-app-promo-banner-branch
+  specs:
+    govuk_publishing_components (63.2.0)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -191,16 +207,6 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (63.2.0)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_schemas (6.2.0)
       json-schema (>= 2.8, < 6.1)
     govuk_test (4.1.2)
@@ -770,7 +776,7 @@ DEPENDENCIES
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   govuk_web_banners

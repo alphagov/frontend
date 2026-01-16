@@ -1,6 +1,8 @@
 class ManualUpdatesPresenter < ContentItemPresenter
   include ActionView::Helpers
   include ActionView::Context
+  include ManualPageTitle
+  include ManualMetadata
 
   def page_title
     I18n.t("formats.manuals.updates_page_title", title: manual_page_title)

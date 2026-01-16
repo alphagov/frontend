@@ -87,6 +87,9 @@ sr:
   components:
     share_links:
       share_this_page: Podeli ovu stranicu
+  contact:
+    contact_form: Kontakt obrazac
+    email: E-adresa
   continue:
   cookies:
     always_on:

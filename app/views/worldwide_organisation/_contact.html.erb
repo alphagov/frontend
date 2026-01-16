@@ -1,0 +1,41 @@
+<%= content_tag(:div, class: "worldwide-organisation-contact-section", lang: local_assigns[:lang] ? lang : nil) do %>
+  <% unless local_assigns[:hide_title] %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: contact.title,
+      heading_level: 3,
+      font_size: "s",
+      margin_bottom: 2,
+    } %>
+  <% end %>
+
+  <% if contact.post_address %>
+    <%= contact.post_address %>
+  <% end %>
+
+  <% if contact.email.present? || contact.contact_form_link.present? || contact.phone_number_groups&.any? %>
+
+      <% if contact.email.present? %>
+        <p class="govuk-body">
+          <%= t("contact.email") %><br>
+          <%= mail_to contact.email, class: "govuk-link" %>
+        </p>
+      <% end %>
+        <% if contact.contact_form_link.present? %>
+          <p class="govuk-body">
+            <%= t("contact.contact_form") %><br>
+            <%= link_to contact.contact_form_link, contact.contact_form_link, class: "govuk-link" %>
+          </p>
+        <% end %>
+
+      <% contact.phone_number_groups&.each do |number| %>
+        <p class="govuk-body">
+          <%= number["title"] %> <br>
+          <span dir="ltr"><%= number["number"] %></span>
+        </p>
+      <% end %>
+  <% end %>
+
+  <% if contact.comments.present? %>
+      <%= auto_link(contact.comments, html: { class: "govuk-link" }) %>
+  <% end %>
+<% end %>

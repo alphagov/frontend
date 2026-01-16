@@ -87,6 +87,9 @@ yi:
   components:
     share_links:
       share_this_page:
+  contact:
+    contact_form:
+    email:
   continue:
   cookies:
     always_on:

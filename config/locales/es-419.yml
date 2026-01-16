@@ -87,6 +87,9 @@ es-419:
   components:
     share_links:
       share_this_page: Compartir esta página
+  contact:
+    contact_form: Formulario de contacto
+    email: Email
   continue:
   cookies:
     always_on:

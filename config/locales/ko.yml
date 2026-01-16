@@ -87,6 +87,9 @@ ko:
   components:
     share_links:
       share_this_page: 이 페이지 공유하기
+  contact:
+    contact_form: 콘택트 폼
+    email: 이메일
   continue:
   cookies:
     always_on:

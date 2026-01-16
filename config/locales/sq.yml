@@ -87,6 +87,9 @@ sq:
   components:
     share_links:
       share_this_page: Shpërdaj këtë faqe
+  contact:
+    contact_form: Formular kontakti
+    email: Email
   continue:
   cookies:
     always_on:

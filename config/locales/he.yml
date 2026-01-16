@@ -87,6 +87,9 @@ he:
   components:
     share_links:
       share_this_page: שתף דף זה
+  contact:
+    contact_form: טופס יצירת קשר
+    email: דואר אלקטרוני
   continue:
   cookies:
     always_on:

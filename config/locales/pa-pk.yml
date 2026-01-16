@@ -87,6 +87,9 @@ pa-pk:
   components:
     share_links:
       share_this_page: ایہ ورقہ تقسیم کرو
+  contact:
+    contact_form: رابطے دا فارم
+    email: ای میل
   continue:
   cookies:
     always_on:

@@ -87,6 +87,9 @@ is:
   components:
     share_links:
       share_this_page: Deila þessari síðu
+  contact:
+    contact_form: Eyðublað til að hafa samband
+    email: Tölvupóstfang
   continue:
   cookies:
     always_on:

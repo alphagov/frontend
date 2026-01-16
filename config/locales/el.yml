@@ -87,6 +87,9 @@ el:
   components:
     share_links:
       share_this_page: Κοινοποιήστε αυτή τη σελίδα
+  contact:
+    contact_form: Φόρμα επικοινωνίας
+    email: Email
   continue:
   cookies:
     always_on:

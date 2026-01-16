@@ -134,6 +134,11 @@ Rails.application.routes.draw do
     get "/:topic", to: "service_manual#service_manual_topic"
   end
 
+  # World
+  scope "/world" do
+    get "/organisations/:organisation/office/:office", to: "worldwide_office#show"
+  end
+
   # Service toolkit page
   get "/service-toolkit", to: "service_toolkit#index"
 

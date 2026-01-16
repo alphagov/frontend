@@ -87,6 +87,9 @@ be:
   components:
     share_links:
       share_this_page: Падзяліцца гэтай старонкай
+  contact:
+    contact_form: Кантактная форма
+    email: Электронная пошта
   continue:
   cookies:
     always_on:

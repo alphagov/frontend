@@ -87,6 +87,9 @@ gu:
   components:
     share_links:
       share_this_page: આ પેજ શેર કરો
+  contact:
+    contact_form: સંપર્ક પત્રક
+    email: ઈમેલ
   continue:
   cookies:
     always_on:

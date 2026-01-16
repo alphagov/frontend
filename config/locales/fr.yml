@@ -87,6 +87,9 @@ fr:
   components:
     share_links:
       share_this_page: Partagez cette page
+  contact:
+    contact_form: Formulaire de contact
+    email: Courriel
   continue:
   cookies:
     always_on:

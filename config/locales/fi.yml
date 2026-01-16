@@ -87,6 +87,9 @@ fi:
   components:
     share_links:
       share_this_page: Jaa tämä sivu
+  contact:
+    contact_form: Yhteydenottolomake
+    email: Sähköposti
   continue:
   cookies:
     always_on:

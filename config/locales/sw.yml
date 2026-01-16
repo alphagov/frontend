@@ -87,6 +87,9 @@ sw:
   components:
     share_links:
       share_this_page: Shiriki ukurasa huu
+  contact:
+    contact_form: Fomu ya mawasiliano
+    email: Barua pepe
   continue:
   cookies:
     always_on:

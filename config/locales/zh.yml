@@ -87,6 +87,9 @@ zh:
   components:
     share_links:
       share_this_page: 分享本页面
+  contact:
+    contact_form: 联系表单
+    email: 电子邮箱
   continue:
   cookies:
     always_on:

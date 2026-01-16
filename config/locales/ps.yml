@@ -87,6 +87,9 @@ ps:
   components:
     share_links:
       share_this_page: دا پاه شریکه کړئ
+  contact:
+    contact_form: د اړیکې فورمه
+    email: بریښنالیک
   continue:
   cookies:
     always_on:

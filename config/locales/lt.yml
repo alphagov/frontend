@@ -87,6 +87,9 @@ lt:
   components:
     share_links:
       share_this_page: Bendrinti šį puslapį
+  contact:
+    contact_form: Parašykite mums
+    email: El. paštas
   continue:
   cookies:
     always_on:

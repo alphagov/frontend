@@ -59,12 +59,12 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe "iOS banner" do
+  describe "display app promo banner" do
     describe "when the page is in the list" do
       let(:content_item) { ContentItem.new({ "base_path" => "/state-pension" }) }
 
       it "shows the banner" do
-        expect(show_ios_banner?).to be(true)
+        expect(show_app_promo_banner?).to be(true)
       end
     end
 
@@ -72,7 +72,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { ContentItem.new({ "base_path" => "/government/speeches/charles-hendrys-speech-to-the-fuellers-lecture-25th-anniversary" }) }
 
       it "does not show the banner" do
-        expect(show_ios_banner?).to be(false)
+        expect(show_app_promo_banner?).to be(false)
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { ContentItem.new({}) }
 
       it "does not show the banner" do
-        expect(show_ios_banner?).to be(false)
+        expect(show_app_promo_banner?).to be(false)
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe ApplicationHelper do
       let(:content_item) { nil }
 
       it "does not show the banner" do
-        expect(show_ios_banner?).to be(false)
+        expect(show_app_promo_banner?).to be(false)
       end
     end
   end

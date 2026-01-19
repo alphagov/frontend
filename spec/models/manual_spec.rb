@@ -1,6 +1,8 @@
 RSpec.describe Manual do
   let(:content_store_response) { GovukSchemas::Example.find("manual", example_name: "content-design") }
 
+  it_behaves_like "it can be a manual", "manual", "content-design"
+  it_behaves_like "it can have section groups", "manual", "content-design"
   it_behaves_like "it has no updates", "manual", "content-design"
 
   describe "#contributors" do

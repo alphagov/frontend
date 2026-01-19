@@ -1,5 +1,7 @@
 class Manual < ContentItem
   include EmphasisedOrganisations
+  include ManualLike
+  include ManualSections
   include Updatable
 
   def contributors

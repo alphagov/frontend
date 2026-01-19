@@ -3,7 +3,6 @@
     <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>
-    <%= stylesheet_link_tag "views/_specialist-document", media: "all" %>
 <% end %>
 
 <%= render "shared/header" %>
@@ -30,10 +29,10 @@
     <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component(nested_headers: true, visible: @presenter.show_table_of_contents?) do %>
 
       <% if @presenter.show_protection_type_image? %>
-        <img
-          class="gem-c-figure__image protected-food-drink-name-logo"
-          src="<%= @presenter.protection_image_path %>"
-          alt="<%= @presenter.protection_image_alt_text %>">
+        <%= render "govuk_publishing_components/components/figure", {
+          src: image_path(@presenter.protection_image_path),
+          alt: @presenter.protection_image_alt_text,
+        } %>
       <% end %>
 
       <div class="responsive-bottom-margin">

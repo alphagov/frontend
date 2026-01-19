@@ -21,7 +21,6 @@ APP_STYLESHEETS = {
   "views/_service-toolkit.scss" => "views/_service-toolkit.css",
   "views/_sidebar-navigation.scss" => "views/_sidebar-navigation.css",
   "views/_sign-in.scss" => "views/_sign-in.css",
-  "views/_specialist-document.scss" => "views/_specialist-document.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
   "views/_worldwide-organisation.scss" => "views/_worldwide-organisation.css",
   "views/_landing_page.scss" => "views/_landing_page.css",

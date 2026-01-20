@@ -98,6 +98,27 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
     }.compact
   end
 
+  def show_corporate_info_section?
+    corporate_information_pages.present? || secondary_corporate_information.present?
+  end
+
+  def corporate_information_pages
+    cips = content_item.dig("links", "corporate_information_pages")
+    return if cips.blank?
+
+    ordered_cips = content_item.dig("details", "ordered_corporate_information_pages")
+    return if ordered_cips.blank?
+
+    ordered_cips.map do |cip|
+      link = cips.find { |cp| cp["content_id"] == cip["content_id"] }["base_path"]
+      link_to(cip["title"], link, class: "govuk-link").html_safe
+    end
+  end
+
+  def secondary_corporate_information
+    content_item.dig("details", "secondary_corporate_information_pages").to_s
+  end
+
   def sponsoring_organisations
     content_item.content_store_response["links"]["sponsoring_organisations"] || []
   end

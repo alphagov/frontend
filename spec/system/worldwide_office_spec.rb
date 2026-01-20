@@ -91,11 +91,11 @@ RSpec.describe "Worldwide office page" do
 
     it "includes the world locations and sponsoring organisations" do
       within(".worldwide-organisation-header__metadata") do
-        assert page.has_text?("Location:")
+        assert page.has_text?("News:")
         assert page.has_link?("Philippines", href: "/world/philippines/news")
         assert page.has_link?("Palau", href: "/world/palau/news")
 
-        assert page.has_text?("Part Of:")
+        assert page.has_text?("Part of:")
         assert page.has_link?("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
       end
     end

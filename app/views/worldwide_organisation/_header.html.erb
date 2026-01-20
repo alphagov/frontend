@@ -23,11 +23,11 @@
   </div>
 
   <div class="govuk-grid-column-one-third translation-nav-header__child">
-    <% if @content_item.available_translations.length > 1 %>
+    <% if @content_item.available_translations? %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         no_margin_top: true,
         margin_bottom: 4,
-        translations: @content_item.available_translations,
+        translations: translations_for_nav(@content_item.available_translations),
       } %>
     <% end %>
 

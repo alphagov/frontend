@@ -27,7 +27,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
       world_location_translation = world_location_name_translations.find do |translation|
         translation["content_id"] == location["content_id"]
       end
-      link_to(I18n.t("worldwide_organisation.world_news_link", country: world_location_translation["name"]), WorldLocationBasePath.for(location), class: "govuk-link")
+      link_to(I18n.t("worldwide_organisation.world_news_link", country: world_location_translation["name"]), WorldLocationBasePathService.for(location), class: "govuk-link")
     end
 
     links.to_sentence.html_safe
@@ -80,6 +80,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def main_office
     return unless (office_item = content_item.content_store_response["links"]["main_office"])&.first
 
+    office_item = office_item.first
     office_contact_item = contact_for_office(office_item["content_id"])
     return unless office_contact_item
 
@@ -105,20 +106,20 @@ private
 
   def office(office, contact)
     WorldwideOffice.new(
-      contact: WorldwideOrganisation::LinkedContactPresenter.new(contact),
+      contact: LinkedContactPresenter.new(contact),
       has_access_and_opening_times?: office.dig("details", "access_and_opening_times").present?,
       public_url: office["base_path"],
     )
   end
 
   def contact_for_office(office_content_id)
-    contact_mapping = content_item.dig("details", "office_contact_associations").select { |office_contact_association|
+    contact_mapping = content_item.content_store_response.dig("details", "office_contact_associations").select { |office_contact_association|
       office_contact_association["office_content_id"] == office_content_id
     }.first
 
     return unless contact_mapping
 
-    content_item.dig("links", "contacts").select { |contact|
+    content_item.content_store_response.dig("links", "contacts").select { |contact|
       contact["content_id"] == contact_mapping["contact_content_id"]
     }.first
   end

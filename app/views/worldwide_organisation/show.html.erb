@@ -6,7 +6,7 @@
 
 <section class="govuk-grid-row" id="about-us">
   <div class="govuk-grid-column-two-thirds">
-    <%= render 'govuk_publishing_components/components/lead_paragraph', text: @content_item.description %>
+    <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
 
     <div class="body">
       <%= render "govuk_publishing_components/components/govspeak", {} do
@@ -27,7 +27,7 @@
               text: account["title"],
               icon: account["service_type"],
             }
-          end
+          end,
         } %>
       </div>
     </aside>
@@ -52,7 +52,7 @@
           image_alt: @presenter.person_in_primary_role[:image_alt],
           heading_text: @presenter.person_in_primary_role[:name],
           heading_level: 3,
-          description: @presenter.person_in_primary_role[:description]
+          description: @presenter.person_in_primary_role[:description],
         } %>
       </div>
     <% end %>
@@ -66,7 +66,7 @@
               href: person[:href],
               heading_text: person[:name],
               heading_level: 3,
-              description: person[:description]
+              description: person[:description],
             } %>
           <% end %>
         </li>
@@ -114,15 +114,15 @@
 <% if @presenter.show_corporate_info_section? %>
   <section class="corporate-information" id="corporate-info">
     <%= render "govuk_publishing_components/components/heading", {
-      text: t('worldwide_organisation.headings.corporate_information'),
+      text: t("worldwide_organisation.headings.corporate_information"),
       border_top: 5,
-      padding: true
+      padding: true,
     } %>
 
     <% if @presenter.corporate_information_pages.present? %>
       <%= render "govuk_publishing_components/components/list", {
         visible_counters: true,
-        items: @presenter.corporate_information_pages
+        items: @presenter.corporate_information_pages,
       } %>
     <% end %>
 

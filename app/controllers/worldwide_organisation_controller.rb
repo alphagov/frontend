@@ -1,5 +1,7 @@
 class WorldwideOrganisationController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @presenter = WorldwideOrganisationPresenter.new(@content_item)
+  end
 end

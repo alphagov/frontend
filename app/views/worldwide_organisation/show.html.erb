@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_worldwide-organisation", media: "all" %>
+<% end %>
+
 <%= render partial: "worldwide_organisation/header", locals: { worldwide_organisation: @presenter, show_header_title: true } %>
 
 <section class="govuk-grid-row" id="about-us">

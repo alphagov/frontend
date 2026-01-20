@@ -31,7 +31,7 @@ class LinkedContactPresenter < ContentItemPresenter
   end
 
   def comments
-    comments = content_item.content_store_response["details"]["description"]
+    comments = content_item["details"]["description"]
     return if comments.nil?
 
     tag.p(comments.gsub("\r\n", "<br/>").html_safe, class: %w[govuk-body])

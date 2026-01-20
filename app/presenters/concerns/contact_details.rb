@@ -1,18 +1,18 @@
 module ContactDetails
   def email_address_groups
-    content_item.content_store_response["details"]["email_addresses"] || []
+    content_item["details"]["email_addresses"] || []
   end
 
   def post_address_groups
-    content_item.content_store_response["details"]["post_addresses"] || []
+    content_item["details"]["post_addresses"] || []
   end
 
   def phone_number_groups
-    content_item.content_store_response["details"]["phone_numbers"] || []
+    content_item["details"]["phone_numbers"] || []
   end
 
   def online_form_links
-    contact_form_links = content_item.content_store_response["details"]["contact_form_links"] || []
+    contact_form_links = content_item["details"]["contact_form_links"] || []
     contact_form_links.map do |link|
       {
         url: link["link"],

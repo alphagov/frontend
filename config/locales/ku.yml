@@ -878,4 +878,20 @@ ku:
     start_title: سەرەتای کاتی هاوینی بەریتانیا
   withdrawn_notice:
     title: 'ئه‌م %{schema_name} كێشراوه‌ته‌وه‌ له‌ %{withdrawn_time} '
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: "%{link}. ببینه‌."
+      personal_information_charter_html: " ئێمە ڕوونی دەکاتەوە کە چۆن مامەڵە لەگەڵ زانیارییە کەسییەکانتان دەکەین%{link}ی "
+      publication_scheme_html: سەبارەت بەو جۆرە زانیاریانە بخوێنەرەوە کە بە شێوەیەکی ڕۆتینی دا بڵاوی دەکەینەوە له‌م %{link}.
+      social_media_use_html: سیاسەتەکەمان لە %{link}. بخوێنەرەوە.
+      welsh_language_scheme_html: بزانە دەربارەی پابەندبوونمان بە %{link}.
+    find_out_more: تەواوی پڕۆفایل و هەموو وردەکارییەکانی پەیوەندیکردن ببینە
+    headings:
+      contact_us: پەیوەندیکردن بە ئێمە
+      corporate_information: زانیاری کۆمپانیاکان
+      follow_us: لەگەڵمان بە- فۆڵۆومان بکەن
+      our_people: خەڵکەکانمان
+    news:
+    part_of: بەشێک لە
+    world_news_link:
   'yes': بەڵێ

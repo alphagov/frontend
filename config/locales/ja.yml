@@ -797,4 +797,20 @@ ja:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: "%{link} をご覧ください。"
+      personal_information_charter_html: "%{link} で、お客様の個人情報の取り扱いについて説明しています。"
+      publication_scheme_html: "%{link} で、定期的に公開している情報の種類についてご覧ください。"
+      social_media_use_html: "%{link} に関する方針をご覧ください。"
+      welsh_language_scheme_html: "%{link} への取り組みについてご覧ください。"
+    find_out_more: プロフィール全体とすべての連絡先の詳細を見る
+    headings:
+      contact_us: お問い合わせ
+      corporate_information: 企業情報
+      follow_us: フォローする
+      our_people: 人々
+    news: 最新情報
+    part_of: 次の一部：
+    world_news_link: "%{country}と英国"
   'yes':

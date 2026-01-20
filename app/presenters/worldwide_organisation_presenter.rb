@@ -103,10 +103,10 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def corporate_information_pages
-    cips = content_item.dig("links", "corporate_information_pages")
+    cips = content_item.content_store_response.dig("links", "corporate_information_pages")
     return if cips.blank?
 
-    ordered_cips = content_item.dig("details", "ordered_corporate_information_pages")
+    ordered_cips = content_item.content_store_response.dig("details", "ordered_corporate_information_pages")
     return if ordered_cips.blank?
 
     ordered_cips.map do |cip|
@@ -116,7 +116,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def secondary_corporate_information
-    content_item.dig("details", "secondary_corporate_information_pages").to_s
+    content_item.content_store_response.dig("details", "secondary_corporate_information_pages").to_s
   end
 
   def sponsoring_organisations

@@ -88,6 +88,7 @@ th:
     share_links:
       share_this_page: แชร์หน้านี้
   contact:
+    access_and_opening_times: การเข้าถึงและเวลาเปิดทำการ
     contact_form: แบบฟอร์มการติดต่อ
     email: อีเมล
   continue:

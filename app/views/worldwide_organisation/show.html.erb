@@ -1,4 +1,4 @@
-<%= render partial: "content_items/worldwide_organisation/header", locals: { worldwide_organisation: @content_item, show_header_title: true } %>
+<%= render partial: "worldwide_organisation/header", locals: { worldwide_organisation: @presenter, show_header_title: true } %>
 
 <section class="govuk-grid-row" id="about-us">
   <div class="govuk-grid-column-two-thirds">
@@ -11,13 +11,13 @@
     </div>
   </div>
 
-  <% if @content_item.social_media_accounts.any? %>
+  <% if @presenter.social_media_accounts.any? %>
     <aside class="social-media-links govuk-grid-column-one-third">
       <div class="content">
         <h2 class="govuk-heading-s"><%= t("worldwide_organisation.headings.follow_us") %></h2>
         <%= render "govuk_publishing_components/components/share_links", {
           track_as_follow: true,
-          links: @content_item.social_media_accounts.map do |account|
+          links: @presenter.social_media_accounts.map do |account|
             {
               href: account["href"],
               text: account["title"],
@@ -30,7 +30,7 @@
   <% end %>
 </section>
 
-<% if @content_item.show_our_people_section? %>
+<% if @presenter.show_our_people_section? %>
   <section class="govuk-grid-row" id="people">
     <div class="govuk-grid-column-full">
       <%= render "govuk_publishing_components/components/heading", {
@@ -40,22 +40,22 @@
       } %>
     </div>
 
-    <% if @content_item.person_in_primary_role %>
+    <% if @presenter.person_in_primary_role %>
       <div class="govuk-grid-column-one-quarter">
         <%= render "govuk_publishing_components/components/image_card", {
-          href: @content_item.person_in_primary_role[:href],
-          image_src: @content_item.person_in_primary_role[:image_url],
-          image_alt: @content_item.person_in_primary_role[:image_alt],
-          heading_text: @content_item.person_in_primary_role[:name],
+          href: @presenter.person_in_primary_role[:href],
+          image_src: @presenter.person_in_primary_role[:image_url],
+          image_alt: @presenter.person_in_primary_role[:image_alt],
+          heading_text: @presenter.person_in_primary_role[:name],
           heading_level: 3,
-          description: @content_item.person_in_primary_role[:description]
+          description: @presenter.person_in_primary_role[:description]
         } %>
       </div>
     <% end %>
 
     <div class="govuk-grid-column-three-quarters">
       <ul class="govuk-list govuk-grid-row">
-        <% @content_item.people_in_non_primary_roles.each.with_index do |person, i| %>
+        <% @presenter.people_in_non_primary_roles.each.with_index do |person, i| %>
           <% extra_class = (i + 1) % 4 == 0 ? " clear-column" : "" %>
           <li class="govuk-grid-column-one-third<%= extra_class %>">
             <%= render "govuk_publishing_components/components/image_card", {
@@ -71,7 +71,7 @@
   </section>
 <% end %>
 
-<% if @content_item.main_office %>
+<% if @presenter.main_office %>
   <section id="contact-us">
     <%= render "govuk_publishing_components/components/heading", {
       text: t("worldwide_organisation.headings.contact_us"),
@@ -82,20 +82,20 @@
     <hr class="govuk-section-break govuk-section-break--visible">
 
     <div class="govuk-!-padding-top-6 govuk-!-padding-bottom-6 govuk-clearfix">
-      <%= render partial: "content_items/worldwide_organisation/contact", locals: {
-        contact: @content_item.main_office.contact,
+      <%= render partial: "worldwide_organisation/contact", locals: {
+        contact: @presenter.main_office.contact,
       } %>
 
-      <% if @content_item.main_office.has_access_and_opening_times? %>
-        <p class="govuk-body"><%= link_to t("contact.access_and_opening_times"), @content_item.main_office.public_url, class: "govuk-link", lang: @content_item.locale %></p>
+      <% if @presenter.main_office.has_access_and_opening_times? %>
+        <p class="govuk-body"><%= link_to t("contact.access_and_opening_times"), @presenter.main_office.public_url, class: "govuk-link", lang: @content_item.locale %></p>
       <% end %>
     </div>
 
-    <% @content_item.home_page_offices.each do |office| %>
+    <% @presenter.home_page_offices.each do |office| %>
       <hr class="govuk-section-break govuk-section-break--visible">
 
       <div class="govuk-!-padding-top-6 govuk-!-padding-bottom-6 govuk-clearfix">
-        <%= render partial: "content_items/worldwide_organisation/contact", locals: {
+        <%= render partial: "worldwide_organisation/contact", locals: {
           contact: office.contact,
         } %>
 
@@ -107,7 +107,7 @@
   </section>
 <% end %>
 
-<% if @content_item.show_corporate_info_section? %>
+<% if @presenter.show_corporate_info_section? %>
   <section class="corporate-information" id="corporate-info">
     <%= render "govuk_publishing_components/components/heading", {
       text: t('worldwide_organisation.headings.corporate_information'),
@@ -115,16 +115,16 @@
       padding: true
     } %>
 
-    <% if @content_item.corporate_information_pages.present? %>
+    <% if @presenter.corporate_information_pages.present? %>
       <%= render "govuk_publishing_components/components/list", {
         visible_counters: true,
-        items: @content_item.corporate_information_pages
+        items: @presenter.corporate_information_pages
       } %>
     <% end %>
 
-    <% if @content_item.secondary_corporate_information.present? %>
+    <% if @presenter.secondary_corporate_information.present? %>
       <p class="govuk-body">
-        <%= @content_item.secondary_corporate_information.html_safe %>
+        <%= @presenter.secondary_corporate_information.html_safe %>
       </p>
     <% end %>
   </section>

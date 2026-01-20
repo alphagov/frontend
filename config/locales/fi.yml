@@ -878,4 +878,20 @@ fi:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Ota selvää %{link}.
+      personal_information_charter_html: "%{link} selittää, miten käsittelemme henkilötietojasi."
+      publication_scheme_html: Lue, millaisia tietoja julkaisemme rutiininomaisesti %{link}.
+      social_media_use_html: Lue käytäntömme osoitteesta %{link}.
+      welsh_language_scheme_html: Tutustu sitoumukseemme %{link}.
+    find_out_more: Katso koko profiili ja kaikki yhteystiedot
+    headings:
+      contact_us: Ota yhteyttä
+      corporate_information: Yritystiedot
+      follow_us: Seuraa meitä
+      our_people: Meidän ihmiset
+    news: Uutiset
+    part_of: Osa
+    world_news_link: "%{country} ja Iso-Britannia"
   'yes':

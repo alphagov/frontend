@@ -878,4 +878,20 @@ yi:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html:
+      personal_information_charter_html:
+      publication_scheme_html:
+      social_media_use_html:
+      welsh_language_scheme_html:
+    find_out_more:
+    headings:
+      contact_us:
+      corporate_information:
+      follow_us:
+      our_people:
+    news: נייעס
+    part_of:
+    world_news_link: "%{country} און די פאראייניגטע קעניגרייך"
   'yes':

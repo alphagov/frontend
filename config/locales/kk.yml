@@ -878,4 +878,20 @@ kk:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: "%{link} туралы мәлімет алу."
+      personal_information_charter_html: Біздің %{link} жеке басқа қатысты ақпаратты қалай пайдалану керектігін түсіндіреді.
+      publication_scheme_html: Біз үнемі %{link} бөлімінде жариялайтын ақпарат түрлері туралы оқыңыз.
+      social_media_use_html: "%{link} мекенжайындағы саясатымызды оқыңыз."
+      welsh_language_scheme_html: "%{link} қосқан үлесіміз туралы оқыңыз."
+    find_out_more: Толық профильді және барлық байланыс мәліметтерін қараңыз
+    headings:
+      contact_us: Бізбен байланысыңыз
+      corporate_information: Корпоративтік ақпарат
+      follow_us: Бізге жазылыңыз
+      our_people: Біздің адамдар
+    news: Жаңалықтар
+    part_of: Бөлігі
+    world_news_link: "%{country} және Ұлыбритания"
   'yes':

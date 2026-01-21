@@ -13,7 +13,7 @@ RSpec.describe "Worldwide office page" do
       expect(response).to have_http_status(:ok)
     end
 
-    it "renders the service_standard template" do
+    it "renders the show template" do
       get base_path
 
       expect(response).to render_template(:show)

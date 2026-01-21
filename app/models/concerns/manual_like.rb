@@ -1,4 +1,4 @@
-module Manual
+module ManualLike
   extend ActiveSupport::Concern
 
   def section_groups

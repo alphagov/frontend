@@ -90,7 +90,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def home_page_offices
     return [] unless content_item.content_store_response["links"]["home_page_offices"]
 
-    content_item.dig("links", "home_page_offices").map { |office|
+    content_item.content_store_response.dig("links", "home_page_offices").map { |office|
       contact = contact_for_office(office["content_id"])
       next unless contact
 

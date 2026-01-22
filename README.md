@@ -35,6 +35,7 @@ some hard-coded routes.
 |Help index             |hardcoded|https://www.gov.uk/help|
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
 |History                |[history](https://docs.publishing.service.gov.uk/content-schemas/history.html)|https://www.gov.uk/government/history/10-downing-street|
+|HMRC Manual  |[hmrc_manual](https://docs.publishing.service.gov.uk/document-types/hmrc_manual.html)|https://www.gov.uk/hmrc-internal-manuals/capital-gains-manual|
 |HMRC Manual Section    |[hmrc_manual_section](https://docs.publishing.service.gov.uk/content-schemas/hmrc_manual_section.html)|https://www.gov.uk/hmrc-internal-manuals/employment-income-manual/eim11202
 |Homepage               |[homepage](https://docs.publishing.service.gov.uk/content-schemas/homepage.html)|https://www.gov.uk/|
 |How Government Works   |[how_government_works](https://docs.publishing.service.gov.uk/content-schemas/how_government_works.html)|https://www.gov.uk/government/how-government-works|

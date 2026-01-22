@@ -89,7 +89,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bigdecimal (3.3.1)
+    bigdecimal (4.0.1)
     binding_of_caller (1.0.1)
       debug_inspector (>= 1.2.0)
     bootsnap (1.21.1)
@@ -203,8 +203,8 @@ GEM
       rouge
       sprockets (>= 3)
       sprockets-rails
-    govuk_schemas (6.2.0)
-      json-schema (>= 2.8, < 6.1)
+    govuk_schemas (6.2.1)
+      json-schema (>= 2.8, < 6.2)
     govuk_test (4.1.2)
       brakeman (>= 5.0.2)
       capybara (>= 3.36)
@@ -245,9 +245,9 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.16.0)
-    json-schema (6.0.0)
+    json-schema (6.1.0)
       addressable (~> 2.8)
-      bigdecimal (~> 3.1)
+      bigdecimal (>= 3.1, < 5)
     jsonpath (1.1.5)
       multi_json
     kramdown (2.5.1)

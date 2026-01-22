@@ -103,5 +103,14 @@ RSpec.describe "FlexiblePage" do
         end
       end
     end
+
+    describe "renders a featured flexible section" do
+      it "contains the basic expected elements" do
+        visit base_path
+
+        expect(page).to have_selector(".gem-c-heading", text: "Featured")
+        expect(page).to have_selector(".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description", text: "This is what five (or more) featured items look like. We also need to test what happens when they're different heights.")
+      end
+    end
   end
 end

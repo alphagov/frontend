@@ -1,0 +1,2 @@
+class HmrcManualPresenter < ContentItemPresenter
+end

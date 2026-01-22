@@ -95,7 +95,7 @@ $govuk-include-default-font-face: true;
   }
 }
 
-.direction-rtl .govuk-main-wrapper {
+.direction-rtl.govuk-main-wrapper {
   direction: rtl;
   text-align: start;
 

@@ -7,10 +7,6 @@ module ManualSections
       linked("manual").first.title
     end
 
-    def page_title
-      "#{breadcrumb} - #{manual_page_title}"
-    end
-
     def document_heading
       document_heading = []
 

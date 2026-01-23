@@ -13,8 +13,6 @@
 
 <div class="govuk-width-container">
   <% content_item.flexible_sections.each do |flexible_section| %>
-    <div class="govuk-grid-row">
-      <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
-    </div>
+    <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
   <% end %>
 </div>

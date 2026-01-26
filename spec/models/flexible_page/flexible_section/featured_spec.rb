@@ -1,15 +1,17 @@
 RSpec.describe FlexiblePage::FlexibleSection::Featured do
   featured_item = {
-    href: "/href",
-    image_src: "/img/src.jpg",
-    image_alt: "some meaningful alt text please",
-    heading_text: "Government does things",
-    description: "This a description",
+    "href" => "/href",
+    "image" => {
+      "url" => "/img/src.jpg",
+      "alt_text" => "some meaningful alt text please",
+    },
+    "title" => "Government does things",
+    "summary" => "This a description",
   }
 
   subject(:content_hash) do
     {
-      "items" => [featured_item],
+      "ordered_featured_documents" => [featured_item],
     }
   end
 
@@ -28,7 +30,7 @@ RSpec.describe FlexiblePage::FlexibleSection::Featured do
   describe "when there are two featured items" do
     let(:content_hash) do
       {
-        "items" => [featured_item, featured_item],
+        "ordered_featured_documents" => [featured_item, featured_item],
       }
     end
 
@@ -43,7 +45,7 @@ RSpec.describe FlexiblePage::FlexibleSection::Featured do
   describe "when there are three featured items" do
     let(:content_hash) do
       {
-        "items" => [featured_item, featured_item, featured_item],
+        "ordered_featured_documents" => [featured_item, featured_item, featured_item],
       }
     end
 
@@ -58,7 +60,7 @@ RSpec.describe FlexiblePage::FlexibleSection::Featured do
   describe "when there are four featured items" do
     let(:content_hash) do
       {
-        "items" => [featured_item, featured_item, featured_item, featured_item],
+        "ordered_featured_documents" => [featured_item, featured_item, featured_item, featured_item],
       }
     end
 
@@ -73,7 +75,7 @@ RSpec.describe FlexiblePage::FlexibleSection::Featured do
   describe "when there are five featured items" do
     let(:content_hash) do
       {
-        "items" => [featured_item, featured_item, featured_item, featured_item, featured_item],
+        "ordered_featured_documents" => [featured_item, featured_item, featured_item, featured_item, featured_item],
       }
     end
 

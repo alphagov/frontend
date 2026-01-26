@@ -6,6 +6,6 @@ module ManualLike
   end
 
   def manual?
-    %w[manual manual_section].include?(schema_name)
+    %w[hmrc_manual manual manual_section].include?(schema_name)
   end
 end

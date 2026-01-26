@@ -53,9 +53,12 @@ private
       document_collections].freeze
   end
 
+  def slug
+    base_path.split('/').last
+  end
 
   def default_search_options
-    { filter_topical_events: ["western-balkans-summit-london-2018"],
+    { filter_topical_events: [slug],
       count: 5,
       order: "-public_timestamp",
       fields: }

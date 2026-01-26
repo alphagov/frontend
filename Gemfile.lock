@@ -166,13 +166,13 @@ GEM
       rake (>= 13)
     googleapis-common-protos-types (1.22.0)
       google-protobuf (~> 4.26)
-    govspeak (10.8.4)
+    govspeak (10.8.5)
       actionview (>= 6, < 8.1.2)
       addressable (>= 2.3.8, < 2.8.9)
       govuk_publishing_components (>= 43)
       htmlentities (~> 4)
       i18n (>= 0.7, < 1.14.9)
-      kramdown (>= 2.3.1, < 2.5.2)
+      kramdown (>= 2.3.1, < 2.5.3)
       nokogiri (~> 1.12)
       rinku (~> 2.0)
       sanitize (>= 6, < 8)
@@ -250,8 +250,8 @@ GEM
       bigdecimal (>= 3.1, < 5)
     jsonpath (1.1.5)
       multi_json
-    kramdown (2.5.1)
-      rexml (>= 3.3.9)
+    kramdown (2.5.2)
+      rexml (>= 3.4.4)
     language_server-protocol (3.17.0.5)
     link_header (0.0.8)
     lint_roller (1.1.0)
@@ -770,7 +770,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   gds-api-adapters
-  govspeak (~> 10.6)
+  govspeak (~> 10.8)
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation

@@ -25,6 +25,7 @@ module ApplicationHelper
                             service_manual_service_standard
                             service_manual_service_toolkit
                             service_manual_topic
+                            topical_event
                             topical_event_about_page
                             worldwide_corporate_information_page
                             worldwide_office

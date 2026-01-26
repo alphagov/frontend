@@ -1,0 +1,20 @@
+<div class="flexible-section" data-flexible-section="whos-involved">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Who's involved",
+    padding: true,
+    border_top: 5,
+  } %>
+
+  <div class="govuk-grid-row">
+    <% flexible_section.organisations.each do |organisation| %>
+      <%= render "govuk_publishing_components/components/organisation_logo", {
+        organisation: {
+          name: organisation["name"],
+          url: organisation["url"],
+          brand: organisation["brand"],
+          crest: organisation["crest"],
+        }
+      } %>
+    <% end %>
+  </div>
+</div>

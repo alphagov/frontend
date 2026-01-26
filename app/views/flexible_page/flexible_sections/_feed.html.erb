@@ -39,7 +39,7 @@
     <%= render "govuk_publishing_components/components/share_links", {
       square_icons: true,
       flexbox: true,
-      links: flexible_section.share_links.map(&:symbolize_keys),
+      links: flexible_section.share_links,
       track_as_follow: true,
     } %>
   </div>

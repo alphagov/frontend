@@ -4,4 +4,6 @@ RSpec.describe HmrcManual do
   it_behaves_like "it can have section groups", "hmrc_manual", "hmrc_manual"
   it_behaves_like "it can be a manual", "hmrc_manual", "hmrc_manual"
   it_behaves_like "it can be a manual section", "hmrc_manual", "hmrc_manual"
+  it_behaves_like "it has updates", "hmrc_manual", "hmrc_manual_with_history"
+  it_behaves_like "it has no updates", "hmrc_manual", "hmrc_manual"
 end

@@ -23,7 +23,6 @@ Bundler.require(*Rails.groups)
 
 module Frontend
   class Application < Rails::Application
-    include GovukPublishingComponents::AppHelpers::AssetHelper
     # Initialize configuration defaults for originally generated Rails version.
     require "frontend"
     config.load_defaults 8.0

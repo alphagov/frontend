@@ -26,8 +26,23 @@ private
         see_all_items_link: "/search/all",
         share_links_heading_text: "Follow us",
         share_links: social_media_links
+      },
+      {
+        type: "organisations",
+        organisations: organisation_map,
       }
     ]
+  end
+
+  def organisation_map
+    linked("organisations").map do |org|
+      {
+        name: org.title,
+        url: org.base_path,
+        brand: org.brand,
+        crest: org.logo.crest,
+      }
+    end
   end
 
   def social_media_links

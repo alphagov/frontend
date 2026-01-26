@@ -270,6 +270,106 @@ details:
         icon: "facebook"
         data_attributes:
           module: "example"
+  - type: featured
+    ordered_featured_documents:
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what a single featured item looks like."
+        title: "Government does things"
+  - type: featured
+    ordered_featured_documents:
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what two featured items look like. We also need to test what happens when they're different heights."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what two featured items look like."
+        title: "Government does things"
+  - type: featured
+    ordered_featured_documents:
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what three featured items look like. We also need to test what happens when they're different heights."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what three featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what three featured items look like."
+        title: "Government does things"
+  - type: featured
+    ordered_featured_documents:
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what four featured items look like. We also need to test what happens when they're different heights."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what four featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what four featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what four featured items look like."
+        title: "Government does things"
+  - type: featured
+    ordered_featured_documents:
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what five (or more) featured items look like. We also need to test what happens when they're different heights."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what five (or more) featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what five (or more) featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what five (or more) featured items look like."
+        title: "Government does things"
+      - href: "/not-a-page"
+        image:
+          alt_text: "some meaningful alt text please"
+          url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
+        summary: "This is what five (or more) featured items look like."
+        title: "Government does things"
 links:
   parent:
   - base_path: "/government/history"

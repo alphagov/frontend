@@ -103,5 +103,67 @@ RSpec.describe "FlexiblePage" do
         end
       end
     end
+
+    describe "renders a featured flexible section" do
+      it "contains the basic expected elements" do
+        visit base_path
+
+        expect(page).to have_selector(".gem-c-heading", text: "Featured")
+        expect(page).to have_selector(".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description", text: "This is what five (or more) featured items look like. We also need to test what happens when they're different heights.")
+      end
+
+      it "renders a single featured item as large" do
+        visit base_path
+
+        featured_items = page.all("[data-flexible-section='featured']")
+        within featured_items[0] do
+          expect(page).to have_selector(".govuk-grid-column-full .gem-c-image-card.gem-c-image-card--large", count: 1)
+        end
+      end
+
+      it "renders two featured items side by side" do
+        visit base_path
+
+        featured_items = page.all("[data-flexible-section='featured']")
+        within featured_items[1] do
+          expect(page).to have_selector(".govuk-grid-row", count: 1)
+          expect(page).to have_selector(".govuk-grid-column-one-half .gem-c-image-card", count: 2)
+          expect(page).not_to have_selector(".gem-c-image-card--large")
+        end
+      end
+
+      it "renders three featured items in one row" do
+        visit base_path
+
+        featured_items = page.all("[data-flexible-section='featured']")
+        within featured_items[2] do
+          expect(page).to have_selector(".govuk-grid-row", count: 1)
+          expect(page).to have_selector(".govuk-grid-column-one-third .gem-c-image-card", count: 3)
+          expect(page).not_to have_selector(".gem-c-image-card--large")
+        end
+      end
+
+      it "renders four featured items in two rows" do
+        visit base_path
+
+        featured_items = page.all("[data-flexible-section='featured']")
+        within featured_items[3] do
+          expect(page).to have_selector(".govuk-grid-row", count: 2)
+          expect(page).to have_selector(".govuk-grid-column-one-half .gem-c-image-card", count: 4)
+          expect(page).not_to have_selector(".gem-c-image-card--large")
+        end
+      end
+
+      it "renders five featured items in two rows" do
+        visit base_path
+
+        featured_items = page.all("[data-flexible-section='featured']")
+        within featured_items[4] do
+          expect(page).to have_selector(".govuk-grid-row", count: 2)
+          expect(page).to have_selector(".govuk-grid-column-one-third .gem-c-image-card", count: 5)
+          expect(page).not_to have_selector(".gem-c-image-card--large")
+        end
+      end
+    end
   end
 end

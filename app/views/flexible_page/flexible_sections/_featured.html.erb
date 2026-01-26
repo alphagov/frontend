@@ -1,0 +1,26 @@
+<div class="flexible-section" data-flexible-section="featured">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Featured",
+    padding: true,
+    border_top: 5,
+  } %>
+
+  <div class="govuk-grid-row">
+    <% flexible_section.items.each.with_index(1) do |item, index| %>
+      <div class="<%= flexible_section.grid_layout_options[:class] %>">
+        <%= render "govuk_publishing_components/components/image_card", {
+          href: item[:href],
+          image_src: item[:image_src],
+          image_alt: item[:image_alt],
+          heading_text: item[:heading_text],
+          description: item[:description],
+          large: flexible_section.grid_layout_options[:large],
+        } %>
+      </div>
+      <% if index % flexible_section.grid_layout_options[:break_at_column] == 0 && index < flexible_section.items.length %>
+        </div>
+        <div class="govuk-grid-row">
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -14,7 +14,7 @@
   <% @content_item.section_groups.each do |group| %>
     <% next if group["child_sections"].blank? %>
     <div class="subsection-collection">
-      <%= render "content_items/manuals/hmrc_sections", group: group, heading_level: 3 %>
+      <%= render "shared/manuals/hmrc_sections", group: group, heading_level: 3 %>
     </div>
   <% end %>
 <% end %>

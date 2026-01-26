@@ -8,9 +8,9 @@
   } %>
 <% end %>
 
-<%# <%= render "content_items/manuals/manual_layout" do %>
-  <%# <% @content_item.section_groups.each do |group| %>
-    <%#= render "govuk_publishing_components/components/document_list", {
+<%= render "shared/manuals/manual_layout" do %>
+  <% @content_item.section_groups.each do |group| %>
+    <%= render "govuk_publishing_components/components/document_list", {
         items: group["child_sections"].map do |section|
           {
             link: {
@@ -22,5 +22,5 @@
           }
         end
     } %>
-  <%# <% end %>
-<%# <% end %>
+  <% end %>
+<% end %>

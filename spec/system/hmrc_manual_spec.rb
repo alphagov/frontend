@@ -1,14 +1,29 @@
 RSpec.describe "Hmrc manual" do
-  # test "page renders correctly" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
+  context "when visiting a HMRC manual page" do
+    let(:content_item) { GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies") }
+    let(:base_path) { content_item["base_path"] }
 
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
+    before do
+      stub_content_store_has_item(base_path, content_item)
+    end
 
-  #   within "#manual-title" do
-  #     assert page.has_text?(I18n.t("manuals.hmrc_manual_type"))
-  #   end
-  # end
+    it "displays the title" do
+      visit base_path
+      expect(page).to have_title(content_item["title"])
+    end
+
+    it "displays the description" do
+      visit base_path
+      expect(page).to have_text(content_item["description"])
+    end
+
+    it "displays the manual type" do
+      visit base_path
+      within "#manual-title" do
+        expect(page).to have_text(I18n.t("formats.manuals.hmrc_manual_type"))
+      end
+    end
+  end
 
   # test "partial has 1 content id" do
   #   setup_and_visit_content_item("vat-government-public-bodies")

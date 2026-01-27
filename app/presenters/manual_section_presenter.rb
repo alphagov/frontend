@@ -7,6 +7,10 @@ class ManualSectionPresenter < ContentItemPresenter
     ContentsOutlinePresenter.new(content_item.contents_outline)
   end
 
+  def document_heading
+    [content_item.content_store_response.dig("details", "section_id"), content_item.title].compact.join(" - ")
+  end
+
   def page_title
     "#{content_item.manual_title} - #{content_item.title} - Guidance"
   end

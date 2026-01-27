@@ -3,6 +3,10 @@ class ManualSectionPresenter < ContentItemPresenter
 
   MOJ_ORGANISATION_CONTENT_ID = "dcc907d6-433c-42df-9ffb-d9c68be5dc4d".freeze
 
+  def contents_outline_presenter
+    ContentsOutlinePresenter.new(content_item.contents_outline)
+  end
+
   def page_title
     "#{content_item.manual_title} - #{content_item.title} - Guidance"
   end

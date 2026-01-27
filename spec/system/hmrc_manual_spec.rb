@@ -36,13 +36,11 @@ RSpec.describe "Hmrc manual" do
         expect(page).to have_text("Search this manual")
       end
     end
+
+    it "renders 'Summary' title if description field is present" do
+      expect(page).to have_css("h2", text: "Summary")
+    end
   end
-
-  # test "renders 'Summary' title if description field is present" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-
-  #   assert page.has_text?(I18n.t("manuals.summary_title"))
-  # end
 
   # test "renders contents title heading" do
   #   setup_and_visit_content_item("vat-government-public-bodies")

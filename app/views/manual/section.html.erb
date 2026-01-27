@@ -49,62 +49,63 @@
           } %>
         </div>
       <% end %>
-        <div class="govuk-grid-column-two-thirds">
-    <% if content_item.intro.present? %>
-      <%= render "govuk_publishing_components/components/govspeak", {} do
-        raw(content_item.intro)
-      end %>
-    <% end %>
 
-    <% if content_item.body.present? %>
-      <% if content_item.visually_expanded? %>
-        <% content_item.main.map do |item| %>
-          <div class="govuk-!-margin-bottom-3">
-            <%= render "govuk_publishing_components/components/heading", {
-              text: item[:heading][:text],
-              font_size: "m",
-              margin_bottom: 1,
-              id: item[:heading][:id],
-            } %>
-          </div>
-          <div class="govuk-body govuk-!-margin-bottom-1">
-            <%= render "govuk_publishing_components/components/govspeak", {} do
-              raw(item[:content])
-            end %>
-          </div>
+      <div class="govuk-grid-column-two-thirds">
+        <% if content_item.intro.present? %>
+          <%= render "govuk_publishing_components/components/govspeak", {} do
+            raw(content_item.intro)
+          end %>
         <% end %>
-      <% else %>
-        <%
-          items = content_item.main.each.with_index(1).map do |item, index|
-            rendered_content = render "govuk_publishing_components/components/govspeak", {} do
-              raw(item[:content])
-            end
 
-            {
-              data_attributes: {
-                ga4_event: {
-                  event_name: "select_content",
-                  type: "accordion",
+        <% if content_item.body.present? %>
+          <% if content_item.visually_expanded? %>
+            <% content_item.main.map do |item| %>
+              <div class="govuk-!-margin-bottom-3">
+                <%= render "govuk_publishing_components/components/heading", {
                   text: item[:heading][:text],
-                  index: index,
-                  index_total: content_item.main.length,
-                },
-              },
-              heading: item[:heading],
-              content: {
-                html: rendered_content,
-              },
-            }
-          end
-        %>
+                  font_size: "m",
+                  margin_bottom: 1,
+                  id: item[:heading][:id],
+                } %>
+              </div>
+              <div class="govuk-body govuk-!-margin-bottom-1">
+                <%= render "govuk_publishing_components/components/govspeak", {} do
+                  raw(item[:content])
+                end %>
+              </div>
+            <% end %>
+          <% else %>
+            <%
+              items = content_item.main.each.with_index(1).map do |item, index|
+                rendered_content = render "govuk_publishing_components/components/govspeak", {} do
+                  raw(item[:content])
+                end
 
-        <%= render "govuk_publishing_components/components/accordion", {
-          anchor_navigation: true,
-          items: items,
-        } %>
-      <% end %>
-    <% end %>
-  </div>
+                {
+                  data_attributes: {
+                    ga4_event: {
+                      event_name: "select_content",
+                      type: "accordion",
+                      text: item[:heading][:text],
+                      index: index,
+                      index_total: content_item.main.length,
+                    },
+                  },
+                  heading: item[:heading],
+                  content: {
+                    html: rendered_content,
+                  },
+                }
+              end
+            %>
+
+            <%= render "govuk_publishing_components/components/accordion", {
+              anchor_navigation: true,
+              items: items,
+            } %>
+          <% end %>
+        <% end %>
+      </div>
     </article>
   </div>
 

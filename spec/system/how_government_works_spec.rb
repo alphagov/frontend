@@ -48,12 +48,3 @@ RSpec.describe "How Government Works" do
     end
   end
 end
-
-# test "does not include the count of ministers during a reshuffle" do
-#   setup_and_visit_content_item("reshuffle-mode-on")
-
-#   assert_not page.has_selector?(".gem-c-big-number", text: /Prime Minister/m)
-#   assert_not page.has_selector?(".gem-c-big-number", text: /Cabinet ministers/m)
-#   assert_not page.has_selector?(".gem-c-big-number", text: /Other ministers/m)
-#   assert_not page.has_selector?(".gem-c-big-number", text: /Total ministers/m)
-# end

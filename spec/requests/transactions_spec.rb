@@ -24,7 +24,7 @@ RSpec.describe "Transactions" do
     it "responds with success" do
       get "/jobsearch"
 
-      assert_response(:success)
+      expect(response).to have_http_status(200)
     end
 
     it "loads the correct details" do

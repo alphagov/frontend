@@ -59,7 +59,7 @@
 
         <% if content_item.body.present? %>
           <% if content_item.visually_expanded? %>
-            <% content_item.main.map do |item| %>
+            <% content_item.sections.map do |item| %>
               <div class="govuk-!-margin-bottom-3">
                 <%= render "govuk_publishing_components/components/heading", {
                   text: item[:heading][:text],
@@ -76,7 +76,7 @@
             <% end %>
           <% else %>
             <%
-              items = content_item.main.each.with_index(1).map do |item, index|
+              items = content_item.sections.each.with_index(1).map do |item, index|
                 rendered_content = render "govuk_publishing_components/components/govspeak", {} do
                   raw(item[:content])
                 end
@@ -88,7 +88,7 @@
                       type: "accordion",
                       text: item[:heading][:text],
                       index: index,
-                      index_total: content_item.main.length,
+                      index_total: content_item.sections.length,
                     },
                   },
                   heading: item[:heading],

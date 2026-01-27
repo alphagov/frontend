@@ -5,47 +5,32 @@ RSpec.describe "Hmrc manual" do
 
     before do
       stub_content_store_has_item(base_path, content_item)
+      visit base_path
     end
 
     it "displays the title" do
-      visit base_path
       expect(page).to have_title(content_item["title"])
     end
 
     it "displays the description" do
-      visit base_path
       expect(page).to have_text(content_item["description"])
     end
 
     it "displays the manual type" do
-      visit base_path
       within "#manual-title" do
         expect(page).to have_text(I18n.t("formats.manuals.hmrc_manual_type"))
       end
     end
+
+    it "renders the relevant metadata" do
+      within("[class*='gem-c-inverse-header']") do
+        expect(page).to have_text("From: HM Revenue & Customs")
+        expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
+        expect(page).to have_text("Published 11 February 2015")
+        expect(page).to have_text("Updated: 11 February 2015")
+      end
+    end
   end
-
-  # test "partial has 1 content id" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-  #   content_ids = page.all('[id="content"]')
-
-  #   assert_equal 1, content_ids.count
-  # end
-
-  # test "renders metadata" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-
-  #   assert_has_metadata(
-  #     {
-  #       from: { "HM Revenue & Customs": "/government/organisations/hm-revenue-customs" },
-  #       first_published: "11 February 2015",
-  #       other: {
-  #         I18n.t("manuals.see_all_updates") => "#{@content_item['base_path']}/updates",
-  #       },
-  #     },
-  #     extra_metadata_classes: ".gem-c-metadata--inverse",
-  #   )
-  # end
 
   # test "renders search box" do
   #   setup_and_visit_content_item("vat-government-public-bodies")

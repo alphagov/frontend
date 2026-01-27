@@ -78,33 +78,36 @@ RSpec.describe "Hmrc manual" do
         end
       end
     end
+
+    it "does not render section groups with no sections inside" do
+      content_item_override = {
+        "details" => {
+          "child_section_groups" => [
+            {
+              title: "Some section group title 1",
+              child_sections: [],
+            },
+            {
+              title: "Some section group title 2",
+              child_sections: [
+                {
+                  "section_id" => "VATGPB1000",
+                  "title" => "Introduction: contents",
+                  "description" => "",
+                  "base_path" => "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
+                },
+              ],
+            },
+          ],
+        },
+      }
+
+      content_item.deep_merge!(content_item_override)
+      stub_content_store_has_item(base_path, content_item)
+      visit base_path
+
+      expect(page).not_to have_text("Some section group title 1")
+      expect(page).to have_text("Some section group title 2")
+    end
   end
-
-  # test "does not render section groups with no sections inside" do
-  #   content_item_override = {
-  #     "details" => {
-  #       "child_section_groups" => [
-  #         {
-  #           title: "Some section group title 1",
-  #           child_sections: [],
-  #         },
-  #         {
-  #           title: "Some section group title 2",
-  #           child_sections: [
-  #             {
-  #               "section_id" => "VATGPB1000",
-  #               "title" => "Introduction: contents",
-  #               "description" => "",
-  #               "base_path" => "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
-  #             },
-  #           ],
-  #         },
-  #       ],
-  #     },
-  #   }
-
-  #   setup_and_visit_content_item("vat-government-public-bodies", content_item_override)
-  #   assert page.has_no_text?("Some section group title 1")
-  #   assert page.has_text?("Some section group title 2")
-  # end
 end

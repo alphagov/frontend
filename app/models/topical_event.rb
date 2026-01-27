@@ -1,5 +1,4 @@
 class TopicalEvent < FlexiblePage
-
 private
 
   def default_flexible_sections
@@ -16,7 +15,7 @@ private
       },
       {
         type: "featured",
-        ordered_featured_documents: content_store_response.dig("details", "ordered_featured_documents")
+        ordered_featured_documents: content_store_response.dig("details", "ordered_featured_documents"),
       },
       {
         type: "feed",
@@ -25,12 +24,12 @@ private
         items: fetch_related_documents_with_format,
         see_all_items_link: "/search/all",
         share_links_heading_text: "Follow us",
-        share_links: social_media_links
+        share_links: social_media_links,
       },
       {
         type: "organisations",
         organisations: organisation_map,
-      }
+      },
     ]
   end
 
@@ -57,19 +56,19 @@ private
 
   def fields
     %w[display_type
-      title
-      link
-      public_timestamp
-      format
-      content_store_document_type
-      description
-      content_id
-      organisations
-      document_collections].freeze
+       title
+       link
+       public_timestamp
+       format
+       content_store_document_type
+       description
+       content_id
+       organisations
+       document_collections].freeze
   end
 
   def slug
-    base_path.split('/').last
+    base_path.split("/").last
   end
 
   def default_search_options

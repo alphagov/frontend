@@ -26,7 +26,7 @@
 <div id="manuals-frontend">
   <% if show_contents %>
     <%= render "govuk_publishing_components/components/contents_list", {
-      aria: { label: t("manuals.pages_in_manual_section") }, contents: @content_item.contents, underline_links: true
+      aria: { label: t("manuals.pages_in_manual_section") }, contents: content_item.contents, underline_links: true
     } %>
   <% end %>
 
@@ -34,7 +34,7 @@
     <article aria-labelledby="section-title">
       <div class="govuk-grid-column-full">
         <%= render "govuk_publishing_components/components/heading", {
-          text: @content_item.document_heading.join(" - "),
+          text: content_item.document_heading.join(" - "),
           font_size: "l",
           id: "section-title",
           heading_level: 1,
@@ -42,10 +42,10 @@
         } %>
       </div>
 
-      <% if @content_item.description.present? %>
+      <% if content_item.description.present? %>
         <div class="govuk-grid-column-two-thirds">
           <%= render "govuk_publishing_components/components/lead_paragraph", {
-            text: @content_item.description,
+            text: content_item.description,
           } %>
         </div>
       <% end %>

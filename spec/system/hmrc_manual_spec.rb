@@ -30,15 +30,13 @@ RSpec.describe "Hmrc manual" do
         expect(page).to have_text("Updated: 11 February 2015")
       end
     end
+
+    it "renders search box" do
+      within(".gem-c-search") do
+        expect(page).to have_text("Search this manual")
+      end
+    end
   end
-
-  # test "renders search box" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-
-  #   within ".gem-c-search" do
-  #     assert page.has_text?(I18n.t("manuals.search_this_manual"))
-  #   end
-  # end
 
   # test "renders 'Summary' title if description field is present" do
   #   setup_and_visit_content_item("vat-government-public-bodies")

@@ -6,11 +6,11 @@
   <%= @presenter.page_title %> - GOV.UK
 <% end %>
 
-<% content_for :header do %>
-  <%= render "content_items/manuals/header", {
-    content_item: content_item, heading_level: 1
+<% content_for :before_main do %>
+  <%= render "shared/manuals/header", {
+    content_item: content_item.manual_content_item,
+    heading_level: 1,
   } %>
-  <%= render partial: "content_items/manuals/breadcrumbs" %>
 <% end %>
 
 <%= render "content_items/manuals/manual_section_layout", { show_contents: true } do %>

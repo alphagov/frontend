@@ -11,4 +11,8 @@ class ManualSection < ContentItem
     @intro = section_tokenizer.intro.first&.dig(:content)
     @sections = section_tokenizer.sections_with_heading
   end
+
+  def contents_outline
+    ContentsOutline.new(sections.map { |section| section[:heading].stringify_keys })
+  end
 end

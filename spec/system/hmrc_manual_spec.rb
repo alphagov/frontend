@@ -48,43 +48,36 @@ RSpec.describe "Hmrc manual" do
     it "renders sections title heading" do
       expect(page).to have_css("h3", text: "Historic updates")
     end
+
+    it "renders section groups" do
+      child_section_groups = page.all(".subsection-collection .section-list")
+      expect(child_section_groups.count).to eq(2)
+    end
+
+    it "renders child section groups" do
+      child_section_groups = page.all(".subsection-collection .section-list")
+
+      within child_section_groups[0] do
+        first_group_children = page.all("li")
+        expect(first_group_children.count).to eq(9)
+
+        within first_group_children[0] do
+          expect(page).to have_link("Introduction: contents", href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000")
+          expect(page).to have_text("VATGPB1000")
+        end
+      end
+
+      within child_section_groups[1] do
+        section_group_children = page.all("li")
+        expect(section_group_children.count).to eq(1)
+
+        within section_group_children[0] do
+          expect(page).to have_link("VAT Government and public bodies: update index", href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpbupdate001")
+          expect(page).to have_text("VATGPBUPDATE001")
+        end
+      end
+    end
   end
-
-  # test "renders section groups" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-
-  #   child_section_groups = page.all(".subsection-collection .section-list")
-
-  #   assert_equal 2, child_section_groups.count
-
-  #   within child_section_groups[0] do
-  #     first_group_children = page.all("li")
-
-  #     assert_equal 9, first_group_children.count
-
-  #     within first_group_children[0] do
-  #       assert page.has_link?(
-  #         "Introduction: contents",
-  #         href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
-  #       )
-  #       assert page.has_text?("VATGPB1000")
-  #     end
-  #   end
-
-  #   within child_section_groups[1] do
-  #     section_group_children = page.all("li")
-
-  #     assert_equal 1, section_group_children.count
-
-  #     within section_group_children[0] do
-  #       assert page.has_link?(
-  #         "VAT Government and public bodies: update index",
-  #         href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpbupdate001",
-  #       )
-  #       assert page.has_text?("VATGPBUPDATE001")
-  #     end
-  #   end
-  # end
 
   # test "does not render section groups with no sections inside" do
   #   content_item_override = {

@@ -44,13 +44,11 @@ RSpec.describe "Hmrc manual" do
     it "renders contents title heading" do
       expect(page).to have_css("h2", text: "Contents")
     end
+
+    it "renders sections title heading" do
+      expect(page).to have_css("h3", text: "Historic updates")
+    end
   end
-
-  # test "renders sections title heading" do
-  #   setup_and_visit_content_item("vat-government-public-bodies")
-
-  #   assert page.has_selector?("h3", text: "Historic updates")
-  # end
 
   # test "renders section groups" do
   #   setup_and_visit_content_item("vat-government-public-bodies")

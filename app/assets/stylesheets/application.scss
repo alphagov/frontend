@@ -1,10 +1,5 @@
-// This flag includes the font in this application's
-// stylesheet - Since we are no longer using Static in frontend,
-// it is now set to true.
-$govuk-include-default-font-face: true;
-
-@import "govuk_publishing_components/govuk_frontend_support";
-@import "govuk_publishing_components/component_support";
+@import "govuk_publishing_components/vars_and_mixins";
+@import "govuk_publishing_components/specific_components";
 
 @import "govuk_publishing_components/components/accordion";
 @import "govuk_publishing_components/components/action-link";

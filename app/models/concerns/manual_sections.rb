@@ -7,10 +7,6 @@ module ManualSections
       linked("manual").first.title
     end
 
-    def page_title
-      "#{breadcrumb} - #{manual_page_title}"
-    end
-
     def document_heading
       document_heading = []
 
@@ -30,24 +26,13 @@ module ManualSections
     def hmrc?
       %w[hmrc_manual hmrc_manual_section].include?(schema_name)
     end
+
+    def breadcrumb
+      content_store_response["details"]["section_id"] || manual_title
+    end
   end
 
 private
-
-  def breadcrumb
-    content_store_response["details"]["section_id"] || manual_title
-  end
-
-  def manual_page_title
-    title = content_store_response["title"] || ""
-    title += " - " if title.present?
-
-    if hmrc?
-      I18n.t("formats.manuals.hmrc_title", title:)
-    else
-      I18n.t("formats.manuals.title", title:)
-    end
-  end
 
   def show_contents_list?
     organisation_content_id == MOJ_ORGANISATION_CONTENT_ID

@@ -7,17 +7,19 @@ RSpec.describe ApplicationHelper do
 
       expect(page_title(content_item)).to be_truthy
     end
+
+    it "builds title from content items" do
+      content_item = OpenStruct.new(title: "Title")
+
+      expect(page_title(content_item)).to eq("Title - GOV.UK")
+    end
+
+    it "omits first part of title if content_item is omitted" do
+      expect(page_title).to eq("GOV.UK")
+    end
   end
 
-  it "builds title from content items" do
-    content_item = OpenStruct.new(title: "Title")
 
-    expect(page_title(content_item)).to eq("Title - GOV.UK")
-  end
-
-  it "omits first part of title if content_item is omitted" do
-    expect(page_title).to eq("GOV.UK")
-  end
 
   describe "#current_path_without_query_string" do
     it "returns the path of the current request" do

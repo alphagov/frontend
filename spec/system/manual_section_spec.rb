@@ -25,6 +25,12 @@ RSpec.describe "Manual Section" do
         expect(page).to have_link(manual_taxonomy_topic["title"], href: manual_taxonomy_topic["base_path"])
       end
     end
+
+    it "has a search box" do
+      within ".gem-c-search" do
+        expect(page).to have_text(I18n.t("formats.manuals.search_this_manual"))
+      end
+    end
   end
 end
 
@@ -41,14 +47,6 @@ end
   #     },
   #     extra_metadata_classes: ".gem-c-metadata--inverse",
   #   )
-  # end
-
-  # test "renders search box" do
-  #   setup_and_visit_manual_section
-
-  #   within ".gem-c-search" do
-  #     assert page.has_text?(I18n.t("manuals.search_this_manual"))
-  #   end
   # end
 
   # test "renders document heading" do

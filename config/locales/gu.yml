@@ -492,8 +492,8 @@ gu:
         other: રાષ્ટ્રીય આંકડા
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: રાષ્ટ્રીય આંકડાની જાહેરાત
+        other: રાષ્ટ્રીય આંકડાની જાહેરાતો
     news_article:
       name:
         one: ન્યૂઝ આર્ટિકલ
@@ -516,8 +516,8 @@ gu:
         other: અધિકૃત આંકડા
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: અધિકૃત આંકડાની જાહેરાત
+        other: અધિકૃત આંકડાની જાહેરાતો
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ gu:
         one:
         other:
     statistics_announcement:
+      cancellation_date: રદ કર્યાની તારીખ
+      cancelled: આંકડાનું પ્રકશન રદ થયું
+      changed_date: રીલીઝ તારીખ બદલવામાં આવી છે
+      forthcoming: આ આંકડાઓ રીલીઝ કરાશે
       name:
-        one:
-        other:
+        one: આંકડા જારી કરવાની જાહેરાત
+        other: આંકડા જારી કરવાની જાહેરાતો
+      previous_date: પાછલી તારીખ
+      proposed_date: પ્રસ્તાવિત રીલીઝ
+      reason_for_change: પરીવર્તન માટેનું કારણ
+      release_date: રીલીઝ તારીખ
     statutory_guidance:
       name:
         one: વૈધાનિક માર્ગદર્શન

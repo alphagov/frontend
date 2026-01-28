@@ -536,8 +536,8 @@ hr:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Najava nacionalne statistike
+        other: Najave nacionalne statistike
     news_article:
       name:
         few:
@@ -566,8 +566,8 @@ hr:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Objava službene statistike
+        other: Objave službene statistike
     open_call_for_evidence:
       name:
         few:
@@ -702,10 +702,18 @@ hr:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Datum otkazivanja
+      cancelled: Objavljivanje statistike otkazano
+      changed_date: Datum izlaska je promijenjen
+      forthcoming: Ove će statistike biti objavljene
       name:
         few:
-        one:
-        other:
+        one: Najava objavljivanja statistike
+        other: Najave objavljivanja statistike
+      previous_date: Prethodni datum
+      proposed_date: Predloženo puštanje na slobodu
+      reason_for_change: Razlog za promjenu
+      release_date: Datum izlaska
     statutory_guidance:
       name:
         few:

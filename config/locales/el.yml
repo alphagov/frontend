@@ -492,8 +492,8 @@ el:
         other: Εθνική Στατιστική Υπηρεσία
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ανακοίνωση εθνικής στατιστικής υπηρεσίας
+        other: Ανακοινώσεις εθνικής στατιστικής υπηρεσίας
     news_article:
       name:
         one: Άρθρο ειδήσεων
@@ -516,8 +516,8 @@ el:
         other: Επίσημη Στατιστικά Στοιχεία
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Επίσημη ανακοίνωση στατιστικών
+        other: Επίσημες ανακοινώσεις στατιστικών
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ el:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Ημερομηνία ακύρωσης
+      cancelled: Η στατιστική έκδοση ακυρώθηκε
+      changed_date: Η ημερομηνία κυκλοφορίας άλλαξε
+      forthcoming: Αυτά τα στατιστικά στοιχεία θα δημοσιοποιηθούν
       name:
-        one:
-        other:
+        one: Ανακοίνωση έκδοσης στατιστικών
+        other: Ανακοινώσεις έκδοσης στατιστικών
+      previous_date: Προηγούμενη ημερομηνία
+      proposed_date: Προτεινόμενη κυκλοφορία
+      reason_for_change: Λόγος για την αλλαγή
+      release_date: Ημερομηνία κυκλοφορίας
     statutory_guidance:
       name:
         one: Νομικές οδηγίες

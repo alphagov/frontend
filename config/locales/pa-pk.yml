@@ -492,8 +492,8 @@ pa-pk:
         other: قومی اعدادوشمار
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: قومی اعدادوشمار دا اعلان
+        other: قومی اعدادوشمار دے اعلانات
     news_article:
       name:
         one: خبراں دا مضمون
@@ -516,8 +516,8 @@ pa-pk:
         other: سرکاری اعدادوشمار
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: سرکاری اعدادوشمار دا اعلان
+        other: سرکاری اعدادوشمار دے اعلانات
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ pa-pk:
         one:
         other:
     statistics_announcement:
+      cancellation_date: منسوخ کرن دی تاریخ
+      cancelled: اعدادوشمار جاری کرنا منسوخ ہویا
+      changed_date: جاری کرن دی تاریخ بدل دتی گئی
+      forthcoming: اعدادو شمار جاری کیتے جان گے
       name:
-        one:
-        other:
+        one: اعدادو شمار جاری کرن دا اعلان
+        other: اعدادوشمار جاری کرن دے اعلانات
+      previous_date: پچھلی تاریخ
+      proposed_date: تجویز کر کے جاری کیتا گیا
+      reason_for_change: بدلن دی وجہ
+      release_date: جاری کرن دی تاریخ
     statutory_guidance:
       name:
         one: قانونی رہنمائی

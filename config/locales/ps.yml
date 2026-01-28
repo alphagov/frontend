@@ -492,8 +492,8 @@ ps:
         other: ملي احصایې
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: د ملي احصایې اعلان
+        other: د ملي احصایې اعلانونه
     news_article:
       name:
         one: د خبر مقاله
@@ -516,8 +516,8 @@ ps:
         other: رسمي احصایې
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: د رسمي احصایې اعلان
+        other: د رسمي احصایې اعلانونه
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ ps:
         one:
         other:
     statistics_announcement:
+      cancellation_date: د لغوه کولو نیټه
+      cancelled: د احصایې خپریدل لغوه شول
+      changed_date: د خپریدو نیټه بدله شوې
+      forthcoming: دا احصایې به خپاره شي
       name:
-        one:
-        other:
+        one: د احصایې خپریدو اعلان
+        other: احصایې اعلانات خپروي
+      previous_date: پخوانۍ نیټه
+      proposed_date: وړاندیز شوی خوشې کول
+      reason_for_change: د بدلون لپاره دلیل
+      release_date: دخپریدو نیټه
     statutory_guidance:
       name:
         one: قانوني لارښود

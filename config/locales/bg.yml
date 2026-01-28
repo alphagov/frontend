@@ -492,8 +492,8 @@ bg:
         other: Национална статистика
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Съобщение от националната статистика
+        other: Съобщения от националните статистики
     news_article:
       name:
         one: Информационна статия
@@ -516,8 +516,8 @@ bg:
         other: Официална статистика
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Съобщение от официалната статистика
+        other: Съобщения от официалните статистики
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ bg:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Дата на анулиране
+      cancelled: Съобщенията за статистика са анулирани
+      changed_date: Датата на изданието е променена
+      forthcoming: Статистиката ще бъде издадена
       name:
-        one:
-        other:
+        one: Съобщение за издадена статистика
+        other: Съобщения за издадена статистика
+      previous_date: Предишна дата
+      proposed_date: Предложено издание
+      reason_for_change: Причина за промяната
+      release_date: Дата на издаване
     statutory_guidance:
       name:
         one: Законови указания

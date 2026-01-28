@@ -536,8 +536,8 @@ lt:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Nacionalinės statistikos pranešimas
+        other: Nacionalinės statistikos pranešimai
     news_article:
       name:
         few:
@@ -566,8 +566,8 @@ lt:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oficialios statistikos pranešimas
+        other: Oficialios statistikos pranešimai
     open_call_for_evidence:
       name:
         few:
@@ -702,10 +702,18 @@ lt:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Atšaukimo data
+      cancelled: Statistikos pranešimas atšauktas
+      changed_date: Pranešimo data buvo pakeista
+      forthcoming: Ši statistika bus paskelbta
       name:
         few:
-        one:
-        other:
+        one: Statistinių duomenų pranešimas
+        other: Statistinių duomenų pranešimai
+      previous_date: Ankstesnė data
+      proposed_date: Siūloma paskelbimo data
+      reason_for_change: Pakeitimo priežastis
+      release_date: Paskelbimo data
     statutory_guidance:
       name:
         few:

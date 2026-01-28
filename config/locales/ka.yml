@@ -492,8 +492,8 @@ ka:
         other: ეროვნული სტატისტიკა
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: ეროვნული სტატისტიკის განცხადება
+        other: ეროვნული სტატისტიკის განცხადებები
     news_article:
       name:
         one: ახალი ამბების სტატია
@@ -516,8 +516,8 @@ ka:
         other: ოფიციალური სტატისტიკა
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: ოფიციალური სტატისტიკის განცხადება
+        other: ოფიციალური სტატისტიკის განცხადებები
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ ka:
         one:
         other:
     statistics_announcement:
+      cancellation_date: გაუქმების თარიღი
+      cancelled: სტატისტიკის გამოშვება გაუქმდა
+      changed_date: გამოსვლის თარიღი შეიცვალა
+      forthcoming: ეს სტატისტიკა გამოქვეყნდება
       name:
-        one:
-        other:
+        one: სტატისტიკის გამოქვეყნების განცხადება
+        other: სტატისტიკის გამოქვეყნების განცხადებები
+      previous_date: წინა თარიღი
+      proposed_date: შეთავაზებული გაცემა
+      reason_for_change: შეცვლის მიზეზი
+      release_date: გამოშვების თარიღი
     statutory_guidance:
       name:
         one: კანონიერი ხელმძღვანელობა

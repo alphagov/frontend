@@ -492,8 +492,8 @@ et:
         other: Riiklik statistika
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Riiklik statistikateade
+        other: Riiklikud statistikateated
     news_article:
       name:
         one: Uudiste artikkel
@@ -516,8 +516,8 @@ et:
         other: Ametlik statistika
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ametlik statistikateade
+        other: Ametlikud statistikateated
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ et:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Tühistamise kuupäev
+      cancelled: Statistika avaldamine tühistati
+      changed_date: Väljaandmiskuupäeva on muudetud
+      forthcoming: See statistika avaldatakse
       name:
-        one:
-        other:
+        one: Teade statistika avaldamisest
+        other: Teated statistika avaldamisest
+      previous_date: Eelmine kuupäev
+      proposed_date: Kavandatud avaldamine
+      reason_for_change: Põhjus muutumiseks
+      release_date: Väljaande kuupäev
     statutory_guidance:
       name:
         one: Seadusjärgsed juhised

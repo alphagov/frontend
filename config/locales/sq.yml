@@ -492,8 +492,8 @@ sq:
         other: Statistikat Kombëtare
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Njoftimi i statistikave kombëtare
+        other: Njoftime të statistikave kombëtare
     news_article:
       name:
         one: Artikull lajmesh
@@ -516,8 +516,8 @@ sq:
         other: Statistikat Zyrtare
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Njoftimi i statistikave zyrtare
+        other: Njoftime të statistikave zyrtare
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ sq:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Data e anulimit
+      cancelled: Publikimi i statistikave u anulua
+      changed_date: Data e publikimit është ndryshuar
+      forthcoming: Këto statistika do të publikohen
       name:
-        one:
-        other:
+        one: Njoftimi për publikimin e statistikave
+        other: Njoftime për publikimin e statistikave
+      previous_date: Data e mëparshme
+      proposed_date: Publikimi i propozuar
+      reason_for_change: Arsye për të ndryshuar
+      release_date: Data e publikimit
     statutory_guidance:
       name:
         one: Udhëzim ligjor

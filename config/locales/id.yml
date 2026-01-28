@@ -449,7 +449,7 @@ id:
         other: Statistik Nasional
     national_statistics_announcement:
       name:
-        other:
+        other: Pengumuman statistik nasional
     news_article:
       name:
         other: Artikel berita
@@ -467,7 +467,7 @@ id:
         other: Statistik Resmi
     official_statistics_announcement:
       name:
-        other:
+        other: Pengumuman statistik resmi
     open_call_for_evidence:
       name:
         other:
@@ -556,8 +556,16 @@ id:
       name:
         other:
     statistics_announcement:
+      cancellation_date: Tanggal pembatalan
+      cancelled: Rilis statistik dibatalkan
+      changed_date: Tanggal rilis telah berubah
+      forthcoming: Statistik ini akan dirilis
       name:
-        other:
+        other: Pengumuman rilis statistik
+      previous_date: Tanggal sebelumnya
+      proposed_date: Rilis yang diusulkan
+      reason_for_change: Alasan perubahan
+      release_date: Tanggal rilis
     statutory_guidance:
       name:
         other: Panduan perundang-undangan

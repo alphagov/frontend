@@ -492,8 +492,8 @@ bn:
         other: জাতীয় পরিসংখ্যান
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: জাতীয় পরিসংখ্যানের ঘোষণা
+        other: জাতীয় পরিসংখ্যানের ঘোষণাসমূহ
     news_article:
       name:
         one: সংবাদের নিবন্ধ
@@ -516,8 +516,8 @@ bn:
         other: দাপ্তরিক পরিসংখ্যান
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: দাপ্তরিক পরিসংখ্যানের ঘোষণা
+        other: দাপ্তরিক পরিসংখ্যানের ঘোষণাসমূহ
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ bn:
         one:
         other:
     statistics_announcement:
+      cancellation_date: বাতিল করার তারিখ
+      cancelled: প্রকাশিত পরিসংখ্যান বাতিল করা হয়েছে
+      changed_date: প্রকাশের তারিখ পরিবর্তন করা হয়েছে
+      forthcoming: এই পরিসংখ্যানগুলো প্রকাশ করা হবে
       name:
-        one:
-        other:
+        one: পরিসংখ্যান প্রকাশের ঘোষণা
+        other: পরিসংখ্যান প্রকাশের ঘোষণাসমূহ
+      previous_date: পূর্ববর্তী তারিখ
+      proposed_date: প্রস্তাবিত প্রকাশ
+      reason_for_change: পরিবর্তন করার কারণ
+      release_date: প্রকাশের তারিখ
     statutory_guidance:
       name:
         one: বিধিবদ্ধ নির্দেশনা

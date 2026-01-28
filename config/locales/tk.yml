@@ -492,8 +492,8 @@ tk:
         other: Milli statistika
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Milli statistika bildirişi
+        other: Milli statistika bildirişleri
     news_article:
       name:
         one: Habar makalasy
@@ -516,8 +516,8 @@ tk:
         other: Resmi statistika
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Resmi statistika bildirişi
+        other: Resmi statistika bildirişleri
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ tk:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Bes etmegiň senesi
+      cancelled: Statistiki goýberişlerini bes etmek
+      changed_date: Goýberiliş senesi üýtgedildi
+      forthcoming: Bu statistikalar çap ediler
       name:
-        one:
-        other:
+        one: Statistiki habarnama
+        other: Statistiki habarnamalar
+      previous_date: Geçenki senesi
+      proposed_date: Teklip edilen goýberiliş
+      reason_for_change: Üýtgedilmeginiň sebäbi
+      release_date: Goýberiliş senesi
     statutory_guidance:
       name:
         one: Kanun boýunça görkezme

@@ -634,9 +634,17 @@ en:
         one: Statistics
         other: Statistics
     statistics_announcement:
+      cancellation_date: Cancellation date
+      cancelled: Statistics release cancelled
+      changed_date: The release date has been changed
+      forthcoming: These statistics will be released
       name:
         one: Statistics release announcement
         other: Statistics release announcements
+      previous_date: Previous date
+      proposed_date: Proposed release
+      reason_for_change: Reason for change
+      release_date: Release date
     statutory_guidance:
       name:
         one: Statutory guidance

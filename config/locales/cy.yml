@@ -926,6 +926,10 @@ cy:
         two:
         zero:
     statistics_announcement:
+      cancellation_date: Dyddiad canslo
+      cancelled: Rhyddhau ystadegau wedi'i ganslo
+      changed_date: Mae'r dyddiad rhyddhau wedi'i newid
+      forthcoming: Bydd yr ystadegau hyn yn cael eu rhyddhau
       name:
         few:
         many:
@@ -933,6 +937,10 @@ cy:
         other: Cyhoeddiadau am ryddhau ystadegau
         two:
         zero:
+      previous_date: Dyddiad blaenorol
+      proposed_date: Rhyddhau arfaethedig
+      reason_for_change: Rheswm dros y newid
+      release_date: Dyddiad rhyddhau
     statutory_guidance:
       name:
         few:

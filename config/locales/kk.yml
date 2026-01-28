@@ -492,8 +492,8 @@ kk:
         other: Ұлттық статистика
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ұлттық статистика хабарландыруы
+        other: Ұлттық статистика хабарландырулары
     news_article:
       name:
         one: Жаңалықтар мақаласы
@@ -516,8 +516,8 @@ kk:
         other: Ресми статистика
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ресми статистика хабарландыруы
+        other: Ресми статистика хабарландырулары
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ kk:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Бас тартылған күні
+      cancelled: Статистикалық шығарылым тоқтатылды
+      changed_date: Шығарылым күні өзгертілді
+      forthcoming: Бұл статистика шығарылады
       name:
-        one:
-        other:
+        one: Статистикалық шығарылым хабарландыруы
+        other: Статистикалық шығарылым хабарландырулары
+      previous_date: Алдыңғы күн
+      proposed_date: Ұсынылған шығарылым
+      reason_for_change: Өзгеріс себебі
+      release_date: Шығарылым күні
     statutory_guidance:
       name:
         one: Заң нұсқаулығы

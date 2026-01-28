@@ -579,8 +579,8 @@ sl:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Objava državne statistike
+        other: Objave državne statistike
         two:
     news_article:
       name:
@@ -615,8 +615,8 @@ sl:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Objava uradne statistike
+        other: Objave uradne statistike
         two:
     open_call_for_evidence:
       name:
@@ -775,11 +775,19 @@ sl:
         other:
         two:
     statistics_announcement:
+      cancellation_date: Datum preklica
+      cancelled: Statistična objava je bila preklicana
+      changed_date: Datum objave seje spremenil
+      forthcoming: Ta statistika bo objavljena
       name:
         few:
-        one:
-        other:
+        one: Statistična objava
+        other: Statistične objave
         two:
+      previous_date: Prejšnji datum
+      proposed_date: Predlagana objava
+      reason_for_change: Razlog za spremembo
+      release_date: Datum objave
     statutory_guidance:
       name:
         few:

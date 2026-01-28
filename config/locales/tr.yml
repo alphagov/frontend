@@ -492,8 +492,8 @@ tr:
         other: Ulusal İstatistikler
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ulusal İstatistik duyurusu
+        other: Ulusal İstatistik duyuruları
     news_article:
       name:
         one: Haber makalesi
@@ -516,8 +516,8 @@ tr:
         other: Resmi İstatistikler
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ulusal İstatistik duyurusu
+        other: Ulusal İstatistik duyuruları
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ tr:
         one:
         other:
     statistics_announcement:
+      cancellation_date: İptal tarihi
+      cancelled: İstatistik açıklaması iptal edildi
+      changed_date: Açıklama tarihi değiştirildi
+      forthcoming: İstatistikler açıklanacak
       name:
-        one:
-        other:
+        one: İstatistik açıklama duyurusu
+        other: İstatistik açıklama duyuruları
+      previous_date: Önceki tarih
+      proposed_date: Önerilen açıklama
+      reason_for_change: Değişiklik gerekçesi
+      release_date: Açıklama tarihi
     statutory_guidance:
       name:
         one: Mevzuat rehberi

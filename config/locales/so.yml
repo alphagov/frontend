@@ -492,8 +492,8 @@ so:
         other: Tirokoobka qaranka
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ogeysiiska tirokoobka qaranka
+        other: Ogeysiisyada tirokoobka qaranka
     news_article:
       name:
         one: Maqaal war ah
@@ -516,8 +516,8 @@ so:
         other: Tirokoobka rasmiga ah
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ogeysiiska tirokoobka rasmiga ah
+        other: Ogeysiisyada tirokoobka rasmiga ah
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ so:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Taariikhda la joojiyay
+      cancelled: Ku dhawaaqisaha xog ururinta la joojiyay
+      changed_date: Taariikhda ku dhawaaqista waa la badalay
+      forthcoming: Xog ururintan waxa lasii dayn doonaa
       name:
-        one:
-        other:
+        one: Ogeysiiska warbixinta tirokoobka
+        other: Ogeysiisyada warbixinta tirokoobka
+      previous_date: Taariikh hore
+      proposed_date: Ku dhawaaqis dib u dhacday
+      reason_for_change: Sababta loo badalay
+      release_date: Taariikhda sii daynta
     statutory_guidance:
       name:
         one: Tilmaamta sharciga

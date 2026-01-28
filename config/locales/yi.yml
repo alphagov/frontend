@@ -629,9 +629,17 @@ yi:
         one:
         other:
     statistics_announcement:
+      cancellation_date:
+      cancelled:
+      changed_date:
+      forthcoming:
       name:
         one:
         other:
+      previous_date:
+      proposed_date:
+      reason_for_change:
+      release_date:
     statutory_guidance:
       name:
         one:

@@ -492,8 +492,8 @@ he:
         other: סטטסטיקה לאומית
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: הודעת סטטיסטיקה לאומית
+        other: הודעות סטטיסטיות לאומיות
     news_article:
       name:
         one: מאמר חדשות
@@ -516,8 +516,8 @@ he:
         other: סטטיסטיקה רשמית
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: הודעה סטטיסטית רשמית
+        other: הודעות סטטיסטיות רשמיות
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ he:
         one:
         other:
     statistics_announcement:
+      cancellation_date: תאריך ביטול
+      cancelled: פרסום סטטיסטיקה בוטל
+      changed_date: תאריך הפרסם שונה
+      forthcoming: סטטיסטיקה זו יפורסמה
       name:
-        one:
-        other:
+        one: הודעת פרסום סטטיסטיקה
+        other: הודעות פרסום סטטיסטיקה
+      previous_date: 'תאריך קודם '
+      proposed_date: הצעה לפרסם
+      reason_for_change: סיבה לשינוי
+      release_date: תאריך פרסם
     statutory_guidance:
       name:
         one: הדרכה סטטוטורית

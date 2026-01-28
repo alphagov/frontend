@@ -579,8 +579,8 @@ gd:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Fógra staitisticí náisiúnta
+        other: Fógraí staitisticí náisiúnta
         two:
     news_article:
       name:
@@ -615,8 +615,8 @@ gd:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Fógra staitisticí oifigiúla
+        other: Fógraí staitisticí oifigiúla
         two:
     open_call_for_evidence:
       name:
@@ -775,11 +775,19 @@ gd:
         other:
         two:
     statistics_announcement:
+      cancellation_date: Dáta scriosadh an phoist
+      cancelled: Cealaítear an scaoileadh staitisticí
+      changed_date: Athraíodh an dáta scaoilte
+      forthcoming: Déanfar na foilseacháin staitisticí seo
       name:
         few:
-        one:
-        other:
+        one: Fógra maidir le scaoileadh staidrimh
+        other: Fógraí scaipthe staidrimh
         two:
+      previous_date: Dáta roimhe seo
+      proposed_date: Scaipeadh beartaithe
+      reason_for_change: Cúis leis an athrú
+      release_date: Dáta foilsithe
     statutory_guidance:
       name:
         few:

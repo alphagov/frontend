@@ -580,8 +580,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Аб'ява пра нацыянальную статыстыку
+        other: Аб'явы пра нацыянальную статыстыку
     news_article:
       name:
         few:
@@ -616,8 +616,8 @@ be:
       name:
         few:
         many:
-        one:
-        other:
+        one: Аб'ява пра афiцыйную статыстыку
+        other: Аб'явы пра афiцыйную статыстыку
     open_call_for_evidence:
       name:
         few:
@@ -775,11 +775,19 @@ be:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Дата адмены
+      cancelled: Выпуск статыстычных дадзеных скасаваны
+      changed_date: Дата рэлізу была зменена
+      forthcoming: Гэта статыстыка будзе апублікавана
       name:
         few:
         many:
-        one:
-        other:
+        one: Аб'ява пра выпуск статыстычных дадзеных
+        other: Аб'явы пра выпуск статыстычных дадзеных
+      previous_date: Папярэдняя дата
+      proposed_date: Прапанаваны рэліз
+      reason_for_change: Прычына змены
+      release_date: Дата рэлізу
     statutory_guidance:
       name:
         few:

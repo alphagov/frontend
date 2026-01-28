@@ -88,6 +88,7 @@ ti:
     share_links:
       share_this_page: ነዚ ፔጅ ሼር ግበርዎ
   contact:
+    access_and_opening_times: ናይ ምእታውን ምኽፋትን ሰዓታት
     contact_form: 'ቅጥዒ/ፎርም አድራሻ/ኮንታክት '
     email: ኢመይል
   continue: ቀጽል
@@ -878,4 +879,20 @@ ti:
     start_title: ምጅማር ናይ እንግሊዝ ናይ ክረምቲ ግዜ
   withdrawn_notice:
     title: እዚ %{schema_name} ኣብ %{withdrawn_time} ተሳሒቡ።
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: "%{link} ኣብ ዚ ሊንክ ተወከስ"
+      personal_information_charter_html: "%{link} እዚ መላግቦና ንውልቃዊ ሓበሬታኻ ብኸመይ ከም እንሕዞ ይገልጽ።"
+      publication_scheme_html: ብዛዕባ እቶም ብስሩዕ እንዝርግሖም ዓይነታት ሓበሬታ ኣብ %{link} ኣንብብ።
+      social_media_use_html: ኣብ %{link} ፖሊሲና ኣንብብ።
+      welsh_language_scheme_html: ብዛዕባ %{link} ዘለና ተወፋይነት ፍለጥ።
+    find_out_more: ምሉእ ፕሮፋይልን ኩሉ ዝርዝር ኣድራሻ/ኮንታክት ርአ
+    headings:
+      contact_us: ርኸቡና
+      corporate_information: ናይ ትካላት ሓበሬታ
+      follow_us: ተኸታተሉና
+      our_people: ህዝብና
+    news:
+    part_of: ሓደ ክፋል ናይ
+    world_news_link:
   'yes': እወ

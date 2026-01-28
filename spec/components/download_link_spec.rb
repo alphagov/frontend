@@ -4,9 +4,9 @@ RSpec.describe "DownloadLinkComponent", type: :view do
   end
 
   it "renders nothing when required params are not passed" do
-    assert_empty render_component({})
-    assert_empty render_component(text: "Download file")
-    assert_empty render_component(href: "/download-link")
+    expect(render_component({})).to be_empty
+    expect(render_component(text: "Download file")).to be_empty
+    expect(render_component(href: "/download-link")).to be_empty
   end
 
   it "renders the component when link data is passed" do

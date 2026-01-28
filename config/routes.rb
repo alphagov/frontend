@@ -136,6 +136,7 @@ Rails.application.routes.draw do
 
   # World
   scope "/world" do
+    get "/organisations/:organisation", to: "worldwide_organisation#show"
     get "/organisations/:organisation/office/:office", to: "worldwide_office#show"
   end
 

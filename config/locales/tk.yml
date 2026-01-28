@@ -88,6 +88,7 @@ tk:
     share_links:
       share_this_page: Bu sahypany paýlaşyň
   contact:
+    access_and_opening_times: Giriş we açyk wagtlary
     contact_form: Habarlaşmak üçin forma
     email: E-poçta
   continue:
@@ -878,4 +879,20 @@ tk:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Öwreniň %{link}.
+      personal_information_charter_html: Biziň %{link} baglanyşygymyz siziň şahsy maglumatlaryňyza nähili çemeleşýändigimiz barada habar berýär.
+      publication_scheme_html: Biziň %{link} baglanyşygymyzdan nähili habarlary yzygiderli neşir edýändigimizi okaň.
+      social_media_use_html: Biziň syýasatymyz barada %{link} baglanyşygymyzda okaň.
+      welsh_language_scheme_html: Niýetimiz barada %{link}-da okaň.
+    find_out_more: Doly maglumatlarymyzy we ähli habarlaşmak üçin maglumatlarymyzy okaň
+    headings:
+      contact_us: Biziň bilen habarlaşyň
+      corporate_information: Korporatiw maglumatlar
+      follow_us: Bizi yzarlaň
+      our_people: Biziň adamlarymyz
+    news: Habarlar
+    part_of: Bir bölegi
+    world_news_link: "%{country} we Beýik Britaniýa"
   'yes':

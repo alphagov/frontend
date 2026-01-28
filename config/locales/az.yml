@@ -88,6 +88,7 @@ az:
     share_links:
       share_this_page: Bu səhifəni paylaşın
   contact:
+    access_and_opening_times: Giriş və iş vaxtı
     contact_form: Əlaqə saxlamaq üçün forma
     email: E-poçt
   continue:
@@ -878,4 +879,20 @@ az:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Öyrənin %{link}.
+      personal_information_charter_html: Bizim %{link} şəxsi məlumatlarınızla necə davrandığımızı izah edir.
+      publication_scheme_html: "%{link}-də adətən istifadə etdiyimiz məlumatların növləri barədə oxuyun."
+      social_media_use_html: "%{link}-də siyasətmizi oxuyun."
+      welsh_language_scheme_html: "%{link} ilə bağlı öhdəliyimiz barədə öyrənin."
+    find_out_more: Tam profil və əlaqə məlumatlarımıza baxın
+    headings:
+      contact_us: Bizimlə əlaqə saxlayın
+      corporate_information: Korporativ məlumat
+      follow_us: Bizi təqib edin
+      our_people: İnsanlarımız
+    news: Xəbərlər
+    part_of: Dövlət orqanının
+    world_news_link: "%{country} və Böyük Britaniya"
   'yes':

@@ -88,6 +88,7 @@ vi:
     share_links:
       share_this_page: Chia sẻ trang này
   contact:
+    access_and_opening_times: Thời gian làm việc và mở cửa
     contact_form: Biểu mẫu liên hệ
     email: Email
   continue:
@@ -797,4 +798,20 @@ vi:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Tìm hiểu %{link}.
+      personal_information_charter_html: "%{link} của chúng tôi giải thích cách chúng tôi xử lý thông tin cá nhân của bạn."
+      publication_scheme_html: Tìm hiểu về các loại thông tin chúng tôi thường xuyên xuất bản trong %{link} của chúng tôi.
+      social_media_use_html: Đọc chính sách của chúng tôi trên %{link}.
+      welsh_language_scheme_html: Tìm hiểu về cam kết của chúng tôi đối với %{link}.
+    find_out_more: Xem hồ sơ đầy đủ và tất cả các chi tiết liên hệ
+    headings:
+      contact_us: Liên hệ với chúng tôi
+      corporate_information: Thông tin doanh nghiệp
+      follow_us: Theo dõi chúng tôi
+      our_people: Đội ngũ của chúng tôi
+    news: Tin tức
+    part_of: Một phần của
+    world_news_link: "%{country} và Vương quốc Anh"
   'yes':

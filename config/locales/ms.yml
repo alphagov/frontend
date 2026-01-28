@@ -88,6 +88,7 @@ ms:
     share_links:
       share_this_page: Kongsi laman ini
   contact:
+    access_and_opening_times: Akses dan waktu pembukaan
     contact_form: Borang hubungan
     email: E-mel
   continue:
@@ -797,4 +798,20 @@ ms:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Ketahui %{link}.
+      personal_information_charter_html: "%{link} kami menerangkan bagaimana kami menggunakan maklumat peribadi anda."
+      publication_scheme_html: Baca tentang jenis maklumat yang kami biasa terbitkan dalam %{link} kami.
+      social_media_use_html: Baca dasar kami di %{link}.
+      welsh_language_scheme_html: Ketahui tentang komitmen kami kepada %{link}.
+    find_out_more: Lihat profil lengkap dan semua butiran hubungan
+    headings:
+      contact_us: Hubungi kami
+      corporate_information: Maklumat korporat
+      follow_us: Ikuti kami
+      our_people: Rakyat kami
+    news: Berita
+    part_of: Sebahagian daripada
+    world_news_link: "%{country} dan Britain"
   'yes':

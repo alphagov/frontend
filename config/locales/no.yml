@@ -88,6 +88,7 @@
     share_links:
       share_this_page: Del denne siden
   contact:
+    access_and_opening_times: Tilgang og åpningstider
     contact_form: Kontaktskjema
     email: E-post
   continue:
@@ -878,4 +879,20 @@
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Finn ut %{link}.
+      personal_information_charter_html: Vår %{link} forklarer hvordan vi behandler dine personopplysninger.
+      publication_scheme_html: Les om informasjonstypene vi rutinemessig publiserer i %{link}.
+      social_media_use_html: Les retningslinjene våre på %{link}.
+      welsh_language_scheme_html: Finn ut mer om vårt engasjement for %{link}.
+    find_out_more: Se hele profilen og alle kontaktdetaljer
+    headings:
+      contact_us: Kontakt oss
+      corporate_information: Bedriftsinformasjon
+      follow_us: Følg oss
+      our_people: Våre folk
+    news: Nyheter
+    part_of: Del av
+    world_news_link: "%{country} og Storbritannia"
   'yes':

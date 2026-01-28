@@ -1,20 +1,20 @@
 @import "govuk_publishing_components/individual_component_support";
 
-@import "_landing_page/helpers/backgrounds";
-@import "_landing_page/helpers/borders";
-@import "_landing_page/block-error";
-@import "_landing_page/box";
-@import "_landing_page/card";
-@import "_landing_page/columns_layout";
-@import "_landing_page/featured";
-@import "_landing_page/hero";
-@import "_landing_page/image";
-@import "_landing_page/logo";
-@import "_landing_page/main-navigation";
-@import "_landing_page/map";
-@import "_landing_page/quote";
-@import "_landing_page/side-navigation";
-@import "_landing_page/themes/prime-ministers-office-10-downing-street";
+@import "landing_page/helpers/backgrounds";
+@import "landing_page/helpers/borders";
+@import "landing_page/block-error";
+@import "landing_page/box";
+@import "landing_page/card";
+@import "landing_page/columns_layout";
+@import "landing_page/featured";
+@import "landing_page/hero";
+@import "landing_page/image";
+@import "landing_page/logo";
+@import "landing_page/main-navigation";
+@import "landing_page/map";
+@import "landing_page/quote";
+@import "landing_page/side-navigation";
+@import "landing_page/themes/prime-ministers-office-10-downing-street";
 
 .landing-page-header__org {
   padding-top: govuk-spacing(2);

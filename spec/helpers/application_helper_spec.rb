@@ -19,7 +19,19 @@ RSpec.describe ApplicationHelper do
     end
   end
 
+  describe "#build_page_title" do
+    it "returns GOV.UK if passed an empty array" do
+      expect(build_page_title([])).to eq("GOV.UK")
+    end
 
+    it "builds title from passed array" do
+      expect(build_page_title(%w[Title])).to eq("Title - GOV.UK")
+    end
+
+    it "ignores nil elements in passed array" do
+      expect(build_page_title(["Title", nil, "Type"])).to eq("Title - Type - GOV.UK")
+    end
+  end
 
   describe "#current_path_without_query_string" do
     it "returns the path of the current request" do

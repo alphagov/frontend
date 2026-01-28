@@ -1,7 +1,10 @@
 module ApplicationHelper
   def page_title(content_item = nil)
-    title = content_item.title if content_item
-    [title, "GOV.UK"].select(&:present?).join(" - ")
+    build_page_title([content_item&.title])
+  end
+
+  def build_page_title(elements = [])
+    (elements + ["GOV.UK"]).compact.join(" - ")
   end
 
   def current_path_without_query_string

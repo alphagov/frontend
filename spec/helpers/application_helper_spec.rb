@@ -14,6 +14,12 @@ RSpec.describe ApplicationHelper do
       expect(page_title(content_item)).to eq("Title - GOV.UK")
     end
 
+    it "prepends the withdrawn tag if the content item is withdrawn" do
+      content_item = OpenStruct.new(title: "Title", withdrawn?: true)
+
+      expect(page_title(content_item)).to eq("[Withdrawn] Title - GOV.UK")
+    end
+
     it "omits first part of title if content_item is omitted" do
       expect(page_title).to eq("GOV.UK")
     end
@@ -30,6 +36,10 @@ RSpec.describe ApplicationHelper do
 
     it "ignores nil elements in passed array" do
       expect(build_page_title(["Title", nil, "Type"])).to eq("Title - Type - GOV.UK")
+    end
+
+    it "prepends the withdrawn tag if flag is set" do
+      expect(build_page_title(["Title", nil, "Type"], withdrawn: true)).to eq("[Withdrawn] Title - Type - GOV.UK")
     end
   end
 

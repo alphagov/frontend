@@ -7,10 +7,6 @@ module ManualSections
       linked("manual").first.title
     end
 
-    def page_title
-      "#{breadcrumb} - #{manual_page_title}"
-    end
-
     def document_heading
       document_heading = []
 
@@ -47,17 +43,6 @@ private
 
   def breadcrumb
     content_store_response["details"]["section_id"] || manual_title
-  end
-
-  def manual_page_title
-    title = content_store_response["title"] || ""
-    title += " - " if title.present?
-
-    if hmrc?
-      I18n.t("formats.manuals.hmrc_title", title:)
-    else
-      I18n.t("formats.manuals.title", title:)
-    end
   end
 
   def show_contents_list?

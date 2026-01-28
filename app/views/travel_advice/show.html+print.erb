@@ -1,5 +1,5 @@
 <%
-  content_for :title, "Print #{@travel_advice_presenter.page_title}"
+  content_for :title, "Print #{@travel_advice_presenter.page_title_parts.join(" - ")}"
   content_for :extra_head_content do
 %>
   <meta name="robots" content="noindex, nofollow">

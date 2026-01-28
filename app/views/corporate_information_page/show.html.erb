@@ -1,4 +1,4 @@
-<% content_for :title, "#{@presenter.page_title} - #{content_item.default_organisation.title} - GOV.UK" %>
+<% content_for :title, build_page_title([content_item.title, content_item.default_organisation.title], withdrawn: content_item.withdrawn?) %>
 
 <% content_for :head do %>
   <meta name="description" content="<%= content_item.description %>">

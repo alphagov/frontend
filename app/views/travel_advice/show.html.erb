@@ -1,6 +1,4 @@
-<% content_for :title do %>
-  <%= @travel_advice_presenter.page_title %> - GOV.UK
-<% end %>
+<% content_for :title, build_page_title(@travel_advice_presenter.page_title_parts) %>
 
 <% content_for :head do %>
   <%= auto_discovery_link_tag :atom, feed_link(@content_item.base_path), title: "Recent updates for #{@content_item.country_name}" %>
@@ -9,7 +7,7 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     canonical_url: canonical_url(@content_item.current_part_path),
-    title: @travel_advice_presenter.page_title,
+    title: @travel_advice_presenter.page_title_parts.join(" - "),
     body: @content_item.current_part_body,
     content_item: @content_item.to_h %>
   <%= stylesheet_link_tag "views/_travel-advice", media: "all" %>

@@ -4,4 +4,8 @@ class ManualController < ContentItemsController
   def show
     @presenter = ManualPresenter.new(content_item)
   end
+
+  def section
+    @presenter = ManualSectionPresenter.new(content_item)
+  end
 end

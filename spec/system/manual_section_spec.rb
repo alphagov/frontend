@@ -28,7 +28,7 @@ RSpec.describe "Manual Section" do
 
     it "has a search box" do
       within ".gem-c-search" do
-        assert page.has_text?(I18n.t("formats.manuals.search_this_manual"))
+        expect(page).to have_text(I18n.t("formats.manuals.search_this_manual"))
       end
     end
   end

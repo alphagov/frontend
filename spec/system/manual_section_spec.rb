@@ -1,12 +1,24 @@
 RSpec.describe "Manual Section" do
+  context "when visiting a manual section" do
+    let(:content_item) { GovukSchemas::Example.find(:manual_section, example_name: "what-is-content-design") }
+    let(:base_path) { content_item["base_path"] }
+    let(:manual_content_item) { GovukSchemas::Example.find(:manual, example_name: "content-design") }
+
+    before do
+      stub_content_store_has_item(base_path, content_item)
+      stub_content_store_has_item(manual_content_item["base_path"], manual_content_item)
+      visit base_path
+    end
+
+    it "has a title" do
+      expect(page).to have_title(content_item["title"])
+    end
+
+    it "includes the description" do
+      expect(page).to have_text(content_item["description"])
+    end
+  end
 end
-
-  # test "page renders correctly" do
-  #   setup_and_visit_manual_section
-
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-  # end
 
   # test "renders contextual breadcrumbs from parent manuals tagging" do
   #   setup_and_visit_manual_section

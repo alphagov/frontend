@@ -3,6 +3,16 @@ class ManualSectionPresenter < ContentItemPresenter
 
   MOJ_ORGANISATION_CONTENT_ID = "dcc907d6-433c-42df-9ffb-d9c68be5dc4d".freeze
 
+  def breadcrumbs
+    title = show_contents_list? ?  I18n.t("manuals.contents_list_breadcrumb_contents") : I18n.t("manuals.breadcrumb_contents")
+    [
+      {
+        title:,
+        url: content_item.manual_base_path,
+      },
+    ]
+  end
+
   def contents_outline_presenter
     ContentsOutlinePresenter.new(content_item.contents_outline)
   end

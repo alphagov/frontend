@@ -11,6 +11,12 @@
     content_item: content_item.manual_content_item,
     heading_level: 1,
   } %>
+
+  <%= render "govuk_publishing_components/components/breadcrumbs", {
+          border: "bottom",
+          margin_bottom: 6,
+          breadcrumbs: @content_item.breadcrumbs,
+          collapse_on_mobile: false } %>
 <% end %>
 
 <div id="manuals-frontend">

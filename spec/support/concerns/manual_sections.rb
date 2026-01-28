@@ -75,7 +75,7 @@ RSpec.shared_examples "it can have manual base path" do |document_type, example_
   end
 end
 
-RSpec.shared_examples "it can have manual content item" do |_document_type, _example_name|
+RSpec.shared_examples "it can have manual content item" do
   include GdsApi::TestHelpers::ContentStore
 
   let(:base_path) { "/test-manual" }

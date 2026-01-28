@@ -11,6 +11,7 @@ RSpec.describe ManualSection do
   it_behaves_like "it can have breadcrumbs", "manual_section", "what-is-content-design"
   it_behaves_like "it can have breadcrumb", "manual_section", "what-is-content-design"
   it_behaves_like "it can have manual base path", "manual_section", "what-is-content-design"
+  it_behaves_like "it can have manual content item"
   it_behaves_like "it checks for hmrc", "manual_section", "what-is-content-design"
   it_behaves_like "it can have section groups", "manual", "content-design"
 end

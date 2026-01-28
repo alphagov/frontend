@@ -48,6 +48,25 @@ RSpec.shared_examples "it can have breadcrumbs" do |document_type, example_name|
   end
 end
 
+RSpec.shared_examples "it can have breadcrumb" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  context "when section_id is present" do
+    it "returns the section_id" do
+      content_item["details"]["section_id"] = "VATGPB2000"
+      expect(described_class.new(content_item).breadcrumb).to eq("VATGPB2000")
+    end
+  end
+
+  context "when section_id is not present" do
+    it "returns the manual_title" do
+      content_item["details"].delete("section_id") if content_item["details"]["section_id"]
+      expect(described_class.new(content_item).breadcrumb)
+      .to eq(content_item.dig("links", "manual").first["title"])
+    end
+  end
+end
+
 RSpec.shared_examples "it can have manual base path" do |document_type, example_name|
   let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
@@ -84,5 +103,23 @@ RSpec.shared_examples "it can have manual content item" do |_document_type, _exa
   it "returns the manual content item" do
     manual = described_class.new(content_item).manual_content_item
     expect(manual.content_store_response.parsed_content).to include(content_item)
+  end
+end
+
+RSpec.shared_examples "it checks for hmrc" do |document_type, example_name|
+  let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
+
+  context "when schema_name is hmrc" do
+    it "returns true for hmrc manuals" do
+      content_item["schema_name"] = "hmrc_manual"
+      expect(described_class.new(content_item).hmrc?).to be true
+    end
+  end
+
+  context "when schema_name is not hmrc" do
+    it "returns false for non-hmrc manuals" do
+      content_item["schema_name"] = "manual"
+      expect(described_class.new(content_item).hmrc?).to be false
+    end
   end
 end

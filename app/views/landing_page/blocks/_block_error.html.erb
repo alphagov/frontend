@@ -1,7 +1,4 @@
 <% if draft_host? %>
-  <% content_for :head do %>
-    <%= stylesheet_link_tag "views/_landing_page/block-error", media: "all" %>
-  <% end %>
   <div class="block-error">
     <%= render "govuk_publishing_components/components/heading", {
       text: block.error.message,

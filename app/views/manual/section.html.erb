@@ -24,7 +24,7 @@
 <% end %>
 
 <div id="manuals-frontend">
-  <% if show_contents %>
+  <% if @presenter.show_contents_list? %>
     <%= render "govuk_publishing_components/components/contents_list", {
       aria: { label: t("manuals.pages_in_manual_section") }, contents: content_item.contents, underline_links: true
     } %>

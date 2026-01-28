@@ -17,4 +17,8 @@ class ManualSection < ContentItem
   def contents_outline
     ContentsOutline.new(sections.map { |section| section[:heading].stringify_keys })
   end
+
+  def visually_expanded?
+    content_store_response.dig("details", "visually_expanded") == "true"
+  end
 end

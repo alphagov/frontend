@@ -49,6 +49,21 @@ RSpec.describe "Manual Section" do
           expect(page).to have_text("Designing content, not creating copy")
         end
       end
+
+      context "when visually_expanded is set true in the content item" do
+        let(:content_item) do
+          GovukSchemas::Example.find(:manual_section, example_name: "what-is-content-design").tap do |item|
+            item["details"]["visually_expanded"] = "true"
+          end
+        end
+
+        it "renders without accordions" do
+          within "#manuals-frontend" do
+            expect(page.all("h2").count).to eq 7
+            expect(page.all("h2").first.text).to eq("Designing content, not creating copy")
+          end
+        end
+      end
     end
   end
 end
@@ -72,20 +87,6 @@ end
   #   setup_and_visit_manual_section
 
   #   assert page.has_link?(I18n.t("manuals.breadcrumb_contents"), href: @manual["base_path"])
-  # end
-
-  # test "renders expanded sections if visually expanded " do
-  #   content_item = get_content_example("what-is-content-design")
-  #   content_item["details"]["visually_expanded"] = true
-
-  #   setup_and_visit_manual_section(content_item)
-
-  #   within "#manuals-frontend" do
-  #     assert_equal 7, page.all("h2").count
-  #     first_section_heading = page.all("h2").first
-
-  #     assert_equal "Designing content, not creating copy", first_section_heading.text
-  #   end
   # end
 
   # test "renders content lists if published by MOJ" do

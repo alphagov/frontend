@@ -37,6 +37,19 @@ RSpec.describe "Manual Section" do
         expect(page).to have_text(manual_content_item["title"])
       end
     end
+
+    describe "body rendering" do
+      it "has sections in accordion components" do
+        expect(page).to have_css(".gem-c-accordion")
+
+        accordion_sections = page.all(".govuk-accordion__section")
+        expect(accordion_sections.count).to eq(7)
+
+        within accordion_sections[0] do
+          expect(page).to have_text("Designing content, not creating copy")
+        end
+      end
+    end
   end
 end
 
@@ -59,19 +72,6 @@ end
   #   setup_and_visit_manual_section
 
   #   assert page.has_link?(I18n.t("manuals.breadcrumb_contents"), href: @manual["base_path"])
-  # end
-
-  # test "renders sections accordion" do
-  #   setup_and_visit_manual_section
-
-  #   assert page.has_css?(".gem-c-accordion")
-
-  #   accordion_sections = page.all(".govuk-accordion__section")
-  #   assert_equal 7, accordion_sections.count
-
-  #   within accordion_sections[0] do
-  #     assert page.has_text?("Designing content, not creating copy")
-  #   end
   # end
 
   # test "renders expanded sections if visually expanded " do

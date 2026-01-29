@@ -1,4 +1,4 @@
-<% content_for :title, "#{@case_study_presenter.page_title} - #{I18n.t("formats.#{content_item.document_type}.name", count: 1)} - GOV.UK" %>
+<% content_for :title, build_page_title([content_item.title, t("formats.#{content_item.document_type}.name", count: 1)], withdrawn: content_item.withdrawn?) %>
 
 <% content_for :head do %>
   <meta name="description" content="<%= @content_item.description %>">

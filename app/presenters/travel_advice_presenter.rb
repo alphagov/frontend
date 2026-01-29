@@ -1,10 +1,9 @@
 class TravelAdvicePresenter < ContentItemPresenter
-  def page_title
-    if content_item.part_slug.blank? || content_item.first_part?
-      super
-    else
-      "#{content_item.current_part_title} - #{super}"
-    end
+  def page_title_parts
+    parts = []
+    parts << content_item.current_part_title unless content_item.part_slug.blank? || content_item.first_part?
+    parts << content_item.title
+    parts
   end
 
   # FIXME: Update publishing app UI and remove from content

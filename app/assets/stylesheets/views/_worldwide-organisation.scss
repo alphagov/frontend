@@ -1,17 +1,15 @@
 @import "govuk_publishing_components/individual_component_support";
 
 .govuk-frontend-supported {
-  .worldwide-organisation-header {
-    .show-other-content {
-      all: inherit;
-      display: inline;
-      margin-left: .3em;
-      white-space: nowrap;
-      color: $govuk-link-colour;
-      cursor: pointer;
-      @include govuk-link-common;
-      @include govuk-font(16);
-    }
+  .show-other-content {
+    all: inherit;
+    display: inline;
+    margin-left: .3em;
+    white-space: nowrap;
+    color: $govuk-link-colour;
+    cursor: pointer;
+    @include govuk-link-common;
+    @include govuk-font(16);
   }
 }
 

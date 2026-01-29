@@ -7,29 +7,25 @@
 <section class="govuk-grid-row" id="about-us">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/lead_paragraph", text: @content_item.description %>
-
-    <div class="body">
-      <%= render "govuk_publishing_components/components/govspeak", {} do
-        raw(@content_item.body)
-      end %>
-    </div>
+    <%= render "govuk_publishing_components/components/govspeak", {} do
+      raw(@content_item.body)
+    end %>
   </div>
 
   <% if @presenter.social_media_accounts.any? %>
-    <aside class="social-media-links govuk-grid-column-one-third">
-      <div class="content">
-        <h2 class="govuk-heading-s"><%= t("worldwide_organisation.headings.follow_us") %></h2>
-        <%= render "govuk_publishing_components/components/share_links", {
-          track_as_follow: true,
-          links: @presenter.social_media_accounts.map do |account|
-            {
-              href: account["href"],
-              text: account["title"],
-              icon: account["service_type"],
-            }
-          end,
-        } %>
-      </div>
+    <aside class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-s"><%= t("worldwide_organisation.headings.follow_us") %></h2>
+      <%= render "govuk_publishing_components/components/share_links", {
+        track_as_follow: true,
+        links: @presenter.social_media_accounts.map do |account|
+          {
+            href: account["href"],
+            text: account["title"],
+            icon: account["service_type"],
+          }
+        end,
+        margin_bottom: 8,
+      } %>
     </aside>
   <% end %>
 </section>
@@ -57,21 +53,23 @@
       </div>
     <% end %>
 
-    <div class="govuk-grid-column-three-quarters">
-      <ul class="govuk-list govuk-grid-row">
-        <% @presenter.people_in_non_primary_roles.each.with_index do |person, i| %>
-          <% extra_class = (i + 1) % 4 == 0 ? " clear-column" : "" %>
-          <li class="govuk-grid-column-one-third<%= extra_class %>">
-            <%= render "govuk_publishing_components/components/image_card", {
-              href: person[:href],
-              heading_text: person[:name],
-              heading_level: 3,
-              description: person[:description],
-            } %>
-          <% end %>
-        </li>
-      </ul>
-    </div>
+    <% unless @presenter.people_in_non_primary_roles.empty? %>
+      <div class="govuk-grid-column-three-quarters">
+        <ul class="govuk-list govuk-grid-row">
+          <% @presenter.people_in_non_primary_roles.each.with_index do |person, i| %>
+            <% extra_class = (i + 1) % 4 == 0 ? " clear-column" : "" %>
+            <li class="govuk-grid-column-one-third<%= extra_class %>">
+              <%= render "govuk_publishing_components/components/image_card", {
+                href: person[:href],
+                heading_text: person[:name],
+                heading_level: 3,
+                description: person[:description],
+              } %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </section>
 <% end %>
 

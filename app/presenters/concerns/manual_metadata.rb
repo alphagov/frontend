@@ -14,7 +14,7 @@ private
     if (content_item.hmrc? || content_item.manual?) && current_path == "#{content_item.base_path}/updates"
       update_at_text = display_date(updated_at).to_s
     else
-      updates_link = govuk_styled_link(I18n.t("formats.manuals.see_all_updates"), path: "#{content_item.base_path}/updates")
+      updates_link = govuk_styled_link(I18n.t("formats.manuals.see_all_updates"), path: "#{content_item.manual_content_item.base_path}/updates")
       update_at_text = "#{display_date(updated_at)} - #{updates_link}"
     end
 

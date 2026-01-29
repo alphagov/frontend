@@ -8,6 +8,10 @@ RSpec.shared_examples "it can have manual metadata" do |content_item_class|
       manual?: true,
       base_path: "/manuals-page",
       public_updated_at: Time.zone.parse("2025-10-01"),
+      manual_content_item: instance_double(
+        Manual,
+        base_path: "/manuals-page",
+      ),
     )
   end
 

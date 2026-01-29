@@ -65,6 +65,27 @@ RSpec.describe "Manual Section" do
         end
       end
     end
+
+    describe "contents list rendering" do
+      it "does not have a contents list" do
+        expect(page).not_to have_selector(".gem-c-contents-list")
+      end
+
+      context "when the manual is published by the MoJ" do
+        let(:content_item) do
+          GovukSchemas::Example.find(:manual_section, example_name: "what-is-content-design").tap do |item|
+            item["links"]["organisations"][0]["content_id"] = "dcc907d6-433c-42df-9ffb-d9c68be5dc4d"
+          end
+        end
+
+        it "has a contents list" do
+          expect(page).to have_contents_list([
+            { text: "Designing content, not creating copy", id: "designing-content-not-creating-copy" },
+            { text: "Content design always starts with user needs", id: "content-design-always-starts-with-user-needs" },
+          ])
+        end
+      end
+    end
   end
 end
 
@@ -87,17 +108,4 @@ end
   #   setup_and_visit_manual_section
 
   #   assert page.has_link?(I18n.t("manuals.breadcrumb_contents"), href: @manual["base_path"])
-  # end
-
-  # test "renders content lists if published by MOJ" do
-  #   content_item = get_content_example("what-is-content-design")
-  #   organisations = { "organisations" => [{ "content_id" => "dcc907d6-433c-42df-9ffb-d9c68be5dc4d" }] }
-  #   content_item["links"] = content_item["links"].merge(organisations)
-
-  #   setup_and_visit_manual_section(content_item)
-
-  #   assert_has_contents_list([
-  #     { text: "Designing content, not creating copy", id: "designing-content-not-creating-copy" },
-  #     { text: "Content design always starts with user needs", id: "content-design-always-starts-with-user-needs" },
-  #   ])
   # end

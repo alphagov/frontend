@@ -70,7 +70,7 @@ private
   def variant_value(key)
     return if variants.blank?
 
-    selected_variant.fetch(key, nil) if selected_variant.present?
+    selected_variant.presence&.fetch(key, nil)
   end
 
   def selected_variant

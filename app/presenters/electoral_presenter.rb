@@ -51,9 +51,7 @@ private
   attr_reader :response
 
   def address_lines(property)
-    if property["address"].present?
-      property["address"].split("\n")
-    end
+    property["address"].presence&.split("\n")
   end
 
   def duplicate_contact_details?

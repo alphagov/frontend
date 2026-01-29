@@ -2,15 +2,15 @@ class LinkedContactPresenter < ContentItemPresenter
   include ActionView::Helpers::TagHelper
   include ContactDetails
 
-  attr_reader :content_item
+  attr_reader :content_store_response
 
-  def initialize(content_item)
+  def initialize(content_store_response)
     super
-    @content_item = content_item
+    @content_store_response = content_store_response
   end
 
   def title
-    content_item["details"]["title"]
+    content_store_response["details"]["title"]
   end
 
   def post_address
@@ -31,7 +31,7 @@ class LinkedContactPresenter < ContentItemPresenter
   end
 
   def comments
-    comments = content_item["details"]["description"]
+    comments = content_store_response["details"]["description"]
     return if comments.nil?
 
     tag.p(comments.gsub("\r\n", "<br/>").html_safe, class: %w[govuk-body])

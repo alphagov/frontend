@@ -101,14 +101,3 @@ end
   #     { text: "Content design always starts with user needs", id: "content-design-always-starts-with-user-needs" },
   #   ])
   # end
-
-  # def setup_and_visit_manual_section(content_item = get_content_example("what-is-content-design"))
-  #   @manual = get_content_example_by_schema_and_name("manual", "content-design")
-  #   @content_item = content_item
-  #   manual_base_path = @content_item["links"]["manual"].first["base_path"]
-
-  #   stub_content_store_has_item(manual_base_path, @manual.to_json)
-
-  #   stub_content_store_has_item(@content_item["base_path"], @content_item.to_json)
-  #   visit_with_cachebust(@content_item["base_path"].to_s)
-  # end

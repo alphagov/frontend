@@ -11,8 +11,6 @@
   </div>
 <% end %>
 
-<div class="govuk-width-container">
-  <% content_item.flexible_sections.each do |flexible_section| %>
-    <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
-  <% end %>
-</div>
+<% content_item.flexible_sections.each do |flexible_section| %>
+  <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
+<% end %>

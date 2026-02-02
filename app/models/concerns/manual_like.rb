@@ -22,9 +22,6 @@ private
   def find_manual_content_item
     return self if %w[manual hmrc_manual].include?(schema_name)
 
-    linked_manual = linked("manual").first
-    return linked_manual if linked_manual
-
     response = ContentItemLoaders::ContentStoreLoader.new.load(base_path: content_store_response&.dig("details", "manual", "base_path"))
     ContentItemFactory.build(response)
   end

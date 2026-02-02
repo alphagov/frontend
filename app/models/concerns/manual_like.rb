@@ -5,10 +5,6 @@ module ManualLike
     content_store_response.dig("details", "child_section_groups") || []
   end
 
-  def manual?
-    %w[manual manual_section].include?(schema_name)
-  end
-
   def manual_base_path
     manual_content_item.base_path
   end

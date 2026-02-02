@@ -5,7 +5,6 @@ RSpec.shared_examples "it can have manual metadata" do |content_item_class|
     instance_double(
       content_item_class,
       hmrc?: false,
-      manual?: true,
       base_path: "/manuals-page",
 
       manual_content_item: instance_double(

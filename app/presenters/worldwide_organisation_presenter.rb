@@ -42,22 +42,23 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   end
 
   def show_our_people_section?
-    person_in_primary_role || people_in_non_primary_roles.any?
+    people_in_primary_roles.any? || people_in_non_primary_roles.any?
   end
 
-  def person_in_primary_role
-    return unless content_item.content_store_response["links"]["primary_role_person"]
+  def people_in_primary_roles
+    people = content_item.content_store_response["links"]["primary_role_person"] || []
+    return [] unless people.any?
 
-    person = content_item.content_store_response["links"]["primary_role_person"].first
-    current_roles = roles_for_person(person["content_id"])
-
-    {
-      name: person["title"],
-      href: person["base_path"],
-      image_url: person.dig("details", "image", "url"),
-      image_alt: person.dig("details", "image", "alt_text"),
-      description: presented_title_for_roles(current_roles),
-    }
+    people.map do |person|
+      current_roles = roles_for_person(person["content_id"])
+      {
+        name: person["title"],
+        href: person["base_path"],
+        image_url: person.dig("details", "image", "url"),
+        image_alt: person.dig("details", "image", "alt_text"),
+        description: presented_title_for_roles(current_roles),
+      }
+    end
   end
 
   def people_in_non_primary_roles

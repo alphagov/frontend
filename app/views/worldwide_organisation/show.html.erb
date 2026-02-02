@@ -37,38 +37,38 @@
       border_top: 5,
       padding: true,
     } %>
-    <div class="govuk-grid-row">
-      <% if @presenter.person_in_primary_role %>
-        <div class="govuk-grid-column-one-quarter">
-          <%= render "govuk_publishing_components/components/image_card", {
-            href: @presenter.person_in_primary_role[:href],
-            image_src: @presenter.person_in_primary_role[:image_url],
-            image_alt: @presenter.person_in_primary_role[:image_alt],
-            heading_text: @presenter.person_in_primary_role[:name],
-            heading_level: 3,
-            description: @presenter.person_in_primary_role[:description],
-          } %>
-        </div>
+    <ul class="govuk-list govuk-grid-row">
+      <% counter = 0 %>
+      <% unless @presenter.people_in_primary_roles.empty? %>
+        <% @presenter.people_in_primary_roles.each do |person, i| %>
+          <% counter += 1 %>
+          <li class="govuk-grid-column-one-quarter <%= "worldwide-organisation-clear-column" if counter % 5 == 0 %>">
+            <%= render "govuk_publishing_components/components/image_card", {
+              href: person[:href],
+              image_src: person[:image_url],
+              image_alt: person[:image_alt],
+              heading_text: person[:name],
+              heading_level: 3,
+              description: person[:description],
+            } %>
+          </li>
+        <% end %>
       <% end %>
 
       <% unless @presenter.people_in_non_primary_roles.empty? %>
-        <div class="govuk-grid-column-three-quarters">
-          <ul class="govuk-list govuk-grid-row">
-            <% @presenter.people_in_non_primary_roles.each.with_index do |person, i| %>
-              <% extra_class = (i + 1) % 4 == 0 ? " clear-column" : "" %>
-              <li class="govuk-grid-column-one-third<%= extra_class %>">
-                <%= render "govuk_publishing_components/components/image_card", {
-                  href: person[:href],
-                  heading_text: person[:name],
-                  heading_level: 3,
-                  description: person[:description],
-                } %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+        <% @presenter.people_in_non_primary_roles.each do |person, i| %>
+          <% counter += 1 %>
+          <li class="govuk-grid-column-one-quarter <%= "worldwide-organisation--clear-column" if counter % 5 == 0 %>">
+            <%= render "govuk_publishing_components/components/image_card", {
+              href: person[:href],
+              heading_text: person[:name],
+              heading_level: 3,
+              description: person[:description],
+            } %>
+          </li>
+        <% end %>
       <% end %>
-    </div>
+    </ul>
   </section>
 <% end %>
 

@@ -469,7 +469,7 @@ ky:
       see_all_updates: Бардык жаңыртууларды көрүү
       summary_title: Кыскача
       updated: Жаңыртылды
-      updates: Жаңыртуулар - %{title}
+      updates: Жаңыртуулар
       updates_amendments: жарыяланган түзөтүүлөр
       updates_description: "%{title}' жаңыртууларынын тизмеси."
       updates_title: Жаңыртуулар %{title}

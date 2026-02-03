@@ -31,6 +31,12 @@ RSpec.describe "Manual Section" do
         expect(page).to have_text(I18n.t("formats.manuals.search_this_manual"))
       end
     end
+
+    it "has a document heading" do
+      within "#manual-title .govuk-heading-l" do
+        expect(page).to have_text(manual_content_item["title"])
+      end
+    end
   end
 end
 
@@ -47,14 +53,6 @@ end
   #     },
   #     extra_metadata_classes: ".gem-c-metadata--inverse",
   #   )
-  # end
-
-  # test "renders document heading" do
-  #   setup_and_visit_manual_section
-
-  #   within "#manual-title .govuk-heading-l" do
-  #     assert page.has_text?(@manual["title"])
-  #   end
   # end
 
   # test "renders back link" do

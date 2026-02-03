@@ -16,6 +16,15 @@ RSpec.describe ManualSection do
   it_behaves_like "it can have manual base path", "manual_section", "what-is-content-design"
   it_behaves_like "it can have section groups", "manual", "content-design"
 
+  describe "#contents_outline" do
+    it "returns a ContentsOutline object filled in from the sections" do
+      expect(manual_section.contents_outline).to be_instance_of(ContentsOutline)
+      expect(manual_section.contents_outline.items.count).to eq(7)
+      expect(manual_section.contents_outline.items.first.text).to eq("Designing content, not creating copy")
+      expect(manual_section.contents_outline.items.first.id).to eq("designing-content-not-creating-copy")
+    end
+  end
+
   describe "#intro" do
     it "returns nil" do
       expect(manual_section.intro).to be_nil

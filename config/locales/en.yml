@@ -467,18 +467,17 @@ en:
       contents_list_breadcrumb_contents: Manual homepage
       contents_title: Contents
       hmrc_manual_type: HMRC internal manual
-      hmrc_title: "%{title}HMRC internal manual"
+      manual_type: Guidance
       next_page: Next page
       pages_in_manual_section: Manual section pages
       previous_page: Previous page
       search_this_manual: Search this manual
       see_all_updates: See all updates
       summary_title: Summary
-      title: "%{title}Guidance"
       updated: Updated
+      updates: Updates
       updates_amendments: published amendments
       updates_description: List of updates to '%{title}'.
-      updates_page_title: Updates - %{title}
       updates_title: 'Updates: %{title}'
     map:
       name:

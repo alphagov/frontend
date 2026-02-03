@@ -462,18 +462,17 @@ ku:
       contents_list_breadcrumb_contents: لاپەڕەی سەرەکی ڕێنماییەکان
       contents_title: ناوقەرۆکەکان
       hmrc_manual_type: ڕێنمایی ناوخۆیی HMRC
-      hmrc_title: "%{title}ڕێنمایی ناوخۆیی HMRC"
+      manual_type: ڕێنمایی
       next_page: لاپەڕەی داهاتوو
       pages_in_manual_section: لاپەڕەکانی بەشی ڕێنمایی
       previous_page: لاپەڕەی پێشوو
       search_this_manual: بگەڕێ لەم ڕێنامییانەدا
       see_all_updates: هەموو نوێکارییەکان ببینە
       summary_title: پوختە
-      title: "%{title} ڕێنمایی"
       updated: نوێ کراوەتەوە
+      updates: "نوێکاری"
       updates_amendments: هەموارکردنەوەکانی بڵاوکراوە
       updates_description: لیستی نوێکارییەکان بۆ '%{title}'.
-      updates_page_title: "%{title}' نوێکاری"
       updates_title: "%{title}' نوێکارییەکان"
     map:
       name:

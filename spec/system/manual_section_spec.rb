@@ -41,6 +41,10 @@ RSpec.describe "Manual Section" do
       end
     end
 
+    it "has a back link" do
+      expect(page).to have_link(I18n.t("formats.manuals.breadcrumb_contents"), href: manual_content_item["base_path"])
+    end
+
     it "has a document heading" do
       within "#manual-title .govuk-heading-l" do
         expect(page).to have_text(manual_content_item["title"])
@@ -97,9 +101,3 @@ RSpec.describe "Manual Section" do
     end
   end
 end
-
-  # test "renders back link" do
-  #   setup_and_visit_manual_section
-
-  #   assert page.has_link?(I18n.t("manuals.breadcrumb_contents"), href: @manual["base_path"])
-  # end

@@ -472,7 +472,7 @@ ku:
       updated: نوێ کراوەتەوە
       updates: "نوێکاری"
       updates_amendments: هەموارکردنەوەکانی بڵاوکراوە
-      updates_description: لیستی نوێکارییەکان بۆ '%{title}'.
+      updates_description: لیستی نوێکارییەکان بۆ
       updates_title: "%{title}' نوێکارییەکان"
     map:
       name:

@@ -472,7 +472,7 @@ ky:
       updated: Жаңыртылды
       updates: Жаңыртуулар
       updates_amendments: жарыяланган түзөтүүлөр
-      updates_description: "%{title}' жаңыртууларынын тизмеси."
+      updates_description: "жаңыртууларынын тизмеси"
       updates_title: Жаңыртуулар %{title}
     map:
       name:

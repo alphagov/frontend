@@ -26,6 +26,15 @@ RSpec.describe "Manual Section" do
       end
     end
 
+    it "displays the metadata" do
+      within(".gem-c-metadata") do
+        expect(page).to have_text("From: Government Digital Service")
+        expect(page).to have_link("Government Digital Service", href: "/government/organisations/government-digital-service")
+        expect(page).to have_content("Published 27 April 2015")
+        expect(page).to have_link(I18n.t("formats.manuals.see_all_updates"), href: "#{manual_content_item['base_path']}/updates")
+      end
+    end
+
     it "has a search box" do
       within ".gem-c-search" do
         expect(page).to have_text(I18n.t("formats.manuals.search_this_manual"))
@@ -88,21 +97,6 @@ RSpec.describe "Manual Section" do
     end
   end
 end
-
-  # test "renders metadata" do
-  #   setup_and_visit_manual_section
-
-  #   assert_has_metadata(
-  #     {
-  #       from: { "Government Digital Service": "/government/organisations/government-digital-service" },
-  #       first_published: "27 April 2015",
-  #       other: {
-  #         I18n.t("manuals.see_all_updates") => "#{@manual['base_path']}/updates",
-  #       },
-  #     },
-  #     extra_metadata_classes: ".gem-c-metadata--inverse",
-  #   )
-  # end
 
   # test "renders back link" do
   #   setup_and_visit_manual_section

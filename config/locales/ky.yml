@@ -461,7 +461,6 @@ ky:
       contents_list_breadcrumb_contents: Нускаманын башкы баракчасы
       contents_title: Мазмуну
       hmrc_manual_type: HMRC ички нускамасы
-      hmrc_title: "%{title}HMRC ички нускамасы"
       next_page: Кийинки баракча
       pages_in_manual_section: Нускама бөлүмдөрүнүн барактары
       previous_page: Мурунку баракча

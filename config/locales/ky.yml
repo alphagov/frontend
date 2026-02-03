@@ -469,9 +469,9 @@ ky:
       see_all_updates: Бардык жаңыртууларды көрүү
       summary_title: Кыскача
       updated: Жаңыртылды
+      updates: Жаңыртуулар - %{title}
       updates_amendments: жарыяланган түзөтүүлөр
       updates_description: "%{title}' жаңыртууларынын тизмеси."
-      updates_page_title: Жаңыртуулар - %{title}
       updates_title: Жаңыртуулар %{title}
     map:
       name:

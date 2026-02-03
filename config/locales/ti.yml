@@ -469,9 +469,9 @@ ti:
       see_all_updates: ኩሉ ሓድሽ ሓበሬታ ርአ
       summary_title: መጠቃለሊ
       updated: ዝተመሓየሸ
+      updates: እዋናዊ ሓበሬታ - %{title}
       updates_amendments: ዝተመሓየሸ ሕታም
       updates_description: ዝርዝር ናይ '%{title}' ምዕባለታት።
-      updates_page_title: እዋናዊ ሓበሬታ - %{title}
       updates_title: እዋናዊ ሓበሬታ፡ %{title}
     map:
       name:

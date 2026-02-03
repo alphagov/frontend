@@ -461,13 +461,13 @@ ky:
       contents_list_breadcrumb_contents: Нускаманын башкы баракчасы
       contents_title: Мазмуну
       hmrc_manual_type: HMRC ички нускамасы
+      manual_type: "%{title}Жетектеме"
       next_page: Кийинки баракча
       pages_in_manual_section: Нускама бөлүмдөрүнүн барактары
       previous_page: Мурунку баракча
       search_this_manual: Бул нускаманы издөө
       see_all_updates: Бардык жаңыртууларды көрүү
       summary_title: Кыскача
-      title: "%{title}Жетектеме"
       updated: Жаңыртылды
       updates_amendments: жарыяланган түзөтүүлөр
       updates_description: "%{title}' жаңыртууларынын тизмеси."

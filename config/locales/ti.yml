@@ -461,13 +461,13 @@ ti:
       contents_list_breadcrumb_contents: ማንዋል መበገሲ ገጽ/ማንዋል ሆም ፔጅ
       contents_title: ትሕዝቶ
       hmrc_manual_type: ውሽጣዊ ማንዋል ኤች.ኤም.ኣር.ሲ/HMRC
+      manual_type: "%{title}መምርሒ"
       next_page: ዝቕጽል ገጽ
       pages_in_manual_section: ገጻት ክፍሊ ማንዋል
       previous_page: ዝሓለፈ ገጽ
       search_this_manual: ነዚ መምርሒ ማንዋል ድለይ
       see_all_updates: ኩሉ ሓድሽ ሓበሬታ ርአ
       summary_title: መጠቃለሊ
-      title: "%{title}መምርሒ"
       updated: ዝተመሓየሸ
       updates_amendments: ዝተመሓየሸ ሕታም
       updates_description: ዝርዝር ናይ '%{title}' ምዕባለታት።

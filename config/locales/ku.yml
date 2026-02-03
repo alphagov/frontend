@@ -461,7 +461,7 @@ ku:
       contents_list_breadcrumb_contents: لاپەڕەی سەرەکی ڕێنماییەکان
       contents_title: ناوقەرۆکەکان
       hmrc_manual_type: ڕێنمایی ناوخۆیی HMRC
-      manual_type: "%{title} ڕێنمایی"
+      manual_type: "ڕێنمایی"
       next_page: لاپەڕەی داهاتوو
       pages_in_manual_section: لاپەڕەکانی بەشی ڕێنمایی
       previous_page: لاپەڕەی پێشوو

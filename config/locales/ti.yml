@@ -461,7 +461,7 @@ ti:
       contents_list_breadcrumb_contents: ማንዋል መበገሲ ገጽ/ማንዋል ሆም ፔጅ
       contents_title: ትሕዝቶ
       hmrc_manual_type: ውሽጣዊ ማንዋል ኤች.ኤም.ኣር.ሲ/HMRC
-      manual_type: "%{title}መምርሒ"
+      manual_type: መምርሒ
       next_page: ዝቕጽል ገጽ
       pages_in_manual_section: ገጻት ክፍሊ ማንዋል
       previous_page: ዝሓለፈ ገጽ

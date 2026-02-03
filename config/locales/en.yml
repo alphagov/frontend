@@ -466,7 +466,7 @@ en:
       contents_list_breadcrumb_contents: Manual homepage
       contents_title: Contents
       hmrc_manual_type: HMRC internal manual
-      manual_type: "%{title}Guidance"
+      manual_type: Guidance
       next_page: Next page
       pages_in_manual_section: Manual section pages
       previous_page: Previous page

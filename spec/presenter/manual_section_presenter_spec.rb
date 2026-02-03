@@ -6,6 +6,14 @@ RSpec.describe ManualSectionPresenter do
 
   it_behaves_like "it can have manual metadata", Manual
 
+
+  describe "#contents_outline_presenter" do
+    it "returns a ContentsOutlinePresenter loaded from the content item" do
+      expect(manual_section_presenter.contents_outline_presenter).to be_instance_of(ContentsOutlinePresenter)
+      expect(manual_section_presenter.contents_outline_presenter.for_contents_list_component.count).to eq(7)
+    end
+  end
+
   describe "#show_contents_list?" do
     it "returns false" do
       expect(manual_section_presenter.show_contents_list?).to be false

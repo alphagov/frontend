@@ -7,6 +7,10 @@ class ManualSectionPresenter < ContentItemPresenter
     ContentsOutlinePresenter.new(content_item.contents_outline)
   end
 
+  def document_heading
+    [content_item.content_store_response.dig("details", "section_id"), content_item.title].compact.join(" - ")
+  end
+
   def show_contents_list?
     content_item.organisations.first.content_id == MOJ_ORGANISATION_CONTENT_ID
   end

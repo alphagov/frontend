@@ -1,5 +1,7 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_manual", media: "all" %>
+  <meta name="description"
+   content="<%= strip_tags(I18n.t("formats.manuals.updates_description")) %> '<%= content_item.title %> - <%= I18n.t("formats.manuals.manual_type") %>'.">
 <% end %>
 
 <% content_for :title, build_page_title([I18n.t("formats.manuals.updates"),content_item.title,I18n.t("formats.manuals.manual_type")]) %>

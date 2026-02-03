@@ -26,7 +26,8 @@ module ApplicationHelper
                             service_manual_service_toolkit
                             service_manual_topic
                             topical_event_about_page
-                            worldwide_office]
+                            worldwide_office
+                            worldwide_organisation]
 
     return false if no_breadcrumbs_for.include?(content_item.schema_name)
 

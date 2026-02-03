@@ -88,6 +88,7 @@ hu:
     share_links:
       share_this_page: Oldal megosztása
   contact:
+    access_and_opening_times: Hozzáférési és nyitási idők
     contact_form: Kapcsolatfelvételi űrlap
     email: E-mail
   continue:
@@ -878,4 +879,20 @@ hu:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: 'Tudja meg: %{link}.'
+      personal_information_charter_html: 'A következő oldalon olvashat róla, hogy hogyan kezeljük a személyes adatokat: %{link}'
+      publication_scheme_html: 'Tekintse meg, hogy milyen jellegű információkat teszünk közzé: %{link}.'
+      social_media_use_html: 'Bővebb információk az alábbi témával kapcsolatban: %{link}.'
+      welsh_language_scheme_html: 'Tájékozódjon az információk közzétételével kapcsolatos elkötelezettségünkről: %{link}.'
+    find_out_more: A teljes profil és elérhetőség megtekintése
+    headings:
+      contact_us: Kapcsolat
+      corporate_information: Vállalati adatok
+      follow_us: Kövessen minket
+      our_people: Munkatársaink
+    news: Hírek
+    part_of: 'Része a következőnek:'
+    world_news_link: "%{country} és az Egyesült Királyság"
   'yes':

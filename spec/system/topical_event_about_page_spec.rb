@@ -17,7 +17,7 @@ RSpec.describe "Topical Event About Page" do
     end
 
     it "has body text" do
-      assert page.has_text?("The risk of Ebola to the UK remains low. The virus is only transmitted by direct contact with the blood or bodily fluids of an infected person.")
+      expect(page).to have_text("The risk of Ebola to the UK remains low. The virus is only transmitted by direct contact with the blood or bodily fluids of an infected person.")
     end
   end
 

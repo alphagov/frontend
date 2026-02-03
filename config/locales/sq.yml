@@ -88,6 +88,7 @@ sq:
     share_links:
       share_this_page: Shpërdaj këtë faqe
   contact:
+    access_and_opening_times: Orari i hyrjes dhe hapjes
     contact_form: Formular kontakti
     email: Email
   continue:
@@ -878,4 +879,20 @@ sq:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Gjeni %{link}.
+      personal_information_charter_html: "%{link} jonë shpjegon se si i trajtojmë informacionet tuaja personale."
+      publication_scheme_html: Lexoni për llojet e informacionit që publikojmë në mënyrë rutinore në %{link} tonë.
+      social_media_use_html: Lexoni politikën tonë në %{link}.
+      welsh_language_scheme_html: Mësoni rreth angazhimit tonë ndaj %{link}.
+    find_out_more: Shikoni profilin e plotë dhe të gjitha detajet e kontaktit
+    headings:
+      contact_us: Na kontaktoni
+      corporate_information: Informacioni i korporatës
+      follow_us: Na ndiqni
+      our_people: Njerëzit tanë
+    news: Lajme
+    part_of: Pjesë e
+    world_news_link: "%{country} dhe Mbretëria e Bashkuar"
   'yes':

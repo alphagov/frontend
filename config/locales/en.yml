@@ -88,6 +88,7 @@ en:
     share_links:
       share_this_page: Share this page
   contact:
+    access_and_opening_times: Access and opening times
     contact_form: Contact form
     email: Email
   continue: Continue
@@ -293,6 +294,10 @@ en:
       name:
         one: Employment tribunal decision
         other: Employment tribunal decisions
+    equality_and_diversity:
+      name:
+        one: Equality and diversity
+        other: Equality and diversity
     esi_fund:
       name:
         one: European Structural and Investment Fund (ESIF)
@@ -316,10 +321,6 @@ en:
       name:
         one: FOI release
         other: FOI releases
-    equality_and_diversity:
-      name:
-        one: Equality and diversity
-        other: Equality and diversity
     form:
       name:
         one: Form
@@ -1128,4 +1129,20 @@ en:
     start_title: Start of British Summer Time
   withdrawn_notice:
     title: This %{schema_name} was withdrawn on %{withdrawn_time}
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Find out %{link}.
+      personal_information_charter_html: Our %{link} explains how we treat your personal information.
+      publication_scheme_html: Read about the types of information we routinely publish in our %{link}.
+      social_media_use_html: Read our policy on %{link}.
+      welsh_language_scheme_html: Find out about our commitment to %{link}.
+    find_out_more: See full profile and all contact details
+    headings:
+      contact_us: Contact us
+      corporate_information: Corporate information
+      follow_us: Follow us
+      our_people: Our people
+    news: News
+    part_of: Part of
+    world_news_link: "%{country} and the UK"
   'yes': 'Yes'

@@ -88,6 +88,7 @@ ps:
     share_links:
       share_this_page: دا پاه شریکه کړئ
   contact:
+    access_and_opening_times: د لاسرسي او خلاصیدو وختونه
     contact_form: د اړیکې فورمه
     email: بریښنالیک
   continue:
@@ -878,4 +879,20 @@ ps:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: "%{link} ومومئ."
+      personal_information_charter_html: زموږ%{link} تشریح کوي چې موږ ستاسو شخصي معلوماتو سره څنګه چلند کوو.
+      publication_scheme_html: د هغه معلوماتو ډولونو په اړه ولولئ چې موږ یې په منظم ډول زموږ په %{link} کې خپروو.
+      social_media_use_html: زموږ پالیسي په %{link} ولولئ.
+      welsh_language_scheme_html: "%{link} ته زموږ د ژمنتیا په اړه معلومات ترلاسه کړئ."
+    find_out_more: بشپړ پروفایل او د اړیکې ټول توضیحات وګورئ
+    headings:
+      contact_us: موږ سره اړیکه ونیسئ
+      corporate_information: د شرکت معلومات
+      follow_us: مونږ پسی راځه
+      our_people: زموږ خلک
+    news: خبرونه
+    part_of: برخه
+    world_news_link: "%{country} او انګلستان"
   'yes':

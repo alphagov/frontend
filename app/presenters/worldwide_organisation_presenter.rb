@@ -27,7 +27,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
       world_location_translation = world_location_name_translations.find do |translation|
         translation["content_id"] == location["content_id"]
       end
-      link_to(world_location_translation["name"], ::WorldLocationBasePathService.for(location), class: "govuk-link")
+      link_to(I18n.t("worldwide_organisation.world_news_link", country: world_location_translation["name"]), WorldLocationBasePathService.for(location), class: "govuk-link")
     end
 
     links.to_sentence.html_safe
@@ -80,6 +80,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def main_office
     return unless (office_item = content_item.content_store_response["links"]["main_office"])&.first
 
+    office_item = office_item.first
     office_contact_item = contact_for_office(office_item["content_id"])
     return unless office_contact_item
 
@@ -89,12 +90,33 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def home_page_offices
     return [] unless content_item.content_store_response["links"]["home_page_offices"]
 
-    content_item.dig("links", "home_page_offices").map { |office|
+    content_item.content_store_response.dig("links", "home_page_offices").map { |office|
       contact = contact_for_office(office["content_id"])
       next unless contact
 
       office(office, contact)
     }.compact
+  end
+
+  def show_corporate_info_section?
+    corporate_information_pages.present? || secondary_corporate_information.present?
+  end
+
+  def corporate_information_pages
+    cips = content_item.content_store_response.dig("links", "corporate_information_pages")
+    return if cips.blank?
+
+    ordered_cips = content_item.content_store_response.dig("details", "ordered_corporate_information_pages")
+    return if ordered_cips.blank?
+
+    ordered_cips.map do |cip|
+      link = cips.find { |cp| cp["content_id"] == cip["content_id"] }["base_path"]
+      link_to(cip["title"], link, class: "govuk-link").html_safe
+    end
+  end
+
+  def secondary_corporate_information
+    content_item.content_store_response.dig("details", "secondary_corporate_information_pages").to_s
   end
 
   def sponsoring_organisations
@@ -105,20 +127,20 @@ private
 
   def office(office, contact)
     WorldwideOffice.new(
-      contact: WorldwideOrganisation::LinkedContactPresenter.new(contact),
+      contact: LinkedContactPresenter.new(contact),
       has_access_and_opening_times?: office.dig("details", "access_and_opening_times").present?,
       public_url: office["base_path"],
     )
   end
 
   def contact_for_office(office_content_id)
-    contact_mapping = content_item.dig("details", "office_contact_associations").select { |office_contact_association|
+    contact_mapping = content_item.content_store_response.dig("details", "office_contact_associations").select { |office_contact_association|
       office_contact_association["office_content_id"] == office_content_id
     }.first
 
     return unless contact_mapping
 
-    content_item.dig("links", "contacts").select { |contact|
+    content_item.content_store_response.dig("links", "contacts").select { |contact|
       contact["content_id"] == contact_mapping["contact_content_id"]
     }.first
   end

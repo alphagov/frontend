@@ -88,6 +88,7 @@ he:
     share_links:
       share_this_page: שתף דף זה
   contact:
+    access_and_opening_times: זמני גישה ופתיחה
     contact_form: טופס יצירת קשר
     email: דואר אלקטרוני
   continue:
@@ -878,4 +879,20 @@ he:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: 'גלה %{link}. '
+      personal_information_charter_html: ה%{link} מסביר אודות המדיניות שלנו כלפי מידע פרטי
+      publication_scheme_html: קרא על סוגי המידע שאנו מפרסמים באופן שגרתי ב- %{link} שלנו
+      social_media_use_html: קרא/י אודות המדיניות שלנו %{link}
+      welsh_language_scheme_html: מידע נוסף על המחויבות שלנו לפרסום %{link}.
+    find_out_more: ראה/י פרופיל מלא ופרטי התקשרות
+    headings:
+      contact_us: צור קשר
+      corporate_information: מידע תאגידי
+      follow_us: עקבו אחרינו
+      our_people: הצוות שלנו
+    news: חדשות
+    part_of: חלק של
+    world_news_link: "%{country} ובריטניה"
   'yes':

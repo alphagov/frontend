@@ -234,11 +234,11 @@ RSpec.describe "CallForEvidence" do
 
       it "displays the postal address formatted with line breaks" do
         expect(page).to have_css(".contact", text: "2016 Post Office Network Consultation Department for Business, Energy and Industrial Strategy 1 Victoria Street London SW1H 0ET")
-        assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
-        assert page.has_css?(".contact .content p", text: "Department for Business, Energy and Industrial Strategy")
-        assert page.has_css?(".contact .content p", text: "1 Victoria Street")
-        assert page.has_css?(".contact .content p", text: "London")
-        assert page.has_css?(".contact .content p", text: "SW1H 0ET")
+        expect(page).to have_css(".contact .content p", text: "2016 Post Office Network Consultation")
+        expect(page).to have_css(".contact .content p", text: "Department for Business, Energy and Industrial Strategy")
+        expect(page).to have_css(".contact .content p", text: "1 Victoria Street")
+        expect(page).to have_css(".contact .content p", text: "London")
+        expect(page).to have_css(".contact .content p", text: "SW1H 0ET")
       end
 
       it "displays the response form" do

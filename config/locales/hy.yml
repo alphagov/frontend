@@ -88,6 +88,7 @@ hy:
     share_links:
       share_this_page: Կիսվել այս էջով
   contact:
+    access_and_opening_times: Մուտք և հասանելիության ժամեր
     contact_form: Կոնտակտային ձև
     email: Էլ․ փոստ
   continue:
@@ -878,4 +879,20 @@ hy:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Տեղեկանալ %{link}։
+      personal_information_charter_html: Մեր %{link}-ում ներկայացված է, թե ինչպես ենք մշակում ձեր անձնական տվյալները
+      publication_scheme_html: Կարդալ մեր %{link}-ում պարբերաբար հրապարակվող տեղեկությունների տեսակների մասին։
+      social_media_use_html: 'Կարդալ մեր քաղաքականությունը %{link} հղումով:'
+      welsh_language_scheme_html: 'Տեղեկանալ մեր աշխատանքի մասին %{link} հղումով:'
+    find_out_more: Դիտել ամբողջական պրոֆիլը և կոնտակտային բոլոր տվյալները
+    headings:
+      contact_us: Կապը մեզ հետ
+      corporate_information: Կորպորատիվ տեղեկություն
+      follow_us: Հետևել մեզ
+      our_people: Մեր անձնակազմը
+    news: Նորություններ
+    part_of: Մաս է՝
+    world_news_link: "%{country} և Մեծ Բրիտանիա"
   'yes':

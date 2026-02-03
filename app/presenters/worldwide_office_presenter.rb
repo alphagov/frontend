@@ -7,7 +7,7 @@ class WorldwideOfficePresenter < ContentItemPresenter
   end
 
   def contact
-    LinkedContactPresenter.new(content_item.contact)
+    LinkedContactPresenter.new(content_item.contact.content_store_response)
   end
 
   def worldwide_organisation

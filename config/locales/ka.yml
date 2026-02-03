@@ -88,6 +88,7 @@ ka:
     share_links:
       share_this_page: ამ გვერდის გაზიარება
   contact:
+    access_and_opening_times: ხელმისაწვდომობა და გახსნის დროები
     contact_form: საკონტაქტო ფორმა
     email: ელ.ფოსტა
   continue:
@@ -878,4 +879,20 @@ ka:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: შეიტყვეთ %{link}.
+      personal_information_charter_html: ჩვენი %{link} განმარტავს, თუ როგორ ვამუშავებთ ჩვენ თქვენს პირად ინფორმაციას.
+      publication_scheme_html: წაიკითხეთ ინფორმაციის ტიპების შესახებ, რომელსაც ჩვენ რეგულარულად ვაქვეყნებთ ჩვენს %{link}-ზე.
+      social_media_use_html: წაიკითხეთ ჩვენი პოლიტიკა %{link}-ზე.
+      welsh_language_scheme_html: გაეცანით ჩვენს ვალდებულებას %{link}.
+    find_out_more: იხილეთ სრული პროფილი და ყველა საკონტაქტო ინფორმაცია
+    headings:
+      contact_us: დაგვიკავშირდით
+      corporate_information: კორპორატიული ინფორმაცია
+      follow_us: გამოგვყევით
+      our_people: ჩვენი ხალხი
+    news: სიახლეები
+    part_of: ნაწილი
+    world_news_link: "%{country} და დიდი ბრიტანეთი"
   'yes':

@@ -88,6 +88,7 @@ bg:
     share_links:
       share_this_page: Споделяне на тази страница
   contact:
+    access_and_opening_times: Часове за достъп и отваряне
     contact_form: Формуляр за контакт
     email: Имейл
   continue:
@@ -878,4 +879,20 @@ bg:
     start_title:
   withdrawn_notice:
     title:
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Научете повече за %{link}.
+      personal_information_charter_html: В нашия %{link} е обяснено как работим с личната информация.
+      publication_scheme_html: Прочетете за видовете информация, които обичайно публикуваме на нашата %{link}.
+      social_media_use_html: Прочетете нашите правила на %{link}.
+      welsh_language_scheme_html: Научете повече за нашия ангажимент към %{link}.
+    find_out_more: Вижте пълния профил и всички данни за контакт
+    headings:
+      contact_us: Свържете се с нас
+      corporate_information: Фирмена информация
+      follow_us: Следвайте ни
+      our_people: Нашият народ
+    news: Новини
+    part_of: Част от
+    world_news_link: "%{country} и Обединеното кралство"
   'yes':

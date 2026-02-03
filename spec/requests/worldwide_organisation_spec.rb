@@ -1,6 +1,7 @@
-RSpec.describe "Worldwide office page" do
+RSpec.describe "Worldwide organisation page" do
   describe "GET index" do
-    let(:content_item) { GovukSchemas::Example.find("worldwide_office", example_name: "worldwide_office") }
+    let(:content_item) { GovukSchemas::Example.find("worldwide_organisation", example_name: "worldwide_organisation") }
+
     let(:base_path) { content_item.fetch("base_path") }
 
     before do

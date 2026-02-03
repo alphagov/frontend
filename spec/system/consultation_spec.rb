@@ -204,7 +204,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays the postal address formatted with line breaks" do
-        assert page.has_css?(".contact .content p", text: "2016 Post Office Network Consultation")
+        expect(page).to have_css(".contact .content p", text: "2016 Post Office Network Consultation")
       end
 
       it "displays the response form" do
@@ -494,7 +494,7 @@ RSpec.describe "Consultation" do
       end
 
       it "renders public feedback document attachments" do
-        assert page.has_text?("Feedback received")
+        expect(page).to have_text("Feedback received")
 
         within "#feedback-received" do
           expect(page).to have_text("Analysis of responses to our consultation on setting the grade standards of new GCSEs in England – part 2")

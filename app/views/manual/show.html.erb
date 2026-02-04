@@ -3,13 +3,13 @@
 <% end %>
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
-    content_item: @content_item,
+    content_item: content_item,
     heading_level: 1,
   } %>
 <% end %>
 
 <%= render "shared/manuals/manual_layout" do %>
-  <% @content_item.section_groups.each do |group| %>
+  <% content_item.section_groups.each do |group| %>
     <%= render "govuk_publishing_components/components/document_list", {
         items: group["child_sections"].map do |section|
           {

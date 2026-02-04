@@ -33,7 +33,7 @@
   <div class="govuk-width-container">
 
     <% if show_breadcrumbs?(content_item) %>
-      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.to_h %>
+      <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.for_contextual_breadcrumbs %>
     <% end %>
 
     <%= render "govuk_web_banners/recruitment_banner" %>

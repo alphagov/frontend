@@ -28,6 +28,7 @@ class ContentItem
   end
 
   alias_method :to_h, :content_store_response
+  alias_method :for_contextual_breadcrumbs, :content_store_response
 
   REGEX_IS_A = /is_an?_(.*)\?/
 

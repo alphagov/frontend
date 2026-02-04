@@ -1,0 +1,113 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "views/_manual", media: "all" %>
+  <meta name="description" content="<%= content_item.description %>">
+<% end %>
+
+<% content_for :title do %>
+  <%= build_page_title([content_item.manual_content_item.title, content_item.title, t("formats.manuals.manual_type")]) %>
+<% end %>
+
+<% content_for :before_main do %>
+  <%= render "shared/manuals/header", {
+    content_item: content_item.manual_content_item,
+    heading_level: 1,
+  } %>
+
+  <%= render "govuk_publishing_components/components/breadcrumbs", {
+          border: "bottom",
+          margin_bottom: 6,
+          breadcrumbs: [{
+            title: I18n.t(@presenter.show_contents_list? ? "formats.manuals.contents_list_breadcrumb_contents" : "formats.manuals.breadcrumb_contents"),
+            url: content_item.manual_content_item.base_path,
+          }],
+          collapse_on_mobile: false } %>
+<% end %>
+
+<div id="manuals-frontend">
+  <% if @presenter.show_contents_list? %>
+    <%= render "govuk_publishing_components/components/contents_list", {
+      aria: { label: t("formats.manuals.pages_in_manual_section") }, contents: @presenter.contents_outline_presenter.for_contents_list_component, underline_links: true
+    } %>
+  <% end %>
+
+  <div class="govuk-grid-row">
+    <article aria-labelledby="section-title">
+      <div class="govuk-grid-column-full">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: @presenter.document_heading,
+          font_size: "l",
+          id: "section-title",
+          heading_level: 1,
+          margin_bottom: 4,
+        } %>
+      </div>
+
+      <% if content_item.description.present? %>
+        <div class="govuk-grid-column-two-thirds">
+          <%= render "govuk_publishing_components/components/lead_paragraph", {
+            text: content_item.description,
+          } %>
+        </div>
+      <% end %>
+
+      <div class="govuk-grid-column-two-thirds">
+        <% if content_item.intro.present? %>
+          <%= render "govuk_publishing_components/components/govspeak", {} do
+            raw(content_item.intro)
+          end %>
+        <% end %>
+
+        <% if content_item.body.present? %>
+          <% if content_item.visually_expanded? %>
+            <% content_item.sections.map do |item| %>
+              <div class="govuk-!-margin-bottom-3">
+                <%= render "govuk_publishing_components/components/heading", {
+                  text: item[:heading][:text],
+                  font_size: "m",
+                  margin_bottom: 1,
+                  id: item[:heading][:id],
+                } %>
+              </div>
+              <div class="govuk-body govuk-!-margin-bottom-1">
+                <%= render "govuk_publishing_components/components/govspeak", {} do
+                  raw(item[:content])
+                end %>
+              </div>
+            <% end %>
+          <% else %>
+            <%
+              items = content_item.sections.each.with_index(1).map do |item, index|
+                rendered_content = render "govuk_publishing_components/components/govspeak", {} do
+                  raw(item[:content])
+                end
+
+                {
+                  data_attributes: {
+                    ga4_event: {
+                      event_name: "select_content",
+                      type: "accordion",
+                      text: item[:heading][:text],
+                      index: index,
+                      index_total: content_item.sections.length,
+                    },
+                  },
+                  heading: item[:heading],
+                  content: {
+                    html: rendered_content,
+                  },
+                }
+              end
+            %>
+
+            <%= render "govuk_publishing_components/components/accordion", {
+              anchor_navigation: true,
+              items: items,
+            } %>
+          <% end %>
+        <% end %>
+      </div>
+    </article>
+  </div>
+
+  <%= render "govuk_publishing_components/components/print_link" %>
+</div>

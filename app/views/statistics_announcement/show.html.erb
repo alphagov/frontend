@@ -1,6 +1,4 @@
-<% content_for :title do %>
-  <%= @presenter.page_title %> - <%= t("formats.#{content_item.document_type}.name", count: 1) %> - GOV.UK
-<% end %>
+<% content_for :title, build_page_title([content_item.title, t("formats.#{content_item.document_type}.name", count: 1)]) %>
 
 <% content_for :head do %>
   <meta name="description" content="<%= content_item.description %>">

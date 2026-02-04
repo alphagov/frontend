@@ -492,8 +492,8 @@ is:
         other: Hagstofa
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Tilkynning Hagstofu
+        other: Tilkynningar Hagstofur
     news_article:
       name:
         one: Fréttagrein
@@ -516,8 +516,8 @@ is:
         other: Opinber tölfræði
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Tilkynning um opinbera tölfræði
+        other: Tilkynningar um opinbera tölfræði
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ is:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Dagsetning aflýsingar
+      cancelled: Útgáfu tölfræðigagna aflýst
+      changed_date: Útgáfudagsetningunni hefur verið breytt
+      forthcoming: Þessi tölfræði verður gefin út
       name:
-        one:
-        other:
+        one: Tilkynning um útgáfu tölfræðigagna
+        other: Tilkynningar um útgáfu tölfræðigagna
+      previous_date: Fyrri dagsetning
+      proposed_date: Fyrirhuguð útgáfa
+      reason_for_change: Ástæða fyrir breytingu
+      release_date: Útgáfudagsetning
     statutory_guidance:
       name:
         one: Lagalegar leiðbeiningar

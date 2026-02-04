@@ -492,8 +492,8 @@ ur:
         other: قومی شماریات
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: قومی شماریاتی اعلان
+        other: قومی شماریاتی اعلانات
     news_article:
       name:
         one: خبروں کا مضمون
@@ -516,8 +516,8 @@ ur:
         other: سرکاری شماریات
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: سرکاری شماریات کا اعلان
+        other: سرکاری شماریات کے اعلانات
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ ur:
         one:
         other:
     statistics_announcement:
+      cancellation_date: منسوخی کی تاریخ
+      cancelled: شماریات کے اجراء کو منسوخ کر دیا گیا
+      changed_date: اجراء کی تاریخ تبدیل ہو گئی ہے
+      forthcoming: یہ شماریات جاری کی جائیں گے
       name:
-        one:
-        other:
+        one: شماریات کے اجراء کا اعلان
+        other: شماریات کے اجراء کا اعلانات
+      previous_date: گزشتہ تاریخ
+      proposed_date: تجویز کردہ اجراء
+      reason_for_change: تبدیلی کی وجہ
+      release_date: اجراء کی تاریخ
     statutory_guidance:
       name:
         one: قانونی رہنمائی

@@ -536,8 +536,8 @@ ro:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Anunț de statistică națională
+        other: Anunțuri de statistică națională
     news_article:
       name:
         few:
@@ -566,8 +566,8 @@ ro:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Anunț oficial de statistică
+        other: Anunțuri oficiale de statistică
     open_call_for_evidence:
       name:
         few:
@@ -702,10 +702,18 @@ ro:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Data anulării
+      cancelled: Eliberarea documentelor statistice a fost anulată
+      changed_date: Data eliberării a fost schimbată
+      forthcoming: Aceste statistici vor fi eliberate
       name:
         few:
-        one:
-        other:
+        one: Anunț eliberare documente statistice
+        other: Anunțuri eliberare documente statistice
+      previous_date: Data anterioară
+      proposed_date: Data propusă
+      reason_for_change: Motivul schimbării
+      release_date: Data publicării
     statutory_guidance:
       name:
         few:

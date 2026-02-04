@@ -492,8 +492,8 @@ uz:
         other: Давлат статистик маълумотлар
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Давлат статистик маълумотлар эълони
+        other: Давлат статистик маълумотлар эълонлари
     news_article:
       name:
         one: Янгилик мақоласи
@@ -516,8 +516,8 @@ uz:
         other: Расмий статистик маълумотлар
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Расмий статистик маълумотлар эълони
+        other: Расмий статистик маълумотлар эълонлари
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ uz:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Бекор қилиш санаси
+      cancelled: Статистик маълумотларнинг чиқарилиши бекор қилинган
+      changed_date: Нашр санаси ўзгартирилган
+      forthcoming: Ушбу статистик маълумотлар чиқарилган бўлади
       name:
-        one:
-        other:
+        one: Статистик маълумотларни чиқариш ҳақида эълон
+        other: Статистик маълумотларни чиқариш ҳақида эълонлар
+      previous_date: Олдинги сана
+      proposed_date: Режалаштирилган нашр
+      reason_for_change: Ўзгариш киритилиш сабаблари
+      release_date: Нашр санаси
     statutory_guidance:
       name:
         one: Норматив қўлланма

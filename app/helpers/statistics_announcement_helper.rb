@@ -1,0 +1,8 @@
+module StatisticsAnnouncementHelper
+  def nbsp_between_last_two_words(text)
+    return text if text.nil?
+
+    escaped_text = ERB::Util.html_escape_once(text.strip)
+    escaped_text.sub(/\s([\w.?!:]+)$/, '&nbsp;\1').html_safe
+  end
+end

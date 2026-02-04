@@ -492,8 +492,8 @@ lv:
         other: Statistika - valsts dati
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Paziņojums par valsts statistiku
+        other: Paziņojumi par valsts statistiku
     news_article:
       name:
         one: Raksts
@@ -516,8 +516,8 @@ lv:
         other: Statistika
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Paziņojums par oficiālo statistiku
+        other: Paziņojumi par oficiālo statistiku
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ lv:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Atcelšanas datums
+      cancelled: Statistikas publiskošana atcelta
+      changed_date: Publiskošanas datums ir mainīts
+      forthcoming: Statistika tiks publiskota
       name:
-        one:
-        other:
+        one: Statistikas publiskošanas paziņojums
+        other: Statistikas publiskošanas paziņojumi
+      previous_date: Iepriekšējais datums
+      proposed_date: Paredzētā publiskošana
+      reason_for_change: Izmaiņu iemesls
+      release_date: Publiskošanas datums
     statutory_guidance:
       name:
         one: Saistošās vadlīnijas

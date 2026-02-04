@@ -629,9 +629,17 @@ ky:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Жокко чыгаруу күнү
+      cancelled: Статистиканы чыгаруу жокко чыгарылды
+      changed_date: Чыгаруу күнү өзгөртүлө алат
+      forthcoming: Бул статистикалар чыгарылат
       name:
         one: Статистиканы чыгаруу кулактандыруусу
         other: Статистиканы чыгаруу кулактандыруулары
+      previous_date: Мурунку дата
+      proposed_date: Сунушталган чыгарылыш
+      reason_for_change: Өзгөртүү себеби
+      release_date: Чыгаруу датасы
     statutory_guidance:
       name:
         one: Нормативдик жетектеме

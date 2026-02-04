@@ -580,8 +580,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Avviż tal-istatistiċi nazzjonali
+        other: Avviżi tal-istatistiċi nazzjonali
     news_article:
       name:
         few:
@@ -616,8 +616,8 @@ mt:
       name:
         few:
         many:
-        one:
-        other:
+        one: Avviż dwar l-istatistiċi uffiċjali
+        other: Avviżi dwar l-istatistiċi uffiċjali
     open_call_for_evidence:
       name:
         few:
@@ -775,11 +775,19 @@ mt:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Data tal-kanċellament
+      cancelled: Rilaxx tal-istatistiċi ġie kkanċellat
+      changed_date: Id-data tar-rilaxx ġiet mibdula
+      forthcoming: Dawn l-istatistiċi ser jiġu rilaxxati
       name:
         few:
         many:
-        one:
-        other:
+        one: Avviż dwar ir-rilaxx ta' statistika
+        other: Avviżi dwar ir-rilaxx ta' statistika
+      previous_date: Data ta' qabel
+      proposed_date: Rilaxx propost
+      reason_for_change: Raġuni għall-bidla
+      release_date: Data tar-rilaxx
     statutory_guidance:
       name:
         few:

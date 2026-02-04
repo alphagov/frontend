@@ -580,8 +580,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Объявление национального статистического комитета
+        other: Объявления национального статистического комитета
     news_article:
       name:
         few:
@@ -616,8 +616,8 @@ ru:
       name:
         few:
         many:
-        one:
-        other:
+        one: Доклад по официальным статистическим данным
+        other: Доклады по официальным статистическим данным
     open_call_for_evidence:
       name:
         few:
@@ -775,11 +775,19 @@ ru:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Дата отмены
+      cancelled: Выпуск статистических данных отменен
+      changed_date: Дата выпуска была изменена
+      forthcoming: Данные статистические данные будут опубликованы
       name:
         few:
         many:
-        one:
-        other:
+        one: Объявление о публикации статистических данных
+        other: Объявления о публикации статистических данных
+      previous_date: Предыдущая дата
+      proposed_date: Предложенный выпуск
+      reason_for_change: Причина изменения
+      release_date: Дата выпуска
     statutory_guidance:
       name:
         few:

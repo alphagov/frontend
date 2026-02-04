@@ -492,8 +492,8 @@ hy:
         other: Ազգային վիճակագրություն
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Ազգային վիճակագրական հայտարարություն
+        other: Ազգային վիճակագրական հայտարարություններ
     news_article:
       name:
         one: Տեղեկատվական հոդված
@@ -516,8 +516,8 @@ hy:
         other: Պաշտոնական վիճակագրություն
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Պաշտոնական վիճակագրական հայտարարություն
+        other: Պաշտոնական վիճակագրական հայտարարություններ
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ hy:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Չեղարկման ամսաթիվ
+      cancelled: Վիճակագրության հրապարակումը չեղարկվել է
+      changed_date: Հրապարակման ամսաթիվը փոխվել է
+      forthcoming: Այս վիճակագրությունը կհրապարակվի
       name:
-        one:
-        other:
+        one: Վիճակագրության հրապարակման հայտարարություն
+        other: Վիճակագրության հրապարակման հայտարարություններ
+      previous_date: Նախորդ ամսաթիվ
+      proposed_date: Առաջարկվող հրապարակում
+      reason_for_change: Փոփոխության պատճառը
+      release_date: Հրապարակման ամսաթիվ
     statutory_guidance:
       name:
         one: Կանոնադրական ուղեցույց

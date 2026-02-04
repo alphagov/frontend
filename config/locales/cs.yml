@@ -536,8 +536,8 @@ cs:
     national_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oznámení národních statistik
+        other: Oznámení národních statistik
     news_article:
       name:
         few:
@@ -566,8 +566,8 @@ cs:
     official_statistics_announcement:
       name:
         few:
-        one:
-        other:
+        one: Oficiální statistické oznámení
+        other: Oficiální statistická oznámení
     open_call_for_evidence:
       name:
         few:
@@ -702,10 +702,18 @@ cs:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Datum zrušení
+      cancelled: Vydání statistik zrušeno
+      changed_date: Datum vydání bylo změněno
+      forthcoming: Tyto statistiky budou zveřejněny
       name:
         few:
-        one:
-        other:
+        one: Oznámení o zveřejnění statistik
+        other: Oznámení o zveřejnění statistik
+      previous_date: Předchozí datum
+      proposed_date: Navrhované uvolnění
+      reason_for_change: Důvod změny
+      release_date: Datum vydání
     statutory_guidance:
       name:
         few:

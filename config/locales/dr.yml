@@ -495,8 +495,8 @@ dr:
         other: آمار ملی
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه آمار ملی
+        other: اطلاعیه آمار ملی
     news_article:
       name:
         one: مقاله خبری
@@ -519,8 +519,8 @@ dr:
         other: آمار رسمی
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: اطلاعیه آمار رسمی
+        other: اطلاعیه آمار رسمی
     open_call_for_evidence:
       name:
         one:
@@ -632,9 +632,17 @@ dr:
         one:
         other:
     statistics_announcement:
+      cancellation_date: تاریخ لغو کردن
+      cancelled: انتشار آمار لغو شد
+      changed_date: تاریخ انتشارتغییر داده شد
+      forthcoming: این آمار منتشر خواهد شد
       name:
-        one:
-        other:
+        one: اطلاعیه انتشار آمار
+        other: اطلاعیه هایی انتشار آمار
+      previous_date: تاریخ قبلی
+      proposed_date: انتشار پیشنهاد شده
+      reason_for_change: دلیل تغییر
+      release_date: تاریخ انتشار
     statutory_guidance:
       name:
         one: راهنمایی قانونی

@@ -492,8 +492,8 @@ es-419:
         other: Estadísticas nacionales
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Anuncio de estadísticas nacionales
+        other: Anuncios de estadísticas nacionales
     news_article:
       name:
         one: Artículo de prensa
@@ -516,8 +516,8 @@ es-419:
         other: Estadísticas Oficiales
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Anuncio de estadísticas oficiales
+        other: Anuncios de estadísticas oficiales
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ es-419:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Fecha de cancelación
+      cancelled: Publicación de estadísticas cancelada
+      changed_date: La fecha de lanzamiento ha sido modificada
+      forthcoming: Estas estadísticas se publicarán
       name:
-        one:
-        other:
+        one: Anuncio y difusión de estadísticas
+        other: Anuncios y difusión de estadísticas
+      previous_date: Fecha anterior
+      proposed_date: Propuesta de publicación
+      reason_for_change: Motivo de la modificación
+      release_date: Fecha de publicación
     statutory_guidance:
       name:
         one: Orientaciones reglamentarias

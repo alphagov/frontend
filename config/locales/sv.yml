@@ -492,8 +492,8 @@ sv:
         other: Nationell statistik
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelande om nationell statistik
+        other: Meddelanden om nationell statistik
     news_article:
       name:
         one: Nyhetsartikel
@@ -516,8 +516,8 @@ sv:
         other: Officiell statistik
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Meddelande om officiell statistik
+        other: Meddelanden om officiell statistik
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ sv:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Datum för avbeställning
+      cancelled: Statistiskt meddelande avbrutits
+      changed_date: Utgivningsdatumet har ändrats
+      forthcoming: Denna statistik kommer att offentliggöras
       name:
-        one:
-        other:
+        one: Meddelande om offentliggörande av statistik
+        other: Meddelanden om offentliggöranden av statistik
+      previous_date: Föregående datum
+      proposed_date: Föreslagna offentliggöranden
+      reason_for_change: Skäl till ändringen
+      release_date: Datum för offentliggörandet
     statutory_guidance:
       name:
         one: Lagstadgad vägledning

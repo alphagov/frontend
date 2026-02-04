@@ -492,8 +492,8 @@ hu:
         other: Nemzeti statisztikák
     national_statistics_announcement:
       name:
-        one:
-        other:
+        one: Nemzeti statisztikai bejelentés
+        other: Nemzeti statisztikai bejelentések
     news_article:
       name:
         one: Cikk
@@ -516,8 +516,8 @@ hu:
         other: Hivatalos statisztikák
     official_statistics_announcement:
       name:
-        one:
-        other:
+        one: Hivatalos statisztikai bejelentés
+        other: Hivatalos statisztikai bejelentések
     open_call_for_evidence:
       name:
         one:
@@ -629,9 +629,17 @@ hu:
         one:
         other:
     statistics_announcement:
+      cancellation_date: Lemondás időpontja
+      cancelled: A statisztikák közzététele törölve
+      changed_date: A kiadás időpontja megváltozott.
+      forthcoming: Ezek a statisztikák kiadásra kerülnek a jövőben
       name:
-        one:
-        other:
+        one: Statisztika közzétételének bejelentése
+        other: Statisztika közzétételének bejelentései
+      previous_date: Korábbi időpont
+      proposed_date: Javasolt kiadás
+      reason_for_change: Változás oka
+      release_date: Kiadás időpontja
     statutory_guidance:
       name:
         one: Törvényi előírás

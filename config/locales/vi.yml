@@ -449,7 +449,7 @@ vi:
         other: Thống kê Quốc gia
     national_statistics_announcement:
       name:
-        other:
+        other: Thông báo thống kê quốc gia
     news_article:
       name:
         other: Bài viết thời sự
@@ -467,7 +467,7 @@ vi:
         other: Thống kê Chính thức
     official_statistics_announcement:
       name:
-        other:
+        other: Thông báo thống kê chính thức
     open_call_for_evidence:
       name:
         other:
@@ -556,8 +556,16 @@ vi:
       name:
         other:
     statistics_announcement:
+      cancellation_date: Ngày hủy bỏ
+      cancelled: Đã hủy phát hành thống kê
+      changed_date: Đã thay đổi ngày phát hành
+      forthcoming: Những thống kê này sẽ được phát hành
       name:
-        other:
+        other: Thông báo phát hành thống kê
+      previous_date: Ngày trước đó
+      proposed_date: Thông tin được đề nghị phát hành
+      reason_for_change: Lý do thay đổi
+      release_date: Ngày phát hành
     statutory_guidance:
       name:
         other: Hướng dẫn theo luật định

@@ -165,5 +165,13 @@ RSpec.describe "FlexiblePage" do
         end
       end
     end
+
+    describe "renders a who's involved flexible section" do
+      it "contains the basic expected elements" do
+        visit base_path
+
+        expect(page).to have_selector("[data-flexible-section='involved']")
+      end
+    end
   end
 end

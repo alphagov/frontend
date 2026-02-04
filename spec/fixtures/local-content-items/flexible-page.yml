@@ -371,6 +371,14 @@ details:
           url: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG"
         summary: "This is what five (or more) featured items look like."
         title: "Government does things"
+  - type: involved
+    organisations:
+      - details:
+          brand: "department-for-culture-media-sport"
+          logo:
+            crest: "single-identity"
+        title: "Department for Digital, Culture, Media & Sport"
+        web_url: "https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport"
 links:
   parent:
   - base_path: "/government/history"

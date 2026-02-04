@@ -1,4 +1,8 @@
 class ManualUpdatesPresenter < ContentItemPresenter
+  include ActionView::Helpers
+  include ActionView::Context
+  include ManualMetadata
+
   def presented_change_notes
     group_updates_by_year(content_item.change_notes)
   end

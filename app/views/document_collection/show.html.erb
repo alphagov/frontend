@@ -3,6 +3,10 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>
+
+  <% if @presenter.ga4_scroll_tracking? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
+  <% end %>
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>

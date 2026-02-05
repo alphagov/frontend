@@ -9,4 +9,8 @@ class PublicationPresenter < ContentItemPresenter
   def hide_from_search_engines?
     PATHS_TO_HIDE.include?(content_item.base_path)
   end
+
+  def ga4_scroll_tracking?
+    ["/government/publications/rollout-of-the-new-local-plan-making-system"].include?(content_item.base_path)
+  end
 end

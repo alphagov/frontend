@@ -5,6 +5,10 @@
   <% if @presenter.hide_from_search_engines? %>
     <meta name="robots" content="noindex">
   <% end %>
+
+  <% if @presenter.ga4_scroll_tracking? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
+  <% end %>
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>

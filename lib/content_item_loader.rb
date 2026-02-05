@@ -16,7 +16,7 @@ class ContentItemLoader
       ContentItemLoaders::JsonFileLoader.new,
       ContentItemLoaders::YamlFileLoader.new,
       ContentItemLoaders::HubRedirectLoader.new(content_store_loader: default_loader),
-      ContentItemLoaders::GraphqlLoader.new(content_store_loader: default_loader, request:),
+      ContentItemLoaders::GraphqlLoader.new(request:),
     ]
   end
 

@@ -74,13 +74,13 @@ class ContentItem
     I18n.t("formats.#{document_type}.name", default: nil, count: 1)
   end
 
-private
-
   def linked(type)
     return [] if content_store_response.dig("links", type).blank?
 
     content_store_response.dig("links", type).map { |hash| ContentItemFactory.build(hash) }
   end
+
+private
 
   def ordered_related_items(links)
     return [] if links["ordered_related_items_overrides"].present?

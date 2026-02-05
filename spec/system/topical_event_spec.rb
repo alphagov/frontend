@@ -1,6 +1,4 @@
-require "integration_spec_helper"
-
-RSpec.feature "Topical Event pages" do
+RSpec.describe "Topical Event pages" do
   include SearchApiHelpers
   let(:content_item) { fetch_fixture("topical_event") }
   let(:base_path) { content_item["base_path"] }

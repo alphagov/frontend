@@ -91,5 +91,13 @@ RSpec.describe "Feed flexible section" do
       expect(rendered).to have_link("Facebook", href: "/facebook-share-link")
       expect(rendered).to have_selector(".gem-c-share-links__link-icon .gem-c-share-links__svg")
     end
+
+    context "when there are no share links" do
+      let(:flexible_section) { FlexiblePage::FlexibleSection::Feed.new(section_hash.except("share_links"), nil) }
+
+      it "does not show the share links element" do
+        expect(rendered).not_to have_selector("[data-flexible-section=feed_share_links]")
+      end
+    end
   end
 end

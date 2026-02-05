@@ -29,19 +29,21 @@
     } %>
   </div>
 
-  <div class="govuk-grid-column-one-third" data-flexible-section="feed_share_links">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: flexible_section.share_links_heading_text,
-      margin_bottom: 1,
-      padding: true,
-      border_top: 5,
-    } %>
+  <% if flexible_section.share_links.any? %>
+    <div class="govuk-grid-column-one-third" data-flexible-section="feed_share_links">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: flexible_section.share_links_heading_text,
+        margin_bottom: 1,
+        padding: true,
+        border_top: 5,
+      } %>
 
-    <%= render "govuk_publishing_components/components/share_links", {
-      square_icons: true,
-      flexbox: true,
-      links: flexible_section.share_links.map(&:symbolize_keys),
-      track_as_follow: true,
-    } %>
-  </div>
+      <%= render "govuk_publishing_components/components/share_links", {
+        square_icons: true,
+        flexbox: true,
+        links: flexible_section.share_links.map(&:symbolize_keys),
+        track_as_follow: true,
+      } %>
+    </div>
+    <% end %>
 </div>

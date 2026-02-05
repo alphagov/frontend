@@ -1,7 +1,6 @@
 class Manual < ContentItem
   include EmphasisedOrganisations
   include ManualLike
-  include ManualSections
   include ManualUpdates
   include Updatable
 

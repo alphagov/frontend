@@ -14,7 +14,9 @@
     } %>
   <% end %>
   <% if content_item.body.present? %>
-    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      lang: content_item.locale,
+    } do %>
       <%= content_item.body.html_safe %>
     <% end %>
   <% end %>

@@ -8,7 +8,7 @@ module FlexiblePage::FlexibleSection
       @feed_heading_text = flexible_section_hash["feed_heading_text"]
 
       @share_links_heading_text = flexible_section_hash["share_links_heading_text"]
-      @share_links = flexible_section_hash["share_links"]
+      @share_links = flexible_section_hash["share_links"] || []
 
       @email_signup_link = flexible_section_hash["email_signup_link"]
 

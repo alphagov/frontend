@@ -1,5 +1,4 @@
 class ManualSection < ContentItem
-  include ManualSections
   include ManualLike
 
   attr_reader :intro, :sections

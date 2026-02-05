@@ -21,6 +21,7 @@
 
     <%= render "govuk_publishing_components/components/subscription_links", {
       email_signup_link: flexible_section.email_signup_link,
+      email_signup_link_text: flexible_section.email_signup_link_text,
       data_attributes: {
         module: "ga4-link-tracker",
         ga4_link: { "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": flexible_section.feed_heading_text }.to_json,

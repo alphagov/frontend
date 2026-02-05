@@ -27,6 +27,7 @@ RSpec.describe "Feed flexible section" do
       ],
       "share_links_heading_text" => "Follow us",
       "email_signup_link" => "/email/get",
+      "email_signup_link_text" => "Get emails about this page",
       "see_all_items_link" => "/search/all",
     }
   end
@@ -59,7 +60,7 @@ RSpec.describe "Feed flexible section" do
     end
 
     it "has a subscription link" do
-      expect(rendered).to have_link("Get emails", href: "/email/get")
+      expect(rendered).to have_link("Get emails about this page", href: "/email/get")
     end
 
     it "has ga4 tracking on the subscription link" do

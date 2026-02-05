@@ -29,6 +29,7 @@ RSpec.describe "Feed flexible section" do
       "email_signup_link" => "/email/get",
       "email_signup_link_text" => "Get emails about this page",
       "see_all_items_link" => "/search/all",
+      "see_all_items_link_text" => "See more updates",
     }
   end
 
@@ -50,7 +51,7 @@ RSpec.describe "Feed flexible section" do
     end
 
     it "shows a see all link" do
-      expect(rendered).to have_link("See all", href: "/search/all")
+      expect(rendered).to have_link("See more updates", href: "/search/all")
     end
 
     it "has ga4 tracking on the see all link" do

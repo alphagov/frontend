@@ -16,7 +16,7 @@
     } %>
 
     <%= tag.p(class: "govuk-body", data: { module: "ga4-link-tracker", ga4_link: { event_name: "navigation", type: "see all", section: flexible_section.feed_heading_text }.to_json }) do %>
-      <%= link_to("See all", flexible_section.see_all_items_link, class: "govuk-link") %>
+      <%= link_to(flexible_section.see_all_items_link_text, flexible_section.see_all_items_link, class: "govuk-link") %>
     <% end %>
 
     <%= render "govuk_publishing_components/components/subscription_links", {

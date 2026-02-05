@@ -1,7 +1,9 @@
 module FlexiblePage::FlexibleSection
   class Feed < Base
     attr_reader :email_signup_link, :email_signup_link_text,
-                :feed_heading_text, :see_all_items_link, :share_links, :share_links_heading_text
+                :feed_heading_text,
+                :see_all_items_link, :see_all_items_link_text,
+                :share_links, :share_links_heading_text
 
     def initialize(flexible_section_hash, content_item)
       super
@@ -15,6 +17,7 @@ module FlexiblePage::FlexibleSection
       @email_signup_link_text = flexible_section_hash["email_signup_link_text"]
 
       @see_all_items_link = flexible_section_hash["see_all_items_link"]
+      @see_all_items_link_text = flexible_section_hash["see_all_items_link_text"]
     end
 
     def items

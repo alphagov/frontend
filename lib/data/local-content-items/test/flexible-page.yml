@@ -240,6 +240,9 @@ details:
 
       <p>He has captured the hearts of the Great British public and the press teams often camped outside the front door. In turn the nation sends him gifts and treats daily.</p>
       <p>Larry spends his days greeting guests to the house, inspecting security defences and testing antique furniture for napping quality. His day-to-day responsibilities also include contemplating a solution to the mouse occupancy of the house. Larry says this is still ‘in tactical planning stage’.</p>
+  - type: link
+    link: "/about"
+    link_text: "Find out more about this page"
   - type: feed
     feed_heading_text: Latest
     email_signup_link: "/something"

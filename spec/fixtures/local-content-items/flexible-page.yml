@@ -367,6 +367,9 @@ details:
             crest: "single-identity"
         title: "Department for Digital, Culture, Media & Sport"
         web_url: "https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport"
+  - type: link
+    link: "/about"
+    link_text: "Find out more about this page"
 links:
   parent:
   - base_path: "/government/history"

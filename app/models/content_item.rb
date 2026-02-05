@@ -2,17 +2,18 @@ require "ostruct"
 
 class ContentItem
   include Withdrawable
-  attr_reader :base_path, :body, :content_id,
-              :content_store_response, :description, :document_type, :first_public_at,
+  attr_reader :base_path, :body, :content_id, :content_store_response,
+              :description, :details, :document_type, :first_public_at,
               :first_published_at, :image, :links, :locale, :public_updated_at,
               :schema_name, :title
 
   def initialize(content_store_response)
     @content_store_response = content_store_response
 
-    @body = content_store_response.dig("details", "body")
+    @details = content_store_response["details"] || {}
+    @body = details["body"]
     @content_id = content_store_response["content_id"]
-    @image = content_store_response.dig("details", "image")
+    @image = details["image"]
     @description = content_store_response["description"]
     @document_type = content_store_response["document_type"]
     @schema_name = content_store_response["schema_name"]
@@ -22,7 +23,7 @@ class ContentItem
     @public_updated_at = content_store_response["public_updated_at"]
     @links = content_store_response["links"]
     @first_published_at = content_store_response["first_published_at"]
-    @first_public_at = content_store_response.dig("details", "first_public_at")
+    @first_public_at = details["first_public_at"]
 
     content_store_response["links"]["ordered_related_items"] = ordered_related_items(content_store_response["links"]) if content_store_response["links"]
   end

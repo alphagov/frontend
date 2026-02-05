@@ -40,6 +40,10 @@ class DocumentCollectionPresenter < ContentItemPresenter
     content_item.taxonomy_topic_email_override_base_path.present? && I18n.locale == :en
   end
 
+  def ga4_scroll_tracking?
+    ["/government/collections/create-or-update-a-local-plan-using-the-new-system"].include?(content_item.base_path)
+  end
+
 private
 
   def non_withdrawn_documents(group)

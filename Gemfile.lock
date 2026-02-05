@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/alphagov/govuk_content_item_loader.git
+  revision: 190f38e060313e57bfcf7010aa18671dcbb5b037
+  ref: 190f38e060313e57bfcf7010aa18671dcbb5b037
+  specs:
+    govuk_content_item_loader (0.1.0)
+      gds-api-adapters (>= 99.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -776,6 +784,7 @@ DEPENDENCIES
   govspeak (~> 10.8)
   govuk_ab_testing
   govuk_app_config
+  govuk_content_item_loader!
   govuk_personalisation
   govuk_publishing_components
   govuk_schemas

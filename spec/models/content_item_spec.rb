@@ -214,4 +214,23 @@ RSpec.describe ContentItem do
        .to eq(content_store_response.dig("links", "organisations", 0, "title"))
     end
   end
+
+  describe "linked" do
+    subject(:content_item) { described_class.new(content_store_response) }
+
+    let(:content_store_response) do
+      GovukSchemas::Example.find("answer", example_name: "answer")
+    end
+
+    it "returns an array of ContentItem objects matching the asked for type" do
+      expect(content_item.linked("available_translations")).to be_instance_of(Array)
+      expect(content_item.linked("available_translations").first).to be_instance_of(described_class)
+      expect(content_item.linked("available_translations").first.base_path).to eq("/gwasanaethau-ar-lein-cymraeg-cthem")
+    end
+
+    it "returns an empty array if there are no matched types" do
+      expect(content_item.linked("parent")).to be_instance_of(Array)
+      expect(content_item.linked("parent").count).to eq(0)
+    end
+  end
 end

@@ -180,17 +180,4 @@ RSpec.describe "Transaction" do
       end
     end
   end
-
-  context "when a transaction path is '/register-to-vote'" do
-    it "renders the scroll tracking meta tag" do
-      content_store_has_example_item("/register-to-vote", schema: "transaction")
-      visit "/register-to-vote"
-
-      expect(page.status_code).to eq(200)
-
-      within("head", visible: :all) do
-        expect(page).to have_selector("meta[name='govuk:scroll-tracker'][content=''][data-module='ga4-scroll-tracker']", visible: :hidden)
-      end
-    end
-  end
 end

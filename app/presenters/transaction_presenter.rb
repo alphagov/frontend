@@ -13,8 +13,4 @@ class TransactionPresenter < ContentItemPresenter
       content_item.start_button_text
     end
   end
-
-  def scroll_tracking?
-    ["/register-to-vote"].include?(content_item.base_path)
-  end
 end

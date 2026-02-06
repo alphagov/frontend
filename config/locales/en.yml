@@ -93,6 +93,7 @@ en:
     email: Email
   continue: Continue
   cookies:
+    aggregate-usage: Aggregate cookie option
     always_on: They always need to be on.
     clicks: what you click on while you're visiting these sites
     confirmation_message: Government services may set additional cookies and, if so, will have their own cookie policy and banner.

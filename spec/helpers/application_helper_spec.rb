@@ -20,6 +20,12 @@ RSpec.describe ApplicationHelper do
       expect(page_title(content_item)).to eq("[Withdrawn] Title - GOV.UK")
     end
 
+    it "doesn't prepend the withdrawn tag if the content item title starts with [Withdrawn]" do
+      content_item = OpenStruct.new(title: "[Withdrawn] Title", withdrawn?: true)
+
+      expect(page_title(content_item)).to eq("[Withdrawn] Title - GOV.UK")
+    end
+
     it "omits first part of title if content_item is omitted" do
       expect(page_title).to eq("GOV.UK")
     end

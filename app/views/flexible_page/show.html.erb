@@ -4,13 +4,11 @@
 <% end %>
 
 <% content_for :before_content do %>
-  <div class="govuk-width-container">
-    <%= render "govuk_publishing_components/components/breadcrumbs",
-      collapse_on_mobile: true,
-      breadcrumbs: content_item.breadcrumbs %>
-  </div>
+  <% content_item.flexible_sections.select { |fs| fs.before_content? }.each do |flexible_section| %>
+    <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
+  <% end %>
 <% end %>
 
-<% content_item.flexible_sections.each do |flexible_section| %>
+<% content_item.flexible_sections.reject { |fs| fs.before_content? }.each do |flexible_section| %>
   <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
 <% end %>

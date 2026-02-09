@@ -7,5 +7,9 @@ module FlexiblePage::FlexibleSection
       @flexible_section_hash = flexible_section_hash
       @type = flexible_section_hash["type"]
     end
+
+    def before_content?
+      false
+    end
   end
 end

@@ -5,6 +5,10 @@ class ManualController < ContentItemsController
     @presenter = ManualPresenter.new(content_item)
   end
 
+  def manual_updates
+    @presenter = ManualUpdatesPresenter.new(content_item)
+  end
+
   def section
     @presenter = ManualSectionPresenter.new(content_item)
   end

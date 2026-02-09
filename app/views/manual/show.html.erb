@@ -1,16 +1,20 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_manual", media: "all" %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
+
+<% content_for :title, build_page_title([content_item.title,I18n.t("formats.manuals.manual_type")]) %>
+
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
-    content_item: @content_item,
+    content_item: content_item,
     heading_level: 1,
   } %>
 <% end %>
 
-<%# <%= render "content_items/manuals/manual_layout" do %>
-  <%# <% @content_item.section_groups.each do |group| %>
-    <%#= render "govuk_publishing_components/components/document_list", {
+<%= render "shared/manuals/manual_layout" do %>
+  <% content_item.section_groups.each do |group| %>
+    <%= render "govuk_publishing_components/components/document_list", {
         items: group["child_sections"].map do |section|
           {
             link: {
@@ -18,9 +22,9 @@
               path: section["base_path"],
               description: section["description"],
               full_size_description: true,
-            }
+            },
           }
-        end
+        end,
     } %>
-  <%# <% end %>
-<%# <% end %>
+  <% end %>
+<% end %>

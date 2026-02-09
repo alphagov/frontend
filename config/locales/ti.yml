@@ -472,7 +472,7 @@ ti:
       updated: ዝተመሓየሸ
       updates: እዋናዊ ሓበሬታ
       updates_amendments: ዝተመሓየሸ ሕታም
-      updates_description: ዝርዝር ናይ '%{title}' ምዕባለታት።
+      updates_description: ዝርዝር ናይ ምዕባለታት።
       updates_title: እዋናዊ ሓበሬታ፡ %{title}
     map:
       name:

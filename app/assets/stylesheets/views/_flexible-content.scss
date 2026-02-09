@@ -3,3 +3,74 @@
 .flexible-section {
   margin-bottom: govuk-spacing(6);
 }
+
+.impact-header {
+  box-sizing: border-box;
+  max-width: 1024px;
+  margin: 0 auto;
+  background: #d2e2f1;
+}
+
+.impact-header--grid {
+  padding: 0 15px;
+  padding-bottom: 30px;
+
+  @include govuk-media-query($from: tablet) {
+    padding: 0 30px;
+  }
+}
+
+.impact-header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 30px;
+
+  @include govuk-media-query($until: tablet) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.impact-header__detail {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 30px;
+  max-width: 512px;
+  flex-shrink: 1;
+  flex-grow: 1;
+
+  @include govuk-media-query($until: tablet) {
+    max-width: none;
+    padding: 0 15px;
+  }
+}
+
+.impact-header__image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 50%;
+  overflow: hidden;
+
+  @include govuk-media-query($until: tablet) {
+    width: auto;
+  }
+}
+
+.impact-header__image {
+  @include govuk-media-query($until: tablet) {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  @include govuk-media-query($from: tablet) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+}

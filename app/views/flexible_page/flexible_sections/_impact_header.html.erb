@@ -1,0 +1,66 @@
+<% text = capture do %>
+  <%= render "govuk_publishing_components/components/breadcrumbs", {
+    collapse_on_mobile: true,
+    margin_bottom: 8,
+    breadcrumbs: [
+      {
+        title: "Home",
+        url: "/",
+      },
+    ],
+  } %>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: flexible_section.title,
+    font_size: "xl",
+    margin_bottom: 6,
+    heading_level: 1,
+  } %>
+
+  <%= render "govuk_publishing_components/components/lead_paragraph", {
+    text: flexible_section.description,
+    margin_bottom: 6,
+  } %>
+<% if false %>
+  <%= render "govuk_publishing_components/components/details", {
+    title: "Help with nationality",
+  } do %>
+    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
+  <% end %>
+<% end %>
+<% end %>
+
+<% image = capture do %>
+  <% if flexible_section.image %>
+    <%= picture_tag(class: "") do %>
+      <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:desktop])}, #{image_path(flexible_section.image[:sources][:desktop_2x])} 2x", media: "(min-width: 769px)" %>
+      <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:tablet])}, #{image_path(flexible_section.image[:sources][:tablet_2x])} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
+      <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:mobile])}, #{image_path(flexible_section.image[:sources][:mobile_2x])} 2x", media: "(max-width: 640px)" %>
+      <%= image_tag(flexible_section.image[:sources][:desktop], alt: flexible_section.image[:alt_text], class: "impact-header__image") %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="flexible-section" data-flexible-section="impact-header">
+  <% if image %>
+    <div class="impact-header">
+      <div class="impact-header__container">
+        <div class="impact-header__detail">
+          <%= text %>
+        </div>
+
+        <div class="impact-header__image-wrapper">
+          <%= image %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="impact-header impact-header--grid">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <%= text %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

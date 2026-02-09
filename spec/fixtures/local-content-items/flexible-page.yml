@@ -4,6 +4,10 @@ base_path: test/flexible-page
 description: This is the history of 10 Downing Street
 details:
   flexible_sections:
+  - type: breadcrumbs
+    breadcrumbs:
+    - title: "History of the UK Government"
+      url: "/government/history"
   - type: page_title
     context: History
     heading_text: 10 Downing Street

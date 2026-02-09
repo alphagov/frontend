@@ -4,8 +4,8 @@ RSpec.describe WorldwideOrganisationPresenter do
   let(:content_item) { ContentItem.new(content_store_response) }
   let(:content_store_response) { GovukSchemas::Example.find("worldwide_organisation", example_name: "worldwide_organisation") }
 
-  describe "#person_in_primary_role" do
-    context "with primary role person" do
+  describe "#people_in_primary_roles" do
+    context "with multiple people in primary roles" do
       let(:content_store_response) do
         {
           "details" => { "people_role_associations" => [
@@ -22,12 +22,30 @@ RSpec.describe WorldwideOrganisationPresenter do
                 },
               ],
             },
+            {
+              "person_content_id" => "person_2",
+              "role_appointments" => [
+                {
+                  "role_appointment_content_id" => "role_apppointment_2",
+                  "role_content_id" => "role_2",
+                },
+              ],
+            },
           ] },
           "links" => {
             "primary_role_person" => [
               {
                 "content_id" => "person_1",
-                "details" => { "image" => {} },
+                "title" => "Person One",
+                "base_path" => "/person-one",
+                "details" => { "image" => { "url" => "http://example.com/image1.jpg", "alt_text" => "Person One" } },
+                "links" => {},
+              },
+              {
+                "content_id" => "person_2",
+                "title" => "Person Two",
+                "base_path" => "/person-two",
+                "details" => { "image" => { "url" => "http://example.com/image2.jpg", "alt_text" => "Person Two" } },
                 "links" => {},
               },
             ],
@@ -46,23 +64,49 @@ RSpec.describe WorldwideOrganisationPresenter do
             "roles" => [
               {
                 "content_id" => "role_1",
-                "title" => "Example Role 1",
+                "title" => "Role 1",
               },
               {
                 "content_id" => "role_2",
-                "title" => "Example Role 2",
+                "title" => "Role 2",
               },
             ],
           },
         }
       end
 
+      it "returns an array of people with all required attributes" do
+        people = worldwide_organisation_presenter.people_in_primary_roles
+        expect(people).to be_an(Array)
+        expect(people.length).to eq(2)
+        expect(people.first[:name]).to eq("Person One")
+        expect(people.first[:href]).to eq("/person-one")
+        expect(people.first[:image_url]).to eq("http://example.com/image1.jpg")
+        expect(people.first[:image_alt]).to eq("Person One")
+        expect(people.first[:description]).to eq("Role 1, Role 2")
+      end
+
       it "has spaces between roles in primary_role_person description" do
-        expect(worldwide_organisation_presenter.person_in_primary_role[:description]).to eq("Example Role 1, Example Role 2")
+        expect(worldwide_organisation_presenter.people_in_primary_roles.first[:description]).to eq("Role 1, Role 2")
       end
 
       it "#show_our_people_section? returns true" do
-        expect(worldwide_organisation_presenter.show_our_people_section?).to eq(worldwide_organisation_presenter.person_in_primary_role)
+        expect(worldwide_organisation_presenter).to be_show_our_people_section
+      end
+    end
+
+    context "without people in primary roles" do
+      let(:content_store_response) do
+        {
+          "details" => { "people_role_associations" => [] },
+          "links" => {
+            "roles" => [],
+          },
+        }
+      end
+
+      it "returns an empty array" do
+        expect(worldwide_organisation_presenter.people_in_primary_roles).to eq([])
       end
     end
   end

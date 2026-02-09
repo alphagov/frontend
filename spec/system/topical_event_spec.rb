@@ -54,24 +54,6 @@ RSpec.describe "Topical Event pages" do
   #   expect(page).to have_link("Get emails", href: "/email-signup?link=/government/topical-events/something-very-topical")
   # end
 
-  # context "when the event is current" do
-  #   it "does not show the archived text" do
-  #     Timecop.freeze("2016-04-18") do
-  #       visit base_path
-  #       expect(page).not_to have_text("Archived")
-  #     end
-  #   end
-  # end
-
-  # context "when the event is archived" do
-  #   it "shows the archived text" do
-  #     Timecop.freeze("2016-05-18") do
-  #       visit base_path
-  #       expect(page).to have_text("Archived")
-  #     end
-  #   end
-  # end
-
   # context "documents list" do
   #   let(:related_consultations) { { "A consultation on Topicals" => "/foo/consultation_one", "Another consultation" => "/foo/consultation_two" } }
   #   let(:related_announcements) { { "An announcement on Topicals" => "/foo/announcement_one", "Another announcement" => "/foo/announcement_two" } }

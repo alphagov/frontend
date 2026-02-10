@@ -6,6 +6,8 @@ RSpec.describe "HRMC Manual Section" do
 
       before do
         stub_content_store_has_item(base_path, content_item)
+        manual_content_item = GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies")
+        stub_content_store_has_item(manual_content_item.fetch("base_path"), manual_content_item)
 
         get base_path
       end

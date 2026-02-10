@@ -3,5 +3,7 @@ class HmrcManualController < ContentItemsController
 
   def show; end
 
-  def section; end
+  def section
+    @presenter = HmrcManualSectionPresenter.new(content_item)
+  end
 end

@@ -35,6 +35,11 @@ Rails.application.routes.draw do
   get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
+  scope "/hmrc-internal-manuals" do
+    get "/:slug", to: "hmrc_manual#show"
+    get "/:slug/:section_slug", to: "hmrc_manual#section"
+  end
+
   get "/foreign-travel-advice", to: "travel_advice#index", as: :travel_advice
   get "/foreign-travel-advice/:country", to: "travel_advice#show"
   get "/foreign-travel-advice/:country/print", to: "travel_advice#show", defaults: { variant: :print }

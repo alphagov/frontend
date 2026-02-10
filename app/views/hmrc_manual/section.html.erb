@@ -7,12 +7,12 @@
   <%= build_page_title([content_item.section_id, content_item.title, t("formats.manuals.hmrc_manual_type")]) %>
 <% end %>
 
-<% content_for :header do %>
-  <%= render "content_items/manuals/header", {
-    content_item: content_item,
+<% content_for :before_main do %>
+  <%= render "shared/manuals/header", {
+    content_item: content_item.manual_content_item,
     heading_level: 1,
     green_background: true,
-    type: I18n.t("manuals.hmrc_manual_type"),
+    type: I18n.t("formats.manuals.hmrc_manual_type"),
   } %>
   <%= render partial: "content_items/manuals/breadcrumbs" %>
 <% end %>

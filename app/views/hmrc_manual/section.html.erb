@@ -3,7 +3,7 @@
 <% end %>
 <% content_for :header do %>
   <%= render "content_items/manuals/header", {
-    content_item: @content_item,
+    content_item: content_item,
     heading_level: 1,
     green_background: true,
     type: I18n.t("manuals.hmrc_manual_type"),
@@ -12,21 +12,21 @@
 <% end %>
 
 <%= render "content_items/manuals/manual_section_layout" do %>
-  <% if @content_item.body.present? %>
+  <% if content_item.body.present? %>
     <div class="govuk-grid-column-two-thirds">
       <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= raw(@content_item.body) %>
+        <%= raw(content_item.body) %>
       <% end %>
     </div>
   <% end %>
 
-  <% @content_item.section_groups.each do | group | %>
+  <% content_item.section_groups.each do | group | %>
     <div class="subsection-collection govuk-grid-column-full">
       <%= render "content_items/manuals/hmrc_sections", group: group, heading_level: 2 %>
     </div>
   <% end %>
 
   <div class="govuk-grid-column-full">
-    <%= render "govuk_publishing_components/components/pagination", @content_item.previous_and_next_links %>
+    <%= render "govuk_publishing_components/components/pagination", content_item.previous_and_next_links %>
   </div>
 <% end %>

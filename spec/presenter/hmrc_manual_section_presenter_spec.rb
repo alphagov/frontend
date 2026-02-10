@@ -67,4 +67,12 @@ RSpec.describe HmrcManualSectionPresenter do
       end
     end
   end
+
+  describe "#previous_and_next_links" do
+    context "when the content_item has no siblings" do
+      it "returns an empty hash" do
+        expect(hmrc_manual_section_presenter.previous_and_next_links).to eq({})
+      end
+    end
+  end
 end

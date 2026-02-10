@@ -1,6 +1,8 @@
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_manual", media: "all" %>
+  <meta name="description" content="<%= content_item.description %>">
 <% end %>
+
 <% content_for :header do %>
   <%= render "content_items/manuals/header", {
     content_item: content_item,

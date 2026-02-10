@@ -16,4 +16,8 @@ class HmrcManualSectionPresenter < ContentItemPresenter
 
     [base_breadcrumb] + additional_breadcrumbs
   end
+
+  def document_heading
+    [content_item.details["section_id"], content_item.title].compact.join(" - ")
+  end
 end

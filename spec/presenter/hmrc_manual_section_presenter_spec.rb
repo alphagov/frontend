@@ -49,4 +49,22 @@ RSpec.describe HmrcManualSectionPresenter do
       end
     end
   end
+
+  describe "#document_heading" do
+    it "returns the section ID and document title" do
+      expect(hmrc_manual_section_presenter.document_heading).to eq("#{content_store_response['details']['section_id']} - #{content_store_response['title']}")
+    end
+
+    context "without a section ID" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("hmrc_manual_section", example_name: "vatgpb2000").tap do |item|
+          item["details"]["section_id"] = nil
+        end
+      end
+
+      it "returns the document title" do
+        expect(hmrc_manual_section_presenter.document_heading).to eq(content_store_response["title"])
+      end
+    end
+  end
 end

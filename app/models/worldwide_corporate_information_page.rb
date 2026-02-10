@@ -1,0 +1,2 @@
+class WorldwideCorporateInformationPage < ContentItem
+end

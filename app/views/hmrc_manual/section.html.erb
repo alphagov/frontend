@@ -51,23 +51,23 @@
         </div>
       <% end %>
 
-  <% if content_item.body.present? %>
-    <div class="govuk-grid-column-two-thirds">
-      <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= raw(content_item.body) %>
+      <% if content_item.body.present? %>
+        <div class="govuk-grid-column-two-thirds">
+          <%= render "govuk_publishing_components/components/govspeak", {} do %>
+            <%= raw(content_item.body) %>
+          <% end %>
+        </div>
       <% end %>
-    </div>
-  <% end %>
 
-  <% content_item.section_groups.each do | group | %>
-    <div class="subsection-collection govuk-grid-column-full">
-      <%= render "content_items/manuals/hmrc_sections", group: group, heading_level: 2 %>
-    </div>
-  <% end %>
+      <% content_item.section_groups.each do | group | %>
+        <div class="subsection-collection govuk-grid-column-full">
+          <%= render "content_items/manuals/hmrc_sections", group: group, heading_level: 2 %>
+        </div>
+      <% end %>
 
-  <div class="govuk-grid-column-full">
-    <%= render "govuk_publishing_components/components/pagination", content_item.previous_and_next_links %>
-  </div>
+      <div class="govuk-grid-column-full">
+        <%= render "govuk_publishing_components/components/pagination", content_item.previous_and_next_links %>
+      </div>
     </article>
   </div>
 

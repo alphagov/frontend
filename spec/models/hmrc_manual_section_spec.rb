@@ -11,4 +11,10 @@ RSpec.describe HmrcManualSection do
   end
 
   it_behaves_like "it can have section groups", "hmrc_manual_section", "vatgpb2000"
+
+  describe "attributes" do
+    it "has a section_id set from the content item" do
+      expect(hmrc_manual_section.section_id).to eq("VATGPB2000")
+    end
+  end
 end

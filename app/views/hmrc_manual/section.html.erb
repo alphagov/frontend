@@ -46,7 +46,7 @@
       <% if @content_item.description.present? %>
         <div class="govuk-grid-column-two-thirds">
           <%= render "govuk_publishing_components/components/lead_paragraph", {
-            text: @content_item.description
+            text: @content_item.description,
           } %>
         </div>
       <% end %>
@@ -71,5 +71,5 @@
     </article>
   </div>
 
-  <%= render 'govuk_publishing_components/components/print_link' %>
+  <%= render "govuk_publishing_components/components/print_link" %>
 </div>

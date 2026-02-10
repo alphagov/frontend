@@ -29,6 +29,8 @@ some hard-coded routes.
 |Find local council     |hardcoded|https://www.gov.uk/find-local-council|
 |Foreign travel advice index |[travel_advice_index](https://docs.publishing.service.gov.uk/content-schemas/travel_advice_index.html)|https://www.gov.uk/foreign-travel-advice|
 |Foreign travel advice  |[travel_advice](https://docs.publishing.service.gov.uk/content-schemas/travel_advice.html)|https://www.gov.uk/foreign-travel-advice/azerbaijan|
+|Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
+|Gone                   |[gone](https://docs.publishing.service.gov.uk/content-schemas/gone.html)|https://www.gov.uk/government/collections/greenhouse-gas-conversion-factors-for-company-reporting|
 |Guide                  |[guide](https://docs.publishing.service.gov.uk/content-schemas/guide.html)|https://www.gov.uk/log-in-register-hmrc-online-services|
 |Help index             |hardcoded|https://www.gov.uk/help|
 |Help                   |[help_page](https://docs.publishing.service.gov.uk/content-schemas/help_page.html)|https://www.gov.uk/help/browsers|
@@ -38,8 +40,6 @@ some hard-coded routes.
 |HTML Publication       |[html_publication](https://docs.publishing.service.gov.uk/content-schemas/html_publication.html)|https://www.gov.uk/government/publications/car-show-me-tell-me-vehicle-safety-questions/car-show-me-tell-me-vehicle-safety-questions|
 |                       ||https://www.gov.uk/government/publications/skilled-worker-visa-temporary-shortage-list/skilled-worker-visa-temporary-shortage-list|
 |                       ||https://www.gov.uk/government/publications/usa-apply-for-a-uk-visa/apply-for-a-uk-visa-in-the-usa|
-|Get involved           |[get_involved](https://docs.publishing.service.gov.uk/content-schemas/get_involved.html)|https://www.gov.uk/government/get-involved|
-|Gone                   |[gone](https://docs.publishing.service.gov.uk/content-schemas/gone.html)|https://www.gov.uk/government/collections/greenhouse-gas-conversion-factors-for-company-reporting|
 |Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|
 |                       |document_type: [licence_transaction](https://docs.publishing.service.gov.uk/document-types/licence_transaction.html)|https://www.gov.uk/find-licences/zoo-licence|
 |Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|http://www.gov.uk/school-term-holiday-dates|

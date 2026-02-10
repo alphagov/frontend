@@ -16,5 +16,11 @@ RSpec.describe HmrcManualSection do
     it "has a section_id set from the content item" do
       expect(hmrc_manual_section.section_id).to eq("VATGPB2000")
     end
+
+    it "has child_section_groups set from the content item" do
+      expect(hmrc_manual_section.child_section_groups).to eq(content_store_response["details"]["child_section_groups"])
+    end
+  end
+
   end
 end

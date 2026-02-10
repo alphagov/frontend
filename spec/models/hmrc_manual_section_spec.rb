@@ -22,5 +22,15 @@ RSpec.describe HmrcManualSection do
     end
   end
 
+  describe "#next_sibling" do
+    it "returns nil" do
+      expect(hmrc_manual_section.next_sibling).to be_nil
+    end
+  end
+
+  describe "#previous_sibling" do
+    it "returns nil" do
+      expect(hmrc_manual_section.previous_sibling).to be_nil
+    end
   end
 end

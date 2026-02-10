@@ -11,6 +11,10 @@ private
   def default_flexible_sections
     [
       {
+        type: "breadcrumbs",
+        breadcrumbs:,
+      },
+      {
         type: "page_title",
         context: "History",
         heading_text: title,

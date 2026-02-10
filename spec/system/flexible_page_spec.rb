@@ -17,6 +17,17 @@ RSpec.describe "FlexiblePage" do
       expect(page).to have_css('meta[name="description"][content="This is the history of 10 Downing Street"]', visible: :hidden)
     end
 
+    describe "renders a breadcrumbs flexible section" do
+      it "contains the basic expected element within the before content block" do
+        visit base_path
+
+        expect(page).to have_selector("[data-flexible-section='breadcrumbs']")
+        within(".govuk-main-wrapper") do
+          expect(page).not_to have_selector("[data-flexible-section='breadcrumbs']")
+        end
+      end
+    end
+
     it "renders a page_title flexible section" do
       visit base_path
 

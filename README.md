@@ -72,6 +72,7 @@ some hard-coded routes.
 |                       ||https://www.gov.uk/vehicle-tax|
 |                       ||https://www.gov.uk/find-a-job|
 | Working group         |[working_group](https://docs.publishing.service.gov.uk/content-schemas/working_group.html)|https://www.gov.uk/government/groups/abstraction-reform|
+|Worldwide corporate information page|[worldwide_corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/worldwide_corporate_information_page.html)|https://www.gov.uk/world/organisations/british-embassy-dakar/about/recruitment|
 |Worldwide office page|[worldwide_office](https://docs.publishing.service.gov.uk/content-schemas/worldwide_office.html)|https://www.gov.uk/world/organisations/high-commission-victoria/office/british-high-commission-victoria|
 |Worldwide organisation page|[worldwide_organisation](https://docs.publishing.service.gov.uk/content-schemas/worldwide_organisation.html)|https://www.gov.uk/world/organisations/high-commission-victoria|
 

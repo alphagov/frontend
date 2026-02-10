@@ -33,7 +33,7 @@
     <dl class="worldwide-organisation-header__metadata">
       <% if worldwide_organisation&.world_location_links.present? %>
         <dt><%= t("worldwide_organisation.news") %>:</dt>
-        <dd data-module="hide-other-links"><%= worldwide_organisation.world_location_links %></dd>
+        <dd data-module="hide-other-links" data-hide-other-links-text="<%= t("worldwide_organisation.show_more", hiddenLinksCount: worldwide_organisation.world_location_links.scan(/govuk-link/).count - 1) %>"><%= worldwide_organisation.world_location_links %></dd>
       <% end %>
 
       <% if worldwide_organisation&.sponsoring_organisation_links.present? %>

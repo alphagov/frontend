@@ -15,11 +15,11 @@ describe('A hide-other-links module', function () {
   describe('with a list of more than 2 links', function () {
     beforeEach(function () {
       list = $(
-        '<dd class="animals">' +
-          '<a href="http://en.wikipedia.org/wiki/dog">Dog</a>, ' +
-          '<a href="http://en.wikipedia.org/wiki/cat">Cat</a>, ' +
-          '<a href="http://en.wikipedia.org/wiki/cow">Cow</a> and ' +
-          '<a href="http://en.wikipedia.org/wiki/pig">Pig</a>.' +
+        '<dd class="animals" data-hide-other-links-text="Show 3 more <span class="govuk-visually-hidden">worldwide location news</span>"' +
+          '<a class="govuk-link" href="http://en.wikipedia.org/wiki/dog">Dog</a>, ' +
+          '<a class="govuk-link" href="http://en.wikipedia.org/wiki/cat">Cat</a>, ' +
+          '<a class="govuk-link" href="http://en.wikipedia.org/wiki/cow">Cow</a> and ' +
+          '<a class="govuk-link" href="http://en.wikipedia.org/wiki/pig">Pig</a>.' +
         '</dd>'
       )
 
@@ -35,7 +35,7 @@ describe('A hide-other-links module', function () {
     })
 
     it('has the correct count in the link', function () {
-      var otherCount = $('.animals .other-content').find('a').length
+      var otherCount = $('.animals .other-content').find('.govuk-link').length
       var linkCount = $('.animals .show-other-content').text().match(/\d+/).pop()
       expect(parseInt(linkCount, 10)).toBe(otherCount)
     })

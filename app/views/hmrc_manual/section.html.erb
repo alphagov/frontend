@@ -22,15 +22,7 @@
         collapse_on_mobile: false } %>
 <% end %>
 
-<% show_contents ||= false %>
-
 <div id="manuals-frontend">
-  <% if show_contents %>
-    <%= render "govuk_publishing_components/components/contents_list", {
-      aria: { label: t("manuals.pages_in_manual_section") }, contents: content_item.contents, underline_links: true
-    } %>
-  <% end %>
-
   <div class="govuk-grid-row">
     <article aria-labelledby="section-title">
       <div class="govuk-grid-column-full">

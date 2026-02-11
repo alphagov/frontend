@@ -14,7 +14,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "displays the description" do
-      expect(page).to have_text(content_store_response.dig("details", "description"))
+      expect(page).to have_text(content_store_response["description"])
     end
 
     it "displays the important metadata" do
@@ -25,7 +25,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "display forthcoming notice" do
       within(".gem-c-notice") do
-        expect(page).to have_text("These statistics will be released on #{content_store_response.dig('details', 'display_date')}")
+        expect(page).to have_text("These statistics will be released on #{content_store_response['details']['display_date']}")
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "displays the description" do
-      expect(page).to have_text(content_store_response.dig("details", "description"))
+      expect(page).to have_text(content_store_response["description"])
     end
 
     it "displays the important metadata" do
@@ -78,7 +78,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "displays the description" do
-      expect(page).to have_text(content_store_response.dig("details", "description"))
+      expect(page).to have_text(content_store_response["description"])
     end
 
     it "displays the important metadata" do
@@ -91,7 +91,7 @@ RSpec.describe "StatisticsAnnouncement" do
     it "displays the cancellation notice" do
       within(".gem-c-notice") do
         expect(page).to have_text("Statistics release cancelled")
-        expect(page).to have_text(content_store_response.dig("details", "canellation_reason"))
+        expect(page).to have_text(content_store_response["details"]["cancellation_reason"])
       end
     end
 
@@ -117,7 +117,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "displays the description" do
-      expect(page).to have_text(content_store_response.dig("details", "description"))
+      expect(page).to have_text(content_store_response["description"])
     end
 
     it "displays the important metadata" do
@@ -132,7 +132,7 @@ RSpec.describe "StatisticsAnnouncement" do
         expect(page).to have_text("Previous date")
         expect(page).to have_text("19 January 2016 9:30am")
         expect(page).to have_text("Reason for change")
-        expect(page).to have_text(content_store_response.dig("details", "latest_change_note"))
+        expect(page).to have_text(content_store_response["details"]["latest_change_note"])
       end
     end
   end

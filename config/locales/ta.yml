@@ -901,5 +901,6 @@ ta:
       our_people: எங்கள் மக்கள்
     news: செய்திகள்
     part_of: பகுதி
+    show_more:
     world_news_link: "%{country} மற்றும் UK"
   'yes':

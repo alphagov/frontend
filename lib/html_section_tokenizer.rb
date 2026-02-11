@@ -16,14 +16,14 @@ class HtmlSectionTokenizer
 private
 
   def parse_sections(body)
-    return [] if body.empty?
+    return [] if body.blank?
 
     document = Nokogiri::HTML::DocumentFragment.parse(body)
     return [{ content: body }] if document.css("h2").count.zero?
 
     parts = []
     content = body.split("<h2").first
-    parts << { content: } unless content.empty?
+    parts << { content: } if content.present?
 
     parts + document.css("h2").map do |heading|
       content = []

@@ -820,5 +820,6 @@ vi:
       our_people: Đội ngũ của chúng tôi
     news: Tin tức
     part_of: Một phần của
+    show_more:
     world_news_link: "%{country} và Vương quốc Anh"
   'yes':

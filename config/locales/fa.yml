@@ -901,5 +901,6 @@ fa:
       our_people: افراد ما
     news: اخبار
     part_of: بخشی از
+    show_more:
     world_news_link: "%{country} و بریتانیا"
   'yes':

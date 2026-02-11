@@ -901,5 +901,6 @@ el:
       our_people: Οι άνθρωποί μας
     news: Νέα
     part_of: Μέρος του
+    show_more:
     world_news_link: "%{country} και Ηνωμένο Βασίλειο"
   'yes':

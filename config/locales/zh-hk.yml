@@ -820,5 +820,6 @@ zh-hk:
       our_people: 主要館員
     news: 新聞
     part_of: 隸屬於
+    show_more:
     world_news_link: "%{country} 同英國"
   'yes':

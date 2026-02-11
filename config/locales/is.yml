@@ -901,5 +901,6 @@ is:
       our_people: Okkar fólk
     news: Fréttir
     part_of: Hluti af
+    show_more:
     world_news_link: "%{country} og Bretland"
   'yes':

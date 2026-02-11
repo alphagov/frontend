@@ -470,7 +470,7 @@ ku:
       see_all_updates: هەموو نوێکارییەکان ببینە
       summary_title: پوختە
       updated: نوێ کراوەتەوە
-      updates: "نوێکاری"
+      updates: نوێکاری
       updates_amendments: هەموارکردنەوەکانی بڵاوکراوە
       updates_description: لیستی نوێکارییەکان بۆ
       updates_title: "%{title}' نوێکارییەکان"
@@ -901,5 +901,6 @@ ku:
       our_people: خەڵکەکانمان
     news:
     part_of: بەشێک لە
+    show_more:
     world_news_link:
   'yes': بەڵێ

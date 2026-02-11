@@ -901,5 +901,6 @@ sq:
       our_people: Njerëzit tanë
     news: Lajme
     part_of: Pjesë e
+    show_more:
     world_news_link: "%{country} dhe Mbretëria e Bashkuar"
   'yes':

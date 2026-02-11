@@ -1063,5 +1063,6 @@ pl:
       our_people: Nasi ludzie
     news: Wiadomości
     part_of: Część
+    show_more:
     world_news_link: "%{country} i Wielka Brytania"
   'yes':

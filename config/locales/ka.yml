@@ -901,5 +901,6 @@ ka:
       our_people: ჩვენი ხალხი
     news: სიახლეები
     part_of: ნაწილი
+    show_more:
     world_news_link: "%{country} და დიდი ბრიტანეთი"
   'yes':

@@ -901,5 +901,6 @@ uz:
       our_people: Бизнинг одамлар
     news: Yangiliklar
     part_of: Қисми
+    show_more:
     world_news_link: "%{country} va Buyuk Britaniya"
   'yes':

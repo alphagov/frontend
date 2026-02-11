@@ -1,16 +1,29 @@
 RSpec.describe "HMRC Manual Section" do
+  let(:content_item) { GovukSchemas::Example.find(:hmrc_manual_section, example_name: "vatgpb2000") }
+  let(:base_path) { content_item["base_path"] }
+  let(:manual_content_item) { GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies") }
+
+  before do
+    stub_content_store_has_item(base_path, content_item)
+    stub_content_store_has_item(content_item["details"]["manual"]["base_path"], manual_content_item)
+
+    visit base_path
+  end
+
+  it "has a title" do
+    expect(page).to have_title(content_item["title"])
+  end
+
+  it "includes the description" do
+    expect(page).to have_text(content_item["description"])
+  end
+
+  it "displays the manual type" do
+    within "#manual-title" do
+      expect(page).to have_text(I18n.t("formats.manuals.hmrc_manual_type"))
+    end
+  end
 end
-
-  # test "page renders correctly" do
-  #   setup_and_visit_manual_section
-
-  #   assert_has_component_title(@content_item["title"])
-  #   assert page.has_text?(@content_item["description"])
-
-  #   within "#manual-title" do
-  #     assert page.has_text?(I18n.t("manuals.hmrc_manual_type"))
-  #   end
-  # end
 
   # test "partial has 1 content id" do
   #   setup_and_visit_manual_section
@@ -86,17 +99,6 @@ end
   #       href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb3000",
   #     )
   #   end
-  # end
-
-  # def setup_and_visit_manual_section(content_item = get_content_example("vatgpb2000"))
-  #   @manual = get_content_example_by_schema_and_name("hmrc_manual", "vat-government-public-bodies")
-  #   @content_item = content_item
-  #   manual_base_path = @content_item["details"]["manual"]["base_path"]
-
-  #   stub_content_store_has_item(manual_base_path, @manual.to_json)
-
-  #   stub_content_store_has_item(@content_item["base_path"], @content_item.to_json)
-  #   visit_with_cachebust(@content_item["base_path"].to_s)
   # end
 
   # def setup_and_visit_manual_section_with_breadcrumbs(content_item = get_content_example("vatgpb2000"))

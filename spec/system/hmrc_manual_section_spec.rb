@@ -81,20 +81,18 @@ RSpec.describe "HMRC Manual Section" do
       end
     end
   end
+
+  it "has previous and next navigation" do
+    within ".govuk-pagination" do
+      expect(page).to have_link(
+        I18n.t("formats.manuals.previous_page"),
+        href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
+      )
+
+      expect(page).to have_link(
+        I18n.t("formats.manuals.next_page"),
+        href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb3000",
+      )
+    end
+  end
 end
-
-  # test "renders previous and next navigation" do
-  #   setup_and_visit_manual_section
-
-  #   within ".govuk-pagination" do
-  #     assert page.has_link?(
-  #       I18n.t("manuals.previous_page"),
-  #       href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
-  #     )
-
-  #     assert page.has_link?(
-  #       I18n.t("manuals.next_page"),
-  #       href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb3000",
-  #     )
-  #   end
-  # end

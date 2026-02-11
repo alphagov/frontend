@@ -65,25 +65,23 @@ RSpec.describe "HMRC Manual Section" do
       expect(page).to have_link("DMBM510000", href: "/hmrc-internal-manuals/debt-management-and-banking/dmbm510000")
     end
   end
+
+  it "has a section group" do
+    within ".subsection-collection .section-list" do
+      first_group_children = page.all("li")
+
+      expect(first_group_children.count).to eq(6)
+
+      within first_group_children[0] do
+        expect(page).to have_link(
+          "Introduction: scope of the manual",
+          href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb2100",
+        )
+        expect(page).to have_text("VATGPB2100")
+      end
+    end
+  end
 end
-
-  # test "renders section group" do
-  #   setup_and_visit_manual_section
-
-  #   within ".subsection-collection .section-list" do
-  #     first_group_children = page.all("li")
-
-  #     assert_equal 6, first_group_children.count
-
-  #     within first_group_children[0] do
-  #       assert page.has_link?(
-  #         "Introduction: scope of the manual",
-  #         href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb2100",
-  #       )
-  #       assert page.has_text?("VATGPB2100")
-  #     end
-  #   end
-  # end
 
   # test "renders previous and next navigation" do
   #   setup_and_visit_manual_section

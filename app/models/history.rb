@@ -30,12 +30,19 @@ private
   end
 
   def image_hash
-    sidebar_image = content_store_response.dig("details", "sidebar_image")
+    sidebar_image = sidebar_image_from_details_images || content_store_response.dig("details", "sidebar_image")
     return nil unless sidebar_image
 
     {
       alt: sidebar_image["caption"],
       src: sidebar_image["url"],
     }
+  end
+
+  def sidebar_image_from_details_images
+    images = content_store_response.dig("details", "images")
+    return nil unless images.is_a?(Array)
+
+    images.find { |image| image["type"] == "sidebar" }
   end
 end

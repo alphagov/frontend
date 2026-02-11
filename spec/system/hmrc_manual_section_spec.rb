@@ -23,30 +23,22 @@ RSpec.describe "HMRC Manual Section" do
       expect(page).to have_text(I18n.t("formats.manuals.hmrc_manual_type"))
     end
   end
+
+  it "displays the metadata" do
+    within(".gem-c-metadata") do
+      expect(page).to have_text("From: HM Revenue & Customs")
+      expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
+      expect(page).to have_content("Published 11 February 2015")
+      expect(page).to have_link(I18n.t("formats.manuals.see_all_updates"), href: "#{manual_content_item['base_path']}/updates")
+    end
+  end
+
+  it "has a search box" do
+    within ".gem-c-search" do
+      expect(page).to have_text(I18n.t("formats.manuals.search_this_manual"))
+    end
+  end
 end
-
-  # test "renders metadata" do
-  #   setup_and_visit_manual_section
-
-  #   assert_has_metadata(
-  #     {
-  #       from: { "HM Revenue & Customs": "/government/organisations/hm-revenue-customs" },
-  #       first_published: "11 February 2015",
-  #       other: {
-  #         I18n.t("manuals.see_all_updates") => "#{@manual['base_path']}/updates",
-  #       },
-  #     },
-  #     extra_metadata_classes: ".gem-c-metadata--inverse",
-  #   )
-  # end
-
-  # test "renders search box" do
-  #   setup_and_visit_manual_section
-
-  #   within ".gem-c-search" do
-  #     assert page.has_text?(I18n.t("manuals.search_this_manual"))
-  #   end
-  # end
 
   # test "renders back link if breadcrumbs are not set" do
   #   setup_and_visit_manual_section

@@ -901,5 +901,6 @@ fi:
       our_people: Meidän ihmiset
     news: Uutiset
     part_of: Osa
+    show_more:
     world_news_link: "%{country} ja Iso-Britannia"
   'yes':

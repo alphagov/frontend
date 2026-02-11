@@ -901,5 +901,6 @@ pa-pk:
       our_people: ساڈے لوک
     news: ਖ਼ਬਰਾਂ
     part_of: دا  حصہ
+    show_more:
     world_news_link: "%{country} ਅਤੇ ਯੂਕੇ"
   'yes':

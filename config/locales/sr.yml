@@ -982,5 +982,6 @@ sr:
       our_people: Naši ljudi
     news: Vesti
     part_of: Deo
+    show_more:
     world_news_link: "%{country} i Ujedinjeno Kraljevstvo"
   'yes':

@@ -5,10 +5,10 @@ RSpec.describe HmrcManualSectionPresenter do
 
   let(:content_item) { HmrcManualSection.new(content_store_response) }
   let(:content_store_response) { GovukSchemas::Example.find("hmrc_manual_section", example_name: "vatgpb2000") }
+  let(:manual_content_store_response) { GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies") }
 
   before do
-    manual_content_item = GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies")
-    stub_content_store_has_item(manual_content_item.fetch("base_path"), manual_content_item)
+    stub_content_store_has_item(manual_content_store_response.fetch("base_path"), manual_content_store_response)
   end
 
   it_behaves_like "it can have manual metadata", HmrcManual
@@ -69,7 +69,36 @@ RSpec.describe HmrcManualSectionPresenter do
   end
 
   describe "#previous_and_next_links" do
+    it "returns the links in a form suitable for the component" do
+      expect(hmrc_manual_section_presenter.previous_and_next_links[:next_page]).to eq({
+        href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb3000",
+        title: "Next page",
+      })
+
+      expect(hmrc_manual_section_presenter.previous_and_next_links[:previous_page]).to eq({
+        href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
+        title: "Previous page",
+      })
+    end
+
     context "when the content_item has no siblings" do
+      let(:manual_content_store_response) do
+        GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies").tap do |item|
+          item["details"]["child_section_groups"] = [
+            {
+              "child_sections": [
+                {
+                  "section_id": "VATGPB2000",
+                  "title": "Bodies governed by public law: contents",
+                  "description": "",
+                  "base_path": "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb2000",
+                },
+              ],
+            },
+          ]
+        end
+      end
+
       it "returns an empty hash" do
         expect(hmrc_manual_section_presenter.previous_and_next_links).to eq({})
       end

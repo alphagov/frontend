@@ -1063,5 +1063,6 @@ sl:
       our_people: Naši ljudje
     news: Novice
     part_of: Del
+    show_more:
     world_news_link: "%{country} in Združeno kraljestvo"
   'yes':

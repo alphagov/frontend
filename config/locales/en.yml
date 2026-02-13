@@ -865,6 +865,10 @@ en:
       popular: Popular on GOV.UK
       popular_links_heading: Popular on GOV.UK
       promotion_slots:
+      - text: Check if you have a Child Trust Fund.
+        title: Child Trust Funds
+        href: "/child-trust-funds/find-a-child-trust-fund"
+        image_src: homepage/child-trust-fund-featured.png
       - text: Search and apply for jobs in England, Scotland and Wales.
         title: Find a job
         href: "/find-a-job"
@@ -873,10 +877,6 @@ en:
         title: National Insurance
         href: "/check-national-insurance-record"
         image_src: homepage/national-insurance-featured.png
-      - text: Find out what support is available to help with the cost of living.
-        title: Cost of living support
-        href: "/cost-of-living"
-        image_src: homepage/cost-of-living-featured.png
       promotion_slots_secondary:
       - text: Your government services and information, on the go.
         title: Get the GOV.UK app

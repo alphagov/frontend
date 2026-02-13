@@ -1,12 +1,13 @@
 module FlexiblePage::FlexibleSection
   class ImpactHeader < Base
-    attr_reader :title, :description
+    attr_reader :breadcrumbs, :description, :title
 
     def initialize(flexible_section_hash, content_item)
       super
 
       @title = flexible_section_hash["title"]
       @description = flexible_section_hash["description"]
+      @breadcrumbs = flexible_section_hash["breadcrumbs"].map(&:symbolize_keys)
     end
 
     def image

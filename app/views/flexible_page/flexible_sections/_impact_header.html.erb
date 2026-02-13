@@ -1,14 +1,8 @@
 <% text = capture do %>
-  <%= render "govuk_publishing_components/components/breadcrumbs", {
+  <%= render "govuk_publishing_components/components/breadcrumbs",
     collapse_on_mobile: true,
     margin_bottom: 8,
-    breadcrumbs: [
-      {
-        title: "Home",
-        url: "/",
-      },
-    ],
-  } %>
+    breadcrumbs: flexible_section.breadcrumbs %>
 
   <%= render "govuk_publishing_components/components/heading", {
     text: flexible_section.title,
@@ -21,13 +15,6 @@
     text: flexible_section.description,
     margin_bottom: 6,
   } %>
-<% if false %>
-  <%= render "govuk_publishing_components/components/details", {
-    title: "Help with nationality",
-  } do %>
-    We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post.
-  <% end %>
-<% end %>
 <% end %>
 
 <% image = capture do %>

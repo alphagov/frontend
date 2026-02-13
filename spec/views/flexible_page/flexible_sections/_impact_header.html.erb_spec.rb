@@ -4,6 +4,12 @@ RSpec.describe "Impact header flexible section" do
       {
         "title" => "page title",
         "description" => "page description",
+        "breadcrumbs" => [
+          {
+            "title" => "Home",
+            "url" => "/",
+          },
+        ],
         "image" => {
           "alt_text" => "image alt text",
           "sources" => {
@@ -25,6 +31,12 @@ RSpec.describe "Impact header flexible section" do
       {
         "title" => "page title",
         "description" => "page description",
+        "breadcrumbs" => [
+          {
+            "title" => "Home",
+            "url" => "/",
+          },
+        ],
       },
       nil,
     )
@@ -41,6 +53,7 @@ RSpec.describe "Impact header flexible section" do
     end
 
     it "renders the text and image" do
+      expect(rendered).to have_selector(".gem-c-breadcrumbs", text: "Home")
       expect(rendered).to have_selector(".gem-c-heading", text: "page title")
       expect(rendered).to have_selector(".gem-c-lead-paragraph", text: "page description")
       expect(rendered).to have_selector(".impact-header__image[src='https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg']")
@@ -55,6 +68,7 @@ RSpec.describe "Impact header flexible section" do
     it "renders impact header section" do
       expect(rendered).to have_selector("[data-flexible-section='impact-header']")
       expect(rendered).to have_selector(".impact-header.impact-header--grid .govuk-grid-row")
+      expect(rendered).to have_selector(".gem-c-breadcrumbs", text: "Home")
     end
 
     it "does not include an image" do

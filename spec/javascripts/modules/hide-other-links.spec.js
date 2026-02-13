@@ -112,4 +112,22 @@ describe('A hide-other-links module', function () {
       expect($('.long-words .other-content').children().length).toBe(1)
     })
   })
+  
+  describe('with 3 child nodes but only 1 link', function () {
+    beforeEach(function () {
+      list = $(
+        '<dd class="one-link-many-text">' +
+          '<a href="/dog">Dog</a>' +
+          'Some text here. ' +
+          '<span>Extra content</span>' +
+        '</dd>'
+      )
+
+      subject()
+    })
+
+    it('does not create other-content container because nothing to hide', function () {
+      expect($('.one-link-many-text .other-content').length).toBe(0)
+    })
+  })
 })

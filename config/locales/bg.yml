@@ -901,5 +901,6 @@ bg:
       our_people: Нашият народ
     news: Новини
     part_of: Част от
+    show_more:
     world_news_link: "%{country} и Обединеното кралство"
   'yes':

@@ -79,16 +79,23 @@ RSpec.describe "Worldwide corporate information page" do
       expect(page).to have_text("English")
       expect(page).to have_link("Español", href: "/world/organisations/british-embassy-madrid/about/recruitment.es")
     end
+
+    it "includes the body and contents" do
+      expect(page).to have_text("Contents")
+      contents = [
+        { text: "General information", id: "general-information" },
+        { text: "Current work opportunities", id: "current-work-opportunities" },
+      ]
+
+      within ".gem-c-contents-list" do
+        contents.each do |heading|
+          selector = "a[href=\"##{heading[:id]}\"]"
+          text = heading.fetch(:text)
+          expect(page).to have_css(selector, text:), "Failed to find matching element"
+          expect(page).to have_css(selector, text:), "Failed to find matching element"
+        end
+      end
+      expect(page).to have_text("Fair competition is at the centre of recruitment at the British Embassy Manila.")
+    end
   end
-
-  # test "includes the body and contents" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert page.has_content? "Contents"
-  #   assert_has_contents_list([
-  #     { text: "General information", id: "general-information" },
-  #     { text: "Current work opportunities", id: "current-work-opportunities" },
-  #   ])
-  #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
 end

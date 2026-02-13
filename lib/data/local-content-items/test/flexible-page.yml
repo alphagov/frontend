@@ -22,6 +22,23 @@ details:
         tablet: "https://assets.publishing.service.gov.uk/media/6747258077462f78091474e2/hero_tablet_1x_F_Tablet_HD-50.jpg"
         tablet_2x: "https://assets.publishing.service.gov.uk/media/67472580886c31e352d8d0b1/hero_tablet_2x_F_Tablet_HD-50.jpg"
   - type: impact_header
+    title: This is the title of the impact header
+    description: This is the description of the impact header, containing words that form a paragraph of text.
+    breadcrumbs:
+    - title: "Home"
+      url: "/"
+    - title: "An event"
+      url: "/events/"
+    image:
+      alt: "The Prime Minister"
+      sources:
+        desktop: "/assets/frontend/test/512x512.jpg"
+        desktop_2x: "/assets/frontend/test/512x512.jpg"
+        mobile: "/assets/frontend/test/640x640.jpg"
+        mobile_2x: "/assets/frontend/test/640x640.jpg"
+        tablet: "/assets/frontend/test/384x384.jpg"
+        tablet_2x: "/assets/frontend/test/384x384.jpg"
+  - type: impact_header
     title: UK and the Sustainable Development Goals
     description: The 2030 Agenda for Sustainable Development was adopted by 193 UN member states at the United Nations Sustainable Development Summit in 2015. It provides an ambitious, globally-agreed, shared blueprint for the world we want to see by 2030 and is centred around the 17 Sustainable Development Goals (also known as the Global Goals or SDGs).
     breadcrumbs:

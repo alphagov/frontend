@@ -15,14 +15,14 @@ RSpec.describe "Worldwide corporate information page" do
     it "omits breadcrumbs" do
       expect(page).not_to have_css(".govuk-breadcrumbs")
     end
+
+    it "renders rtl text direction when the locale is a rtl language" do
+      content_store_response["locale"] = "ar"
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+      expect(page).to have_css(".govuk-main-wrapper.direction-rtl")
+    end
   end
-
-  # test "renders rtl text direction when the locale is a rtl language" do
-  #   I18n.stubs(:locale).returns(:ar)
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert page.has_css?("#wrapper.direction-rtl"), "has .direction-rtl class on #wrapper element"
-  # end
 
   # test "includes the body and contents" do
   #   setup_and_visit_content_item("worldwide_corporate_information_page")

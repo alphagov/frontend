@@ -56,6 +56,10 @@ RSpec.describe "Worldwide corporate information page" do
         expect(page).not_to have_text("Part of:")
       end
     end
+
+    it "does not render the translations when there are no translations" do
+      expect(page).not_to have_text("English")
+    end
   end
 
   # test "includes the body and contents" do
@@ -67,12 +71,6 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "does not render the translations when there are no translations" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert_not page.has_text?("English")
   # end
 
   # test "renders the translations when there are translations" do

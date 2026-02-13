@@ -32,6 +32,17 @@ RSpec.describe "Worldwide corporate information page" do
       expect(page).to have_css("h1", text: "British EmbassyManila")
       expect(page).to have_link("British EmbassyManila", href: "/world/organisations/british-embassy-manila")
     end
+
+    it "includes the world locations and sponsoring organisations" do
+      within find(".worldwide-organisation-header__metadata", match: :first) do
+        expect(page).to have_text("News:")
+        expect(page).to have_link("Philippines with translation and the UK", href: "/world/philippines/news")
+        expect(page).to have_link("Palau with translation and the UK", href: "/world/palau/news")
+
+        expect(page).to have_text("Part of:")
+        expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
+      end
+    end
   end
 
   # test "includes the body and contents" do
@@ -43,19 +54,6 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "includes the world locations and sponsoring organisations" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   within find(".worldwide-organisation-header__metadata", match: :first) do
-  #     assert page.has_content? "News:"
-  #     assert page.has_link? "Philippines with translation and the UK", href: "/world/philippines/news"
-  #     assert page.has_link? "Palau with translation and the UK", href: "/world/palau/news"
-
-  #     assert page.has_content? "Part of:"
-  #     assert page.has_link? "Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office"
-  #   end
   # end
 
   # test "omits the world locations and sponsoring organisations when they are absent" do

@@ -43,6 +43,19 @@ RSpec.describe "Worldwide corporate information page" do
         expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
       end
     end
+
+    it "omits the world locations and sponsoring organisations when they are absent" do
+      content_store_response["links"]["worldwide_organisation"][0]["links"]["sponsoring_organisations"] = nil
+      content_store_response["links"]["worldwide_organisation"][0]["links"]["world_locations"] = nil
+
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      within find(".worldwide-organisation-header__metadata", match: :first) do
+        expect(page).not_to have_text("Location:")
+        expect(page).not_to have_text("Part of:")
+      end
+    end
   end
 
   # test "includes the body and contents" do
@@ -54,20 +67,6 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "omits the world locations and sponsoring organisations when they are absent" do
-  #   content_item = get_content_example("worldwide_corporate_information_page")
-  #   content_item["links"]["worldwide_organisation"][0]["links"]["sponsoring_organisations"] = nil
-  #   content_item["links"]["worldwide_organisation"][0]["links"]["world_locations"] = nil
-
-  #   stub_content_store_has_item(content_item["base_path"], content_item.to_json)
-  #   visit_with_cachebust(content_item["base_path"])
-
-  #   within find(".worldwide-organisation-header__metadata", match: :first) do
-  #     assert_not page.has_content? "Location:"
-  #     assert_not page.has_content? "Part of:"
-  #   end
   # end
 
   # test "does not render the translations when there are no translations" do

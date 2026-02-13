@@ -22,6 +22,10 @@ RSpec.describe "Worldwide corporate information page" do
       visit base_path
       expect(page).to have_css(".govuk-main-wrapper.direction-rtl")
     end
+
+    it "includes the description" do
+      expect(page).to have_text("The description for the worldwide corporate information page")
+    end
   end
 
   # test "includes the body and contents" do
@@ -33,12 +37,6 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "includes the description" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert page.has_content? "The description for the worldwide corporate information page"
   # end
 
   # test "includes the logo and name of the worldwide organisation as a link" do

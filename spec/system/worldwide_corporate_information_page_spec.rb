@@ -60,6 +60,25 @@ RSpec.describe "Worldwide corporate information page" do
     it "does not render the translations when there are no translations" do
       expect(page).not_to have_text("English")
     end
+
+    it "renders the translations when there are translations" do
+      content_store_response["links"]["available_translations"] =
+        [
+          {
+            "locale": "en",
+            "base_path": "/world/organisations/british-embassy-madrid/about/recruitment",
+          },
+          {
+            "locale": "es",
+            "base_path": "/world/organisations/british-embassy-madrid/about/recruitment.es",
+          },
+        ]
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      expect(page).to have_text("English")
+      expect(page).to have_link("Español", href: "/world/organisations/british-embassy-madrid/about/recruitment.es")
+    end
   end
 
   # test "includes the body and contents" do
@@ -71,29 +90,5 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "renders the translations when there are translations" do
-  #   setup_and_visit_content_item(
-  #     "worldwide_corporate_information_page",
-  #     {
-  #       "links" => {
-  #         "available_translations" =>
-  #           [
-  #             {
-  #               "locale": "en",
-  #               "base_path": "/world/organisations/british-embassy-madrid/about/recruitment",
-  #             },
-  #             {
-  #               "locale": "es",
-  #               "base_path": "/world/organisations/british-embassy-madrid/about/recruitment.es",
-  #             },
-  #           ],
-  #       },
-  #     },
-  #   )
-
-  #   assert page.has_text?("English")
-  #   assert page.has_link?("Español", href: "/world/organisations/british-embassy-madrid/about/recruitment.es")
   # end
 end

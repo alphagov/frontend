@@ -11,13 +11,11 @@ RSpec.describe "Worldwide corporate information page" do
     it "includes the title of the organisation" do
       expect(page).to have_title(content_store_response["title"])
     end
+
+    it "omits breadcrumbs" do
+      expect(page).not_to have_css(".govuk-breadcrumbs")
+    end
   end
-
-  # test "omits breadcrumbs" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert page.has_no_selector?(".govuk-breadcrumbs")
-  # end
 
   # test "renders rtl text direction when the locale is a rtl language" do
   #   I18n.stubs(:locale).returns(:ar)

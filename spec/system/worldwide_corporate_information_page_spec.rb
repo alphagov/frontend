@@ -77,16 +77,14 @@ RSpec.describe "Worldwide corporate information page" do
       expect(page).to have_text("English")
       expect(page).to have_link("Español", href: "/world/organisations/british-embassy-madrid/about/recruitment.es")
     end
+
+    it "includes the body and contents" do
+      expect(page).to have_text("Contents")
+      assert_has_contents_list([
+        { text: "General information", id: "general-information" },
+        { text: "Current work opportunities", id: "current-work-opportunities" },
+      ])
+      expect(page).to have_text("Fair competition is at the centre of recruitment at the British Embassy Manila.")
+    end
   end
-
-  # test "includes the body and contents" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert page.has_content? "Contents"
-  #   assert_has_contents_list([
-  #     { text: "General information", id: "general-information" },
-  #     { text: "Current work opportunities", id: "current-work-opportunities" },
-  #   ])
-  #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
 end

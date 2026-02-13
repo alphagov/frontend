@@ -26,6 +26,12 @@ RSpec.describe "Worldwide corporate information page" do
     it "includes the description" do
       expect(page).to have_text("The description for the worldwide corporate information page")
     end
+
+    it "includes the logo and name of the worldwide organisation as a link" do
+      expect(page).to have_css(".gem-c-organisation-logo")
+      expect(page).to have_css("h1", text: "British EmbassyManila")
+      expect(page).to have_link("British EmbassyManila", href: "/world/organisations/british-embassy-manila")
+    end
   end
 
   # test "includes the body and contents" do
@@ -37,14 +43,6 @@ RSpec.describe "Worldwide corporate information page" do
   #     { text: "Current work opportunities", id: "current-work-opportunities" },
   #   ])
   #   assert page.has_content?("Fair competition is at the centre of recruitment at the British Embassy Manila.")
-  # end
-
-  # test "includes the logo and name of the worldwide organisation as a link" do
-  #   setup_and_visit_content_item("worldwide_corporate_information_page")
-
-  #   assert_has_component_organisation_logo
-  #   assert_has_component_title("British Embassy\nManila")
-  #   assert page.has_link? "British EmbassyManila", href: "/world/organisations/british-embassy-manila"
   # end
 
   # test "includes the world locations and sponsoring organisations" do

@@ -901,5 +901,6 @@ si:
       our_people: අපේ ජනතාව
     news: පුවත්
     part_of: කොටසක්
+    show_more:
     world_news_link: "%{country} සහ එක්සත් රාජධානිය"
   'yes':

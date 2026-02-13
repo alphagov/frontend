@@ -901,5 +901,6 @@ pa:
       our_people: ਸਾਡੇ ਲੋਕ
     news: ਖ਼ਬਰਾਂ
     part_of: ਦਾ ਹਿੱਸਾ
+    show_more:
     world_news_link: "%{country} ਅਤੇ ਯੂਕੇ"
   'yes':

@@ -901,5 +901,6 @@ so:
       our_people: Dadkayaga
     news: War
     part_of: Ka qeyba
+    show_more:
     world_news_link: "%{country} iyo UK"
   'yes':

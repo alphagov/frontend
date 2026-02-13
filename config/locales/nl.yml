@@ -901,5 +901,6 @@ nl:
       our_people: Onze mensen
     news: Nieuws
     part_of: Deel van
+    show_more:
     world_news_link: "%{country} en het VK"
   'yes':

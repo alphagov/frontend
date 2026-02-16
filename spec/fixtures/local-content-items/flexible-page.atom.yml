@@ -1,0 +1,29 @@
+schema_name: flexible_page
+document_type: flexible_page
+base_path: test/flexible-page
+description: This is the history of 10 Downing Street
+public_updated_at: "2018-07-12T15:24:09+01:00"
+details:
+  flexible_sections:
+  - type: feed
+    feed_heading_text: Latest
+    email_signup_link: "/something"
+    items:
+      - link:
+          text: "Alternative provision"
+          path: "/government/publications/alternative-provision"
+        metadata:
+          public_updated_at: "2025-10-31 10:00:00 +0000"
+          document_type: "Statutory guidance"
+    see_all_items_link: "/search/all"
+    share_links_heading_text: Follow us
+    share_links:
+      - href: "/facebook-share-link"
+        text: "Facebook"
+        icon: "facebook"
+        data_attributes:
+          module: "example"
+links:
+  parent:
+  - base_path: "/government/history"
+    title: "History of the UK Government"

@@ -2,6 +2,8 @@
   <%= stylesheet_link_tag "views/_manual", media: "all" %>
 <% end %>
 
+<% content_for :title, build_page_title([content_item.title,I18n.t("formats.manuals.hmrc_manual_type")]) %>
+
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
     content_item: @content_item,

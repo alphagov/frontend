@@ -1,5 +1,4 @@
-@import "govuk_publishing_components/individual_component_support";
-@import "govuk_publishing_components/components/mixins/grid-helper";
+@import "govuk_publishing_components/vars_and_mixins";
 
 .homepage-header {
   background-color: $govuk-brand-colour;

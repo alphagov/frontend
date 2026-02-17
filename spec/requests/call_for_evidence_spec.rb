@@ -18,5 +18,11 @@ RSpec.describe "Calls for evidence document" do
 
       expect(response).to render_template(:show)
     end
+
+    it "sets GOVUK-Account-Session-Flash in the Vary header" do
+      get base_path
+
+      expect(response.headers["Vary"]).to include("GOVUK-Account-Session-Flash")
+    end
   end
 end

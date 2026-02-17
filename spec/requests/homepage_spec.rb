@@ -16,5 +16,11 @@ RSpec.describe "Homepage" do
 
       expect(response).to honour_content_store_ttl
     end
+
+    it "does not set Vary headers" do
+      get "/"
+
+      expect(response.headers["Vary"]).to be_nil
+    end
   end
 end

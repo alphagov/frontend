@@ -1,13 +1,11 @@
 class ContentItemsController < ApplicationController
-  include GovukPersonalisation::ControllerConcern
+  include Personalisable
 
   before_action :set_content_item_and_cache_control
   before_action :reroute_to_gone, if: -> { content_item.schema_name == "gone" }
   before_action :set_locale, if: -> { request.format.html? }
 
   attr_reader :content_item
-
-  helper_method :logged_in?
 
 private
 
@@ -48,11 +46,5 @@ private
                   else
                     I18n.default_locale
                   end
-  end
-
-  def set_account_vary_header
-    # Override the default from GovukPersonalisation::ControllerConcern so pages are cached on each flash message
-    # variation, rather than caching pages per user
-    response.headers["Vary"] = [response.headers["Vary"], "GOVUK-Account-Session-Exists", "GOVUK-Account-Session-Flash"].compact.join(", ")
   end
 end

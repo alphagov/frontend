@@ -1,6 +1,8 @@
 require "ostruct"
 
 class PostcodeLookup
+  ORDNANCE_SURVEY_CUSTODIAN_CODE = 7655
+
   attr_reader :local_custodian_codes, :postcode
 
   def initialize(postcode)
@@ -8,10 +10,9 @@ class PostcodeLookup
     raise LocationError, "invalidPostcodeFormat" if postcode.blank?
 
     @local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
+    @local_custodian_codes.delete(ORDNANCE_SURVEY_CUSTODIAN_CODE)
 
     raise LocationError, "noLaMatch" if @local_custodian_codes.empty?
-
-    log_7655_codes
   rescue GdsApi::HTTPNotFound
     raise LocationError, "noLaMatch"
   rescue GdsApi::HTTPClientError
@@ -28,18 +29,5 @@ class PostcodeLookup
         )
       end
     end
-  end
-
-  def log_7655_codes
-    return unless @local_custodian_codes.include?(7655)
-
-    GovukError.notify(
-      "Postcode results included Ordnance Survey Local Custodian Code (7655)",
-      extra: {
-        local_custodian_codes: @local_custodian_codes,
-        postcode: @postcode,
-      },
-      level: "warning",
-    )
   end
 end

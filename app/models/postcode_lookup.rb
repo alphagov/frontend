@@ -8,7 +8,10 @@ class PostcodeLookup
     raise LocationError, "invalidPostcodeFormat" if postcode.blank?
 
     @local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
+
     raise LocationError, "noLaMatch" if @local_custodian_codes.empty?
+
+    log_7655_codes
   rescue GdsApi::HTTPNotFound
     raise LocationError, "noLaMatch"
   rescue GdsApi::HTTPClientError
@@ -24,6 +27,14 @@ class PostcodeLookup
           local_custodian_code: result["local_custodian_code"],
         )
       end
+    end
+  end
+
+  def log_7655_codes
+    if @local_custodian_codes == %w[7655]
+      Rails.loggger.warn("For postcode #{@postcode}, 7655 is the only local custodian code")
+    elsif @local_custodian_codes.include?("7655")
+      Rails.loggger.warn("For postcode #{@postcode}, 7655 is included in local custodian codes")
     end
   end
 end

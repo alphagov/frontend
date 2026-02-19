@@ -1,13 +1,8 @@
 RSpec.describe ContentItemsController do
-  before do
-    content_store_has_example_item("/government/case-studies/get-britain-building-carlisle-park", schema: :case_study)
-  end
+  let(:content_item) { GovukSchemas::Example.find(:case_study, example_name: :case_study) }
+  let(:base_path) { content_item["base_path"] }
 
-  describe "GET path" do
-    it "sets GOVUK-Account-Session-Flash in the Vary header" do
-      get "/government/case-studies/get-britain-building-carlisle-park"
+  before { stub_content_store_has_item(base_path, content_item) }
 
-      expect(response.headers["Vary"]).to include("GOVUK-Account-Session-Flash")
-    end
-  end
+  it_behaves_like "it supports personalisation cache headers"
 end

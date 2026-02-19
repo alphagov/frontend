@@ -18,5 +18,7 @@ RSpec.describe "Detailed Guide" do
 
       expect(response).to render_template("show")
     end
+
+    it_behaves_like "it supports personalisation cache headers"
   end
 end

@@ -19,6 +19,8 @@ RSpec.describe "Publication Data Set" do
         expect(response).to render_template("show")
       end
 
+      it_behaves_like "it supports personalisation cache headers"
+
       context "when the path is under /government/statistics" do
         let(:base_path) { "/government/statistics/d17-9ly-veolia-es-uk-limited-environmental-permit-issued" }
 

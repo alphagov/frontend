@@ -4,21 +4,22 @@ describe('A sticky-element-container module', function () {
   var GOVUK = window.GOVUK
 
   describe('on desktop', function () {
-    var $element
-    var $footer
+    var element
+    var footer
     var instance
 
     beforeEach(function () {
-      $element = $(
-        '<div data-module="sticky-element-container" style="height: 9001px; margin-bottom: 1000px">' +
-          '<div data-sticky-element>' +
-            '<span>Content</span>' +
-          '</div>' +
-        '</div>'
-      )
+      element = document.createElement('div')
+      element.dataset.module = 'sticky-element-container'
+      element.style.cssText = 'height: 9001px; margin-bottom: 1000px'
+      element.innerHTML = `
+        <div data-sticky-element>
+          <span>Content</span>
+        </div>
+      `
 
-      instance = new GOVUK.Modules.StickyElementContainer($element[0])
-      $footer = $element.find('[data-sticky-element]')
+      instance = new GOVUK.Modules.StickyElementContainer(element)
+      footer = element.querySelector('[data-sticky-element]')
 
       instance.getWindowDimensions = function () {
         return {
@@ -38,8 +39,8 @@ describe('A sticky-element-container module', function () {
       instance.checkResize()
       instance.checkScroll()
 
-      expect($footer.hasClass('sticky-element--hidden')).toBe(true)
-      expect($footer.hasClass('sticky-element--stuck-to-window')).toBe(true)
+      expect(footer).toHaveClass('sticky-element--hidden')
+      expect(footer).toHaveClass('sticky-element--stuck-to-window')
     })
 
     it('shows the element, stuck to the window, when scrolled in the middle', function () {
@@ -52,8 +53,8 @@ describe('A sticky-element-container module', function () {
       instance.checkResize()
       instance.checkScroll()
 
-      expect($footer.hasClass('sticky-element--hidden')).toBe(false)
-      expect($footer.hasClass('sticky-element--stuck-to-window')).toBe(true)
+      expect(footer).not.toHaveClass('sticky-element--hidden')
+      expect(footer).toHaveClass('sticky-element--stuck-to-window')
     })
 
     it('shows the element, stuck to the parent, when scrolled at the bottom', function () {
@@ -66,8 +67,8 @@ describe('A sticky-element-container module', function () {
       instance.checkResize()
       instance.checkScroll()
 
-      expect($footer.hasClass('sticky-element--hidden')).toBe(false)
-      expect($footer.hasClass('sticky-element--stuck-to-window')).toBe(false)
+      expect(footer).not.toHaveClass('sticky-element--hidden')
+      expect(footer).not.toHaveClass('sticky-element--stuck-to-window')
     })
   })
 })

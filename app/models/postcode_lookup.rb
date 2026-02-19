@@ -31,10 +31,15 @@ class PostcodeLookup
   end
 
   def log_7655_codes
-    if @local_custodian_codes == %w[7655]
-      Rails.loggger.warn("For postcode #{@postcode}, 7655 is the only local custodian code")
-    elsif @local_custodian_codes.include?("7655")
-      Rails.loggger.warn("For postcode #{@postcode}, 7655 is included in local custodian codes")
-    end
+    return unless @local_custodian_codes.include?(7655)
+
+    GovukError.notify(
+      "Postcode results included Ordnance Survey Local Custodian Code (7655)",
+      extra: {
+        local_custodian_codes: @local_custodian_codes,
+        postcode: @postcode,
+      },
+      level: "warning",
+    )
   end
 end

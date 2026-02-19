@@ -901,5 +901,6 @@ da:
       our_people: Vores folk
     news: Nyheder
     part_of: del af
+    show_more:
     world_news_link: "%{country} og Storbritannien"
   'yes':

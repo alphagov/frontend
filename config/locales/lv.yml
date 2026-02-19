@@ -901,5 +901,6 @@ lv:
       our_people: Darbinieki
     news: Ziņas
     part_of: Daļa no
+    show_more:
     world_news_link: "%{country} un Apvienotā Karaliste"
   'yes':

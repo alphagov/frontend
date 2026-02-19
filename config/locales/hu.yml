@@ -901,5 +901,6 @@ hu:
       our_people: Munkatársaink
     news: Hírek
     part_of: 'Része a következőnek:'
+    show_more:
     world_news_link: "%{country} és az Egyesült Királyság"
   'yes':

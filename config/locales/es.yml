@@ -901,5 +901,6 @@ es:
       our_people: Nuestro equipo
     news: Noticias
     part_of: Parte de
+    show_more:
     world_news_link: "%{country} y el Reino Unido"
   'yes':

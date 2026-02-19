@@ -1152,4 +1152,5 @@ en:
     news: News
     part_of: Part of
     world_news_link: "%{country} and the UK"
+    show_more: Show %{hiddenLinksCount} more <span class="govuk-visually-hidden">worldwide location news</span>
   'yes': 'Yes'

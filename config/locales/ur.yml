@@ -901,5 +901,6 @@ ur:
       our_people: ہمارے لوگ
     news: خبریں
     part_of: حصہ از
+    show_more:
     world_news_link: "%{country} اور برطانیہ"
   'yes':

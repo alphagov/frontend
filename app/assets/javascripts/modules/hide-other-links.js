@@ -46,8 +46,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   HideOtherLinks.prototype.createShowLink = function () {
-    var hiddenCount = this.hiddenElementContainer.children.length
-    var linkText = '<span class="plus">+</span> ' + hiddenCount + ' other' + (hiddenCount > 1 ? 's' : '')
+    var linkText = this.module.getAttribute('data-hide-other-links-text')
 
     this.showLink.classList.add('show-other-content', 'govuk-link')
     this.showLink.innerHTML = linkText

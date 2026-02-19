@@ -1,6 +1,4 @@
 class ContentItemsController < ApplicationController
-  include Personalisable
-
   before_action :set_content_item_and_cache_control
   before_action :reroute_to_gone, if: -> { content_item.schema_name == "gone" }
   before_action :set_locale, if: -> { request.format.html? }

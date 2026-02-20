@@ -78,4 +78,13 @@ RSpec.describe "Contact Electoral Registration Office" do
       end
     end
   end
+
+  context "with a legacy slug params" do
+    it "GET redirects to the landing page" do
+      get "/contact-electoral-registration-office/stevenage"
+
+      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to("/contact-electoral-registration-office")
+    end
+  end
 end

@@ -8,7 +8,9 @@
   `[data-sticky-element]` to the child you want to position.
 */
 
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
+/* istanbul ignore next */
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 /* istanbul ignore next */

@@ -2,6 +2,8 @@ RSpec.describe "Corporate Information Page" do
   before do
     content_store_has_example_item("/government/organisations/government-digital-service/about", schema: :corporate_information_page, example: "corporate_information_page_with_groups")
     content_store_has_example_item("/government/organisations/government-digital-service/about/our-governance", schema: :corporate_information_page, example: "corporate_information_page_with_groups")
+    content_store_has_example_item("/courts-tribunals/test/about", schema: :corporate_information_page, example: "corporate_information_page_with_groups")
+    content_store_has_example_item("/courts-tribunals/test/about/our-governance", schema: :corporate_information_page, example: "corporate_information_page_with_groups")
   end
 
   describe "GET show" do
@@ -11,6 +13,14 @@ RSpec.describe "Corporate Information Page" do
       expect(response).to have_http_status(:ok)
 
       get "/government/organisations/government-digital-service/about/our-governance"
+
+      expect(response).to have_http_status(:ok)
+
+      get "/courts-tribunals/test/about"
+
+      expect(response).to have_http_status(:ok)
+
+      get "/courts-tribunals/test/about/our-governance"
 
       expect(response).to have_http_status(:ok)
     end

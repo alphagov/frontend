@@ -131,5 +131,13 @@ RSpec.describe "FlexiblePage" do
         expect(page).to have_selector("[data-flexible-section='link']")
       end
     end
+
+    describe "renders an impact header" do
+      it "contains the basic expected elements" do
+        visit base_path
+
+        expect(page).to have_selector("[data-flexible-section='impact-header']")
+      end
+    end
   end
 end

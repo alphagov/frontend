@@ -20,10 +20,8 @@
 
     <p class="govuk-body-l"><%= @content_item.description %></p>
 
-    <div class="body">
-      <%= render "govuk_publishing_components/components/govspeak", {} do
-        raw(@content_item.body)
-      end %>
-    </div>
+    <%= render "govuk_publishing_components/components/govspeak", {} do
+      raw(@content_item.body)
+    end %>
   </div>
 </article>

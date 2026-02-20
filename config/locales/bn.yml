@@ -901,5 +901,6 @@ bn:
       our_people: আমাদের লোকজন
     news: খবর
     part_of: এর অংশ
+    show_more:
     world_news_link: "%{country} এবং যুক্তরাজ্য"
   'yes':

@@ -6,7 +6,7 @@
 
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
-    content_item: @content_item,
+    content_item: content_item,
     heading_level: 1,
     green_background: true,
     type: I18n.t("formats.manuals.hmrc_manual_type"),
@@ -14,7 +14,7 @@
 <% end %>
 
 <%= render "shared/manuals/manual_layout" do %>
-  <% @content_item.section_groups.each do |group| %>
+  <% content_item.section_groups.each do |group| %>
     <% next if group["child_sections"].blank? %>
     <div class="subsection-collection">
       <%= render "shared/manuals/hmrc_sections", group: group, heading_level: 3 %>

@@ -30,14 +30,13 @@ RSpec.describe "Topical Event pages" do
     expect(page.html).to include(content_store_response.dig("details", "body"))
   end
 
+  it "includes a link to the about page" do
+    expect(page).to have_link(content_store_response.dig("details", "about_page_link_text"), href: "#{base_path}/about")
+  end
+
   it "includes a feed" do
     expect(page).to have_selector("[data-flexible-section='feed']")
   end
-
-  # it "includes a link to the about page" do
-  #   visit base_path
-  #   expect(page).to have_link(content_item.dig("details", "about_page_link_text"), href: "#{base_path}/about")
-  # end
 
   # context "when there are organisations" do
   #   it "includes a link to the organisation" do

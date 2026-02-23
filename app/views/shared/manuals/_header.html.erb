@@ -15,7 +15,7 @@
   <div class="govuk-grid-row">
     <div class='govuk-grid-column-two-thirds'>
       <%= render "govuk_publishing_components/components/heading", {
-        text: content_item.manual_content_item.title,
+        text: content_item.title || "Title Missing",
         context: type,
         font_size: "l",
         inverse: true,
@@ -26,7 +26,7 @@
 
       <%= render "govuk_publishing_components/components/metadata", {
         from: govuk_styled_links_list(@presenter.contributor_links),
-        first_published: display_date(content_item.manual_content_item.initial_publication_date),
+        first_published: content_item.respond_to?(:initial_publication_date) ? display_date(content_item.initial_publication_date) : nil,
         other: @presenter.other_metadata(is_updates_page:),
         inverse: true,
         inverse_compress: true,
@@ -48,7 +48,7 @@
           }
         %>
         <%= content_tag("form", action: "/search/all", data: form_data) do %>
-          <input type='hidden' name="manual[]" value="<%= content_item.manual_content_item.base_path %>">
+          <input type='hidden' name="manual[]" value="<%= content_item.base_path %>">
           <%= render "govuk_publishing_components/components/search", {
             on_govuk_blue: true,
             label_text: t("formats.manuals.search_this_manual"),

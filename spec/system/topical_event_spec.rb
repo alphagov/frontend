@@ -34,44 +34,17 @@ RSpec.describe "Topical Event pages" do
     expect(page).to have_link(content_store_response.dig("details", "about_page_link_text"), href: "#{base_path}/about")
   end
 
-  it "includes a feed" do
-    expect(page).to have_selector("[data-flexible-section='feed']")
+  it "includes featured documents" do
+    expect(page).to have_selector("[data-flexible-section='featured']")
+  end
+
+  it "includes a feed document list" do
+    expect(page).to have_selector("[data-flexible-section='feed_document_list']")
   end
 
   it "includes an involved block" do
     expect(page).to have_selector("[data-flexible-section='involved']")
   end
-
-  # context "when there are featured documents" do
-  #   it "includes the featured documents header" do
-  #     visit base_path
-  #     expect(page).to have_text(I18n.t("shared.featured"))
-  #   end
-
-  #   it "includes links to the featured documents" do
-  #     visit base_path
-  #     expect(page).to have_link("A document related to this event", href: "https://www.gov.uk/somewhere")
-  #   end
-
-  #   it "includes GA4 tracking on links to the featured documents" do
-  #     visit base_path
-  #     within("#featured") do
-  #       ga4_link_data = JSON.parse(page.first("div[data-module='ga4-link-tracker'][data-ga4-track-links-only]")["data-ga4-link"])
-  #       expect(ga4_link_data).to eq({ "event_name" => "navigation", "section" => "Featured", "type" => "image card" })
-  #     end
-  #   end
-  # end
-
-  # context "when there are no featured documents" do
-  #   before do
-  #     stub_content_store_has_item(base_path, content_item_without_detail(content_item, "ordered_featured_documents"))
-  #   end
-
-  #   it "does not include the featured documents header" do
-  #     visit base_path
-  #     expect(page).to_not have_text(I18n.t("shared.featured"))
-  #   end
-  # end
 
   # context "when requesting the atom feed" do
   #   let(:related_documents) { { "An announcement on Topicals" => "/foo/announcement_one", "Another announcement" => "/foo/announcement_two" } }
@@ -96,17 +69,5 @@ RSpec.describe "Topical Event pages" do
   #     expect(entries.second).to include("title" => "some_display_type: Another announcement")
   #     expect(entries.second["link"]).to include("href" => "http://www.test.gov.uk/foo/announcement_two")
   #   end
-  # end
-
-private
-
-  # def content_item_without_detail(content_item, key_to_remove)
-  #   content_item["details"] = content_item["details"].except(key_to_remove)
-  #   content_item
-  # end
-
-  # def content_item_without_link(content_item, key_to_remove)
-  #   content_item["links"] = content_item["links"].except(key_to_remove)
-  #   content_item
   # end
 end

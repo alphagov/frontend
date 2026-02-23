@@ -26,10 +26,9 @@ RSpec.describe "Topical Event pages" do
     expect(page).to have_selector("[data-flexible-section='impact-header']")
   end
 
-  # it "sets the body text" do
-  #   visit base_path
-  #   expect(page).to have_text(content_item.dig("details", "body"))
-  # end
+  it "sets the body text" do
+    expect(page.html).to include(content_store_response.dig("details", "body"))
+  end
 
   # it "includes a link to signup for emails" do
   #   visit base_path

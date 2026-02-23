@@ -30,134 +30,9 @@ RSpec.describe "Topical Event pages" do
     expect(page.html).to include(content_store_response.dig("details", "body"))
   end
 
-  # it "includes a link to signup for emails" do
-  #   visit base_path
-  #   expect(page).to have_link("Get emails", href: "/email-signup?link=/government/topical-events/something-very-topical")
-  # end
-
-  # context "documents list" do
-  #   let(:related_consultations) { { "A consultation on Topicals" => "/foo/consultation_one", "Another consultation" => "/foo/consultation_two" } }
-  #   let(:related_announcements) { { "An announcement on Topicals" => "/foo/announcement_one", "Another announcement" => "/foo/announcement_two" } }
-  #   let(:related_guidance_and_regulation) { { "Some guidance" => "/foo/detailed_guidance_one", "Another bit of guidance" => "/foo/detailed_guidance_two" } }
-
-  #   context "related publications" do
-  #     let(:related_publications) { { "Policy on Topicals" => "/foo/policy_paper", "PM attends summit on topical events" => "/foo/news_story" } }
-
-  #     xit "displays related publications" do
-  #       stub_search(body: search_api_response(related_publications), params: { "filter_format" => "publication" })
-
-  #       visit base_path
-
-  #       expect(page).to have_text("Publications")
-
-  #       within("#publications") do
-  #         related_publications.each { |title, link| expect(page).to have_link(title, href: link) }
-  #         expect(page).to have_link("See all publications", href: "/search/all?topical_events%5B%5D=something-very-topical")
-  #       end
-  #     end
-  #   end
-
-  #   it "displays links to all related documents" do
-  #     stub_search(body: search_api_response(related_announcements), params: { "filter_content_purpose_supergroup" => "news_and_communications" })
-  #     stub_search(body: search_api_response(related_consultations), params: { "filter_format" => "consultation" })
-  #     stub_search(body: search_api_response(related_guidance_and_regulation), params: { "filter_content_purpose_supergroup" => "guidance_and_regulation" })
-
-  #     visit base_path
-
-  #     expect(page).to have_text("Documents")
-  #     expect(page).to have_text("Consultations")
-  #     expect(page).to have_text("Announcements")
-  #     expect(page).to have_text("Guidance and regulation")
-
-  #     within("#consultations") do
-  #       related_consultations.each { |title, link| expect(page).to have_link(title, href: link) }
-  #       expect(page).to have_link("See all consultations", href: "/search/policy-papers-and-consultations?content_store_document_type%5B%5D=open_consultations&content_store_document_type%5B%5D=closed_consultations&topical_events%5B%5D=something-very-topical")
-  #     end
-
-  #     within("#announcements") do
-  #       related_announcements.each { |title, link| expect(page).to have_link(title, href: link) }
-  #       expect(page).to have_link("See all announcements", href: "/search/news-and-communications?topical_events%5B%5D=something-very-topical")
-  #     end
-
-  #     within("#guidance-and-regulation") do
-  #       related_guidance_and_regulation.each { |title, link| expect(page).to have_link(title, href: link) }
-  #       expect(page).to have_link("See all guidance and regulation", href: "/search/all?content_purpose_supergroup=guidance_and_regulation&topical_events%5B%5D=something-very-topical")
-  #     end
-  #   end
-
-  #   it "doesn't display any document headers when there are no related documents" do
-  #     visit base_path
-
-  #     expect(page).not_to have_text("Publications")
-  #     expect(page).not_to have_text("Announcements")
-  #     expect(page).not_to have_text("Consultations")
-  #     expect(page).not_to have_text("Documents")
-  #     expect(page).not_to have_text("Detailed Guides")
-  #   end
-
-  #   it "displays links to all related documents with GA4 tracking" do
-  #     stub_search(body: search_api_response(related_announcements), params: { "filter_content_purpose_supergroup" => "news_and_communications" })
-  #     stub_search(body: search_api_response(related_consultations), params: { "filter_format" => "consultation" })
-  #     stub_search(body: search_api_response(related_guidance_and_regulation), params: { "filter_content_purpose_supergroup" => "guidance_and_regulation" })
-
-  #     visit base_path
-
-  #     within("#consultations") do
-  #       ga4_link_data = JSON.parse(page.first("a[data-module='ga4-link-tracker']")["data-ga4-link"])
-  #       expect(ga4_link_data).to eq({ "event_name" => "navigation", "section" => "Consultations", "type" => "see all" })
-  #     end
-
-  #     within("#announcements") do
-  #       ga4_link_data = JSON.parse(page.first("a[data-module='ga4-link-tracker']")["data-ga4-link"])
-  #       expect(ga4_link_data).to eq({ "event_name" => "navigation", "section" => "Announcements", "type" => "see all" })
-  #     end
-
-  #     within("#guidance-and-regulation") do
-  #       ga4_link_data = JSON.parse(page.first("a[data-module='ga4-link-tracker']")["data-ga4-link"])
-  #       expect(ga4_link_data).to eq({ "event_name" => "navigation", "section" => "Guidance and regulation", "type" => "see all" })
-  #     end
-  #   end
-  # end
-
-  # context "latest documents" do
-  #   let(:latest_documents) { { "Some document" => "/foo/latest_one", "Another document" => "/foo/latest_two" } }
-
-  #   it "displays the latest documents" do
-  #     stub_search(body: search_api_response(latest_documents))
-
-  #     visit base_path
-
-  #     expect(page).to have_text("Latest")
-
-  #     within("#latest") do
-  #       latest_documents.each { |title, link| expect(page).to have_link(title, href: link) }
-  #       expect(page).to have_link("See all", href: "/search/all?order=updated-newest&topical_events%5B%5D=something-very-topical")
-  #     end
-  #   end
-
-  #   it "has GA4 tracking on the 'see all' link" do
-  #     stub_search(body: search_api_response(latest_documents))
-
-  #     visit base_path
-
-  #     within("#latest") do
-  #       ga4_link_data = JSON.parse(page.first("a[data-module='ga4-link-tracker']")["data-ga4-link"])
-  #       expect(ga4_link_data).to eq({ "event_name" => "navigation", "section" => "Latest", "type" => "see all" })
-  #     end
-  #   end
-
-  #   it "displays a message when there are no documents yet" do
-  #     stub_search(body: search_api_response({}))
-
-  #     visit base_path
-
-  #     expect(page).to have_text("Latest")
-
-  #     within("#latest") do
-  #       expect(page).to have_text("There are no updates yet.")
-  #     end
-  #   end
-  # end
+  it "includes a feed" do
+    expect(page).to have_selector("[data-flexible-section='feed']")
+  end
 
   # it "includes a link to the about page" do
   #   visit base_path
@@ -196,26 +71,6 @@ RSpec.describe "Topical Event pages" do
   #     visit base_path
 
   #     expect(page).to have_css(".gem-c-organisation-logo", count: 1)
-  #   end
-  # end
-
-  # context "when there are social media links" do
-  #   it "includes links to the social media accounts" do
-  #     visit base_path
-  #     expect(page).to have_link("Facebook", href: "https://www.facebook.com/a-topical-event")
-  #     expect(page).to have_link("Twitter", href: "https://www.twitter.com/a-topical-event")
-  #   end
-  # end
-
-  # context "when there are no social media links" do
-  #   before do
-  #     stub_content_store_has_item(base_path, content_item_without_detail(content_item, "social_media_links"))
-  #   end
-
-  #   it "does not include links to any social media platforms" do
-  #     visit base_path
-  #     expect(page).to_not have_text("Facebook")
-  #     expect(page).to_not have_text("Twitter")
   #   end
   # end
 

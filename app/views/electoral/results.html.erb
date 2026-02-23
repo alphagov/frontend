@@ -31,6 +31,21 @@
     }.to_json
   %>
   <div class="govuk-!-margin-bottom-8" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
+    <% if @presenter.use_registration_contact_details? && @presenter.scotland? %>
+      <%= render partial: "contact_details",
+        locals: {
+          presenter: @presenter,
+          title: t("electoral.registration.title"),
+          description: t("electoral.registration.description"),
+          name: nil,
+          contact_details: @presenter.presented_registration_address,
+          postcode: @presenter.registration["postcode"],
+          website: @presenter.registration["website"],
+          phone: @presenter.registration["phone"],
+          email: @presenter.registration["email"],
+          } %>
+    <% end %>
+
     <% if @presenter.use_electoral_services_contact_details? %>
       <%= render partial: "contact_details",
         locals: {
@@ -46,7 +61,7 @@
           } %>
     <% end %>
 
-    <% if @presenter.use_registration_contact_details? %>
+    <% if @presenter.use_registration_contact_details? && !@presenter.scotland? %>
       <%= render partial: "contact_details",
         locals: {
           presenter: @presenter,

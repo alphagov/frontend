@@ -42,6 +42,10 @@ class ElectoralPresenter
     registration.present?
   end
 
+  def scotland?
+    nation.include?("Scotland")
+  end
+
   def show_picker?
     address_picker.present? && no_contact_details?
   end
@@ -62,5 +66,9 @@ private
 
   def no_contact_details?
     registration.nil? && electoral_services.nil?
+  end
+
+  def nation
+    electoral_services["nation"] if electoral_services["nation"].presence
   end
 end

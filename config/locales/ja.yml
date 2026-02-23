@@ -820,5 +820,7 @@ ja:
       our_people: 人々
     news: 最新情報
     part_of: 次の一部：
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country}と英国"
   'yes':

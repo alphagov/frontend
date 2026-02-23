@@ -901,5 +901,7 @@ it:
       our_people: Il nostro personale
     news: Notizie
     part_of: Parte di
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} e Regno Unito"
   'yes':

@@ -901,5 +901,7 @@ tr:
       our_people: İnsan kaynağımız
     news: Haberler
     part_of: Şunun kısmı
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} ve Birleşik Krallık"
   'yes':

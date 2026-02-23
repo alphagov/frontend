@@ -901,5 +901,7 @@ de:
       our_people: Unsere Mitarbeiter
     news: Nachrichten
     part_of: Teil von
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} und Großbritannien"
   'yes':

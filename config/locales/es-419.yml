@@ -901,5 +901,7 @@ es-419:
       our_people: Nuestra gente
     news: Noticias
     part_of: Parte de
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} y el Reino Unido"
   'yes':

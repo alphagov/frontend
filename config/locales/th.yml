@@ -820,5 +820,7 @@ th:
       our_people: บุคลากรของเรา
     news: ข่าว
     part_of: ส่วนหนึ่งของ
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} และสหราชอาณาจักร"
   'yes':

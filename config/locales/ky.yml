@@ -472,7 +472,7 @@ ky:
       updated: Жаңыртылды
       updates: Жаңыртуулар
       updates_amendments: жарыяланган түзөтүүлөр
-      updates_description: "жаңыртууларынын тизмеси"
+      updates_description: жаңыртууларынын тизмеси
       updates_title: Жаңыртуулар %{title}
     map:
       name:
@@ -901,5 +901,7 @@ ky:
       our_people: Биздин адамдар
     news: Жаңылыктар
     part_of: Бөлүгү
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} жана Улуу Британия"
   'yes':

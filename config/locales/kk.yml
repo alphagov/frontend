@@ -901,5 +901,7 @@ kk:
       our_people: Біздің адамдар
     news: Жаңалықтар
     part_of: Бөлігі
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} және Ұлыбритания"
   'yes':

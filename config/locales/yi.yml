@@ -901,5 +901,7 @@ yi:
       our_people:
     news: נייעס
     part_of:
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} און די פאראייניגטע קעניגרייך"
   'yes':

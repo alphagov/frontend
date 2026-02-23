@@ -1063,5 +1063,7 @@ be:
       our_people: Нашы людзі
     news: Навіны
     part_of: Частка
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} і Вялікабрытанія"
   'yes':

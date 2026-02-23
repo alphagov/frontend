@@ -820,5 +820,7 @@ zh-tw:
       our_people: 我們的人
     news: 新聞
     part_of: 部分
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} 和英國"
   'yes':

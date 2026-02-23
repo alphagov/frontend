@@ -901,5 +901,7 @@ sw:
       our_people: Watu wetu
     news: Habari
     part_of: Sehemu ya
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} na Uingereza"
   'yes':

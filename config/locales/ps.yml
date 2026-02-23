@@ -901,5 +901,7 @@ ps:
       our_people: زموږ خلک
     news: خبرونه
     part_of: برخه
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} او انګلستان"
   'yes':

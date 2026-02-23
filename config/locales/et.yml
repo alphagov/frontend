@@ -901,5 +901,7 @@ et:
       our_people: Meie inimesed
     news: Uudised
     part_of: Osa
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} ja Ühendkuningriik"
   'yes':

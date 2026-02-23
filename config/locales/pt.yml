@@ -901,5 +901,7 @@ pt:
       our_people: A nosso povo
     news: Notícias
     part_of: Parte de
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} e o Reino Unido"
   'yes':

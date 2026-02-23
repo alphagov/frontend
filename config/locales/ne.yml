@@ -901,5 +901,7 @@ ne:
       our_people: हाम्रा जनता
     news: समाचार
     part_of: को भाग
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} र बेलायत"
   'yes':

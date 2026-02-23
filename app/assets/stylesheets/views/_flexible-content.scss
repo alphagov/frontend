@@ -3,3 +3,69 @@
 .flexible-section {
   margin-bottom: govuk-spacing(6);
 }
+
+$image-height: 512px;
+
+.impact-header {
+  max-width: 1024px;
+  margin: 0 auto;
+  background: #d2e2f1;
+}
+
+.impact-header--grid {
+  box-sizing: border-box;
+  padding: 0 15px;
+  padding-bottom: 30px;
+
+  @include govuk-media-query($from: tablet) {
+    padding: 0 30px;
+  }
+}
+
+.impact-header__container {
+  display: flex;
+  flex-direction: column;
+  min-height: $image-height;
+
+  @include govuk-media-query($from: desktop) {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+
+.impact-header__detail {
+  padding: 0 15px;
+  flex-shrink: 1;
+  flex-grow: 1;
+
+  @include govuk-media-query($from: desktop) {
+    box-sizing: border-box;
+    max-width: 512px;
+    padding: 0 0 0 30px;
+  }
+}
+
+.impact-header__image-wrapper {
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+
+  @include govuk-media-query($from: desktop) {
+    width: 50%;
+    aspect-ratio: auto;
+  }
+}
+
+.impact-header__image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+
+  @include govuk-media-query($from: desktop) {
+    max-height: $image-height;
+    max-width: none;
+  }
+}

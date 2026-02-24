@@ -13,6 +13,15 @@ class GuidePresenter < ContentItemPresenter
     content_item.title
   end
 
+  def ga4_scroll_tracking?
+    [
+      "/apply-to-come-to-the-uk",
+      "/apply-to-come-to-the-uk/prepare-your-application",
+      "/apply-to-come-to-the-uk/prove-your-identity",
+      "/apply-to-come-to-the-uk/getting-a-decision-on-your-application",
+    ].include? content_item.base_path
+  end
+
 private
 
   def hide_chapter_navigation?

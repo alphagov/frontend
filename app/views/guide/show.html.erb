@@ -14,6 +14,11 @@
     canonical_url: Plek.new.website_root + content_item.current_part_path,
     body: content_item.current_part_body.presence,
   } %>
+
+  <% if @presenter.ga4_scroll_tracking? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
+  <% end %>
+
 <% end %>
 
 <% if content_item.first_part? %>

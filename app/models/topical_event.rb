@@ -21,6 +21,7 @@ private
       description:,
       breadcrumbs:,
       image: impact_image,
+      legacy: is_legacy_topical_event?,
     }
   end
 
@@ -67,17 +68,21 @@ private
     }
   end
 
+  def is_legacy_topical_event?
+    !details.key?("images")
+  end
+
   def impact_image
     return unless details["image"]
 
     {
       sources: {
         desktop: details["image"]["high_resolution_url"],
-        desktop_2x: details["image"]["high_resolution_url"],
+        desktop_2x: nil,
         tablet: details["image"]["medium_resolution_url"],
-        tablet_2x: details["image"]["medium_resolution_url"],
-        mobile: details["image"]["url"],
-        mobile_2x: details["image"]["url"],
+        tablet_2x: nil,
+        mobile: details["image"]["medium_resolution_url"],
+        mobile_2x: nil,
       },
     }
   end

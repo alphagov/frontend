@@ -24,15 +24,16 @@ RSpec.describe TopicalEvent do
       {
         "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
         "description" => content_store_response["description"],
+        "legacy" => true,
         "title" => content_store_response["title"],
         "image" => {
           "sources" => {
             "desktop" => content_store_response["details"]["image"]["high_resolution_url"],
-            "desktop_2x" => content_store_response["details"]["image"]["high_resolution_url"],
+            "desktop_2x" => nil,
             "tablet" => content_store_response["details"]["image"]["medium_resolution_url"],
-            "tablet_2x" => content_store_response["details"]["image"]["medium_resolution_url"],
-            "mobile" => content_store_response["details"]["image"]["url"],
-            "mobile_2x" => content_store_response["details"]["image"]["url"],
+            "tablet_2x" => nil,
+            "mobile" => content_store_response["details"]["image"]["medium_resolution_url"],
+            "mobile_2x" => nil,
           },
         },
         "type" => "impact_header",

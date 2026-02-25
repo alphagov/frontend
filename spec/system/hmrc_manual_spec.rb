@@ -77,33 +77,44 @@ RSpec.describe "Hmrc manual" do
         end
       end
     end
+
+    context "when a section group has no child sections" do
+      let(:content_item) do
+        item = GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies")
+
+        item["details"]["child_section_groups"] = [
+          {
+            "title" => "Some section group title 1",
+            "child_sections" => [],
+          },
+          {
+            "title" => "Some section group title 2",
+            "child_sections" => [
+              {
+                "section_id" => "VATGPB1000",
+                "title" => "Introduction: contents",
+                "description" => "",
+                "base_path" => "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
+              },
+            ],
+          },
+        ]
+
+        item
+      end
+
+      let(:base_path) { content_item["base_path"] }
+
+      before do
+        stub_content_store_does_not_have_item("/hmrc-internal-manuals")
+        stub_content_store_has_item(base_path, content_item)
+        visit base_path
+      end
+
+      it "does not render section groups with no sections inside" do
+        expect(page).not_to have_text("Some section group title 1")
+        expect(page).to have_text("Some section group title 2")
+      end
+    end
   end
-
-  # test "does not render section groups with no sections inside" do
-  #   content_item_override = {
-  #     "details" => {
-  #       "child_section_groups" => [
-  #         {
-  #           title: "Some section group title 1",
-  #           child_sections: [],
-  #         },
-  #         {
-  #           title: "Some section group title 2",
-  #           child_sections: [
-  #             {
-  #               "section_id" => "VATGPB1000",
-  #               "title" => "Introduction: contents",
-  #               "description" => "",
-  #               "base_path" => "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
-  #             },
-  #           ],
-  #         },
-  #       ],
-  #     },
-  #   }
-
-  #   setup_and_visit_content_item("vat-government-public-bodies", content_item_override)
-  #   assert page.has_no_text?("Some section group title 1")
-  #   assert page.has_text?("Some section group title 2")
-  # end
 end

@@ -234,9 +234,6 @@ describe('CountryFilter', function () {
 
       filter = new GOVUK.countryFilter(input)
 
-      counter = document.createDocumentFragment()
-      counter.innerHTML = filter.container
-      container.appendChild(counter)
       counter = container.querySelector('.js-country-count')
     })
 

@@ -44,6 +44,7 @@ en:
     st_andrew: St Andrew’s Day
     st_patrick: St Patrick’s Day
     summer: Summer bank holiday
+    world_cup: World Cup bank holiday
     year: Year
   common:
     add_holiday_ics: Add bank holidays %{for_nation} to your calendar (ICS, 14KB)

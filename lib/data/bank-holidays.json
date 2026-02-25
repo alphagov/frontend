@@ -970,6 +970,12 @@
                 "bunting": true
               },
               {
+                "title": "bank_holidays.world_cup",
+                "date": "15/06/2026",
+                "notes": "",
+                "bunting": true
+              },
+              {
                 "title": "bank_holidays.summer",
                 "date": "03/08/2026",
                 "notes": "",

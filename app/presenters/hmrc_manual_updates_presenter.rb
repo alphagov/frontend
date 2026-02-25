@@ -1,0 +1,2 @@
+class HmrcManualUpdatesPresenter < ManualUpdatesPresenter
+end

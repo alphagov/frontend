@@ -1,4 +1,9 @@
 // Foreign travel advice tests
+function getVisibleCountries (countries) {
+  var visibleCountries = Array.from(countries.querySelectorAll('ul.js-countries-list li'))
+  return visibleCountries.filter((country) => country.style.display !== 'none')
+}
+
 var GOVUKTest = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
@@ -64,16 +69,16 @@ GOVUKTest.countryFilter.countryCounter = '<p class="js-country-count"><span clas
 
 /* eslint-disable new-cap */
 describe('CountryFilter', function () {
-  var $input,
+  var input,
     filter
 
   beforeEach(function () {
-    $input = $('<input />')
+    input = document.createElement('input')
   })
 
   afterEach(function () {
+    input.remove()
     filter = null
-    $(document).unbind('countrieslist')
   })
 
   describe('Creating a CountryFilter instance', function () {
@@ -82,7 +87,7 @@ describe('CountryFilter', function () {
         filter = new GOVUK.countryFilter()
       }
       var createAFilterWithParam = function () {
-        filter = new GOVUK.countryFilter($input[0])
+        filter = new GOVUK.countryFilter(input)
       }
 
       expect(createAFilterNoParam).toThrow()
@@ -90,7 +95,7 @@ describe('CountryFilter', function () {
     })
 
     it('Should have the correct interface', function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
 
       expect(filter.filterHeadings).toBeDefined()
       expect(filter.doesSynonymMatch).toBeDefined()
@@ -99,82 +104,90 @@ describe('CountryFilter', function () {
     })
 
     it('Should have the correct properties applied to it', function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
 
       expect(filter.container).toBeDefined()
     })
 
-    it('Should attach a call to its filterListItems method in the sent jQuery objects keyup method', function () {
-      filter = new GOVUK.countryFilter($input[0])
+    it('Should attach a call to its filterListItems method in the sent keyup event', function () {
+      filter = new GOVUK.countryFilter(input)
       spyOn(filter, 'filterListItems')
 
-      window.GOVUK.triggerEvent($input[0], 'keyup')
+      window.GOVUK.triggerEvent(input, 'keyup')
 
       expect(filter.filterListItems).toHaveBeenCalled()
     })
 
     it('Should not cancel events bound to keyup when backspace is pressed', function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
       spyOn(filter, 'filterListItems')
 
-      window.GOVUK.triggerEvent($input[0], 'keyup', { keyCode: 8 })
+      window.GOVUK.triggerEvent(input, 'keyup', { keyCode: 8 })
       expect(filter.filterListItems).toHaveBeenCalled()
     })
 
     it('Should prevent form submission and filtering when enter key is pressed', function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
       spyOn(filter, 'filterListItems')
 
-      window.GOVUK.triggerEvent($input[0], 'keydown', { keyCode: 13 })
+      window.GOVUK.triggerEvent(input, 'keydown', { keyCode: 13 })
       expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
     it('Should work normally for another key pressed', function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
       spyOn(filter, 'filterListItems')
 
-      window.GOVUK.triggerEvent($input[0], 'keydown', { keyCode: 65 })
+      window.GOVUK.triggerEvent(input, 'keydown', { keyCode: 65 })
       expect(filter.filterListItems).not.toHaveBeenCalled()
     })
 
     it('Should set aria attributes on `.js-country-count`', function () {
-      var $container = $("<div class='js-travel-container' />")
-      var $countriesWrapper = $("<div class='js-country-count' />")
+      var container = document.createElement('div')
+      container.classList.add('js-travel-container')
 
-      $container
-        .append($input)
-        .append($countriesWrapper)
-      filter = new GOVUK.countryFilter($input[0])
+      var countriesWrapper = document.createElement('div')
+      countriesWrapper.classList.add('js-country-count')
 
-      expect($countriesWrapper.attr('aria-live')).toEqual('polite')
+      container.append(input, countriesWrapper)
+
+      filter = new GOVUK.countryFilter(input)
+
+      expect(countriesWrapper.getAttribute('aria-live')).toEqual('polite')
     })
   })
 
   describe('CountryFilter.filterHeadings', function () {
-    var $countries
+    var countries
 
     it('Should leave headings with their countries showing visible', function () {
-      var $headings
+      countries = document.createElement('div')
+      countries.innerHTML = GOVUKTest.countryFilter.categories.allWithCountries
 
-      $countries = $(GOVUKTest.countryFilter.categories.allWithCountries)
-      filter = new GOVUK.countryFilter($input[0])
-      filter.container = $countries[0]
-      $headings = $countries.find('h3')
+      filter = new GOVUK.countryFilter(input)
+      filter.container = countries
 
-      filter.filterHeadings($headings)
-      expect($headings.filter(function () { return this.style.display !== 'none' }).length).toEqual(3)
+      var headings = Array.from(countries.querySelectorAll('h3'))
+
+      filter.filterHeadings(headings)
+
+      var visibleHeadings = headings.filter((heading) => heading.style.display !== 'none')
+      expect(visibleHeadings.length).toEqual(3)
     })
 
     it('Should make headings with no visible countries invisible by hiding the wrapper', function () {
-      var $headings
+      countries = document.createElement('div')
+      countries.innerHTML = GOVUKTest.countryFilter.categories.twoWithoutCountries
 
-      $countries = $(GOVUKTest.countryFilter.categories.twoWithoutCountries)
-      filter = new GOVUK.countryFilter($input[0])
-      filter.container = $countries[0]
-      $headings = $countries.find('h3')
+      filter = new GOVUK.countryFilter(input)
+      filter.container = countries
 
-      filter.filterHeadings($headings)
-      expect($headings.filter(function () { return this.parentNode.style.display !== 'none' }).length).toEqual(1)
+      var headings = Array.from(countries.querySelectorAll('h3'))
+
+      filter.filterHeadings(headings)
+
+      var headingsWithoutCountries = headings.filter((heading) => heading.parentNode.style.display !== 'none')
+      expect(headingsWithoutCountries.length).toEqual(1)
     })
   })
 
@@ -182,84 +195,84 @@ describe('CountryFilter', function () {
     var result
 
     beforeEach(function () {
-      filter = new GOVUK.countryFilter($input[0])
+      filter = new GOVUK.countryFilter(input)
     })
 
     it('Should not find a match on an element with no synonyms', function () {
-      var element = $(GOVUKTest.countryFilter.synonyms.noSynonyms)[0]
+      var element = document.createElement('ul')
+      element.innerHTML = GOVUKTest.countryFilter.synonyms.noSynonyms
       var synonym = 'Sahel'
-      result = filter.doesSynonymMatch(element, synonym)
+      result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual([])
     })
 
     it('Should find a match on an element with a single synonym equal to that sent', function () {
-      var element = $(GOVUKTest.countryFilter.synonyms.withSaharaSynonym)[0]
+      var element = document.createElement('ul')
+      element.innerHTML = GOVUKTest.countryFilter.synonyms.withSaharaSynonym
       var synonym = 'Sahel'
-      result = filter.doesSynonymMatch(element, synonym)
+      result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual(['Sahel'])
     })
 
     it('Should find no match on an element with no synonyms equal to that sent', function () {
-      var element = $(GOVUKTest.countryFilter.synonyms.withUSASynonym)[0]
+      var element = document.createElement('ul')
+      element.innerHTML = GOVUKTest.countryFilter.synonyms.withUSASynonym
       var synonym = 'Sahel'
-      result = filter.doesSynonymMatch(element, synonym)
+      result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual([])
     })
   })
 
   describe('CountryFilter.updateCounter', function () {
-    var $counter
+    var counter
 
     beforeEach(function () {
-      $(
-        '<div class="js-travel-container">' +
-          GOVUKTest.countryFilter.countryCounter +
-        '</div>'
-      ).append($input)
+      var container = document.createElement('div')
+      container.classList.add('js-travel-container')
+      container.innerHTML = GOVUKTest.countryFilter.countryCounter
+      container.appendChild(input)
 
-      filter = new GOVUK.countryFilter($input[0])
-      $counter = $('.js-country-count', filter.container)
+      filter = new GOVUK.countryFilter(input)
+
+      counter = container.querySelector('.js-country-count')
     })
 
     it('Should make the counter text match the sent number', function () {
       filter.updateCounter(27)
 
-      expect($counter.find('.js-filter-count').text()).toBe('27')
+      expect(counter.querySelector('.js-filter-count').textContent).toBe('27')
     })
 
     it("Should add the word 'results' to the end of the count number if it is 0", function () {
       filter.updateCounter(0)
 
-      expect($counter.text().match(/results$/)).not.toBeNull()
+      expect(counter.textContent.match(/results$/)).not.toBeNull()
     })
 
     it("Should remove the word 'results' from the end of the count number once it changes from 0", function () {
       filter.updateCounter(0)
       filter.updateCounter(27)
 
-      expect($counter.text().match(/results$/)).toBeNull()
+      expect(counter.textContent.match(/results$/)).toBeNull()
     })
   })
 
   describe('CountryFilter.filterListItems', function () {
-    var $countries
-    var trigger = $.fn.trigger
+    var countries
+    var container
 
     beforeEach(function () {
-      $countries = $(GOVUKTest.countryFilter.categories.allWithCountries)
-      var $counter = $(GOVUKTest.countryFilter.countryCounter)
-      $('<div class="js-travel-container"></div>')
-        .append($input)
-        .append($countries)
-        .append($counter)
-      $.fn.trigger = jasmine.createSpy('triggerSpy')
-      filter = new GOVUK.countryFilter($input[0])
+      container = document.createElement('div')
+      container.classList.add('js-travel-container')
+      container.innerHTML = `
+        ${GOVUKTest.countryFilter.categories.allWithCountries}
+        ${GOVUKTest.countryFilter.countryCounter}
+      `
+      container.prepend(input)
+      filter = new GOVUK.countryFilter(input)
       filter.filterHeadings = jasmine.createSpy('filterHeadings')
       spyOn(filter, 'doesSynonymMatch').and.callThrough()
-    })
-
-    afterEach(function () {
-      $.fn.trigger = trigger
+      countries = container.querySelector('.countries-wrapper')
     })
 
     it('Should call filterHeadings', function () {
@@ -278,46 +291,23 @@ describe('CountryFilter', function () {
     })
 
     it("Should only have one country visible for the 'Yem' search term", function () {
-      var visibleCountries
-
       filter.filterListItems('Yem')
-      visibleCountries = $countries
-        .find('ul.js-countries-list li')
-        .filter(function () { return this.style.display !== 'none' })
-
-      expect(visibleCountries.length).toEqual(1)
+      expect(getVisibleCountries(countries).length).toEqual(1)
     })
 
     it("Should only have one country visible for the 'Z' search term", function () {
-      var visibleCountries
-
       filter.filterListItems('Z')
-      visibleCountries = $countries
-        .find('ul.js-countries-list li')
-        .filter(function () { return this.style.display !== 'none' })
-      expect(visibleCountries.length).toEqual(2)
+      expect(getVisibleCountries(countries).length).toEqual(2)
     })
 
     it("Should only have one country visible for the 'Sahe' search term", function () {
-      var visibleCountries
-
       filter.filterListItems('Sahe')
-      visibleCountries = $countries
-        .find('ul.js-countries-list li')
-        .filter(function () { return this.style.display !== 'none' })
-
-      expect(visibleCountries.length).toEqual(1)
+      expect(getVisibleCountries(countries).length).toEqual(1)
     })
 
     it('Should have all countries for empty search term', function () {
-      var visibleCountries
-
       filter.filterListItems('')
-      visibleCountries = $countries
-        .find('ul.js-countries-list li')
-        .filter(function () { return this.style.display !== 'none' })
-
-      expect(visibleCountries.length).toEqual(5)
+      expect(getVisibleCountries(countries).length).toEqual(5)
     })
   })
 })

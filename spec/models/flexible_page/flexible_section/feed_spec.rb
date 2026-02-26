@@ -4,8 +4,8 @@ RSpec.describe FlexiblePage::FlexibleSection::Feed do
       "feed_heading_text" => "Test Heading",
       "email_signup_link" => "/test-link",
       "items" => [
-        { "link" => { "text" => "item 1", "path" => "/item-1" }, "metadata" => { "public_updated_at" => "2025-10-31 10:00:00 +0000", "document_type" => "Example guidance" } },
-        { "link" => { "text" => "item 2", "path" => "/item-2" }, "metadata" => { "public_updated_at" => "2025-10-31 10:00:00 +0000", "document_type" => "Example guidance" } },
+        { "link" => { "text" => "item 1", "path" => "/item-1" }, "metadata" => { "public_updated_at" => "2025-10-31 10:00:00 +0000", "document_type" => "Example guidance", "display_type" => "guidance", "description" => "What's up?" } },
+        { "link" => { "text" => "item 2", "path" => "/item-2" }, "metadata" => { "public_updated_at" => "2025-10-31 10:00:00 +0000", "document_type" => "Example guidance", "display_type" => "guidance", "description" => "What's up?" } },
       ],
       "see_all_items_link" => "/test-see-all",
       "share_links_heading_text" => "share links",
@@ -22,8 +22,8 @@ RSpec.describe FlexiblePage::FlexibleSection::Feed do
       expect(feed.feed_heading_text).to eq("Test Heading")
       expect(feed.email_signup_link).to eq("/test-link")
       expect(feed.items).to eq([
-        { link: { text: "item 1", path: "/item-1" }, metadata: { public_updated_at: "2025-10-31 10:00:00.000000000 GMT +00:00", document_type: "Example guidance" } },
-        { link: { text: "item 2", path: "/item-2" }, metadata: { public_updated_at: "2025-10-31 10:00:00.000000000 GMT +00:00", document_type: "Example guidance" } },
+        { link: { text: "item 1", path: "/item-1" }, metadata: { public_updated_at: "2025-10-31 10:00:00.000000000 +00:00", document_type: "Example guidance", display_type: "guidance", description: "What's up?" } },
+        { link: { text: "item 2", path: "/item-2" }, metadata: { public_updated_at: "2025-10-31 10:00:00.000000000 +00:00", document_type: "Example guidance", display_type: "guidance", description: "What's up?" } },
       ])
       expect(feed.see_all_items_link).to eq("/test-see-all")
       expect(feed.share_links_heading_text).to eq("share links")

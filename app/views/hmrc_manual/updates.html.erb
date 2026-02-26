@@ -3,7 +3,7 @@
 <% end %>
 <% content_for :before_main do %>
   <%= render "shared/manuals/header", {
-    content_item: @content_item,
+    content_item: content_item,
     heading_level: 2,
     green_background: true,
     type: I18n.t("formats.manuals.hmrc_manual_type"),

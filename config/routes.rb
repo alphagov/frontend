@@ -211,7 +211,7 @@ Rails.application.routes.draw do
   end
 
   constraints FullPathFormatRoutingConstraint.new("flexible_page") do
-    get "*path", to: "flexible_page#show"
+    get "*path(.atom)", to: "flexible_page#show"
   end
 
   constraints FullPathFormatRoutingConstraint.new("html_publication") do

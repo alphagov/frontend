@@ -21,7 +21,7 @@ class HmrcManualSection < ContentItem
 private
 
   def siblings
-    return [] unless parent_for_section
+    return [] unless parent_for_section && parent_for_section.details.key?("child_section_groups")
 
     sibling_child_sections = parent_for_section.details["child_section_groups"].map do |group|
       included_section = group["child_sections"].find { |section| section["section_id"].include?(section_id) }

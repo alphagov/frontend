@@ -44,6 +44,7 @@ ku:
     st_andrew:
     st_patrick:
     summer:
+    world_cup:
     year:
   common:
     add_holiday_ics:
@@ -470,7 +471,7 @@ ku:
       see_all_updates: هەموو نوێکارییەکان ببینە
       summary_title: پوختە
       updated: نوێ کراوەتەوە
-      updates: "نوێکاری"
+      updates: نوێکاری
       updates_amendments: هەموارکردنەوەکانی بڵاوکراوە
       updates_description: لیستی نوێکارییەکان بۆ
       updates_title: "%{title}' نوێکارییەکان"

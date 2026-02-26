@@ -44,6 +44,7 @@ ky:
     st_andrew:
     st_patrick:
     summer:
+    world_cup:
     year:
   common:
     add_holiday_ics:
@@ -472,7 +473,7 @@ ky:
       updated: Жаңыртылды
       updates: Жаңыртуулар
       updates_amendments: жарыяланган түзөтүүлөр
-      updates_description: "жаңыртууларынын тизмеси"
+      updates_description: жаңыртууларынын тизмеси
       updates_title: Жаңыртуулар %{title}
     map:
       name:

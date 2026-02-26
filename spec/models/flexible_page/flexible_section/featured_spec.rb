@@ -86,4 +86,26 @@ RSpec.describe FlexiblePage::FlexibleSection::Featured do
       })
     end
   end
+
+  describe "when a featured item receives govspeak in the summary" do
+    let(:content_hash) do
+      {
+        "ordered_featured_documents" => [
+          {
+            "href" => "/href",
+            "image" => {
+              "url" => "/img/src.jpg",
+              "alt_text" => "some meaningful alt text please",
+            },
+            "title" => "Government does things",
+            "summary" => "<p>This a description with <strong>HTML</strong> in it.</p>",
+          },
+        ],
+      }
+    end
+
+    it "sanitises the HTML from the summary" do
+      expect(featured.items.first[:description]).to eq("This a description with HTML in it.")
+    end
+  end
 end

@@ -13,7 +13,7 @@ class FeedService
   ].freeze
 
   DEFAULT_SEARCH_OPTIONS = {
-    count: 5,
+    count: 10,
     order: "-public_timestamp",
     fields: DEFAULT_FEED_FIELDS,
   }.freeze

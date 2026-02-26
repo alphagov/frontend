@@ -1,5 +1,7 @@
+items = content_item.feed_items.map { |feed_item| AtomFeedEntryPresenter.new(feed_item) }
+
 atom_feed(language: "en-GB", root_url:) do |feed|
-  feed.title(title)
+  feed.title("#{content_item.title} - Activity on GOV.UK")
 
   feed.author do |author|
     author.name("HM Government")

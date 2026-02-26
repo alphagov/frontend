@@ -5,6 +5,42 @@ RSpec.shared_examples "it has news image" do |document_type, example_name|
     content_item["details"]["image"] = nil
   end
 
+  it "uses the 'lead' type from details.images" do
+    image = {
+      "type" => "lead",
+      "url" => "http://www.test.dev.gov.uk/image.jpg",
+    }
+    content_item["details"]["images"] = [image]
+
+    expect(described_class.new(content_item).image).to eq(image)
+  end
+
+  it "prefers details.images over details.image" do
+    image = {
+      "type" => "lead",
+      "url" => "http://www.test.dev.gov.uk/image.jpg",
+    }
+    legacy_image = { "url" => "http://www.test.dev.gov.uk/legacy-image.jpg" }
+
+    content_item["details"]["images"] = [image]
+    content_item["details"]["image"] = legacy_image
+
+    expect(described_class.new(content_item).image).to eq(image)
+  end
+
+  it "falls back to details.image when details.images has no 'lead' type" do
+    legacy_image = { "url" => "http://www.test.dev.gov.uk/legacy-image.jpg" }
+    content_item["details"]["images"] = [
+      {
+        "type" => "other",
+        "url" => "http://www.test.dev.gov.uk/other_image.jpg",
+      },
+    ]
+    content_item["details"]["image"] = legacy_image
+
+    expect(described_class.new(content_item).image).to eq(legacy_image)
+  end
+
   it "presents the document's image if present" do
     image = { "url" => "http://www.test.dev.gov.uk/lead_image.jpg" }
     content_item["details"]["image"] = image
@@ -12,7 +48,7 @@ RSpec.shared_examples "it has news image" do |document_type, example_name|
     expect(described_class.new(content_item).image).to eq(image)
   end
 
-  it "presents the document's organisation's default_news_image if document's image is not present" do
+  it "presents the organisation's default_news_image if document's image is not present" do
     default_news_image = { "url" => "http://www.test.dev.gov.uk/default_news_image.jpg" }
     content_item = {
       "links" => {

@@ -17,6 +17,12 @@ class FlexiblePage < ContentItem
     ]
   end
 
+  def feed_items
+    feed_sections = flexible_sections.select { |section| section.type == "feed" }
+
+    feed_sections.any? ? feed_sections.first.items : []
+  end
+
 private
 
   def default_flexible_sections

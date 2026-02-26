@@ -13,7 +13,7 @@ class FeedService
   ].freeze
 
   DEFAULT_SEARCH_OPTIONS = {
-    count: 5,
+    count: 10,
     order: "-public_timestamp",
     fields: DEFAULT_FEED_FIELDS,
   }.freeze
@@ -44,6 +44,8 @@ private
         metadata: {
           public_updated_at: document["public_timestamp"],
           document_type: display_type(document),
+          display_type: document["display_type"],
+          description: document["description"],
         },
       }
     end

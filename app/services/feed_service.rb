@@ -44,6 +44,8 @@ private
         metadata: {
           public_updated_at: document["public_timestamp"],
           document_type: display_type(document),
+          display_type: document["display_type"],
+          description: document["description"],
         },
       }
     end

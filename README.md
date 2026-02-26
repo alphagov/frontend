@@ -118,6 +118,7 @@ bundle exec rake
 ### Further documentation
 
 - [Calendars](docs/calendars.md)
+- [Debugging](docs/debugging-in-vs-code.md)
 - [Elections](docs/elections-api.md)
 
 ## Licence

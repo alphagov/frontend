@@ -125,6 +125,9 @@ GEM
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
     date (3.5.1)
+    debug (1.11.1)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     debug_inspector (1.2.0)
     diff-lcs (1.6.2)
     dig_rb (1.0.1)
@@ -770,6 +773,7 @@ DEPENDENCIES
   climate_control
   dalli
   dartsass-rails
+  debug
   dotenv-rails
   erb_lint
   factory_bot_rails

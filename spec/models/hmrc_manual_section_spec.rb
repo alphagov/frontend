@@ -43,6 +43,16 @@ RSpec.describe HmrcManualSection do
         expect(hmrc_manual_section.next_sibling).to be_nil
       end
     end
+
+    context "when the parent manual is not a manual" do
+      before do
+        stub_content_store_has_item(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
+      end
+
+      it "returns nil" do
+        expect(hmrc_manual_section.next_sibling).to be_nil
+      end
+    end
   end
 
   describe "#previous_sibling" do
@@ -60,6 +70,16 @@ RSpec.describe HmrcManualSection do
         GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies").tap do |item|
           item["details"]["child_section_groups"].first["child_sections"].slice!(0, 1)
         end
+      end
+
+      it "returns nil" do
+        expect(hmrc_manual_section.previous_sibling).to be_nil
+      end
+    end
+
+    context "when the parent manual is not a manual" do
+      before do
+        stub_content_store_has_item(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
       end
 
       it "returns nil" do

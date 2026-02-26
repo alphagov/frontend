@@ -73,18 +73,32 @@ private
   end
 
   def impact_image
-    return unless details["image"]
+    return unless details["image"] || details["images"]
 
-    {
-      sources: {
-        desktop: details["image"]["high_resolution_url"],
-        desktop_2x: nil,
-        tablet: details["image"]["medium_resolution_url"],
-        tablet_2x: nil,
-        mobile: details["image"]["medium_resolution_url"],
-        mobile_2x: nil,
-      },
-    }
+    if is_legacy_topical_event?
+      {
+        sources: {
+          desktop: details["image"]["high_resolution_url"],
+          desktop_2x: nil,
+          tablet: details["image"]["medium_resolution_url"],
+          tablet_2x: nil,
+          mobile: details["image"]["medium_resolution_url"],
+          mobile_2x: nil,
+        },
+      }
+    else
+      images = details["images"].select { |i| i["type"] == "header" }
+      {
+        sources: {
+          desktop: images.first["url"],
+          desktop_2x: nil,
+          tablet: images.first["url"],
+          tablet_2x: nil,
+          mobile: images.first["url"],
+          mobile_2x: nil,
+        },
+      }
+    end
   end
 
   def format_social_media_links(links)

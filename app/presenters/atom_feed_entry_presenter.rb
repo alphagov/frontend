@@ -14,7 +14,7 @@ class AtomFeedEntryPresenter
   end
 
   def updated
-    feed_item[:metadata][:public_updated_at]
+    feed_item[:metadata][:public_updated_at].utc
   end
 
   def title
@@ -30,6 +30,6 @@ class AtomFeedEntryPresenter
   end
 
   def display_type
-    feed_item[:metadata][:document_type]
+    feed_item[:metadata][:display_type]
   end
 end

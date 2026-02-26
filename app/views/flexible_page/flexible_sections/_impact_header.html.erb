@@ -19,16 +19,16 @@
 
 <div class="flexible-section" data-flexible-section="impact-header">
   <% if flexible_section.image %>
-    <div class="impact-header">
+    <div class="impact-header <%= "impact-header--legacy" if flexible_section.legacy? %>">
       <div class="impact-header__container">
         <div class="impact-header__detail">
           <%= text %>
         </div>
 
         <%= picture_tag(class: "impact-header__image-wrapper") do %>
-          <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:desktop])}, #{image_path(flexible_section.image[:sources][:desktop_2x])} 2x", media: "(min-width: 769px)" %>
-          <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:tablet])}, #{image_path(flexible_section.image[:sources][:tablet_2x])} 2x", media: "(min-width: 641px) and (max-width: 768px)" %>
-          <%= tag.source srcset: "#{image_path(flexible_section.image[:sources][:mobile])}, #{image_path(flexible_section.image[:sources][:mobile_2x])} 2x", media: "(max-width: 640px)" %>
+          <%= tag.source srcset: srcset_string(:desktop, flexible_section.image), media: "(min-width: 769px)" %>
+          <%= tag.source srcset: srcset_string(:tablet, flexible_section.image), media: "(min-width: 641px) and (max-width: 768px)" %>
+          <%= tag.source srcset: srcset_string(:mobile, flexible_section.image), media: "(max-width: 640px)" %>
           <%= image_tag(flexible_section.image[:sources][:desktop], class: "impact-header__image", alt: "") %>
         <% end %>
       </div>

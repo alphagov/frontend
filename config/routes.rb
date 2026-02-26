@@ -130,6 +130,7 @@ Rails.application.routes.draw do
 
     get "/statistics/announcements/:slug", to: "statistics_announcement#show"
 
+    get "/topical-events/:slug", to: "flexible_page#show"
     get "/topical-events/:slug/about", to: "flexible_page#show"
   end
 

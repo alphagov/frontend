@@ -69,3 +69,28 @@ $image-height: 512px;
     max-width: none;
   }
 }
+
+.impact-header--legacy {
+  .impact-header__image-wrapper {
+    aspect-ratio: auto;
+    padding: 15px;
+    padding-top: 0;
+  }
+
+  @include govuk-media-query($from: desktop) {
+    .impact-header__container {
+      min-height: 0;
+    }
+
+    .impact-header__image-wrapper {
+      box-sizing: border-box;
+      padding: 30px;
+      padding-left: 0;
+    }
+
+    .impact-header__image {
+      max-height: none;
+      max-width: 100%;
+    }
+  }
+}

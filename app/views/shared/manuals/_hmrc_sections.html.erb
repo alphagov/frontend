@@ -1,0 +1,23 @@
+<% if group["title"] %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: group["title"],
+    font_size: "m",
+    heading_level:,
+    margin_bottom: 4,
+  } %>
+<% end %>
+
+<ol class="section-list">
+  <% group["child_sections"].each do |section| %>
+    <li class="section-list-item">
+      <%= link_to section["base_path"], class: "govuk-link section-link" do %>
+      <div class="title-wrap">
+        <% if section["section_id"] %>
+          <div class="subsection-id"><%= section["section_id"] %></div>
+        <% end %>
+        <div class="subsection-title-text"><%= section["title"] %></div>
+      </div>
+      <% end %>
+    </li>
+  <% end %>
+</ol>

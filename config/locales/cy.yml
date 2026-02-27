@@ -1240,5 +1240,7 @@ cy:
       our_people: Ein pobl
     news: Newyddion
     part_of: Rhan o
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} a'r DU"
   'yes': Ie

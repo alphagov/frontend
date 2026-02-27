@@ -983,5 +983,7 @@ sk:
       our_people: Naši ľudia
     news: Správy
     part_of: Časť
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} a Spojené kráľovstvo"
   'yes':

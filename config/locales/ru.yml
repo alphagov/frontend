@@ -1064,5 +1064,7 @@ ru:
       our_people: Наши сотрудники
     news: Новости
     part_of: Является частью
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} и Великобритания"
   'yes':

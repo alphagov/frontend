@@ -821,5 +821,7 @@ ms:
       our_people: Rakyat kami
     news: Berita
     part_of: Sebahagian daripada
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} dan Britain"
   'yes':

@@ -902,5 +902,7 @@ fr:
       our_people: Notre équipe
     news: Actualités
     part_of: Fait partie de
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} et le Royaume-Uni"
   'yes':

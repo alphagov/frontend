@@ -905,5 +905,7 @@ dr:
       our_people: مردم ما
     news: خبر
     part_of: بخشی از
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} و بریتانیا"
   'yes':

@@ -11,7 +11,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     this.hiddenElementContainer = this.createHiddenElementContainer()
     this.shownElements = []
     this.hiddenElements = []
-    this.showLink = document.createElement('button')
+    this.showLink = ''
   }
 
   HideOtherLinks.prototype.init = function () {
@@ -48,17 +48,27 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   HideOtherLinks.prototype.createShowLink = function () {
-    var hiddenCount = this.hiddenElementContainer.children.length
-    var linkText = '<span class="plus">+</span> ' + hiddenCount + ' other' + (hiddenCount > 1 ? 's' : '')
+    var linkText = this.module.getAttribute('data-hide-other-links-link-text')
+    var linkTextVisuallyHidden = this.module.getAttribute('data-hide-other-links-visually-hidden-link-text')
 
-    this.showLink.classList.add('show-other-content', 'govuk-link')
-    this.showLink.innerHTML = linkText
-    this.showLink.setAttribute('aria-expanded', 'false')
-    this.showLink.setAttribute('aria-controls', 'other-content')
+    if (linkText) {
+      this.showLink = document.createElement('button')
+      this.showLink.classList.add('show-other-content', 'govuk-link')
+      this.showLink.textContent = linkText
 
-    this.showLink.addEventListener('click', this.showHiddenLinks.bind(this))
+      if (linkTextVisuallyHidden) {
+        var visuallyHiddenSpan = document.createElement('span')
+        visuallyHiddenSpan.classList.add('govuk-visually-hidden')
+        visuallyHiddenSpan.textContent = linkTextVisuallyHidden
+        this.showLink.appendChild(visuallyHiddenSpan)
+      }
 
-    this.hiddenElementContainer.parentNode.insertBefore(this.showLink, this.hiddenElementContainer)
+      this.showLink.setAttribute('aria-expanded', 'false')
+      this.showLink.setAttribute('aria-controls', 'other-content')
+      this.showLink.addEventListener('click', this.showHiddenLinks.bind(this))
+
+      this.hiddenElementContainer.parentNode.insertBefore(this.showLink, this.hiddenElementContainer)
+    }
   }
 
   HideOtherLinks.prototype.hideElements = function () {

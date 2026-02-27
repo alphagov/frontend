@@ -902,5 +902,7 @@ he:
       our_people: הצוות שלנו
     news: חדשות
     part_of: חלק של
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} ובריטניה"
   'yes':

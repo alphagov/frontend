@@ -983,5 +983,7 @@ lt:
       our_people: Mūsų darbuotojai
     news: Naujienos
     part_of: Dalis
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} ir JK"
   'yes':

@@ -1064,5 +1064,7 @@ gd:
       our_people: Ár gcomhoibritheoirí
     news: Nuacht
     part_of: Chuid
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} agus an Ríocht Aontaithe"
   'yes':

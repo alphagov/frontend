@@ -1226,5 +1226,7 @@ ar:
       our_people: موظفونا
     news: الأخبار
     part_of: جزء من
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} والمملكة المتحدة"
   'yes':

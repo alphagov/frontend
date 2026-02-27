@@ -902,5 +902,7 @@ hy:
       our_people: Մեր անձնակազմը
     news: Նորություններ
     part_of: Մաս է՝
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} և Մեծ Բրիտանիա"
   'yes':

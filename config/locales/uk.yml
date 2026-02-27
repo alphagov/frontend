@@ -1064,5 +1064,7 @@ uk:
       our_people: Наші співробітники
     news: Новини
     part_of: Частина
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} та Велика Британія"
   'yes':

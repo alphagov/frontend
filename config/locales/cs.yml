@@ -983,5 +983,7 @@ cs:
       our_people: Naši lidé
     news: Zprávy
     part_of: Část
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} a Spojené království"
   'yes':

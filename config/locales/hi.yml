@@ -902,5 +902,7 @@ hi:
       our_people: हमारे लोग
     news: समाचार
     part_of: का भाग
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} और ब्रिटेन"
   'yes':

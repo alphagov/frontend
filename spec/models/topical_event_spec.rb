@@ -12,6 +12,7 @@ RSpec.describe TopicalEvent do
           title: "My Topical Event News Item",
           public_timestamp: "2025-12-01T00:00:01Z",
           display_type: "news",
+          description: "What's up?",
         },
       ],
     }
@@ -182,6 +183,8 @@ RSpec.describe TopicalEvent do
           "metadata" => {
             "document_type" => "News",
             "public_updated_at" => "2025-12-01T00:00:01Z",
+            "display_type" => "news",
+            "description" => "What's up?",
           },
         }],
         "email_signup_link" => "/email-signup?link=#{content_store_response['base_path']}",

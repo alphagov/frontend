@@ -30,6 +30,8 @@ module FlexiblePage::FlexibleSection
           metadata: {
             public_updated_at: Time.zone.parse(i["metadata"]["public_updated_at"] || ""),
             document_type: i["metadata"]["document_type"],
+            display_type: i["metadata"]["display_type"],
+            description: i["metadata"]["description"],
           },
         }
       end

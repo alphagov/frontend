@@ -12,6 +12,7 @@ RSpec.describe FeedService do
           title: "My Topical Event News Item",
           public_timestamp: "2025-12-01T00:00:01Z",
           display_type: "news",
+          description: "What's Up?",
         },
       ],
     }
@@ -29,6 +30,8 @@ RSpec.describe FeedService do
         metadata: {
           public_updated_at: "2025-12-01T00:00:01Z",
           document_type: "News",
+          display_type: "news",
+          description: "What's Up?",
         },
       }]
 

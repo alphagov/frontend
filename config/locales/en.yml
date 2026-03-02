@@ -866,10 +866,10 @@ en:
       popular: Popular on GOV.UK
       popular_links_heading: Popular on GOV.UK
       promotion_slots:
-      - text: Check if you have a Child Trust Fund.
-        title: Child Trust Funds
-        href: "/child-trust-funds/find-a-child-trust-fund"
-        image_src: homepage/child-trust-fund-featured.png
+      - text: Middle East travel advice
+        title: Check the latest travel advice if you’re in or planning to travel to the Middle East
+        href: "/government/news/foreign-office-travel-advice-updates"
+        image_src: homepage/travel-advice-blue-icon-featured.png
       - text: Search and apply for jobs in England, Scotland and Wales.
         title: Find a job
         href: "/find-a-job"

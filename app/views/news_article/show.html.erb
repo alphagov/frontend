@@ -31,11 +31,13 @@
   <div class="govuk-grid-column-two-thirds ">
     <div class="content-bottom-margin">
       <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/figure",
-          src: content_item.image["url"],
-          alt: content_item.image["alt_text"],
-          credit: content_item.image["credit"],
-          caption: content_item.image["caption"] if content_item.image %>
+        <% if content_item.image_url %>
+          <%= render "govuk_publishing_components/components/figure",
+                     src: content_item.image_url,
+                     alt: content_item.image["alt_text"],
+                     credit: content_item.image["credit"],
+                     caption: content_item.image["caption"] if content_item.image %>
+        <% end %>
         <%= render "govuk_publishing_components/components/govspeak", {
           direction: page_text_direction,
         } do %>

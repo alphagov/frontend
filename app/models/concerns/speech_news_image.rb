@@ -1,19 +1,11 @@
-module NewsImage
+module SpeechNewsImage
   extend ActiveSupport::Concern
 
   def image
-    lead_image_from_details_images || content_store_response.dig("details", "image") || default_news_image || placeholder_image
+    content_store_response.dig("details", "image") || default_news_image || placeholder_image
   end
 
 private
-
-  def lead_image_from_details_images
-    images = content_store_response.dig("details", "images")
-
-    return nil unless images.is_a?(Array)
-
-    images.find { |image| image["type"] == "lead" }
-  end
 
   def default_news_image
     organisation = content_store_response.dig("links", "primary_publishing_organisation")

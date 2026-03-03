@@ -33,34 +33,11 @@ RSpec.describe History do
       expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
     end
 
-    context "when details.images has a 'sidebar' type image with a 'sources' key" do
+    context "when details.images has a 'sidebar' type image" do
       let(:expected_image_attributes) do
         {
           alt: "Here's an image!",
           src: "https://assets.publishing.service.gov.uk/image.png",
-        }
-      end
-
-      it "includes the sidebar image in the rich content" do
-        expect(history.flexible_sections.third.image).to have_attributes(expected_image_attributes)
-      end
-    end
-
-    context "when details.images has a 'sidebar' type image with a 'url' key" do
-      let(:images) do
-        [
-          {
-            "type" => "sidebar",
-            "caption" => "Here's an image!",
-            "url" => "https://assets.publishing.service.gov.uk/image_with_url.png",
-            "content_type" => "image/jpeg",
-          },
-        ]
-      end
-      let(:expected_image_attributes) do
-        {
-          alt: "Here's an image!",
-          src: "https://assets.publishing.service.gov.uk/image_with_url.png",
         }
       end
 

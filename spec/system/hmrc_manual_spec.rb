@@ -116,6 +116,37 @@ RSpec.describe "Hmrc manual" do
         expect(page).to have_text("Some section group title 2")
       end
     end
+
+    context "when a section group title is blank" do
+      let(:content_item) do
+        item = GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies")
+
+        item["details"]["child_section_groups"] = [
+          {
+            "title" => "  ",
+            "child_sections" => [
+              {
+                "section_id" => "VATGBP1000",
+                "title" => "Introduction: contents",
+                "description" => "",
+                "base_path" => "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb1000",
+              },
+            ],
+          },
+        ]
+
+        item
+      end
+
+      before do
+        stub_content_store_has_item(base_path, content_item)
+        visit base_path
+      end
+
+      it "does not render an empty section heading" do
+        expect(page).not_to have_css("h3", text: /^\s*$/)
+      end
+    end
   end
 
   context "when visiting a HMRC manual updates page" do

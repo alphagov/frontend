@@ -1,4 +1,4 @@
-<% if group["title"] %>
+<% unless group["title"].blank? %>
   <%= render "govuk_publishing_components/components/heading", {
     text: group["title"],
     font_size: "m",

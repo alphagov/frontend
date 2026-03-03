@@ -17,7 +17,9 @@ RSpec.describe History do
       {
         "type" => "sidebar",
         "caption" => "Here's an image!",
-        "url" => "https://assets.publishing.service.gov.uk/image.png",
+        "sources" => {
+          "s960" => "https://assets.publishing.service.gov.uk/image.png",
+        },
         "content_type" => "image/jpeg",
       },
     ]

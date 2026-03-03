@@ -2,12 +2,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
   header = {
     "title" => "This is the page H1",
     "description" => "This is the lead paragraph",
-    "breadcrumbs" => [
-      {
-        "title" => "Home",
-        "url" => "/",
-      },
-    ],
     "image" => {
       "sources" => {
         "desktop" => "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
@@ -23,12 +17,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
   header_without_image = {
     "title" => "Page title",
     "description" => "description",
-    "breadcrumbs" => [
-      {
-        "title" => "Home",
-        "url" => "/",
-      },
-    ],
   }
 
   subject(:content_hash) do
@@ -39,7 +27,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
 
   describe "when complete data is provided" do
     it "includes page title and description" do
-      expect(impact.breadcrumbs).to eq([{ title: "Home", url: "/" }])
       expect(impact.title).to eq("This is the page H1")
       expect(impact.description).to eq("This is the lead paragraph")
     end
@@ -64,7 +51,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
     end
 
     it "returns only the text content" do
-      expect(impact.breadcrumbs).to eq([{ title: "Home", url: "/" }])
       expect(impact.title).to eq("Page title")
       expect(impact.description).to eq("description")
       expect(impact.image).to be(false)

@@ -48,7 +48,8 @@
     "stylelint-config-gds": "^2.0.0"
   },
   "resolutions": {
-    "selenium-webdriver": "4.17.0"
+    "selenium-webdriver": "4.17.0",
+    "minimatch": "10.2.3"
   },
   "packageManager": "yarn@3.5.0",
   "dependencies": {

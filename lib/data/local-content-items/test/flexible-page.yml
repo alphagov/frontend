@@ -68,6 +68,14 @@ details:
       url: "/"
     - title: "An event"
       url: "/events/"
+  - type: breadcrumbs
+    breadcrumbs:
+    - title: "Home"
+      url: "/"
+    - title: "Example"
+      url: "/example/"
+    - title: "Breadcrumb"
+      url: "/breadcrumb/"
   - type: page_title
     context: History
     heading_text: 10 Downing Street

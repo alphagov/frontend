@@ -28,9 +28,5 @@ module FlexiblePage::FlexibleSection
     def legacy?
       flexible_section_hash["legacy"]
     end
-
-    def before_content?
-      true
-    end
   end
 end

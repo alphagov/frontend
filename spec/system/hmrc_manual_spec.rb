@@ -1,8 +1,8 @@
 RSpec.describe "Hmrc manual" do
-  context "when visiting a HMRC manual page" do
-    let(:content_item) { GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies") }
-    let(:base_path) { content_item["base_path"] }
+  let(:content_item) { GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies") }
+  let(:base_path) { content_item["base_path"] }
 
+  context "when visiting a HMRC manual page" do
     before do
       stub_content_store_has_item(base_path, content_item)
       visit base_path
@@ -114,6 +114,59 @@ RSpec.describe "Hmrc manual" do
       it "does not render section groups with no sections inside" do
         expect(page).not_to have_text("Some section group title 1")
         expect(page).to have_text("Some section group title 2")
+      end
+    end
+  end
+
+  context "when visiting a HMRC manual updates page" do
+    let(:updates_path) { "#{base_path}/updates" }
+
+    before do
+      stub_content_store_has_item(updates_path, content_item)
+      visit updates_path
+    end
+
+    it "renders the page correctly" do
+      expect(page).to have_title("Updates - #{content_item['title']}")
+    end
+
+    it "renders one content container" do
+      expect(page).to have_selector("#content", count: 1)
+    end
+
+    it "renders the metadata" do
+      within(".gem-c-metadata--inverse") do
+        expect(page).to have_text("From:")
+        expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
+        expect(page).to have_text("Published 11 February 2015")
+        expect(page).to have_text("Updated:")
+      end
+    end
+
+    it "renders a search box" do
+      within(".gem-c-search") do
+        expect(page).to have_text("Search this manual")
+      end
+    end
+
+    it "renders a back link" do
+      expect(page).to have_link("Back to contents", href: base_path)
+    end
+
+    it "renders change note updates in the accordion" do
+      expect(page).to have_css(".gem-c-accordion")
+
+      accordion_sections = page.all(".govuk-accordion__section")
+      expect(accordion_sections.count).to eq 2
+
+      within accordion_sections[0] do
+        expect(page).to have_link("Police authorities: summary of activities: liabilities T to Z", href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb5390")
+        expect(page).to have_text("Updated content")
+      end
+
+      within accordion_sections[1] do
+        expect(page).to have_link("Police authorities: summary of activities: liabilities I to M", href: "/hmrc-internal-manuals/vat-government-and-public-bodies/vatgpb5350")
+        expect(page).to have_text("Updated content")
       end
     end
   end

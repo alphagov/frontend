@@ -40,7 +40,7 @@ private
 
     {
       alt: sidebar_image["caption"],
-      src: sidebar_image.dig("sources", "s960"),
+      src: sidebar_image.dig("sources", "s960") || sidebar_image["url"],
     }
   end
 end

@@ -8,9 +8,9 @@ private
     sections << impact_header_section
     sections << body_section if body.present?
     sections << about_link_section if details["about_page_link_text"].present?
-    sections << featured_section if details["ordered_featured_documents"].any?
+    sections << featured_section if details["ordered_featured_documents"].present?
     sections << feed_and_social_section
-    sections << whos_involved_section if organisations_ordered_by_emphasis.any?
+    sections << whos_involved_section if organisations_ordered_by_emphasis.present?
     sections
   end
 

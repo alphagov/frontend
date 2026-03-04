@@ -1,9 +1,10 @@
 <div id="manuals-frontend">
 
-  <%= render "govuk_publishing_components/components/machine_readable_metadata",
-    schema: :article,
-    content_item: content_item.to_h %>
-
+  <% content_for :head do %>
+    <%= render "govuk_publishing_components/components/machine_readable_metadata",
+      schema: :article,
+      content_item: content_item.to_h %>
+  <% end %>
   <% if content_item.description.present? %>
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.manuals.summary_title"),

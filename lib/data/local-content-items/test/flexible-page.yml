@@ -16,8 +16,8 @@ details:
         tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
         tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
   - type: impact_header
-    title: This is the title of the impact header
-    description: This is the description of the impact header, containing words that form a paragraph of text. containing words that form a paragraph of text. containing words that form a paragraph of text. containing words that form a paragraph of text. containing words that form a paragraph of text. containing words that form a paragraph of text. containing words that form a paragraph of text.
+    title: This is the title of the impact header when there is a lot of text involved
+    description: The layout needs to adapt if the text of this description is very long. The layout also needs to account for where users have set a default large text size in their browser. In both cases, this text would be taller than the image. If the layout tried to keep the image the same height as the text it would result in more of the sides of the image being hidden as the image gets taller. Instead, the image is given a maximum height and vertically aligned centrally within the space available.
     image:
       sources:
         desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
@@ -27,11 +27,23 @@ details:
         tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
         tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
   - type: impact_header
-    title: UK and the Sustainable Development Goals
-    description: The 2030 Agenda for Sustainable Development was adopted by 193 UN member states at the United Nations Sustainable Development Summit in 2015. It provides an ambitious, globally-agreed, shared blueprint for the world we want to see by 2030 and is centred around the 17 Sustainable Development Goals (also known as the Global Goals or SDGs).
+    title: Legacy layout
+    description: Where a topical event contains an existing image we apply a slightly different layout, to prevent any part of the image being hidden. This is because these legacy images often contained text, which cannot be cropped.
+    image:
+      sources:
+        desktop: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        desktop_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        mobile: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+    legacy: true
   - type: impact_header
-    title: hi
-    description: there
+    title: Impact header without an image
+    description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
+  - type: impact_header
+    title: Minimal
+    description: text with an image
     image:
       sources:
         desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
@@ -41,8 +53,8 @@ details:
         tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
         tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
   - type: impact_header
-    title: hi
-    description: there
+    title: Minimal
+    description: text with no image
   - type: breadcrumbs
     breadcrumbs:
     - title: "Home"

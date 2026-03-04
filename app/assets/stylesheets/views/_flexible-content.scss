@@ -9,7 +9,6 @@ $image-height: 512px;
 .impact-header {
   max-width: 1024px;
   margin: 0 auto;
-  background: #d2e2f1;
 }
 
 .impact-header--grid {
@@ -70,6 +69,7 @@ $image-height: 512px;
   @include govuk-media-query($from: desktop) {
     max-height: $image-height;
     max-width: none;
+    transform: translateX(-30px);
   }
 }
 
@@ -94,6 +94,7 @@ $image-height: 512px;
     .impact-header__image {
       max-height: none;
       max-width: 100%;
+      transform: none;
     }
   }
 }

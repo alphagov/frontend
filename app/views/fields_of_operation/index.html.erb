@@ -11,12 +11,16 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <ul class="govuk-list">
-          <% content_item.fields_of_operation.each do |content_item| %>
-              <%= link_to content_item.title, content_item.base_path, class: "govuk-link" %>
-              <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-2 govuk-!-margin-bottom-2">
-          <% end %>
-        </ul>
+        <%
+          list_items = content_item.fields_of_operation.map do |content_item|
+            sanitize("<a href='#{content_item.base_path}' class='govuk-link'>#{content_item.title}</a>")
+          end
+        %>
+
+        <%= render "govuk_publishing_components/components/list", {
+          extra_spacing: true,
+          items: list_items,
+        } %>
       </div>
     </div>
   </div>

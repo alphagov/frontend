@@ -3,6 +3,8 @@
   <%= stylesheet_link_tag "views/_flexible-content", media: "all" %>
 <% end %>
 
+<% content_for :main_classes do %>govuk-!-padding-top-0<% end %>
+
 <% content_for :before_content do %>
   <% content_item.flexible_sections.select { |fs| fs.before_content? }.each do |flexible_section| %>
     <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>

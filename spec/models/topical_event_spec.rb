@@ -75,6 +75,47 @@ RSpec.describe TopicalEvent do
         topical_event
       end
     end
+
+    context "when there's an images array including a header image" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["details"].delete("image")
+          item["details"]["images"] = [
+            { "sources" => sources, "type" => "header" },
+          ]
+        end
+      end
+
+      let(:sources) do
+        {
+          "desktop" => "https://test.www.gov.uk/cat_d1.jpg",
+          "desktop_2x" => "https://test.www.gov.uk/cat_d2.jpg",
+          "mobile" => "https://test.www.gov.uk/cat_m1.jpg",
+          "mobile_2x" => "https://test.www.gov.uk/cat_m2.jpg",
+          "tablet" => "https://test.www.gov.uk/cat_t1.jpg",
+          "tablet_2x" => "https://test.www.gov.uk/cat_t2.jpg",
+        }
+      end
+
+      let(:params) do
+        {
+          "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
+          "description" => content_store_response["description"],
+          "legacy" => false,
+          "title" => content_store_response["title"],
+          "image" => { "sources" => sources, "type" => "header" },
+          "type" => "impact_header",
+        }
+      end
+
+      it "creates an ImpactHeader with image sources copied from details/images/header" do
+        expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
+          expect(settings).to eq(params)
+        end
+
+        topical_event
+      end
+    end
   end
 
   describe "body initialisation" do

@@ -10,7 +10,11 @@ class PostcodeLookup
     raise LocationError, "invalidPostcodeFormat" if postcode.blank?
 
     @local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
-    @local_custodian_codes.delete(ORDNANCE_SURVEY_CUSTODIAN_CODE)
+
+    if @local_custodian_codes.include?(ORDNANCE_SURVEY_CUSTODIAN_CODE)
+      log_7655_presence
+      @local_custodian_codes.delete(ORDNANCE_SURVEY_CUSTODIAN_CODE)
+    end
 
     raise LocationError, "noLaMatch" if @local_custodian_codes.empty?
   rescue GdsApi::HTTPNotFound
@@ -29,5 +33,16 @@ class PostcodeLookup
         )
       end
     end
+  end
+
+  def log_7655_presence
+    GovukError.notify(
+      "Postcode results included Ordnance Survey Local Custodian Code (7655)",
+      extra: {
+        local_custodian_codes: @local_custodian_codes,
+        postcode: @postcode,
+      },
+      level: "warning",
+    )
   end
 end

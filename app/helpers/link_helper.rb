@@ -16,7 +16,7 @@ module LinkHelper
       },
       {
         href: x_share_url(base_path, title),
-        text: "Twitter",
+        text: "X",
         icon: "twitter",
       },
     ]

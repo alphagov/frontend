@@ -1,4 +1,4 @@
-module NewsImage
+module SpeechNewsImage
   extend ActiveSupport::Concern
 
   def image

@@ -11,12 +11,12 @@ module LinkHelper
     [
       {
         href: facebook_share_url(base_path),
-        text: "Facebook",
+        text: "Share on Facebook",
         icon: "facebook",
       },
       {
         href: x_share_url(base_path, title),
-        text: "Twitter",
+        text: "Share on X",
         icon: "twitter",
       },
     ]

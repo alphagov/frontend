@@ -35,7 +35,7 @@ module FlexiblePage::FlexibleSection
           image_src: i["image"]["url"],
           image_alt: i["image"]["alt_text"],
           heading_text: i["title"],
-          description: i["summary"],
+          description: ActionView::Base.full_sanitizer.sanitize(i["summary"]),
         }
       end
     end

@@ -821,5 +821,7 @@ ko:
       our_people: 직원
     news: 뉴스
     part_of: 파트
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} 과 영국"
   'yes':

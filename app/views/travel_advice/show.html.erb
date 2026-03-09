@@ -23,19 +23,30 @@
       margin_bottom: 8,
     } %>
 
-  <%= render "govuk_publishing_components/components/govspeak", {
+    <%= render "govuk_publishing_components/components/govspeak", {
     } do %>
       <% @content_item.alert_status.each do |status| %>
         <%= render "govuk_publishing_components/components/warning_text",
           text: I18n.t("formats.travel_advice.alert_status.#{status}_html", country: @content_item.country_name).html_safe %>
       <% end %>
     <% end %>
+  </div>
+</div>
 
-    <aside class="part-navigation-container" role="complementary">
-      <%= render "govuk_publishing_components/components/contents_list",
-        aria: { label: t("formats.travel_advice.pages") },
-        contents: part_link_elements(@content_item.parts, @content_item.current_part),
-        underline_links: true %>
+<%= render "govuk_publishing_components/components/service_navigation", {
+  navigation_items: part_link_elements(@content_item.parts, @content_item.current_part),
+  margin_bottom: 8,
+} %>
+
+<div class="govuk-grid-row">
+  <% unless @content_item.parts.empty? %>
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        heading_level: 1,
+        font_size: "xl",
+        margin_bottom: 6,
+        text: @content_item.current_part_title,
+      } %>
 
       <div
         data-module="ga4-link-tracker"
@@ -45,19 +56,6 @@
           email_signup_link: @content_item.email_signup_link,
           email_signup_link_text: "Get email alerts" %>
       </div>
-    </aside>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <% unless @content_item.parts.empty? %>
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-6">
-      <%= render "govuk_publishing_components/components/heading", {
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 6,
-        text: @content_item.current_part_title,
-      } %>
 
       <% if @content_item.first_part? %>
         <%= render "first_part", content_item: @content_item %>

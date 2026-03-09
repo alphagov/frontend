@@ -42,7 +42,7 @@ private
   end
 
   def x_share_url(base_path, title)
-    "https://twitter.com/share?url=#{share_url(base_path)}&text=#{ERB::Util.url_encode(title)}"
+    "https://x.com/share?url=#{share_url(base_path)}&text=#{ERB::Util.url_encode(title)}"
   end
 
   def share_url(base_path)

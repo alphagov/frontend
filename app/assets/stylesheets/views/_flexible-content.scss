@@ -69,7 +69,6 @@ $image-height: 512px;
   @include govuk-media-query($from: desktop) {
     max-height: $image-height;
     max-width: none;
-    transform: translateX(-30px);
   }
 }
 
@@ -95,6 +94,28 @@ $image-height: 512px;
       max-height: none;
       max-width: 100%;
       transform: none;
+    }
+  }
+}
+
+.impact-header--plain {
+  .impact-header__image {
+    @include govuk-media-query($from: desktop) {
+      transform: translateX(-30px);
+    }
+  }
+}
+
+.impact-header--govuk {
+  background: #d2e2f1;
+}
+
+.impact-header--bridges {
+  background: #0b0c0c;
+
+  .impact-header__detail {
+    @include govuk-media-query($from: desktop) {
+      padding-bottom: 30px;
     }
   }
 }

@@ -27,5 +27,12 @@ module FlexiblePage::FlexibleSection
     def legacy?
       flexible_section_hash["legacy"]
     end
+
+    def variant
+      style = flexible_section_hash["variant"]
+      return style if %w[govuk bridges].include? style
+
+      "plain"
+    end
   end
 end

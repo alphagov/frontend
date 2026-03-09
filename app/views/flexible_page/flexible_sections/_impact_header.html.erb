@@ -1,20 +1,23 @@
 <% text = capture do %>
+  <% inverse = true if flexible_section.variant == "bridges" %>
   <%= render "govuk_publishing_components/components/heading", {
     text: flexible_section.title,
     font_size: "xl",
     margin_bottom: 6,
     heading_level: 1,
+    inverse: inverse,
   } %>
 
   <%= render "govuk_publishing_components/components/lead_paragraph", {
     text: flexible_section.description,
     margin_bottom: 6,
+    inverse: inverse,
   } %>
 <% end %>
 
 <div class="flexible-section" data-flexible-section="impact-header">
   <% if flexible_section.image %>
-    <div class="impact-header <%= "impact-header--legacy" if flexible_section.legacy? %>">
+    <div class="impact-header impact-header--<%= flexible_section.variant %> <%= "impact-header--legacy" if flexible_section.legacy? %>">
       <div class="impact-header__container">
         <div class="impact-header__detail">
           <%= text %>
@@ -29,7 +32,7 @@
       </div>
     </div>
   <% else %>
-    <div class="impact-header impact-header--grid">
+    <div class="impact-header impact-header--grid impact-header--<%= flexible_section.variant %>">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <%= text %>

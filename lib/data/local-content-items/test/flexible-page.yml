@@ -55,6 +55,34 @@ details:
   - type: impact_header
     title: Minimal
     description: text with no image
+  - type: impact_header
+    title: This is the title of the impact header
+    variant: govuk
+    description: GOV.UK content variant (unused).
+    image:
+      sources:
+        desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+        desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+        mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+        mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+        tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+        tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+  - type: impact_header
+    title: This is the title of the impact header
+    variant: bridges
+    description: Bridges variant (unused).
+    image:
+      sources:
+        desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+        desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+        mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+        mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+        tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+        tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+  - type: impact_header
+    title: Impact header without an image, bridges variant
+    description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
+    variant: bridges
   - type: breadcrumbs
     breadcrumbs:
     - title: "Home"

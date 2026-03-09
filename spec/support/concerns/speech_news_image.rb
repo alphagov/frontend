@@ -1,4 +1,4 @@
-RSpec.shared_examples "it has news image" do |document_type, example_name|
+RSpec.shared_examples "it has speech news image" do |document_type, example_name|
   let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   before do
@@ -32,15 +32,6 @@ RSpec.shared_examples "it has news image" do |document_type, example_name|
         "primary_publishing_organisation" => [],
       },
     }
-    expect(described_class.new(content_item).image).to eq(placeholder_image)
-  end
-
-  it "presents a placeholder image if world location news has no image or default news image" do
-    content_item = {
-      "document_type" => "world_news_story",
-    }
-    placeholder_image = { "url" => "https://assets.publishing.service.gov.uk/media/5e985599d3bf7f3fc943bbd8/UK_government_logo.jpg" }
-
     expect(described_class.new(content_item).image).to eq(placeholder_image)
   end
 end

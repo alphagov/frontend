@@ -30,7 +30,7 @@ RSpec.describe "ElectoralLookUp" do
       it "displays the electoral service (council) address if it's different to the registration office address" do
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
-        with_different_address["electoral_services"] = { "address" => "bar" }
+        with_different_address["electoral_services"] = { "address" => "bar", "nation" => "Wales" }
         stub_api_postcode_lookup("LS11UR", response: with_different_address.to_json)
         with_electoral_api_url do
           search_for(postcode: "LS11UR")
@@ -47,7 +47,7 @@ RSpec.describe "ElectoralLookUp" do
       it "has GA4 tracking attributes on the HTML" do
         with_different_address = JSON.parse(api_response)
         with_different_address["registration"] = { "address" => "foo" }
-        with_different_address["electoral_services"] = { "address" => "bar" }
+        with_different_address["electoral_services"] = { "address" => "bar", "nation" => "Wales" }
         stub_api_postcode_lookup("LS11UR", response: with_different_address.to_json)
         with_electoral_api_url do
           search_for(postcode: "LS11UR")
@@ -64,7 +64,7 @@ RSpec.describe "ElectoralLookUp" do
       it "does not display the electoral service (council) address if it's the same as the registration office address" do
         duplicate_contact_information = JSON.parse(api_response)
         duplicate_contact_information["registration"] = { "address" => "foo" }
-        duplicate_contact_information["electoral_services"] = { "address" => "foo" }
+        duplicate_contact_information["electoral_services"] = { "address" => "foo", "nation" => "Wales" }
         stub_api_postcode_lookup("LS11UR", response: duplicate_contact_information.to_json)
         with_electoral_api_url do
           search_for(postcode: "LS11UR")

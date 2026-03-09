@@ -69,4 +69,24 @@ RSpec.describe ElectoralPresenter do
       end
     end
   end
+
+  describe "#scotland?" do
+    context "when the nation returned is 'Scotland'" do
+      it "returns 'true'" do
+        with_scottish_postcode = api_response
+        with_scottish_postcode["electoral_services"] = { "nation" => "Scotland" }
+        subject = described_class.new(with_scottish_postcode)
+
+        expect(subject.scotland?).to be true
+      end
+    end
+
+    context "when the nation returned is not 'Scotland'" do
+      it "returns 'false'" do
+        subject = described_class.new(api_response)
+
+        expect(subject.scotland?).to be false
+      end
+    end
+  end
 end

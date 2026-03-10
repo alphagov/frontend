@@ -23,10 +23,10 @@ $image-height: 512px;
 .impact-header__container {
   display: flex;
   flex-direction: column;
+  gap: 30px;
 
   @include govuk-media-query($from: desktop) {
     flex-direction: row;
-    gap: 30px;
     min-height: $image-height;
   }
 }
@@ -103,6 +103,10 @@ $image-height: 512px;
     @include govuk-media-query($from: desktop) {
       transform: translateX(-30px);
     }
+  }
+
+  &.impact-header--grid {
+    padding-bottom: 0;
   }
 }
 

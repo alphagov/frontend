@@ -13,12 +13,13 @@ RSpec.describe "Featured flexible section" do
         "alt_text" => "some meaningful alt text please",
         "url" => "http://test.gov.uk/images/fd.png",
       },
-      "summary" => "This is a summary",
+      "summary" => summary,
       "title" => "Government does things",
     }
   end
 
   let(:featured_count) { 6 }
+  let(:summary) { "This is a summary" }
 
   before do
     render(template: "flexible_page/flexible_sections/_featured", locals: { flexible_section: })
@@ -75,6 +76,17 @@ RSpec.describe "Featured flexible section" do
         expect(rendered).to have_selector(".govuk-grid-row", count: 2)
         expect(rendered).to have_selector(".govuk-grid-column-one-third .gem-c-image-card", count: 5)
         expect(rendered).not_to have_selector(".gem-c-image-card--large")
+      end
+    end
+
+    context "when a description is very long" do
+      let(:summary) { "This summary is very long, and it will need to be truncated at an appropriate place otherwise it will appear too long in the featured cards and they'll be a bit visually unbalanced." }
+
+      it "truncates the summary to below 160 chars" do
+        expect(rendered).to have_selector(
+          ".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description",
+          text: "This summary is very long, and it will need to be truncated at an appropriate place otherwise it will appear too long in the featured cards and they'll be a...",
+        )
       end
     end
   end

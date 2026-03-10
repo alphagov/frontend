@@ -15,7 +15,7 @@ $image-height: 512px;
   box-sizing: border-box;
   padding: 30px 15px;
 
-  @include govuk-media-query($from: desktop) {
+  @include govuk-media-query($from: tablet) {
     padding: 30px;
   }
 }
@@ -39,6 +39,11 @@ $image-height: 512px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include govuk-media-query($from: tablet) {
+    padding: 30px;
+    padding-bottom: 0;
+  }
 
   @include govuk-media-query($from: desktop) {
     box-sizing: border-box;

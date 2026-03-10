@@ -39,6 +39,19 @@ details:
         tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
     legacy: true
   - type: impact_header
+    title: Legacy layout
+    variant: bridges
+    description: Where a topical event contains an existing image we apply a slightly different layout, to prevent any part of the image being hidden. This is because these legacy images often contained text, which cannot be cropped.
+    image:
+      sources:
+        desktop: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        desktop_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        mobile: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+        tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+    legacy: true
+  - type: impact_header
     title: Impact header without an image
     description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
   - type: impact_header

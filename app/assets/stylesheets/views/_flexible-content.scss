@@ -98,7 +98,6 @@ $image-height: 512px;
     .impact-header__image {
       max-height: none;
       max-width: 100%;
-      transform: none;
     }
   }
 }
@@ -117,6 +116,12 @@ $image-height: 512px;
 
 .impact-header--govuk {
   background: #d2e2f1;
+
+  .impact-header__detail {
+    @include govuk-media-query($from: desktop) {
+      padding-bottom: 30px;
+    }
+  }
 }
 
 .impact-header--bridges {

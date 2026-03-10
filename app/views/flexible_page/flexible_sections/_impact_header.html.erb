@@ -17,7 +17,7 @@
 
 <div class="flexible-section" data-flexible-section="impact-header">
   <% if flexible_section.image %>
-    <div class="impact-header impact-header--<%= flexible_section.variant %> <%= "impact-header--legacy" if flexible_section.legacy? %>">
+    <div class="impact-header <%= flexible_section.modifier_classes %>">
       <div class="impact-header__container">
         <div class="impact-header__detail">
           <%= text %>
@@ -32,7 +32,7 @@
       </div>
     </div>
   <% else %>
-    <div class="impact-header impact-header--grid impact-header--<%= flexible_section.variant %>">
+    <div class="impact-header impact-header--grid <%= flexible_section.modifier_classes %>">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <%= text %>

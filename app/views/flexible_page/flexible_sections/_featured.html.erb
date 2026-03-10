@@ -15,7 +15,7 @@
           image_src: item[:image_src],
           image_alt: item[:image_alt],
           heading_text: item[:heading_text],
-          description: item[:description],
+          description: item[:description].truncate(160, separator: " "),
           large: flexible_section.grid_layout_options[:large],
         } %>
       </div>

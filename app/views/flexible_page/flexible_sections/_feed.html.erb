@@ -11,7 +11,7 @@
 
       <%= render "govuk_publishing_components/components/document_list", {
         margin_bottom: 5,
-        items: flexible_section.items.first(5),
+        items: flexible_section.items_no_description.first(5),
         ga4_extra_data: {
           section: flexible_section.feed_heading_text,
         },

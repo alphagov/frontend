@@ -20,6 +20,15 @@ module FlexiblePage::FlexibleSection
       @see_all_items_link_text = flexible_section_hash["see_all_items_link_text"]
     end
 
+    def items_no_description
+      items.map do |i|
+        {
+          link: i[:link],
+          metadata: i[:metadata].except(:description, :display_type),
+        }
+      end
+    end
+
     def items
       flexible_section_hash["items"].map do |i|
         {

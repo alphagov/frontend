@@ -1,4 +1,5 @@
 RSpec.describe "Topical Event pages" do
+  include SchemaOrgHelpers
   include GdsApi::TestHelpers::Search
 
   let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
@@ -8,6 +9,12 @@ RSpec.describe "Topical Event pages" do
     stub_content_store_has_item(base_path, content_store_response)
     stub_any_search_to_return_no_results
     visit base_path
+  end
+
+  it_behaves_like "it has meta tags", "topical_event", "western-balkans-summit-london-2018"
+
+  it "includes machine-readable-metadata for the article scheme" do
+    expect(find_schema_of_type("Article")).not_to be_nil
   end
 
   it "sets the page title" do

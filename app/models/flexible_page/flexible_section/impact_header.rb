@@ -33,6 +33,7 @@ module FlexiblePage::FlexibleSection
       styles = %w[]
       styles << "legacy" if legacy
       styles << @variant if @variant
+      styles << "with-background" if @variant
       styles.map { |s| "#{base_class}--#{s}" }.join(" ")
     end
   end

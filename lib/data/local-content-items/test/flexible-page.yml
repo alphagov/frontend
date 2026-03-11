@@ -55,19 +55,9 @@ details:
     title: Impact header without an image
     description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
   - type: impact_header
-    title: Minimal
-    description: text with an image
-    image:
-      sources:
-        desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
-        desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
-        mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
-        mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
-        tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
-        tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
-  - type: impact_header
-    title: Minimal
-    description: text with no image
+    title: Impact header without an image and legacy layout
+    description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right. However this could also be configured as a legacy layout, even if the image is not present.
+    legacy: true
   - type: impact_header
     title: This is the title of the impact header
     variant: govuk

@@ -22,6 +22,7 @@ private
       breadcrumbs:,
       image: impact_image,
       legacy: is_legacy_topical_event?,
+      variant: bridges_event? ? "bridges" : "plain",
     }
   end
 
@@ -70,6 +71,10 @@ private
 
   def is_legacy_topical_event?
     !details.key?("images")
+  end
+
+  def bridges_event?
+    ["/government/topical-events/her-majesty-queen-elizabeth-ii", "/government/topical-events/her-majesty-queen-elizabeth-ii-bridges-poc"].include?(base_path)
   end
 
   def impact_image

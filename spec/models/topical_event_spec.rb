@@ -38,6 +38,7 @@ RSpec.describe TopicalEvent do
           },
         },
         "type" => "impact_header",
+        "variant" => "plain",
       }
     end
 
@@ -64,6 +65,7 @@ RSpec.describe TopicalEvent do
           "title" => content_store_response["title"],
           "image" => nil,
           "type" => "impact_header",
+          "variant" => "plain",
         }
       end
 
@@ -85,6 +87,7 @@ RSpec.describe TopicalEvent do
           "title" => content_store_response["title"],
           "image" => create_image_hash("header"),
           "type" => "impact_header",
+          "variant" => "plain",
         }
       end
 
@@ -116,6 +119,7 @@ RSpec.describe TopicalEvent do
           "title" => content_store_response["title"],
           "image" => create_image_hash("logo"),
           "type" => "impact_header",
+          "variant" => "plain",
         }
       end
 
@@ -129,6 +133,45 @@ RSpec.describe TopicalEvent do
       end
 
       it "creates an ImpactHeader with image sources copied from details/images/logo" do
+        expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
+          expect(settings).to eq(params)
+        end
+
+        topical_event
+      end
+    end
+
+    context "when the topical event is tagged to /society-and-culture/notable-events" do
+      let(:params) do
+        {
+          "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
+          "description" => content_store_response["description"],
+          "image_type" => "logo",
+          "title" => content_store_response["title"],
+          "image" => {
+            "sources" => {
+              "desktop" => content_store_response["details"]["image"]["high_resolution_url"],
+              "desktop_2x" => nil,
+              "tablet" => content_store_response["details"]["image"]["medium_resolution_url"],
+              "tablet_2x" => nil,
+              "mobile" => content_store_response["details"]["image"]["medium_resolution_url"],
+              "mobile_2x" => nil,
+            },
+          },
+          "type" => "impact_header",
+          "variant" => "notable-death",
+        }
+      end
+
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["links"]["taxons"] = [{
+            "base_path" => "/society-and-culture/notable-death",
+          }]
+        end
+      end
+
+      it "creates an ImpactHeader with the variant set to notable-death" do
         expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
           expect(settings).to eq(params)
         end

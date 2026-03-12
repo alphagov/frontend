@@ -1,0 +1,20 @@
+<div class="govuk-width-container flexible-section" data-flexible-section="body-with-image">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds body-with-image__text">
+      <%= render "govuk_publishing_components/components/govspeak" do %>
+        <%= flexible_section.govspeak.html_safe %>
+      <% end %>
+    </div>
+
+    <% if flexible_section.image %>
+      <div class="govuk-grid-column-one-third">
+        <%= picture_tag(class: "body-with-image__image-wrapper") do %>
+          <%= tag.source srcset: srcset_string(:desktop, flexible_section.image), media: "(min-width: 769px)" %>
+          <%= tag.source srcset: srcset_string(:tablet, flexible_section.image), media: "(min-width: 641px) and (max-width: 768px)" %>
+          <%= tag.source srcset: srcset_string(:mobile, flexible_section.image), media: "(max-width: 640px)" %>
+          <%= image_tag(flexible_section.image[:sources][:desktop], class: "body-with-image__image", alt: "") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

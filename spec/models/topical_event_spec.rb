@@ -81,32 +81,12 @@ RSpec.describe TopicalEvent do
         GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
           item["details"].delete("image")
           item["details"]["images"] = [
-            { "sources" => sources, "type" => "header" },
+            create_image_hash("header"),
           ]
         end
       end
 
-      let(:sources) do
-        {
-          "desktop" => "https://test.www.gov.uk/cat_d1.jpg",
-          "desktop_2x" => "https://test.www.gov.uk/cat_d2.jpg",
-          "mobile" => "https://test.www.gov.uk/cat_m1.jpg",
-          "mobile_2x" => "https://test.www.gov.uk/cat_m2.jpg",
-          "tablet" => "https://test.www.gov.uk/cat_t1.jpg",
-          "tablet_2x" => "https://test.www.gov.uk/cat_t2.jpg",
-        }
-      end
-
-      let(:params) do
-        {
-          "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
-          "description" => content_store_response["description"],
-          "legacy" => false,
-          "title" => content_store_response["title"],
-          "image" => { "sources" => sources, "type" => "header" },
-          "type" => "impact_header",
-        }
-      end
+      let(:sources) { { create_image_hash["header"]["sources"] } }
 
       it "creates an ImpactHeader with image sources copied from details/images/header" do
         expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
@@ -283,3 +263,19 @@ RSpec.describe TopicalEvent do
     end
   end
 end
+
+def create_image_hash(type)
+  {
+    content_type: "image/jpeg",
+    sources: {
+      desktop: "https://www.test.gov.uk/desktop_#{type}.jpg",
+      desktop_2x: "https://www.test.gov.uk/desktop_#{type}_2x.jpg",
+      mobile: "https://www.test.gov.uk/mobile_#{type}.jpg",
+      mobile_2x: "https://www.test.gov.uk/mobile_#{type}_2x.jpg",
+      tablet: "https://www.test.gov.uk/tablet_#{type}.jpg",
+      tablet_2x: "https://www.test.gov.uk/tablet_#{type}_2x.jpg",
+    },
+    type: "header"
+  }
+end
+

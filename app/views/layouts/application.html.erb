@@ -16,6 +16,10 @@
     <% end %>
   <% end %>
 
+  <% if include_percentage_scroll_tracking? %>
+    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
+  <% end %>
+
   <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
   <%= yield :extra_javascript %>
 <% end %>

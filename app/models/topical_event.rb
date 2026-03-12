@@ -77,23 +77,29 @@ private
     !details.key?("images")
   end
 
-  def impact_image
-    return unless details["image"] || details["images"]
+  def header_image
+    return unless details["images"]
 
-    if is_legacy_topical_event?
-      {
-        sources: {
-          desktop: details["image"]["high_resolution_url"],
-          desktop_2x: nil,
-          tablet: details["image"]["medium_resolution_url"],
-          tablet_2x: nil,
-          mobile: details["image"]["medium_resolution_url"],
-          mobile_2x: nil,
-        },
-      }
-    else
-      details["images"].select { |i| i["type"] == "header" }.first
-    end
+    details["images"].select { |i| i["type"] == "header" }.first
+  end
+
+  def legacy_logo
+    return unless details["image"]
+
+    {
+      sources: {
+        desktop: details["image"]["high_resolution_url"],
+        desktop_2x: nil,
+        tablet: details["image"]["medium_resolution_url"],
+        tablet_2x: nil,
+        mobile: details["image"]["medium_resolution_url"],
+        mobile_2x: nil,
+      },
+    }
+  end
+
+  def impact_image
+    [header_image, legacy_logo].find { _1 }
   end
 
   def format_social_media_links(links)

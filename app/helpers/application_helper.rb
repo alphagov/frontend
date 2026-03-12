@@ -47,4 +47,12 @@ module ApplicationHelper
       "/school-term-holiday-dates",
     ].include?(content_item.base_path)
   end
+
+  PERCENTAGE_SCROLL_TRACKING_URLS = [].freeze
+
+  def include_percentage_scroll_tracking?
+    return false unless content_item && content_item.base_path
+
+    PERCENTAGE_SCROLL_TRACKING_URLS.include?(content_item.base_path)
+  end
 end

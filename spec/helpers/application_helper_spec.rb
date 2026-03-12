@@ -116,4 +116,34 @@ RSpec.describe ApplicationHelper do
       end
     end
   end
+
+  describe "include_percentage_scroll_tracking?" do
+    before do
+      stub_const("ApplicationHelper::PERCENTAGE_SCROLL_TRACKING_URLS", ["/browse"])
+    end
+
+    describe "when the page does not have a content item" do
+      let(:content_item) { nil }
+
+      it "does not include tracking by default" do
+        expect(include_percentage_scroll_tracking?).to be(false)
+      end
+    end
+
+    describe "when the page is not in the list" do
+      let(:content_item) { ContentItem.new({ "base_path" => "/government/speeches/test" }) }
+
+      it "does not include scroll tracking" do
+        expect(include_percentage_scroll_tracking?).to be(false)
+      end
+    end
+
+    describe "when the page is in the list" do
+      let(:content_item) { ContentItem.new({ "base_path" => "/browse" }) }
+
+      it "does include scroll tracking" do
+        expect(include_percentage_scroll_tracking?).to be(true)
+      end
+    end
+  end
 end

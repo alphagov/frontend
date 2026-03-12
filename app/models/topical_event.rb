@@ -27,8 +27,9 @@ private
 
   def body_section
     {
-      type: "rich_content",
+      type: "body_with_image",
       govspeak: body,
+      image: header_image && logo_image ? logo_image : nil,
     }
   end
 
@@ -83,6 +84,12 @@ private
     details["images"].select { |i| i["type"] == "header" }.first
   end
 
+  def logo_image
+    return unless details["images"]
+
+    details["images"].select { |i| i["type"] == "logo" }.first
+  end
+
   def legacy_logo
     return unless details["image"]
 
@@ -99,7 +106,7 @@ private
   end
 
   def impact_image
-    [header_image, legacy_logo].find { _1 }
+    [header_image, logo_image, legacy_logo].find { it }
   end
 
   def format_social_media_links(links)

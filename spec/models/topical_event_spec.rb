@@ -77,18 +77,58 @@ RSpec.describe TopicalEvent do
     end
 
     context "when there's an images array including a header image" do
+      let(:params) do
+        {
+          "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
+          "description" => content_store_response["description"],
+          "legacy" => false,
+          "title" => content_store_response["title"],
+          "image" => create_image_hash("header"),
+          "type" => "impact_header",
+        }
+      end
+
       let(:content_store_response) do
         GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
           item["details"].delete("image")
           item["details"]["images"] = [
             create_image_hash("header"),
+            create_image_hash("logo"),
           ]
         end
       end
 
-      let(:sources) { { create_image_hash["header"]["sources"] } }
-
       it "creates an ImpactHeader with image sources copied from details/images/header" do
+        expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
+          expect(settings).to eq(params)
+        end
+
+        topical_event
+      end
+    end
+
+    context "when there's an images array that includes a logo but now header image" do
+      let(:params) do
+        {
+          "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
+          "description" => content_store_response["description"],
+          "legacy" => false,
+          "title" => content_store_response["title"],
+          "image" => create_image_hash("logo"),
+          "type" => "impact_header",
+        }
+      end
+
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["details"].delete("image")
+          item["details"]["images"] = [
+            create_image_hash("logo"),
+          ]
+        end
+      end
+
+      it "creates an ImpactHeader with image sources copied from details/images/logo" do
         expect(FlexiblePage::FlexibleSection::ImpactHeader).to receive(:new) do |settings, _|
           expect(settings).to eq(params)
         end
@@ -102,16 +142,59 @@ RSpec.describe TopicalEvent do
     let(:params) do
       {
         "govspeak" => content_store_response["details"]["body"],
-        "type" => "rich_content",
+        "image" => nil,
+        "type" => "body_with_image",
       }
     end
 
-    it "creates a Rich Content with appropriate settings" do
-      expect(FlexiblePage::FlexibleSection::RichContent).to receive(:new) do |settings, _|
+    it "creates a Body with Image without a logo (legacy logos always go in the impact header if present)" do
+      expect(FlexiblePage::FlexibleSection::BodyWithImage).to receive(:new) do |settings, _|
         expect(settings).to eq(params)
       end
 
       topical_event
+    end
+
+    context "when a logo image (not legacy) is present but no header image" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["details"].delete("image")
+          item["details"]["images"] = [create_image_hash("logo")]
+        end
+      end
+
+      it "creates a Body with Image without the logo (it has put it in the impact header)" do
+        expect(FlexiblePage::FlexibleSection::BodyWithImage).to receive(:new) do |settings, _|
+          expect(settings).to eq(params)
+        end
+
+        topical_event
+      end
+    end
+
+    context "when both a logo image (not legacy) and a header image are present" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["details"].delete("image")
+          item["details"]["images"] = [create_image_hash("logo"), create_image_hash("header")]
+        end
+      end
+
+      let(:params) do
+        {
+          "govspeak" => content_store_response["details"]["body"],
+          "image" => create_image_hash("logo"),
+          "type" => "body_with_image",
+        }
+      end
+
+      it "creates a Body with Image with the logo" do
+        expect(FlexiblePage::FlexibleSection::BodyWithImage).to receive(:new) do |settings, _|
+          expect(settings).to eq(params)
+        end
+
+        topical_event
+      end
     end
 
     context "when a body isn't present" do
@@ -121,8 +204,8 @@ RSpec.describe TopicalEvent do
         end
       end
 
-      it "doesn't create a Rich Content" do
-        expect(FlexiblePage::FlexibleSection::RichContent).not_to receive(:new)
+      it "doesn't create a Body with Image" do
+        expect(FlexiblePage::FlexibleSection::BodyWithImage).not_to receive(:new)
 
         topical_event
       end
@@ -266,16 +349,15 @@ end
 
 def create_image_hash(type)
   {
-    content_type: "image/jpeg",
-    sources: {
-      desktop: "https://www.test.gov.uk/desktop_#{type}.jpg",
-      desktop_2x: "https://www.test.gov.uk/desktop_#{type}_2x.jpg",
-      mobile: "https://www.test.gov.uk/mobile_#{type}.jpg",
-      mobile_2x: "https://www.test.gov.uk/mobile_#{type}_2x.jpg",
-      tablet: "https://www.test.gov.uk/tablet_#{type}.jpg",
-      tablet_2x: "https://www.test.gov.uk/tablet_#{type}_2x.jpg",
+    "content_type" => "image/jpeg",
+    "sources" => {
+      "desktop" => "https://www.test.gov.uk/desktop_#{type}.jpg",
+      "desktop_2x" => "https://www.test.gov.uk/desktop_#{type}_2x.jpg",
+      "mobile" => "https://www.test.gov.uk/mobile_#{type}.jpg",
+      "mobile_2x" => "https://www.test.gov.uk/mobile_#{type}_2x.jpg",
+      "tablet" => "https://www.test.gov.uk/tablet_#{type}.jpg",
+      "tablet_2x" => "https://www.test.gov.uk/tablet_#{type}_2x.jpg",
     },
-    type: "header"
+    "type" => type,
   }
 end
-

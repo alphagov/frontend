@@ -1,12 +1,13 @@
 module FlexiblePage::FlexibleSection
   class ImpactHeader < Base
-    attr_reader :description, :title
+    attr_reader :description, :title, :variant
 
     def initialize(flexible_section_hash, content_item)
       super
 
       @title = flexible_section_hash["title"]
       @description = flexible_section_hash["description"]
+      @variant = flexible_section_hash["variant"] if %w[govuk bridges].include? flexible_section_hash["variant"]
     end
 
     def image
@@ -24,8 +25,16 @@ module FlexiblePage::FlexibleSection
       }
     end
 
-    def legacy?
-      flexible_section_hash["legacy"]
+    def modifier_classes
+      base_class = "impact-header"
+      legacy = flexible_section_hash["legacy"]
+      return "#{base_class}--plain" unless legacy || @variant
+
+      styles = %w[]
+      styles << "legacy" if legacy
+      styles << @variant if @variant
+      styles << "with-background" if @variant
+      styles.map { |s| "#{base_class}--#{s}" }.join(" ")
     end
   end
 end

@@ -8,12 +8,10 @@
 
     <% if flexible_section.image %>
       <div class="govuk-grid-column-one-third">
-        <%= picture_tag(class: "body-with-image__image-wrapper") do %>
-          <%= tag.source srcset: srcset_string(:desktop, flexible_section.image), media: "(min-width: 769px)" %>
-          <%= tag.source srcset: srcset_string(:tablet, flexible_section.image), media: "(min-width: 641px) and (max-width: 768px)" %>
-          <%= tag.source srcset: srcset_string(:mobile, flexible_section.image), media: "(max-width: 640px)" %>
-          <%= image_tag(flexible_section.image[:sources][:desktop], class: "body-with-image__image", alt: "") %>
-        <% end %>
+        <%= render "flexible_page/flexible_sections/shared/picture",
+          image: flexible_section.image,
+          style: "body-with-image",
+          alt_text: "" %>
       </div>
     <% end %>
   </div>

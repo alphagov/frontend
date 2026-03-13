@@ -34,7 +34,8 @@ RSpec.describe "News Article" do
     end
 
     it "renders the lead image" do
-      expect(page).to have_css("img[src*='s465_Christmas'][alt='Christmas']")
+      expect(page).to have_css("img[src*='s300_Christmas']")
+      expect(page).to have_css("figcaption", text: "Christmas")
     end
 
     it "does not render with the single page notification button" do

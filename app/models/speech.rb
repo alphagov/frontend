@@ -1,6 +1,6 @@
 class Speech < ContentItem
   include EmphasisedOrganisations
-  include NewsImage
+  include SpeechNewsImage
   include People
   include Political
   include Updatable

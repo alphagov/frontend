@@ -25,7 +25,7 @@ RSpec.describe TopicalEvent do
       {
         "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
         "description" => content_store_response["description"],
-        "legacy" => true,
+        "image_type" => :logo,
         "title" => content_store_response["title"],
         "image" => {
           "sources" => {
@@ -60,7 +60,7 @@ RSpec.describe TopicalEvent do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "legacy" => true,
+          "image_type" => :logo,
           "title" => content_store_response["title"],
           "image" => nil,
           "type" => "impact_header",
@@ -81,7 +81,7 @@ RSpec.describe TopicalEvent do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "legacy" => false,
+          "image_type" => :header,
           "title" => content_store_response["title"],
           "image" => create_image_hash("header"),
           "type" => "impact_header",
@@ -107,12 +107,12 @@ RSpec.describe TopicalEvent do
       end
     end
 
-    context "when there's an images array that includes a logo but now header image" do
+    context "when there's an images array that includes a logo but no header image" do
       let(:params) do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "legacy" => false,
+          "image_type" => :logo,
           "title" => content_store_response["title"],
           "image" => create_image_hash("logo"),
           "type" => "impact_header",

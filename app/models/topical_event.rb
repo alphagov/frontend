@@ -21,7 +21,7 @@ private
       description:,
       breadcrumbs:,
       image: impact_image,
-      legacy: is_legacy_topical_event?,
+      image_type: header_image.present? ? :header : :logo,
     }
   end
 
@@ -72,10 +72,6 @@ private
       type: "involved",
       organisations: organisations_ordered_by_emphasis.map(&:content_store_response),
     }
-  end
-
-  def is_legacy_topical_event?
-    !details.key?("images")
   end
 
   def header_image

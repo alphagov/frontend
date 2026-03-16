@@ -27,11 +27,11 @@ module FlexiblePage::FlexibleSection
 
     def modifier_classes
       base_class = "impact-header"
-      legacy = flexible_section_hash["legacy"]
-      return "#{base_class}--plain" unless legacy || @variant
+      logo = flexible_section_hash["image_type"] == :logo
+      return "#{base_class}--plain" unless logo || @variant
 
       styles = %w[]
-      styles << "legacy" if legacy
+      styles << "logo" if logo
       styles << @variant if @variant
       styles << "with-background" if @variant
       styles.map { |s| "#{base_class}--#{s}" }.join(" ")

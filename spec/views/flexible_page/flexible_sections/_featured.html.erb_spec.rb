@@ -92,6 +92,17 @@ RSpec.describe "Featured flexible section" do
       end
     end
 
+    context "when a description includes html" do
+      let(:summary) { "<p class=\"govspeak\">To read more about this <a src=\"/\">click here</a>.</p>" }
+
+      it "outputs the summary stripped of html" do
+        expect(rendered).to have_selector(
+          ".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description",
+          text: "To read more about this click here.",
+        )
+      end
+    end
+
     context "when GA4 tracking is not included" do
       let(:ga4_image_card_json) { nil }
 

@@ -9,7 +9,14 @@
 
   <div class="govuk-grid-row">
     <% flexible_section.items.each.with_index(1) do |item, index| %>
-      <div class="<%= flexible_section.grid_layout_options[:class] %>">
+      <%
+        ga4_tracking = {
+          module: "ga4-link-tracker",
+          ga4_track_links_only: true,
+          ga4_link: flexible_section.ga4_tracking,
+        } if flexible_section.ga4_tracking
+      %>
+      <%= tag.div(class: flexible_section.grid_layout_options[:class], data: ga4_tracking) do %>
         <%= render "govuk_publishing_components/components/image_card", {
           href: item[:href],
           image_src: item[:image_src],
@@ -18,7 +25,7 @@
           description: item[:description].truncate(160, separator: " "),
           large: flexible_section.grid_layout_options[:large],
         } %>
-      </div>
+      <% end %>
       <% if index % flexible_section.grid_layout_options[:break_at_column] == 0 && index < flexible_section.items.length %>
         </div>
         <div class="govuk-grid-row">

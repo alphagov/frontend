@@ -26,6 +26,12 @@ module FlexiblePage::FlexibleSection
       }
     end
 
+    def ga4_tracking
+      return nil unless flexible_section_hash["ga4_image_card_json"]
+
+      flexible_section_hash["ga4_image_card_json"].to_json
+    end
+
   private
 
     def format_data_for_components

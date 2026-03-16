@@ -186,6 +186,11 @@ RSpec.describe TopicalEvent do
       {
         "ordered_featured_documents" => content_store_response["details"]["ordered_featured_documents"],
         "type" => "featured",
+        "ga4_image_card_json" => {
+          "event_name" => "navigation",
+          "type" => "image card",
+          "section" => "Featured",
+        },
       }
     end
 

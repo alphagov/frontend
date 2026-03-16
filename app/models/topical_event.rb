@@ -44,6 +44,11 @@ private
     {
       type: "featured",
       ordered_featured_documents: details["ordered_featured_documents"],
+      ga4_image_card_json: {
+        "event_name": "navigation",
+        "type": "image card",
+        "section": "Featured",
+      },
     }
   end
 

@@ -28,6 +28,10 @@ Rails.application.routes.draw do
       get "/" => "api/local_authority#index"
       get "/:authority_slug" => "api/local_authority#show"
     end
+
+    scope "/places" do
+      get "/:service_slug" => "api/places#show"
+    end
   end
 
   get "/find-local-council" => "find_local_council#index"

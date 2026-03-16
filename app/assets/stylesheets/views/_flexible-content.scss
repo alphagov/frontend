@@ -140,7 +140,7 @@ $image-height: 512px;
 .impact-header--plain {
   .impact-header__image {
     @include govuk-media-query($from: desktop) {
-      transform: translateX(-30px);
+      transform: translateX(-32px);
     }
   }
 }

@@ -68,7 +68,7 @@ $image-height: 512px;
   }
 }
 
-.impact-header--legacy {
+.impact-header--logo {
   .impact-header__image-wrapper {
     aspect-ratio: auto;
     padding: 0 15px;
@@ -151,4 +151,18 @@ $image-height: 512px;
 
 .impact-header--bridges {
   background: #0b0c0c;
+}
+
+.body-with-image__text {
+  margin-bottom: 30px;
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.body-with-image__image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
 }

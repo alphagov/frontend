@@ -1,0 +1,18 @@
+<div class="govuk-width-container flexible-section" data-flexible-section="body-with-image">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds body-with-image__text">
+      <%= render "govuk_publishing_components/components/govspeak" do %>
+        <%= flexible_section.govspeak.html_safe %>
+      <% end %>
+    </div>
+
+    <% if flexible_section.image %>
+      <div class="govuk-grid-column-one-third">
+        <%= render "flexible_page/flexible_sections/shared/picture",
+          image: flexible_section.image,
+          style: "body-with-image",
+          alt_text: "" %>
+      </div>
+    <% end %>
+  </div>
+</div>

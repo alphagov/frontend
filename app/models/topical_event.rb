@@ -21,14 +21,15 @@ private
       description:,
       breadcrumbs:,
       image: impact_image,
-      legacy: is_legacy_topical_event?,
+      image_type: header_image.present? ? :header : :logo,
     }
   end
 
   def body_section
     {
-      type: "rich_content",
+      type: "body_with_image",
       govspeak: body,
+      image: header_image && logo_image ? logo_image : nil,
     }
   end
 
@@ -73,27 +74,35 @@ private
     }
   end
 
-  def is_legacy_topical_event?
-    !details.key?("images")
+  def header_image
+    return unless details["images"]
+
+    details["images"].select { |i| i["type"] == "header" }.first
+  end
+
+  def logo_image
+    return unless details["images"]
+
+    details["images"].select { |i| i["type"] == "logo" }.first
+  end
+
+  def legacy_logo
+    return unless details["image"]
+
+    {
+      sources: {
+        desktop: details["image"]["high_resolution_url"],
+        desktop_2x: nil,
+        tablet: details["image"]["medium_resolution_url"],
+        tablet_2x: nil,
+        mobile: details["image"]["medium_resolution_url"],
+        mobile_2x: nil,
+      },
+    }
   end
 
   def impact_image
-    return unless details["image"] || details["images"]
-
-    if is_legacy_topical_event?
-      {
-        sources: {
-          desktop: details["image"]["high_resolution_url"],
-          desktop_2x: nil,
-          tablet: details["image"]["medium_resolution_url"],
-          tablet_2x: nil,
-          mobile: details["image"]["medium_resolution_url"],
-          mobile_2x: nil,
-        },
-      }
-    else
-      details["images"].select { |i| i["type"] == "header" }.first
-    end
+    [header_image, logo_image, legacy_logo].find { it }
   end
 
   def format_social_media_links(links)

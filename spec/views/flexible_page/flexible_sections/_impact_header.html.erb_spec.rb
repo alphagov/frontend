@@ -1,5 +1,5 @@
 RSpec.describe "Impact header flexible section" do
-  def create_data(include_image = nil, variant = nil, legacy = nil)
+  def create_data(include_image = nil, variant = nil, logo = nil)
     data = {
       "title" => "page title",
       "description" => "page description",
@@ -17,7 +17,7 @@ RSpec.describe "Impact header flexible section" do
 
     data["image"] = image if include_image
     data["variant"] = variant if variant
-    data["legacy"] = true if legacy
+    data["image_type"] = logo ? :logo : :header
     FlexiblePage::FlexibleSection::ImpactHeader.new(data, nil)
   end
 
@@ -60,9 +60,9 @@ RSpec.describe "Impact header flexible section" do
       expect(rendered).to have_selector(".impact-header.impact-header--plain")
     end
 
-    it "does not default to the plain variant if legacy layout" do
+    it "does not default to the plain variant if logo layout" do
       render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, nil, true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--legacy")
+      expect(rendered).to have_selector(".impact-header.impact-header--logo")
       expect(rendered).not_to have_selector(".impact-header--plain")
     end
 
@@ -76,9 +76,9 @@ RSpec.describe "Impact header flexible section" do
       expect(rendered).to have_selector(".impact-header.impact-header--bridges")
     end
 
-    it "can render a legacy layout with a background variant" do
+    it "can render a logo layout with a background variant" do
       render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "govuk", true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--legacy.impact-header--govuk")
+      expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--govuk")
       expect(rendered).not_to have_selector(".impact-header--plain")
     end
 

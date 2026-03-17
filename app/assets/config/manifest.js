@@ -3,6 +3,8 @@
 //= link main.js
 //= link dependencies.js
 //= link test-dependencies.js
+//= link components/map.js
+//= link components/map/leaflet.js
 //= link views/travel-advice.js
 //= link views/landing_page/map/leaflet.js
 //= link views/landing_page/map/data/lookup.js

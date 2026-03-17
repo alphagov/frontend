@@ -1,0 +1,166 @@
+name: Map (experimental)
+description: A simple map component.
+body: |
+  Displays a map, given a location and a zoom level. Maps can also display markers with popups. The map can be scrolled and zoomed.
+
+  Note that maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
+shared_accessibility_criteria:
+- link
+
+accessibility_criteria: |
+  The map must:
+
+  - have an accessible alternative, including a list of map markers separate to the map itself
+  - be usable with a keyboard
+  - provide a skip link to bypass the map for keyboard users
+  - have a heading
+uses_component_wrapper_helper: true
+examples:
+  default:
+    data:
+      heading:
+        text: An example map
+        margin_bottom: 2
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+  custom_heading:
+    description: All maps should have a heading. The `heading` option is sent directly to the [heading component](/component-guide/heading), allowing any options for the the heading component to be passed.
+    data:
+      heading:
+        text: Edinburgh, Scotland
+        heading_level: 3
+        font_size: s
+        margin_bottom: 2
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+  with_description:
+    description: Descriptions are rendered inside a govspeak block, so can include govspeak formatting. Descriptions are not required but are recommended, to help users who use screen readers understand what the map is visualising.
+    data:
+      description: |
+        <p>This is a map showing Scotland's capital city, Edinburgh.</p>
+      heading:
+        text: Edinburgh, Scotland
+        margin_bottom: 2
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+  with_markers:
+    description: |
+      Adds markers to the map. Markers have popups when clicked, containing the marker `name` and `description`. `name` is also used for the `alt` attribute of the marker for screen readers.
+
+      Popup content should be minimal, as markers are currently width limited in order to be readable on small screens.
+
+      Note that centre values and a zoom are not needed when markers are passed, as the map automatically sets position and zoom based on the markers.
+    data:
+      heading:
+        text: London stations
+        margin_bottom: 4
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+      - lat: 51.5316
+        lng: -0.1236
+        properties:
+          name: Kings Cross station
+          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
+      - lat: 51.5224
+        lng: -0.1632
+        properties:
+          name: Marylebone Station
+  with_circle_markers:
+    data:
+      heading:
+        text: London stations
+        margin_bottom: 4
+      marker_shape: circle
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+      - lat: 51.5316
+        lng: -0.1236
+        properties:
+          name: Kings Cross station
+          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
+      - lat: 51.5224
+        lng: -0.1632
+        properties:
+          name: Marylebone Station
+  hide_markers_beneath:
+    description: By default any map pins are listed beneath the map for ease of accessibility. In some situations it may be preferable to produce a different alternative to the map, so this option can be used to hide that list.
+    data:
+      hide_markers_beneath: true
+      heading:
+        text: London stations
+        margin_bottom: 4
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+      - lat: 51.5316
+        lng: -0.1236
+        properties:
+          name: Kings Cross station
+          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
+      - lat: 51.5224
+        lng: -0.1632
+        properties:
+          name: Marylebone Station
+  passed_geojson:
+    description: |
+      Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file. The map will auto zoom and position based on the markers found.
+
+      Note that other markers can also be added to this map using the method already described. They will be included when automatically setting the map position and zoom.
+    data:
+      url: "/assets/frontend/components/map/map_test.geojson"
+      heading:
+        text: Birmingham and surrounding places
+        margin_bottom: 4
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+  custom_height:
+    description: The map defaults to a height of 500px but this can be overridden if required.
+    data:
+      height: 200
+      heading:
+        text: Paddington station
+        margin_bottom: 4
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+  with_copyright:
+    data:
+      copyright: Contains OS data &copy; Crown copyright and database rights 2026
+      margin_bottom: 9
+      heading:
+        text: Paddington station
+        margin_bottom: 4
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        properties:
+          name: Paddington Station
+          description: "Designed by Isambard Kingdom Brunel and opened in 1838."

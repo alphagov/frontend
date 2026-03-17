@@ -1,0 +1,47 @@
+@import "leaflet/dist/leaflet";
+
+.app-c-map--enabled {
+  padding: 0;
+  height: 500px;
+  background-color: #d7e0e5;
+  border: solid 1px $govuk-border-colour;
+
+  @include govuk-media-query($until: desktop) {
+    max-height: 80vh;
+  }
+}
+
+.app-c-map__copyright {
+  margin-top: govuk-spacing(1);
+}
+
+.app-c-map__copyright-text {
+  margin: 0;
+}
+
+.app-c-map__popup-title {
+  display: block;
+  margin-bottom: govuk-spacing(1);
+  @include govuk-font(19, $weight: bold);
+}
+
+.app-c-map__markers-list {
+  display: none;
+  padding-top: govuk-spacing(1);
+}
+
+.app-c-map__markers-list--visible {
+  display:block;
+}
+
+// leaflet element override styles
+.leaflet-popup-content {
+  padding: govuk-spacing(2) 0;
+  padding-top: govuk-spacing(3);
+  @include govuk-font(16);
+}
+
+.leaflet-popup-close-button {
+  transform: scale(1.5);
+  transform-origin: top right;
+}

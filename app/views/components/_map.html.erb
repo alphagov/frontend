@@ -1,0 +1,9 @@
+<%
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+%>
+
+<%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+
+<%= tag.div(**component_helper.all_attributes) do %>
+  map
+<% end %>

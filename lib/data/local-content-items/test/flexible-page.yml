@@ -37,7 +37,7 @@ details:
         mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
         tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
         tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
-    image_type: :logo
+    image_type: logo
   - type: impact_header
     title: Legacy layout
     variant: bridges
@@ -50,14 +50,14 @@ details:
         mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
         tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
         tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
-    image_type: :logo
+    image_type: logo
   - type: impact_header
     title: Impact header without an image
     description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
   - type: impact_header
     title: Impact header without an image and legacy layout
     description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right. However this could also be configured as a legacy layout, even if the image is not present.
-    image_type: :logo
+    image_type: logo
   - type: impact_header
     title: This is the title of the impact header
     variant: govuk

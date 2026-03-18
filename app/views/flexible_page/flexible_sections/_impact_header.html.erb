@@ -15,22 +15,20 @@
   } %>
 <% end %>
 
-<div data-flexible-section="impact-header">
+<%= tag.div(class: "impact-header #{flexible_section.modifier_classes}", data: { flexible_section: "impact-header" }) do %>
   <% if flexible_section.image %>
-    <div class="impact-header <%= flexible_section.modifier_classes %>">
-      <div class="impact-header__container">
-        <div class="impact-header__detail">
-          <%= text %>
-        </div>
-
-        <%= render "flexible_page/flexible_sections/shared/picture",
-          image: flexible_section.image,
-          style: "impact-header",
-          alt_text: "" %>
+    <div class="impact-header__container">
+      <div class="impact-header__detail">
+        <%= text %>
       </div>
+
+      <%= render "flexible_page/flexible_sections/shared/picture",
+        image: flexible_section.image,
+        style: "impact-header",
+        alt_text: "" %>
     </div>
   <% else %>
-    <div class="impact-header impact-header--grid <%= flexible_section.modifier_classes %>">
+    <div class="impact-header__grid">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <%= text %>
@@ -38,4 +36,4 @@
       </div>
     </div>
   <% end %>
-</div>
+<% end %>

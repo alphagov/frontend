@@ -46,7 +46,7 @@ RSpec.describe "Impact header flexible section" do
 
     it "renders the impact header section" do
       expect(rendered).to have_selector("[data-flexible-section='impact-header']")
-      expect(rendered).to have_selector(".impact-header.impact-header--grid .govuk-grid-row")
+      expect(rendered).to have_selector(".impact-header .impact-header__grid .govuk-grid-row")
     end
 
     it "does not include an image" do

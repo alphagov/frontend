@@ -7,9 +7,12 @@
 $image-height: 512px;
 
 .impact-header {
+  margin-bottom: 30px;
+}
+
+.impact-header__layout {
   max-width: 1024px;
   margin: 0 auto;
-  margin-bottom: 30px;
 }
 
 .impact-header__container {
@@ -116,6 +119,10 @@ $image-height: 512px;
   @include govuk-media-query($from: tablet) {
     padding: 30px;
     padding-bottom: 0;
+  }
+
+  .impact-header__layout {
+    padding: 0 30px;
   }
 
   &.impact-header--plain {

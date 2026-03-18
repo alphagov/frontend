@@ -27,13 +27,14 @@ module FlexiblePage::FlexibleSection
 
     def modifier_classes
       base_class = "impact-header"
-      logo = flexible_section_hash["image_type"] == :logo
+      logo = flexible_section_hash["image_type"]&.to_sym == :logo
       return "#{base_class}--plain" unless logo || @variant
 
       styles = %w[]
       styles << "logo" if logo
       styles << @variant if @variant
       styles << "with-background" if @variant
+      styles << "grid" unless image
       styles.map { |s| "#{base_class}--#{s}" }.join(" ")
     end
   end

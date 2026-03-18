@@ -21,7 +21,7 @@ private
       description:,
       breadcrumbs:,
       image: impact_image,
-      image_type: header_image.present? ? :header : :logo,
+      image_type: header_image.present? ? "header" : "logo",
     }
   end
 

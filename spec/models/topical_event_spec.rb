@@ -25,7 +25,7 @@ RSpec.describe TopicalEvent do
       {
         "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
         "description" => content_store_response["description"],
-        "image_type" => :logo,
+        "image_type" => "logo",
         "title" => content_store_response["title"],
         "image" => {
           "sources" => {
@@ -60,7 +60,7 @@ RSpec.describe TopicalEvent do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "image_type" => :logo,
+          "image_type" => "logo",
           "title" => content_store_response["title"],
           "image" => nil,
           "type" => "impact_header",
@@ -81,7 +81,7 @@ RSpec.describe TopicalEvent do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "image_type" => :header,
+          "image_type" => "header",
           "title" => content_store_response["title"],
           "image" => create_image_hash("header"),
           "type" => "impact_header",
@@ -112,7 +112,7 @@ RSpec.describe TopicalEvent do
         {
           "breadcrumbs" => [{ "title" => "Home", "url" => "/" }],
           "description" => content_store_response["description"],
-          "image_type" => :logo,
+          "image_type" => "logo",
           "title" => content_store_response["title"],
           "image" => create_image_hash("logo"),
           "type" => "impact_header",

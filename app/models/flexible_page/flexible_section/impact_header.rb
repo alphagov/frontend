@@ -27,7 +27,7 @@ module FlexiblePage::FlexibleSection
 
     def modifier_classes
       base_class = "impact-header"
-      logo = flexible_section_hash["image_type"] == :logo
+      logo = flexible_section_hash["image_type"] == "logo"
       return "#{base_class}--plain" unless logo || @variant
 
       styles = %w[]

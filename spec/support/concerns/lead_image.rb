@@ -1,4 +1,4 @@
-RSpec.shared_examples "it has news article news image" do |document_type, example_name|
+RSpec.shared_examples "it has lead image" do |document_type, example_name|
   let(:content_item) { GovukSchemas::Example.find(document_type, example_name:) }
 
   it "presents the 'lead' type image from details.images if present" do

@@ -1,4 +1,4 @@
-module NewsArticleNewsImage
+module WhitehallLeadImage
   extend ActiveSupport::Concern
 
   def image_url

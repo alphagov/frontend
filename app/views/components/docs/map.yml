@@ -12,3 +12,17 @@ uses_component_wrapper_helper: true
 examples:
   default:
     data:
+  with_config:
+    description:
+    data:
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        popup_content: "Paddington Station"
+      - lat: 51.5316
+        lng: -0.1236
+        popup_content: "Kings Cross Station"

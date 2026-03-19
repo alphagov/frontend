@@ -1,9 +1,21 @@
+<%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
 <%
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.add_class("app-c-map")
+  component_helper.set_id("map-#{SecureRandom.hex(4)}")
+  component_helper.add_data_attribute({ module: "map" })
+  component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
+  component_helper.add_data_attribute({ config: local_assigns[:map_config] })
+  component_helper.add_data_attribute({ markers: local_assigns[:markers] })
 %>
 
-<%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+<div id="api-warning"></div>
+<%= tag.div(**component_helper.all_attributes) %>
 
-<%= tag.div(**component_helper.all_attributes) do %>
-  map
-<% end %>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body-s">
+      Contains OS data &copy; Crown copyright and database rights 2026
+    </p>
+  </div>
+</div>

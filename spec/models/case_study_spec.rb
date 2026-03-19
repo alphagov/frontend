@@ -9,6 +9,7 @@ RSpec.describe CaseStudy do
   it_behaves_like "it has no updates", "case_study", "doing-business-in-spain"
   it_behaves_like "it can have worldwide organisations", "case_study", "doing-business-in-spain"
   it_behaves_like "it can have emphasised organisations", "case_study", "doing-business-in-spain"
+  it_behaves_like "it has lead image", "case_study", "case_study"
 
   describe "#contributors" do
     it "returns the organisations ordered by emphasis followed by worldwide organisations" do

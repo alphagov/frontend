@@ -821,5 +821,7 @@ zh:
       our_people: 我们的员工
     news: 新闻
     part_of: 一部分
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} 和英国"
   'yes':

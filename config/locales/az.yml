@@ -902,5 +902,7 @@ az:
       our_people: İnsanlarımız
     news: Xəbərlər
     part_of: Dövlət orqanının
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} və Böyük Britaniya"
   'yes':

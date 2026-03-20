@@ -983,5 +983,7 @@ hr:
       our_people: Naši ljudi
     news: Vijesti
     part_of: Dio
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} i UK"
   'yes':

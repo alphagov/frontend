@@ -821,5 +821,7 @@ id:
       our_people: Orang-orang kami
     news: Berita
     part_of: Bagian dari
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} dan Inggris"
   'yes':

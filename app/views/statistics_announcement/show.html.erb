@@ -9,7 +9,7 @@
 
 <%= render "shared/publisher_metadata", locals: {
     from: govuk_styled_links_list(@presenter.contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
+    first_published: content_item.respond_to?(:initial_publication_date) ? display_date(content_item.initial_publication_date) : nil,
     last_updated: display_date(content_item.updated),
     logo: @presenter.logo,
   } %>

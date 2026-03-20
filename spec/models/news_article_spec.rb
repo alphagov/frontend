@@ -1,5 +1,5 @@
 RSpec.describe NewsArticle do
-  it_behaves_like "it has news article news image", "news_article", "news_article"
+  it_behaves_like "it has lead image", "news_article", "news_article"
   it_behaves_like "it has updates", "news_article", "best-practice-event"
   it_behaves_like "it has no updates", "news_article", "news_article"
   it_behaves_like "it can have worldwide organisations", "news_article", "world_news_story_news_article"

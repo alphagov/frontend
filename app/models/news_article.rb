@@ -1,6 +1,6 @@
 class NewsArticle < ContentItem
   include EmphasisedOrganisations
-  include NewsArticleNewsImage
+  include WhitehallLeadImage
   include People
   include Political
   include Updatable

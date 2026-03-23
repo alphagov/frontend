@@ -1,5 +1,5 @@
 name: Map
-description:
+description: A simple map component
 body: |
 
 shared_accessibility_criteria:
@@ -7,18 +7,17 @@ shared_accessibility_criteria:
 
 accessibility_criteria: |
 
-
 uses_component_wrapper_helper: true
 examples:
   default:
-    data:
-  with_config:
-    description:
     data:
       map_config:
         centre_lat: 55.9533
         centre_lng: -3.1883
         zoom: 12
+  with_markers:
+    description: Overlays markers onto the map. Markers can have optional popups when clicked. Note that centre values and a zoom are not needed when markers are passed, as the map automatically sets position and zoom based on the markers.
+    data:
       markers:
       - lat: 51.5163
         lng: -0.1766

@@ -2,6 +2,7 @@ RSpec.describe "CaseStudy" do
   before do
     content_store_has_example_item("/government/case-studies/get-britain-building-carlisle-park", schema: :case_study)
     content_store_has_example_item("/government/case-studies/doing-business-in-spain", schema: :case_study, example: "doing-business-in-spain")
+    content_store_has_example_item("/government/case-studies/doing-business-in-spain-without-image", schema: :case_study, example: "without-image")
   end
 
   it_behaves_like "it has meta tags", "case_study", "doing-business-in-spain"
@@ -17,6 +18,18 @@ RSpec.describe "CaseStudy" do
       expect(page).to have_text("Nearly 400 homes are set to be built on the site of a former tar distillery thanks to Gleeson Homes and HCA investment.")
 
       expect(page).to have_css(".gem-c-translation-nav")
+
+      expect(page).to have_css("img[src*='s300_Christmas'][alt='Christmas']")
+    end
+
+    it "displays a lead image on legacy case study" do
+      visit "/government/case-studies/doing-business-in-spain"
+      expect(page).to have_css("img[src*='s300_foto_UKTI'][alt='UKTI Spain']")
+    end
+
+    it "does not display a lead image if no lead image set on case study" do
+      visit "/government/case-studies/doing-business-in-spain-without-image"
+      expect(page).not_to have_css("img")
     end
 
     context "when visiting a Withdrawn Case Study page" do

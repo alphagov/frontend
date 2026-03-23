@@ -18,6 +18,6 @@ class ManualSection < ContentItem
   end
 
   def visually_expanded?
-    content_store_response.dig("details", "visually_expanded") == "true"
+    content_store_response.dig("details", "visually_expanded") == true
   end
 end

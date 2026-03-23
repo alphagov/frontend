@@ -68,7 +68,7 @@ RSpec.describe ManualSection do
     context "when visually_expanded is true in the content item" do
       let(:content_store_response) do
         GovukSchemas::Example.find("manual_section", example_name: "what-is-content-design").tap do |item|
-          item["details"]["visually_expanded"] = "true"
+          item["details"]["visually_expanded"] = true
         end
       end
 

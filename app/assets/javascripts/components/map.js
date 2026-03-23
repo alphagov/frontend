@@ -1,3 +1,4 @@
+/* global L */
 //= require leaflet
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
@@ -8,8 +9,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
-      const passed_config = JSON.parse(this.$module.getAttribute('data-config')) || {}
-      const all_map_options = {
+      const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
+      const allMapOptions = {
         centre_lat: 51.505,
         centre_lng: -0.09,
         zoom: 8,
@@ -18,9 +19,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         maxBounds: [
           [49.5, -10.5],
           [62, 6]
-        ],
+        ]
       }
-      this.config = window.GOVUK.extendObject(all_map_options, passed_config)
+      this.config = window.GOVUK.extendObject(allMapOptions, passedConfig)
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
     }
 
@@ -37,10 +38,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     initialiseMap () {
       this.$module.classList.add('app-c-map--enabled')
-      // console.log('initialising', this.map_id, this.config)
-
       this.map = L.map(this.map_id, this.config)
-      this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom);
+      this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
 
       // // Load and display ZXY tile layer on the map
       const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
@@ -48,24 +47,26 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     addMarkers () {
-      console.log('addMarkers')
-      var default_icon = L.icon({
+      var defaultIcon = L.icon({
         iconUrl: '/assets/frontend/components/default_marker.png',
-        iconSize:     [30, 50], // size of the icon
-        iconAnchor:   [15, 50], // point of the icon which will correspond to marker's location
-        popupAnchor:  [0, -48] // point from which the popup should open relative to the iconAnchor
+        // shadowUrl: 'leaf-shadow.png',
+        iconSize: [30, 50], // size of the icon
+        // shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [15, 50], // point of the icon which will correspond to marker's location
+        // shadowAnchor: [4, 62], // the same for the shadow
+        popupAnchor: [0, -48] // point from which the popup should open relative to the iconAnchor
       })
 
-      L.marker([51.5, -0.09], {icon: default_icon}).addTo(this.map)
-      var marker = L.marker([51.5, -0.09]).addTo(this.map);
+      var popups = []
+      this.markers.forEach(marker => {
+        const popup = L.marker([marker.lat, marker.lng], { icon: defaultIcon })
+        popups.push(popup)
+        popup.addTo(this.map)
+        popup.bindPopup(marker.popup_content)
+      })
 
-      for (var i = 0; i < this.markers.length; i++) {
-        const mark = this.markers[i]
-        console.log(mark)
-        const marker = L.marker([mark.lat, mark.lng], {icon: default_icon}).addTo(this.map)
-        marker.bindPopup(mark.popup_content)
-      }
-
+      const group = new L.FeatureGroup(popups)
+      this.map.fitBounds(group.getBounds())
     }
   }
   Modules.Map = Map

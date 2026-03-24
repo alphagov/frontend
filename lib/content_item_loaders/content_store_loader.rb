@@ -5,8 +5,7 @@ module ContentItemLoaders
     end
 
     def load(request)
-      base_path = request.path
-      content_item_from_content_store(base_path)
+      content_item_from_conditional_loader(request)
     end
 
     def load_from_base_path(base_path)
@@ -17,6 +16,11 @@ module ContentItemLoaders
 
     def content_item_from_content_store(base_path)
       @cache[base_path] ||= GdsApi.content_store.content_item(base_path)
+    end
+
+    def content_item_from_conditional_loader(request)
+      base_path = request.path
+      @cache[base_path] ||= GovukConditionalContentItemLoader.new(request: request).load
     end
   end
 end

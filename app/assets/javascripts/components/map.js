@@ -65,10 +65,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       var popups = []
       this.markers.forEach(marker => {
-        const popup = L.marker([marker.lat, marker.lng], { icon: defaultIcon })
+        const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: defaultIcon })
         popups.push(popup)
         popup.addTo(this.map)
-        popup.bindPopup(marker.popup_content)
+        if (marker.popup_content) {
+          popup.bindPopup(marker.popup_content, { maxWidth: 200 })
+        }
       })
 
       const group = new L.FeatureGroup(popups)

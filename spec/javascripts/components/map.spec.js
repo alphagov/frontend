@@ -6,11 +6,12 @@ describe('Map component', function () {
   function createMapDom (apiKey, config, markers) {
     el = document.createElement('div')
     el.innerHTML = `
-      <div class="app-c-map"
+      <div
         id="map-1234"
         data-api-key="${apiKey}"
         data-config='${config}'
         data-markers='${markers}'>
+        <div class="app-c-map"></div>
       </div>
     `
     document.body.appendChild(el)

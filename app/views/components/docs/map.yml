@@ -25,3 +25,11 @@ examples:
       - lat: 51.5316
         lng: -0.1236
         popup_content: "Kings Cross Station"
+  with_copyright:
+    data:
+      margin_bottom: 9
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+      copyright: Contains OS data &copy; Crown copyright and database rights 2026

@@ -10,6 +10,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
+      this.markerIcon = L.icon({
+        iconUrl: '/assets/frontend/components/default_marker.png',
+        // shadowUrl: 'leaf-shadow.png',
+        iconSize: [30, 50], // size of the icon
+        // shadowSize: [50, 64], // size of the shadow
+        iconAnchor: [15, 50], // point of the icon which will correspond to marker's location
+        // shadowAnchor: [4, 62], // the same for the shadow
+        popupAnchor: [0, -48] // point from which the popup should open relative to the iconAnchor
+      })
+
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       const allMapOptions = {
         centre_lat: 51.505,
@@ -25,6 +35,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
       this.config = window.GOVUK.extendObject(allMapOptions, passedConfig)
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
+      this.geojson = this.$module.getAttribute('data-geojson')
     }
 
     init () {
@@ -35,6 +46,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.initialiseMap()
       if (this.markers.length > 0) {
         this.addMarkers()
+      }
+      if (this.geojson) {
+        this.addMarkersFromGeoJson()
       }
     }
 
@@ -53,19 +67,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     addMarkers () {
-      var defaultIcon = L.icon({
-        iconUrl: '/assets/frontend/components/default_marker.png',
-        // shadowUrl: 'leaf-shadow.png',
-        iconSize: [30, 50], // size of the icon
-        // shadowSize: [50, 64], // size of the shadow
-        iconAnchor: [15, 50], // point of the icon which will correspond to marker's location
-        // shadowAnchor: [4, 62], // the same for the shadow
-        popupAnchor: [0, -48] // point from which the popup should open relative to the iconAnchor
-      })
-
       var popups = []
       this.markers.forEach(marker => {
-        const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: defaultIcon })
+        const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: this.markerIcon })
         popups.push(popup)
         popup.addTo(this.map)
         if (marker.popup_content) {
@@ -75,6 +79,61 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       const group = new L.FeatureGroup(popups)
       this.map.fitBounds(group.getBounds())
+    }
+
+    addMarkersFromGeoJson () {
+      async function getData(url, that) {
+        try {
+          const response = await fetch(url);
+          if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`)
+          }
+          const result = await response.json()
+          var popups = []
+
+          L.geoJSON(result, {
+            pointToLayer: function (feature, latlng) {
+              const marker = L.marker(latlng, { icon: that.markerIcon })
+              popups.push(marker)
+              return marker
+            },
+            onEachFeature: function (feature, layer) {
+              layer.bindPopup(feature.properties.popupContent, { maxWidth: 200 })
+            }
+          }).addTo(that.map)
+
+          const group = new L.FeatureGroup(popups)
+          that.map.fitBounds(group.getBounds())
+        } catch (error) {
+          console.error(error)
+        }
+      }
+      getData(this.geojson, this)
+    }
+
+
+    bindPopup (feature, layer) {
+      const featureProperties = layer.feature.properties
+      const geometryType = layer.feature.geometry.type
+      const layerPane = layer.options.pane
+
+      const popupContainer = this.context.createAndPopulateElement('div', null, null)
+      const getHeadingAndPropVals = this.context.getHeadingAndProp(geometryType, featureProperties, layerPane)
+
+      popupContainer.appendChild(this.context.createPopupHeading(getHeadingAndPropVals[0]))
+      popupContainer.appendChild(this.context.createPopupBody(getHeadingAndPropVals[1], featureProperties))
+
+      const popup = layer.bindPopup(popupContainer, { maxWidth: 250 })
+      popup.on('popupopen', (e) => {
+        const popup = e.target.getPopup()
+        const content = popup.getContent()
+        /* istanbul ignore next */
+        const extraAttributes = {
+          action: 'opened',
+          text: content.querySelector('.map-popup__heading').innerText.trim() || ''
+        }
+        this.context.sendTracking(extraAttributes)
+      })
     }
   }
   Modules.Map = Map

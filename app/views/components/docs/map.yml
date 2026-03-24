@@ -48,3 +48,6 @@ examples:
         centre_lng: -3.1883
         zoom: 12
       copyright: Contains OS data &copy; Crown copyright and database rights 2026
+  passed_geojson:
+    data:
+      geojson: "/assets/frontend/components/map_test.geojson"

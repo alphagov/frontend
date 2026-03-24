@@ -1,5 +1,6 @@
 <% content_for :head do %>
     <meta name="description" content="<%= content_item.description %>">
+    <meta name="robots" content="noindex, nofollow" />
     <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>

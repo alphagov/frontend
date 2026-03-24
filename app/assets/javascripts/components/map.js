@@ -98,7 +98,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
               return marker
             },
             onEachFeature: function (feature, layer) {
-              layer.bindPopup(feature.properties.popupContent, { maxWidth: 200 })
+              if (feature.properties.popupContent) {
+                layer.bindPopup(feature.properties.popupContent, { maxWidth: 200 })
+              }
             }
           }).addTo(that.map)
 

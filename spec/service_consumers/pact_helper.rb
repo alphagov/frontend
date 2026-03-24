@@ -8,6 +8,9 @@ Pact.configure do |config|
   config.include WebMock::API
   config.include WebMock::Matchers
   config.include GdsApi::TestHelpers::ContentStore
+
+  Rails.application.config.graphql_allowed_schemas = []
+  Rails.application.config.graphql_traffic_rates = {}
 end
 
 WebMock.allow_net_connect!

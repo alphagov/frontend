@@ -22,3 +22,8 @@
 .app-c-map__copyright-text {
   margin: 0;
 }
+
+// leaflet element override styles
+.leaflet-popup-content {
+  @include govuk-font(16);
+}

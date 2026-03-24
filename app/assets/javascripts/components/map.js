@@ -7,6 +7,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   class Map {
     constructor ($module) {
       this.$module = $module
+      this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
@@ -19,7 +20,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         maxBounds: [
           [49.5, -10.5],
           [62, 6]
-        ]
+        ],
+        attributionControl: false
       }
       this.config = window.GOVUK.extendObject(allMapOptions, passedConfig)
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
@@ -37,7 +39,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     initialiseMap () {
-      this.$module.classList.add('app-c-map--enabled')
+      const id = this.$module.getAttribute('id')
+      this.$module.setAttribute('id', '')
+      this.map_element.setAttribute('id', id)
+      this.map_element.classList.add('app-c-map--enabled')
+
       this.map = L.map(this.map_id, this.config)
       this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
 

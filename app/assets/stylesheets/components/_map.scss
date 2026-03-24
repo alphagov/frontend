@@ -2,7 +2,6 @@
 
 .app-c-map {
   padding: govuk-spacing(6);
-  margin-bottom: govuk-spacing(1);
   border: solid 1px $govuk-border-colour;
 }
 
@@ -14,4 +13,12 @@
   @include govuk-media-query($until: tablet) {
     max-height: 80vh;
   }
+}
+
+.app-c-map__copyright {
+  margin-top: govuk-spacing(1);
+}
+
+.app-c-map__copyright-text {
+  margin: 0;
 }

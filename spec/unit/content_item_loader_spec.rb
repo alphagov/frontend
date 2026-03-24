@@ -4,7 +4,7 @@ RSpec.describe ContentItemLoader do
   include GdsApi::TestHelpers::PublishingApi
   include ContentStoreHelpers
 
-  subject(:content_item_loader) { described_class.new }
+  subject(:content_item_loader) { described_class.new(request) }
 
   let!(:item_request) { stub_content_store_has_item("/my-random-item") }
 
@@ -73,6 +73,16 @@ RSpec.describe ContentItemLoader do
   end
 
   describe "#load" do
+    let(:base_path) { "/my-random-item" }
+    let(:request) do
+      instance_double(
+        ActionDispatch::Request,
+        path: base_path,
+        env: {},
+        params: {},
+      )
+    end
+
     it "caches calls to the content store" do
       content_item_loader.load("/my-random-item")
       content_item_loader.load("/my-random-item")
@@ -106,18 +116,22 @@ RSpec.describe ContentItemLoader do
     end
 
     context "when the path uses traversal tricks" do
+      let(:base_path) { "/../my-missing-item" }
+
       it "returns (but does not raise) an InvalidUrl exception" do
         expect(content_item_loader.load("/../my-missing-item")).to be_a(GdsApi::InvalidUrl)
       end
     end
 
     context "with a missing content item" do
+      let(:base_path) { "/my-missing-item" }
+
       before do
-        stub_content_store_does_not_have_item("/my-missing-item")
+        stub_content_store_does_not_have_item(base_path)
       end
 
       it "returns (but does not raise) the original exception" do
-        expect(content_item_loader.load("/my-missing-item")).to be_a(GdsApi::HTTPErrorResponse)
+        expect(content_item_loader.load(base_path)).to be_a(GdsApi::HTTPErrorResponse)
       end
     end
 
@@ -134,15 +148,6 @@ RSpec.describe ContentItemLoader do
 
       context "when the request is made to the draft deployment" do
         let(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "news_article" }, draft: true) }
-
-        let(:request) do
-          instance_double(
-            ActionDispatch::Request,
-            path: "/my-random-item",
-            env: {},
-            params: {},
-          )
-        end
 
         include_examples "rendered from Draft Content Store"
       end
@@ -301,8 +306,6 @@ RSpec.describe ContentItemLoader do
       end
 
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
-        subject(:content_item_loader) { described_class.new }
-
         before do
           ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
           stub_const("ContentItemLoaders::LocalFileLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
@@ -313,7 +316,8 @@ RSpec.describe ContentItemLoader do
         end
 
         context "with a local JSON file" do
-          let!(:item_request) { stub_content_store_has_item("/my-json-item") }
+          let(:base_path) { "/my-json-item" }
+          let!(:item_request) { stub_content_store_has_item(base_path) }
 
           it "loads content from the JSON file instead of the content store" do
             response = content_item_loader.load("/my-json-item")
@@ -324,7 +328,8 @@ RSpec.describe ContentItemLoader do
         end
 
         context "with a local YAML file" do
-          let!(:item_request) { stub_content_store_has_item("/my-yaml-item") }
+          let(:base_path) { "/my-yaml-item" }
+          let!(:item_request) { stub_content_store_has_item(base_path) }
 
           it "loads content from the YAML file instead of the content store" do
             response = content_item_loader.load("/my-yaml-item")
@@ -335,7 +340,8 @@ RSpec.describe ContentItemLoader do
         end
 
         context "with no local file" do
-          let!(:item_request) { stub_content_store_has_item("/my-remote-item") }
+          let(:base_path) { "/my-remote-item" }
+          let!(:item_request) { stub_content_store_has_item(base_path) }
 
           it "returns to loading from the content store" do
             content_item_loader.load("/my-remote-item")
@@ -412,6 +418,7 @@ RSpec.describe ContentItemLoader do
     end
 
     context "when asked to load /government/history" do
+      let(:base_path) { "/government/history" }
       let!(:item_request) { stub_content_store_has_item("/government/history/history-of-the-uk-government") }
 
       it "loads the content item from /government/history/history-of-the-uk-government" do

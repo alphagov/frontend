@@ -51,3 +51,6 @@ examples:
   passed_geojson:
     data:
       geojson: "/assets/frontend/components/map_test.geojson"
+  live_geojson:
+    data:
+      geojson: "/api/places/driving-test-centres.geojson"

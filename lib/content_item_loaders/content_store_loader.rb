@@ -4,7 +4,12 @@ module ContentItemLoaders
       @cache = {}
     end
 
-    def load(base_path:)
+    def load(request)
+      base_path = request.path
+      content_item_from_content_store(base_path)
+    end
+
+    def load_from_base_path(base_path)
       content_item_from_content_store(base_path)
     end
 

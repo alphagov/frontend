@@ -8,13 +8,14 @@ module ContentItemLoaders
       @content_store_loader = content_store_loader
     end
 
-    def can_load?(base_path:)
-      HUB_PATHS.key?(base_path)
+    def can_load?(request)
+      HUB_PATHS.key?(request.path)
     end
 
-    def load(base_path:)
+    def load(request)
+      base_path = request.path
       Rails.logger.debug("Loading content item #{base_path} from content address #{HUB_PATHS[base_path]}")
-      content_store_loader.load(base_path: HUB_PATHS[base_path])
+      content_store_loader.load_from_base_path(HUB_PATHS[base_path])
     end
 
   private

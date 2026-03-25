@@ -12,6 +12,10 @@
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
 %>
 <% if minimum_map_data?(map_config, markers, geojson) %>
+  <%= render "govuk_publishing_components/components/skip_link", {
+    text: "Skip map",
+    href: "#post-map",
+  } %>
   <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
 
   <%= tag.div(**component_helper.all_attributes) do %>
@@ -26,4 +30,5 @@
       </div>
     <% end %>
   <% end %>
+  <div id="post-map"></div>
 <% end %>

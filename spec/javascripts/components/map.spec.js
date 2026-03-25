@@ -39,7 +39,7 @@ describe('Map component', function () {
       module = new GOVUK.Modules.Map(el.querySelector('.app-c-map'))
       // need to spy on these functions so they don't call through and error
       spyOn(module, 'initialiseMap')
-      spyOn(module, 'addMarkers')
+      spyOn(module, 'addAllMarkers')
       module.init()
     }
 

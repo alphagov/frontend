@@ -31,23 +31,15 @@ examples:
       markers:
       - lat: 51.5163
         lng: -0.1766
-        popup_content: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
+        popupContent: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
         alt: Paddington Station
       - lat: 51.5316
         lng: -0.1236
-        popup_content: "<strong>Kings Cross Station</strong><br/>Opened in 1852 and built on the site of a smallpox and fever hospital."
+        popupContent: "<strong>Kings Cross Station</strong><br/>Opened in 1852 and built on the site of a smallpox and fever hospital."
         alt: Kings Cross station
       - lat: 51.5224
         lng: -0.1632
         alt: Marylebone Station
-  with_copyright:
-    data:
-      margin_bottom: 9
-      map_config:
-        centre_lat: 55.9533
-        centre_lng: -3.1883
-        zoom: 12
-      copyright: Contains OS data &copy; Crown copyright and database rights 2026
   passed_geojson:
     description: |
       Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file. The map will auto zoom and position based on the markers found.
@@ -58,5 +50,13 @@ examples:
       markers:
       - lat: 51.5163
         lng: -0.1766
-        popup_content: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
+        popupContent: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
         alt: Paddington Station
+  with_copyright:
+    data:
+      margin_bottom: 9
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+      copyright: Contains OS data &copy; Crown copyright and database rights 2026

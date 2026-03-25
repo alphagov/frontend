@@ -88,8 +88,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: this.markerIcon })
             popups.push(popup)
             popup.addTo(this.map)
-            if (marker.popup_content) {
-              popup.bindPopup(marker.popup_content, { maxWidth: 200 })
+            if (marker.popupContent) {
+              popup.bindPopup(marker.popupContent, { maxWidth: 200 })
             }
           })
         }

@@ -1,5 +1,7 @@
 @import "govuk_publishing_components/base";
 
+$govuk-output-custom-properties: false;
+
 %responsive-bunting-height {
   height: 48px;
 

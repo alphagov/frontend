@@ -26,17 +26,18 @@ describe('Map component', function () {
     maxBounds: [
       [49.5, -10.5],
       [62, 6]
-    ]
+    ],
+    attributionControl: false,
   }
 
   afterEach(function () {
-    document.body.removeChild(el)
+    // document.body.removeChild(el)
   })
 
   describe('when initialising the map', function () {
     function setupMap (apiKey = '', config = {}, markers = {}) { // need to pass an empty string, otherwise becomes the string 'undefined'
       createMapDom(apiKey, JSON.stringify(config), JSON.stringify(markers))
-      module = new GOVUK.Modules.Map(el.querySelector('.app-c-map'))
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       // need to spy on these functions so they don't call through and error
       spyOn(module, 'initialiseMap')
       spyOn(module, 'addAllMarkers')
@@ -46,7 +47,7 @@ describe('Map component', function () {
     it('does nothing if there is no API key', function () {
       setupMap()
       expect(module.initialiseMap).not.toHaveBeenCalled()
-      expect(el.querySelector('.app-c-map').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
+      expect(el.querySelector('#map-1234').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
     })
 
     it('tries to start when an API key is present', function () {

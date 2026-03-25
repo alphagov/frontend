@@ -11,7 +11,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
       this.markerIcon = L.icon({
-        iconUrl: '/assets/frontend/components/map-pin.svg',
+        iconUrl: '/assets/frontend/components/map/map-pin.svg',
         iconSize: [34, 46], // size of the icon
         iconAnchor: [17, 46], // point of the icon which will correspond to marker's location
         popupAnchor: [0, -42] // point from which the popup should open relative to the iconAnchor

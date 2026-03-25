@@ -27,7 +27,7 @@ describe('Map component', function () {
       [49.5, -10.5],
       [62, 6]
     ],
-    attributionControl: false,
+    attributionControl: false
   }
 
   afterEach(function () {

@@ -1064,5 +1064,7 @@ mt:
       our_people: In-nies tagħna
     news: Aħbarijiet
     part_of: Parti minn
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} u r-Renju Unit"
   'yes':

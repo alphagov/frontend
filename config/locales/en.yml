@@ -1152,5 +1152,7 @@ en:
       our_people: Our people
     news: News
     part_of: Part of
+    show_more: Show %{hiddenLinksCount} more
+    show_more_visually_hidden: worldwide location news
     world_news_link: "%{country} and the UK"
   'yes': 'Yes'

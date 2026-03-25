@@ -902,5 +902,7 @@ gu:
       our_people: અમારા લોકો
     news: સમાચાર
     part_of: નો ભાગ
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} અને યુકે"
   'yes':

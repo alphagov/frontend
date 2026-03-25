@@ -902,5 +902,7 @@ tk:
       our_people: Biziň adamlarymyz
     news: Habarlar
     part_of: Bir bölegi
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} we Beýik Britaniýa"
   'yes':

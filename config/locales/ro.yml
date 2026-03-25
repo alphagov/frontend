@@ -983,5 +983,7 @@ ro:
       our_people: Oamenii noștri
     news: Știri
     part_of: Parte din
+    show_more:
+    show_more_visually_hidden:
     world_news_link: "%{country} și Regatul Unit"
   'yes':

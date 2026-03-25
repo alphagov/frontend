@@ -3,18 +3,34 @@ describe('Map component', function () {
 
   var el, module
 
-  function createMapDom (apiKey, config, markers) {
+  function createMapDom (apiKey, config, markers, url) {
     el = document.createElement('div')
     el.innerHTML = `
       <div
         id="map-1234"
         data-api-key="${apiKey}"
         data-config='${config}'
-        data-markers='${markers}'>
+        data-markers='${markers}'
+        data-geojson='${url}'>
         <div class="app-c-map"></div>
       </div>
     `
     document.body.appendChild(el)
+  }
+
+  function setupMap (apiKey = '', config = {}, markers = {}) { // need to pass an empty string, otherwise becomes the string 'undefined'
+    createMapDom(apiKey, JSON.stringify(config), JSON.stringify(markers), false)
+    module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+    // need to spy on these functions so they don't call through and error
+    spyOn(module, 'initialiseMap')
+    spyOn(module, 'addAllMarkers')
+    module.init()
+  }
+
+  function setupMapMarkers (config = {}, markers = {}, geoJsonURL = '') {
+    createMapDom('apiKey', JSON.stringify(config), JSON.stringify(markers), geoJsonURL)
+    module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+    module.init()
   }
 
   const defaultMapConfig = {
@@ -31,19 +47,10 @@ describe('Map component', function () {
   }
 
   afterEach(function () {
-    // document.body.removeChild(el)
+    document.body.removeChild(el)
   })
 
   describe('when initialising the map', function () {
-    function setupMap (apiKey = '', config = {}, markers = {}) { // need to pass an empty string, otherwise becomes the string 'undefined'
-      createMapDom(apiKey, JSON.stringify(config), JSON.stringify(markers))
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      // need to spy on these functions so they don't call through and error
-      spyOn(module, 'initialiseMap')
-      spyOn(module, 'addAllMarkers')
-      module.init()
-    }
-
     it('does nothing if there is no API key', function () {
       setupMap()
       expect(module.initialiseMap).not.toHaveBeenCalled()
@@ -86,6 +93,49 @@ describe('Map component', function () {
         setupMap('pretend_key', {}, markers)
         expect(module.markers).toEqual(markers)
       })
+    })
+  })
+
+  const fakeGeoJson = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "popupContent": "Birmingham"
+        },
+        "geometry": {
+          "coordinates": [
+            -1.89032729180704,
+            52.485470314900795
+          ],
+          "type": "Point"
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": [
+            -2.127508995156802,
+            52.5862548496693
+          ],
+          "type": "Point"
+        }
+      }
+    ]
+  }
+
+  describe('adding map markers', function () {
+    it('accepts and processes a geojson URL', function () {
+      spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify(fakeGeoJson), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      }));
+
+      setupMapMarkers({}, {}, '/fake/test.geojson')
+      console.log(module)
+      console.log(module.map)
     })
   })
 })

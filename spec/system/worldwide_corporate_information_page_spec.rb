@@ -3,7 +3,7 @@ RSpec.describe "Worldwide corporate information page" do
   let(:base_path) { content_store_response.fetch("base_path") }
 
   before do
-    stub_content_store_has_item(base_path, content_store_response)
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
     visit base_path
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "Worldwide corporate information page" do
 
     it "renders rtl text direction when the locale is a rtl language" do
       content_store_response["locale"] = "ar"
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
       expect(page).to have_css(".govuk-main-wrapper.direction-rtl")
     end
@@ -48,7 +48,7 @@ RSpec.describe "Worldwide corporate information page" do
       content_store_response["links"]["worldwide_organisation"][0]["links"]["sponsoring_organisations"] = nil
       content_store_response["links"]["worldwide_organisation"][0]["links"]["world_locations"] = nil
 
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       within find(".worldwide-organisation-header__metadata", match: :first) do
@@ -73,7 +73,7 @@ RSpec.describe "Worldwide corporate information page" do
             "base_path": "/world/organisations/british-embassy-madrid/about/recruitment.es",
           },
         ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).to have_text("English")

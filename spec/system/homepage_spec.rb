@@ -53,7 +53,7 @@ RSpec.describe "Homepage" do
           start_button_text: "Start now",
         },
       }
-      stub_content_store_has_item("/cymraeg", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/cymraeg", @payload)
     end
 
     it "uses the English locale after visiting the Welsh content" do

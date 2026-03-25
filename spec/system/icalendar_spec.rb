@@ -4,7 +4,7 @@ RSpec.describe "Icalendar" do
   before do
     [["/gwyliau-banc", "cy"], ["/bank-holidays", "en"]].each do |base_path, locale|
       content_item = { base_path:, locale:, schema_name: "calendar", document_type: "calendar" }
-      stub_content_store_has_item(base_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
       mock_calendar_fixtures
     end
   end

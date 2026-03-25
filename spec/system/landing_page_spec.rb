@@ -6,8 +6,8 @@ RSpec.describe "LandingPage" do
 
   describe "GET <landing-page>" do
     before do
-      stub_content_store_has_item(base_path, landing_page_example)
-      stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+      stub_conditional_loader_returns_content_item_for_path(base_path, landing_page_example)
+      stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
       stub_taxon_search_results
     end
 
@@ -80,7 +80,7 @@ RSpec.describe "LandingPage" do
 
     context "with the prime-ministers-office-10-downing-street theme" do
       before do
-        stub_content_store_has_item(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
+        stub_conditional_loader_returns_content_item_for_path(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
       end
 
       it "renders the number 10 header" do
@@ -101,8 +101,8 @@ RSpec.describe "LandingPage" do
 
       context "and is being viewed on the draft server" do
         before do
-          stub_content_store_has_item(base_path, landing_page_example, draft: true)
-          stub_content_store_has_item(basic_taxon["base_path"], basic_taxon, draft: true)
+          stub_conditional_loader_returns_content_item_for_path(base_path, landing_page_example, draft: true)
+          stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon, draft: true)
           stub_taxon_search_results(draft: true)
         end
 
@@ -118,7 +118,7 @@ RSpec.describe "LandingPage" do
 
     describe "organisation logo" do
       before do
-        stub_content_store_has_item(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
+        stub_conditional_loader_returns_content_item_for_path(base_path, landing_page_example.deep_merge({ "details" => { "theme" => "prime-ministers-office-10-downing-street" } }))
       end
 
       it "has ga4 tracking on the organisation logo" do

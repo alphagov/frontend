@@ -3,7 +3,7 @@ RSpec.describe "Gone" do
     let(:base_path) { "/foreign-travel-advice/grand-fenwick" }
 
     before do
-      stub_content_store_has_item(base_path, schema_name: "gone")
+      stub_conditional_loader_returns_content_item_for_path(base_path, schema_name: "gone")
     end
 
     it "redirects the gone item to the gone controller" do

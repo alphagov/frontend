@@ -7,7 +7,7 @@ RSpec.describe "Help" do
         title: "Help using GOV.UK",
         description: "",
       }
-      stub_content_store_has_item("/help", payload)
+      stub_conditional_loader_returns_content_item_for_path("/help", payload)
     end
 
     it "renders the help index page correctly" do

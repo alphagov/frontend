@@ -49,5 +49,12 @@ examples:
         zoom: 12
       copyright: Contains OS data &copy; Crown copyright and database rights 2026
   passed_geojson:
+    description: |
+      Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file. The map will auto zoom and position based on the markers found.
     data:
       geojson: "/assets/frontend/components/map_test.geojson"
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        popup_content: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
+        alt: Paddington Station

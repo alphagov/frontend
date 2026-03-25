@@ -7,7 +7,7 @@ module FlexiblePage::FlexibleSection
 
       @title = flexible_section_hash["title"]
       @description = flexible_section_hash["description"]
-      @variant = flexible_section_hash["variant"] if %w[govuk bridges].include? flexible_section_hash["variant"]
+      @variant = flexible_section_hash["variant"] if %w[govuk notable-death].include? flexible_section_hash["variant"]
     end
 
     def image

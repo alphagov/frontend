@@ -1,10 +1,9 @@
 name: Map (experimental)
 description: A simple map component.
 body: |
-  Displays a map of a location, given a location and a zoom level. Maps can also display markers with popups.
+  Displays a map, given a location and a zoom level. Maps can also display markers with popups. The map can be scrolled and zoomed.
 
   Note that maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
-
 shared_accessibility_criteria:
 - link
 
@@ -12,6 +11,7 @@ accessibility_criteria: |
   The component must:
 
   - have an accessible alternative, as many users may not be able to access the information held in the map
+  - be usable with a keyboard, or provide a skip link to bypass the map for keyboard users
 uses_component_wrapper_helper: true
 examples:
   default:
@@ -51,6 +51,8 @@ examples:
   passed_geojson:
     description: |
       Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file. The map will auto zoom and position based on the markers found.
+
+      Note that other markers can also be added to this map using the method already described. They will be included when automatically setting the map position and zoom.
     data:
       geojson: "/assets/frontend/components/map_test.geojson"
       markers:

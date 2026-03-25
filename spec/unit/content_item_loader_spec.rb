@@ -1,9 +1,15 @@
+require "govuk_content_item_loader/test_helpers"
+
 RSpec.describe ContentItemLoader do
+  include GovukConditionalContentItemLoaderTestHelpers
   include ContentStoreHelpers
 
   subject(:content_item_loader) { described_class.new(request) }
 
-  let!(:item_request) { stub_content_store_has_item("/my-random-item") }
+  before do
+    allow(GovukConditionalContentItemLoader).to receive(:new).and_call_original
+    stub_conditional_loader_returns_content_item_for_path("/my-random-item")
+  end
 
   describe ".for_request" do
     it "returns a new object per request" do
@@ -41,7 +47,7 @@ RSpec.describe ContentItemLoader do
       content_item_loader.load("/my-random-item")
       content_item_loader.load("/my-random-item")
 
-      expect(item_request).to have_been_made.once
+      expect(GovukConditionalContentItemLoader).to have_received(:new).once
     end
 
     it "restricts cache to the specific instance of the class, so does not cache across requests" do
@@ -66,7 +72,7 @@ RSpec.describe ContentItemLoader do
       loader_1.load(request_1.path)
       loader_2.load(request_2.path)
 
-      expect(item_request).to have_been_made.twice
+      expect(GovukConditionalContentItemLoader).to have_received(:new).twice
     end
 
     context "when the path uses traversal tricks" do
@@ -81,7 +87,7 @@ RSpec.describe ContentItemLoader do
       let(:base_path) { "/my-missing-item" }
 
       before do
-        stub_content_store_does_not_have_item(base_path)
+        stub_conditional_loader_does_not_return_content_item_for_path(base_path)
       end
 
       it "returns (but does not raise) the original exception" do
@@ -92,12 +98,11 @@ RSpec.describe ContentItemLoader do
     context "when the content item schema is not in Rails.application.config.graphql_allowed_schemas" do
       subject(:content_item_loader) { described_class.for_request(request) }
 
-      let!(:item_request) { stub_content_store_has_item("/my-random-item", { "schema_name" => "guide" }) }
-
       context "with ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE=true" do
         before do
           ENV["ALLOW_LOCAL_CONTENT_ITEM_OVERRIDE"] = "true"
           stub_const("ContentItemLoaders::LocalFileLoader::LOCAL_ITEMS_PATH", "spec/fixtures/local-content-items")
+          stub_conditional_loader_returns_content_item_for_path("/my-random-item", { "schema_name" => "guide" })
         end
 
         after do
@@ -106,48 +111,61 @@ RSpec.describe ContentItemLoader do
 
         context "with a local JSON file" do
           let(:base_path) { "/my-json-item" }
-          let!(:item_request) { stub_content_store_has_item(base_path) }
+
+          before do
+            stub_conditional_loader_returns_content_item_for_path(base_path)
+          end
 
           it "loads content from the JSON file instead of the content store" do
             response = content_item_loader.load("/my-json-item")
 
-            expect(item_request).not_to have_been_made
+            expect(GovukConditionalContentItemLoader).not_to have_received(:new)
             expect(ContentItemFactory.build(response).schema_name).to eq("json_page")
           end
         end
 
         context "with a local YAML file" do
           let(:base_path) { "/my-yaml-item" }
-          let!(:item_request) { stub_content_store_has_item(base_path) }
+
+          before do
+            stub_conditional_loader_returns_content_item_for_path(base_path)
+          end
 
           it "loads content from the YAML file instead of the content store" do
             response = content_item_loader.load("/my-yaml-item")
 
-            expect(item_request).not_to have_been_made
+            expect(GovukConditionalContentItemLoader).not_to have_received(:new)
             expect(ContentItemFactory.build(response).schema_name).to eq("yaml_page")
           end
         end
 
         context "with no local file" do
           let(:base_path) { "/my-remote-item" }
-          let!(:item_request) { stub_content_store_has_item(base_path) }
+
+          before do
+            stub_conditional_loader_returns_content_item_for_path(base_path)
+          end
 
           it "returns to loading from the content store" do
             content_item_loader.load("/my-remote-item")
 
-            expect(item_request).to have_been_made.once
+            expect(GovukConditionalContentItemLoader).to have_received(:new).once
           end
         end
       end
 
       context "when asked to load /government/history" do
         let(:base_path) { "/government/history" }
-        let!(:item_request) { stub_content_store_has_item("/government/history/history-of-the-uk-government") } # The code in ContentItemLoaders::HubRedirectLoader calls Content Store directly without using the conditional loader
+        let(:redirect_path) { "/government/history/history-of-the-uk-government" }
 
-        it "loads the content item from /government/history/history-of-the-uk-government" do
-          content_item_loader.load("/government/history")
+        before do
+          stub_conditional_loader_returns_content_item_for_path(redirect_path)
+        end
 
-          expect(item_request).to have_been_made
+        it "loads the content item from the redirected path" do
+          content_item_loader.load(base_path)
+
+          expect(GovukConditionalContentItemLoader).to have_received(:new).with(request: satisfy { |req| req.path == redirect_path })
         end
       end
     end

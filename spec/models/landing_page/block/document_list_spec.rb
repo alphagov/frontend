@@ -29,7 +29,7 @@ RSpec.describe LandingPage::Block::DocumentList do
       end
 
       it "returns an array of items tagged to the taxon" do
-        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
         stub_taxon_search_results
 
         expected_result = {
@@ -60,7 +60,7 @@ RSpec.describe LandingPage::Block::DocumentList do
       end
 
       it "only returns an array of items tagged to the taxon" do
-        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
         stub_taxon_search_results
 
         expected_result = {
@@ -80,7 +80,7 @@ RSpec.describe LandingPage::Block::DocumentList do
       end
 
       it "returns the hard-coded list if the taxon doesn't exist" do
-        stub_content_store_does_not_have_item(basic_taxon["base_path"])
+        stub_conditional_loader_does_not_return_content_item_for_path(basic_taxon["base_path"])
 
         expected_first_result = {
           link: {
@@ -99,7 +99,7 @@ RSpec.describe LandingPage::Block::DocumentList do
       end
 
       it "returns the hard-coded list if nothing is tagged to the taxon" do
-        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
         stub_any_search_to_return_no_results
 
         expected_first_result = {
@@ -126,7 +126,7 @@ RSpec.describe LandingPage::Block::DocumentList do
       end
 
       it "returns an empty list" do
-        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
         stub_any_search_to_return_no_results
 
         expect(described_class.new(blocks_hash, build(:landing_page)).items).to eq([])

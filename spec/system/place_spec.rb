@@ -22,7 +22,7 @@ RSpec.describe "Places" do
       external_related_links: [],
     }
 
-    stub_content_store_has_item("/passport-interview-office", @payload)
+    stub_conditional_loader_returns_content_item_for_path("/passport-interview-office", @payload)
 
     @places = [
       {
@@ -109,7 +109,7 @@ RSpec.describe "Places" do
 
   context "when page title is not among ones used for button text" do
     before do
-      stub_content_store_has_item("/find-regional-passport-office", content_item)
+      stub_conditional_loader_returns_content_item_for_path("/find-regional-passport-office", content_item)
       visit "/find-regional-passport-office"
     end
 
@@ -134,7 +134,7 @@ RSpec.describe "Places" do
     before do
       content_item_example["title"] = "Find a register office"
       content_item_example["base_path"] = "/register-offices"
-      stub_content_store_has_item("/register-offices", content_item)
+      stub_conditional_loader_returns_content_item_for_path("/register-offices", content_item)
       visit "/register-offices"
     end
 

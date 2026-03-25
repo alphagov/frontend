@@ -5,7 +5,7 @@ RSpec.describe "Travel Advice" do
       let(:base_path) { content_item.fetch("base_path") }
 
       before do
-        stub_content_store_has_item(base_path, content_item)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
       end
 
       it "succeeds" do
@@ -51,7 +51,7 @@ RSpec.describe "Travel Advice" do
     let(:country_path) { content_item.fetch("base_path") }
 
     before do
-      stub_content_store_has_item(country_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(country_path, content_item)
     end
 
     context "when viewing the first part" do

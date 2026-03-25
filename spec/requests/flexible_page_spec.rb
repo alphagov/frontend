@@ -23,8 +23,8 @@ RSpec.describe "FlexiblePage" do
     describe "atom format" do
       context "when no feed is present" do
         before do
-          stub_content_store_does_not_have_item("/no-feed")
-          stub_content_store_does_not_have_item("/no-feed.atom")
+          stub_conditional_loader_does_not_return_content_item_for_path("/no-feed")
+          stub_conditional_loader_does_not_return_content_item_for_path("/no-feed.atom")
           get "/no-feed.atom"
         end
 

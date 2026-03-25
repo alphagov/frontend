@@ -6,8 +6,8 @@ RSpec.describe "DetailedGuide" do
   let(:base_path) { content_store_response.fetch("base_path") }
 
   before do
-    stub_content_store_has_item(base_path, content_store_response)
-    stub_content_store_does_not_have_item("/guidance")
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+    stub_conditional_loader_does_not_return_content_item_for_path("/guidance")
     visit base_path
   end
 
@@ -124,7 +124,7 @@ RSpec.describe "DetailedGuide" do
 
     it "does not render the single page notification button on exempt pages" do
       content_store_response["content_id"] = "c5c8d3cd-0dc2-4ca3-8672-8ca0a6e92165"
-      stub_content_store_has_item("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
+      stub_conditional_loader_returns_content_item_for_path("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
 
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
@@ -133,7 +133,7 @@ RSpec.describe "DetailedGuide" do
 
     it "does not render the single page notification button on foreign language pages" do
       content_store_response["locale"] = "cy"
-      stub_content_store_has_item("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
+      stub_conditional_loader_returns_content_item_for_path("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
       expect(page).not_to have_css(".gem-c-single-page-notification-button")

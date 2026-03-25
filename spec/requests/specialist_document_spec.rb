@@ -6,8 +6,8 @@ RSpec.describe "Specialist Document" do
     let(:finder_base_path) { content_item.dig("links", "finder", 0, "base_path") }
 
     before do
-      stub_content_store_has_item(base_path, content_item)
-      stub_content_store_has_item(finder_base_path, finder_content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(finder_base_path, finder_content_item)
     end
 
     it "succeeds" do

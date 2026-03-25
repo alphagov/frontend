@@ -7,7 +7,7 @@ RSpec.describe ManualSection do
 
   before do
     manual_content_item = GovukSchemas::Example.find("manual", example_name: "content-design")
-    stub_content_store_has_item(manual_content_item.fetch("base_path"), manual_content_item)
+    stub_conditional_loader_returns_content_item_for_path(manual_content_item.fetch("base_path"), manual_content_item)
   end
 
   it_behaves_like "it can have section groups", "manual", "content-design"

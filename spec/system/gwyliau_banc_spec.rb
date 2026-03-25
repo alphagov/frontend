@@ -3,9 +3,9 @@ RSpec.describe "GwyliauBanc" do
 
   before do
     content_item_cy = { base_path: "/gwyliau-banc", schema_name: "calendar", document_type: "calendar", locale: "cy" }
-    stub_content_store_has_item("/gwyliau-banc", content_item_cy)
+    stub_conditional_loader_returns_content_item_for_path("/gwyliau-banc", content_item_cy)
     content_item_en = { base_path: "/bank-holidays", schema_name: "calendar", document_type: "calendar" }
-    stub_content_store_has_item("/bank-holidays", content_item_en)
+    stub_conditional_loader_returns_content_item_for_path("/bank-holidays", content_item_en)
     mock_calendar_fixtures
   end
 

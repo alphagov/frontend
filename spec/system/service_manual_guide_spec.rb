@@ -5,7 +5,7 @@ RSpec.describe "Service Manual guide" do
 
     describe "with default content_store_response state" do
       before do
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
       end
 
@@ -41,7 +41,7 @@ RSpec.describe "Service Manual guide" do
 
         before do
           content_store_response["details"]["first_public_at"] = "2015-01-01T15:00:00Z"
-          stub_content_store_has_item(base_path, content_store_response)
+          stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
           visit base_path
         end
 
@@ -72,7 +72,7 @@ RSpec.describe "Service Manual guide" do
 
         it "omits the latest change and previous change if the guide has no history" do
           content_store_response["details"]["change_history"] = []
-          stub_content_store_has_item(base_path, content_store_response)
+          stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
           visit base_path
 
           within(".gem-c-published-dates") do
@@ -84,7 +84,7 @@ RSpec.describe "Service Manual guide" do
 
       it "service manual guide does not show published by" do
         content_store_response = GovukSchemas::Example.find("service_manual_guide", example_name: "service_manual_guide_community")
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-metadata") do
@@ -94,7 +94,7 @@ RSpec.describe "Service Manual guide" do
 
       it "displays the description for a point" do
         content_store_response = GovukSchemas::Example.find("service_manual_guide", example_name: "point_page")
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
 
         within(".app-page-header__summary") do

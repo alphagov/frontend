@@ -11,7 +11,7 @@ RSpec.describe "ErrorHandling" do
 
   context "when the content store returns 404" do
     it "returns 404 status" do
-      stub_content_store_does_not_have_item("/slug")
+      stub_conditional_loader_does_not_return_content_item_for_path("/slug")
       visit "/slug"
 
       expect(page.status_code).to eq(404)
@@ -20,7 +20,7 @@ RSpec.describe "ErrorHandling" do
 
   context "when the content store returns 410" do
     it "returns 410 status" do
-      stub_content_store_has_gone_item("/slug")
+      stub_conditional_content_loader_has_gone_item("/slug")
       visit "/slug"
 
       expect(page.status_code).to eq(410)
@@ -29,7 +29,7 @@ RSpec.describe "ErrorHandling" do
 
   context "when the application tries to retrieve an invalid URL from the content store" do
     it "returns 404 status" do
-      content_store_throws_exception_for("/foo", GdsApi::InvalidUrl)
+      stub_conditional_loader_does_not_return_content_item_for_path("/foo")
       visit "/foo"
 
       expect(page.status_code).to eq(404)

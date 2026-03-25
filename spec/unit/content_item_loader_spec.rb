@@ -1,9 +1,17 @@
+require "govuk_content_item_loader/test_helpers"
+
 RSpec.describe ContentItemLoader do
+  include GovukConditionalContentItemLoaderTestHelpers
   include ContentStoreHelpers
 
-  subject(:content_item_loader) { described_class.new }
+  subject(:content_item_loader) { described_class.for_request(request) }
 
-  let!(:item_request) { stub_content_store_has_item("/my-random-item") }
+  let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {}) }
+
+  before do
+    allow(GovukConditionalContentItemLoader).to receive(:new).and_call_original
+    stub_conditional_loader_returns_content_item_for_path("/my-random-item")
+  end
 
   describe ".for_request" do
     it "returns a new object per request" do
@@ -31,7 +39,7 @@ RSpec.describe ContentItemLoader do
       content_item_loader.load("/my-random-item")
       content_item_loader.load("/my-random-item")
 
-      expect(item_request).to have_been_made.once
+      expect(GovukConditionalContentItemLoader).to have_received(:new).once
     end
 
     it "restricts cache to the specific instance of the class, so does not cache across requests" do
@@ -56,7 +64,7 @@ RSpec.describe ContentItemLoader do
       loader_1.load(request_1.path)
       loader_2.load(request_2.path)
 
-      expect(item_request).to have_been_made.twice
+      expect(GovukConditionalContentItemLoader).to have_received(:new).twice
     end
 
     context "when the path uses traversal tricks" do
@@ -67,7 +75,7 @@ RSpec.describe ContentItemLoader do
 
     context "with a missing content item" do
       before do
-        stub_content_store_does_not_have_item("/my-missing-item")
+        stub_conditional_loader_does_not_return_content_item_for_path("/my-missing-item")
       end
 
       it "returns (but does not raise) the original exception" do

@@ -1,7 +1,7 @@
 RSpec.describe "TravelAdvice" do
   let(:base_path) { content_store_response.fetch("base_path") }
 
-  before { stub_content_store_has_item(base_path, content_store_response) }
+  before { stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response) }
 
   describe "GET /foreign-travel-advice" do
     let(:content_store_response) { GovukSchemas::Example.find("travel_advice_index", example_name: "index") }

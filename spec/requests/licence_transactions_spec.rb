@@ -36,7 +36,7 @@ RSpec.describe "Licence Transactions" do
           },
         },
       }
-      stub_content_store_has_item("/find-licences/new-licence", payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/new-licence", payload)
     end
 
     context "when loading the licence edition and posting a location" do

@@ -6,7 +6,7 @@ RSpec.describe FormatRoutingConstraint do
 
     context "when the content_store returns a document" do
       before do
-        stub_content_store_has_item("/slug", schema_name: "foo")
+        stub_conditional_loader_returns_content_item_for_path("/slug", schema_name: "foo")
       end
 
       it "returns true if format matches" do
@@ -20,7 +20,7 @@ RSpec.describe FormatRoutingConstraint do
 
     context "when the content_store API call throws an error" do
       before do
-        stub_content_store_does_not_have_item("/slug")
+        stub_conditional_loader_does_not_return_content_item_for_path("/slug")
       end
 
       it "returns false" do

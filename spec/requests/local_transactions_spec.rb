@@ -79,8 +79,8 @@ RSpec.describe "Local Transactions" do
         },
         external_related_links: [],
       }
-      stub_content_store_has_item("/send-a-bear-to-your-local-council", payload_bear)
-      stub_content_store_has_item("/get-on-electoral-register", payload_electoral)
+      stub_conditional_loader_returns_content_item_for_path("/send-a-bear-to-your-local-council", payload_bear)
+      stub_conditional_loader_returns_content_item_for_path("/get-on-electoral-register", payload_electoral)
     end
 
     context "when loading the local transaction edition without any location" do
@@ -246,7 +246,7 @@ RSpec.describe "Local Transactions" do
       }
       configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire-moorlands], 3435)
       stub_local_links_manager_has_no_link(authority_slug: "staffordshire-moorlands", lgsl: 1234, lgil: 1, country_name: "England")
-      stub_content_store_has_item("/report-a-bear-on-a-local-road", payload)
+      stub_conditional_loader_returns_content_item_for_path("/report-a-bear-on-a-local-road", payload)
       get "/report-a-bear-on-a-local-road/staffordshire-moorlands"
     end
 
@@ -291,7 +291,7 @@ RSpec.describe "Local Transactions" do
             "Information about paying local tax on owning or looking after a bear.",
         },
       }
-      stub_content_store_has_item("/pay-bear-tax", payload)
+      stub_conditional_loader_returns_content_item_for_path("/pay-bear-tax", payload)
     end
 
     it "redirects to the correct authority and pass cache and token as params" do

@@ -29,7 +29,7 @@ RSpec.describe "Transaction" do
         },
         external_related_links: [],
       }
-      stub_content_store_has_item("/carrots", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/carrots", @payload)
     end
 
     it "renders the main information" do
@@ -68,7 +68,7 @@ RSpec.describe "Transaction" do
           ],
         },
       )
-      stub_content_store_has_item("/carrots", carrot_service_with_org)
+      stub_conditional_loader_returns_content_item_for_path("/carrots", carrot_service_with_org)
       visit "/carrots"
       service_schema = find_schema_of_type("GovernmentService")
       expected_service = {
@@ -136,7 +136,7 @@ RSpec.describe "Transaction" do
           start_button_text: "Start now",
         },
       }
-      stub_content_store_has_item("/cymraeg", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/cymraeg", @payload)
     end
 
     it "renders start button text 'Dechrau nawr'" do

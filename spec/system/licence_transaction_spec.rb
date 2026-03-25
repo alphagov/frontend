@@ -29,7 +29,7 @@ RSpec.describe "LicenceTransaction" do
     before do
       configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
       stub_local_links_manager_does_not_have_an_authority("not-a-valid-council-name")
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
       stub_licence_exists(
         "1071-5-1",
         "isLocationSpecific" => true,
@@ -197,7 +197,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "does not add ga4-auto if you're on a page other than '1. Overview'" do
-          stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+          stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
           visit "/find-licences/licence-to-kill/westminster/apply"
           data_module = page.find("article")["data-module"]
           expected_data_module = "ga4-link-tracker"
@@ -226,7 +226,7 @@ RSpec.describe "LicenceTransaction" do
 
       context "when it's a county local authority" do
         before do
-          stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+          stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
           configure_locations_api_and_local_authority("HP20 2QF", %w[buckinghamshire], 440)
           authorities = [
             {
@@ -704,7 +704,7 @@ RSpec.describe "LicenceTransaction" do
           },
         },
       }
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
     end
 
     context "with a single authority" do
@@ -781,7 +781,7 @@ RSpec.describe "LicenceTransaction" do
           },
         },
       }
-      stub_content_store_has_item("/find-licences/artistic-license", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/artistic-license", @payload)
     end
 
     context "when visiting the licence" do
@@ -811,7 +811,7 @@ RSpec.describe "LicenceTransaction" do
 
   context "with a licence which does not exist in licensify and uses authority url" do
     before do
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
       configure_locations_api_and_local_authority("SW1A 1AA", %w[a-council], 5990)
       authorities = [
         {
@@ -870,7 +870,7 @@ RSpec.describe "LicenceTransaction" do
 
   context "with a licence which does not exist in licensify" do
     before do
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
       stub_licence_does_not_exist("1071-5-1")
     end
 
@@ -901,7 +901,7 @@ RSpec.describe "LicenceTransaction" do
 
   context "when licensify times out" do
     before do
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
       stub_licence_times_out("1071-5-1")
     end
 
@@ -913,7 +913,7 @@ RSpec.describe "LicenceTransaction" do
 
   context "when licensify returns an error" do
     before do
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
       stub_licence_returns_error("1071-5-1")
     end
 
@@ -925,7 +925,7 @@ RSpec.describe "LicenceTransaction" do
 
   context "with the usesLicensify parameter" do
     before do
-      stub_content_store_has_item("/find-licences/licence-to-kill", @payload)
+      stub_conditional_loader_returns_content_item_for_path("/find-licences/licence-to-kill", @payload)
     end
 
     context "when visiting an authority with no actions" do

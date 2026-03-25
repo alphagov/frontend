@@ -4,7 +4,7 @@ RSpec.describe "Gone page" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     def setup_and_visit_page
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
     end
 

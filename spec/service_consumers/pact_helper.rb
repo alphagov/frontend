@@ -1,13 +1,13 @@
 require "pact/provider/rspec"
 require "webmock/rspec"
-require "gds_api/test_helpers/content_store"
+require "govuk_content_item_loader/test_helpers"
 require ::File.expand_path("../../config/environment", __dir__)
 
 Pact.configure do |config|
   config.reports_dir = "spec/reports/pacts"
   config.include WebMock::API
   config.include WebMock::Matchers
-  config.include GdsApi::TestHelpers::ContentStore
+  config.include GovukConditionalContentItemLoaderTestHelpers
 end
 
 WebMock.allow_net_connect!
@@ -37,7 +37,7 @@ Pact.provider_states_for "GDS API Adapters" do
         document_type: "calendar",
       }
 
-      stub_content_store_has_item("/bank-holidays", content_item)
+      stub_conditional_loader_returns_content_item_for_path("/bank-holidays", content_item)
     end
   end
 end

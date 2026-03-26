@@ -36,10 +36,7 @@ RSpec.describe DetailedGuide do
 
         organisations = content_store_response["links"]["organisations"]
         expect(content_item.contributors.count).to eq(4)
-        expect(content_item.contributors[0].title).to eq(organisations[0]["title"])
-        expect(content_item.contributors[1].title).to eq(organisations[1]["title"])
-        expect(content_item.contributors[2].title).to eq(organisations[2]["title"])
-        expect(content_item.contributors[3].title).to eq(organisations[3]["title"])
+        expect(content_item.contributors.collect(&:content_id)).to eq(content_item["details"]["emphasised_organisations"])
       end
     end
   end

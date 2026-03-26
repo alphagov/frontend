@@ -17,9 +17,7 @@ RSpec.describe NewsArticle do
       organisations = content_item.dig("links", "organisations")
 
       expect(news_article.contributors.count).to eq(3)
-      expect(news_article.contributors[0].title).to eq(organisations[0]["title"])
-      expect(news_article.contributors[1].title).to eq(organisations[1]["title"])
-      expect(news_article.contributors[2].title).to eq(organisations[2]["title"])
+      expect(news_article.contributors.collect(&:content_id)).to eq(content_item["details"]["emphasised_organisations"])
     end
   end
 end

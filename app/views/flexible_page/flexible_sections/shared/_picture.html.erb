@@ -1,6 +1,32 @@
-<%= picture_tag(class: "#{style}__image-wrapper") do %>
-  <%= tag.source srcset: srcset_string(:desktop, image), media: "(min-width: 769px)" %>
-  <%= tag.source srcset: srcset_string(:tablet, image), media: "(min-width: 641px) and (max-width: 768px)" %>
-  <%= tag.source srcset: srcset_string(:mobile, image), media: "(max-width: 640px)" %>
-  <%= image_tag(image[:sources][:desktop], class: "#{style}__image", alt: alt_text) %>
+
+<%
+  modifier_classes ||= []
+  image_caption ||= nil
+  show_caption = image_caption && "-logo".in?(modifier_classes) == false
+  caption_id = "impact-header__image-id-#{SecureRandom.hex(4)}" if show_caption
+%>
+
+<%= tag.div(class: "#{style}__image-wrapper") do %>
+  <%= picture_tag(class: "#{style}__picture") do %>
+    <%= tag.source srcset: srcset_string(:desktop, image), media: "(min-width: 769px)" %>
+    <%= tag.source srcset: srcset_string(:tablet, image), media: "(min-width: 641px) and (max-width: 768px)" %>
+    <%= tag.source srcset: srcset_string(:mobile, image), media: "(max-width: 640px)" %>
+    <%= image_tag(image[:sources][:desktop], class: "#{style}__image", alt: alt_text, aria: { describedby: caption_id }) %>
+  <% end %>
+  <% if show_caption %>
+    <%
+      theme = "black" if "--govuk".in?(modifier_classes)
+      inverse = true if "--notable-death".in?(modifier_classes)
+    %>
+    <div class="impact-header__caption">
+        <%= render "govuk_publishing_components/components/details", {
+        title: "Image details",
+        id: caption_id,
+        theme:,
+        inverse:,
+      } do %>
+        <%= image_caption %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

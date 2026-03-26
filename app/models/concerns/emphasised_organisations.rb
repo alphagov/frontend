@@ -3,7 +3,14 @@ module EmphasisedOrganisations
 
   included do
     def organisations_ordered_by_emphasis
-      organisations.sort_by { |organisation| emphasised?(organisation) ? -1 : 1 }
+      orgs_in_order = []
+
+      emphasised_organisations.each do |emphasised_id|
+        organisation = organisations.find { it.content_id == emphasised_id }
+        orgs_in_order << organisation if organisation
+      end
+
+      orgs_in_order + organisations.reject { emphasised?(it) }.sort_by(&:title)
     end
   end
 

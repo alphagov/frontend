@@ -1,5 +1,3 @@
-/* istanbul ignore next */
-window.GOVUK = window.GOVUK || {}
 window.GOVUK.lookup = {
   icb: {
     E54000008: 'Cheshire and Merseyside Integrated Care Board',

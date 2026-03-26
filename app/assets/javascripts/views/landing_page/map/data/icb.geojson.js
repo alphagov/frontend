@@ -1,5 +1,3 @@
-/* istanbul ignore next */
-window.GOVUK = window.GOVUK || {}
 window.GOVUK.icbGeojson = {
   type: 'FeatureCollection',
   features: [

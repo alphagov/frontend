@@ -1,8 +1,3 @@
-/* istanbul ignore next */
-window.GOVUK = window.GOVUK || {}
-/* istanbul ignore next */
-window.GOVUK.Modules = window.GOVUK.Modules || {};
-
 (function (Modules) {
   'use strict'
 

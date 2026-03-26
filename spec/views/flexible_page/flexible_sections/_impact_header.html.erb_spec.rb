@@ -71,9 +71,9 @@ RSpec.describe "Impact header flexible section" do
       expect(rendered).to have_selector(".impact-header.impact-header--govuk")
     end
 
-    it "can render the bridges variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "bridges") })
-      expect(rendered).to have_selector(".impact-header.impact-header--bridges")
+    it "can render the notable-death variant" do
+      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "notable-death") })
+      expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
     end
 
     it "can render a logo layout with a background variant" do
@@ -83,8 +83,8 @@ RSpec.describe "Impact header flexible section" do
     end
 
     it "can render a variant when there is no image" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "bridges") })
-      expect(rendered).to have_selector(".impact-header.impact-header--bridges")
+      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "notable-death") })
+      expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
     end
   end
 end

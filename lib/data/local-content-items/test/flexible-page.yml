@@ -40,7 +40,7 @@ details:
     image_type: logo
   - type: impact_header
     title: Legacy layout
-    variant: bridges
+    variant: notable-death
     description: Where a topical event contains an existing image we apply a slightly different layout, to prevent any part of the image being hidden. This is because these legacy images often contained text, which cannot be cropped.
     image:
       sources:
@@ -72,8 +72,8 @@ details:
         tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
   - type: impact_header
     title: This is the title of the impact header
-    variant: bridges
-    description: Bridges variant (unused).
+    variant: notable-death
+    description: Notable death variant (unused).
     image:
       sources:
         desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
@@ -83,9 +83,9 @@ details:
         tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
         tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
   - type: impact_header
-    title: Impact header without an image, bridges variant
+    title: Impact header without an image, notable death variant
     description: Where an impact header is provided no image, we fall back to a standard GOV.UK two thirds layout for this text, to minimise the large empty space to the right.
-    variant: bridges
+    variant: notable-death
   - type: body_with_image
     govspeak: |
       <p>A body with image is intended to be used on topical events with both logo and header images. In that case, the impact header gets the header image, and the logo drops down beneath it, alongside the govspeak body element.</p>

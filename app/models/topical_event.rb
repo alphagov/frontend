@@ -22,6 +22,7 @@ private
       breadcrumbs:,
       image: impact_image,
       image_type: header_image.present? ? "header" : "logo",
+      variant: notable_death? ? "notable-death" : "plain",
     }
   end
 
@@ -99,6 +100,10 @@ private
         mobile_2x: nil,
       },
     }
+  end
+
+  def notable_death?
+    linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
   end
 
   def impact_image

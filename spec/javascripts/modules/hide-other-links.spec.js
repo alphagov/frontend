@@ -1,5 +1,5 @@
 describe('A hide-other-links module', function () {
-  var list = document.createElement('dd')
+  var list
   var GOVUK = window.GOVUK
 
   function subject () {
@@ -7,6 +7,10 @@ describe('A hide-other-links module', function () {
     var instance = new GOVUK.Modules.HideOtherLinks(list)
     instance.init()
   }
+
+  beforeEach(function () {
+    list = document.createElement('dd')
+  })
 
   afterEach(function () {
     list.remove()
@@ -18,9 +22,9 @@ describe('A hide-other-links module', function () {
       list.setAttribute('data-hide-other-links-link-text', 'Show 3 more ')
       list.setAttribute('data-hide-other-links-visually-hidden-link-text', 'worldwide location news')
       list.innerHTML = `
-        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>, 
-        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>, 
-        <a href="http://en.wikipedia.org/wiki/cow">Cow</a> and 
+        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>,
+        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>,
+        <a href="http://en.wikipedia.org/wiki/cow">Cow</a> and
         <a href="http://en.wikipedia.org/wiki/pig">Pig</a>.
       `
       subject()
@@ -51,8 +55,8 @@ describe('A hide-other-links module', function () {
     beforeEach(function () {
       list.classList.add('animals')
       list.innerHTML = `
-        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>, 
-        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>, 
+        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>,
+        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>,
       `
 
       subject()
@@ -84,9 +88,9 @@ describe('A hide-other-links module', function () {
       list.classList.add('animals-without-text-attribute')
       list.setAttribute('data-hide-other-links-visually-hidden-link-text', 'worldwide location news')
       list.innerHTML = `
-        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>, 
-        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>, 
-        <a href="http://en.wikipedia.org/wiki/cow">Cow</a> and 
+        <a href="http://en.wikipedia.org/wiki/dog">Dog</a>,
+        <a href="http://en.wikipedia.org/wiki/cat">Cat</a>,
+        <a href="http://en.wikipedia.org/wiki/cow">Cow</a> and
         <a href="http://en.wikipedia.org/wiki/pig">Pig</a>.
       `
       subject()

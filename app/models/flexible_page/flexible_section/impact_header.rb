@@ -1,6 +1,6 @@
 module FlexiblePage::FlexibleSection
   class ImpactHeader < Base
-    attr_reader :description, :title, :variant
+    attr_reader :description, :image_caption, :title, :variant
 
     def initialize(flexible_section_hash, content_item)
       super
@@ -8,6 +8,7 @@ module FlexiblePage::FlexibleSection
       @title = flexible_section_hash["title"]
       @description = flexible_section_hash["description"]
       @variant = flexible_section_hash["variant"] if %w[govuk notable-death].include? flexible_section_hash["variant"]
+      @image_caption = flexible_section_hash["image_caption"]
     end
 
     def image

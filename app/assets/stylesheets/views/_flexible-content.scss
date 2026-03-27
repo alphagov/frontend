@@ -11,11 +11,17 @@ $gap: 30px;
   margin-bottom: 30px;
 }
 
+.impact-header__caption {
+  width: $box-size;
+  margin-top: 15px;
+}
+
 .impact-header__container {
   display: flex;
   flex-direction: column;
   max-width: ($box-size * 2) + $gap;
   margin: 0 auto;
+  align-items: flex-start;
 
   @include govuk-media-query($from: desktop) {
     flex-direction: row;
@@ -53,6 +59,7 @@ $gap: 30px;
   justify-content: center;
   aspect-ratio: 16 / 9;
   box-sizing: border-box;
+  flex-wrap: wrap;
 
   @include govuk-media-query($from: desktop) {
     width: 50%;

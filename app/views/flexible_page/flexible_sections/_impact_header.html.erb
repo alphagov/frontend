@@ -25,7 +25,9 @@
       <%= render "flexible_page/flexible_sections/shared/picture",
         image: flexible_section.image,
         style: "impact-header",
-        alt_text: "" %>
+        alt_text: "",
+        image_caption: flexible_section.image_caption,
+        modifier_classes: flexible_section.modifier_classes || [] %>
     </div>
   <% else %>
     <div class="impact-header__grid">

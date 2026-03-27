@@ -33,6 +33,14 @@ describe('Map component', function () {
     attributionControl: false
   }
 
+  const markers = [
+    {
+      lat: 5,
+      lng: 4,
+      popupContent: 'some content'
+    }
+  ]
+
   afterEach(function () {
     document.body.removeChild(el)
   })
@@ -68,6 +76,7 @@ describe('Map component', function () {
     it('configures the map element', function () {
       expect(el.querySelector('.for-testing').getAttribute('id')).toEqual('')
       expect(el.querySelector('.app-c-map').getAttribute('id')).toEqual('map-1234')
+      expect(el.querySelector('.app-c-map')).toHaveClass('app-c-map--enabled')
     })
   })
 
@@ -91,14 +100,6 @@ describe('Map component', function () {
   })
 
   describe('with passed markers', function () {
-    const markers = [
-      {
-        lat: 5,
-        lng: 4,
-        popupContent: 'some content'
-      }
-    ]
-
     beforeEach(function () {
       setupMap('pretend_key', {}, markers)
       module.init()
@@ -139,7 +140,36 @@ describe('Map component', function () {
     ]
   }
 
-  describe('when given geojson', function () {
+  describe('when given a geojson that returns as 404', function () {
+    beforeEach(function () {
+      spyOn(window, 'fetch').and.resolveTo(new Response(false, {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      }))
+    })
+
+    it('fails silently', async () => {
+      setupMap('apiKey', {}, {}, '/fake/test.geojson')
+      spyOn(module, 'addAllMarkers').and.callThrough()
+      module.initialiseMap()
+      await module.addAllMarkers()
+
+      expect(window.fetch).toHaveBeenCalled()
+      expect(module.popups.length).toEqual(0)
+    })
+
+    it('successfully adds other markers', async () => {
+      setupMap('apiKey', {}, markers, '/fake/test.geojson')
+      spyOn(module, 'addAllMarkers').and.callThrough()
+      module.initialiseMap()
+      await module.addAllMarkers()
+
+      expect(window.fetch).toHaveBeenCalled()
+      expect(module.popups.length).toEqual(1)
+    })
+  })
+
+  describe('when given valid geojson', function () {
     beforeEach(function () {
       spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify(fakeGeoJson), {
         status: 200,

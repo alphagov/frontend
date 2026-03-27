@@ -68,9 +68,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     async addAllMarkers () {
-      try {
-        this.popups = []
+      this.popups = []
 
+      try {
         if (this.geoJsonUrl) {
           const response = await fetch(this.geoJsonUrl)
           if (!response.ok) {
@@ -91,24 +91,24 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             }
           }).addTo(this.map)
         }
-
-        if (this.markers.length) {
-          this.markers.forEach(marker => {
-            const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: this.markerIcon })
-            this.popups.push(popup)
-            popup.addTo(this.map)
-            if (marker.popupContent) {
-              popup.bindPopup(marker.popupContent, { maxWidth: 200 })
-            }
-          })
-        }
-
-        if (this.popups.length) {
-          const group = new L.FeatureGroup(this.popups)
-          this.map.fitBounds(group.getBounds())
-        }
       } catch (error) {
-        console.error(error)
+        console.error(`${error}, could not access geojson at ${this.geoJsonUrl}`)
+      }
+
+      if (this.markers.length) {
+        this.markers.forEach(marker => {
+          const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: this.markerIcon })
+          this.popups.push(popup)
+          popup.addTo(this.map)
+          if (marker.popupContent) {
+            popup.bindPopup(marker.popupContent, { maxWidth: 200 })
+          }
+        })
+      }
+
+      if (this.popups.length) {
+        const group = new L.FeatureGroup(this.popups)
+        this.map.fitBounds(group.getBounds())
       }
     }
   }

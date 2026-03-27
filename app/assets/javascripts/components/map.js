@@ -10,12 +10,21 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
-      this.markerIcon = L.icon({
-        iconUrl: '/assets/frontend/components/map/map-pin-stroke.svg',
+      const mapPin = L.icon({
+        iconUrl: '/assets/frontend/components/map/marker-pin-hole.svg',
         iconSize: [38, 50], // size of the icon
         iconAnchor: [19, 50], // point of the icon which will correspond to marker's location
-        popupAnchor: [0, -47] // point from which the popup should open relative to the iconAnchor
+        popupAnchor: [1, -47] // point from which the popup should open relative to the iconAnchor
       })
+      const mapCircle = L.icon({
+        iconUrl: '/assets/frontend/components/map/marker-circle.svg',
+        iconSize: [30, 30], // size of the icon
+        iconAnchor: [15, 30], // point of the icon which will correspond to marker's location
+        popupAnchor: [1, -30] // point from which the popup should open relative to the iconAnchor
+      })
+
+      const marker = this.$module.getAttribute('data-marker')
+      this.markerIcon = marker === 'circle' ? mapCircle : mapPin
 
       const allMapOptions = {
         centre_lat: 51.505,
@@ -60,7 +69,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     async addAllMarkers () {
       try {
-        var popups = []
+        this.popups = []
 
         if (this.geoJsonUrl) {
           const response = await fetch(this.geoJsonUrl)
@@ -68,11 +77,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             throw new Error(`Response status: ${response.status}`)
           }
           const result = await response.json()
-          const markerIcon = this.markerIcon
+          const that = this
           L.geoJSON(result, {
             pointToLayer: function (feature, latlng) {
-              const marker = L.marker(latlng, { icon: markerIcon })
-              popups.push(marker)
+              const marker = L.marker(latlng, { icon: that.markerIcon })
+              that.popups.push(marker)
               return marker
             },
             onEachFeature: function (feature, layer) {
@@ -86,7 +95,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         if (this.markers.length) {
           this.markers.forEach(marker => {
             const popup = L.marker([marker.lat, marker.lng], { alt: marker.alt, icon: this.markerIcon })
-            popups.push(popup)
+            this.popups.push(popup)
             popup.addTo(this.map)
             if (marker.popupContent) {
               popup.bindPopup(marker.popupContent, { maxWidth: 200 })
@@ -94,8 +103,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           })
         }
 
-        if (popups.length) {
-          const group = new L.FeatureGroup(popups)
+        if (this.popups.length) {
+          const group = new L.FeatureGroup(this.popups)
           this.map.fitBounds(group.getBounds())
         }
       } catch (error) {

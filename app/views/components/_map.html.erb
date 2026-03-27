@@ -3,6 +3,8 @@
   map_config = local_assigns[:map_config] || {}
   markers = local_assigns[:markers] || []
   geojson = local_assigns[:geojson]
+  marker = local_assigns[:marker_shape] || "pin"
+
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")
   component_helper.add_data_attribute({ module: "map" })
@@ -10,6 +12,7 @@
   component_helper.add_data_attribute({ config: map_config })
   component_helper.add_data_attribute({ markers: markers })
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
+  component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
 %>
 <% if minimum_map_data?(map_config, markers, geojson) %>
   <%= render "govuk_publishing_components/components/skip_link", {

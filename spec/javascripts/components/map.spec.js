@@ -27,12 +27,6 @@ describe('Map component', function () {
     module.init()
   }
 
-  function setupMapMarkers (config = {}, markers = {}, geoJsonURL = '') {
-    createMapDom('apiKey', JSON.stringify(config), JSON.stringify(markers), geoJsonURL)
-    module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-    module.init()
-  }
-
   const defaultMapConfig = {
     centre_lat: 51.505,
     centre_lng: -0.09,
@@ -97,45 +91,52 @@ describe('Map component', function () {
   })
 
   const fakeGeoJson = {
-    "type": "FeatureCollection",
-    "features": [
+    type: 'FeatureCollection',
+    features: [
       {
-        "type": "Feature",
-        "properties": {
-          "popupContent": "Birmingham"
+        type: 'Feature',
+        properties: {
+          popupContent: 'Birmingham'
         },
-        "geometry": {
-          "coordinates": [
+        geometry: {
+          coordinates: [
             -1.89032729180704,
             52.485470314900795
           ],
-          "type": "Point"
+          type: 'Point'
         }
       },
       {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
+        type: 'Feature',
+        properties: {},
+        geometry: {
+          coordinates: [
             -2.127508995156802,
             52.5862548496693
           ],
-          "type": "Point"
+          type: 'Point'
         }
       }
     ]
   }
 
-  describe('adding map markers', function () {
-    it('accepts and processes a geojson URL', function () {
+  describe('when given geojson', function () {
+    beforeEach(function () {
       spyOn(window, 'fetch').and.resolveTo(new Response(JSON.stringify(fakeGeoJson), {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
-      }));
+      }))
+    })
 
-      setupMapMarkers({}, {}, '/fake/test.geojson')
-      console.log(module)
-      console.log(module.map)
+    it('adds markers and popups from a geojson URL', async () => {
+      createMapDom('apiKey', '{}', '{}', '/fake/test.geojson')
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      module.initialiseMap()
+      await module.addAllMarkers()
+
+      expect(window.fetch).toHaveBeenCalled()
+      expect(module.popups.length).toEqual(2)
+      expect(module.popups[0]._popup._content).toEqual('Birmingham')
     })
   })
 })

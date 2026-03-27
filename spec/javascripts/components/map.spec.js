@@ -48,7 +48,6 @@ describe('Map component', function () {
     expect(el.querySelector('#map-1234').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
   })
 
-
   // map is prevented from loading if config not passed by the template
   // but this assumes we've passed that point
   describe('initialising the map correctly', function () {
@@ -163,8 +162,8 @@ describe('Map component', function () {
         {
           lat: 51.5163,
           lng: -0.1766,
-          popupContent: "Paddington",
-          alt: "Paddington Station"
+          popupContent: 'Paddington',
+          alt: 'Paddington Station'
         }
       ]
       setupMap('apiKey', {}, marker, '/fake/test.geojson')

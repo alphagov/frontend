@@ -1,0 +1,29 @@
+@import "leaflet/dist/leaflet";
+
+.app-c-map {
+  padding: govuk-spacing(6);
+  border: solid 1px $govuk-border-colour;
+}
+
+.app-c-map--enabled {
+  padding: 0;
+  height: 500px;
+  background-color: #d7e0e5;
+
+  @include govuk-media-query($until: tablet) {
+    max-height: 80vh;
+  }
+}
+
+.app-c-map__copyright {
+  margin-top: govuk-spacing(1);
+}
+
+.app-c-map__copyright-text {
+  margin: 0;
+}
+
+// leaflet element override styles
+.leaflet-popup-content {
+  @include govuk-font(16);
+}

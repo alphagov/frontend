@@ -1,0 +1,56 @@
+name: Map (experimental)
+description: A simple map component.
+body: |
+  Displays a map of a location, given a location and a zoom level. Maps can also display markers with popups.
+
+  Note that maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
+
+shared_accessibility_criteria:
+- link
+
+accessibility_criteria: |
+  The component must:
+
+  - have an accessible alternative, as many users may not be able to access the information held in the map
+uses_component_wrapper_helper: true
+examples:
+  default:
+    data:
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+  with_markers:
+    description: |
+      Overlays markers onto the map. Markers can have optional popups when clicked. While popup content is not required, each marker should have an `alt` value for screen readers.
+
+      Popup content should be minimal, as markers are currently width limited in order to be readable on small screens.
+
+      Note that centre values and a zoom are not needed when markers are passed, as the map automatically sets position and zoom based on the markers.
+    data:
+      markers:
+      - lat: 51.5163
+        lng: -0.1766
+        popup_content: "<strong>Paddington Station</strong><br/>Designed by Isambard Kingdom Brunel and opened in 1838."
+        alt: Paddington Station
+      - lat: 51.5316
+        lng: -0.1236
+        popup_content: "<strong>Kings Cross Station</strong><br/>Opened in 1852 and built on the site of a smallpox and fever hospital."
+        alt: Kings Cross station
+      - lat: 51.5224
+        lng: -0.1632
+        alt: Marylebone Station
+  with_copyright:
+    data:
+      margin_bottom: 9
+      map_config:
+        centre_lat: 55.9533
+        centre_lng: -3.1883
+        zoom: 12
+      copyright: Contains OS data &copy; Crown copyright and database rights 2026
+  passed_geojson:
+    data:
+      geojson: "/assets/frontend/components/map_test.geojson"
+  live_geojson:
+    data:
+      geojson: "/api/places/driving-test-centres.geojson"

@@ -3,28 +3,20 @@ describe('Map component', function () {
 
   var el, module
 
-  function createMapDom (apiKey, config, markers, url) {
+  function setupMap (apiKey = '', config = {}, markers = {}, url = '') { // need to pass an empty string, otherwise becomes the string 'undefined'
     el = document.createElement('div')
     el.innerHTML = `
       <div
+        class="for-testing"
         id="map-1234"
         data-api-key="${apiKey}"
-        data-config='${config}'
-        data-markers='${markers}'
+        data-config='${JSON.stringify(config)}'
+        data-markers='${JSON.stringify(markers)}'
         data-geojson='${url}'>
         <div class="app-c-map"></div>
       </div>
     `
     document.body.appendChild(el)
-  }
-
-  function setupMap (apiKey = '', config = {}, markers = {}) { // need to pass an empty string, otherwise becomes the string 'undefined'
-    createMapDom(apiKey, JSON.stringify(config), JSON.stringify(markers), false)
-    module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-    // need to spy on these functions so they don't call through and error
-    spyOn(module, 'initialiseMap')
-    spyOn(module, 'addAllMarkers')
-    module.init()
   }
 
   const defaultMapConfig = {
@@ -44,49 +36,101 @@ describe('Map component', function () {
     document.body.removeChild(el)
   })
 
-  describe('when initialising the map', function () {
-    it('does nothing if there is no API key', function () {
+  describe('initialising the map without a key', function () {
+    beforeEach(function() {
       setupMap()
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      // need to spy on these functions so they don't call through and error
+      spyOn(module, 'initialiseMap')
+      spyOn(module, 'addAllMarkers')
+      module.init()
+    })
+
+    it('does nothing', function () {
       expect(module.initialiseMap).not.toHaveBeenCalled()
       expect(el.querySelector('#map-1234').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
     })
+  })
+
+  describe('initialising the map correctly', function () {
+    beforeEach(function() {
+      setupMap('pretend_key')
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      // need to spy on these functions so they don't call through and error
+      spyOn(module, 'initialiseMap')
+      spyOn(module, 'addAllMarkers')
+      module.init()
+    })
 
     it('tries to start when an API key is present', function () {
-      setupMap('pretend_key')
       expect(module.initialiseMap).toHaveBeenCalled()
     })
 
     // map is prevented from loading if config not passed by the template
     // but this assumes we've passed that point
     it('has default config', function () {
-      setupMap('pretend_key')
       expect(module.config).toEqual(defaultMapConfig)
     })
+  })
 
-    describe('with passed options', function () {
-      it('accepts basic config', function () {
-        const config = {
-          centre_lat: 1,
-          centre_lng: 2,
-          zoom: 9
-        }
-        setupMap('pretend_key', config)
-        expect(module.config.centre_lat).toEqual(1)
-        expect(module.config.centre_lng).toEqual(2)
-        expect(module.config.zoom).toEqual(9)
-      })
+  describe('with passed options', function () {
+    const config = {
+      centre_lat: 1,
+      centre_lng: 2,
+      zoom: 9
+    }
 
-      it('accepts map markers', function () {
-        const markers = [
-          {
-            lat: 5,
-            lng: 4,
-            popup_content: 'some content'
-          }
-        ]
-        setupMap('pretend_key', {}, markers)
-        expect(module.markers).toEqual(markers)
-      })
+    beforeEach(function() {
+      setupMap('pretend_key', config)
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      // need to spy on these functions so they don't call through and error
+      spyOn(module, 'initialiseMap')
+      spyOn(module, 'addAllMarkers')
+      module.init()
+    })
+
+    it('accepts basic config', function () {
+      expect(module.config.centre_lat).toEqual(1)
+      expect(module.config.centre_lng).toEqual(2)
+      expect(module.config.zoom).toEqual(9)
+    })
+  })
+
+  describe('with passed markers', function () {
+    const markers = [
+      {
+        lat: 5,
+        lng: 4,
+        popup_content: 'some content'
+      }
+    ]
+
+    beforeEach(function() {
+      setupMap('pretend_key', {}, markers)
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      // need to spy on these functions so they don't call through and error
+      spyOn(module, 'initialiseMap')
+      spyOn(module, 'addAllMarkers')
+      module.init()
+    })
+
+    it('adds map markers', function () {
+      expect(module.markers).toEqual(markers)
+    })
+  })
+
+  describe('creating the map element', function() {
+    beforeEach(function () {
+      setupMap('pretend_key')
+      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
+      spyOn(module, 'initialiseMap').and.callThrough()
+      spyOn(module, 'addAllMarkers')//.and.callThrough()
+    })
+
+    it('configures the map element', function () {
+      module.initialiseMap()
+      expect(el.querySelector('.for-testing').getAttribute('id')).toEqual('')
+      expect(el.querySelector('.app-c-map').getAttribute('id')).toEqual('map-1234')
     })
   })
 
@@ -129,7 +173,7 @@ describe('Map component', function () {
     })
 
     it('adds markers and popups from a geojson URL', async () => {
-      createMapDom('apiKey', '{}', '{}', '/fake/test.geojson')
+      setupMap('apiKey', {}, {}, '/fake/test.geojson')
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       module.initialiseMap()
       await module.addAllMarkers()

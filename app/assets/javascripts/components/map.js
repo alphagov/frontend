@@ -1,12 +1,11 @@
 /* global L */
-/* istanbul ignore next */
 //= require leaflet
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
+  /* istanbul ignore next */
   class Map {
-    /* istanbul ignore next */
     constructor ($module) {
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')

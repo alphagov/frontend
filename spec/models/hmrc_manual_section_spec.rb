@@ -7,7 +7,7 @@ RSpec.describe HmrcManualSection do
   let(:manual_content_store_response) { GovukSchemas::Example.find("hmrc_manual", example_name: "vat-government-public-bodies") }
 
   before do
-    stub_content_store_has_item(manual_content_store_response.fetch("base_path"), manual_content_store_response)
+    stub_conditional_loader_returns_content_item_for_path(manual_content_store_response.fetch("base_path"), manual_content_store_response)
   end
 
   it_behaves_like "it can have section groups", "hmrc_manual_section", "vatgpb2000"
@@ -46,7 +46,7 @@ RSpec.describe HmrcManualSection do
 
     context "when the parent manual is not a manual" do
       before do
-        stub_content_store_has_item(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
+        stub_conditional_loader_returns_content_item_for_path(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
       end
 
       it "returns nil" do
@@ -79,7 +79,7 @@ RSpec.describe HmrcManualSection do
 
     context "when the parent manual is not a manual" do
       before do
-        stub_content_store_has_item(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
+        stub_conditional_loader_returns_content_item_for_path(manual_content_store_response.fetch("base_path"), GovukSchemas::Example.find("redirect", example_name: "redirect"))
       end
 
       it "returns nil" do

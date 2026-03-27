@@ -7,7 +7,7 @@ RSpec.describe "HelpCookies" do
         title: "Cookies on GOV.UK",
         description: "You can choose which cookies you're happy for GOV.UK to use.",
       }
-      stub_content_store_has_item("/help/cookies", payload)
+      stub_conditional_loader_returns_content_item_for_path("/help/cookies", payload)
     end
 
     it "renders the cookies setting page correctly" do

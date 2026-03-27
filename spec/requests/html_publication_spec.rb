@@ -4,9 +4,9 @@ RSpec.describe "HTML publication" do
     let(:base_path) { content_item.fetch("base_path") }
 
     before do
-      stub_content_store_has_item(base_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
       parent_path = content_item["links"]["parent"].first["base_path"]
-      stub_content_store_has_item(parent_path, GovukSchemas::Example.find("publication", example_name: "publication"))
+      stub_conditional_loader_returns_content_item_for_path(parent_path, GovukSchemas::Example.find("publication", example_name: "publication"))
     end
 
     it "returns 200" do

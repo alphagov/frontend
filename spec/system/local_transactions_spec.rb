@@ -44,7 +44,7 @@ RSpec.describe "LocalTransactions" do
 
   before do
     configure_locations_api_and_local_authority("SW1A 1AA", %w[westminster], 5990)
-    stub_content_store_has_item("/pay-bear-tax", payload)
+    stub_conditional_loader_returns_content_item_for_path("/pay-bear-tax", payload)
   end
 
   context "with a local transaction with an interaction present" do
@@ -115,7 +115,7 @@ RSpec.describe "LocalTransactions" do
         end
 
         before do
-          stub_content_store_has_item("/find-registered-childminder", childminder_payload)
+          stub_conditional_loader_returns_content_item_for_path("/find-registered-childminder", childminder_payload)
           visit "/find-registered-childminder"
         end
 
@@ -147,7 +147,7 @@ RSpec.describe "LocalTransactions" do
         end
 
         before do
-          stub_content_store_has_item("/apply-foster-child-council", fosterchild_payload)
+          stub_conditional_loader_returns_content_item_for_path("/apply-foster-child-council", fosterchild_payload)
           visit "/apply-foster-child-council"
         end
 

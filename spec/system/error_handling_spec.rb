@@ -11,7 +11,7 @@ RSpec.describe "ErrorHandling" do
 
   context "when the content store returns 404" do
     it "returns 404 status" do
-      stub_content_store_does_not_have_item("/slug")
+      stub_conditional_loader_does_not_return_content_item_for_path("/slug")
       visit "/slug"
 
       expect(page.status_code).to eq(404)

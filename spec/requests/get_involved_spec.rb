@@ -1,6 +1,6 @@
 RSpec.describe "Get Involved" do
   before do
-    stub_content_store_has_item("/government/get-involved", GovukSchemas::Example.find("special_route", example_name: "special_route"))
+    stub_conditional_loader_returns_content_item_for_path("/government/get-involved", GovukSchemas::Example.find("special_route", example_name: "special_route"))
     stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/).to_return(body: { "results" => [], "total" => 83 }.to_json)
   end
 

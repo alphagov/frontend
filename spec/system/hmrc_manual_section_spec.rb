@@ -4,9 +4,9 @@ RSpec.describe "HMRC Manual Section" do
   let(:manual_content_item) { GovukSchemas::Example.find(:hmrc_manual, example_name: "vat-government-public-bodies") }
 
   before do
-    stub_content_store_has_item(base_path, content_item)
-    stub_content_store_has_item(content_item["details"]["manual"]["base_path"], manual_content_item)
-    stub_content_store_has_item("/hmrc-internal-manuals/vat-government-public-bodiesg/dmbm510100", content_item)
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+    stub_conditional_loader_returns_content_item_for_path(content_item["details"]["manual"]["base_path"], manual_content_item)
+    stub_conditional_loader_returns_content_item_for_path("/hmrc-internal-manuals/vat-government-public-bodiesg/dmbm510100", content_item)
 
     visit base_path
   end

@@ -23,7 +23,7 @@ RSpec.describe "Topical Event Atom Feed" do
   end
 
   before do
-    stub_content_store_has_item(base_path, content_store_response)
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
     stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
       .to_return(body: response.to_json)
     visit base_path

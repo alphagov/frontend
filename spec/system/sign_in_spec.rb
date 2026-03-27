@@ -10,7 +10,7 @@ RSpec.describe "Sign in" do
           body: "",
         },
       }
-      stub_content_store_has_item("/sign-in", payload)
+      stub_conditional_loader_returns_content_item_for_path("/sign-in", payload)
     end
 
     it "renders the sign-in help page correctly" do

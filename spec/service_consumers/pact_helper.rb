@@ -8,6 +8,9 @@ Pact.configure do |config|
   config.include WebMock::API
   config.include WebMock::Matchers
   config.include GdsApi::TestHelpers::ContentStore
+
+  Rails.application.config.graphql_allowed_schemas = []
+  Rails.application.config.graphql_traffic_rates = {}
 end
 
 WebMock.allow_net_connect!
@@ -37,7 +40,7 @@ Pact.provider_states_for "GDS API Adapters" do
         document_type: "calendar",
       }
 
-      stub_content_store_has_item("/bank-holidays", content_item)
+      stub_conditional_loader_returns_content_item_for_path("/bank-holidays", content_item)
     end
   end
 end

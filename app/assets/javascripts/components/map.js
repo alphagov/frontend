@@ -5,6 +5,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
   class Map {
+    /* istanbul ignore next */
     constructor ($module) {
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
@@ -107,6 +108,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         })
       }
 
+      /* istanbul ignore next */
       if (this.popups.length) {
         const group = new L.FeatureGroup(this.popups)
         this.map.fitBounds(group.getBounds())

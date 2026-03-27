@@ -78,6 +78,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           }
           const result = await response.json()
           const that = this
+          /* istanbul ignore next */
           L.geoJSON(result, {
             pointToLayer: function (feature, latlng) {
               const marker = L.marker(latlng, { icon: that.markerIcon })

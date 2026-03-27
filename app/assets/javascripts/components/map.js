@@ -1,4 +1,5 @@
 /* global L */
+/* istanbul ignore next */
 //= require leaflet
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};

@@ -37,7 +37,7 @@ describe('Map component', function () {
   })
 
   describe('initialising the map without a key', function () {
-    beforeEach(function() {
+    beforeEach(function () {
       setupMap()
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       // need to spy on these functions so they don't call through and error
@@ -53,7 +53,7 @@ describe('Map component', function () {
   })
 
   describe('initialising the map correctly', function () {
-    beforeEach(function() {
+    beforeEach(function () {
       setupMap('pretend_key')
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       // need to spy on these functions so they don't call through and error
@@ -80,7 +80,7 @@ describe('Map component', function () {
       zoom: 9
     }
 
-    beforeEach(function() {
+    beforeEach(function () {
       setupMap('pretend_key', config)
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       // need to spy on these functions so they don't call through and error
@@ -105,7 +105,7 @@ describe('Map component', function () {
       }
     ]
 
-    beforeEach(function() {
+    beforeEach(function () {
       setupMap('pretend_key', {}, markers)
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       // need to spy on these functions so they don't call through and error
@@ -119,12 +119,10 @@ describe('Map component', function () {
     })
   })
 
-  describe('creating the map element', function() {
+  describe('creating the map element', function () {
     beforeEach(function () {
       setupMap('pretend_key')
       module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      spyOn(module, 'initialiseMap').and.callThrough()
-      spyOn(module, 'addAllMarkers')//.and.callThrough()
     })
 
     it('configures the map element', function () {

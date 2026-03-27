@@ -10,6 +10,8 @@
 //= link views/landing_page/map/data/hub.geojson.js
 //= link views/landing_page/map/data/icb.geojson.js
 
+//= link components/map.js
+
 //= link static-error-pages.js
 
 //= link_tree ../builds

@@ -17,6 +17,7 @@ describe('Map component', function () {
       </div>
     `
     document.body.appendChild(el)
+    module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
   }
 
   const defaultMapConfig = {
@@ -36,40 +37,38 @@ describe('Map component', function () {
     document.body.removeChild(el)
   })
 
-  describe('initialising the map without a key', function () {
-    beforeEach(function () {
-      setupMap()
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      // need to spy on these functions so they don't call through and error
-      spyOn(module, 'initialiseMap')
-      spyOn(module, 'addAllMarkers')
-      module.init()
-    })
+  it('initialising the map without a key does nothing', function () {
+    setupMap()
+    // need to spy on these functions so they don't call through and error
+    spyOn(module, 'initialiseMap')
+    spyOn(module, 'addAllMarkers')
+    module.init()
 
-    it('does nothing', function () {
-      expect(module.initialiseMap).not.toHaveBeenCalled()
-      expect(el.querySelector('#map-1234').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
-    })
+    expect(module.initialiseMap).not.toHaveBeenCalled()
+    expect(el.querySelector('#map-1234').innerText).toEqual("We're sorry, but the map failed to load. Please try reloading the page.")
   })
 
+
+  // map is prevented from loading if config not passed by the template
+  // but this assumes we've passed that point
   describe('initialising the map correctly', function () {
     beforeEach(function () {
       setupMap('pretend_key')
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      // need to spy on these functions so they don't call through and error
-      spyOn(module, 'initialiseMap')
-      spyOn(module, 'addAllMarkers')
+      spyOn(module, 'initialiseMap').and.callThrough()
       module.init()
     })
 
-    it('tries to start when an API key is present', function () {
+    it('calls the initialiseMap function', function () {
       expect(module.initialiseMap).toHaveBeenCalled()
     })
 
-    // map is prevented from loading if config not passed by the template
-    // but this assumes we've passed that point
     it('has default config', function () {
       expect(module.config).toEqual(defaultMapConfig)
+    })
+
+    it('configures the map element', function () {
+      expect(el.querySelector('.for-testing').getAttribute('id')).toEqual('')
+      expect(el.querySelector('.app-c-map').getAttribute('id')).toEqual('map-1234')
     })
   })
 
@@ -82,10 +81,6 @@ describe('Map component', function () {
 
     beforeEach(function () {
       setupMap('pretend_key', config)
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      // need to spy on these functions so they don't call through and error
-      spyOn(module, 'initialiseMap')
-      spyOn(module, 'addAllMarkers')
       module.init()
     })
 
@@ -101,34 +96,17 @@ describe('Map component', function () {
       {
         lat: 5,
         lng: 4,
-        popup_content: 'some content'
+        popupContent: 'some content'
       }
     ]
 
     beforeEach(function () {
       setupMap('pretend_key', {}, markers)
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-      // need to spy on these functions so they don't call through and error
-      spyOn(module, 'initialiseMap')
-      spyOn(module, 'addAllMarkers')
       module.init()
     })
 
     it('adds map markers', function () {
       expect(module.markers).toEqual(markers)
-    })
-  })
-
-  describe('creating the map element', function () {
-    beforeEach(function () {
-      setupMap('pretend_key')
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
-    })
-
-    it('configures the map element', function () {
-      module.initialiseMap()
-      expect(el.querySelector('.for-testing').getAttribute('id')).toEqual('')
-      expect(el.querySelector('.app-c-map').getAttribute('id')).toEqual('map-1234')
     })
   })
 
@@ -172,13 +150,31 @@ describe('Map component', function () {
 
     it('adds markers and popups from a geojson URL', async () => {
       setupMap('apiKey', {}, {}, '/fake/test.geojson')
-      module = new GOVUK.Modules.Map(el.querySelector('#map-1234'))
       module.initialiseMap()
       await module.addAllMarkers()
 
       expect(window.fetch).toHaveBeenCalled()
       expect(module.popups.length).toEqual(2)
       expect(module.popups[0]._popup._content).toEqual('Birmingham')
+    })
+
+    it('adds manual and geojson markers', async () => {
+      const marker = [
+        {
+          lat: 51.5163,
+          lng: -0.1766,
+          popupContent: "Paddington",
+          alt: "Paddington Station"
+        }
+      ]
+      setupMap('apiKey', {}, marker, '/fake/test.geojson')
+      module.initialiseMap()
+      await module.addAllMarkers()
+
+      expect(window.fetch).toHaveBeenCalled()
+      expect(module.popups.length).toEqual(3)
+      expect(module.popups[0]._popup._content).toEqual('Birmingham')
+      expect(module.popups[2]._popup._content).toEqual('Paddington')
     })
   })
 })

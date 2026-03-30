@@ -59,7 +59,7 @@ private
       type: "feed",
       feed_heading_text: "Latest updates",
       email_signup_link: "/email-signup?link=#{base_path}",
-      email_signup_link_text: "Get emails about this page",
+      email_signup_link_text: "Get email updates",
       items: FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format,
       see_all_items_link: "/search/all?order=updated-newest&topical_events%5B%5D=#{base_path.split('/').last}",
       see_all_items_link_text: "See more updates",

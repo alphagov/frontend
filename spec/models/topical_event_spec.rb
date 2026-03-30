@@ -340,7 +340,7 @@ RSpec.describe TopicalEvent do
           },
         }],
         "email_signup_link" => "/email-signup?link=#{content_store_response['base_path']}",
-        "email_signup_link_text" => "Get emails about this page",
+        "email_signup_link_text" => "Get email updates",
         "see_all_items_link" => "/search/all?order=updated-newest&topical_events%5B%5D=western-balkans-summit-london-2018",
         "see_all_items_link_text" => "See more updates",
         "share_links" => [{ "href" => "https://twitter.com/foreignoffice", "icon" => "twitter", "text" => "Twitter" }],

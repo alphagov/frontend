@@ -25,6 +25,10 @@ class SpecialistDocumentPresenter < ContentItemPresenter
     content_item.finder.show_table_of_contents
   end
 
+  def hide_from_search_engines?
+    content_item.finder.index_documents_in_search_engines == false
+  end
+
   def protection_image_path
     "specialist-documents/protected-food-drink-names/#{content_item.protection_type_image['file_name']}"
   end

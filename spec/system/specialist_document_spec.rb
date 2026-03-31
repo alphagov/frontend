@@ -18,6 +18,17 @@ RSpec.describe "Specialist Document" do
       expect(page.status_code).to eq(200)
     end
 
+    describe "hide from search engines" do
+      it "renders no index metatag when index_documents_in_search_engines is false" do
+        content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "countryside-stewardship-grants")
+        content_store_response["links"]["finder"][0]["details"]["index_documents_in_search_engines"] = false
+        stub_content_store_has_item(base_path, content_store_response)
+        visit base_path
+
+        expect(page).to have_css('meta[name="robots"][content="noindex, nofollow"]', visible: :hidden)
+      end
+    end
+
     it "displays the title" do
       visit base_path
 

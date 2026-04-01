@@ -3,6 +3,7 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
     "title" => "This is the page H1",
     "description" => "This is the lead paragraph",
     "image" => {
+      "caption" => "Test data",
       "sources" => {
         "desktop" => "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
         "desktop_2x" => "https://assets.publishing.service.gov.uk/media/67472570cf0d45234dd8d0a8/hero_desktop_2x_F_Desktop_HD-50.jpg",
@@ -13,7 +14,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
       },
     },
     "variant" => "govuk",
-    "image_caption" => "Test data",
   }
 
   header_without_image = {
@@ -45,6 +45,7 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
 
     it "returns image information" do
       expect(impact.image).to eq({
+        caption: "Test data",
         sources: {
           desktop: "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
           desktop_2x: "https://assets.publishing.service.gov.uk/media/67472570cf0d45234dd8d0a8/hero_desktop_2x_F_Desktop_HD-50.jpg",

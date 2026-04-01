@@ -18,7 +18,7 @@ RSpec.describe "Impact header flexible section" do
     data["image"] = image if include_image
     data["variant"] = variant if variant
     data["image_type"] = logo ? "logo" : "header"
-    data["image_caption"] = "Test data" if caption
+    data["image"]["caption"] = "Test data" if caption && include_image
     FlexiblePage::FlexibleSection::ImpactHeader.new(data, nil)
   end
 

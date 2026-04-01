@@ -9,21 +9,21 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       this.apiKey = this.$module.getAttribute('data-api-key')
-      const mapPin = L.icon({
-        iconUrl: '/assets/frontend/components/map/marker-pin-hole.svg',
-        iconSize: [38, 50],
-        iconAnchor: [19, 50],
-        popupAnchor: [1, -47]
-      })
-      const mapCircle = L.icon({
-        iconUrl: '/assets/frontend/components/map/marker-circle.svg',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30],
-        popupAnchor: [1, -30]
-      })
+      // const mapPin = L.icon({
+      //   iconUrl: '/assets/frontend/components/map/marker-pin-hole.svg',
+      //   iconSize: [38, 50],
+      //   iconAnchor: [19, 50],
+      //   popupAnchor: [1, -47]
+      // })
+      // const mapCircle = L.icon({
+      //   iconUrl: '/assets/frontend/components/map/marker-circle.svg',
+      //   iconSize: [30, 30],
+      //   iconAnchor: [15, 30],
+      //   popupAnchor: [1, -30]
+      // })
 
-      const marker = this.$module.getAttribute('data-marker')
-      this.markerIcon = marker === 'circle' ? mapCircle : mapPin
+      // const marker = this.$module.getAttribute('data-marker')
+      // this.markerIcon = marker === 'circle' ? mapCircle : mapPin
 
       const allMapOptions = {
         centre_lat: 51.505,
@@ -45,14 +45,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     init () {
-      if (typeof L === 'undefined') return
+      // if (typeof L === 'undefined') return
 
-      if (!this.apiKey) {
-        this.$module.innerText = "We're sorry, but the map failed to load. The map API key was not found."
-        return
-      }
+      // if (!this.apiKey) {
+      //   this.$module.innerText = "We're sorry, but the map failed to load. The map API key was not found."
+      //   return
+      // }
       this.initialiseMap()
-      this.addAllMarkers()
+      // this.addAllMarkers()
     }
 
     initialiseMap () {
@@ -60,14 +60,38 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
-      if (this.height) { this.map_element.style.height = `${this.height}px` }
+      // if (this.height) { this.map_element.style.height = `${this.height}px` }
 
-      this.map = L.map(this.map_id, this.config)
-      this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
+      // const interactiveMap = new defra.InteractiveMap(this.map_id, {
+      //   mapProvider: defra.maplibreProvider(),
+      //   behaviour: 'hybrid',
+      //   mapLabel: 'Ambleside',
+      //   zoom: 14,
+      //   center: [-2.968, 54.425],
+      //   containerHeight: '650px',
+      //   mapStyle: {
+      //     url: 'https://tiles.openfreemap.org/styles/liberty',
+      //     attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
+      //     backgroundColor: '#f5f5f0'
+      //   }
+      // })
+
+      new defra.InteractiveMap(this.map_id, {
+        mapProvider: defra.maplibreProvider(),
+        behaviour: 'inline',
+        mapStyle: {},
+        center: [-1.6, 53.1],
+        zoom: 6,
+        containerHeight: '500px',
+        enableZoomControls: true,
+      })
+
+      // this.map = L.map(this.map_id, this.config)
+      // this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
 
       // Load and display ZXY tile layer on the map
-      const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
-      basemap.addTo(this.map)
+      // const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
+      // basemap.addTo(this.map)
     }
 
     async addAllMarkers () {

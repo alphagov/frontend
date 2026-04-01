@@ -10,19 +10,19 @@
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")
   component_helper.add_data_attribute({ module: "map" })
-  component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
-  component_helper.add_data_attribute({ config: map_config })
-  component_helper.add_data_attribute({ markers: markers.to_json }) if markers
-  component_helper.add_data_attribute({ geojson: geojson }) if geojson
-  component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
-  component_helper.add_data_attribute({ height: height })
+  # component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
+  # component_helper.add_data_attribute({ config: map_config })
+  # component_helper.add_data_attribute({ markers: markers.to_json }) if markers
+  # component_helper.add_data_attribute({ geojson: geojson }) if geojson
+  # component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
+  # component_helper.add_data_attribute({ height: height })
 %>
 <% if minimum_map_data?(map_config, markers, geojson) %>
   <%= render "govuk_publishing_components/components/skip_link", {
     text: "Skip map",
     href: "#post-map",
   } %>
-  <%= javascript_include_tag "components/map/leaflet.js", integrity: false, type: "module" %>
+  <%= javascript_include_tag "components/map/maplibre.js", integrity: false %>
   <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
 
   <%= tag.div(**component_helper.all_attributes) do %>

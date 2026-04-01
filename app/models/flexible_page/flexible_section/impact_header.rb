@@ -16,6 +16,7 @@ module FlexiblePage::FlexibleSection
       return false unless flexible_section_hash["image"]
 
       {
+        caption: flexible_section_hash.dig("image", "caption"),
         sources: {
           desktop: flexible_section_hash.dig("image", "sources", "desktop"),
           desktop_2x: flexible_section_hash.dig("image", "sources", "desktop_2x"),
@@ -42,14 +43,13 @@ module FlexiblePage::FlexibleSection
     end
 
     def build_caption
-      caption_text = flexible_section_hash["image_caption"]
-      return unless caption_text && image && flexible_section_hash["image_type"] != "logo"
+      return unless image && image[:caption] && flexible_section_hash["image_type"] != "logo"
 
       theme = "black" if "--govuk".in?(@modifier_classes) # Enables black text for our blue header.
       inverse = true if "--notable-death".in?(@modifier_classes) # Enables white text for our black header.
 
       {
-        caption_text:,
+        caption_text: image[:caption],
         caption_id: "impact-header__image-id-#{SecureRandom.hex(4)}",
         theme:,
         inverse:,

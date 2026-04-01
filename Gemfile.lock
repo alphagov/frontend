@@ -215,7 +215,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.31.0)
+    govuk_web_banners (1.33.0)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -287,7 +287,7 @@ GEM
     mime-types-data (3.2026.0317)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.2)
+    minitest (6.0.3)
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.0)
@@ -547,7 +547,7 @@ GEM
     puma (7.2.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.5)
+    rack (3.2.6)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.1)

@@ -1,6 +1,6 @@
 module FlexiblePage::FlexibleSection
   class ImpactHeader < Base
-    attr_reader :description, :title, :variant
+    attr_reader :caption, :description, :modifier_classes, :title, :variant
 
     def initialize(flexible_section_hash, content_item)
       super
@@ -8,6 +8,8 @@ module FlexiblePage::FlexibleSection
       @title = flexible_section_hash["title"]
       @description = flexible_section_hash["description"]
       @variant = flexible_section_hash["variant"] if %w[govuk notable-death].include? flexible_section_hash["variant"]
+      @modifier_classes = build_modifier_classes
+      @caption = build_caption
     end
 
     def image
@@ -25,7 +27,9 @@ module FlexiblePage::FlexibleSection
       }
     end
 
-    def modifier_classes
+  private
+
+    def build_modifier_classes
       base_class = "impact-header"
       logo = flexible_section_hash["image_type"] == "logo"
       return "#{base_class}--plain" unless logo || @variant
@@ -35,6 +39,21 @@ module FlexiblePage::FlexibleSection
       styles << @variant if @variant
       styles << "with-background" if @variant
       styles.map { |s| "#{base_class}--#{s}" }.join(" ")
+    end
+
+    def build_caption
+      caption_text = flexible_section_hash["image_caption"]
+      return unless caption_text && image && flexible_section_hash["image_type"] != "logo"
+
+      theme = "black" if "--govuk".in?(@modifier_classes) # Enables black text for our blue header.
+      inverse = true if "--notable-death".in?(@modifier_classes) # Enables white text for our black header.
+
+      {
+        caption_text:,
+        caption_id: "impact-header__image-id-#{SecureRandom.hex(4)}",
+        theme:,
+        inverse:,
+      }
     end
   end
 end

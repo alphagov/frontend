@@ -11,6 +11,16 @@ $gap: 30px;
   margin-bottom: 30px;
 }
 
+.impact-header__caption {
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  @include govuk-media-query($from: desktop) {
+    margin-left: 50%;
+    padding-left: $gap / 2;
+  }
+}
+
 .impact-header__container {
   display: flex;
   flex-direction: column;
@@ -58,6 +68,7 @@ $gap: 30px;
     width: 50%;
     aspect-ratio: auto;
     max-width: $box-size;
+    align-self: flex-end;
   }
 }
 

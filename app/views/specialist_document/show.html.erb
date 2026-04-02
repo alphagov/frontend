@@ -1,5 +1,8 @@
 <% content_for :head do %>
     <meta name="description" content="<%= content_item.description %>">
+    <% if @presenter.hide_from_search_engines? %>
+      <meta name="robots" content="noindex, nofollow">
+    <% end %>
     <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>

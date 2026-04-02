@@ -29,6 +29,30 @@ RSpec.describe SpecialistDocumentPresenter do
     end
   end
 
+  describe "#hide_from_search_engines?" do
+    let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme") }
+
+    context "when index_documents_in_search_engines flag enabled" do
+      before do
+        content_store_response["links"]["finder"][0]["details"]["index_documents_in_search_engines"] = true
+      end
+
+      it "returns true" do
+        expect(specialist_document_presenter.hide_from_search_engines?).to be(false)
+      end
+    end
+
+    context "when index_documents_in_search_engines flag disabled" do
+      before do
+        content_store_response["links"]["finder"][0]["details"]["index_documents_in_search_engines"] = false
+      end
+
+      it "returns false" do
+        expect(specialist_document_presenter.hide_from_search_engines?).to be(true)
+      end
+    end
+  end
+
   describe "#show_finder_link?" do
     context "when document type is statutory instrument" do
       let(:content_store_response) { GovukSchemas::Example.find("specialist_document", example_name: "eu-withdrawal-act-2018-statutory-instruments") }

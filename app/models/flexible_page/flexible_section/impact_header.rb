@@ -50,7 +50,6 @@ module FlexiblePage::FlexibleSection
 
       {
         caption_text: image[:caption],
-        caption_id: "impact-header__image-id-#{SecureRandom.hex(4)}",
         theme:,
         inverse:,
       }

@@ -6,5 +6,5 @@
 //= require @defra/interactive-map/providers/maplibre/dist/umd/im-maplibre-framework.js
 //= require @defra/interactive-map/providers/maplibre/dist/umd/im-maplibre-provider.js
 
-//= require @defra/interactive-map/plugins/interact/dist/umd/index.js
-//= require @defra/interactive-map/plugins/interact/dist/umd/im-interact-plugin.js
+// require @defra/interactive-map/plugins/interact/dist/umd/index.js
+// require @defra/interactive-map/plugins/interact/dist/umd/im-interact-plugin.js

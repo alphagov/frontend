@@ -8,22 +8,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
-      this.apiKey = this.$module.getAttribute('data-api-key')
-      // const mapPin = L.icon({
-      //   iconUrl: '/assets/frontend/components/map/marker-pin-hole.svg',
-      //   iconSize: [38, 50],
-      //   iconAnchor: [19, 50],
-      //   popupAnchor: [1, -47]
-      // })
-      // const mapCircle = L.icon({
-      //   iconUrl: '/assets/frontend/components/map/marker-circle.svg',
-      //   iconSize: [30, 30],
-      //   iconAnchor: [15, 30],
-      //   popupAnchor: [1, -30]
-      // })
-
-      // const marker = this.$module.getAttribute('data-marker')
-      // this.markerIcon = marker === 'circle' ? mapCircle : mapPin
+      // this.apiKey = this.$module.getAttribute('data-api-key')
 
       const allMapOptions = {
         centre_lat: 51.505,
@@ -40,22 +25,16 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       this.config = window.GOVUK.extendObject(allMapOptions, passedConfig)
       this.markers = JSON.parse(this.$module.getAttribute('data-markers'))
-      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
+      // this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       this.height = this.$module.getAttribute('data-height')
     }
 
     init () {
-      // if (typeof L === 'undefined') return
-
-      // if (!this.apiKey) {
-      //   this.$module.innerText = "We're sorry, but the map failed to load. The map API key was not found."
-      //   return
-      // }
       this.initialiseMap()
-      this.addAllMarkers()
     }
 
     initialiseMap () {
+      console.log('initialiseMap')
       const id = this.$module.getAttribute('id')
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
@@ -71,20 +50,20 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         mapStyle: {
           url: 'https://tiles.openfreemap.org/styles/liberty',
           attribution: '© OpenStreetMap contributors',
-          // appColorScheme: 'dark'
           mapColorScheme: 'dark'
-        },
-        plugins: [
-          // createSearchPlugin(),
-          defra.interactPlugin({
-            interactionMode: 'select'
-          })
-        ],
+        }
       })
 
       this.map.on('app:ready', () => {
-        console.log('Map is ready')
+        console.log('ready')
+        this.addAllMarkers()
       })
+
+      return
+
+      // this.map.on('app:ready', () => {
+      //   console.log('Map is ready')
+      // })
 
       // this.map.on('map:click', (event) => {
       //   console.log('click', event)
@@ -102,25 +81,26 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           desktop: { slot: 'left-top' }
         })
 
-        this.map.addMarker("PaddingtonStation", [-0.1766, 51.5163], {
-          shape: 'pin',
-          panelId: 'info-panel',
-          onClick: (event, context) => console.log('Clicked'),
-        })
+        // this.map.addMarker("PaddingtonStation", [-0.1766, 51.5163], {
+        //   shape: 'pin',
+        //   panelId: 'info-panel',
+        //   onClick: (event, context) => console.log('Clicked'),
+        // })
 
-        this.map.on('interact:done', (e) => {
-          console.log(e)
-          if (e.coords) {
-            console.log('Location selected:', e.coords)
-          }
-          if (e.selectedFeatures) {
-            console.log('Features selected:', e.selectedFeatures)
-          }
-        })
+        // this.map.on('interact:done', (e) => {
+        //   console.log(e)
+        //   if (e.coords) {
+        //     console.log('Location selected:', e.coords)
+        //   }
+        //   if (e.selectedFeatures) {
+        //     console.log('Features selected:', e.selectedFeatures)
+        //   }
+        // })
       })
     }
 
     async addAllMarkers () {
+      console.log('addAllMarkers')
       console.log(this.markers)
 
       // let marker = new Marker()
@@ -129,8 +109,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       // this.map.addMarker("Paddington Station", [-0.1766, 51.5163], { shape: 'pin', panelId: "test" })
 
       this.popups = []
-
-      return
       try {
         if (this.geoJsonUrl) {
           const response = await fetch(this.geoJsonUrl)
@@ -158,20 +136,29 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       if (this.markers) {
         this.markers.forEach(marker => {
-          const popup = L.marker([marker.lat, marker.lng], { alt: marker.name, icon: this.markerIcon })
-          this.popups.push(popup)
-          popup.addTo(this.map)
+          console.log(marker)
+          const m = this.map.addMarker(marker.name, [marker.lng, marker.lat], { color: '#0000ff' })
+          this.popups.push(m)
+          // const popup = L.marker([marker.lat, marker.lng], { alt: marker.name, icon: this.markerIcon })
+          // this.popups.push(popup)
+          // popup.addTo(this.map)
 
-          /* istanbul ignore next */
-          if (marker.description) {
-            popup.bindPopup(`<strong>${marker.name}</strong><br>${marker.description}`, { maxWidth: 200 })
-          }
+          // /* istanbul ignore next */
+          // if (marker.description) {
+          //   popup.bindPopup(`<strong>${marker.name}</strong><br>${marker.description}`, { maxWidth: 200 })
+          // }
         })
       }
 
+      this.map.fitToBounds({
+        type: 'FeatureCollection',
+        features: this.popups,
+      })
+
+      return
       if (this.popups.length) {
-        const group = new L.FeatureGroup(this.popups)
-        this.map.fitBounds(group.getBounds(), { padding: [20, 20] })
+        // const group = new L.FeatureGroup(this.popups)
+        // this.map.fitBounds(group.getBounds(), { padding: [20, 20] })
 
         const popupsListEl = this.$module.querySelector('.js-list-markers ul')
         if (popupsListEl) {

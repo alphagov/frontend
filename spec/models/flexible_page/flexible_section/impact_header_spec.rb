@@ -61,15 +61,9 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
       allow(SecureRandom).to receive(:hex).and_return("1234")
       expect(impact.caption).to eq({
         caption_text: "Test data",
-        caption_id: "impact-header__image-id-1234",
         theme: "black",
         inverse: nil,
       })
-    end
-
-    it "does not generate a new caption id each time caption is called" do
-      id = impact.caption[:caption_id]
-      expect(impact.caption[:caption_id]).to eq(id)
     end
   end
 

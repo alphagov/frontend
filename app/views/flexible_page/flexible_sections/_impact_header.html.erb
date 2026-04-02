@@ -25,15 +25,13 @@
       <%= render "flexible_page/flexible_sections/shared/picture",
         image: flexible_section.image,
         style: "impact-header",
-        alt_text: "",
-        caption_id: flexible_section.caption ? flexible_section.caption[:caption_id] : nil %>
+        alt_text: "" %>
     </div>
     <% if flexible_section.caption %>
       <div class="govuk-width-container">
         <div class="impact-header__caption">
           <%= render "govuk_publishing_components/components/details", {
             title: "Image details",
-            id: flexible_section.caption[:caption_id],
             theme: flexible_section.caption[:theme],
             inverse: flexible_section.caption[:inverse],
             margin_bottom: 0,

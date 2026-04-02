@@ -52,6 +52,6 @@ group :test do
   gem "webmock"
 end
 
-gem "govspeak", "~> 10.8"
+gem "govspeak", "~> 10.9"
 
 gem "rinku", "~> 2.0", require: "rails_rinku"

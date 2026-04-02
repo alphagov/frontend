@@ -74,11 +74,23 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           // appColorScheme: 'dark'
           mapColorScheme: 'dark'
         },
+        plugins: [
+          // createSearchPlugin(),
+          defra.interactPlugin({
+            interactionMode: 'select'
+          })
+        ],
       })
 
       this.map.on('app:ready', () => {
         console.log('Map is ready')
       })
+
+      // this.map.on('map:click', (event) => {
+      //   console.log('click', event)
+      //   this.map.showPanel('info-panel')
+      // })
+
       this.map.on('map:ready', ({ map, mapStyleId, mapSize }) => {
         console.log('Active style:', mapStyleId, 'Size:', mapSize)
 
@@ -90,10 +102,20 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           desktop: { slot: 'left-top' }
         })
 
-        this.map.addMarker("Paddington Station", [-0.1766, 51.5163], {
+        this.map.addMarker("PaddingtonStation", [-0.1766, 51.5163], {
           shape: 'pin',
           panelId: 'info-panel',
           onClick: (event, context) => console.log('Clicked'),
+        })
+
+        this.map.on('interact:done', (e) => {
+          console.log(e)
+          if (e.coords) {
+            console.log('Location selected:', e.coords)
+          }
+          if (e.selectedFeatures) {
+            console.log('Features selected:', e.selectedFeatures)
+          }
         })
       })
     }

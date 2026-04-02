@@ -1,11 +1,10 @@
-// @import "leaflet/dist/leaflet";
-@import "@defra/dist/css/index.css";
+@import "@defra/interactive-map/dist/css/index";
 
 .app-c-map--enabled {
   padding: 0;
   height: 500px;
-  background-color: #d7e0e5;
-  border: solid 1px $govuk-border-colour;
+  // background-color: #d7e0e5;
+  // border: solid 1px $govuk-border-colour;
 
   @include govuk-media-query($until: desktop) {
     max-height: 80vh;

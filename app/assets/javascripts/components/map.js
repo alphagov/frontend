@@ -52,7 +52,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       //   return
       // }
       this.initialiseMap()
-      // this.addAllMarkers()
+      this.addAllMarkers()
     }
 
     initialiseMap () {
@@ -60,42 +60,55 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
-      // if (this.height) { this.map_element.style.height = `${this.height}px` }
 
-      // const interactiveMap = new defra.InteractiveMap(this.map_id, {
-      //   mapProvider: defra.maplibreProvider(),
-      //   behaviour: 'hybrid',
-      //   mapLabel: 'Ambleside',
-      //   zoom: 14,
-      //   center: [-2.968, 54.425],
-      //   containerHeight: '650px',
-      //   mapStyle: {
-      //     url: 'https://tiles.openfreemap.org/styles/liberty',
-      //     attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
-      //     backgroundColor: '#f5f5f0'
-      //   }
-      // })
-
-      new defra.InteractiveMap(this.map_id, {
+      this.map = new defra.InteractiveMap(this.map_id, {
         mapProvider: defra.maplibreProvider(),
         behaviour: 'inline',
-        mapStyle: {},
-        center: [-1.6, 53.1],
-        zoom: 6,
-        containerHeight: '500px',
+        center: [this.config.centre_lng, this.config.centre_lat],
+        zoom: 11,
+        containerHeight: `${this.height}px`,
         enableZoomControls: true,
+        mapStyle: {
+          url: 'https://tiles.openfreemap.org/styles/liberty',
+          attribution: '© OpenStreetMap contributors',
+          // appColorScheme: 'dark'
+          mapColorScheme: 'dark'
+        },
       })
 
-      // this.map = L.map(this.map_id, this.config)
-      // this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
+      this.map.on('app:ready', () => {
+        console.log('Map is ready')
+      })
+      this.map.on('map:ready', ({ map, mapStyleId, mapSize }) => {
+        console.log('Active style:', mapStyleId, 'Size:', mapSize)
 
-      // Load and display ZXY tile layer on the map
-      // const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
-      // basemap.addTo(this.map)
+        this.map.addPanel('info-panel', {
+          label: 'Information',
+          html: '<p>Panel content here</p>',
+          mobile: { slot: 'drawer' },
+          tablet: { slot: 'left-top' },
+          desktop: { slot: 'left-top' }
+        })
+
+        this.map.addMarker("Paddington Station", [-0.1766, 51.5163], {
+          shape: 'pin',
+          panelId: 'info-panel',
+          onClick: (event, context) => console.log('Clicked'),
+        })
+      })
     }
 
     async addAllMarkers () {
+      console.log(this.markers)
+
+      // let marker = new Marker()
+      //   .setLngLat([30.5, 50.5])
+      //   .addTo(this.map);
+      // this.map.addMarker("Paddington Station", [-0.1766, 51.5163], { shape: 'pin', panelId: "test" })
+
       this.popups = []
+
+      return
       try {
         if (this.geoJsonUrl) {
           const response = await fetch(this.geoJsonUrl)

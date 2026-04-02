@@ -1,0 +1,25 @@
+@import "@defra/interactive-map/dist/css/index.css";
+
+.app-c-map--enabled {
+  padding: 0;
+  height: 500px;
+  // background-color: #d7e0e5;
+  // border: solid 1px $govuk-border-colour;
+
+  @include govuk-media-query($until: desktop) {
+    max-height: 80vh;
+  }
+}
+
+.app-c-map__copyright {
+  margin-top: govuk-spacing(1);
+}
+
+.app-c-map__copyright-text {
+  margin: 0;
+}
+
+// leaflet element override styles
+.leaflet-popup-content {
+  @include govuk-font(16);
+}

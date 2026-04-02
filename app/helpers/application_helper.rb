@@ -49,10 +49,6 @@ module ApplicationHelper
   end
 
   PERCENTAGE_SCROLL_TRACKING_URLS = [
-    "/apply-to-come-to-the-uk",
-    "/apply-to-come-to-the-uk/getting-a-decision-on-your-application",
-    "/apply-to-come-to-the-uk/prepare-your-application",
-    "/apply-to-come-to-the-uk/prove-your-identity",
     "/government/collections/create-or-update-a-local-plan-using-the-new-system",
     "/government/publications/rollout-of-the-new-local-plan-making-system",
     "/guidance/30-month-local-plan-process-an-overview",

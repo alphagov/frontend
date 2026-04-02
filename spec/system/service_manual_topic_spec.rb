@@ -4,7 +4,7 @@ RSpec.describe "Service manual topic page" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
     end
 
@@ -25,7 +25,7 @@ RSpec.describe "Service manual topic page" do
           "title": "Agile delivery community",
         },
       ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).to have_css("h2", text: "Join the Agile delivery community")
@@ -48,7 +48,7 @@ RSpec.describe "Service manual topic page" do
           "content_ids" => %w[def abc],
         },
       ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).not_to have_css(".gem-c-accordion")
@@ -64,7 +64,7 @@ RSpec.describe "Service manual topic page" do
           "content_ids" => %w[def abc],
         },
       ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).not_to have_css(".gem-c-accordion")
@@ -91,7 +91,7 @@ RSpec.describe "Service manual topic page" do
           "content_ids" => [valid_content_id],
         },
       ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).to have_css(".gem-c-accordion")
@@ -118,7 +118,7 @@ RSpec.describe "Service manual topic page" do
           "content_ids" => [valid_content_id],
         },
       ]
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).not_to have_css(".gem-c-accordion")

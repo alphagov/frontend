@@ -9,7 +9,7 @@ RSpec.shared_examples "it has meta tags" do |schema, example|
     )
     example_doc["links"]["available_translations"] = []
 
-    stub_content_store_has_item(path, example_doc.to_json)
+    stub_conditional_loader_returns_content_item_for_path(path, example_doc.to_json)
   end
 
   it "renders the correct meta tags for the title" do
@@ -32,7 +32,7 @@ RSpec.shared_examples "it has meta tags for images" do |schema, example|
     )
     example_doc["links"]["available_translations"] = []
 
-    stub_content_store_has_item(path, example_doc.to_json)
+    stub_conditional_loader_returns_content_item_for_path(path, example_doc.to_json)
   end
 
   it "renders image tags" do

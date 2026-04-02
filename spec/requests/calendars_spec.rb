@@ -2,13 +2,13 @@ RSpec.describe "Calendars" do
   describe "GET 'calendar'" do
     before do
       allow(Calendar).to receive(:find).and_return(Calendar.new("bank-holidays", "title" => "Brilliant holidays!", "divisions" => []))
-      stub_content_store_has_item("/bank-holidays", {
+      stub_conditional_loader_returns_content_item_for_path("/bank-holidays", {
         schema_name: "calendar",
         title: "Brilliant holidays!",
         base_path: "/bank-holidays",
         details: {},
       })
-      stub_content_store_has_item("/when-do-the-clocks-change", schema_name: "calendar")
+      stub_conditional_loader_returns_content_item_for_path("/when-do-the-clocks-change", schema_name: "calendar")
     end
 
     context "when requesting HTML (with no format)" do
@@ -33,7 +33,7 @@ RSpec.describe "Calendars" do
 
     context "when the content item is in Welsh" do
       it "sets the I18n locale" do
-        stub_content_store_has_item("/gwyliau-banc", {
+        stub_conditional_loader_returns_content_item_for_path("/gwyliau-banc", {
           schema_name: "calendar",
           title: "Brilliant holidays!",
           base_path: "/gwyliau-banc",
@@ -68,7 +68,7 @@ RSpec.describe "Calendars" do
     end
 
     it "returns 404 for a non-existent calendar" do
-      stub_content_store_has_item("/something", schema_name: "calendar")
+      stub_conditional_loader_returns_content_item_for_path("/something", schema_name: "calendar")
       allow(Calendar).to receive(:find).and_raise(Calendar::CalendarNotFound)
       get "/something"
 
@@ -89,7 +89,7 @@ RSpec.describe "Calendars" do
 
     before do
       allow(Calendar).to receive(:find).and_return(calendar)
-      stub_content_store_has_item("/a-calendar", {
+      stub_conditional_loader_returns_content_item_for_path("/a-calendar", {
         schema_name: "calendar",
         title: "A calendar with divisions",
         base_path: "/a-calendar",
@@ -140,7 +140,7 @@ RSpec.describe "Calendars" do
     end
 
     it "returns 404 for a non-existent calendar" do
-      stub_content_store_has_item("/something", schema_name: "calendar")
+      stub_conditional_loader_returns_content_item_for_path("/something", schema_name: "calendar")
       allow(Calendar).to receive(:find).and_raise(Calendar::CalendarNotFound)
       get "/something/foo.json"
 

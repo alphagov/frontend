@@ -5,7 +5,7 @@ RSpec.describe "Document Collection" do
     let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection") }
     let(:base_path) { content_item["base_path"] }
 
-    before { stub_content_store_has_item(base_path, content_item) }
+    before { stub_conditional_loader_returns_content_item_for_path(base_path, content_item) }
 
     it "displays the title" do
       visit base_path

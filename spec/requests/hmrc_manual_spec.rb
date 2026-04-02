@@ -3,8 +3,8 @@ RSpec.describe "HMRC Manual" do
   let(:base_path) { content_item.fetch("base_path") }
 
   before do
-    stub_content_store_does_not_have_item("/hmrc-internal-manuals")
-    stub_content_store_has_item(base_path, content_item)
+    stub_conditional_loader_does_not_return_content_item_for_path("/hmrc-internal-manuals")
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
   end
 
   describe "GET show" do
@@ -28,7 +28,7 @@ RSpec.describe "HMRC Manual" do
     let(:updates_path) { "#{base_path}/updates" }
 
     before do
-      stub_content_store_has_item(updates_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(updates_path, content_item)
     end
 
     it "responds successfully" do

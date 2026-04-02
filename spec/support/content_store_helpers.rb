@@ -1,8 +1,10 @@
 require "govuk_schemas"
 require "gds_api/test_helpers/content_store"
+require "govuk_content_item_loader/test_helpers"
 
 module ContentStoreHelpers
   include GdsApi::TestHelpers::ContentStore
+  include GovukConditionalContentItemLoaderTestHelpers
 
   def content_store_has_example_item(base_path, schema:, example: nil, is_tagged_to_taxon: false)
     content_item = GovukSchemas::Example.find(schema, example_name: example || schema)
@@ -11,7 +13,7 @@ module ContentStoreHelpers
     content_item["links"]["taxons"] = is_tagged_to_taxon ? [basic_taxon] : []
     content_item["base_path"] = base_path
 
-    stub_content_store_has_item(base_path, content_item)
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
     content_item
   end
 
@@ -35,7 +37,7 @@ module ContentStoreHelpers
       item
     end
 
-    stub_content_store_has_item(content_item["base_path"], content_item)
+    stub_conditional_loader_returns_content_item_for_path(content_item["base_path"], content_item)
     content_item
   end
 
@@ -53,6 +55,6 @@ module ContentStoreHelpers
       content_item["links"] = links
     end
 
-    stub_content_store_has_item(base_path, content_item)
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
   end
 end

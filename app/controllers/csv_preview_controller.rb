@@ -66,7 +66,7 @@ private
   end
 
   def parent_content_item(parent_document_path)
-    content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
+    content_item = ContentItemLoaders::ContentStoreLoader.new.load_from_base_path(parent_document_path).to_hash
     if content_item.dig("details", "attachments")
       return content_item
     end
@@ -76,7 +76,7 @@ private
     redirect_path = content_item.dig("redirects", 0, "destination")
     if redirect_path
       Rails.logger.debug("CSV attachment details missing for '#{params[:id]}' at '#{parent_document_path}', following redirect to '#{redirect_path}'")
-      GdsApi.content_store.content_item(redirect_path).to_hash
+      ContentItemLoaders::ContentStoreLoader.new.load_from_base_path(redirect_path).to_hash
     end
   end
 end

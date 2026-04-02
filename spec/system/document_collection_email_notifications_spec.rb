@@ -4,7 +4,7 @@ RSpec.describe "Document Collection Email Notifications" do
   let(:base_path) { content_item["base_path"] }
   let(:taxonomy_topic_base_path) { "/taxonomy_topic_base_path" }
 
-  before { stub_content_store_has_item(base_path, content_item) }
+  before { stub_conditional_loader_returns_content_item_for_path(base_path, content_item) }
 
   context "when a taxonomy topic email override is present" do
     let(:content_item) do

@@ -3,7 +3,7 @@ RSpec.describe "Get Involved" do
     content_item = GovukSchemas::Example.find(:special_route, example_name: :special_route)
     content_item["base_path"] = "/government/get-involved"
     content_item["title"] = "Get involved"
-    stub_content_store_has_item("/government/get-involved", content_item)
+    stub_conditional_loader_returns_content_item_for_path("/government/get-involved", content_item)
 
     stub_search_query(query: hash_including(filter_content_store_document_type: "open_consultation"), response: { "results" => [], "total" => 83 })
     stub_search_query(query: hash_including(filter_content_store_document_type: "closed_consultation"), response: { "results" => [], "total" => 110 })

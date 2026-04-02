@@ -4,7 +4,7 @@ RSpec.describe "Guide" do
     let(:guide_path) { content_item.fetch("base_path") }
 
     before do
-      stub_content_store_has_item(guide_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(guide_path, content_item)
     end
 
     context "when viewing the first part" do

@@ -6,8 +6,8 @@ RSpec.describe "Specialist Document" do
     let(:finder_base_path) { content_store_response.dig("links", "finder", 0, "base_path") }
 
     before do
-      stub_content_store_has_item(base_path, content_store_response)
-      stub_content_store_has_item(finder_base_path, finder_content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(finder_base_path, finder_content_item)
     end
 
     it_behaves_like "it has meta tags", "specialist_document", "cma-cases-with-change-history"
@@ -40,7 +40,7 @@ RSpec.describe "Specialist Document" do
     describe "facet metadata" do
       it "renders metadata block when show_metadata_block is true" do
         content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "countryside-stewardship-grants")
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
 
         expect(page).to have_css(".important-metadata")
@@ -48,7 +48,7 @@ RSpec.describe "Specialist Document" do
 
       it "does not render metadata block when show_metadata_block is false/nil" do
         content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
 
         expect(page).not_to have_css(".important-metadata")
@@ -60,7 +60,7 @@ RSpec.describe "Specialist Document" do
         content_store_response["details"]["metadata"] = {
           "aircraft_type": "Rotorsport UK Calidus",
         }
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         visit base_path
 
@@ -75,7 +75,7 @@ RSpec.describe "Specialist Document" do
         content_store_response["details"]["metadata"] = {
           "case_type": "mergers",
         }
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         visit base_path
 
@@ -107,7 +107,7 @@ RSpec.describe "Specialist Document" do
           },
         ]
 
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         visit base_path
 
@@ -126,7 +126,7 @@ RSpec.describe "Specialist Document" do
         content_store_response["details"]["metadata"] = {
           "opened_date": "2015-07-10",
         }
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         visit base_path
 
@@ -140,7 +140,7 @@ RSpec.describe "Specialist Document" do
     describe "contents list" do
       it "does not render the contents list when show_table_of_contents is false" do
         content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "cma-cases")
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         visit base_path
 
@@ -150,7 +150,7 @@ RSpec.describe "Specialist Document" do
       it "renders the contents list when show_table_of_contents is true" do
         content_store_response["links"]["finder"][0]["details"]["show_table_of_contents"] = true
 
-        stub_content_store_has_item(base_path, content_store_response)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
         headers = content_store_response.dig("details", "headers")
         level_two_headers_count = headers.select { |header| header["level"] == 2 }.count
@@ -225,7 +225,7 @@ RSpec.describe "Specialist Document" do
 
     it "displays protected designation logos" do
       content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "protected-food-drink-names")
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
 
       visit base_path
 
@@ -234,7 +234,7 @@ RSpec.describe "Specialist Document" do
 
     it "displays a start button when continuation details exist" do
       content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme")
-      stub_content_store_has_item(base_path, content_store_response)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
       visit base_path
 
       expect(page).to have_css(".gem-c-button[href='http://www.bigissueinvest.com']", text: "Find out more")

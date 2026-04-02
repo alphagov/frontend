@@ -51,7 +51,7 @@ module LandingPage::Block
 
     def taxon_content_id
       @taxon_content_id ||= begin
-        response = GdsApi.content_store.content_item(taxon_base_path)
+        response = ContentItemLoaders::ContentStoreLoader.new.load_from_base_path(taxon_base_path)
         response["content_id"]
       end
     rescue GdsApi::ContentStore::ItemNotFound

@@ -5,7 +5,7 @@ RSpec.describe "Statistical Data Set" do
     let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set") }
     let(:base_path) { content_item["base_path"] }
 
-    before { stub_content_store_has_item(base_path, content_item) }
+    before { stub_conditional_loader_returns_content_item_for_path(base_path, content_item) }
 
     it "displays the title" do
       visit base_path

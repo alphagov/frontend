@@ -9,8 +9,8 @@ RSpec.describe "Landing Page" do
       let(:base_path) { content_item.fetch("base_path") }
 
       before do
-        stub_content_store_has_item(base_path, content_item)
-        stub_content_store_has_item(basic_taxon["base_path"], basic_taxon)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+        stub_conditional_loader_returns_content_item_for_path(basic_taxon["base_path"], basic_taxon)
         stub_any_search_to_return_no_results
       end
 

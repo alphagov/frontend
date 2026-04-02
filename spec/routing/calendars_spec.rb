@@ -2,7 +2,7 @@ RSpec.describe "Calendars" do
   include ContentStoreHelpers
 
   before do
-    stub_content_store_has_item("/something", schema_name: "calendar")
+    stub_conditional_loader_returns_content_item_for_path("/something", schema_name: "calendar")
   end
 
   it "returns 404 for a non-existent calendar" do
@@ -13,7 +13,7 @@ RSpec.describe "Calendars" do
   end
 
   it "does not route an invalid slug format, and does not try to look up the calendar" do
-    stub_content_store_does_not_have_item("/something..etc-passwd", schema_name: "calendar")
+    stub_conditional_loader_does_not_return_content_item_for_path("/something..etc-passwd", schema_name: "calendar")
 
     expect(Calendar).not_to receive(:find)
     expect(get("/something..etc-passwd")).not_to route_to(controller: "calendar")

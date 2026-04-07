@@ -34,7 +34,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     initialiseMap () {
-      console.log('initialiseMap')
       const id = this.$module.getAttribute('id')
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
@@ -55,7 +54,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       this.map.on('app:ready', () => {
-        console.log('ready')
         this.addAllMarkers()
       })
 
@@ -138,7 +136,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         this.markers.forEach(marker => {
           console.log(marker)
           const m = this.map.addMarker(marker.name, [marker.lng, marker.lat], { color: '#0000ff' })
-          this.popups.push(m)
+          this.popups.push({
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [marker.lng, marker.lat] },
+            properties: {}
+          })
           // const popup = L.marker([marker.lat, marker.lng], { alt: marker.name, icon: this.markerIcon })
           // this.popups.push(popup)
           // popup.addTo(this.map)
@@ -149,10 +151,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           // }
         })
       }
-
+      console.log(this.popups)
       this.map.fitToBounds({
         type: 'FeatureCollection',
-        features: this.popups,
+        features: this.popups
       })
 
       return

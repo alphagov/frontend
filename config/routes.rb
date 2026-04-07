@@ -129,6 +129,9 @@ Rails.application.routes.draw do
 
     get "/organisations/hm-passport-office/contact/hm-passport-office-webchat", to: "webchat#show"
 
+    # Person pages
+    get "/person/:slug", to: "person#show"
+
     # Placeholder for attachments being virus-scanned
     get "/placeholder", to: "placeholder#show"
 

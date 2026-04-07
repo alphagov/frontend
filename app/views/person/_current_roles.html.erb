@@ -1,0 +1,32 @@
+<% if person.currently_in_a_role? %>
+  <div id="current-roles" <%= direction_rtl_class(prefix: true) %> <%= dir_attribute %> <%= lang_attribute %>>
+    <% person.current_roles.each do |role| %>
+      <div class="role_appointment role govuk-!-padding-bottom-8">
+        <%= render "govuk_publishing_components/components/heading", {
+          text: role["title"],
+          margin_bottom: 2,
+        } %>
+
+        <%= render "govuk_publishing_components/components/govspeak", {
+        } do %>
+          <%= role["details"]["body"].html_safe %>
+        <% end  %>
+
+        <% if role["document_type"] == "ministerial_role" %>
+          <p class="govuk-body-s">
+            <a href="<%= role["base_path"] %>" <%= t_lang("roles.read_more") %> class="govuk-link">
+              <%= t("roles.read_more") %>
+            </a>
+          </p>
+        <% end %>
+
+        <p class="govuk-body">
+          <%= role["links"].fetch("ordered_parent_organisations", [])
+            .map { |parent| link_to(parent["title"], parent["base_path"], class: "govuk-link") }
+            .to_sentence
+            .html_safe %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

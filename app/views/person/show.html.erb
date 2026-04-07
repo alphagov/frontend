@@ -1,1 +1,21 @@
-<p>Placeholder</p>
+<% content_for :title, person.title.html_safe %>
+
+<%= render 'govuk_publishing_components/components/machine_readable_metadata',
+           schema: :person,
+           content_item: person.content_item.content_item_data %>
+
+<%= render partial: "header", locals: { person: person } %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third <%= direction_rtl_class %>" <%= dir_attribute %> <%= lang_attribute %>>
+    <%= render partial: "image", locals: { person: person } %>
+    <%= render partial: "contents", locals: { person: person } %>
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    <%= render partial: "biography", locals: { person: person } %>
+    <%= render partial: "current_roles", locals: { person: person } %>
+    <%= render partial: "previous_roles", locals: { person: person } %>
+    <%= render partial: "shared/announcements", locals: { announcements: person.announcements, locale: I18n.locale } %>
+  </div>
+</div>

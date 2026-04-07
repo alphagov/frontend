@@ -1,0 +1,6 @@
+<% if person.currently_in_a_role? %>
+  <%= render "govuk_publishing_components/components/image_card", {
+    href: "#",
+    image_src: person.image_url,
+  } %>
+<% end %>

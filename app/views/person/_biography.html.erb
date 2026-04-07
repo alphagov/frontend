@@ -1,0 +1,13 @@
+<% if person.biography %>
+<div id="biography" class="govuk-!-padding-bottom-9 <%= direction_rtl_class %>" <%= dir_attribute %> <%= lang_attribute %>>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: t("people.biography"),
+    margin_bottom: 2,
+  } %>
+
+  <%= render "govuk_publishing_components/components/govspeak", {
+  } do %>
+    <%= person.biography.html_safe %>
+  <% end %>
+</div>
+<% end %>

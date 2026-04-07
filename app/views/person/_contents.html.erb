@@ -3,23 +3,23 @@
     contents: [
       {
         text: t("people.biography"),
-        href: "#biography"
+        href: "#biography",
       },
 
       person.currently_in_a_role? ? {
         text: t("roles.heading.one"),
-        href: "#current-roles"
+        href: "#current-roles",
       } : nil,
 
       person.has_previous_non_ministerial_roles? ? {
         text: t("people.previous_roles"),
-        href: "#previous-roles"
+        href: "#previous-roles",
       } : nil,
 
       person.announcements.items.present? ? {
         text: t("shared.schema_name.announcement.other"),
-        href: "#announcements"
+        href: "#announcements",
       } : nil,
-    ].compact
+    ].compact,
   } %>
 </div>

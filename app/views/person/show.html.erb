@@ -1,6 +1,6 @@
 <% content_for :title, person.title.html_safe %>
 
-<%= render 'govuk_publishing_components/components/machine_readable_metadata',
+<%= render "govuk_publishing_components/components/machine_readable_metadata",
            schema: :person,
            content_item: person.content_item.content_item_data %>
 

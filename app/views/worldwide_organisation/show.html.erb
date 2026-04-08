@@ -2,6 +2,82 @@
   <%= stylesheet_link_tag "views/_worldwide-organisation", media: "all" %>
 <% end %>
 
+<% if params["nav"] == "service" %>
+  <% content_for :before_content do %>
+    <%= render "govuk_publishing_components/components/service_navigation", {
+      navigation_items: [
+        {
+          text: "British Embassy Paris",
+          href: "/world/organisations/british-embassy-paris?nav=service",
+          active: true,
+        },
+        {
+          text: "Office opening times",
+          href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=service",
+        },
+        {
+          text: "Complaints procedure",
+          href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=service",
+        },
+        {
+          text: "Working for British Embassy Paris",
+          href: "/world/organisations/british-embassy-paris/about/recruitment?nav=service",
+        },
+      ],
+      full_width: false,
+    } %>
+  <% end %>
+<% end %>
+
+<% if params["nav"] == "missions" %>
+  <% content_for :before_content do %>
+    <%= render partial: "worldwide_organisation/navigation", locals: { :block => OpenStruct.new({ :name => "British Embassy Paris",
+:links => [
+  { text: "About British Embassy Paris",
+    href: "/world/organisations/british-embassy-paris?nav=missions" },
+      { text: "Office opening times",
+      href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=missions" },
+      { text: "Complaints procedure",
+      href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=missions" },
+      { text: "Working for British Embassy Paris",
+      href: "/world/organisations/british-embassy-paris/about/recruitment?nav=missions" },
+
+] }) } %>
+  <% end %>
+<% end %>
+
+<% if params["nav"] == "tabs" %>
+ <% content_for :before_content do %>
+    <div class="govuk-width-container govuk-!-margin-top-2">
+      <%= render "govuk_publishing_components/components/tabs", {
+        as_links: true,
+        tabs: [
+          {
+            href: "/world/organisations/british-embassy-paris?nav=tabs",
+            label: "British Embassy Paris",
+            active: true,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=tabs",
+            label: "Office opening times",
+            active: false,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=tabs",
+            label: "Complaints procedure",
+            active: false,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/about/recruitment?nav=tabs",
+            label: "Work for this embassy",
+            active: false,
+          },
+        ],
+      } %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= render partial: "worldwide_organisation/header", locals: { worldwide_organisation: @presenter, show_header_title: true } %>
 
 <section class="govuk-grid-row" id="about-us">
@@ -11,23 +87,36 @@
       raw(@content_item.body)
     end %>
   </div>
+  <aside class="govuk-grid-column-one-third">
+    <% if params["nav"] == "list" %>
+      <h2 class="govuk-heading-s">In this section</h2>
+      <ul class="gem-c-list govuk-list">
+        <li>British Embassy Paris
+          <ul class="gem-c-list govuk-list govuk-list--bullet govuk-!-margin-left-2">
+            <li><a class='govuk-link' href='/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=list'>Office opening times</a></li>
+            <li><a class='govuk-link' href='/world/organisations/british-embassy-paris/about/complaints-procedure?nav=list'>Complaints Procedure</a></li>
+            <li><a class='govuk-link' href='/world/organisations/british-embassy-paris/about/recruitment?nav=list'>Working for British Embassy Paris</a></li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+    <% if @presenter.social_media_accounts.any? %>
 
-  <% if @presenter.social_media_accounts.any? %>
-    <aside class="govuk-grid-column-one-third">
-      <h2 class="govuk-heading-s"><%= t("worldwide_organisation.headings.follow_us") %></h2>
-      <%= render "govuk_publishing_components/components/share_links", {
-        track_as_follow: true,
-        links: @presenter.social_media_accounts.map do |account|
-          {
-            href: account["href"],
-            text: account["title"],
-            icon: account["service_type"],
-          }
-        end,
-        margin_bottom: 8,
-      } %>
-    </aside>
-  <% end %>
+        <h2 class="govuk-heading-s"><%= t("worldwide_organisation.headings.follow_us") %></h2>
+        <%= render "govuk_publishing_components/components/share_links", {
+          track_as_follow: true,
+          links: @presenter.social_media_accounts.map do |account|
+            {
+              href: account["href"],
+              text: account["title"],
+              icon: account["service_type"],
+            }
+          end,
+          margin_bottom: 8,
+        } %>
+
+    <% end %>
+  </aside>
 </section>
 
 <% if @presenter.show_our_people_section? %>

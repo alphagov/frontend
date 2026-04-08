@@ -5,7 +5,7 @@ gem "rails", "8.1.2.1"
 
 gem "addressable"
 gem "bootsnap", require: false
-gem "dalli"
+gem "dalli", "~> 4"
 gem "dartsass-rails"
 gem "gds-api-adapters"
 gem "govuk_ab_testing"

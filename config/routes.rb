@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get "/healthcheck/live", to: proc { [200, {}, %w[OK]] }
   get "/healthcheck/ready", to: GovukHealthcheck.rack_response(
     GovukHealthcheck::EmergencyBannerRedis,
+    GovukHealthcheck::RailsCache,
   )
+
   # Crude way of handling the situation described at
   # http://stackoverflow.com/a/3443678
   get "*path.gif", to: proc { |_env| [404, {}, ["Not Found"]] }

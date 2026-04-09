@@ -17,28 +17,45 @@ private
         type: "table",
         title: "Browsers",
         caption: "Browsers sorted by the recent month's data. Percentage data is as a proportion of all sessions for that month.",
-        data: {
-          head: [
-            {
-              text: "Month",
-            },
-            {
-              text: "Chrome",
-            },
-            {
-              text: "Safari",
-            },
-            {
-              text: "Edge",
-            },
-          ],
-          rows: [
-            [{ text: "December 2025" }, { text: "42.44%" }, { text: "37.56%" }, { text: "14.84%" } ],
-            [{ text: "November 2025" }, { text: "43.02%" }, { text: "36.59%" }, { text: "15.62%" } ],
-            [{ text: "October 2025" }, { text: "43.63%" }, { text: "36.04%" }, { text: "15.74%" } ],
-          ],
-        },
+        data: load_table_data_from("govuk-browser-data-browsers.csv"),
       },
+      {
+        type: "table",
+        title: "Desktop Browsers",
+        caption: "Percentage data is as a proportion of all desktop and laptop device sessions for that month.",
+        data: load_table_data_from("govuk-browser-data-browsers.csv"),
+      },
+      {
+        type: "rich_content",
+        govspeak: caveats,
+      }
     ]
+  end
+
+  def load_table_data_from(filename)
+    table_data = {}
+    csv_rows = CSV.read(Rails.root.join("lib", "data", filename), headers: true)
+    puts(:hello)
+    table_data[:head] = csv_rows.headers.map { |key| { text: key } }
+    table_data[:rows] = csv_rows.map do |row|
+      row.map { |cell| { text: cell.second } }
+    end
+
+    table_data
+  end
+
+  def caveats
+    <<~HEREDOC
+    <h2>Caveats</h2>
+    <ol>
+      <li>Data is sourced from the main GOV.UK website, hosted at www.gov.uk. Parts of the site under different domains, such as blogs and services, collect analytics seperately and are not included in this data.</li>
+      <li>This data only includes users with JavaScript available and who explicitly opted into analytics tracking.</li>
+      <li>Mobile device usage is likely to appear inflated compared to other device types, as the analytics consent banner on GOV.UK is more visually intrusive on smaller screens.</li>
+      <li>Browsers that automatically restrict or block analytics tracking will, by their nature, be underrepresented in data or not appear at all.</li>
+      <li>Although GOV.UK draws many international visitors, it’s a UK-centric website and the majority of sessions (about 90%) originate from within the UK. The data should not be considered representative of browser usage in other countries.</li>
+      <li>Month-by-month differences can be affected by public holidays and seasonal trends, and may not represent wider trends. For example, there are notably fewer sessions from Windows devices in December and the summer months, when more people are off work.</li>
+      <li>This data is provided 'as is' without support or guarantees of accuracy. Percentages and monthly change values may not add up as expected due to rounding or removal of 'junk' data in some contexts.</li>
+    </ol>
+    HEREDOC
   end
 end

@@ -195,7 +195,7 @@ GEM
       sentry-rails (>= 5.3, < 7.0)
       sentry-ruby (>= 5.3, < 7.0)
       statsd-ruby (~> 1.5)
-    govuk_content_item_loader (2.1.1)
+    govuk_content_item_loader (2.1.2)
       gds-api-adapters (>= 99.3)
       plek (>= 1.9.0)
       railties (>= 7.2)
@@ -229,7 +229,7 @@ GEM
       reline
     htmlentities (4.4.2)
     http-accept (1.7.0)
-    http-cookie (1.1.0)
+    http-cookie (1.1.4)
       domain_name (~> 0.5)
     httparty (0.24.0)
       csv
@@ -288,7 +288,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0331)
+    mime-types-data (3.2026.0407)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (6.0.3)

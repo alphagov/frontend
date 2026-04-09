@@ -47,7 +47,7 @@ private
 
   def load_section_parent
     base_path = details["breadcrumbs"].last["base_path"]
-    response = ContentItemLoaders::ContentStoreLoader.new.load(base_path:)
+    response = GdsApi.content_store.content_item(base_path)
     ContentItemFactory.build(response)
   end
 end

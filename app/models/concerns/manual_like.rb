@@ -18,7 +18,7 @@ private
   def find_manual_content_item
     return self if %w[manual hmrc_manual].include?(schema_name)
 
-    response = ContentItemLoaders::ContentStoreLoader.new.load(base_path: content_store_response&.dig("details", "manual", "base_path"))
+    response = GdsApi.content_store.content_item(content_store_response&.dig("details", "manual", "base_path"))
     ContentItemFactory.build(response)
   end
 end

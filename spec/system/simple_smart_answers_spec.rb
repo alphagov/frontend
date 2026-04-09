@@ -79,7 +79,7 @@ RSpec.describe "SimpleSmartAnswers" do
         ],
       },
     }
-    stub_content_store_has_item("/the-bridge-of-death", @payload)
+    stub_conditional_loader_returns_content_item_for_path("/the-bridge-of-death", @payload)
   end
 
   it "renders the start page correctly" do

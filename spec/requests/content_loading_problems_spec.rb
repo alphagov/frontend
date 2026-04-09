@@ -14,7 +14,7 @@ RSpec.describe "Content Loading Problems" do
 
   context "when the content-store is missing" do
     before do
-      stub_content_store_isnt_available
+      stub_conditional_content_loader_isnt_available
     end
 
     it "responds with a 503 (matching the response from content store)" do

@@ -11,12 +11,11 @@ class ContentItemLoader
     @cache = {}
     @content_items_from_content_store = []
     @request = request
-    @default_loader = ContentItemLoaders::ContentStoreLoader.new
+    @default_loader = ContentItemLoaders::ConditionalContentLoader.new(request:)
     @alternative_loaders = [
       ContentItemLoaders::JsonFileLoader.new,
       ContentItemLoaders::YamlFileLoader.new,
       ContentItemLoaders::HubRedirectLoader.new(content_store_loader: default_loader),
-      ContentItemLoaders::GraphqlLoader.new(content_store_loader: default_loader, request:),
     ]
   end
 
@@ -33,8 +32,6 @@ private
       return loader.load(base_path:) if loader.can_load?(base_path:)
     end
 
-    default_loader.load(base_path:)
-  rescue ContentItemLoaders::UnableToLoad
     default_loader.load(base_path:)
   rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
     e

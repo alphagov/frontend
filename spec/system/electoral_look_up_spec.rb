@@ -4,7 +4,7 @@ RSpec.describe "ElectoralLookUp" do
   before do
     content = GovukSchemas::Example.find("local_transaction", example_name: "local_transaction")
     content["title"] = "Contact your local Electoral Registration Office"
-    stub_content_store_has_item("/contact-electoral-registration-office", content)
+    stub_conditional_loader_returns_content_item_for_path("/contact-electoral-registration-office", content)
   end
 
   def search_for(postcode:)

@@ -4,7 +4,7 @@ RSpec.describe "Hmrc manual" do
 
   context "when visiting a HMRC manual page" do
     before do
-      stub_content_store_has_item(base_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
       visit base_path
     end
 
@@ -106,8 +106,8 @@ RSpec.describe "Hmrc manual" do
       let(:base_path) { content_item["base_path"] }
 
       before do
-        stub_content_store_does_not_have_item("/hmrc-internal-manuals")
-        stub_content_store_has_item(base_path, content_item)
+        stub_conditional_loader_does_not_return_content_item_for_path("/hmrc-internal-manuals")
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
         visit base_path
       end
 
@@ -139,7 +139,7 @@ RSpec.describe "Hmrc manual" do
       end
 
       before do
-        stub_content_store_has_item(base_path, content_item)
+        stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
         visit base_path
       end
 
@@ -153,7 +153,7 @@ RSpec.describe "Hmrc manual" do
     let(:updates_path) { "#{base_path}/updates" }
 
     before do
-      stub_content_store_has_item(updates_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(updates_path, content_item)
       visit updates_path
     end
 

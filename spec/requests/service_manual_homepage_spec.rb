@@ -4,7 +4,7 @@ RSpec.describe "Service Manual homepage" do
     let(:base_path) { content_item.fetch("base_path") }
 
     before do
-      stub_content_store_has_item(base_path, content_item)
+      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
     end
 
     it "succeeds" do

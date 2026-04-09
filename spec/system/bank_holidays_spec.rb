@@ -7,7 +7,7 @@ RSpec.describe "BankHolidays" do
       config.acceptance_test_framework = :capybara
     end
     content_item = { base_path: "/bank-holidays", schema_name: "calendar", document_type: "calendar" }
-    stub_content_store_has_item("/bank-holidays", content_item)
+    stub_conditional_loader_returns_content_item_for_path("/bank-holidays", content_item)
     mock_calendar_fixtures
   end
 

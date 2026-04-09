@@ -1,4 +1,4 @@
-Month,Chrome,Safari,Edge
-December 2025,42.44%,37.65%,14.84%
-November 2025,42.02%,36.59%,15.62%
-October 2025,43.63%,36.04%,15.74%
+Month,Chrome,Safari,Edge,Samsung Internet,Firefox,Safari Webview,Android Webview,Opera
+December 2025,42.44%,37.65%,14.84%,3.18%,0.91%,0.36%,0.29%,0.25%
+November 2025,42.02%,36.59%,15.62%,2.91%,0.91%,0.28%,0.26%,0.24%
+October 2025,43.63%,36.04%,15.74%,2.78%,0.92%,0.22%,0.25%,0.27%

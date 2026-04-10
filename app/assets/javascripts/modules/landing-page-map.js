@@ -28,7 +28,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
 
       var consentCookie = window.GOVUK.getConsentCookie()
-      if (consentCookie && consentCookie.usage) {
+      if (consentCookie && (consentCookie.usage || consentCookie.aggregate)) {
         this.enableTracking()
       } else {
         this.startTracking = this.enableTracking.bind(this)

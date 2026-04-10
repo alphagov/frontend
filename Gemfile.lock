@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: dac629fdfb3b7b2436262a007229916e1f153faa
+  branch: test-update-cookie-categories
+  specs:
+    govuk_publishing_components (65.2.2)
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -202,16 +218,6 @@ GEM
     govuk_personalisation (1.1.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (65.2.2)
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_schemas (6.3.0)
       json-schema (>= 2.8, < 6.3)
     govuk_test (4.1.2)
@@ -789,7 +795,7 @@ DEPENDENCIES
   govuk_app_config
   govuk_content_item_loader
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   govuk_web_banners

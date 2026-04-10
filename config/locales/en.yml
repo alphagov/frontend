@@ -94,16 +94,19 @@ en:
     email: Email
   continue: Continue
   cookies:
+    aggregate-usage: Use cookies that measure general website use - for example what the most visited pages are on GOV.UK
     always_on: They always need to be on.
     clicks: what you click on while you're visiting these sites
     confirmation_message: Government services may set additional cookies and, if so, will have their own cookie policy and banner.
     confirmation_previous_referrer_link: Go back to the page you were looking at
     confirmation_title: Your cookie settings were saved
     cookie_settings: Cookie settings
-    cookies_on_govuk: Cookies on GOV.UK
+    cookies_on_govuk: Choose which cookies we use on GOV.UK
     essential_explanation: These essential cookies do things like remember your progress through a form (for example a licence application)
     explanation: Cookies are files saved on your phone, tablet or computer when you visit a website.
+    explanation_choice: Some cookies are necessary to make our website work. You can choose which other cookies you're happy for us to use.
     explanation_html: This page has a brief explanation of each type of cookie we use. If you want more details, <a href="/help/cookie-details"> read our detailed cookie information</a>.
+    explanation_link_text: Find out which cookies we use and how long we keep them for
     four_types: We use 4 types of cookie. You can choose which cookies you're happy for us to use.
     google_collection: The information is collected in a way that does not directly identify you.
     google_info: 'These cookies collect information about:'
@@ -119,14 +122,15 @@ en:
     lux_info: LUX software cookies collect and store information about how well pages performed on your device, including whether there were any performance bottlenecks or JavaScript errors.
     off-campaigns: Do not use cookies that help with communications and marketing
     off-settings: Do not use cookies that remember my settings on the site
-    off-usage: Do not use cookies that measure my website use
+    off-usage: Do not use any cookies that measure website use
     on-campaigns: Use cookies that help with communications and marketing
     on-settings: Use cookies that remember my settings on the site
-    on-usage: Use cookies that measure my website use
+    on-usage: Use additional cookies for more detailed website analysis - for example which pages you visit while you’re on GOV.UK
     pages_visited: the pages you visit and how long you spend on each page
     save_changes: Save changes
     services: Government digital services are run by different government departments, such as the Department for Work and Pensions (DWP) and HM Revenue and Customs (HMRC).
     services_additional: These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
+    services_external: GOV.UK is not responsible for the content of external websites or their use of cookies.
     third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
     preferences: These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
     types:
@@ -140,7 +144,7 @@ en:
         heading: Cookies that measure website use
         question: Do you allow cookies that measure website use?
       essential: Strictly necessary cookies
-    usage_info: We use Google Analytics cookies to measure how you use GOV.UK and government digital services.
+    usage_info: We collect some information about how you use GOV.UK so that we can improve the website. You cannot be identified from the data.
   csv_preview:
     access_limited:
       body: You are not authorised to see the preview of this CSV file because it is attached to an access limited draft document. It is not possible to preview CSVs attached to access limited draft documents. You can download the CSV file if you belong to the same organisation as the person who is publishing it.

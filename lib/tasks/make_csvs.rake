@@ -1,29 +1,27 @@
+desc "Makes CSVS suitable for /govuk-browser-data from files in /ga4_exports"
 task make_csvs: :environment do
   data_path = Rails.root.join("ga4_exports")
   keys = %w[browsers]
   dir = Dir.new(data_path)
 
-
-
   keys.each do |key|
     files_for_key = dir.each.select { |filename| filename =~ /.*-#{key}.csv/ }.sort
 
     data = []
-    header_one = []
     header_two = []
     totals = []
     next_month = nil
 
     files_for_key.each do |file|
       initial_csv = CSV.read(File.join(data_path, file))
-      csv_data = initial_csv.reject { it.empty? || it.first&.starts_with?('#') }
+      csv_data = initial_csv.reject { it.empty? || it.first&.starts_with?("#") }
       device_categories = csv_data.shift
       header_two = csv_data.shift
       # Do some comparison here to check that the headers are valid across files?
       totals = csv_data.shift
 
       device_categories.shift # remove first header line
-      totals.shift  # remove empty cell
+      totals.shift # remove empty cell
 
       month = MonthlyBrowserData.new(file, device_categories)
       month.set_totals(totals)
@@ -51,10 +49,10 @@ end
 
 def create_data_csv_file(data, device_category, type)
   browser_names = data.first.browser_names
-  filename = "browsers-#{device_category.downcase.sub(" ", "_")}-#{type}.csv"
+  filename = "browsers-#{device_category.downcase.sub(' ', '_')}-#{type}.csv"
 
   CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
-    csv << ["Month"] + browser_names
+    csv << %w[Month] + browser_names
     data.each do |month|
       csv << [month.display_date] + browser_names.map { |browser| yield(month, browser) }
     end
@@ -67,8 +65,8 @@ end
 
 def display_delta(delta)
   return "-" if delta.nil?
-  return "0.00%" if delta.round(2) == 0
-  return "+#{delta.round(2)}%" if delta.round(2) > 0
+  return "0.00%" if delta.round(2).zero?
+  return "+#{delta.round(2)}%" if delta.round(2).positive?
 
   "#{delta.round(2)}%"
 end
@@ -106,28 +104,25 @@ class MonthlyBrowserData
   end
 
   def percentage_data
-    @session_data.map do |browser, data|
-      percentages = data.map do |device_category, value|
+    @session_data.map { |browser, data|
+      percentages = data.map { |device_category, value|
         [device_category, (100.0 / @totals[device_category]) * value]
-      end.to_h
+      }.to_h
       [browser, percentages]
-    end.to_h
+    }.to_h
   end
 
   def percentage_delta_data
     pm_data = previous_month&.percentage_data
 
-    percentage_data.map do |browser, data|
-      percentage_delta = data.map do |device_category, value|
+    percentage_data.map { |browser, data|
+      percentage_delta = data.map { |device_category, value|
         delta = if pm_data
                   value - (pm_data[browser] ? pm_data[browser][device_category] : 0.0)
-                else
-                  nil
                 end
         [device_category, delta]
-      end.to_h
+      }.to_h
       [browser, percentage_delta]
-    end.to_h
+    }.to_h
   end
 end
-

@@ -28,6 +28,20 @@ private
       },
       {
         type: "table",
+        title: "Browsers by device type",
+        caption: "Percentage data is as a proportion of all sessions for that month.",
+        data: load_table_data_from("browsers-by-device-type-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-by-device-type-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-by-device-type-sessions.csv"),
+      },
+      {
+        type: "table",
         title: "Mobile browsers",
         caption: "Percentage data is as a proportion of all mobile device sessions for that month.",
         data: load_table_data_from("browsers-mobile-percentages.csv"),

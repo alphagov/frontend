@@ -97,6 +97,12 @@ private
         data: load_table_data_from("browsers-smart_tv-sessions.csv"),
       },
       {
+        type: "table",
+        title: "Operating systems",
+        caption: "Percentage data is as a proportion of all sessions for that month.",
+        data: load_table_data_from("operating-systems-sessions.csv"),
+      },
+      {
         type: "rich_content",
         govspeak: caveats,
       },

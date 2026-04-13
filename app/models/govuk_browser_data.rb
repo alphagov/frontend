@@ -17,13 +17,71 @@ private
         type: "table",
         title: "Browsers",
         caption: "Browsers sorted by the recent month's data. Percentage data is as a proportion of all sessions for that month.",
-        data: load_table_data_from("govuk-browser-data-browsers.csv"),
+        data: load_table_data_from("browsers-totals-percentages.csv"),
       },
       {
         type: "table",
-        title: "Desktop Browsers",
+        data: load_table_data_from("browsers-totals-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-totals-sessions.csv"),
+      },
+      {
+        type: "table",
+        title: "Mobile browsers",
+        caption: "Percentage data is as a proportion of all mobile device sessions for that month.",
+        data: load_table_data_from("browsers-mobile-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-mobile-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-mobile-sessions.csv"),
+      },
+      {
+        type: "table",
+        title: "Tablet browsers",
+        caption: "Percentage data is as a proportion of all tablet device sessions for that month.",
+        data: load_table_data_from("browsers-tablet-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-tablet-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-tablet-sessions.csv"),
+      },
+      {
+        type: "table",
+        title: "Desktop browsers",
         caption: "Percentage data is as a proportion of all desktop and laptop device sessions for that month.",
-        data: load_table_data_from("govuk-browser-data-browsers.csv"),
+        data: load_table_data_from("browsers-desktop-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-desktop-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-desktop-sessions.csv"),
+      },
+      {
+        type: "table",
+        title: "Smart TV and games console browsers",
+        caption: "Percentage data is as a proportion of all smart TV and game console device sessions for that month.",
+        data: load_table_data_from("browsers-desktop-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-desktop-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browsers-desktop-sessions.csv"),
       },
       {
         type: "rich_content",
@@ -34,8 +92,7 @@ private
 
   def load_table_data_from(filename)
     table_data = {}
-    csv_rows = CSV.read(Rails.root.join("lib", "data", filename), headers: true)
-    puts(:hello)
+    csv_rows = CSV.read(Rails.root.join("lib", "data", "govuk_browser_data", filename), headers: true)
     table_data[:head] = csv_rows.headers.map { |key| { text: key } }
     table_data[:rows] = csv_rows.map do |row|
       row.map { |cell| { text: cell.second } }

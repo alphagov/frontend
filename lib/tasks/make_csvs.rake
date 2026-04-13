@@ -5,7 +5,7 @@ task make_csvs: :environment do
   dir = Dir.new(data_path)
 
   keys.each do |key|
-    files_for_key = dir.each.select { |filename| filename =~ /.*-#{key}.csv/ }.sort
+    files_for_key = dir.each.select { |filename| filename =~ /.*-#{key}.csv/ }.sort.reverse
 
     data = []
     header_two = []
@@ -37,18 +37,24 @@ task make_csvs: :environment do
       next_month = month
     end
 
+    uniq_browser_names = data.each_with_object([]) { |month, names| names.concat(month.browser_names) }.uniq
+    data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
+
     data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
+    create_device_type_csv_file(data, "sessions") { |month, device_category| month.device_category_session_data[device_category] }
+    create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
+    create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
   end
 end
 
 def create_session_percentage_delta_tables(data, device_category)
-  create_data_csv_file(data, device_category, "sessions") { |month, browser| month.session_data[browser][device_category] }
-  create_data_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
-  create_data_csv_file(data, device_category, "deltas") { |month, browser| display_delta(month.percentage_delta_data[browser][device_category]) }
+  create_browser_csv_file(data, device_category, "sessions") { |month, browser| month.session_data[browser][device_category] }
+  create_browser_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
+  create_browser_csv_file(data, device_category, "deltas") { |month, browser| display_delta(month.percentage_delta_data[browser][device_category]) }
 end
 
-def create_data_csv_file(data, device_category, type)
-  browser_names = data.first.browser_names
+def create_browser_csv_file(data, device_category, type)
+  browser_names = data.first.browser_names_sorted_by_sessions
   filename = "browsers-#{device_category.downcase.sub(' ', '_')}-#{type}.csv"
 
   CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
@@ -58,6 +64,25 @@ def create_data_csv_file(data, device_category, type)
     end
   end
 end
+
+def create_device_type_csv_file(data, type)
+  device_categories = data.first.device_categories - ["Totals"]
+  filename = "browsers-by-device-type-#{type}.csv"
+
+  CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
+    csv << %w[Month] + device_categories.map { DEVICE_DISPLAY_NAMES[it] }
+    data.each do |month|
+      csv << [month.display_date] + device_categories.map { |device_category| yield(month, device_category) }
+    end
+  end
+end
+
+DEVICE_DISPLAY_NAMES = {
+  "mobile" => "Mobile",
+  "desktop" => "Desktop",
+  "tablet" => "Tablet",
+  "smart tv" => "Smart TV and games consoles",
+}
 
 def display_percent(percent)
   "#{percent.round(2)}%"
@@ -99,8 +124,43 @@ class MonthlyBrowserData
     @session_data[browser] = device_categories.map.with_index { |category, i| [category, session_data[i].to_i] }.to_h
   end
 
+  def fill_browser_session_data(browser_names)
+    browser_names.each do |browser|
+      next if @session_data[browser]
+
+      @session_data[browser] = device_categories.map.with_index { |category, i| [category, 0] }.to_h
+    end
+  end
+
   def browser_names
     @session_data.keys
+  end
+
+  def browser_names_sorted_by_sessions
+    browser_names.sort_by { |browser| @session_data[browser]["Totals"] }.reverse
+  end
+
+  def device_category_session_data
+    device_categories.map do |device_category|
+      [device_category, totals[device_category]]
+    end.to_h
+  end
+
+  def device_category_percentage_data
+    device_categories.map do |device_category|
+      [device_category, (100.0 / @totals["Totals"]) * totals[device_category]]
+    end.to_h
+  end
+
+  def device_category_delta_data
+    pm_data = previous_month&.device_category_percentage_data
+
+    device_category_percentage_data.map do |device_category, value|
+      delta = if pm_data
+        value - (pm_data[device_category] ? pm_data[device_category] : 0.0)
+      end
+      [device_category, delta]
+    end.to_h
   end
 
   def percentage_data

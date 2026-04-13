@@ -1,5 +1,4 @@
 class GovukBrowserData < FlexiblePage
-
 private
 
   def default_flexible_sections
@@ -86,7 +85,7 @@ private
       {
         type: "rich_content",
         govspeak: caveats,
-      }
+      },
     ]
   end
 
@@ -103,16 +102,16 @@ private
 
   def caveats
     <<~HEREDOC
-    <h2>Caveats</h2>
-    <ol>
-      <li>Data is sourced from the main GOV.UK website, hosted at www.gov.uk. Parts of the site under different domains, such as blogs and services, collect analytics seperately and are not included in this data.</li>
-      <li>This data only includes users with JavaScript available and who explicitly opted into analytics tracking.</li>
-      <li>Mobile device usage is likely to appear inflated compared to other device types, as the analytics consent banner on GOV.UK is more visually intrusive on smaller screens.</li>
-      <li>Browsers that automatically restrict or block analytics tracking will, by their nature, be underrepresented in data or not appear at all.</li>
-      <li>Although GOV.UK draws many international visitors, it’s a UK-centric website and the majority of sessions (about 90%) originate from within the UK. The data should not be considered representative of browser usage in other countries.</li>
-      <li>Month-by-month differences can be affected by public holidays and seasonal trends, and may not represent wider trends. For example, there are notably fewer sessions from Windows devices in December and the summer months, when more people are off work.</li>
-      <li>This data is provided 'as is' without support or guarantees of accuracy. Percentages and monthly change values may not add up as expected due to rounding or removal of 'junk' data in some contexts.</li>
-    </ol>
+      <h2>Caveats</h2>
+      <ol>
+        <li>Data is sourced from the main GOV.UK website, hosted at www.gov.uk. Parts of the site under different domains, such as blogs and services, collect analytics seperately and are not included in this data.</li>
+        <li>This data only includes users with JavaScript available and who explicitly opted into analytics tracking.</li>
+        <li>Mobile device usage is likely to appear inflated compared to other device types, as the analytics consent banner on GOV.UK is more visually intrusive on smaller screens.</li>
+        <li>Browsers that automatically restrict or block analytics tracking will, by their nature, be underrepresented in data or not appear at all.</li>
+        <li>Although GOV.UK draws many international visitors, it’s a UK-centric website and the majority of sessions (about 90%) originate from within the UK. The data should not be considered representative of browser usage in other countries.</li>
+        <li>Month-by-month differences can be affected by public holidays and seasonal trends, and may not represent wider trends. For example, there are notably fewer sessions from Windows devices in December and the summer months, when more people are off work.</li>
+        <li>This data is provided 'as is' without support or guarantees of accuracy. Percentages and monthly change values may not add up as expected due to rounding or removal of 'junk' data in some contexts.</li>
+      </ol>
     HEREDOC
   end
 end

@@ -176,7 +176,7 @@ $gap: 30px;
   margin: 0 auto;
 }
 
-div[data-flexible-section=table] {
+div[data-flexible-section="table"] {
   .flexible-section-table-wrapper {
     overflow: auto;
   }

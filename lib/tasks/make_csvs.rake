@@ -54,7 +54,7 @@ def create_session_percentage_delta_tables(data, device_category)
 end
 
 def create_browser_csv_file(data, device_category, type)
-  browser_names = data.first.browser_names_sorted_by_sessions
+  browser_names = data.first.browser_names_sorted_by_sessions(device_category)
   filename = "browsers-#{device_category.downcase.sub(' ', '_')}-#{type}.csv"
 
   CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
@@ -136,8 +136,8 @@ class MonthlyBrowserData
     @session_data.keys
   end
 
-  def browser_names_sorted_by_sessions
-    browser_names.sort_by { |browser| @session_data[browser]["Totals"] }.reverse
+  def browser_names_sorted_by_sessions(device_category)
+    browser_names.sort_by { |browser| @session_data[browser][device_category] }.reverse
   end
 
   def device_category_session_data

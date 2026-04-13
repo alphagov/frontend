@@ -1,16 +1,18 @@
 <div class="govuk-width-container">
   <div class="govuk-grid-row flexible-section">
-    <% if flexible_section.title %>
-      <%= render "govuk_publishing_components/components/heading", {
-        text: flexible_section.title,
-        heading_level: 2,
-        font_size: "l",
-        margin_bottom: 2,
-      } %>
-    <% end %>
-
     <div data-flexible-section="table">
-      <%= render "govuk_publishing_components/components/table", flexible_section.hash_for_table_component %>
+      <% if flexible_section.title %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: flexible_section.title,
+          heading_level: 2,
+          font_size: "l",
+          margin_bottom: 2,
+        } %>
+      <% end %>
+
+      <div class="flexible-section-table-wrapper">
+        <%= render "govuk_publishing_components/components/table", flexible_section.hash_for_table_component %>
+      </div>
     </div>
   </div>
 </div>

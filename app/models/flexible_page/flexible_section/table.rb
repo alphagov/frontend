@@ -11,7 +11,7 @@ module FlexiblePage::FlexibleSection
     end
 
     def hash_for_table_component
-      {caption:}.merge(data)
+      { caption: }.merge(data)
     end
   end
 end

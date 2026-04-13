@@ -1,36 +1,38 @@
 RSpec.describe "Table flexible section" do
   let(:flexible_section) { FlexiblePage::FlexibleSection::Table.new({ "data" => data }, nil) }
-  let(:data) { {
-    head: [
-      {
-        text: "Year",
-      },
-      {
-        text: "Value",
-        format: "numeric",
-      }
-    ],
-    rows: [
-      [
+  let(:data) do
+    {
+      head: [
         {
-          text: "2025",
+          text: "Year",
         },
         {
-          text: "5",
+          text: "Value",
           format: "numeric",
         },
       ],
-      [
-        {
-          text: "2026",
-        },
-        {
-          text: "6",
-          format: "numeric",
-        },
+      rows: [
+        [
+          {
+            text: "2025",
+          },
+          {
+            text: "5",
+            format: "numeric",
+          },
+        ],
+        [
+          {
+            text: "2026",
+          },
+          {
+            text: "6",
+            format: "numeric",
+          },
+        ],
       ],
-    ]
-  } }
+    }
+  end
 
   before do
     render(template: "flexible_page/flexible_sections/_table", locals: { flexible_section: })

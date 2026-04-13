@@ -1,50 +1,59 @@
 desc "Makes CSVS suitable for /govuk-browser-data from files in /ga4_exports"
 task make_csvs: :environment do
   data_path = Rails.root.join("ga4_exports")
-  keys = %w[browsers]
   dir = Dir.new(data_path)
 
-  keys.each do |key|
-    files_for_key = dir.each.select { |filename| filename =~ /.*-#{key}.csv/ }.sort.reverse
+  date_blocks = dir.each.select { |filename| filename =~ /.*.csv/ }.map { it.split("-")[0..1].join("-") }.uniq.sort.reverse
 
-    data = []
-    header_two = []
-    totals = []
-    next_month = nil
+  data = []
+  next_month = nil
 
-    files_for_key.each do |file|
-      initial_csv = CSV.read(File.join(data_path, file))
-      csv_data = initial_csv.reject { it.empty? || it.first&.starts_with?("#") }
-      device_categories = csv_data.shift
-      header_two = csv_data.shift
-      # Do some comparison here to check that the headers are valid across files?
-      totals = csv_data.shift
+  date_blocks.each do |date_block|
+    browsers_csv = CSV.read(File.join(data_path, "#{date_block}-browsers.csv"))
+    browsers_csv = browsers_csv.reject { it.empty? || it.first&.starts_with?("#") }
+    device_categories = browsers_csv.shift
+    browsers_csv.shift # get past header two
+    totals = browsers_csv.shift
 
-      device_categories.shift # remove first header line
-      totals.shift # remove empty cell
+    device_categories.shift # remove first header line
+    totals.shift # remove empty cell
 
-      month = MonthlyBrowserData.new(file, device_categories)
-      month.set_totals(totals)
+    month = MonthlyBrowserData.new(date_block, device_categories)
+    month.set_totals(totals)
 
-      csv_data.each do |row|
-        browser = row.shift
-        month.set_browser_session_data(browser, row)
-      end
-
-      data << month
-
-      next_month.set_previous_month(month) if next_month
-      next_month = month
+    browsers_csv.each do |row|
+      browser = row.shift
+      month.set_browser_session_data(browser, row)
     end
 
-    uniq_browser_names = data.each_with_object([]) { |month, names| names.concat(month.browser_names) }.uniq
-    data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
+    browsers_os_csv = CSV.read(File.join(data_path, "#{date_block}-browser-os-combos.csv"))
+    browsers_os_csv = browsers_os_csv.reject { it.empty? || it.first&.starts_with?("#") }
+    browsers_os_csv.shift # get past headers
+    browsers_os_csv.shift # get past pointless totals line
 
-    data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
-    create_device_type_csv_file(data, "sessions") { |month, device_category| month.device_category_session_data[device_category] }
-    create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
-    create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
+    browsers_os_csv.each do |row|
+      browser = row[0]
+      os_name = row[1]
+      sessions = row[2]
+
+      month.set_browser_os_combo_datapoint(browser, os_name, sessions)
+    end
+
+    data << month
+
+    next_month.set_previous_month(month) if next_month
+    next_month = month
   end
+
+  uniq_browser_names = data.each_with_object([]) { |month, names| names.concat(month.browser_names) }.uniq
+  data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
+
+  data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
+  create_device_type_csv_file(data, "sessions") { |month, device_category| month.device_category_session_data[device_category] }
+  create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
+  create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
+
+  create_os_csv_file(data, "sessions") { |month, os_name| month.os_session_data[os_name]}
 end
 
 def create_session_percentage_delta_tables(data, device_category)
@@ -77,6 +86,18 @@ def create_device_type_csv_file(data, type)
   end
 end
 
+def create_os_csv_file(data, type)
+  os_names = data.first.os_names
+  filename = "operating-systems-#{type}.csv"
+
+  CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
+    csv << %w[Month] + os_names #.map { OS_DISPLAY_NAMES[it] }
+    data.each do |month|
+      csv << [month.display_date] + os_names.map { |os_name| yield(month, os_name) }
+    end
+  end
+end
+
 DEVICE_DISPLAY_NAMES = {
   "mobile" => "Mobile",
   "desktop" => "Desktop",
@@ -97,9 +118,10 @@ def display_delta(delta)
 end
 
 class MonthlyBrowserData
-  attr_reader :data, :date, :device_categories, :previous_month, :session_data, :totals
+  attr_reader :browser_os_combo_data, :data, :date, :device_categories, :previous_month, :session_data, :totals
 
   def initialize(filename, device_categories)
+    @browser_os_combo_data = {}
     @data = {}
     @date = Date.parse(filename.split("-")[0..1].join("/"))
     @device_categories = device_categories
@@ -120,6 +142,11 @@ class MonthlyBrowserData
     @totals = device_categories.map.with_index { |category, i| [category, totals[i].to_i] }.to_h
   end
 
+  def set_browser_os_combo_datapoint(browser, os_name, sessions)
+    @browser_os_combo_data[browser] ||= {}
+    @browser_os_combo_data[browser][os_name] = sessions.to_i
+  end
+
   def set_browser_session_data(browser, session_data)
     @session_data[browser] = device_categories.map.with_index { |category, i| [category, session_data[i].to_i] }.to_h
   end
@@ -130,6 +157,18 @@ class MonthlyBrowserData
 
       @session_data[browser] = device_categories.map.with_index { |category, i| [category, 0] }.to_h
     end
+  end
+
+  def os_names
+    @browser_os_combo_data.each_with_object([]) { |(k, v), os_names| os_names.concat(v.keys) }.uniq
+  end
+
+  def os_session_data
+    os_names.map do |os_name|
+      sessions = 0
+      @browser_os_combo_data.each { |(k, v)| sessions += (v[os_name] || 0) }
+      [os_name, sessions]
+    end.to_h
   end
 
   def browser_names

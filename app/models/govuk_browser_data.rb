@@ -86,15 +86,15 @@ private
         type: "table",
         title: "Smart TV and games console browsers",
         caption: "Percentage data is as a proportion of all smart TV and game console device sessions for that month.",
-        data: load_table_data_from("browsers-desktop-percentages.csv"),
+        data: load_table_data_from("browsers-smart_tv-percentages.csv"),
       },
       {
         type: "table",
-        data: load_table_data_from("browsers-desktop-deltas.csv"),
+        data: load_table_data_from("browsers-smart_tv-deltas.csv"),
       },
       {
         type: "table",
-        data: load_table_data_from("browsers-desktop-sessions.csv"),
+        data: load_table_data_from("browsers-smart_tv-sessions.csv"),
       },
       {
         type: "rich_content",

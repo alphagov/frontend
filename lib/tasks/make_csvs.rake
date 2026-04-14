@@ -50,12 +50,16 @@ task make_csvs: :environment do
   uniq_browser_names = data.each_with_object([]) { |month, names| names.concat(month.browser_names) }.uniq
   data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
 
+  uniq_os_names = data.each_with_object([]) { |month, names| names.concat(month.os_names) }.uniq
+
   data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
   create_device_type_csv_file(data, "sessions") { |month, device_category| number_with_delimiter(month.device_category_session_data[device_category]) }
   create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
   create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
 
   create_os_csv_file(data, "sessions") { |month, os_name| number_with_delimiter(month.os_session_data[os_name]) }
+  create_os_csv_file(data, "percentages") { |month, os_name| display_percent(month.os_session_percentage_data[os_name]) }
+  create_os_csv_file(data, "deltas") { |month, os_name| display_delta(month.os_session_delta_data[os_name]) }
 end
 
 def create_session_percentage_delta_tables(data, device_category)
@@ -89,7 +93,7 @@ def create_device_type_csv_file(data, type)
 end
 
 def create_os_csv_file(data, type)
-  os_names = data.first.os_names
+  os_names = data.first.os_names_sorted_by_sessions
   filename = "operating-systems-#{type}.csv"
 
   CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
@@ -108,7 +112,7 @@ DEVICE_DISPLAY_NAMES = {
 }
 
 def display_percent(percent)
-  "#{percent.round(2)}%"
+  "#{(percent || 0).round(2)}%"
 end
 
 def display_delta(delta)
@@ -120,7 +124,7 @@ def display_delta(delta)
 end
 
 class MonthlyBrowserData
-  attr_reader :browser_os_combo_data, :data, :date, :device_categories, :previous_month, :session_data, :totals
+  attr_reader :browser_os_combo_data, :data, :date, :device_categories, :previous_month, :session_data, :total_sessions, :totals
 
   def initialize(filename, device_categories)
     @browser_os_combo_data = {}
@@ -142,6 +146,7 @@ class MonthlyBrowserData
 
   def set_totals(totals)
     @totals = device_categories.map.with_index { |category, i| [category, totals[i].to_i] }.to_h
+    @total_sessions = @totals["Totals"]
   end
 
   def set_browser_os_combo_datapoint(browser, os_name, sessions)
@@ -165,11 +170,30 @@ class MonthlyBrowserData
     @browser_os_combo_data.each_with_object([]) { |(k, v), os_names| os_names.concat(v.keys) }.uniq
   end
 
+  def os_names_sorted_by_sessions
+    os_names.sort_by { |os_name| os_session_data[os_name] }.reverse
+  end
+
   def os_session_data
     os_names.map do |os_name|
       sessions = 0
       @browser_os_combo_data.each { |(k, v)| sessions += (v[os_name] || 0) }
       [os_name, sessions]
+    end.to_h
+  end
+
+  def os_session_percentage_data
+    os_session_data.transform_values { |v| (100.0 / @total_sessions) * v }
+  end
+
+  def os_session_delta_data
+    pm_data = previous_month&.os_session_percentage_data
+
+    os_session_percentage_data.map do |os_name, value|
+      delta = if pm_data
+        value - (pm_data[os_name] ? pm_data[os_name] : 0.0)
+      end
+      [os_name, delta]
     end.to_h
   end
 
@@ -189,7 +213,7 @@ class MonthlyBrowserData
 
   def device_category_percentage_data
     device_categories.map do |device_category|
-      [device_category, (100.0 / @totals["Totals"]) * totals[device_category]]
+      [device_category, (100.0 / @total_sessions) * totals[device_category]]
     end.to_h
   end
 

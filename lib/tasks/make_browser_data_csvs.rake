@@ -52,20 +52,23 @@ task make_browser_data_csvs: :environment do
 
   uniq_os_names = data.each_with_object([]) { |month, names| names.concat(month.os_names) }.uniq
 
-  data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
-  create_device_type_csv_file(data, "sessions") { |month, device_category| number_with_delimiter(month.device_category_session_data[device_category]) }
+  data.first.device_categories.each do |device_category|
+    create_browser_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
+    create_browser_csv_file(data, device_category, "deltas") { |month, browser| display_delta(month.percentage_delta_data[browser][device_category]) }
+    create_browser_csv_file(data, device_category, "sessions") { |month, browser| number_with_delimiter(month.session_data[browser][device_category]) }
+  end
+
   create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
   create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
+  create_device_type_csv_file(data, "sessions") { |month, device_category| number_with_delimiter(month.device_category_session_data[device_category]) }
 
-  create_os_csv_file(data, "sessions") { |month, os_name| number_with_delimiter(month.os_session_data[os_name]) }
   create_os_csv_file(data, "percentages") { |month, os_name| display_percent(month.os_session_percentage_data[os_name]) }
   create_os_csv_file(data, "deltas") { |month, os_name| display_delta(month.os_session_delta_data[os_name]) }
-end
+  create_os_csv_file(data, "sessions") { |month, os_name| number_with_delimiter(month.os_session_data[os_name]) }
 
-def create_session_percentage_delta_tables(data, device_category)
-  create_browser_csv_file(data, device_category, "sessions") { |month, browser| number_with_delimiter(month.session_data[browser][device_category]) }
-  create_browser_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
-  create_browser_csv_file(data, device_category, "deltas") { |month, browser| display_delta(month.percentage_delta_data[browser][device_category]) }
+  create_combos_csv_file(data, "percentages") { |month, browser, os_name| display_percent(month.browser_os_combo_percentage_data[[browser, os_name]]) }
+  create_combos_csv_file(data, "deltas") { |month, browser, os_name| display_delta(month.browser_os_combo_delta_data[[browser, os_name]]) }
+  create_combos_csv_file(data, "sessions") { |month, browser, os_name| number_with_delimiter(month.browser_os_combo_session_data[[browser, os_name]]) }
 end
 
 def create_browser_csv_file(data, device_category, type)
@@ -100,6 +103,18 @@ def create_os_csv_file(data, type)
     csv << %w[Month] + os_names #.map { OS_DISPLAY_NAMES[it] }
     data.each do |month|
       csv << [month.display_date] + os_names.map { |os_name| yield(month, os_name) }
+    end
+  end
+end
+
+def create_combos_csv_file(data, type)
+  browser_os_combos = data.first.browser_os_combos_filtered_and_sorted
+  filename = "browser-os-combos-#{type}.csv"
+
+  CSV.open(Rails.root.join("lib", "data", "govuk_browser_data", filename), "w") do |csv|
+    csv << %w[Month] + browser_os_combos.map { |(browser, os_name)| "#{browser} & #{os_name}" }
+    data.each do |month|
+      csv << [month.display_date] + browser_os_combos.map { |(browser, os_name)| yield(month, browser, os_name) }
     end
   end
 end
@@ -150,8 +165,8 @@ class MonthlyBrowserData
   end
 
   def set_browser_os_combo_datapoint(browser, os_name, sessions)
-    @browser_os_combo_data[browser] ||= {}
-    @browser_os_combo_data[browser][os_name] = sessions.to_i
+    key = [browser, os_name]
+    @browser_os_combo_data[key] = sessions.to_i
   end
 
   def set_browser_session_data(browser, session_data)
@@ -166,18 +181,43 @@ class MonthlyBrowserData
     end
   end
 
+  def browser_os_combos_filtered_and_sorted
+    @browser_os_combo_data.reject { |k, v| v < 1000 }.sort_by { |k, v| v }.reverse.map { |k, v| k }
+  end
+
   def os_names
-    @browser_os_combo_data.each_with_object([]) { |(k, v), os_names| os_names.concat(v.keys) }.uniq
+    @browser_os_combo_data.each_with_object([]) do |(k, v), os_names|
+      os_names << k.second
+    end.uniq
   end
 
   def os_names_sorted_by_sessions
     os_names.sort_by { |os_name| os_session_data[os_name] }.reverse
   end
 
+  def browser_os_combo_session_data
+    @browser_os_combo_data
+  end
+
+  def browser_os_combo_percentage_data
+    browser_os_combo_session_data.transform_values { |v| (100.0 / @total_sessions) * v }
+  end
+
+  def browser_os_combo_delta_data
+    pm_data = previous_month&.browser_os_combo_percentage_data
+
+    browser_os_combo_percentage_data.map do |combo, value|
+      delta = if pm_data
+        value - (pm_data[combo] ? pm_data[combo] : 0.0)
+      end
+      [combo, delta]
+    end.to_h
+  end
+
   def os_session_data
     os_names.map do |os_name|
       sessions = 0
-      @browser_os_combo_data.each { |(k, v)| sessions += (v[os_name] || 0) }
+      @browser_os_combo_data.each { |(k, v)| sessions += (k.second == os_name ? v : 0) }
       [os_name, sessions]
     end.to_h
   end
@@ -206,15 +246,11 @@ class MonthlyBrowserData
   end
 
   def device_category_session_data
-    device_categories.map do |device_category|
-      [device_category, totals[device_category]]
-    end.to_h
+    device_categories.map { |device_category| [device_category, totals[device_category]] }.to_h
   end
 
   def device_category_percentage_data
-    device_categories.map do |device_category|
-      [device_category, (100.0 / @total_sessions) * totals[device_category]]
-    end.to_h
+    device_category_session_data.transform_values { |v| (100.0 / @total_sessions) * v }
   end
 
   def device_category_delta_data

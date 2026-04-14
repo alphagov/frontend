@@ -111,6 +111,20 @@ private
         data: load_table_data_from("operating-systems-sessions.csv"),
       },
       {
+        type: "table",
+        title: "Most used browser & OS combinations",
+        caption: "The 20 most popular browser/OS combinations as of the most recent month's data. Percentage data is as a percentage of all sessions for that month.",
+        data: load_table_data_from("browser-os-combos-percentages.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browser-os-combos-deltas.csv"),
+      },
+      {
+        type: "table",
+        data: load_table_data_from("browser-os-combos-sessions.csv"),
+      },
+      {
         type: "rich_content",
         govspeak: caveats,
       },

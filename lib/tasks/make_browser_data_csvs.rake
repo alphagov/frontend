@@ -1,5 +1,5 @@
 desc "Makes CSVS suitable for /govuk-browser-data from files in /ga4_exports"
-task make_csvs: :environment do
+task make_browser_data_csvs: :environment do
   include ActionView::Helpers::NumberHelper
 
   data_path = Rails.root.join("ga4_exports")

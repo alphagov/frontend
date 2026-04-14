@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   get "/find-local-council/multiple_authorities" => "find_local_council#multiple_authorities"
   get "/find-local-council/:authority_slug" => "find_local_council#result"
 
+  get "/govuk-browser-data", to: "govuk_browser_data#show"
+
   scope "/hmrc-internal-manuals" do
     get "/:slug/updates", to: "hmrc_manual#updates"
     get "/:slug", to: "hmrc_manual#show"

@@ -9,14 +9,6 @@ class LandingPage < ContentItem
     @breadcrumbs = content_store_response.dig("details", "breadcrumbs")&.map { { title: _1["title"], url: _1["href"] } }
     @navigation_groups = (content_store_response.dig("details", "navigation_groups") || []).index_by { _1["id"] }
     @blocks = (content_store_response.dig("details", "blocks") || []).map { |block_hash| BlockFactory.build(block_hash, self) }
-    @theme = safe_theme(content_store_response.dig("details", "theme"))
-  end
-
-private
-
-  def safe_theme(value)
-    return value if value == "prime-ministers-office-10-downing-street"
-
-    "default"
+    @theme = "prime-ministers-office-10-downing-street"
   end
 end

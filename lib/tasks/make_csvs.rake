@@ -1,5 +1,7 @@
 desc "Makes CSVS suitable for /govuk-browser-data from files in /ga4_exports"
 task make_csvs: :environment do
+  include ActionView::Helpers::NumberHelper
+
   data_path = Rails.root.join("ga4_exports")
   dir = Dir.new(data_path)
 
@@ -49,15 +51,15 @@ task make_csvs: :environment do
   data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
 
   data.first.device_categories.each { |device_category| create_session_percentage_delta_tables(data, device_category) }
-  create_device_type_csv_file(data, "sessions") { |month, device_category| month.device_category_session_data[device_category] }
+  create_device_type_csv_file(data, "sessions") { |month, device_category| number_with_delimiter(month.device_category_session_data[device_category]) }
   create_device_type_csv_file(data, "percentages") { |month, device_category| display_percent(month.device_category_percentage_data[device_category]) }
   create_device_type_csv_file(data, "deltas") { |month, device_category| display_delta(month.device_category_delta_data[device_category]) }
 
-  create_os_csv_file(data, "sessions") { |month, os_name| month.os_session_data[os_name]}
+  create_os_csv_file(data, "sessions") { |month, os_name| number_with_delimiter(month.os_session_data[os_name]) }
 end
 
 def create_session_percentage_delta_tables(data, device_category)
-  create_browser_csv_file(data, device_category, "sessions") { |month, browser| month.session_data[browser][device_category] }
+  create_browser_csv_file(data, device_category, "sessions") { |month, browser| number_with_delimiter(month.session_data[browser][device_category]) }
   create_browser_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
   create_browser_csv_file(data, device_category, "deltas") { |month, browser| display_delta(month.percentage_delta_data[browser][device_category]) }
 end

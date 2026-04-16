@@ -56,6 +56,7 @@
       </div>
     </div>
   </section>
+
   <% if postcode_provided? && !location_error %>
     <%= content_tag "section", id: results_anchor, class: "places-results",
       data: {
@@ -71,6 +72,11 @@
             heading: {
               text: "Results shown on map",
             },
+            map_config: {
+              centre_lat: 55.9533,
+              centre_lng: -3.1883,
+              zoom: 12,
+            }
             hide_markers_beneath: true,
           } %>
           <%= render "govuk_publishing_components/components/heading", {

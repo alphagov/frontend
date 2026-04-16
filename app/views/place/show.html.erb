@@ -68,7 +68,7 @@
       } do %>
         <% if @places_presenter.places.any? %>
           <%= render "components/map", {
-            geojson: "/api/places/driving-test-centres.geojson",
+            url: "/api/places/driving-test-centres.geojson",
             heading: {
               text: "Results shown on map",
             },

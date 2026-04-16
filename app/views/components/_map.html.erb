@@ -1,0 +1,50 @@
+<%
+  copyright ||= nil
+  map_config = local_assigns[:map_config] || {}
+  markers = local_assigns[:markers] || nil
+  geojson = local_assigns[:url]
+  marker = local_assigns[:marker_shape] || "pin"
+  hide_markers_beneath ||= nil
+  height ||= nil
+
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.set_id("map-#{SecureRandom.hex(4)}")
+  component_helper.add_data_attribute({ module: "map" })
+  # component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
+  component_helper.add_data_attribute({ config: map_config })
+  component_helper.add_data_attribute({ markers: markers.to_json }) if markers
+  # component_helper.add_data_attribute({ geojson: geojson }) if geojson
+  # component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
+  component_helper.add_data_attribute({ height: height })
+%>
+<% if minimum_map_data?(map_config, markers, geojson) %>
+  <%= render "govuk_publishing_components/components/skip_link", {
+    text: "Skip map",
+    href: "#post-map",
+  } %>
+  <%= javascript_include_tag "components/map/maplibre.js", integrity: false %>
+  <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+
+  <%= tag.div(**component_helper.all_attributes) do %>
+    <div class="app-c-map"></div>
+    <% if copyright %>
+      <div class="govuk-grid-row app-c-map__copyright">
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body-s app-c-map__copyright-text">
+            <%= copyright %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <% if markers and !hide_markers_beneath %>
+      <%= render "govuk_publishing_components/components/details", {
+        title: "Locations on this map",
+        classes: "js-list-markers",
+      } do %>
+        <ul class="govuk-list govuk-list--bullet">
+        </ul>
+      <% end %>
+    <% end %>
+  <% end %>
+  <div id="post-map"></div>
+<% end %>

@@ -1,0 +1,46 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Birmingham",
+        "description": "A large city."
+      },
+      "geometry": {
+        "coordinates": [
+          -1.89032729180704,
+          52.485470314900795
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Coventry",
+        "description": "Another large city"
+      },
+      "geometry": {
+        "coordinates": [
+          -1.4915442661594511,
+          52.40292688379728
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Wolverhampton"
+      },
+      "geometry": {
+        "coordinates": [
+          -2.127508995156802,
+          52.5862548496693
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

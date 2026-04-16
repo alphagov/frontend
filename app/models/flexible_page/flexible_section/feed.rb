@@ -21,6 +21,8 @@ module FlexiblePage::FlexibleSection
     end
 
     def items_no_description
+      return unless items
+
       items.map do |i|
         {
           link: i[:link],
@@ -30,6 +32,8 @@ module FlexiblePage::FlexibleSection
     end
 
     def items
+      return unless flexible_section_hash["items"]
+
       flexible_section_hash["items"].map do |i|
         {
           link: {

@@ -371,6 +371,7 @@ details:
           public_updated_at: "2025-10-31 10:00:00 +0000"
           document_type: "Statutory guidance"
     see_all_items_link: "/search/all"
+    see_all_items_link_text: See all updates
     share_links_heading_text: Follow us
     share_links:
       - href: "/facebook-share-link"
@@ -378,6 +379,14 @@ details:
         icon: "facebook"
         data_attributes:
           module: "example"
+  - type: feed
+    feed_heading_text: Latest
+    email_signup_link: "/something"
+    share_links_heading_text: Follow us
+    share_links:
+      - href: "/facebook-share-link"
+        text: "Facebook"
+        icon: "facebook"
   - type: featured
     ordered_featured_documents:
       - href: "/not-a-page"

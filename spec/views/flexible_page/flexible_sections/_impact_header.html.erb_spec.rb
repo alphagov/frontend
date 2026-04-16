@@ -61,6 +61,11 @@ RSpec.describe "Impact header flexible section" do
       expect(rendered).to have_selector(".impact-header.impact-header--plain")
     end
 
+    it "does not have a caption unless one is provided" do
+      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true) })
+      expect(rendered).not_to have_selector(".impact-header .gem-c-details")
+    end
+
     it "can render a caption on the plain variant" do
       render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, nil, nil, true) })
       expect(rendered).to have_selector(".impact-header.impact-header--plain")

@@ -43,7 +43,7 @@ module FlexiblePage::FlexibleSection
     end
 
     def build_caption
-      return unless image && image[:caption] && flexible_section_hash["image_type"] != "logo"
+      return unless image && image[:caption].present? && flexible_section_hash["image_type"] != "logo"
 
       theme = "black" if "--govuk".in?(@modifier_classes) # Enables black text for our blue header.
       inverse = true if "--notable-death".in?(@modifier_classes) # Enables white text for our black header.

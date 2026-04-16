@@ -16,6 +16,18 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
     "variant" => "govuk",
   }
 
+  header_without_caption = {
+    "title" => "This is the page H1",
+    "description" => "This is the lead paragraph",
+    "image" => {
+      "caption" => "",
+      "sources" => {
+        "desktop" => "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
+        "desktop_2x" => "https://assets.publishing.service.gov.uk/media/67472570cf0d45234dd8d0a8/hero_desktop_2x_F_Desktop_HD-50.jpg",
+      },
+    },
+  }
+
   header_without_image = {
     "title" => "Page title",
     "description" => "description",
@@ -97,6 +109,16 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
       expect(impact.title).to eq("Page title")
       expect(impact.description).to eq("description")
       expect(impact.image).to be(false)
+      expect(impact.caption).to be_nil
+    end
+  end
+
+  describe "when there is no caption" do
+    let(:content_hash) do
+      header_without_caption
+    end
+
+    it "returns no caption" do
       expect(impact.caption).to be_nil
     end
   end

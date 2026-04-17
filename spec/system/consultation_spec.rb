@@ -217,7 +217,7 @@ RSpec.describe "Consultation" do
         within(".gem-c-share-links") do
           expect(page).to have_css("h2", text: "Share this page")
           expect(page).to have_css("a", text: "Facebook")
-          expect(page).to have_css("a", text: "Twitter")
+          expect(page).to have_css("a", text: "X")
         end
       end
     end

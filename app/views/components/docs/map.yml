@@ -61,39 +61,27 @@ examples:
         text: London stations
         margin_bottom: 4
       markers:
-      - lat: 51.5163
-        lng: -0.1766
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
         properties:
           name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
-      - lat: 51.5316
-        lng: -0.1236
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1236
+          - 51.5316
         properties:
           name: Kings Cross station
-          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
-      - lat: 51.5224
-        lng: -0.1632
-        properties:
-          name: Marylebone Station
-  with_circle_markers:
-    data:
-      heading:
-        text: London stations
-        margin_bottom: 4
-      marker_shape: circle
-      markers:
-      - lat: 51.5163
-        lng: -0.1766
-        properties:
-          name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
-      - lat: 51.5316
-        lng: -0.1236
-        properties:
-          name: Kings Cross station
-          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
-      - lat: 51.5224
-        lng: -0.1632
+          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1632
+          - 51.5224
         properties:
           name: Marylebone Station
   hide_markers_beneath:
@@ -104,18 +92,27 @@ examples:
         text: London stations
         margin_bottom: 4
       markers:
-      - lat: 51.5163
-        lng: -0.1766
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
         properties:
           name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
-      - lat: 51.5316
-        lng: -0.1236
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1236
+          - 51.5316
         properties:
           name: Kings Cross station
-          description: "Opened in 1852 and built on the site of a smallpox and fever hospital."
-      - lat: 51.5224
-        lng: -0.1632
+          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1632
+          - 51.5224
         properties:
           name: Marylebone Station
   passed_geojson:
@@ -129,11 +126,14 @@ examples:
         text: Birmingham and surrounding places
         margin_bottom: 4
       markers:
-      - lat: 51.5163
-        lng: -0.1766
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
         properties:
           name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.
   custom_height:
     description: The map defaults to a height of 500px but this can be overridden if required.
     data:
@@ -141,12 +141,19 @@ examples:
       heading:
         text: Paddington station
         margin_bottom: 4
+      map_config:
+        centre_lat: 51.5163
+        centre_lng: -0.1766
+        zoom: 12
       markers:
-      - lat: 51.5163
-        lng: -0.1766
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
         properties:
           name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.
   with_copyright:
     data:
       copyright: Contains OS data &copy; Crown copyright and database rights 2026
@@ -154,13 +161,12 @@ examples:
       heading:
         text: Paddington station
         margin_bottom: 4
-      map_config:
-        centre_lat: 55.9533
-        centre_lng: -3.1883
-        zoom: 12
       markers:
-      - lat: 51.5163
-        lng: -0.1766
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
         properties:
           name: Paddington Station
-          description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.

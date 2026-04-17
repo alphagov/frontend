@@ -1,4 +1,4 @@
-/* global L */
+/* global L, defra */
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
@@ -29,17 +29,17 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         centre_lat: 51.505,
         centre_lng: -0.09,
         zoom: 8,
-        minZoom: 7,
-        maxZoom: 16,
-        maxBounds: [
-          [49.5, -10.5],
-          [62, 6]
-        ],
+        // minZoom: 7,
+        // maxZoom: 16,
+        // maxBounds: [
+        //   [49.5, -10.5],
+        //   [62, 6]
+        // ],
         attributionControl: false
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       this.config = Object.assign(allMapOptions, passedConfig)
-      this.markers = JSON.parse(this.$module.getAttribute('data-markers'))
+      this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
 
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
@@ -59,7 +59,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         return
       }
       this.initialiseMap()
-      this.addAllMarkers()
     }
 
     initialiseMap () {
@@ -67,44 +66,51 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
-      if (this.height) { this.map_element.style.height = `${this.height}px` }
 
-      this.map = L.map(this.map_id, this.config)
-      const mask = L.geoJSON([{
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [[-180, 90], [180, 90], [180, -90], [-180, -90], [-180, 90]],
-              [[-11, 49.5], [-11, 62], [3, 62], [3, 51.5], [-3, 49.5], [-11, 49.5]]
-            ]
-          }
-        }]
-      }], {
-        style: {
-          color: '#d7e0e5',
-          fillOpacity: 1,
-          interactive: false
+      this.interactPlugin = defra.interactPlugin({
+        deselectOnClickOutside: true
+      })
+
+      this.map = new defra.InteractiveMap(this.map_id, {
+        mapProvider: defra.maplibreProvider(),
+        behaviour: 'hybrid',
+        mapLabel: 'FIXME',
+        zoom: this.config.zoom,
+        center: [this.config.centre_lng, this.config.centre_lat],
+        containerHeight: `${this.height}px`,
+        mapStyle: {
+          url: 'https://tiles.openfreemap.org/styles/liberty',
+          attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
+          backgroundColor: '#f5f5f0'
+        },
+        plugins: [this.interactPlugin]
+      })
+
+      this.map.on('map:ready', () => {
+        this.addAllMarkers()
+      })
+
+      this.map.on('interact:selectionchange', (e) => {
+        if (e.selectedMarkers.length > 0) {
+          var marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
+          marker = this.markers[marker]
+          this.map.addPanel('the-panel', {
+            focus: false,
+            label: marker.name,
+            html: this.createPopupContent(marker),
+            mobile: { slot: 'drawer', dismissible: true },
+            tablet: { slot: 'left-top', dismissible: true, width: '280px' },
+            desktop: { slot: 'left-top', dismissible: true, width: '280px' }
+          })
+        } else {
+          this.map.hidePanel('the-panel')
         }
       })
-      mask.addTo(this.map)
-      this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
 
-      // Load and display ZXY tile layer on the map
-      const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
-      basemap.addTo(this.map)
-    }
-
-    createMarker (feature, latlng) {
-      const marker = L.marker(latlng, { alt: feature.properties.name, icon: this.markerIcon })
-      this.popups.push(marker)
-
-      const popupContent = this.createPopupContent(feature)
-      this.popupsList.push(popupContent)
-      return marker
+      this.map.on('app:panelclosed', (e) => {
+        console.log('panelclosed', e)
+        this.interactPlugin.clear()
+      })
     }
 
     createPopupContent (feature) {
@@ -115,6 +121,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return popupContent
     }
 
+    addMarkers () {
+      this.markers.forEach((marker, index) => {
+        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates)
+      })
+    }
+
     async addAllMarkers () {
       if (this.geoJsonUrl) {
         try {
@@ -123,43 +135,24 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             throw new Error(`Response status: ${response.status}`)
           }
           const result = await response.json()
-          L.geoJSON(result, {
-            pointToLayer: (feature, latlng) => {
-              return this.createMarker(feature, latlng)
-            },
-            onEachFeature: (feature, layer) => {
-              layer.bindPopup(this.createPopupContent(feature), { maxWidth: 200 })
-            }
-          }).addTo(this.map)
+          if (this.markers) {
+            this.markers = this.markers.concat(result.features)
+          }
+          this.addMarkers()
         } catch (error) {
           console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
         }
+      } else if (this.markers) {
+        this.addMarkers()
       }
+      this.interactPlugin.enable()
 
-      if (this.markers) {
-        this.markers.forEach(feature => {
-          const marker = this.createMarker(feature, [feature.lat, feature.lng])
-          marker.addTo(this.map)
-          marker.bindPopup(this.createPopupContent(feature), { maxWidth: 200 })
+      if (this.markers.length) {
+        console.log('fitting bounds', this.markers)
+        this.map.fitToBounds({
+          type: 'FeatureCollection',
+          features: this.markers
         })
-      }
-
-      if (this.popups.length) {
-        const group = new L.FeatureGroup(this.popups)
-        this.map.fitBounds(group.getBounds(), { padding: [20, 20] })
-
-        const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
-        const popupsListEl = this.$module.querySelector('.js-list-markers ul')
-
-        if (popupsListWrapper && popupsListEl) {
-          popupsListWrapper.classList.add('app-c-map__markers-list--visible')
-          this.popupsList.sort()
-          this.popupsList.forEach(popup => {
-            const listItem = document.createElement('li')
-            listItem.innerHTML = popup
-            popupsListEl.appendChild(listItem)
-          })
-        }
       }
     }
   }

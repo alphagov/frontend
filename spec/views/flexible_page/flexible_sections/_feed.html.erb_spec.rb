@@ -69,6 +69,14 @@ RSpec.describe "Feed flexible section" do
 
       expect(ga4_link_data).to eq({ "event_name" => "navigation", "type" => "subscribe", "index_link" => 1, "index_total" => 1, "section" => "Latest" })
     end
+
+    context "when there are no latest items" do
+      let(:flexible_section) { FlexiblePage::FlexibleSection::Feed.new(section_hash.except("items"), nil) }
+
+      it "does not show the latest section" do
+        expect(rendered).not_to have_selector("[data-flexible-section=feed_document_list]")
+      end
+    end
   end
 
   describe "share links" do
@@ -99,6 +107,15 @@ RSpec.describe "Feed flexible section" do
 
       it "does not show the share links element" do
         expect(rendered).not_to have_selector("[data-flexible-section=feed_share_links]")
+      end
+    end
+
+    context "when there are no latest items" do
+      let(:flexible_section) { FlexiblePage::FlexibleSection::Feed.new(section_hash.except("items"), nil) }
+
+      it "still shows the share links element" do
+        expect(rendered).to have_selector("[data-flexible-section=feed_share_links]")
+        expect(rendered).not_to have_selector("[data-flexible-section=feed_document_list]")
       end
     end
   end

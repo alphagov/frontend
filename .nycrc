@@ -13,6 +13,7 @@
     "public/assets/frontend/test-dependencies-*",
     "public/assets/frontend/dependencies-*",
     "public/assets/frontend/components/map/leaflet-*",
+    "public/assets/frontend/components/map/defra-*",
     "public/assets/frontend/views/landing_page/map/leaflet-*",
     "public/assets/frontend/views/landing_page/map/data/cdc.geojson-*",
     "public/assets/frontend/views/landing_page/map/data/hub.geojson-*",

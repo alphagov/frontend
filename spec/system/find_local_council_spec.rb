@@ -73,7 +73,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "adds GA4 attributes for exit link tracking" do
-          element = page.find(".gem-c-button")
+          element = page.find("main .gem-c-button")
           data_module = element["data-module"]
           expected_data_module = "ga4-link-tracker"
           ga4_link_attribute = element["data-ga4-link"]

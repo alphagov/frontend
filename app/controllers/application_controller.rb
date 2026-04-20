@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
     I18n.locale = I18n.default_locale
   end
 
+  after_action do
+    LogStasher.store[:cache_max_age] = response.cache_control[:max_age]
+    LogStasher.store[:cache_public] = response.cache_control[:public]
+  end
+
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
   rescue_from GdsApi::HTTPErrorResponse, with: :error_503

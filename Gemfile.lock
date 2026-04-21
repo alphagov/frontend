@@ -157,7 +157,7 @@ GEM
       railties (>= 6.1.0)
     ffi (1.17.3)
     find_a_port (1.0.1)
-    gds-api-adapters (103.3.0)
+    gds-api-adapters (103.3.1)
       addressable
       link_header
       null_logger

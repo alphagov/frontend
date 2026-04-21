@@ -9,14 +9,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
 
-      const allMapOptions = {
+      this.config = {
         centre_lat: 51.505,
         centre_lng: -0.09,
         zoom: 8,
         minZoom: 4
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
-      this.config = Object.assign(allMapOptions, passedConfig)
+      this.config = Object.assign(this.config, passedConfig)
 
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
@@ -52,7 +52,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         center: [this.config.centre_lng, this.config.centre_lat],
         containerHeight: `${this.config.height}px`,
         mapStyle: {
-          url: '/assets/frontend/components/map/liberty',
+          url: window.GOVUK.mapComponentStyles,
           // attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
           backgroundColor: '#f5f5f0'
         },

@@ -6,7 +6,7 @@
 //= link components/map.js
 //= link components/map/defra-map.js
 //= link components/map/map_test.geojson
-//= link components/map/liberty.json
+//= link components/map/map-style-liberty.js
 //= link views/travel-advice.js
 //= link views/landing_page/map/leaflet.js
 //= link views/landing_page/map/data/lookup.js

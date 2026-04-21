@@ -35,6 +35,7 @@
   <% unless @include_script[:script_included] %>
     <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+    <%= javascript_include_tag "components/map/map-style-liberty.js", integrity: false %>
     <% @include_script[:script_included] = true %>
   <% end %>
 

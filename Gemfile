@@ -8,7 +8,7 @@ gem "bootsnap", require: false
 gem "dalli", "~> 4"
 gem "dartsass-rails"
 gem "gds-api-adapters"
-gem "govspeak", "~> 10.9"
+gem "govspeak"
 gem "govuk_ab_testing"
 gem "govuk_app_config"
 gem "govuk_content_item_loader"

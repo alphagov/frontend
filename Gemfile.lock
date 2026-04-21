@@ -786,7 +786,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   gds-api-adapters
-  govspeak (~> 10.9)
+  govspeak
   govuk_ab_testing
   govuk_app_config
   govuk_content_item_loader
@@ -818,7 +818,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 4.0.2p0
+  ruby 4.0.2p0
 
 BUNDLED WITH
-   4.0.10
+  4.0.10

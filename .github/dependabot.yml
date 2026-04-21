@@ -4,16 +4,29 @@ updates:
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 3
+      exclude:
+        - gds-api-adapters
+        - govspeak
+        - govuk_*
+        - rails_translation_manager
+        - rubocop-govuk
+        - plek
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 3
 
   - package-ecosystem: docker
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     ignore:
       - dependency-name: ruby
 
@@ -21,3 +34,5 @@ updates:
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 3

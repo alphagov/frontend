@@ -121,7 +121,7 @@ examples:
 
       Note that other markers can also be added to this map using the method already described. They will be included when automatically setting the map position and zoom.
     data:
-      url: "/assets/frontend/components/map/map_test.geojson"
+      url: "/assets/frontend/components/map/map-test.geojson"
       heading:
         text: Birmingham and surrounding places
         margin_bottom: 4

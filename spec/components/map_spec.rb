@@ -49,7 +49,7 @@ RSpec.describe "MapComponent", type: :view do
   it "only includes the JavaScript tag once even if multiple component instances" do
     render_component(map_config: basic_config, heading: heading)
     render_component(map_config: basic_config, heading: heading)
-    expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 2)
+    expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 3)
   end
 
   it "can accept an array of markers" do

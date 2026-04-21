@@ -221,8 +221,8 @@ describe('Map component', function () {
     it('adds both types of markers', async () => {
       await module.addAllMarkers()
       expect(module.markers.length).toEqual(3)
-      expect(module.markers[0]).toEqual(markers[0])
-      expect(module.markers[1]).toEqual(fakeGeoJson.features[0])
+      expect(module.markers[0]).toEqual(fakeGeoJson.features[0])
+      expect(module.markers[1]).toEqual(markers[0])
       expect(module.markers[2]).toEqual(fakeGeoJson.features[1])
     })
 

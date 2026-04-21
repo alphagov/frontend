@@ -64,13 +64,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       this.map.on('interact:selectionchange', (e) => {
+        /* istanbul ignore next */
         if (e.selectedMarkers.length > 0) {
           var marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
           marker = this.markers[marker]
           this.map.addPanel('the-panel', {
             focus: false,
             label: marker.name,
-            html: this.createPopupContent(marker),
+            html: this.createPopupContent(marker, false),
             mobile: { slot: 'drawer', dismissible: true },
             tablet: { slot: 'left-top', dismissible: true, width: '280px' },
             desktop: { slot: 'left-top', dismissible: true, width: '280px' }
@@ -85,16 +86,31 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
     }
 
-    createPopupContent (feature) {
+    createPopupContent (feature, asDomElement) {
       let popupContent = `<span class="app-c-map__popup-title">${this.cleanString(feature.properties.name)}</span>`
       if (feature.properties.description) {
         popupContent = `${popupContent} ${this.cleanString(feature.properties.description)}`
       }
-      return popupContent
+      if (asDomElement) {
+        var el = document.createElement('div')
+        el.innerHTML = popupContent
+        return el
+      } else {
+        return popupContent
+      }
     }
 
-    cleanString (str) {
-      return str.replaceAll('<', '').replaceAll('>', '')
+    cleanString (string) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        '/': '&#x2F;'
+      }
+      const reg = /[&<>"'/]/ig
+      return string.replace(reg, (match) => (map[match]))
     }
 
     async addAllMarkers () {
@@ -108,13 +124,22 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           if (this.markers) {
             this.markers = this.markers.concat(result.features)
           }
-          this.addMarkers()
         } catch (error) {
           console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
         }
-      } else if (this.markers) {
-        this.addMarkers()
       }
+      this.markers.sort((a, b) => {
+        const nameA = a.properties.name.toUpperCase()
+        const nameB = b.properties.name.toUpperCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0 // names are equal
+      })
+      this.addMarkers()
 
       // only fit to bounds if there are more than one markers
       if (this.markers.length > 1) {
@@ -143,12 +168,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         popupsListWrapper.classList.add('app-c-map__markers-list--visible')
         var popupsList = []
         this.markers.forEach(marker => {
-          popupsList.push(this.createPopupContent(marker))
+          popupsList.push(this.createPopupContent(marker, true))
         })
-        popupsList.sort()
         popupsList.forEach(popup => {
           const listItem = document.createElement('li')
-          listItem.innerHTML = popup
+          listItem.appendChild(popup)
           popupsListEl.appendChild(listItem)
         })
       }

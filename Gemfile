@@ -8,6 +8,7 @@ gem "bootsnap", require: false
 gem "dalli", "~> 4"
 gem "dartsass-rails"
 gem "gds-api-adapters"
+gem "govspeak", "~> 10.9"
 gem "govuk_ab_testing"
 gem "govuk_app_config"
 gem "govuk_content_item_loader"
@@ -19,6 +20,7 @@ gem "plek"
 gem "rack-utf8_sanitizer"
 gem "rails-i18n"
 gem "rails_translation_manager"
+gem "rinku", "~> 2.0", require: "rails_rinku"
 gem "sprockets-rails"
 gem "terser"
 gem "uk_postcode"
@@ -52,7 +54,3 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
-
-gem "govspeak", "~> 10.9"
-
-gem "rinku", "~> 2.0", require: "rails_rinku"

@@ -80,9 +80,11 @@ RSpec.describe "CallForEvidence" do
       overrides = {
         "links" => {
           "government" => [
-            "title" => "2015 Conservative government",
-            "details" => {
-              "current" => false,
+            {
+              "title" => "2015 Conservative government",
+              "details" => {
+                "current" => false,
+              },
             },
           ],
         },

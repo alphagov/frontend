@@ -10,6 +10,7 @@ class CsvPreviewController < ApplicationController
     @asset = GdsApi.asset_manager.asset(params[:id]).to_hash
 
     return error_410 if @asset["deleted"] || @asset["redirect_url"].present?
+
     if draft_asset? && served_from_live_host?
       redirect_to(URI.parse(Plek.find("draft-origin", external: true) + request.path), allow_other_host: true) and return
     end

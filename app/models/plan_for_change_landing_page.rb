@@ -1,0 +1,2 @@
+class PlanForChangeLandingPage < LandingPage
+end

@@ -1,6 +1,3 @@
-require "json-schema"
-JSON::Validator.use_multi_json = false
-
 RSpec.describe SpecialistDocument do
   it_behaves_like "it has updates", "specialist_document", "cma-cases-with-change-history"
   it_behaves_like "it has no updates", "specialist_document", "cma-cases"

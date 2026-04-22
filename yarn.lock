@@ -2107,9 +2107,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@defra/interactive-map@npm:0.0.19-alpha":
-  version: 0.0.19-alpha
-  resolution: "@defra/interactive-map@npm:0.0.19-alpha"
+"@defra/interactive-map@npm:0.0.20-alpha":
+  version: 0.0.20-alpha
+  resolution: "@defra/interactive-map@npm:0.0.20-alpha"
   dependencies:
     "@babel/runtime": ^7.28.6
     "@docusaurus/theme-common": ^3.9.2
@@ -2126,7 +2126,7 @@ __metadata:
     "@turf/polygon-to-line": ^7.3.3
     accessible-autocomplete: ^3.0.1
     govuk-frontend: ^5.13.0
-    maplibre-gl: ^5.21.1
+    maplibre-gl: ^5.23.0
     polygon-splitter: ^0.0.11
     preact: ^10.27.2
     tslib: ^2.8.1
@@ -2135,7 +2135,7 @@ __metadata:
   peerDependenciesMeta:
     "@arcgis/core":
       optional: true
-  checksum: ea700b125da6318316e1367d6150207ddb8097bfc2b8906fb4489ddb9a5de47125cef6d50275107dfac7b4b65718dc070b6acfb86c88f417f7a62c83a6c7a254
+  checksum: f1373a9369a51c45c46f637278c42c3a78b4ecf1696833031320a3c68eaa39849ea38a051a75c5dfdae1f02bf86a6ed61c75582ff893daf44f5aa7ac529e292c
   languageName: node
   linkType: hard
 
@@ -7969,7 +7969,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
-    "@defra/interactive-map": 0.0.19-alpha
+    "@defra/interactive-map": 0.0.20-alpha
     jasmine-browser-runner: ^4.0.0
     jasmine-core: ^6.2.0
     leaflet: ^1.9.4
@@ -10372,7 +10372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"maplibre-gl@npm:^5.21.1, maplibre-gl@npm:^5.23.0":
+"maplibre-gl@npm:^5.23.0":
   version: 5.23.0
   resolution: "maplibre-gl@npm:5.23.0"
   dependencies:

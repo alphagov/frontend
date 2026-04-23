@@ -691,6 +691,7 @@
         one: Skriftlig uttalelse til Stortinget
         other: Skriftlige uttalelser til Stortinget
   gone:
+    archived:
     page_title: Ikke lenger tilgjengelig
     published_in_error: Informasjonen på denne siden er fjernet fordi den ble publisert ved en feil.
     title: Siden du leter etter er ikke lenger tilgjengelig

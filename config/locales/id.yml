@@ -610,6 +610,7 @@ id:
       name:
         other: Pernyataan tertulis kepada Parlemen
   gone:
+    archived:
     page_title: Tidak lagi tersedia
     published_in_error: Informasi di halaman ini telah dihapus karena diterbitkan karena kesalahan.
     title: Halaman yang dicari tidak lagi tersedia

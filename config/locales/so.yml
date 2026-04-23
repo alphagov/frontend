@@ -691,6 +691,7 @@ so:
         one: Bayaan qoran oo loogu talogalay Baarlamaanka
         other: Bayaanada qoran ee loogu talogalay Baarlamaanka
   gone:
+    archived:
     page_title: Lama hali karo
     published_in_error: Macluumaadka kujiray bogan waa laga saaray waayo waxa loo daabacay si qaldan.
     title: Boga aad doon doonaysaa lama heli karo

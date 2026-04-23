@@ -853,6 +853,7 @@ pl:
         one: Pisemne oświadczenie przed parlamentem
         other: Pisemne oświadczenia przed parlamentem
   gone:
+    archived:
     page_title: Już niedostępne
     published_in_error: Informacje na tej stronie zostały usunięte, ponieważ zostały błędnie opublikowane.
     title: Strona, której szukasz, nie jest już dostępna

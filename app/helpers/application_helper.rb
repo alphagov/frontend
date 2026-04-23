@@ -48,21 +48,7 @@ module ApplicationHelper
     ].include?(content_item.base_path)
   end
 
-  PERCENTAGE_SCROLL_TRACKING_URLS = [
-    "/government/collections/create-or-update-a-local-plan-using-the-new-system",
-    "/government/publications/rollout-of-the-new-local-plan-making-system",
-    "/guidance/30-month-local-plan-process-an-overview",
-    "/guidance/assessing-sites-for-local-plans-stage-2",
-    "/guidance/confirming-draft-allocations-and-recording-decisions-for-local-plans-stage-4",
-    "/guidance/determining-your-draft-allocations-for-local-plans-stage-3",
-    "/guidance/gateway-1-what-you-need-to-do",
-    "/guidance/gathering-baselining-information-to-inform-a-local-plan",
-    "/guidance/getting-ready-to-prepare-a-new-plan",
-    "/guidance/giving-notice-of-your-plan-making",
-    "/guidance/identifying-sites-for-local-plans-stage-1",
-    "/guidance/preparing-a-local-plan-vision",
-    "/guidance/selecting-identifying-and-assessing-sites-for-local-plans",
-  ].freeze
+  PERCENTAGE_SCROLL_TRACKING_URLS = [].freeze
 
   def include_percentage_scroll_tracking?
     return false unless content_item && content_item.base_path

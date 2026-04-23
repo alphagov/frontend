@@ -2107,9 +2107,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@defra/interactive-map@npm:0.0.20-alpha":
-  version: 0.0.20-alpha
-  resolution: "@defra/interactive-map@npm:0.0.20-alpha"
+"@defra/interactive-map@npm:0.0.22-alpha":
+  version: 0.0.22-alpha
+  resolution: "@defra/interactive-map@npm:0.0.22-alpha"
   dependencies:
     "@babel/runtime": ^7.28.6
     "@docusaurus/theme-common": ^3.9.2
@@ -2135,7 +2135,7 @@ __metadata:
   peerDependenciesMeta:
     "@arcgis/core":
       optional: true
-  checksum: f1373a9369a51c45c46f637278c42c3a78b4ecf1696833031320a3c68eaa39849ea38a051a75c5dfdae1f02bf86a6ed61c75582ff893daf44f5aa7ac529e292c
+  checksum: 44d0052b01dc3d73875b45a382f6d80522619a0a119072510042981fdd6dda7c17ea0098957ff9301788af74a4487c14f91ad94c11e8646506949cb3a06543af
   languageName: node
   linkType: hard
 
@@ -7969,7 +7969,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
-    "@defra/interactive-map": 0.0.20-alpha
+    "@defra/interactive-map": 0.0.22-alpha
     jasmine-browser-runner: ^4.0.0
     jasmine-core: ^6.2.0
     leaflet: ^1.9.4

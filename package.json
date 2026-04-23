@@ -53,7 +53,7 @@
   },
   "packageManager": "yarn@3.5.0",
   "dependencies": {
-    "@defra/interactive-map": "0.0.20-alpha",
+    "@defra/interactive-map": "0.0.22-alpha",
     "leaflet": "^1.9.4",
     "maplibre-gl": "^5.23.0"
   }

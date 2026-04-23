@@ -610,6 +610,7 @@ zh-hk:
       name:
         other: 提交國會的書面聲明
   gone:
+    archived:
     page_title: 不再提供
     published_in_error: 本頁面之資訊可移除，因其發佈錯誤。
     title: 您搜尋之頁面不再可用

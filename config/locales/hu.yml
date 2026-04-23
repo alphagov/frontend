@@ -691,6 +691,7 @@ hu:
         one: Írásbeli parlamenti nyilatkozat
         other: Írásbeli parlamenti nyilatkozatok
   gone:
+    archived:
     page_title: Már nem elérhető
     published_in_error: Az ezen az oldalon található információ eltávolításra került, mivel közzététele hiba volt.
     title: Az Ön által keresett oldal már nem elérhető

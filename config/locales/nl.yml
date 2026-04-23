@@ -691,6 +691,7 @@ nl:
         one: Schriftelijke verklaring aan het Parlement
         other: Schriftelijke verklaringen aan het Parlement
   gone:
+    archived:
     page_title: Niet langer beschikbaar
     published_in_error: De informatie op deze pagina is verwijderd omdat deze abusievelijk is gepubliceerd.
     title: De pagina die u zoekt is niet langer beschikbaar

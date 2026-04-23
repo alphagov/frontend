@@ -772,6 +772,7 @@ sr:
         one: Pismena predstavka Parlamentu
         other: Pismene predstavke Parlamentu
   gone:
+    archived:
     page_title: Nije više dostupno
     published_in_error: Informacije sa ove stranice su uklonjene jer su bile objavljene greškom.
     title: Stranica koju tražite nije više dostupna

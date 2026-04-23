@@ -691,6 +691,7 @@ az:
         one: Parlamentə yazılı müraciət
         other: Parlamentə yazılı müraciətlər
   gone:
+    archived:
     page_title: Artıq mövcud deyildir
     published_in_error: Bu səhifədəki məlumat səhvən dərc edilmiş olduğuna görə silinmişdir.
     title: Axtardığınız səhifə artıq mövcud deyildir

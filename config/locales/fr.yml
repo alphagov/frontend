@@ -691,6 +691,7 @@ fr:
         one: Déclaration écrite au Parlement
         other: Déclarations écrites au Parlement
   gone:
+    archived:
     page_title: N'est plus disponible
     published_in_error: Les informations présentées sur cette page ont été supprimées car elles ont été publiées par erreur.
     title: La page que vous recherchez n'est plus disponible

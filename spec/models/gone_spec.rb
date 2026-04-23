@@ -16,4 +16,12 @@ RSpec.describe Gone do
       expect(content_item.alternative_path).to eq(content_store_response.dig("details", "alternative_path"))
     end
   end
+
+  describe "#archived" do
+    it "returns archived if alternative_path matches \"webarchive.nationalarchives.gov.uk\"" do
+      content_item.content_store_response["details"]["alternative_path"] = "https://webarchive.nationalarchives.gov.uk"
+
+      expect(content_item.alternative_path).to eq(content_store_response.dig("details", "alternative_path"))
+    end
+  end
 end

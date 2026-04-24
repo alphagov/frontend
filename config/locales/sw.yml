@@ -691,6 +691,7 @@ sw:
         one: Taarifa ya Maandishi kwa Bunge
         other: Taarifa za Maandishi kwa Bunge
   gone:
+    archived:
     page_title: Hayapatikani tena
     published_in_error: Maelezo yaliyo kwenye ukurasa huu yameondolewa kwa sababu yalichapishwa kimakosa.
     title: Ukurasa unaotafuta haupatikani tena

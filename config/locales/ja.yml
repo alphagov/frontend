@@ -610,6 +610,7 @@ ja:
       name:
         other: 議会への書面による声明
   gone:
+    archived:
     page_title: ご利用いただけません
     published_in_error: このページの情報は、誤って公開されたため削除されました。
     title: お探しのページはご利用いただけなくなりました

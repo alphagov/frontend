@@ -97,6 +97,16 @@ RSpec.describe "Gone page" do
         end
       end
 
+      it "renders the correct text if it is a link to the National Archives" do
+        content_store_response["details"]["alternative_path"] = "https://webarchive.nationalarchives.gov.uk"
+
+        setup_and_visit_page
+        within("main") do
+          expect(page).to have_text("You can view previous versions of this page in the UK government web archive.")
+          expect(page).to have_link("view previous versions of this page in the UK government web archive", href: "https://webarchive.nationalarchives.gov.uk")
+        end
+      end
+
       it "doesn't render an alternative path if it is blank" do
         content_store_response["details"]["alternative_path"] = " "
         setup_and_visit_page

@@ -699,6 +699,7 @@ en:
     page_title: No longer available
     published_in_error: The information on this page has been removed because it was published in error.
     title: The page you're looking for is no longer available
+    archived: You can <a class="govuk-link" href="%{path}">view previous versions of this page in the UK government web archive</a>.
   help:
     index:
       about: About GOV.UK

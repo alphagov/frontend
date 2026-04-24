@@ -691,6 +691,7 @@ tr:
         one: Parlamentoya yazılı açıklama
         other: Parlamentoya yazılı açıklamalar
   gone:
+    archived:
     page_title: Artık mevcut değil
     published_in_error: Bu sayfadaki bilgiler hatalı yayınlandığından kaldırıldı.
     title: Aradığınız sayfa artık mevcut değil

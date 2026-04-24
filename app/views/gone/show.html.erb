@@ -10,9 +10,11 @@
       lang: "#{I18n.locale}",
     } %>
 
-    <p class="govuk-body" lang="<%= I18n.locale %>">
-      <%= t("gone.published_in_error") %>
-    </p>
+    <% unless content_item.archived? %>
+      <p class="govuk-body" lang="<%= I18n.locale %>">
+        <%= t("gone.published_in_error") %>
+      </p>
+    <% end %>
     <% if content_item.explanation.present? %>
       <%= render "govuk_publishing_components/components/govspeak", {} do %>
         <%= content_item.explanation.html_safe %>
@@ -20,7 +22,11 @@
     <% end %>
     <% if content_item.alternative_path.present? %>
       <p class="govuk-body">
-        <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path, class: "govuk-link") %>
+        <% if content_item.archived? %>
+          <%= t("gone.archived", path: content_item.alternative_path).html_safe %>
+        <% else %>
+          <%= t("common.visit") %> <%= link_to(content_item.alternative_path, content_item.alternative_path, class: "govuk-link") %>
+        <% end %>
       </p>
     <% end %>
   </div>

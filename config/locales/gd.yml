@@ -853,6 +853,7 @@ gd:
         other: Ráitis i scríbhinn don Pharlaimint
         two:
   gone:
+    archived:
     page_title: Níl sé ar fáil
     published_in_error: Baineadh an fhaisnéis ar an leathanach seo toisc gur cuireadh trí phost í trí dhearmad.
     title: Níl an leathanach iarrtha ar fáil a thuilleadh

@@ -772,6 +772,7 @@ lt:
         one: Rašytinis kreipimasis į parlamentą
         other: Rašytiniai kreipimaisi į parlamentą
   gone:
+    archived:
     page_title: Nebepasiekiama
     published_in_error: Šio puslapio informacija buvo pašalinta, kadangi ji buvo publikuota per klaidą.
     title: Jūsų ieškomas puslapis nebepasiekiamas

@@ -853,6 +853,7 @@ sl:
         other: Pisne izjave za parlament
         two:
   gone:
+    archived:
     page_title: Ni več na voljo
     published_in_error: Informacije na tej strani so bile odstranjene, ker so bile objavljene po pomoti.
     title: Stran, ki ste jo iskali, ni več na voljo

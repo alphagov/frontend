@@ -1,4 +1,4 @@
-if Rails.env.development? && ENV["DEBUGGER"] == "true"
+if Rails.env.development? && ENV["DEBUGGER"] == "true" && ENV["VIRTUAL_HOST"]
   require "debug/session"
   Rails.logger.info "Starting debug session"
   # the port can be anything

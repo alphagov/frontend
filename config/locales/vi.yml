@@ -610,6 +610,7 @@ vi:
       name:
         other: Tuyên bố bằng văn bản trước Quốc hội
   gone:
+    archived:
     page_title: Không khả dụng
     published_in_error: Thông tin trên trang này đã bị xóa vì đã được xuất bản do nhầm lẫn.
     title: Trang bạn đang tìm không có sẵn

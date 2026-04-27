@@ -691,6 +691,7 @@ sv:
         one: Skriftligt uttalande till parlamentet
         other: Skriftliga uttalanden till parlamentet
   gone:
+    archived:
     page_title: Inte längre tillgänglig
     published_in_error: Informationen på den här sidan har tagits bort eftersom den publicerades felaktigt.
     title: Sidan du letar efter är inte längre tillgänglig.

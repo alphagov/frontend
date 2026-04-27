@@ -772,6 +772,7 @@ hr:
         one: Pismena izjava Parlamentu
         other: Pismene izjave Parlamentu
   gone:
+    archived:
     page_title: Nedostupno
     published_in_error: Podaci na ovoj stranici uklonjeni su jer su pogrešno objavljeni.
     title: Stranica koju tražite više nije dostupna

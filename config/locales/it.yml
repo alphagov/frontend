@@ -691,6 +691,7 @@ it:
         one: Dichiarazione scritta al Parlamento
         other: Dichiarazioni scritte al Parlamento
   gone:
+    archived:
     page_title: Non più disponibile
     published_in_error: Le informazioni in questa pagina sono state rimosse perché pubblicate per errore.
     title: La pagina che stai cercando non è più disponibile

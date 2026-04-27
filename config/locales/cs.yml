@@ -772,6 +772,7 @@ cs:
         one: Písemné prohlášení pro Parlament
         other: Písemná prohlášení pro Parlament
   gone:
+    archived:
     page_title: Již není k dispozici
     published_in_error: Informace na této stránce byly odstraněny, protože byly zveřejněny omylem.
     title: Stránka, kterou hledáte, již není k dispozici

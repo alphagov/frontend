@@ -691,6 +691,7 @@ fi:
         one: Kirjallinen lausuma parlamentille
         other: Kirjallinen lausumat parlamentille
   gone:
+    archived:
     page_title: Ei ole enää käytettävissä
     published_in_error: Tämän sivun tiedot on poistettu, koska ne on julkaistu virheellisesti.
     title: Etsimäsi sivu ei ole enää saatavana.

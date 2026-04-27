@@ -691,6 +691,7 @@ pt:
         one: Declaração escrita ao Parlamento
         other: Declarações escritas ao Parlamento
   gone:
+    archived:
     page_title: Já não está disponível
     published_in_error: A informação contida nesta página foi retirada porque foi publicada por engano.
     title: A página que procura já não está disponível

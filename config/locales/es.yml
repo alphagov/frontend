@@ -691,6 +691,7 @@ es:
         one: Declaración escrita
         other: Declaraciones escritas
   gone:
+    archived:
     page_title: Ya no está disponible
     published_in_error: La información de esta página se ha eliminado porque se publicó por error.
     title: La página que está buscando ya no está disponible

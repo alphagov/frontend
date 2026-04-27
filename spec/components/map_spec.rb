@@ -7,7 +7,7 @@ RSpec.describe "MapComponent", type: :view do
     centre_lat: 55.9533,
     centre_lng: -3.1883,
     zoom: 12,
-  }.freeze
+  }
 
   markers = [
     {
@@ -49,7 +49,7 @@ RSpec.describe "MapComponent", type: :view do
   it "only includes the JavaScript tag once even if multiple component instances" do
     render_component(map_config: basic_config, heading: heading)
     render_component(map_config: basic_config, heading: heading)
-    expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 2)
+    expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 3)
   end
 
   it "can accept an array of markers" do
@@ -61,12 +61,6 @@ RSpec.describe "MapComponent", type: :view do
     geojson = "/fake/thing.geojson"
     render_component(url: geojson, heading: heading)
     expect(rendered).to have_css("[data-geojson='#{geojson}']")
-  end
-
-  it "can have an alternative map marker" do
-    marker = "pin"
-    render_component(map_config: basic_config, marker: marker, heading: heading)
-    expect(rendered).to have_css("[data-marker='#{marker}']")
   end
 
   it "can show a copyright message" do

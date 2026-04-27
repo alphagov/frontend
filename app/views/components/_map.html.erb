@@ -3,24 +3,27 @@
   map_config = local_assigns[:map_config] || {}
   markers = local_assigns[:markers] || nil
   geojson = local_assigns[:url]
-  marker = local_assigns[:marker_shape] || "pin"
   hide_markers_beneath ||= nil
-  height ||= nil
+  height ||= 500
   heading ||= nil
   description ||= nil
+
+  map_config[:heading] = heading
+  map_config[:height] = height
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")
   component_helper.add_data_attribute({ module: "map" })
-  component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
   component_helper.add_data_attribute({ config: map_config })
   component_helper.add_data_attribute({ markers: markers.to_json }) if markers
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
-  component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
-  component_helper.add_data_attribute({ height: height })
+  component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") })
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_script ||= OpenStruct.new(script_included: false)
 %>
+
+<%= ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") %>
+
 <% if map_config[:centre_lat] && map_config[:centre_lng] && map_config[:zoom] && heading || markers || !geojson.nil? %>
   <%= render "govuk_publishing_components/components/heading", heading %>
   <% if description %>
@@ -34,8 +37,9 @@
     href: "##{skip_link_id}",
   } %>
   <% unless @include_script[:script_included] %>
-    <%= javascript_include_tag "components/map/leaflet.js", integrity: false, type: "module" %>
+    <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+    <%= javascript_include_tag "components/map/map-style-liberty.js", integrity: false %>
     <% @include_script[:script_included] = true %>
   <% end %>
 

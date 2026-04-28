@@ -73,4 +73,34 @@ RSpec.describe "MapComponent", type: :view do
     render_component(markers: markers, heading: heading)
     expect(rendered).to have_css(".js-list-markers ul", visible: :hidden)
   end
+
+  key = [
+    {
+      "name" => "Square",
+      "symbol" => "square",
+      "colour" => "red",
+    },
+    {
+      "name" => "Pin",
+      "symbol" => "pin",
+      "colour" => "orange",
+    },
+  ]
+
+  it "displays a key" do
+    render_component(map_config: basic_config, heading: heading, key: key)
+    expect(rendered).to have_css("h3.gem-c-heading__text", text: "Key")
+    expect(rendered).to have_css(".govuk-list li", text: "Square")
+    expect(rendered).to have_css(".govuk-list li:nth-child(1)", text: "Square")
+    expect(rendered).to have_css(".govuk-list li:nth-child(1) .app-c-map__key--square.app-c-map__key--red")
+    expect(rendered).to have_css(".govuk-list li:nth-child(2)", text: "Pin")
+    expect(rendered).to have_css(".govuk-list li:nth-child(2) .app-c-map__key--pin.app-c-map__key--orange")
+  end
+
+  it "displays a custom key heading" do
+    key_heading = { text: "Custom key heading", margin_bottom: 4, heading_level: 2, font_size: "xl" }
+    render_component(map_config: basic_config, heading: heading, key: key, key_heading: key_heading)
+    expect(rendered).to have_css(".gem-c-heading.govuk-\\!-margin-bottom-4")
+    expect(rendered).to have_css("h2.gem-c-heading__text.govuk-heading-xl", text: "Custom key heading")
+  end
 end

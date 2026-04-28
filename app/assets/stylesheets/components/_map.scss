@@ -34,6 +34,56 @@
   display:block;
 }
 
+.app-c-map__key {
+  position: relative;
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: text-top;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 30%;
+    top: 35%;
+    left: 35%;
+    background: #FFFFFF;
+    border-radius: 100%;
+  }
+}
+
+.app-c-map__key--square {
+  border-radius: 4px;
+}
+
+.app-c-map__key--circle {
+  border-radius: 100%;
+}
+
+.app-c-map__key--pin {
+  transform: rotate(45deg);
+  border-radius: 100%;
+  border-bottom-right-radius: 0;
+}
+
+.app-c-map__key--blue {
+  background: #1d70b8;
+}
+
+.app-c-map__key--green {
+  background: #0f7a52;
+}
+
+.app-c-map__key--orange {
+  background: #f47738;
+}
+
+.app-c-map__key--red {
+  background: #ca3535;
+}
+
 // leaflet element override styles
 .leaflet-popup-content {
   padding: govuk-spacing(2) 0;

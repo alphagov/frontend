@@ -60,6 +60,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         urlPosition: 'none'
       })
 
+      /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
       })
@@ -82,6 +83,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         }
       })
 
+      /* istanbul ignore next */
       this.map.on('app:panelclosed', (e) => {
         this.interactPlugin.clear()
       })
@@ -156,8 +158,29 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     addMarkers () {
+      const allowedColours = {
+        blue: '#1d70b8',
+        green: '#0f7a52',
+        orange: '#f47738',
+        red: '#ca3535'
+      }
+      const allowedSymbols = ['circle', 'pin', 'square']
       this.markers.forEach((marker, index) => {
-        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates, this.markerOptions)
+        if (marker.marker) {
+          const colour = marker.marker.colour || false
+          if (colour) {
+            if (allowedColours[colour]) {
+              marker.marker.backgroundColor = allowedColours[colour]
+            }
+            delete marker.marker.colour
+          }
+          const symbol = marker.marker.symbol || false
+          if (!(symbol && allowedSymbols.includes(symbol))) {
+            delete marker.marker.symbol
+          }
+        }
+        const options = Object.assign(Object.assign({}, this.markerOptions), marker.marker || {})
+        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates, options)
       })
     }
 

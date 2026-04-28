@@ -7,6 +7,8 @@
   height ||= 500
   heading ||= nil
   description ||= nil
+  key_heading ||= { text: "Key", margin_bottom: 2, heading_level: 3, font_size: "s" }
+  key ||= nil
 
   map_config[:heading] = heading
   map_config[:height] = height
@@ -22,8 +24,6 @@
   @include_script ||= OpenStruct.new(script_included: false)
 %>
 
-<%= ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") %>
-
 <% if map_config[:centre_lat] && map_config[:centre_lng] && map_config[:zoom] && heading || markers || !geojson.nil? %>
   <%= render "govuk_publishing_components/components/heading", heading %>
   <% if description %>
@@ -36,6 +36,21 @@
     text: "Skip map",
     href: "##{skip_link_id}",
   } %>
+
+  <% if key %>
+    <%= render "govuk_publishing_components/components/heading", key_heading %>
+    <ul class="govuk-list">
+      <% key.each do |k| %>
+        <li>
+          <% if %w[circle pin square].include?(k["symbol"]) && %w[blue green orange red].include?(k["colour"]) %>
+            <span class="app-c-map__key app-c-map__key--<%= k["symbol"] %> app-c-map__key--<%= k["colour"] %>"></span>
+          <% end %>
+          <%= k["name"] %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% unless @include_script[:script_included] %>
     <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>

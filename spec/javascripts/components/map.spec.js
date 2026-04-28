@@ -281,4 +281,68 @@ describe('Map component', function () {
       expect(result).toEqual('<span class="app-c-map__popup-title">Name</span>')
     })
   })
+
+  describe('the addMarkers function', function () {
+    const geometryOptions = {
+      coordinates: [
+        -1.4915442661594511,
+        52.40292688379728
+      ]
+    }
+    const defaultMarkerOptions = {
+      symbol: 'circle',
+      backgroundColor: '#1d70b8',
+      foregroundColor: '#FFFFFF',
+      haloWidth: 3,
+      selectedWidth: 8
+    }
+
+    beforeEach(function () {
+      el = document.createElement('div')
+      document.body.appendChild(el)
+      module = new GOVUK.Modules.Map(el)
+      spyOn(module, 'addAllMarkers')
+      setupMap()
+      module.init()
+      spyOn(module.map, 'addMarker')
+    })
+
+    it('adds regular markers', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
+
+    it('adds markers with custom colours and shapes', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: 'pin',
+            colour: 'orange'
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], Object.assign(Object.assign({}, defaultMarkerOptions), { symbol: 'pin', backgroundColor: '#f47738' }))
+    })
+
+    it('ignores invalid custom colours and shapes', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: 'hat',
+            colour: 'yellow'
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
+  })
 })

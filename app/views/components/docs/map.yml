@@ -3,7 +3,9 @@ description: A simple map component.
 body: |
   Displays a map, given a location and a zoom level. Maps can also display markers with popups. The map can be scrolled and zoomed.
 
-  Note that maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
+  Maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
+
+  Note that the order of positional co-ordinates for this map and its contents is longitude followed by latitude. This is particularly important for markers.
 shared_accessibility_criteria:
 - link
 
@@ -22,32 +24,32 @@ examples:
         text: An example map
         margin_bottom: 2
       map_config:
-        centre_lat: 55.9533
         centre_lng: -3.1883
+        centre_lat: 55.9533
         zoom: 12
   custom_heading:
     description: All maps should have a heading. The `heading` option is sent directly to the [heading component](/component-guide/heading), allowing any options for the the heading component to be passed.
     data:
       heading:
-        text: Edinburgh, Scotland
+        text: Kirkcaldy, Scotland
         heading_level: 3
         font_size: s
         margin_bottom: 2
       map_config:
-        centre_lat: 55.9533
-        centre_lng: -3.1883
+        centre_lng: -3.158137
+        centre_lat: 56.116825
         zoom: 12
   with_description:
     description: Descriptions are rendered inside a govspeak block, so can include govspeak formatting. Descriptions are not required but are recommended, to help users who use screen readers understand what the map is visualising.
     data:
       description: |
-        <p>This is a map showing Scotland's capital city, Edinburgh.</p>
+        <p>The Malvern Hills has been designated an area of outstanding natural beauty.</p>
       heading:
-        text: Edinburgh, Scotland
+        text: Malvern, Worcestershire
         margin_bottom: 2
       map_config:
-        centre_lat: 55.9533
-        centre_lng: -3.1883
+        centre_lng: -2.325062
+        centre_lat: 52.107919
         zoom: 12
   with_markers:
     description: |
@@ -202,8 +204,8 @@ examples:
         text: Paddington station
         margin_bottom: 4
       map_config:
-        centre_lat: 51.5163
         centre_lng: -0.1766
+        centre_lat: 51.5163
         zoom: 12
       markers:
       - geometry:

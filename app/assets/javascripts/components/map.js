@@ -21,6 +21,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
+        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
         this.geoJsonUrl = false
       }
 
@@ -90,9 +91,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     }
 
     createPopupContent (feature, asDomElement) {
-      let popupContent = `<span class="app-c-map__popup-title">${this.cleanString(feature.properties.name)}</span>`
+      let popupContent = `<span class="app-c-map__popup-title">${feature.properties.name}</span>`
       if (feature.properties.description) {
-        popupContent = `${popupContent} ${this.cleanString(feature.properties.description)}`
+        popupContent = `${popupContent} ${feature.properties.description}`
       }
       if (asDomElement) {
         var el = document.createElement('div')
@@ -101,19 +102,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       } else {
         return popupContent
       }
-    }
-
-    cleanString (string) {
-      const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
-        '/': '&#x2F;'
-      }
-      const reg = /[&<>"'/]/ig
-      return string.replace(reg, (match) => (map[match]))
     }
 
     async addAllMarkers () {
@@ -186,7 +174,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     addPopupsList () {
       const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
-      const popupsListEl = this.$module.querySelector('.js-list-markers ul')
+      const popupsListEl = this.$module.querySelector('.js-list-markers ol')
 
       if (popupsListWrapper && popupsListEl) {
         popupsListWrapper.classList.add('app-c-map__markers-list--visible')

@@ -11,7 +11,7 @@ describe('Map component', function () {
     if (markers) { el.setAttribute('data-markers', JSON.stringify(markers)) }
     if (url) { el.setAttribute('data-geojson', url) }
     let markersList = ''
-    if ((markers || url) && !hideMarkerList) { markersList = '<div class="app-c-map__markers-list"><div class="js-list-markers"><ul></ul></div></div>' }
+    if ((markers || url) && !hideMarkerList) { markersList = '<div class="app-c-map__markers-list"><div class="js-list-markers"><ol></ol></div></div>' }
     el.innerHTML = `<div class="app-c-map"></div>${markersList}`
     document.body.appendChild(el)
     module = new GOVUK.Modules.Map(el)

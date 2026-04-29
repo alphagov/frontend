@@ -71,7 +71,7 @@ RSpec.describe "MapComponent", type: :view do
 
   it "has a list for accessible markers" do
     render_component(markers: markers, heading: heading)
-    expect(rendered).to have_css(".js-list-markers ul", visible: :hidden)
+    expect(rendered).to have_css(".js-list-markers ol", visible: :hidden)
   end
 
   key = [

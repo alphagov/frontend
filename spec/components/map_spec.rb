@@ -9,6 +9,13 @@ RSpec.describe "MapComponent", type: :view do
     zoom: 12,
   }
 
+  # config_with_bounds = {
+  #   centre_lat: 55.9533,
+  #   centre_lng: -3.1883,
+  #   zoom: 12,
+  #   bounds: [1, 2, 3, 4],
+  # }
+
   markers = [
     {
       lat: 51.5163,
@@ -34,6 +41,7 @@ RSpec.describe "MapComponent", type: :view do
   it "renders the basic component" do
     render_component(map_config: basic_config, heading_text: heading)
     expect(rendered).to have_css(".app-c-map")
+    expect(rendered).to have_selector("[data-config*='\"centre_lat\":55.9533,\"centre_lng\":-3.1883,\"']")
   end
 
   it "can have a custom heading" do
@@ -79,6 +87,16 @@ RSpec.describe "MapComponent", type: :view do
   it "has a list for accessible markers" do
     render_component(markers: markers, heading_text: heading)
     expect(rendered).to have_css(".js-list-markers ol", visible: :hidden)
+  end
+
+  it "allows bounds to be passed" do
+    render_component(map_config: basic_config, heading_text: heading, bounds: [1, 2, 3, 4])
+    expect(rendered).to have_selector("[data-config*='[1,2,3,4]']")
+  end
+
+  it "does not allow invalid bounds" do
+    render_component(map_config: basic_config, heading_text: heading, bounds: [1, 2, 3])
+    expect(rendered).not_to have_selector("[data-config*='[1,2,3]']")
   end
 
   key = [

@@ -53,6 +53,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         minZoom: this.config.minZoom,
         center: [this.config.centre_lng, this.config.centre_lat],
         containerHeight: `${this.config.height}px`,
+        bounds: this.config.bounds,
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
           // attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
@@ -129,7 +130,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.addMarkers()
 
       // only fit to bounds if there are more than one markers
-      if (this.markers.length > 1) {
+      if (this.markers.length > 1 && !this.config.bounds) {
         this.map.fitToBounds({
           type: 'FeatureCollection',
           features: this.markers

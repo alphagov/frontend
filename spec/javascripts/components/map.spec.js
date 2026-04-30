@@ -24,7 +24,15 @@ describe('Map component', function () {
     minZoom: 4
   }
 
-  const markers = [
+  const mapConfigWithBounds = {
+    centre_lat: 51.505,
+    centre_lng: -0.09,
+    zoom: 8,
+    minZoom: 4,
+    bounds: [1, 2, 3, 4]
+  }
+
+  const oneMarker = [
     {
       geometry: {
         type: 'Point',
@@ -32,6 +40,29 @@ describe('Map component', function () {
       },
       properties: {
         name: 'Paddington',
+        description: 'A station in London'
+      }
+    }
+  ]
+
+  const twoMarkers = [
+    {
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5163, -0.1766]
+      },
+      properties: {
+        name: 'Paddington',
+        description: 'A station in London'
+      }
+    },
+    {
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5316, -0.1236]
+      },
+      properties: {
+        name: 'Kings Cross',
         description: 'A station in London'
       }
     }
@@ -95,20 +126,54 @@ describe('Map component', function () {
     })
   })
 
-  describe('with passed markers', function () {
+  describe('with a passed marker', function () {
     beforeEach(function () {
-      setupMap(false, markers)
+      setupMap(false, oneMarker)
       module.init()
+      spyOn(module.map, 'fitToBounds')
     })
 
     it('adds map markers to the map', function () {
-      expect(module.markers).toEqual(markers)
+      expect(module.markers).toEqual(oneMarker)
     })
 
     it('adds a list of markers beneath the map', function () {
       module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(1)
       expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Paddington A station in London')
+      expect(module.map.fitToBounds).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('with passed markers', function () {
+    beforeEach(function () {
+      setupMap(false, twoMarkers)
+      module.init()
+      spyOn(module.map, 'fitToBounds')
+    })
+
+    it('adds map markers to the map', function () {
+      expect(module.markers).toEqual(twoMarkers)
+    })
+
+    it('adds a list of markers beneath the map', function () {
+      module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
+      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(2)
+      expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Kings Cross A station in London')
+      expect(module.map.fitToBounds).toHaveBeenCalled()
+    })
+  })
+
+  describe('with a given bounds object', function () {
+    beforeEach(function () {
+      setupMap(mapConfigWithBounds, twoMarkers)
+      module.init()
+      spyOn(module.map, 'fitToBounds')
+    })
+
+    it('sets its own bounds', function () {
+      module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
+      expect(module.map.fitToBounds).not.toHaveBeenCalled()
     })
   })
 
@@ -179,7 +244,7 @@ describe('Map component', function () {
     })
 
     it('successfully adds other markers', async () => {
-      setupMap(false, markers, '/fake/test.geojson')
+      setupMap(false, oneMarker, '/fake/test.geojson')
       spyOn(module, 'addAllMarkers').and.callThrough()
       module.init()
       await module.addAllMarkers()
@@ -214,7 +279,7 @@ describe('Map component', function () {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       }))
-      setupMap(false, markers, '/fake/test.geojson')
+      setupMap(false, oneMarker, '/fake/test.geojson')
       module.init()
     })
 
@@ -222,7 +287,7 @@ describe('Map component', function () {
       await module.addAllMarkers()
       expect(module.markers.length).toEqual(3)
       expect(module.markers[0]).toEqual(fakeGeoJson.features[0])
-      expect(module.markers[1]).toEqual(markers[0])
+      expect(module.markers[1]).toEqual(oneMarker[0])
       expect(module.markers[2]).toEqual(fakeGeoJson.features[1])
     })
 
@@ -241,7 +306,7 @@ describe('Map component', function () {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       }))
-      setupMap(false, markers, '/fake/test.geojson', true)
+      setupMap(false, oneMarker, '/fake/test.geojson', true)
       module.init()
     })
 

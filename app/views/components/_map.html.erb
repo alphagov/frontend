@@ -10,12 +10,14 @@
   description ||= nil
   key_heading_text ||= "Map key"
   key ||= nil
+  bounds ||= nil
 
   heading_obj = { text: heading_text, heading_level: heading_level, margin_bottom: 4, font_size: "m"}
   heading_obj[:font_size] = "s" if heading_level > 2
   key_heading_obj = nil
   key_heading_obj = { text: key_heading_text, margin_bottom: 2, heading_level: heading_level + 1, font_size: "s" } if key
 
+  map_config[:bounds] = bounds if bounds.kind_of?(Array) && bounds.length == 4
   map_config[:heading] = heading_text
   map_config[:height] = height
 

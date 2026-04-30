@@ -1,4 +1,5 @@
 require "gds_api/content_store"
+require "gds_api/search"
 
 module Services
   def self.content_store
@@ -9,5 +10,9 @@ module Services
       # own responses
       disable_cache: true,
     )
+  end
+
+  def self.search_api_v2
+    GdsApi::SearchApiV2.new(Plek.find("search-api-v2"))
   end
 end

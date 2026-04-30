@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     scope "/places" do
       get "/:service_slug" => "api/places#show"
     end
+
+    scope "/search" do
+      get "/autocomplete" => "api/autocompletes#index"
+    end
   end
 
   get "/find-local-council" => "find_local_council#index"

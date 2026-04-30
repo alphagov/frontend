@@ -24,6 +24,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
         this.geoJsonUrl = false
       }
+      this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 
       this.markerOptions = {
         symbol: 'circle',
@@ -74,7 +75,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.map.addPanel('the-panel', {
             focus: false,
             label: marker.name,
-            html: this.createPopupContent(marker, false),
+            html: this.createPopupContent(marker),
             mobile: { slot: 'drawer', dismissible: true },
             tablet: { slot: 'left-top', dismissible: true, width: '280px' },
             desktop: { slot: 'left-top', dismissible: true, width: '280px' }
@@ -90,18 +91,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
     }
 
-    createPopupContent (feature, asDomElement) {
-      let popupContent = `<span class="app-c-map__popup-title">${feature.properties.name}</span>`
+    createPopupContent (feature) {
+      const heading = `h${this.headingLevel}`
+      let popupContent = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feature.properties.name}</${heading}>`
       if (feature.properties.description) {
         popupContent = `${popupContent} ${feature.properties.description}`
       }
-      if (asDomElement) {
-        var el = document.createElement('div')
-        el.innerHTML = popupContent
-        return el
-      } else {
-        return popupContent
-      }
+      return popupContent
     }
 
     async addAllMarkers () {
@@ -180,11 +176,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         popupsListWrapper.classList.add('app-c-map__markers-list--visible')
         var popupsList = []
         this.markers.forEach(marker => {
-          popupsList.push(this.createPopupContent(marker, true))
+          popupsList.push(this.createPopupContent(marker))
         })
         popupsList.forEach(popup => {
           const listItem = document.createElement('li')
-          listItem.appendChild(popup)
+          // listItem.appendChild(popup)
+          listItem.innerHTML = popup
           popupsListEl.appendChild(listItem)
         })
       }

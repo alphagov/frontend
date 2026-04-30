@@ -20,21 +20,16 @@ uses_component_wrapper_helper: true
 examples:
   default:
     data:
-      heading:
-        text: An example map
-        margin_bottom: 2
+      heading_text: An example map
       map_config:
         centre_lng: -3.1883
         centre_lat: 55.9533
         zoom: 12
   custom_heading:
-    description: All maps should have a heading. The `heading` option is sent directly to the [heading component](/component-guide/heading), allowing any options for the the heading component to be passed.
+    description: All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
     data:
-      heading:
-        text: Kirkcaldy, Scotland
-        heading_level: 3
-        font_size: s
-        margin_bottom: 2
+      heading_text: Kirkcaldy, Scotland
+      heading_level: 3
       map_config:
         centre_lng: -3.158137
         centre_lat: 56.116825
@@ -44,9 +39,7 @@ examples:
     data:
       description: |
         <p>The Malvern Hills has been designated an area of outstanding natural beauty.</p>
-      heading:
-        text: Malvern, Worcestershire
-        margin_bottom: 2
+      heading_text: Malvern, Worcestershire
       map_config:
         centre_lng: -2.325062
         centre_lat: 52.107919
@@ -59,9 +52,7 @@ examples:
 
       Note that centre values and a zoom are not needed when markers are passed, as the map automatically sets position and zoom based on the markers.
     data:
-      heading:
-        text: London stations
-        margin_bottom: 4
+      heading_text: London stations
       markers:
       - geometry:
           type: Point
@@ -93,12 +84,10 @@ examples:
       Valid marker symbols are `pin`, `circle` or `square`. Allowed colour values are `blue`, `green`, `orange` or `red`.
 
       Values for the key are the same as the markers.
-
-      The key heading can be customised by passing standard options for a heading component. Ensure that the key heading is the correct heading level and size to sit beneath the map heading.
     data:
-      heading:
-        text: London stations
-        margin_bottom: 4
+      heading_text: London stations
+      description: |
+        <p>As an avid train enthusiast, this map records the London stations that I have visited.</p>
       key:
       - name: Stations I have visited
         symbol: square
@@ -109,11 +98,7 @@ examples:
       - name: Stations I want to visit
         symbol: circle
         colour: green
-      key_heading:
-        text: Key for map
-        margin_bottom: 2
-        heading_level: 3
-        font_size: s
+      key_heading: Key for map
       markers:
       - geometry:
           type: Point
@@ -150,9 +135,7 @@ examples:
     description: By default any map pins are listed beneath the map for ease of accessibility. In some situations it may be preferable to produce a different alternative to the map, so this option can be used to hide that list.
     data:
       hide_markers_beneath: true
-      heading:
-        text: London stations
-        margin_bottom: 4
+      heading_text: London stations
       markers:
       - geometry:
           type: Point
@@ -184,9 +167,7 @@ examples:
       Note that other markers can also be added to this map using the method already described. They will be included when automatically setting the map position and zoom.
     data:
       url: "/assets/frontend/components/map/map-test.geojson"
-      heading:
-        text: Birmingham and surrounding places
-        margin_bottom: 4
+      heading_text: Birmingham and surrounding places
       markers:
       - geometry:
           type: Point
@@ -200,9 +181,7 @@ examples:
     description: The map defaults to a height of 500px but this can be overridden if required.
     data:
       height: 200
-      heading:
-        text: Paddington station
-        margin_bottom: 4
+      heading_text: Paddington station
       map_config:
         centre_lng: -0.1766
         centre_lat: 51.5163
@@ -220,9 +199,7 @@ examples:
     data:
       copyright: Contains OS data &copy; Crown copyright and database rights 2026
       margin_bottom: 9
-      heading:
-        text: Paddington station
-        margin_bottom: 4
+      heading_text: Paddington station
       markers:
       - geometry:
           type: Point

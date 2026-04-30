@@ -19,12 +19,6 @@
   margin: 0;
 }
 
-.app-c-map__popup-title {
-  display: block;
-  margin-bottom: govuk-spacing(1);
-  @include govuk-font(19, $weight: bold);
-}
-
 .app-c-map__markers-list {
   display: none;
   padding-top: govuk-spacing(1);

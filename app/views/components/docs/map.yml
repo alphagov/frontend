@@ -50,7 +50,7 @@ examples:
 
       Popup content should be minimal, as markers are currently width limited in order to be readable on small screens.
 
-      Note that centre values and a zoom are not needed when markers are passed, as the map automatically sets position and zoom based on the markers.
+      The position of the map is automatically adjusted to include all markers, so centre values and a zoom are not needed. However if only one marker is on the map, centre values and a zoom are required.
     data:
       heading_text: London stations
       markers:
@@ -177,6 +177,46 @@ examples:
         properties:
           name: Paddington Station
           description: Designed by Isambard Kingdom Brunel and opened in 1838.
+  custom_bounds:
+    description: This allows the initial position of the map to be set, overriding the automatic adjustment to show all markers.
+    data:
+      heading_text: Places with Ham in their name
+      description: |
+        <p>There's another one over in the east, look.</p>
+      bounds:
+      - -3.203169743770889
+      - 51.643668495828116
+      - -0.8983602517140259
+      - 50.68105666989489
+      markers:
+      - geometry:
+          type: Point
+          coordinates:
+          - -2.87
+          - 50.98
+        properties:
+          name: Hambridge, Somerset
+      - geometry:
+          type: Point
+          coordinates:
+          - -2.52
+          - 51.49
+        properties:
+          name: Hambrook, South Gloucestershire
+      - geometry:
+          type: Point
+          coordinates:
+          - -1.33
+          - 50.85
+        properties:
+          name: Hamble-le-Rice, Hampshire
+      - geometry:
+          type: Point
+          coordinates:
+          - 1.326
+          - 51.233
+        properties:
+          name: Ham, Kent
   custom_height:
     description: The map defaults to a height of 500px but this can be overridden if required.
     data:

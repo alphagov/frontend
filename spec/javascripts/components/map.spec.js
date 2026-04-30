@@ -108,7 +108,7 @@ describe('Map component', function () {
     it('adds a list of markers beneath the map', function () {
       module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(1)
-      expect(el.querySelector('.js-list-markers li:first-child').innerText).toEqual('Paddington A station in London')
+      expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Paddington A station in London')
     })
   })
 
@@ -229,9 +229,9 @@ describe('Map component', function () {
     it('adds an alphabetical list of both types of markers beneath the map', async () => {
       await module.addAllMarkers()
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(3)
-      expect(el.querySelector('.js-list-markers li:nth-child(1)').innerText).toEqual('Birmingham A city')
-      expect(el.querySelector('.js-list-markers li:nth-child(2)').innerText).toEqual('Paddington A station in London')
-      expect(el.querySelector('.js-list-markers li:nth-child(3)').innerText).toEqual('Wolverhampton')
+      expect(el.querySelector('.js-list-markers li:nth-child(1)').textContent).toEqual('Birmingham A city')
+      expect(el.querySelector('.js-list-markers li:nth-child(2)').textContent).toEqual('Paddington A station in London')
+      expect(el.querySelector('.js-list-markers li:nth-child(3)').textContent).toEqual('Wolverhampton')
     })
   })
 
@@ -273,12 +273,18 @@ describe('Map component', function () {
 
     it('creates content when there is a name and description', function () {
       var result = module.createPopupContent(feature1)
-      expect(result).toEqual('<span class="app-c-map__popup-title">Name</span> Description')
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> Description')
     })
 
     it('creates content when there is only a name', function () {
       var result = module.createPopupContent(feature2)
-      expect(result).toEqual('<span class="app-c-map__popup-title">Name</span>')
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2>')
+    })
+
+    it('sets heading levels based on the passed value', function () {
+      module.headingLevel = 3
+      var result = module.createPopupContent(feature2)
+      expect(result).toEqual('<h3 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h3>')
     })
   })
 

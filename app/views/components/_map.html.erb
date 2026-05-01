@@ -1,28 +1,43 @@
 <%
+  centre ||= nil
+  zoom ||= nil
+  heading_text ||= nil
+  heading_level ||= 2
+  description ||= nil
+  height ||= nil
   copyright ||= nil
-  map_config = local_assigns[:map_config] || {}
   markers = local_assigns[:markers] || nil
   geojson = local_assigns[:url]
-  marker = local_assigns[:marker_shape] || "pin"
   hide_markers_beneath ||= nil
-  height ||= nil
-  heading ||= nil
-  description ||= nil
+  key_heading_text ||= "Map key"
+  key ||= nil
+  bounds ||= nil
+
+  heading_obj = { text: heading_text, heading_level: heading_level, margin_bottom: 4, font_size: "m"}
+  heading_obj[:font_size] = "s" if heading_level > 2
+  key_heading_obj = nil
+  key_heading_obj = { text: key_heading_text, margin_bottom: 2, heading_level: heading_level + 1, font_size: "s" } if key
+
+  map_config = {}
+  map_config[:center] = centre if centre.kind_of?(Array) && centre.length == 2
+  map_config[:zoom] = zoom if zoom
+  map_config[:mapLabel] = heading_text
+  map_config[:containerHeight] = "#{height}px" if height
+  map_config[:bounds] = bounds if bounds.kind_of?(Array) && bounds.length == 4
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")
   component_helper.add_data_attribute({ module: "map" })
-  component_helper.add_data_attribute({ api_key: ENV["OS_MAPS_API_KEY"] })
   component_helper.add_data_attribute({ config: map_config })
   component_helper.add_data_attribute({ markers: markers.to_json }) if markers
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
-  component_helper.add_data_attribute({ marker: marker }) if %w[circle pin].include? marker
-  component_helper.add_data_attribute({ height: height })
+  component_helper.add_data_attribute({ heading_level: key_heading_obj.nil? ? heading_level + 1 : heading_level + 2 })
+  component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") })
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_script ||= OpenStruct.new(script_included: false)
 %>
-<% if map_config[:centre_lat] && map_config[:centre_lng] && map_config[:zoom] && heading || markers || !geojson.nil? %>
-  <%= render "govuk_publishing_components/components/heading", heading %>
+<% if heading_text && ((map_config[:center] && map_config[:zoom]) || (markers || !geojson.nil?)) %>
+  <%= render "govuk_publishing_components/components/heading", heading_obj %>
   <% if description %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
       <%= description %>
@@ -33,9 +48,25 @@
     text: "Skip map",
     href: "##{skip_link_id}",
   } %>
+
+  <% if key %>
+    <%= render "govuk_publishing_components/components/heading", key_heading_obj %>
+    <ul class="govuk-list">
+      <% key.each do |k| %>
+        <li>
+          <% if %w[circle pin square].include?(k["symbol"]) && %w[blue green orange red].include?(k["colour"]) %>
+            <span class="app-c-map__key app-c-map__key--<%= k["symbol"] %> app-c-map__key--<%= k["colour"] %>"></span>
+          <% end %>
+          <%= k["name"] %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% unless @include_script[:script_included] %>
-    <%= javascript_include_tag "components/map/leaflet.js", integrity: false, type: "module" %>
+    <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+    <%= javascript_include_tag "components/map/map-style-liberty.js", integrity: false %>
     <% @include_script[:script_included] = true %>
   <% end %>
 
@@ -58,8 +89,8 @@
           classes: "js-list-markers",
         } do %>
           <%# this list will be populated by the JavaScript %>
-          <ul class="govuk-list govuk-list--bullet">
-          </ul>
+          <ol class="govuk-list govuk-list--number govuk-list--spaced">
+          </ol>
         <% end %>
       </div>
     <% end %>

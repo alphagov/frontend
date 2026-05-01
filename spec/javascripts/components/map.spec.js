@@ -1,77 +1,87 @@
+/* global defra */
 describe('Map component', function () {
   'use strict'
 
   var el, module
 
-  function setupMap (apiKey, config, markers, url, hideMarkerList) {
+  function setupMap (config, markers, url, hideMarkerList) {
     el = document.createElement('div')
-    el.setAttribute('class', 'for-testing')
     el.setAttribute('id', 'map-1234')
-    if (apiKey) { el.setAttribute('data-api-key', apiKey) }
     if (config) { el.setAttribute('data-config', JSON.stringify(config)) }
     if (markers) { el.setAttribute('data-markers', JSON.stringify(markers)) }
     if (url) { el.setAttribute('data-geojson', url) }
     let markersList = ''
-    if ((markers || url) && !hideMarkerList) { markersList = '<div class="app-c-map__markers-list"><div class="js-list-markers"><ul></ul></div></div>' }
+    if ((markers || url) && !hideMarkerList) { markersList = '<div class="app-c-map__markers-list"><div class="js-list-markers"><ol></ol></div></div>' }
     el.innerHTML = `<div class="app-c-map"></div>${markersList}`
     document.body.appendChild(el)
     module = new GOVUK.Modules.Map(el)
   }
 
-  const defaultMapConfig = {
+  const mapConfigWithBounds = {
     centre_lat: 51.505,
     centre_lng: -0.09,
     zoom: 8,
-    minZoom: 7,
-    maxZoom: 16,
-    maxBounds: [
-      [49.5, -10.5],
-      [62, 6]
-    ],
-    attributionControl: false
+    minZoom: 4,
+    bounds: [1, 2, 3, 4]
   }
 
   const markers = [
     {
-      lat: 51.5163,
-      lng: -0.1766,
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5163, -0.1766]
+      },
       properties: {
         name: 'Paddington',
+        description: 'A station in London'
+      }
+    },
+    {
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5316, -0.1236]
+      },
+      properties: {
+        name: 'Kings Cross',
         description: 'A station in London'
       }
     }
   ]
 
-  afterEach(function () {
-    document.body.removeChild(el)
+  beforeEach(function () {
+    spyOn(defra, 'InteractiveMap').and.callFake(function () {
+      return {
+        on: function () {},
+        fitToBounds: function () {},
+        addMarker: function () {}
+      }
+    })
+    spyOn(defra, 'interactPlugin').and.callFake(function () {
+      return {
+        enable: function () {}
+      }
+    })
   })
 
-  it('initialising the map without a key does nothing', function () {
-    setupMap()
-    // need to spy on these functions so they don't call through and error
-    spyOn(module, 'initialiseMap')
-    spyOn(module, 'addAllMarkers')
-    module.init()
-
-    expect(module.initialiseMap).not.toHaveBeenCalled()
-    expect(el.innerText).toEqual("We're sorry, but the map failed to load. The map API key was not found.")
+  afterEach(function () {
+    document.body.removeChild(el)
   })
 
   // map is prevented from loading if config not passed by the template
   // but this assumes we've passed that point
   describe('initialising the map correctly', function () {
     beforeEach(function () {
-      setupMap('pretend_key')
-      spyOn(module, 'initialiseMap').and.callThrough()
+      setupMap()
       module.init()
     })
 
-    it('calls the initialiseMap function', function () {
-      expect(module.initialiseMap).toHaveBeenCalled()
-    })
-
     it('has default config', function () {
-      expect(module.config).toEqual(defaultMapConfig)
+      expect(module.config).toEqual(jasmine.objectContaining({
+        minZoom: 4,
+        maxZoom: 16,
+        center: [-0.09, 51.505],
+        containerHeight: '500px'
+      }))
     })
 
     it('configures the map element', function () {
@@ -90,7 +100,7 @@ describe('Map component', function () {
     }
 
     beforeEach(function () {
-      setupMap('pretend_key', config)
+      setupMap(config)
       module.init()
     })
 
@@ -103,8 +113,9 @@ describe('Map component', function () {
 
   describe('with passed markers', function () {
     beforeEach(function () {
-      setupMap('pretend_key', false, markers)
+      setupMap(false, markers)
       module.init()
+      spyOn(module.map, 'fitToBounds')
     })
 
     it('adds map markers to the map', function () {
@@ -112,24 +123,39 @@ describe('Map component', function () {
     })
 
     it('adds a list of markers beneath the map', function () {
-      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(1)
-      expect(el.querySelector('.js-list-markers li:first-child').innerText).toEqual('Paddington A station in London')
+      module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
+      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(2)
+      expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Kings Cross A station in London')
+      expect(module.map.fitToBounds).toHaveBeenCalled()
+    })
+  })
+
+  describe('with a given bounds object', function () {
+    beforeEach(function () {
+      setupMap(mapConfigWithBounds, markers)
+      module.init()
+      spyOn(module.map, 'fitToBounds')
+    })
+
+    it('sets its own bounds', function () {
+      module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
+      expect(module.map.fitToBounds).not.toHaveBeenCalled()
     })
   })
 
   describe('when given a geojson file', function () {
     it('accepts a relative URL', function () {
-      setupMap('apiKey', false, false, '/fake/test.geojson')
+      setupMap(false, false, '/fake/test.geojson')
       expect(module.geoJsonUrl).toEqual('/fake/test.geojson')
     })
 
     it('rejects a non-relative URL', function () {
-      setupMap('apiKey', false, false, 'fake/test.geojson')
+      setupMap(false, false, 'fake/test.geojson')
       expect(module.geoJsonUrl).toEqual(false)
     })
 
     it('rejects any other URL', function () {
-      setupMap('apiKey', false, false, 'https://example.com/test.geojson')
+      setupMap(false, false, 'https://example.com/test.geojson')
       expect(module.geoJsonUrl).toEqual(false)
     })
   })
@@ -138,30 +164,28 @@ describe('Map component', function () {
     type: 'FeatureCollection',
     features: [
       {
-        type: 'Feature',
         properties: {
           name: 'Birmingham',
           description: 'A city'
         },
         geometry: {
+          type: 'Point',
           coordinates: [
-            -1.89032729180704,
-            52.485470314900795
-          ],
-          type: 'Point'
+            52.485470314900795,
+            -1.89032729180704
+          ]
         }
       },
       {
-        type: 'Feature',
         properties: {
           name: 'Wolverhampton'
         },
         geometry: {
+          type: 'Point',
           coordinates: [
-            -2.127508995156802,
-            52.5862548496693
-          ],
-          type: 'Point'
+            52.5862548496693,
+            -2.127508995156802
+          ]
         }
       }
     ]
@@ -176,23 +200,23 @@ describe('Map component', function () {
     })
 
     it('fails silently', async () => {
-      setupMap('apiKey', false, false, '/fake/test.geojson')
+      setupMap(false, false, '/fake/test.geojson')
       spyOn(module, 'addAllMarkers').and.callThrough()
-      module.initialiseMap()
+      module.init()
       await module.addAllMarkers()
 
       expect(window.fetch).toHaveBeenCalled()
-      expect(module.popups.length).toEqual(0)
+      expect(module.markers.length).toEqual(0)
     })
 
     it('successfully adds other markers', async () => {
-      setupMap('apiKey', false, markers, '/fake/test.geojson')
+      setupMap(false, markers, '/fake/test.geojson')
       spyOn(module, 'addAllMarkers').and.callThrough()
-      module.initialiseMap()
+      module.init()
       await module.addAllMarkers()
 
       expect(window.fetch).toHaveBeenCalled()
-      expect(module.popups.length).toEqual(1)
+      expect(module.markers.length).toEqual(2)
     })
   })
 
@@ -205,13 +229,13 @@ describe('Map component', function () {
     })
 
     it('adds markers and popups from a geojson URL', async () => {
-      setupMap('apiKey', false, false, '/fake/test.geojson')
-      module.initialiseMap()
+      setupMap(false, false, '/fake/test.geojson')
+      module.init()
       await module.addAllMarkers()
 
       expect(window.fetch).toHaveBeenCalled()
-      expect(module.popups.length).toEqual(2)
-      expect(module.popups[0]._popup._content).toEqual('<span class="app-c-map__popup-title">Birmingham</span> A city')
+      expect(module.markers.length).toEqual(2)
+      expect(module.markers[0]).toEqual(fakeGeoJson.features[0])
     })
   })
 
@@ -221,23 +245,26 @@ describe('Map component', function () {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       }))
-      setupMap('apiKey', false, markers, '/fake/test.geojson')
-      module.initialiseMap()
+      setupMap(false, markers, '/fake/test.geojson')
+      module.init()
     })
 
     it('adds both types of markers', async () => {
       await module.addAllMarkers()
-      expect(module.popups.length).toEqual(3)
-      expect(module.popups[0]._popup._content).toEqual('<span class="app-c-map__popup-title">Birmingham</span> A city')
-      expect(module.popups[2]._popup._content).toEqual('<span class="app-c-map__popup-title">Paddington</span> A station in London')
+      expect(module.markers.length).toEqual(4)
+      expect(module.markers[0]).toEqual(fakeGeoJson.features[0])
+      expect(module.markers[1]).toEqual(markers[1])
+      expect(module.markers[2]).toEqual(markers[0])
+      expect(module.markers[3]).toEqual(fakeGeoJson.features[1])
     })
 
     it('adds an alphabetical list of both types of markers beneath the map', async () => {
       await module.addAllMarkers()
-      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(3)
-      expect(el.querySelector('.js-list-markers li:nth-child(1)').innerText).toEqual('Birmingham A city')
-      expect(el.querySelector('.js-list-markers li:nth-child(2)').innerText).toEqual('Paddington A station in London')
-      expect(el.querySelector('.js-list-markers li:nth-child(3)').innerText).toEqual('Wolverhampton')
+      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(4)
+      expect(el.querySelector('.js-list-markers li:nth-child(1)').textContent).toEqual('Birmingham A city')
+      expect(el.querySelector('.js-list-markers li:nth-child(2)').textContent).toEqual('Kings Cross A station in London')
+      expect(el.querySelector('.js-list-markers li:nth-child(3)').textContent).toEqual('Paddington A station in London')
+      expect(el.querySelector('.js-list-markers li:nth-child(4)').textContent).toEqual('Wolverhampton')
     })
   })
 
@@ -247,8 +274,8 @@ describe('Map component', function () {
         status: 200,
         headers: { 'Content-Type': 'application/json' }
       }))
-      setupMap('apiKey', false, markers, '/fake/test.geojson', true)
-      module.initialiseMap()
+      setupMap(false, markers, '/fake/test.geojson', true)
+      module.init()
     })
 
     it('does not error', async () => {
@@ -270,28 +297,6 @@ describe('Map component', function () {
     }
   }
 
-  describe('the createMarker function', function () {
-    beforeEach(function () {
-      el = document.createElement('div')
-      document.body.appendChild(el)
-    })
-
-    it('returns a marker', function () {
-      module = new GOVUK.Modules.Map(el)
-      var result = module.createMarker(feature1, [1, 0])
-      expect(result._latlng).toEqual({ lat: 1, lng: 0 })
-      expect(result.options.alt).toEqual('Name')
-      expect(result.options.icon.options.iconUrl).toEqual('/assets/frontend/components/map/marker-pin-hole.svg')
-    })
-
-    it('returns a circle marker', function () {
-      el.setAttribute('data-marker', 'circle')
-      module = new GOVUK.Modules.Map(el)
-      var result = module.createMarker(feature1, [1, 0])
-      expect(result.options.icon.options.iconUrl).toEqual('/assets/frontend/components/map/marker-circle.svg')
-    })
-  })
-
   describe('the createPopupContent function', function () {
     beforeEach(function () {
       el = document.createElement('div')
@@ -301,12 +306,82 @@ describe('Map component', function () {
 
     it('creates content when there is a name and description', function () {
       var result = module.createPopupContent(feature1)
-      expect(result).toEqual('<span class="app-c-map__popup-title">Name</span> Description')
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> Description')
     })
 
     it('creates content when there is only a name', function () {
       var result = module.createPopupContent(feature2)
-      expect(result).toEqual('<span class="app-c-map__popup-title">Name</span>')
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2>')
+    })
+
+    it('sets heading levels based on the passed value', function () {
+      module.headingLevel = 3
+      var result = module.createPopupContent(feature2)
+      expect(result).toEqual('<h3 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h3>')
+    })
+  })
+
+  describe('the addMarkers function', function () {
+    const geometryOptions = {
+      coordinates: [
+        -1.4915442661594511,
+        52.40292688379728
+      ]
+    }
+    const defaultMarkerOptions = {
+      symbol: 'circle',
+      backgroundColor: '#1d70b8',
+      foregroundColor: '#FFFFFF',
+      haloWidth: 3,
+      selectedWidth: 8
+    }
+
+    beforeEach(function () {
+      el = document.createElement('div')
+      document.body.appendChild(el)
+      module = new GOVUK.Modules.Map(el)
+      spyOn(module, 'addAllMarkers')
+      setupMap()
+      module.init()
+      spyOn(module.map, 'addMarker')
+    })
+
+    it('adds regular markers', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
+
+    it('adds markers with custom colours and shapes', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: 'pin',
+            colour: 'orange'
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], Object.assign(Object.assign({}, defaultMarkerOptions), { symbol: 'pin', backgroundColor: '#f47738' }))
+    })
+
+    it('ignores invalid custom colours and shapes', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: 'hat',
+            colour: 'yellow'
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
     })
   })
 })

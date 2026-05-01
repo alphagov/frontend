@@ -1,4 +1,4 @@
-/* global L */
+/* global defra */
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
@@ -8,107 +8,86 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
-      this.apiKey = this.$module.getAttribute('data-api-key')
-      const mapPin = L.icon({
-        iconUrl: '/assets/frontend/components/map/marker-pin-hole.svg',
-        iconSize: [38, 50],
-        iconAnchor: [19, 50],
-        popupAnchor: [1, -47]
-      })
-      const mapCircle = L.icon({
-        iconUrl: '/assets/frontend/components/map/marker-circle.svg',
-        iconSize: [30, 30],
-        iconAnchor: [15, 30],
-        popupAnchor: [1, -30]
+      const cspWorker = this.$module.getAttribute('data-csp-worker')
+
+      this.interactPlugin = defra.interactPlugin({
+        deselectOnClickOutside: true
       })
 
-      const marker = this.$module.getAttribute('data-marker')
-      this.markerIcon = marker === 'circle' ? mapCircle : mapPin
-
-      const allMapOptions = {
-        centre_lat: 51.505,
-        centre_lng: -0.09,
-        zoom: 8,
-        minZoom: 7,
+      var config = {
+        mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
+        behaviour: 'hybrid',
+        mapStyle: {
+          url: window.GOVUK.mapComponentStyles,
+          backgroundColor: '#f5f5f0'
+        },
+        plugins: [this.interactPlugin],
+        urlPosition: 'none',
+        minZoom: 4,
         maxZoom: 16,
-        maxBounds: [
-          [49.5, -10.5],
-          [62, 6]
-        ],
-        attributionControl: false
+        center: [-0.09, 51.505],
+        containerHeight: '500px'
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
-      this.config = Object.assign(allMapOptions, passedConfig)
-      this.markers = JSON.parse(this.$module.getAttribute('data-markers'))
+      this.config = Object.assign(config, passedConfig)
 
+      this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
+        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
         this.geoJsonUrl = false
       }
+      this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 
-      this.height = this.$module.getAttribute('data-height')
-      this.popups = []
-      this.popupsList = []
+      this.markerOptions = {
+        symbol: 'circle',
+        backgroundColor: '#1d70b8',
+        foregroundColor: '#FFFFFF',
+        haloWidth: 3,
+        selectedWidth: 8
+      }
     }
 
     init () {
-      if (typeof L === 'undefined') return
-
-      if (!this.apiKey) {
-        this.$module.innerText = "We're sorry, but the map failed to load. The map API key was not found."
-        return
-      }
-      this.initialiseMap()
-      this.addAllMarkers()
-    }
-
-    initialiseMap () {
       const id = this.$module.getAttribute('id')
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
-      if (this.height) { this.map_element.style.height = `${this.height}px` }
 
-      this.map = L.map(this.map_id, this.config)
-      const mask = L.geoJSON([{
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          properties: {},
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [[-180, 90], [180, 90], [180, -90], [-180, -90], [-180, 90]],
-              [[-11, 49.5], [-11, 62], [3, 62], [3, 51.5], [-3, 49.5], [-11, 49.5]]
-            ]
-          }
-        }]
-      }], {
-        style: {
-          color: '#d7e0e5',
-          fillOpacity: 1,
-          interactive: false
+      this.map = new defra.InteractiveMap(this.map_id, this.config)
+
+      /* istanbul ignore next */
+      this.map.on('map:ready', () => {
+        this.addAllMarkers()
+      })
+
+      /* istanbul ignore next */
+      this.map.on('interact:selectionchange', (e) => {
+        if (e.selectedMarkers.length > 0) {
+          var marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
+          marker = this.markers[marker]
+          this.map.addPanel('the-panel', {
+            focus: false,
+            label: marker.name,
+            html: this.createPopupContent(marker),
+            mobile: { slot: 'drawer', dismissible: true },
+            tablet: { slot: 'left-top', dismissible: true, width: '280px' },
+            desktop: { slot: 'left-top', dismissible: true, width: '280px' }
+          })
+        } else {
+          this.map.hidePanel('the-panel')
         }
       })
-      mask.addTo(this.map)
-      this.map.setView([this.config.centre_lat, this.config.centre_lng], this.config.zoom)
 
-      // Load and display ZXY tile layer on the map
-      const basemap = L.tileLayer(`https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=${this.apiKey}`)
-      basemap.addTo(this.map)
-    }
-
-    createMarker (feature, latlng) {
-      const marker = L.marker(latlng, { alt: feature.properties.name, icon: this.markerIcon })
-      this.popups.push(marker)
-
-      const popupContent = this.createPopupContent(feature)
-      this.popupsList.push(popupContent)
-      return marker
+      /* istanbul ignore next */
+      this.map.on('app:panelclosed', (e) => {
+        this.interactPlugin.clear()
+      })
     }
 
     createPopupContent (feature) {
-      let popupContent = `<span class="app-c-map__popup-title">${feature.properties.name}</span>`
+      const heading = `h${this.headingLevel}`
+      let popupContent = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feature.properties.name}</${heading}>`
       if (feature.properties.description) {
         popupContent = `${popupContent} ${feature.properties.description}`
       }
@@ -123,43 +102,82 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             throw new Error(`Response status: ${response.status}`)
           }
           const result = await response.json()
-          L.geoJSON(result, {
-            pointToLayer: (feature, latlng) => {
-              return this.createMarker(feature, latlng)
-            },
-            onEachFeature: (feature, layer) => {
-              layer.bindPopup(this.createPopupContent(feature), { maxWidth: 200 })
-            }
-          }).addTo(this.map)
+          if (this.markers) {
+            this.markers = this.markers.concat(result.features)
+          }
         } catch (error) {
           console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
         }
       }
+      this.markers.sort((a, b) => {
+        const nameA = a.properties.name.toUpperCase()
+        const nameB = b.properties.name.toUpperCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0 // names are equal
+      })
+      this.addMarkers()
 
-      if (this.markers) {
-        this.markers.forEach(feature => {
-          const marker = this.createMarker(feature, [feature.lat, feature.lng])
-          marker.addTo(this.map)
-          marker.bindPopup(this.createPopupContent(feature), { maxWidth: 200 })
+      // only fit to bounds if there are more than one markers
+      if (this.markers.length > 0 && !this.config.bounds) {
+        this.map.fitToBounds({
+          type: 'FeatureCollection',
+          features: this.markers
         })
       }
+      if (this.markers.length > 0) {
+        this.interactPlugin.enable()
+        this.addPopupsList()
+      }
+    }
 
-      if (this.popups.length) {
-        const group = new L.FeatureGroup(this.popups)
-        this.map.fitBounds(group.getBounds(), { padding: [20, 20] })
-
-        const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
-        const popupsListEl = this.$module.querySelector('.js-list-markers ul')
-
-        if (popupsListWrapper && popupsListEl) {
-          popupsListWrapper.classList.add('app-c-map__markers-list--visible')
-          this.popupsList.sort()
-          this.popupsList.forEach(popup => {
-            const listItem = document.createElement('li')
-            listItem.innerHTML = popup
-            popupsListEl.appendChild(listItem)
-          })
+    addMarkers () {
+      const allowedColours = {
+        blue: '#1d70b8',
+        green: '#0f7a52',
+        orange: '#f47738',
+        red: '#ca3535'
+      }
+      const allowedSymbols = ['circle', 'pin', 'square']
+      this.markers.forEach((marker, index) => {
+        if (marker.marker) {
+          const colour = marker.marker.colour || false
+          if (colour) {
+            if (allowedColours[colour]) {
+              marker.marker.backgroundColor = allowedColours[colour]
+            }
+            delete marker.marker.colour
+          }
+          const symbol = marker.marker.symbol || false
+          if (!(symbol && allowedSymbols.includes(symbol))) {
+            delete marker.marker.symbol
+          }
         }
+        const options = Object.assign(Object.assign({}, this.markerOptions), marker.marker || {})
+        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates, options)
+      })
+    }
+
+    addPopupsList () {
+      const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
+      const popupsListEl = this.$module.querySelector('.js-list-markers ol')
+
+      if (popupsListWrapper && popupsListEl) {
+        popupsListWrapper.classList.add('app-c-map__markers-list--visible')
+        var popupsList = []
+        this.markers.forEach(marker => {
+          popupsList.push(this.createPopupContent(marker))
+        })
+        popupsList.forEach(popup => {
+          const listItem = document.createElement('li')
+          // listItem.appendChild(popup)
+          listItem.innerHTML = popup
+          popupsListEl.appendChild(listItem)
+        })
       }
     }
   }

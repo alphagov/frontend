@@ -13,7 +13,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         centre_lat: 51.505,
         centre_lng: -0.09,
         zoom: 8,
-        minZoom: 4
+        minZoom: 4,
+        maxZoom: 16
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       this.config = Object.assign(this.config, passedConfig)
@@ -51,6 +52,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         mapLabel: this.config.heading,
         zoom: this.config.zoom,
         minZoom: this.config.minZoom,
+        maxZoom: this.config.maxZoom,
         center: [this.config.centre_lng, this.config.centre_lat],
         containerHeight: `${this.config.height}px`,
         bounds: this.config.bounds,
@@ -130,7 +132,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.addMarkers()
 
       // only fit to bounds if there are more than one markers
-      if (this.markers.length > 1 && !this.config.bounds) {
+      if (this.markers.length > 0 && !this.config.bounds) {
         this.map.fitToBounds({
           type: 'FeatureCollection',
           features: this.markers

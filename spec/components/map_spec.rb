@@ -9,13 +9,6 @@ RSpec.describe "MapComponent", type: :view do
     zoom: 12,
   }
 
-  # config_with_bounds = {
-  #   centre_lat: 55.9533,
-  #   centre_lng: -3.1883,
-  #   zoom: 12,
-  #   bounds: [1, 2, 3, 4],
-  # }
-
   markers = [
     {
       lat: 51.5163,
@@ -31,15 +24,13 @@ RSpec.describe "MapComponent", type: :view do
     },
   ]
 
-  heading = { text: "heading" }
-
   it "renders nothing without config" do
     render_component({})
     expect(rendered).not_to have_css(".app-c-map")
   end
 
   it "renders the basic component" do
-    render_component(map_config: basic_config, heading_text: heading)
+    render_component(map_config: basic_config, heading_text: "heading")
     expect(rendered).to have_css(".app-c-map")
     expect(rendered).to have_selector("[data-config*='\"centre_lat\":55.9533,\"centre_lng\":-3.1883,\"']")
   end
@@ -57,45 +48,45 @@ RSpec.describe "MapComponent", type: :view do
   end
 
   it "can have a description" do
-    render_component(map_config: basic_config, heading_text: heading, description: "what a map")
+    render_component(map_config: basic_config, heading_text: "heading", description: "what a map")
     expect(rendered).to have_css(".gem-c-govspeak", text: "what a map")
   end
 
   it "only includes the JavaScript tag once even if multiple component instances" do
-    render_component(map_config: basic_config, heading_text: heading)
-    render_component(map_config: basic_config, heading_text: heading)
+    render_component(map_config: basic_config, heading_text: "heading")
+    render_component(map_config: basic_config, heading_text: "heading")
     expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 3)
   end
 
   it "can accept an array of markers" do
-    render_component(markers: markers, heading_text: heading)
+    render_component(markers: markers, heading_text: "heading")
     expect(rendered).to have_css("[data-markers='#{markers.to_json}']")
   end
 
   it "accepts a geojson url" do
     geojson = "/fake/thing.geojson"
-    render_component(url: geojson, heading_text: heading)
+    render_component(url: geojson, heading_text: "heading")
     expect(rendered).to have_css("[data-geojson='#{geojson}']")
   end
 
   it "can show a copyright message" do
     copyright = "This is copyright somebody, somewhere"
-    render_component(map_config: basic_config, copyright: copyright, heading_text: heading)
+    render_component(map_config: basic_config, copyright: copyright, heading_text: "heading")
     expect(rendered).to have_css(".app-c-map__copyright", text: copyright)
   end
 
   it "has a list for accessible markers" do
-    render_component(markers: markers, heading_text: heading)
+    render_component(markers: markers, heading_text: "heading")
     expect(rendered).to have_css(".js-list-markers ol", visible: :hidden)
   end
 
   it "allows bounds to be passed" do
-    render_component(map_config: basic_config, heading_text: heading, bounds: [1, 2, 3, 4])
+    render_component(map_config: basic_config, heading_text: "heading", bounds: [1, 2, 3, 4])
     expect(rendered).to have_selector("[data-config*='[1,2,3,4]']")
   end
 
   it "does not allow invalid bounds" do
-    render_component(map_config: basic_config, heading_text: heading, bounds: [1, 2, 3])
+    render_component(map_config: basic_config, heading_text: "heading", bounds: [1, 2, 3])
     expect(rendered).not_to have_selector("[data-config*='[1,2,3]']")
   end
 
@@ -113,7 +104,7 @@ RSpec.describe "MapComponent", type: :view do
   ]
 
   it "displays a key" do
-    render_component(map_config: basic_config, heading_text: heading, key: key)
+    render_component(map_config: basic_config, heading_text: "heading", key: key)
     expect(rendered).to have_css("h3.gem-c-heading__text", text: "Map key")
     expect(rendered).to have_css(".govuk-list li", text: "Square")
     expect(rendered).to have_css(".govuk-list li:nth-child(1)", text: "Square")
@@ -123,19 +114,19 @@ RSpec.describe "MapComponent", type: :view do
   end
 
   it "displays a custom key heading" do
-    render_component(map_config: basic_config, heading_text: heading, key: key, key_heading_text: "Custom key heading")
+    render_component(map_config: basic_config, heading_text: "heading", key: key, key_heading_text: "Custom key heading")
     expect(rendered).to have_css(".gem-c-heading.govuk-\\!-margin-bottom-4")
     expect(rendered).to have_css("h3.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
   end
 
   it "displays the right heading level for the key when heading_level is 1" do
-    render_component(map_config: basic_config, heading_text: heading, heading_level: 1, key: key, key_heading_text: "Custom key heading")
+    render_component(map_config: basic_config, heading_text: "heading", heading_level: 1, key: key, key_heading_text: "Custom key heading")
     expect(rendered).to have_css("h1.gem-c-heading__text.govuk-heading-m", text: "heading")
     expect(rendered).to have_css("h2.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
   end
 
   it "displays the right heading level for the key when heading_level is 3" do
-    render_component(map_config: basic_config, heading_text: heading, heading_level: 3, key: key, key_heading_text: "Custom key heading")
+    render_component(map_config: basic_config, heading_text: "heading", heading_level: 3, key: key, key_heading_text: "Custom key heading")
     expect(rendered).to have_css("h3.gem-c-heading__text.govuk-heading-s", text: "heading")
     expect(rendered).to have_css("h4.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
   end

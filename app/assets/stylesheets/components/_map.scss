@@ -4,7 +4,10 @@
 .app-c-map--enabled {
   padding: 0;
   background-color: #d7e0e5;
-  border: solid 1px $govuk-border-colour;
+
+  @include govuk-media-query($from: tablet) {
+    border: solid 1px $govuk-border-colour;
+  }
 
   @include govuk-media-query($until: desktop) {
     max-height: 80vh;
@@ -88,4 +91,9 @@
 .leaflet-popup-close-button {
   transform: scale(1.5);
   transform-origin: top right;
+}
+
+// defra map override styles
+.im-c-open-map-button {
+  margin-bottom: govuk-spacing(2);
 }

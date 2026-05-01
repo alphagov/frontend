@@ -25,21 +25,17 @@ examples:
         centre_lng: -3.1883
         centre_lat: 55.9533
         zoom: 12
-  custom_heading:
-    description: All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
+  custom_heading_description_and_copyright:
+    description: |
+      All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
+
+      Descriptions are rendered inside a govspeak block, so can include govspeak formatting. Descriptions are not required but are recommended, to help users with screen readers understand the purpose of the map.
     data:
-      heading_text: Kirkcaldy, Scotland
+      heading_text: Malvern, Worcestershire
       heading_level: 3
-      map_config:
-        centre_lng: -3.158137
-        centre_lat: 56.116825
-        zoom: 12
-  with_description:
-    description: Descriptions are rendered inside a govspeak block, so can include govspeak formatting. Descriptions are not required but are recommended, to help users who use screen readers understand what the map is visualising.
-    data:
       description: |
         <p>The Malvern Hills has been designated an area of outstanding natural beauty.</p>
-      heading_text: Malvern, Worcestershire
+      copyright: Contains OS data &copy; Crown copyright and database rights 2026
       map_config:
         centre_lng: -2.325062
         centre_lat: 52.107919
@@ -221,24 +217,6 @@ examples:
     description: The map defaults to a height of 500px but this can be overridden if required.
     data:
       height: 200
-      heading_text: Paddington station
-      map_config:
-        centre_lng: -0.1766
-        centre_lat: 51.5163
-        zoom: 12
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
-  with_copyright:
-    data:
-      copyright: Contains OS data &copy; Crown copyright and database rights 2026
-      margin_bottom: 9
       heading_text: Paddington station
       markers:
       - geometry:

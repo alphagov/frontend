@@ -97,3 +97,10 @@
 .im-c-open-map-button {
   margin-bottom: govuk-spacing(2);
 }
+
+.im-c-error {
+  margin: 0;
+  background: #FFFFFF;
+  border-color: #d4351c;
+  @include govuk-font(19)
+}

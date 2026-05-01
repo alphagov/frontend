@@ -8,16 +8,28 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
-      this.csp_worker = this.$module.getAttribute('data-csp-worker')
-      this.config = {
-        centre_lat: 51.505,
-        centre_lng: -0.09,
-        zoom: 8,
+      const cspWorker = this.$module.getAttribute('data-csp-worker')
+
+      this.interactPlugin = defra.interactPlugin({
+        deselectOnClickOutside: true
+      })
+
+      var config = {
+        mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
+        behaviour: 'hybrid',
+        mapStyle: {
+          url: window.GOVUK.mapComponentStyles,
+          backgroundColor: '#f5f5f0'
+        },
+        plugins: [this.interactPlugin],
+        urlPosition: 'none',
         minZoom: 4,
-        maxZoom: 16
+        maxZoom: 16,
+        center: [-0.09, 51.505],
+        containerHeight: '500px'
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
-      this.config = Object.assign(this.config, passedConfig)
+      this.config = Object.assign(config, passedConfig)
 
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
@@ -42,36 +54,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
 
-      this.interactPlugin = defra.interactPlugin({
-        deselectOnClickOutside: true
-      })
-
-      this.map = new defra.InteractiveMap(this.map_id, {
-        mapProvider: defra.maplibreProvider({ workerUrl: this.csp_worker }),
-        behaviour: 'hybrid',
-        mapLabel: this.config.heading,
-        zoom: this.config.zoom,
-        minZoom: this.config.minZoom,
-        maxZoom: this.config.maxZoom,
-        center: [this.config.centre_lng, this.config.centre_lat],
-        containerHeight: `${this.config.height}px`,
-        bounds: this.config.bounds,
-        mapStyle: {
-          url: window.GOVUK.mapComponentStyles,
-          // attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
-          backgroundColor: '#f5f5f0'
-        },
-        plugins: [this.interactPlugin],
-        urlPosition: 'none'
-      })
+      this.map = new defra.InteractiveMap(this.map_id, this.config)
 
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
       })
 
+      /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
-        /* istanbul ignore next */
         if (e.selectedMarkers.length > 0) {
           var marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
           marker = this.markers[marker]

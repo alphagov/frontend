@@ -1,13 +1,14 @@
 <%
-  copyright ||= nil
-  map_config = local_assigns[:map_config] || {}
-  markers = local_assigns[:markers] || nil
-  geojson = local_assigns[:url]
-  hide_markers_beneath ||= nil
-  height ||= 500
+  centre ||= nil
+  zoom ||= nil
   heading_text ||= nil
   heading_level ||= 2
   description ||= nil
+  height ||= nil
+  copyright ||= nil
+  markers = local_assigns[:markers] || nil
+  geojson = local_assigns[:url]
+  hide_markers_beneath ||= nil
   key_heading_text ||= "Map key"
   key ||= nil
   bounds ||= nil
@@ -17,9 +18,12 @@
   key_heading_obj = nil
   key_heading_obj = { text: key_heading_text, margin_bottom: 2, heading_level: heading_level + 1, font_size: "s" } if key
 
+  map_config = {}
+  map_config[:center] = centre if centre.kind_of?(Array) && centre.length == 2
+  map_config[:zoom] = zoom if zoom
+  map_config[:mapLabel] = heading_text
+  map_config[:containerHeight] = "#{height}px" if height
   map_config[:bounds] = bounds if bounds.kind_of?(Array) && bounds.length == 4
-  map_config[:heading] = heading_text
-  map_config[:height] = height
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")
@@ -32,7 +36,7 @@
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_script ||= OpenStruct.new(script_included: false)
 %>
-<% if map_config[:centre_lat] && map_config[:centre_lng] && map_config[:zoom] && heading_text || markers || !geojson.nil? %>
+<% if heading_text && ((map_config[:center] && map_config[:zoom]) || (markers || !geojson.nil?)) %>
   <%= render "govuk_publishing_components/components/heading", heading_obj %>
   <% if description %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>

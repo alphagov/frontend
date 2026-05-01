@@ -21,10 +21,10 @@ examples:
   default:
     data:
       heading_text: An example map
-      map_config:
-        centre_lng: -3.1883
-        centre_lat: 55.9533
-        zoom: 12
+      zoom: 12
+      centre:
+      - -3.1883
+      - 55.9533
   custom_heading_description_and_copyright:
     description: |
       All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
@@ -36,10 +36,10 @@ examples:
       description: |
         <p>The Malvern Hills has been designated an area of outstanding natural beauty.</p>
       copyright: Contains OS data &copy; Crown copyright and database rights 2026
-      map_config:
-        centre_lng: -2.325062
-        centre_lat: 52.107919
-        zoom: 12
+      centre:
+      - -2.325062
+      - 52.107919
+      zoom: 12
   with_markers:
     description: |
       Adds markers to the map. Markers have popups when clicked, containing the marker `name` and `description`. `name` is also used for the `alt` attribute of the marker for screen readers.
@@ -214,7 +214,7 @@ examples:
         properties:
           name: Ham, Kent
   custom_height:
-    description: The map defaults to a height of 500px but this can be overridden if required.
+    description: The map defaults to a height of 500px on desktop but this can be overridden if required. The height on tablet and mobile is set to be no taller than the window.
     data:
       height: 200
       heading_text: Paddington station

@@ -21,7 +21,8 @@ describe('Map component', function () {
     centre_lat: 51.505,
     centre_lng: -0.09,
     zoom: 8,
-    minZoom: 4
+    minZoom: 4,
+    maxZoom: 16
   }
 
   const mapConfigWithBounds = {
@@ -141,7 +142,7 @@ describe('Map component', function () {
       module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(1)
       expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Paddington A station in London')
-      expect(module.map.fitToBounds).not.toHaveBeenCalled()
+      expect(module.map.fitToBounds).toHaveBeenCalled()
     })
   })
 

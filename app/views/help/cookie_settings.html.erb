@@ -52,76 +52,105 @@
       <p class="govuk-body"><%= t("cookies.four_types") %></p>
 
       <form data-module="cookie-settings">
-        <% cookies_usage_hint = capture do %>
-          <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
-          <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
-          <ul class="govuk-list--bullet govuk-hint">
-            <li><%= t("cookies.how_you_got") %></li>
-            <li><%= t("cookies.pages_visited") %></li>
-            <li><%= t("cookies.clicks") %></li>
-          </ul>
-          <p class="govuk-body govuk-hint"><%= t("cookies.lux_explain") %></p>
-          <p class="govuk-body govuk-hint"><%= t("cookies.lux_info") %></p>
-          <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
+
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.usage.heading"),
+          margin_bottom: 3,
+        } %>
+
+        <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
+        <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
+        <ul class="govuk-list--bullet govuk-hint">
+          <li><%= t("cookies.how_you_got") %></li>
+          <li><%= t("cookies.pages_visited") %></li>
+          <li><%= t("cookies.clicks") %></li>
+        </ul>
+        <p class="govuk-body govuk-hint"><%= t("cookies.lux_explain") %></p>
+        <p class="govuk-body govuk-hint"><%= t("cookies.lux_info") %></p>
+        <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
+
+        <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.usage.question"),
+          heading_level: 0,
+          font_size: "s",
+          margin_bottom: 0,
+        } do %>
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-usage",
+            inline: false,
+            items: [
+              {
+                value: "on",
+                text: t("cookies.on-usage"),
+              },
+              {
+                value: "off",
+                text: t("cookies.off-usage"),
+                checked: true,
+              },
+            ],
+          } %>
         <% end %>
 
-        <%= render "govuk_publishing_components/components/radio", {
-          name: "cookies-usage",
-          inline: false,
-          heading: t("cookies.types.usage"),
-          hint: cookies_usage_hint,
-          items: [
-            {
-              value: "on",
-              text: t("cookies.on-usage"),
-            },
-            {
-              value: "off",
-              text: t("cookies.off-usage"),
-              checked: true,
-            },
-          ],
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.campaigns.heading"),
+          margin_bottom: 3,
         } %>
 
-        <% cookies_campaigns_hint = capture do %>
-          <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
+        <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
+
+        <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.campaigns.question"),
+          heading_level: 0,
+          font_size: "s",
+          margin_bottom: 0,
+        } do %>
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-campaigns",
+            inline: false,
+            items: [
+              {
+                value: "on",
+                text: t("cookies.on-campaigns"),
+              },
+              {
+                value: "off",
+                text: t("cookies.off-campaigns"),
+                checked: true,
+              },
+            ],
+          } %>
         <% end %>
 
-        <%= render "govuk_publishing_components/components/radio", {
-          name: "cookies-campaigns",
-          inline: false,
-          heading: t("cookies.types.campaigns"),
-          hint: cookies_campaigns_hint,
-          items: [
-            {
-              value: "on",
-              text: t("cookies.on-campaigns"),
-            },
-            {
-              value: "off",
-              text: t("cookies.off-campaigns"),
-              checked: true,
-            },
-          ],
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.settings.heading"),
+          margin_bottom: 3,
         } %>
 
-        <%= render "govuk_publishing_components/components/radio", {
-          name: "cookies-settings",
-          inline: false,
-          heading: t("cookies.types.settings"),
-          hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
-          items: [
-            {
-              value: "on",
-              text: t("cookies.on-settings"),
-            },
-            {
-              value: "off",
-              text: t("cookies.off-settings"),
-              checked: true,
-            },
-          ],
-        } %>
+        <p class="govuk-body govuk-hint"><%= t("cookies.preferences") %></p>
+
+        <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.settings.question"),
+          heading_level: 0,
+          font_size: "s",
+          margin_bottom: 0,
+        } do %>
+          <%= render "govuk_publishing_components/components/radio", {
+            name: "cookies-settings",
+            inline: false,
+            items: [
+              {
+                value: "on",
+                text: t("cookies.on-settings"),
+              },
+              {
+                value: "off",
+                text: t("cookies.off-settings"),
+                checked: true,
+              },
+            ],
+          } %>
+        <% end %>
 
         <%= render "govuk_publishing_components/components/govspeak", {
           } do %>

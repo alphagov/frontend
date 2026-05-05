@@ -8,7 +8,9 @@ RSpec.describe TopicalEventAboutPage do
       expect(topical_event_about_page.flexible_sections.count).to eq(3)
       expect(topical_event_about_page.flexible_sections.first).to be_instance_of(FlexiblePage::FlexibleSection::Breadcrumbs)
       expect(topical_event_about_page.flexible_sections.second).to be_instance_of(FlexiblePage::FlexibleSection::PageTitle)
-      expect(topical_event_about_page.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
+      expect(topical_event_about_page.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::SidebarThenContentLayout)
+      expect(topical_event_about_page.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
+      expect(topical_event_about_page.flexible_sections.third.content).to be_instance_of(FlexiblePage::FlexibleSection::Govspeak)
     end
   end
 

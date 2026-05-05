@@ -1,14 +1,9 @@
 RSpec.describe "Page title flexible section" do
-  let(:flexible_section) do
-    FlexiblePage::FlexibleSection::PageTitle.new(
-      {
-        "context" => "History",
-        "heading_text" => "10 Downing Street",
-        "lead_paragraph" => "History of 10 Downing Street, Westminster",
-      },
-      nil,
-    )
-  end
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::PageTitle.new(context:, heading_text:, lead_paragraph:) }
+
+  let(:context) { "History" }
+  let(:heading_text) { "10 Downing Street" }
+  let(:lead_paragraph) { "History of 10 Downing Street, Westminster" }
 
   before do
     render(template: "flexible_page/flexible_sections/_page_title", locals: { flexible_section: })

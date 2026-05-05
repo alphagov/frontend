@@ -66,6 +66,13 @@
         ga4_set_indexes: "",
       } do %>
         <% if @places_presenter.places.any? %>
+          <%= render "components/map", {
+            heading_text: "Results shown on map",
+            centre: [-3.1883, 55.9533],
+            hide_markers_beneath: true,
+            url: "/api/places/driving-test-centres.geojson",
+            zoom: 12,
+          } %>
           <%= render "govuk_publishing_components/components/heading", {
             text: "Results #{@places_presenter.preposition} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,

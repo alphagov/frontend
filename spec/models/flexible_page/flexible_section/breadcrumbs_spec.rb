@@ -1,20 +1,18 @@
 RSpec.describe FlexiblePage::FlexibleSection::Breadcrumbs do
-  subject(:flexible_section_hash) do
-    {
-      "breadcrumbs" => [
-        {
-          title: "History of the UK Government",
-          url: "/government/history",
-        },
-      ],
-    }
-  end
+  subject(:breadcrumbs) { described_class.new(breadcrumbs: breadcrumb_params) }
 
-  let(:breadcrumbs) { described_class.new(flexible_section_hash, FlexiblePage.new({})) }
+  let(:breadcrumb_params) do
+    [
+      {
+        title: "History of the UK Government",
+        url: "/government/history",
+      },
+    ]
+  end
 
   describe "#initialize" do
     it "sets the attributes from the flexible section hash" do
-      expect(breadcrumbs.breadcrumbs).to eq(flexible_section_hash["breadcrumbs"])
+      expect(breadcrumbs.breadcrumbs).to eq(breadcrumb_params)
     end
   end
 

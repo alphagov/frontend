@@ -8,7 +8,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
-
+      this.csp_worker = this.$module.getAttribute('data-csp-worker')
       this.config = {
         centre_lat: 51.505,
         centre_lng: -0.09,
@@ -44,7 +44,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       this.map = new defra.InteractiveMap(this.map_id, {
-        mapProvider: defra.maplibreProvider(),
+        mapProvider: defra.maplibreProvider({ workerUrl: this.csp_worker }),
         behaviour: 'hybrid',
         mapLabel: this.config.heading,
         zoom: this.config.zoom,
@@ -56,7 +56,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           // attribution: 'OpenFreeMap © OpenMapTiles Data from OpenStreetMap',
           backgroundColor: '#f5f5f0'
         },
-        plugins: [this.interactPlugin]
+        plugins: [this.interactPlugin],
+        urlPosition: 'none'
       })
 
       this.map.on('map:ready', () => {

@@ -17,6 +17,7 @@
   component_helper.add_data_attribute({ config: map_config })
   component_helper.add_data_attribute({ markers: markers.to_json }) if markers
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
+  component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") })
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_script ||= OpenStruct.new(script_included: false)
 %>

@@ -1,5 +1,5 @@
 RSpec.describe "Link flexible section" do
-  let(:flexible_section) { FlexiblePage::FlexibleSection::Link.new({ "link_text" => "About page", "link" => "/about" }, nil) }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Link.new(link: "/about", link_text: "About page") }
 
   before do
     render(template: "flexible_page/flexible_sections/_link", locals: { flexible_section: })

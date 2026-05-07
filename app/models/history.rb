@@ -1,4 +1,15 @@
 class History < FlexiblePage
+  def initialize(content_store_response)
+    super
+
+    add_section(Breadcrumbs.new(breadcrumbs:))
+    add_section(PageTitle.new(context: "History", heading_text: title, lead_paragraph: content_store_response.dig("details", "lead_paragraph")))
+    add_section(SidebarThenContentLayout.new(
+                  sidebar: RichContentsList.new(contents_list:, image:),
+                  content: Govspeak.new(govspeak: body),
+                ))
+  end
+
   def breadcrumbs
     super << {
       title: "History of the UK Government",
@@ -8,28 +19,11 @@ class History < FlexiblePage
 
 private
 
-  def default_flexible_sections
-    [
-      {
-        type: "breadcrumbs",
-        breadcrumbs:,
-      },
-      {
-        type: "page_title",
-        context: "History",
-        heading_text: title,
-        lead_paragraph: content_store_response.dig("details", "lead_paragraph"),
-      },
-      {
-        type: "rich_content",
-        contents_list: (content_store_response.dig("details", "headers") || []).map { |header| header.except("headers") },
-        govspeak: body,
-        image: image_hash,
-      },
-    ]
+  def contents_list
+    (content_store_response.dig("details", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }
   end
 
-  def image_hash
+  def image
     images = content_store_response.dig("details", "images")
 
     return nil unless images

@@ -1,127 +1,155 @@
 RSpec.describe "Impact header flexible section" do
-  def create_data(include_image = nil, variant = nil, logo = nil, caption = nil)
-    data = {
-      "title" => "page title",
-      "description" => "page description",
-    }
-    image = {
-      "sources" => {
-        "desktop" => "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
-        "desktop_2x" => "https://assets.publishing.service.gov.uk/media/67472570cf0d45234dd8d0a8/hero_desktop_2x_F_Desktop_HD-50.jpg",
-        "mobile" => "https://assets.publishing.service.gov.uk/media/67472591a72d7eb7f348c047/hero_mobile_1x_F_MOBILE_HD-50.jpg",
-        "mobile_2x" => "https://assets.publishing.service.gov.uk/media/674725912f94bef8ff48c044/hero_mobile_2x_F_MOBILE_HD-50.jpg",
-        "tablet" => "https://assets.publishing.service.gov.uk/media/6747258077462f78091474e2/hero_tablet_1x_F_Tablet_HD-50.jpg",
-        "tablet_2x" => "https://assets.publishing.service.gov.uk/media/67472580886c31e352d8d0b1/hero_tablet_2x_F_Tablet_HD-50.jpg",
-      },
-    }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, title:) }
 
-    data["image"] = image if include_image
-    data["variant"] = variant if variant
-    data["image_type"] = logo ? "logo" : "header"
-    data["image"]["caption"] = "Test data" if caption && include_image
-    FlexiblePage::FlexibleSection::ImpactHeader.new(data, nil)
+  let(:description) { "page description" }
+  let(:image) { { sources: } }
+  let(:title) { "page title" }
+
+  let(:sources) do
+    {
+      desktop: "https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg",
+      desktop_2x: "https://assets.publishing.service.gov.uk/media/67472570cf0d45234dd8d0a8/hero_desktop_2x_F_Desktop_HD-50.jpg",
+      mobile: "https://assets.publishing.service.gov.uk/media/67472591a72d7eb7f348c047/hero_mobile_1x_F_MOBILE_HD-50.jpg",
+      mobile_2x: "https://assets.publishing.service.gov.uk/media/674725912f94bef8ff48c044/hero_mobile_2x_F_MOBILE_HD-50.jpg",
+      tablet: "https://assets.publishing.service.gov.uk/media/6747258077462f78091474e2/hero_tablet_1x_F_Tablet_HD-50.jpg",
+      tablet_2x: "https://assets.publishing.service.gov.uk/media/67472580886c31e352d8d0b1/hero_tablet_2x_F_Tablet_HD-50.jpg",
+    }
   end
 
-  describe "an impact header" do
-    before do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true) })
-    end
+  let(:image_with_caption) { { caption: "My Caption", sources: } }
 
-    it "renders impact header section" do
-      expect(rendered).to have_selector("[data-flexible-section='impact-header']")
-      expect(rendered).to have_selector(".impact-header .impact-header__container")
-    end
-
-    it "renders the text and image" do
-      expect(rendered).to have_selector(".gem-c-heading", text: "page title")
-      expect(rendered).to have_selector(".gem-c-lead-paragraph", text: "page description")
-      expect(rendered).to have_selector(".impact-header__image[src='https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg']")
-      expect(rendered).to have_selector(".impact-header__image[alt='']")
-    end
+  before do
+    render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: })
   end
 
-  describe "an impact header without an image" do
-    before do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data })
-    end
+  it "renders impact header section" do
+    expect(rendered).to have_selector("[data-flexible-section='impact-header']")
+    expect(rendered).to have_selector(".impact-header .impact-header__container")
+  end
+
+  it "renders the text and image" do
+    expect(rendered).to have_selector(".gem-c-heading", text: "page title")
+    expect(rendered).to have_selector(".gem-c-lead-paragraph", text: "page description")
+    expect(rendered).to have_selector(".impact-header__image[src='https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg']")
+    expect(rendered).to have_selector(".impact-header__image[alt='']")
+  end
+
+  it "defaults to the plain variant" do
+    expect(rendered).to have_selector(".impact-header.impact-header--plain")
+  end
+
+  it "does not render a caption" do
+    expect(rendered).not_to have_selector(".impact-header .gem-c-details")
+  end
+
+  context "without an image" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:) }
 
     it "renders the impact header section" do
       expect(rendered).to have_selector("[data-flexible-section='impact-header']")
       expect(rendered).to have_selector(".impact-header .impact-header__grid .govuk-grid-row")
     end
 
-    it "does not include an image" do
+    it "does not render an image" do
       expect(rendered).not_to have_selector(".impact-header__image")
     end
   end
 
-  describe "variations" do
-    it "defaults to the plain variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--plain")
-    end
+  context "when a caption is provided" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:) }
 
-    it "does not have a caption unless one is provided" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true) })
-      expect(rendered).not_to have_selector(".impact-header .gem-c-details")
-    end
-
-    it "can render a caption on the plain variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, nil, nil, true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--plain")
+    it "renders a caption" do
       expect(rendered).to have_selector(".impact-header.impact-header--plain .impact-header__caption")
-      expect(rendered).to have_selector(".impact-header.impact-header--plain .impact-header__caption .gem-c-details")
+      expect(rendered).to have_selector(".impact-header.impact-header--plain .impact-header__caption .gem-c-details", text: "My Caption")
     end
+  end
 
-    it "does not default to the plain variant if logo layout" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, nil, true) })
+  context "with image_type set to :logo" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:) }
+
+    it "renders the logo layout" do
       expect(rendered).to have_selector(".impact-header.impact-header--logo")
       expect(rendered).not_to have_selector(".impact-header--plain")
     end
 
-    it "can render the govuk variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "govuk") })
+    context "when the image has a caption" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, image_type: :logo, title:) }
+
+      it "does not render a caption" do
+        expect(rendered).not_to have_selector(".impact-header .gem-c-details")
+      end
+    end
+  end
+
+  context "with the variant set to govuk" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, title:, variant:) }
+
+    let(:variant) { :govuk }
+
+    it "renders the govuk variant" do
       expect(rendered).to have_selector(".impact-header.impact-header--govuk")
-    end
-
-    it "can render the govuk variant with a caption" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "govuk", nil, true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption")
-      expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption .gem-c-details")
-    end
-
-    it "can render the notable-death variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "notable-death") })
-      expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
-    end
-
-    it "can render the notable-death variant with a caption" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(true, "notable-death", nil, true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption")
-      expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption .gem-c-details")
-    end
-
-    it "can render a logo layout with a background variant" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "govuk", true) })
-      expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--govuk")
       expect(rendered).not_to have_selector(".impact-header--plain")
     end
 
-    it "has no caption on the logo layout" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "govuk", true, true) })
-      expect(rendered).not_to have_selector(".impact-header.impact-header--logo .impact-header__caption")
-      expect(rendered).not_to have_selector(".impact-header.impact-header--logo .impact-header__caption .gem-c-details")
+    context "when a caption is provided" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:, variant:) }
+
+      it "renders a caption" do
+        expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption")
+        expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption .gem-c-details")
+      end
     end
 
-    it "can render a variant when there is no image" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "notable-death") })
+    context "with image_type set to :logo" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:, variant:) }
+
+      it "renders the logo layout" do
+        expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--govuk")
+      end
+    end
+
+    context "with no image" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:, variant:) }
+
+      it "renders the govuk variant" do
+        expect(rendered).to have_selector(".impact-header.impact-header--govuk")
+      end
+    end
+  end
+
+  context "with the variant set to notable_death" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, title:, variant:) }
+
+    let(:variant) { :notable_death }
+
+    it "renders the notable-death variant" do
       expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
+      expect(rendered).not_to have_selector(".impact-header--plain")
     end
 
-    it "has no caption when there is no image" do
-      render(template: "flexible_page/flexible_sections/_impact_header", locals: { flexible_section: create_data(nil, "notable-death", nil, true) })
-      expect(rendered).not_to have_selector(".impact-header.impact-header--notable-death .impact-header__caption")
-      expect(rendered).not_to have_selector(".impact-header.impact-header--notable-death .impact-header__caption .gem-c-details")
+    context "when a caption is provided" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:, variant:) }
+
+      it "renders a caption" do
+        expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption")
+        expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption .gem-c-details")
+      end
+    end
+
+    context "with image_type set to :logo" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:, variant:) }
+
+      it "renders the logo layout" do
+        expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--notable-death")
+      end
+    end
+
+    context "with no image" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:, variant:) }
+
+      it "renders the notable-death variant" do
+        expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
+      end
     end
   end
 end

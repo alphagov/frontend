@@ -16,6 +16,8 @@ RSpec.describe "Places API" do
           "latitude" => "-0.01",
         },
         "general_notes" => "<div>Hello</div>",
+        "map_marker_symbol" => "pin",
+        "map_marker_colour" => "green",
       },
     ]
   end
@@ -39,7 +41,29 @@ RSpec.describe "Places API" do
 
       expect(response).to have_http_status(:ok)
       expect(response.headers["content-type"]).to eq("application/geo+json; charset=utf-8")
-      expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"}}]}")
+      expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
+    end
+
+    context "when places don't specify map marker values" do
+      let(:places) do
+        [
+          {
+            "name" => "A place",
+            "source_address" => "Hello Town, AB12 3CD",
+            "location" => {
+              "longitude" => "51",
+              "latitude" => "-0.01",
+            },
+            "general_notes" => "<div>Hello</div>",
+          },
+        ]
+      end
+
+      it "supplies default values for markers" do
+        get "/api/places/#{service_slug}.geojson"
+
+        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"circle\",\"colour\":\"blue\"}}]}")
+      end
     end
 
     context "when asking for a non-allowed slug" do

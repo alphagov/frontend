@@ -1,90 +1,76 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
 
+  def initialize(content_store_response)
+    super
+
+    add_section(ImpactHeader.new(
+                  description:,
+                  image: impact_image,
+                  image_type: header_image.present? ? :header : :logo,
+                  title:,
+                  variant: notable_death? ? :notable_death : :plain,
+                ))
+
+    add_section(ContentThenSidebarLayout.new(
+                  content: Govspeak.new(govspeak: body),
+                  sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,
+                ))
+
+    if details["about_page_link_text"].present?
+      add_section(Link.new(link: "#{base_path}/about", link_text: details["about_page_link_text"]))
+    end
+
+    if featured_items.any?
+      add_section(Featured.new(
+                    items: featured_items,
+                    ga4_image_card_json: {
+                      event_name: "navigation",
+                      type: "image_card",
+                      section: "Featured",
+                    },
+                  ))
+    end
+
+    share_section = if details["social_media_links"].any?
+                      Share.new(
+                        heading_text: "Follow us",
+                        links: format_social_media_links(details["social_media_links"]),
+                      )
+                    end
+    add_section(ContentThenSidebarLayout.new(
+                  content: DocumentList.new(
+                    email_signup_link: "/email-signup?link=#{base_path}",
+                    email_signup_link_text: "Get email updates",
+                    heading_text: "Latest updates",
+                    items: feed_items,
+                    see_all_items_link: "/search/all?order=updated-newest&topical_events%5B%5D=#{base_path.split('/').last}",
+                    see_all_items_link_text: "See more updates",
+                  ),
+                  sidebar: share_section,
+                ))
+
+    if organisations_ordered_by_emphasis.any?
+      add_section(Involved.new(organisations: organisations_ordered_by_emphasis))
+    end
+  end
+
+  def feed_items
+    @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
+  end
+
 private
-
-  def default_flexible_sections
-    sections = []
-    sections << impact_header_section
-    sections << body_section if body.present?
-    sections << about_link_section if details["about_page_link_text"].present?
-    sections << featured_section if details["ordered_featured_documents"].present?
-    sections << feed_and_social_section
-    sections << whos_involved_section if organisations_ordered_by_emphasis.present?
-    sections
-  end
-
-  def impact_header_section
-    {
-      type: "impact_header",
-      title:,
-      description:,
-      breadcrumbs:,
-      image: impact_image,
-      image_type: header_image.present? ? "header" : "logo",
-      variant: notable_death? ? "notable-death" : "plain",
-    }
-  end
-
-  def body_section
-    {
-      type: "body_with_image",
-      govspeak: body,
-      image: header_image && logo_image ? logo_image : nil,
-    }
-  end
-
-  def about_link_section
-    {
-      type: "link",
-      link: "#{base_path}/about",
-      link_text: details["about_page_link_text"],
-    }
-  end
-
-  def featured_section
-    {
-      type: "featured",
-      ordered_featured_documents: details["ordered_featured_documents"],
-      ga4_image_card_json: {
-        "event_name": "navigation",
-        "type": "image card",
-        "section": "Featured",
-      },
-    }
-  end
-
-  def feed_and_social_section
-    {
-      type: "feed",
-      feed_heading_text: "Latest updates",
-      email_signup_link: "/email-signup?link=#{base_path}",
-      email_signup_link_text: "Get email updates",
-      items: FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format,
-      see_all_items_link: "/search/all?order=updated-newest&topical_events%5B%5D=#{base_path.split('/').last}",
-      see_all_items_link_text: "See more updates",
-      share_links_heading_text: "Follow us",
-      share_links: format_social_media_links(details["social_media_links"] || []),
-    }
-  end
-
-  def whos_involved_section
-    {
-      type: "involved",
-      organisations: organisations_ordered_by_emphasis.map(&:content_store_response),
-    }
-  end
 
   def header_image
     return unless details["images"]
 
-    details["images"].select { |i| i["type"] == "header" }.first
+    details["images"].select { |i| i["type"] == "header" }.first&.deep_symbolize_keys
   end
 
   def logo_image
     return unless details["images"]
 
-    details["images"].select { |i| i["type"] == "logo" }.first
+    details["images"].select { |i| i["type"] == "logo" }.first&.deep_symbolize_keys
   end
 
   def legacy_logo
@@ -116,6 +102,18 @@ private
         href: social_media_link["href"],
         text: social_media_link["title"],
         icon: social_media_link["service_type"],
+      }
+    end
+  end
+
+  def featured_items
+    (details["ordered_featured_documents"] || []).map do |i|
+      {
+        href: i["href"],
+        image_src: i["image"]["url"],
+        image_alt: i["image"]["alt_text"],
+        heading_text: i["title"],
+        description: i["summary"],
       }
     end
   end

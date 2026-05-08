@@ -26,10 +26,18 @@ module FlexiblePage::FlexibleSection
       }
     end
 
-    def ga4_tracking
+    def ga4_tracking(index_link = nil, index_total = nil)
       return nil unless flexible_section_hash["ga4_image_card_json"]
 
-      flexible_section_hash["ga4_image_card_json"].to_json
+      if index_link && index_total
+        index_obj = { index: { index_link: index_link }, index_total: index_total }
+        flexible_section_hash["ga4_image_card_json"].merge!(index_obj)
+      end
+
+      {
+        module: "ga4-link-tracker",
+        ga4_link: flexible_section_hash["ga4_image_card_json"].to_json,
+      }
     end
 
   private

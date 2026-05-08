@@ -108,6 +108,7 @@ RSpec.describe "Featured flexible section" do
 
       it "has no tracking by default" do
         expect(rendered).not_to have_selector("[data-module=ga4-link-tracker]")
+        expect(rendered).not_to have_selector("[data-ga4-link]")
       end
     end
 
@@ -122,7 +123,7 @@ RSpec.describe "Featured flexible section" do
 
       it "has tracking" do
         expect(rendered).to have_selector("[data-module=ga4-link-tracker]")
-        expect(rendered).to have_selector("[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"image card\",\"section\":\"Featured\"}']")
+        expect(rendered).to have_selector("[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"image card\",\"section\":\"Featured\",\"index\":{\"index_link\":1},\"index_total\":6}']")
       end
     end
   end

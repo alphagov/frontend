@@ -43,6 +43,10 @@ module Api
           name: place["name"],
           description: place["general_notes"],
         },
+        marker: {
+          symbol: place["map_marker_symbol"] || "square",
+          colour: place["map_marker_colour"] || "blue",
+        },
       }
     end
   end

@@ -54,7 +54,7 @@
       <form data-module="cookie-settings">
 
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("cookies.types.usage"),
+          text: t("cookies.types.usage.heading"),
           heading_level: 2,
         } %>
         
@@ -70,6 +70,7 @@
         <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.usage.question"),
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-usage",
@@ -90,13 +91,14 @@
         <% end %>
 
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("cookies.types.campaigns"),
+          text: t("cookies.types.campaigns.heading"),
           heading_level: 2,
         } %>
 
         <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.campaigns.question"),
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-campaigns",
@@ -116,11 +118,14 @@
         <% end %>
 
         <%= render "govuk_publishing_components/components/heading", {
-          text: t("cookies.types.settings"),
+          text: t("cookies.types.settings.heading"),
           heading_level: 2,
         } %>
 
+        <p class="govuk-body"><%= t("cookies.preferences") %></p>
+
         <%= render "govuk_publishing_components/components/fieldset", {
+          legend_text: t("cookies.types.settings.question"),
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-settings",

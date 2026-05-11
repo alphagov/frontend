@@ -130,13 +130,13 @@ en:
     third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
     preferences: These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
     types:
-      campaigns: 
+      campaigns:
         heading: Cookies that help with our communications and marketing
         question: Do you allow cookies that help with communications and marketing?
-      settings: 
+      settings:
         heading: Cookies that remember your settings
         question: Do you allow cookies that remember your settings?
-      usage: 
+      usage:
         heading: Cookies that measure website use
         question: Do you allow cookies that measure website use?
       essential: Strictly necessary cookies

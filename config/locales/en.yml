@@ -128,6 +128,7 @@ en:
     services: Government digital services are run by different government departments, such as the Department for Work and Pensions (DWP) and HM Revenue and Customs (HMRC).
     services_additional: These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
     third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
+    preferences: These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
     types:
       campaigns: Cookies that help with our communications and marketing
       essential: Strictly necessary cookies

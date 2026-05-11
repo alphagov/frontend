@@ -52,6 +52,11 @@
       <p class="govuk-body"><%= t("cookies.four_types") %></p>
 
       <form data-module="cookie-settings">
+
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.usage"),
+          heading_level: 2,
+        } %>
         
         <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
         <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
@@ -69,8 +74,6 @@
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-usage",
             inline: false,
-            heading: t("cookies.types.usage"),
-            hint: cookies_usage_hint,
             items: [
               {
                 value: "on",
@@ -86,6 +89,11 @@
 
         <% end %>
 
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.campaigns"),
+          heading_level: 2,
+        } %>
+
         <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
@@ -93,8 +101,6 @@
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-campaigns",
             inline: false,
-            heading: t("cookies.types.campaigns"),
-            hint: cookies_campaigns_hint,
             items: [
               {
                 value: "on",
@@ -109,13 +115,16 @@
           } %>
         <% end %>
 
+        <%= render "govuk_publishing_components/components/heading", {
+          text: t("cookies.types.settings"),
+          heading_level: 2,
+        } %>
+
         <%= render "govuk_publishing_components/components/fieldset", {
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-settings",
             inline: false,
-            heading: t("cookies.types.settings"),
-            hint: "These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.",
             items: [
               {
                 value: "on",

@@ -1,4 +1,3 @@
-<% content_for :title, "Cookies on GOV.UK" %>
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_cookie-settings", media: "all" %>
 <% end %>
@@ -30,9 +29,9 @@
 
     <%= render "govuk_publishing_components/components/heading", {
       text: t("cookies.cookie_settings"),
-      padding: true,
       heading_level: 2,
-      margin_bottom: 3,
+      font_size: "l",
+      margin_bottom: 5,
     } %>
 
     <div class="cookie-settings__no-js">
@@ -49,28 +48,31 @@
     </div>
 
     <div class="cookie-settings__form-wrapper">
-      <p class="govuk-body"><%= t("cookies.four_types") %></p>
+      <p class="govuk-body govuk-!-margin-bottom-7"><%= t("cookies.four_types") %></p>
 
       <form data-module="cookie-settings">
 
         <%= render "govuk_publishing_components/components/heading", {
           text: t("cookies.types.usage.heading"),
-          heading_level: 2,
+          font_size: "l",
+          margin_bottom: 6,
         } %>
-        
-        <p class="govuk-body govuk-hint"><%= t("cookies.usage_info") %></p>
-        <p class="govuk-body govuk-hint"><%= t("cookies.google_info") %></p>
-        <ul class="govuk-list--bullet govuk-hint">
+
+        <p class="govuk-body"><%= t("cookies.usage_info") %></p>
+        <p class="govuk-body"><%= t("cookies.google_info") %></p>
+        <ul class="govuk-list govuk-list--bullet">
           <li><%= t("cookies.how_you_got") %></li>
           <li><%= t("cookies.pages_visited") %></li>
           <li><%= t("cookies.clicks") %></li>
         </ul>
-        <p class="govuk-body govuk-hint"><%= t("cookies.lux_explain") %></p>
-        <p class="govuk-body govuk-hint"><%= t("cookies.lux_info") %></p>
-        <p class="govuk-body govuk-hint"><%= t("cookies.google_share") %></p>
+        <p class="govuk-body"><%= t("cookies.lux_explain") %></p>
+        <p class="govuk-body"><%= t("cookies.lux_info") %></p>
+        <p class="govuk-body"><%= t("cookies.google_share") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
           legend_text: t("cookies.types.usage.question"),
+          heading_size: "s",
+          margin_bottom: 0,
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-usage",
@@ -87,18 +89,21 @@
               },
             ],
           } %>
-
         <% end %>
 
         <%= render "govuk_publishing_components/components/heading", {
           text: t("cookies.types.campaigns.heading"),
           heading_level: 2,
+          font_size: "l",
+          margin_bottom: 6,
         } %>
 
-        <p class="govuk-body govuk-hint"><%= t("cookies.third_parties") %></p>
+        <p class="govuk-body"><%= t("cookies.third_parties") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
           legend_text: t("cookies.types.campaigns.question"),
+          heading_size: "s",
+          margin_bottom: 0,
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-campaigns",
@@ -119,13 +124,17 @@
 
         <%= render "govuk_publishing_components/components/heading", {
           text: t("cookies.types.settings.heading"),
+          font_size: "l",
           heading_level: 2,
+          margin_bottom: 6,
         } %>
 
         <p class="govuk-body"><%= t("cookies.preferences") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
           legend_text: t("cookies.types.settings.question"),
+          heading_size: "s",
+          margin_bottom: 0,
         } do %>
           <%= render "govuk_publishing_components/components/radio", {
             name: "cookies-settings",
@@ -144,9 +153,15 @@
           } %>
         <% end %>
 
+        <%= render "govuk_publishing_components/components/heading", {
+            text: t("cookies.types.essential"),
+            font_size: "l",
+            heading_level: 2,
+            margin_bottom: 6,
+        } %>
+
         <%= render "govuk_publishing_components/components/govspeak", {
           } do %>
-          <h2><%= t("cookies.types.essential") %></h2>
           <p><%= t("cookies.essential_explanation") %></p>
           <p><%= t("cookies.always_on") %></p>
         <% end %>
@@ -160,6 +175,7 @@
     <div class="cookie-settings__gov-services">
       <%= render "govuk_publishing_components/components/heading", {
         text: "Government services",
+        font_size: "l",
         heading_level: 2,
         margin_bottom: 3,
       } %>

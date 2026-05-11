@@ -21,7 +21,7 @@
   map_config = {}
   map_config[:center] = centre if centre.kind_of?(Array) && centre.length == 2
   map_config[:zoom] = zoom if zoom
-  map_config[:mapLabel] = heading_text
+  map_config[:mapLabel] = "Interactive map: #{heading_text}"
   map_config[:containerHeight] = "#{height}px" if height
   map_config[:bounds] = bounds if bounds.kind_of?(Array) && bounds.length == 4
 

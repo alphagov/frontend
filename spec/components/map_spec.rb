@@ -32,7 +32,7 @@ RSpec.describe "MapComponent", type: :view do
     render_component(centre: [0, 1], zoom: 8, heading_text: "heading")
     expect(rendered).to have_css(".app-c-map")
     expect(rendered).to have_css(".gem-c-heading h2", text: "heading")
-    expect(rendered).to have_selector("[data-config*='\"center\":[0,1],\"zoom\":8,\"mapLabel\":\"heading\"']")
+    expect(rendered).to have_selector("[data-config*='\"center\":[0,1],\"zoom\":8,\"mapLabel\":\"Interactive map: heading\"']")
   end
 
   it "can have a custom heading level" do

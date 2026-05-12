@@ -1,6 +1,9 @@
 RSpec.describe FlexiblePage::FlexibleSection::Involved do
-  organisations = {
-    "organisations" => [
+  subject(:involved) { described_class.new(organisations:) }
+
+  let(:organisations) { orgs_data.map { |org_data| Organisation.new(org_data) } }
+  let(:orgs_data) do
+    [
       {
         "details" => {
           "brand" => "department-for-culture-media-sport",
@@ -24,14 +27,12 @@ RSpec.describe FlexiblePage::FlexibleSection::Involved do
         "title" => "Department for International Trade Defence & Security Organisation",
         "web_url" => "https://www.gov.uk/government/organisations/department-for-international-trade-defence-and-security-organisation",
       },
-    ],
-  }
+    ]
+  end
 
-  let(:involved) { described_class.new(organisations, FlexiblePage.new({})) }
-
-  describe "#format_data_for_components" do
-    it "correctly converts data from the content item for use by the org logo component" do
-      expect(involved.organisations).to eq([
+  describe "#organisation_data_for_components" do
+    it "correctly converts data from the organisations array for use by the org logo component" do
+      expect(involved.organisation_data_for_components).to eq([
         {
           name: "Department for Digital, Culture, Media & Sport",
           url: "https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport",

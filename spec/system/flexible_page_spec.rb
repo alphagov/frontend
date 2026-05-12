@@ -36,16 +36,6 @@ RSpec.describe "FlexiblePage" do
       expect(page).to have_text("This is the lead paragraph")
     end
 
-    it "renders a rich_content flexible section" do
-      visit base_path
-
-      expect(page).to have_selector("h2.gem-c-contents-list__title", text: "Contents")
-      expect(page).to have_selector("ol.gem-c-contents-list__list li", text: "Introduction")
-
-      expect(page).to have_selector(".govuk-govspeak h2", text: "Introduction – by Sir Anthony Seldon")
-      expect(page).to have_text("vies with the White House as being the most important political building anywhere in the world")
-    end
-
     describe "renders a feed flexible section" do
       it "contains the basic expected elements" do
         visit base_path

@@ -1,36 +1,33 @@
 RSpec.describe "Involved flexible section" do
-  let(:flexible_section) do
-    FlexiblePage::FlexibleSection::Involved.new(
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Involved.new(organisations:) }
+
+  let(:organisations) { orgs_data.map { |org_data| Organisation.new(org_data) } }
+  let(:orgs_data) do
+    [
       {
-        "organisations" => [
-          {
-            "details" => {
-              "brand" => "department-for-culture-media-sport",
-              "logo" => {
-                "crest" => "single-identity",
-              },
-            },
-            "title" => "Department for Digital, Culture, Media & Sport",
-            "web_url" => "https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport",
+        "details" => {
+          "brand" => "department-for-culture-media-sport",
+          "logo" => {
+            "crest" => "single-identity",
           },
-          {
-            "details" => {
-              "brand" => "ministry-of-defence",
-              "logo" => {
-                "crest" => "custom",
-                "image" => {
-                  "alt_text" => "Department for International Trade Defence & Security Organisation",
-                  "url" => "https://assets.publishing.service.gov.uk/media/59fa00e8ed915d7bfae58209/DIT_DSO_logo_banner.jpg",
-                },
-              },
-            },
-            "title" => "Department for International Trade Defence & Security Organisation",
-            "web_url" => "https://www.gov.uk/government/organisations/department-for-international-trade-defence-and-security-organisation",
-          },
-        ],
+        },
+        "title" => "Department for Digital, Culture, Media & Sport",
+        "web_url" => "https://www.gov.uk/government/organisations/department-for-digital-culture-media-sport",
       },
-      nil,
-    )
+      {
+        "details" => {
+          "brand" => "ministry-of-defence",
+          "logo" => {
+            "image" => {
+              "alt_text" => "Department for International Trade Defence & Security Organisation",
+              "url" => "https://assets.publishing.service.gov.uk/media/59fa00e8ed915d7bfae58209/DIT_DSO_logo_banner.jpg",
+            },
+          },
+        },
+        "title" => "Department for International Trade Defence & Security Organisation",
+        "web_url" => "https://www.gov.uk/government/organisations/department-for-international-trade-defence-and-security-organisation",
+      },
+    ]
   end
 
   before do

@@ -4,6 +4,47 @@ base_path: test/flexible-page
 description: This is the history of 10 Downing Street
 details:
   flexible_sections:
+  - type: columns
+    grid_size: 3
+    items:
+    - title: A thing
+      description: Some text here
+    - title: Another thing
+      description: Some text that is a bit longer
+    - title: Yet another thing
+      description: Some text that is even longer, or not
+    - title: A thing that is a thing with words
+      description: Some more text
+    - title: More thing
+      description: Some other text, with words
+    - title: Thing? Yes
+      description: Text
+    - title: Thing? Yes
+      description: Text
+    - title: Thing? Yes
+      description: Text
+    - title: Thing? Yes
+      description: Text
+    - title: Thing? Yes
+      description: Text
+  - type: columns
+    grid_size: 2
+    items:
+    - title: item 1
+      description: Some text here
+    - title: item 2
+      description: Some text here
+    - title: item 3
+      description: Some text here
+  - type: columns
+    grid_size: 1
+    items:
+    - title: item 1
+      description: Some text here
+    - title: item 2
+      description: Some text here
+    - title: item 3
+      description: Some text here
   - type: impact_header
     title: This is the title of the impact header
     description: This is the description of the impact header, containing words that form a paragraph of text.

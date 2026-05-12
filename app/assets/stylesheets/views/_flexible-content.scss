@@ -5,3 +5,28 @@
 .flexible-section {
   margin-bottom: govuk-spacing(6);
 }
+
+.full-width__container {
+  container-type: inline-size;
+  container-name: page;
+}
+
+.full-width__element {
+  padding: 0;
+  margin-left: -(govuk-spacing(3));
+  margin-right: -(govuk-spacing(3));
+
+  @include govuk-media-query($from: tablet) {
+    margin-left: -(govuk-spacing(6));
+    margin-right: -(govuk-spacing(6));
+  }
+}
+
+@container page (width > 1020px) {
+  $w: 960px;
+
+  .full-width__element {
+    margin-left: calc((-100cqw + $w) / 2);
+    margin-right: calc((-100cqw + $w) / 2);
+  }
+}

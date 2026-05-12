@@ -1,6 +1,4 @@
 class FlexiblePageController < ContentItemsController
-  layout "full_width"
-
   def show
     respond_to do |format|
       format.html

@@ -1,0 +1,125 @@
+.cards__container {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  list-style: none;
+  padding: 0;
+
+  // pseudo elements form invisible elements to fill in
+  // the final row if it is incomplete, or fit below
+  &::before,
+  &::after {
+    content: "";
+    height: 0.1px;
+    opacity: 0;
+    order: 100;
+    transform: translateY(-5px);
+  }
+}
+
+.cards__container::before,
+.cards__container::after,
+.cards__item {
+  box-sizing: border-box;
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.cards__item {
+  position: relative;
+  padding: 20px 0;
+  border-top: solid 1px $govuk-border-colour;
+  margin-bottom: 30px;
+}
+
+.cards__item-header {
+  display: block;
+  margin: 0 govuk-spacing(6) govuk-spacing(2) 0;
+  @include govuk-font(19, $weight: "bold");
+}
+
+.cards__link {
+  // Make the entire list item area clickable
+  &::after {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &::before {
+    $dimension: 7px;
+    $width: 3px;
+
+    border-right: $width solid $govuk-brand-colour;
+    border-top: $width solid $govuk-brand-colour;
+    content: "";
+    display: block;
+    height: $dimension;
+    position: absolute;
+    right: govuk-spacing(1);
+    top: 23px;
+    margin-top: 5px;
+    @include prefixed-transform($rotate: 45deg);
+    width: $dimension;
+  }
+
+  &:hover {
+    &::before {
+      border-color: $govuk-link-hover-colour;
+    }
+  }
+
+  &:focus {
+    &::before {
+      border-color: $govuk-focus-text-colour;
+    }
+  }
+}
+
+@include govuk-media-query($from: tablet) {
+  .cards__container::before,
+  .cards__container::after,
+  .cards__item {
+    width: 25%;
+  }
+
+  @container (width < 560px) {
+    .cards__container::before,
+    .cards__container::after,
+    .cards__item {
+      width: 30%;
+    }
+  }
+
+  @container (width < 360px) {
+    .cards__container::before,
+    .cards__container::after,
+    .cards__item {
+      width: 100%;
+    }
+  }
+}
+
+@include govuk-media-query($from: desktop) {
+  @container (width < 660px) {
+    .cards__container::before,
+    .cards__container::after,
+    .cards__item {
+      width: 31%;
+    }
+  }
+
+  @container (width < 360px) {
+    .cards__container::before,
+    .cards__container::after,
+    .cards__item {
+      width: 100%;
+    }
+  }
+}

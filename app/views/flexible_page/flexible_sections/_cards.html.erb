@@ -1,0 +1,12 @@
+<div class="flexible-section cards" data-flexible-section="cards">
+  <ul class="cards__container">
+    <% flexible_section.items.each do |item| %>
+      <li class="cards__item">
+        <h2 class="cards__item-header">
+          <%= link_to(item[:title], item[:href], class: "cards__link govuk-link") %>
+        </h2>
+        <p class="govuk-body govuk-!-margin-bottom-2"><%= item[:description] %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

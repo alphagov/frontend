@@ -122,15 +122,22 @@ ja:
     on-settings:
     on-usage:
     pages_visited:
+    preferences:
     save_changes:
     services:
     services_additional:
     third_parties:
     types:
       campaigns:
+        heading:
+        question:
       essential:
       settings:
+        heading:
+        question:
       usage:
+        heading:
+        question:
     usage_info:
   csv_preview:
     access_limited:

@@ -80,6 +80,20 @@
   background: #ca3535;
 }
 
+.app-c-map__js-on {
+  display: none;
+}
+
+.js-enabled {
+  .app-c-map__js-on {
+    display: block;
+  }
+
+  .app-c-map__no-js {
+    display: none;
+  }
+}
+
 // leaflet element override styles
 .leaflet-popup-content {
   padding: govuk-spacing(2) 0;

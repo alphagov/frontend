@@ -71,7 +71,10 @@
   <% end %>
 
   <%= tag.div(**component_helper.all_attributes) do %>
-    <div class="app-c-map"></div>
+    <div class="app-c-map">
+      <span class="app-c-map__js-on">Loading map...</span>
+      <span class="app-c-map__no-js">This map uses JavaScript to work. To view the map, turn on JavaScript in your browser's settings.</span>
+    </div>
     <% if copyright %>
       <div class="govuk-grid-row app-c-map__copyright">
         <div class="govuk-grid-column-two-thirds">

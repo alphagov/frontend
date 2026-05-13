@@ -16,7 +16,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       var config = {
         mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
-        behaviour: 'hybrid',
+        behaviour: 'inline',
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
           backgroundColor: '#f5f5f0'

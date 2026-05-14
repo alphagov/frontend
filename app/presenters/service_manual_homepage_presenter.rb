@@ -10,4 +10,22 @@ class ServiceManualHomepagePresenter < ContentItemPresenter
       }
     end
   end
+
+  def navigation
+    [
+      {
+        text: "Service Manual",
+        href: "/service-manual",
+        active: true
+      },
+      {
+        text: "The Service Standard",
+        href: "/service-manual/service-standard"
+      },
+      {
+        text: "Communities of Practice",
+        href: "/service-manual/communities"
+      },
+    ]
+  end
 end

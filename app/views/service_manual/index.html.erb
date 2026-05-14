@@ -5,6 +5,10 @@
   <meta name="description" content="<%= strip_tags(@content_item.description) %>">
 <% end %>
 
+<%= render "govuk_publishing_components/components/service_navigation", {
+  navigation_items: @presenter.navigation
+} %>
+
 <%= render "govuk_publishing_components/components/inverse_header", {
   full_width: true,
   padding_top: 8,

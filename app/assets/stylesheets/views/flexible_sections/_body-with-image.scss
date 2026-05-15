@@ -1,0 +1,13 @@
+.body-with-image__text {
+  margin-bottom: 30px;
+
+  @include govuk-media-query($from: desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.body-with-image__image {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}

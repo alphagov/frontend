@@ -1,6 +1,7 @@
 <%
   page_title = yield :title
   page_title = page_title.presence || page_title(content_item)
+  body_classes = yield :body_classes
 %>
 
 <%= content_for :head do %>
@@ -31,6 +32,7 @@
     emergency_banner: render("govuk_web_banners/emergency_banner"),
     global_banner: render("govuk_web_banners/global_banner"),
     show_app_promo_banner: show_app_promo_banner?,
+    body_classes: body_classes,
   } do %>
   <%= yield :before_content %>
 

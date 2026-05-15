@@ -1,6 +1,5 @@
 <% content_for :head do %>
   <meta name="description" content="<%= content_item.description %>">
-  <%= stylesheet_link_tag "views/_flexible-content", media: "all" %>
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,

@@ -1,0 +1,42 @@
+name: Rich content
+description: Content with a contents list and optional image
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      image:
+        src: https://www.gov.uk/assets/government-frontend/history/buildings/number-10-300-00aa6cc4623aff497a924d2742fa5087533221bb81c65b88fa1d11a1fc942567.jpg
+        alt: The front door of 10 Downing Street
+      contents_list:
+        - id: 'introduction'
+          text: Introduction
+        - id: 'take-the-tour'
+          text: Explore 10 Downing Street
+        - id: 'origins-and-early-inhabitants'
+          text: Origins and early inhabitants
+      govspeak: |
+        <h2 id="introduction">Introduction – by Sir Anthony Seldon</h2>
+
+        <p>10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being the most important political building anywhere in the world in the modern era. Behind its black door have been taken the most important decisions affecting Britain for the last 275 years.</p>
+        <p>In the 20th century alone, the First and Second World Wars were directed from within it, as were the key decisions about the end of the empire, the building of the British nuclear bomb, the handling of economic crises from the Great Depression in 1929 to the great recession, and the building up of the welfare state.</p>
+        <h2 id="take-the-tour">Explore 10 Downing Street</h2>
+        <p>Take a virtual tour inside 10 Downing Street and explore it’s most famous rooms and significant events at the <a href="https://www.google.com/culturalinstitute/beta/u/0/partner/10-downing-street" rel="external" class="govuk-link">Google Cultural Institute</a>.</p>
+
+        <h2 id="origins-and-early-inhabitants">Origins and early inhabitants</h2>
+        <p>The area around Downing Street was home to ancient Roman, Anglo-Saxon and Norman settlements, and was already a prestigious centre of government 1,000 years ago.</p>
+        <p>The Romans first came to Britain under the command of Julius Caesar in 55 BC. Making their capital at Londinium downriver, the Romans chose Thorney Island – a marshy piece of land lying between two branches of the river Tyburn that flowed from Hampstead Heath to the Thames – as the site for their early settlement.</p>
+        <figure>
+        <img src="https://www.gov.uk/assets/government-frontend/history/buildings/whitehall-072ffd42bb410697f2f1d4321126dae7a54adca7c4efed9ed6a748d5cdaf902e.jpg" alt="Whitehall from St James’s Park – Hendrick Danckerts c.1675">
+        <figcaption>
+        <p>Whitehall from St James’s Park – Hendrick Danckerts c.1675</p>
+        </figcaption>
+        </figure>
+  without_a_sidebar:
+    data:
+      govspeak: |
+        <h2 id="introduction">Introduction – by Sir Anthony Seldon</h2>
+
+        <p>10 Downing Street, the locale of British prime ministers since 1735, vies with the White House as being the most important political building anywhere in the world in the modern era. Behind its black door have been taken the most important decisions affecting Britain for the last 275 years.</p>
+        <p>In the 20th century alone, the First and Second World Wars were directed from within it, as were the key decisions about the end of the empire, the building of the British nuclear bomb, the handling of economic crises from the Great Depression in 1929 to the great recession, and the building up of the welfare state.</p>

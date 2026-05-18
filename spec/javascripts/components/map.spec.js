@@ -33,7 +33,7 @@ describe('Map component', function () {
       },
       properties: {
         name: 'Paddington',
-        description: 'A station in London'
+        description: 'A station in London<script>moo!</script><script>hello;</script> < scrip<script>is removed</script>t>moo</script>'
       }
     },
     {
@@ -127,6 +127,11 @@ describe('Map component', function () {
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(2)
       expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Kings Cross A station in London')
       expect(module.map.fitToBounds).toHaveBeenCalled()
+    })
+
+    it('removes any script tags from marker markup', function () {
+      module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
+      expect(el.querySelector('.js-list-markers').textContent).not.toContain('<script')
     })
   })
 
@@ -263,7 +268,7 @@ describe('Map component', function () {
       expect(el.querySelectorAll('.js-list-markers li').length).toEqual(4)
       expect(el.querySelector('.js-list-markers li:nth-child(1)').textContent).toEqual('Birmingham A city')
       expect(el.querySelector('.js-list-markers li:nth-child(2)').textContent).toEqual('Kings Cross A station in London')
-      expect(el.querySelector('.js-list-markers li:nth-child(3)').textContent).toEqual('Paddington A station in London')
+      expect(el.querySelector('.js-list-markers li:nth-child(3)').textContent).toContain('Paddington A station in London')
       expect(el.querySelector('.js-list-markers li:nth-child(4)').textContent).toEqual('Wolverhampton')
     })
   })

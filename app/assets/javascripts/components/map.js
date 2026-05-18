@@ -91,7 +91,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       if (feature.properties.description) {
         popupContent = `${popupContent} ${feature.properties.description}`
       }
+      popupContent = this.removeScript(popupContent)
       return popupContent
+    }
+
+    removeScript (input) {
+      do {
+        input = input.replace(/<[\s]*script/g, '')
+      } while (input.includes('<script'))
+      return input
     }
 
     async addAllMarkers () {

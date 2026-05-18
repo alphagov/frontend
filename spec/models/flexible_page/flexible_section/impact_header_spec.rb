@@ -70,7 +70,6 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
     end
 
     it "returns the correct caption information" do
-      allow(SecureRandom).to receive(:hex).and_return("1234")
       expect(impact.caption).to eq({
         caption_text: "Test data",
         theme: "black",

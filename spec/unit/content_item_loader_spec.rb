@@ -106,17 +106,6 @@ RSpec.describe ContentItemLoader do
         end
       end
 
-      context "with a local YAML file" do
-        let!(:item_request) { stub_content_store_has_item("/my-yaml-item") }
-
-        it "loads content from the YAML file instead of the content store" do
-          response = content_item_loader.load("/my-yaml-item")
-
-          expect(item_request).not_to have_been_made
-          expect(ContentItemFactory.build(response).schema_name).to eq("yaml_page")
-        end
-      end
-
       context "with no local file" do
         let!(:item_request) { stub_content_store_has_item("/my-remote-item") }
 

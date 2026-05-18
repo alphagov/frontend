@@ -13,8 +13,7 @@ class ContentItemLoader
     @request = request
     @default_loader = ContentItemLoaders::ConditionalContentLoader.new(request:)
     @alternative_loaders = [
-      ContentItemLoaders::JsonFileLoader.new,
-      ContentItemLoaders::YamlFileLoader.new,
+      ContentItemLoaders::LocalFileLoader.new,
       ContentItemLoaders::HubRedirectLoader.new(content_store_loader: default_loader),
     ]
   end

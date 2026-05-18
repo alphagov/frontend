@@ -1,0 +1,16 @@
+name: Breadcrumbs
+description: Navigational breadcrumbs, showing page hierarchy
+body: This flexible section is a wrapper for the breadcrumbs component.
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      breadcrumbs:
+      - title: "Home"
+        url: "/"
+      - title: "Example"
+        url: "/example/"
+      - title: "Breadcrumb"
+        url: "/breadcrumb/"

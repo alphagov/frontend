@@ -1,0 +1,11 @@
+name: Page title
+description: The title for a page
+body: To be used at the start of a page. Contains a heading level 1 and optional heading context and lead paragraph.
+accessibility_criteria: |
+  The flexible section should contain a heading 1, as the first heading in a page.
+examples:
+  default:
+    data:
+      context: History
+      heading_text: 10 Downing Street
+      lead_paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

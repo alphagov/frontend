@@ -1,0 +1,48 @@
+name: Feed
+description:
+body:
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      feed_heading_text: Latest
+      email_signup_link: "/something"
+      items:
+        - link:
+            text: "Alternative provision"
+            path: "/government/publications/alternative-provision"
+          metadata:
+            public_updated_at: "2025-10-31 10:00:00 +0000"
+            document_type: "Statutory guidance"
+        - link:
+            text: "Behaviour and discipline in schools: guide for governing bodies"
+            path: "/government/publications/behaviour-and-discipline-in-schools-guidance-for-governing-bodies"
+          metadata:
+            public_updated_at: "2025-10-31 10:00:00 +0000"
+            document_type: "Statutory guidance"
+        - link:
+            text: "Children missing education"
+            path: "/government/publications/children-missing-education"
+          metadata:
+            public_updated_at: "2025-10-31 10:00:00 +0000"
+            document_type: "Statutory guidance"
+      see_all_items_link: "/search/all"
+      see_all_items_link_text: See all updates
+      share_links_heading_text: Follow us
+      share_links:
+        - href: "/facebook-share-link"
+          text: "Facebook"
+          icon: "facebook"
+          data_attributes:
+            module: "example"
+  without_latest:
+    data:
+      share_links_heading_text: Follow us
+      share_links:
+        - href: "/facebook-share-link"
+          text: "Facebook"
+          icon: "facebook"
+          data_attributes:
+            module: "example"

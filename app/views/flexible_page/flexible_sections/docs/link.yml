@@ -1,0 +1,10 @@
+name: Link
+description: A simple link in a two thirds column
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      link: "/about"
+      link_text: "Find out more about this page"

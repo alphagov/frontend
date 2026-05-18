@@ -2,10 +2,10 @@ module FlexiblePage::FlexibleSection
   class Breadcrumbs < Base
     attr_reader :breadcrumbs
 
-    def initialize(flexible_section_hash, content_item)
+    def initialize(breadcrumbs:)
       super
 
-      @breadcrumbs = flexible_section_hash["breadcrumbs"].map(&:symbolize_keys)
+      @breadcrumbs = breadcrumbs
     end
 
     def before_content?

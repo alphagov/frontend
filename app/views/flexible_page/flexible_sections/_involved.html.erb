@@ -8,7 +8,7 @@
   } %>
 
   <ul class="govuk-list">
-  <% flexible_section.organisations.each do |org| %>
+  <% flexible_section.organisation_data_for_components.each do |org| %>
     <li>
       <%= render "govuk_publishing_components/components/organisation_logo", {
         organisation: org,

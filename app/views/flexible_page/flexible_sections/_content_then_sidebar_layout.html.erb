@@ -1,0 +1,11 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render("flexible_page/flexible_sections/#{flexible_section.content.type}", flexible_section: flexible_section.content) %>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <% if flexible_section.sidebar %>
+      <%= render("flexible_page/flexible_sections/#{flexible_section.sidebar.type}", flexible_section: flexible_section.sidebar) %>
+    <% end %>
+  </div>
+</div>

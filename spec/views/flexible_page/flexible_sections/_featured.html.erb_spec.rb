@@ -1,27 +1,21 @@
 RSpec.describe "Featured flexible section" do
-  let(:flexible_section) { FlexiblePage::FlexibleSection::Featured.new(section_hash, nil) }
-  let(:section_hash) do
-    {
-      "ordered_featured_documents" => ([featured_document] * featured_count),
-      "ga4_image_card_json" => ga4_image_card_json,
-    }
-  end
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Featured.new(ga4_image_card_json:, items:) }
+
+  let(:ga4_image_card_json) { nil }
+  let(:items) { [featured_document] * featured_count }
 
   let(:featured_document) do
     {
-      "href" => "/not-a-page",
-      "image" => {
-        "alt_text" => "some meaningful alt text please",
-        "url" => "http://test.gov.uk/images/fd.png",
-      },
-      "summary" => summary,
-      "title" => "Government does things",
+      heading_text: "Government does things",
+      href: "/not-a-page",
+      image_alt: "some meaningful alt text please",
+      image_src: "http://test.gov.uk/images/fd.png",
+      description:,
     }
   end
 
   let(:featured_count) { 6 }
-  let(:summary) { "This is a summary" }
-  let(:ga4_image_card_json) { nil }
+  let(:description) { "This is a summary" }
 
   before do
     render(template: "flexible_page/flexible_sections/_featured", locals: { flexible_section: })
@@ -82,9 +76,9 @@ RSpec.describe "Featured flexible section" do
     end
 
     context "when a description is very long" do
-      let(:summary) { "This summary is very long, and it will need to be truncated at an appropriate place otherwise it will appear too long in the featured cards and they'll be a bit visually unbalanced." }
+      let(:description) { "This summary is very long, and it will need to be truncated at an appropriate place otherwise it will appear too long in the featured cards and they'll be a bit visually unbalanced." }
 
-      it "truncates the summary to below 160 chars" do
+      it "truncates the description to below 160 chars" do
         expect(rendered).to have_selector(
           ".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description",
           text: "This summary is very long, and it will need to be truncated at an appropriate place otherwise it will appear too long in the featured cards and they'll be a...",
@@ -93,9 +87,9 @@ RSpec.describe "Featured flexible section" do
     end
 
     context "when a description includes html" do
-      let(:summary) { "<p class=\"govspeak\">To read more about this <a src=\"/\">click here</a>.</p>" }
+      let(:description) { "<p class=\"govspeak\">To read more about this <a src=\"/\">click here</a>.</p>" }
 
-      it "outputs the summary stripped of html" do
+      it "outputs the description stripped of html" do
         expect(rendered).to have_selector(
           ".govuk-grid-column-one-third .gem-c-image-card .gem-c-image-card__description",
           text: "To read more about this click here.",
@@ -115,9 +109,9 @@ RSpec.describe "Featured flexible section" do
     context "when GA4 tracking is included" do
       let(:ga4_image_card_json) do
         {
-          "event_name": "navigation",
-          "type": "image card",
-          "section": "Featured",
+          event_name: "navigation",
+          type: "image card",
+          section: "Featured",
         }
       end
 

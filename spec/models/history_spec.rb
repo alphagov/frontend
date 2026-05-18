@@ -26,11 +26,13 @@ RSpec.describe History do
   end
 
   describe "flexible_sections attribute" do
-    it "generates flexible sections if not supplied" do
+    it "generates flexible sections" do
       expect(history.flexible_sections.count).to eq(3)
       expect(history.flexible_sections.first).to be_instance_of(FlexiblePage::FlexibleSection::Breadcrumbs)
       expect(history.flexible_sections.second).to be_instance_of(FlexiblePage::FlexibleSection::PageTitle)
-      expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
+      expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::SidebarThenContentLayout)
+      expect(history.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
+      expect(history.flexible_sections.third.content).to be_instance_of(FlexiblePage::FlexibleSection::Govspeak)
     end
 
     context "when details.images has a 'sidebar' type image" do
@@ -41,8 +43,8 @@ RSpec.describe History do
         }
       end
 
-      it "includes the sidebar image in the rich content" do
-        expect(history.flexible_sections.third.image).to have_attributes(expected_image_attributes)
+      it "includes the sidebar image in the rich contents list" do
+        expect(history.flexible_sections.third.sidebar.image).to have_attributes(expected_image_attributes)
       end
     end
 
@@ -58,18 +60,18 @@ RSpec.describe History do
         ]
       end
 
-      it "generates a rich content element without an image" do
-        expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
-        expect(history.flexible_sections.third.image).to be_nil
+      it "generates a rich contents list element without an image" do
+        expect(history.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
+        expect(history.flexible_sections.third.sidebar.image).to be_nil
       end
     end
 
     context "when no images are provided" do
       let(:images) { [] }
 
-      it "generates a rich content element without an image" do
-        expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
-        expect(history.flexible_sections.third.image).to be_nil
+      it "generates a rich contents list element without an image" do
+        expect(history.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
+        expect(history.flexible_sections.third.sidebar.image).to be_nil
       end
     end
 
@@ -84,9 +86,9 @@ RSpec.describe History do
         }
       end
 
-      it "generates a rich content element without an image" do
-        expect(history.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::RichContent)
-        expect(history.flexible_sections.third.image).to be_nil
+      it "generates a rich contents list element without an image" do
+        expect(history.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
+        expect(history.flexible_sections.third.sidebar.image).to be_nil
       end
     end
   end

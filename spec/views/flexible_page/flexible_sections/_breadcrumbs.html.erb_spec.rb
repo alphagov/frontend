@@ -1,14 +1,13 @@
 RSpec.describe "Breadcrumbs flexible section" do
-  let(:flexible_section) { FlexiblePage::FlexibleSection::Breadcrumbs.new(breadcrumbs_hash, nil) }
-  let(:breadcrumbs_hash) do
-    {
-      "breadcrumbs" => [
-        {
-          title: "History of the UK Government",
-          url: "/government/history",
-        },
-      ],
-    }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Breadcrumbs.new(breadcrumbs: breadcrumb_params) }
+
+  let(:breadcrumb_params) do
+    [
+      {
+        title: "History of the UK Government",
+        url: "/government/history",
+      },
+    ]
   end
 
   before do

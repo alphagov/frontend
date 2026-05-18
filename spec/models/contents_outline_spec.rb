@@ -1,6 +1,8 @@
 RSpec.describe ContentsOutline do
-  subject(:contents_outline) do
-    described_class.new([
+  subject(:contents_outline) { described_class.new(content_params) }
+
+  let(:content_params) do
+    [
       {
         "id" => "item-1",
         "text" => "Item 1",
@@ -18,7 +20,7 @@ RSpec.describe ContentsOutline do
         "text" => "Item 2",
         "level" => 2,
       },
-    ])
+    ]
   end
 
   describe "items attribute" do
@@ -40,6 +42,14 @@ RSpec.describe ContentsOutline do
       expect(nested_items.first.id).to eq("nested-item-1")
       expect(nested_items.first.text).to eq("Nested Item 1")
       expect(nested_items.first.items).to eq([])
+    end
+
+    context "when passed an array with symbol keys" do
+      let(:contents_outline_symbols) { described_class.new(content_params.map(&:deep_symbolize_keys)) }
+
+      it "gives the same result as with the equivalent string keys" do
+        expect(contents_outline.items).to eq(contents_outline_symbols.items)
+      end
     end
   end
 

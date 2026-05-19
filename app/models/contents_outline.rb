@@ -17,11 +17,11 @@ private
     return [] if headers_array.blank?
 
     headers_array.map do |header|
-      items = headers_array_to_items(header["headers"])
+      items = headers_array_to_items(header[:headers] || header["headers"])
       Item.new(
-        text: header["text"],
-        id: header["id"],
-        level: header["level"],
+        text: header[:text] || header["text"],
+        id: header[:id] || header["id"],
+        level: header[:level] || header["level"],
         items:,
       )
     end

@@ -42,7 +42,7 @@ private
           path: document["link"],
         },
         metadata: {
-          public_updated_at: document["public_timestamp"],
+          public_updated_at: Time.zone.parse(document["public_timestamp"]),
           document_type: display_type(document),
           display_type: document["display_type"],
           description: document["description"],

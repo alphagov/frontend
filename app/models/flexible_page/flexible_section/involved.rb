@@ -1,24 +1,26 @@
 module FlexiblePage::FlexibleSection
   class Involved < Base
-    def organisations
-      format_data_for_components
+    attr_reader :organisations
+
+    def initialize(organisations:)
+      super
+
+      @organisations = organisations
     end
 
-  private
-
-    def format_data_for_components
-      flexible_section_hash["organisations"].map do |org|
-        if org.dig("details", "logo", "image")
+    def organisation_data_for_components
+      organisations.map do |org|
+        if org.content_store_response.dig("details", "logo", "image")
           image = {
-            url: org.dig("details", "logo", "image", "url"),
-            alt_text: org.dig("details", "logo", "image", "alt_text"),
+            url: org.content_store_response.dig("details", "logo", "image", "url"),
+            alt_text: org.content_store_response.dig("details", "logo", "image", "alt_text"),
           }
         end
         {
-          name: org["title"],
-          url: org["web_url"],
-          crest: org.dig("details", "logo", "crest"),
-          brand: org["details"]["brand"],
+          name: org.title,
+          url: org.content_store_response["web_url"],
+          crest: org.logo.crest,
+          brand: org.brand,
           image: image,
         }
       end

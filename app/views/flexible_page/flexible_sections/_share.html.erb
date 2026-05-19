@@ -1,0 +1,14 @@
+<%= render "govuk_publishing_components/components/heading", {
+  text: flexible_section.heading_text,
+  font_size: "l",
+  margin_bottom: 1,
+  padding: true,
+  border_top: 5,
+} %>
+
+<%= render "govuk_publishing_components/components/share_links", {
+  stacked: true,
+  links: flexible_section.links,
+  track_as_follow: true,
+  margin_bottom: 8,
+} %>

@@ -55,6 +55,6 @@
   "dependencies": {
     "@defra/interactive-map": "0.0.25-alpha",
     "leaflet": "^1.9.4",
-    "maplibre-gl": "^5.23.0"
+    "maplibre-gl": "^5.24.0"
   }
 }

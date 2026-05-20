@@ -32,7 +32,7 @@ class TopicalEvent < FlexiblePage
                   ))
     end
 
-    share_section = if details["social_media_links"].any?
+    share_section = if details["social_media_links"].present?
                       Share.new(
                         heading_text: "Follow us",
                         links: format_social_media_links(details["social_media_links"]),

@@ -370,6 +370,20 @@ RSpec.describe TopicalEvent do
 
       topical_event
     end
+
+    context "when there are no social_media_links" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
+          item["details"]["social_media_links"] = nil
+        end
+      end
+
+      it "does not create a Share" do
+        expect(FlexiblePage::FlexibleSection::Share).not_to receive(:new)
+
+        topical_event
+      end
+    end
   end
 
   describe "who's involved initialisation" do

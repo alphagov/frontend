@@ -55,7 +55,7 @@ RSpec.describe "LandingPage" do
     it "renders main navigation" do
       visit base_path
 
-      expect(page).to have_selector(".main-nav")
+      expect(page).to have_selector(".gem-c-sub-navigation-menu")
     end
 
     it "renders breadcrumbs" do
@@ -125,16 +125,6 @@ RSpec.describe "LandingPage" do
         expect(page).to have_selector(".columns-layout[data-ga4-track-links-only]")
         expect(page).to have_selector(".columns-layout[data-ga4-set-indexes]")
         expect(page).to have_selector(".columns-layout[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"box\"}']")
-      end
-    end
-
-    describe "main navigation" do
-      it "has ga4 tracking on the main navigation" do
-        visit base_path
-
-        expect(page).to have_selector(".main-nav__nav-container nav[data-module=ga4-link-tracker]")
-        expect(page).to have_selector(".main-nav__list-item a[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"secondary header\",\"index_link\":1,\"index_total\":2,\"index_section\":1,\"index_section_count\":2,\"section\":\"Heading\"}']")
-        expect(page).to have_selector(".main-nav__list-item a[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"secondary header\",\"index_link\":2,\"index_total\":2,\"index_section\":2,\"index_section_count\":2,\"section\":\"Heading 2\"}']")
       end
     end
   end

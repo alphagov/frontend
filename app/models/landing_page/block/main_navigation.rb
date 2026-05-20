@@ -10,7 +10,7 @@ module LandingPage::Block
 
       navigation_group = landing_page.navigation_groups[nav_group_id]
       @name = navigation_group["name"]
-      @links = navigation_group["links"]
+      @links = navigation_group["links"].map(&:deep_symbolize_keys)
     end
 
     def full_width?

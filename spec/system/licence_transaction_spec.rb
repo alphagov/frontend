@@ -73,15 +73,15 @@ RSpec.describe "LicenceTransaction" do
 
     context "when visiting the licence with a valid postcode" do
       context "when it's a unitary or district local authority" do
-        before do
-          authorities = [
+        let(:authorities) do
+          [
             {
               "authorityName" => "Westminster City Council",
               "authoritySlug" => "westminster",
               "authorityContact" => {
                 "website" => "",
-                "email" => "",
-                "phone" => "020 7641 6000",
+                "email" => authority_email,
+                "phone" => authority_phone,
                 "address" => "P.O. Box 240\nWestminster City Hall\n\n\nSW1E 6QP",
               },
               "authorityInteractions" => {
@@ -113,6 +113,12 @@ RSpec.describe "LicenceTransaction" do
               },
             },
           ]
+        end
+
+        let(:authority_email) { "test@example.com" }
+        let(:authority_phone) { "020 7641 6000" }
+
+        before do
           stub_licence_exists(
             "1071-5-1/00BK",
             "isLocationSpecific" => true,
@@ -167,6 +173,30 @@ RSpec.describe "LicenceTransaction" do
           it "displays a button to apply for the licence" do
             expect(page).to have_button_as_link("Apply online", href: "/new-licence/westminster/apply-1", start: true)
             expect(page).to have_button_as_link("Apply online", href: "/new-licence/westminster/apply-1", start: true)
+          end
+
+          it "displays the phone number" do
+            expect(page).to have_content("Telephone: 020 7641 6000")
+          end
+
+          context "when a phone number isn't present" do
+            let(:authority_phone) { nil }
+
+            it "doesn't display the Telephone item" do
+              expect(page).not_to have_content("020 7641 6000")
+            end
+          end
+
+          it "displays the email address in a mailto link" do
+            expect(page).to have_link("test@example.com", href: "mailto:test@example.com")
+          end
+
+          context "when an email address isn't present" do
+            let(:authority_email) { nil }
+
+            it "doesn't display a mailto link" do
+              expect(page).not_to have_link("", href: "mailto:")
+            end
           end
         end
 

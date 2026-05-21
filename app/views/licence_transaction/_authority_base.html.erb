@@ -78,7 +78,18 @@
             <p class="govuk-body">You can contact them using the details below.</p>
             <%= render "govuk_publishing_components/components/govspeak", {
             } do %>
-              <%= simple_format licence_details.authority["contact"]["address"] %>
+
+              <% if licence_details.authority["contact"]["email"].present? %>
+                <p class="govuk-body">
+                  <a class="govuk-link " data-ga4-do-not-redact href="mailto:<%= licence_details.authority["contact"]["email"] %>"><%= licence_details.authority["contact"]["email"] %></a>
+                </p>
+              <% end %>
+
+              <% if licence_details.authority["contact"]["phone"].present? %>
+                <p class="govuk-body">Telephone: <%= licence_details.authority["contact"]["phone"] %></p>
+              <% end %>
+
+              <%= simple_format licence_details.authority["contact"]["address"].gsub(/\n(\n+)/, "\n") %>
             <% end %>
           <% end %>
         </div>

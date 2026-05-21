@@ -49,10 +49,17 @@ module ApplicationHelper
   end
 
   PERCENTAGE_SCROLL_TRACKING_URLS = [].freeze
+  HEADER_SCROLL_TRACKING_URLS = [].freeze
 
   def include_percentage_scroll_tracking?
     return false unless content_item && content_item.base_path
 
     PERCENTAGE_SCROLL_TRACKING_URLS.include?(content_item.base_path)
+  end
+
+  def include_header_scroll_tracking?
+    return false unless content_item && content_item.base_path
+
+    HEADER_SCROLL_TRACKING_URLS.include?(content_item.base_path)
   end
 end

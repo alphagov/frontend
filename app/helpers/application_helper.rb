@@ -49,10 +49,22 @@ module ApplicationHelper
   end
 
   PERCENTAGE_SCROLL_TRACKING_URLS = [].freeze
+  HEADER_SCROLL_TRACKING_URLS = [
+    "/guidance/england-woodland-creation-offer",
+    "/government/publications/apply-for-the-england-woodland-creation-offer/guidance-on-how-to-apply-for-ewco",
+    "/government/publications/apply-for-the-england-woodland-creation-offer/standard-cost-items-for-ewco",
+    "/government/publications/apply-for-the-england-woodland-creation-offer/additional-contributions-for-ewco",
+  ].freeze
 
   def include_percentage_scroll_tracking?
     return false unless content_item && content_item.base_path
 
     PERCENTAGE_SCROLL_TRACKING_URLS.include?(content_item.base_path)
+  end
+
+  def include_header_scroll_tracking?
+    return false unless content_item && content_item.base_path
+
+    HEADER_SCROLL_TRACKING_URLS.include?(content_item.base_path)
   end
 end

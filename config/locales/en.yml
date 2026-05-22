@@ -127,23 +127,23 @@ en:
     on-settings: Use cookies that remember my settings on the site
     on-usage: Use additional cookies for more detailed website analysis - for example which pages you visit while you’re on GOV.UK
     pages_visited: the pages you visit and how long you spend on each page
+    preferences: These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
     save_changes: Save changes
     services: Government digital services are run by different government departments, such as the Department for Work and Pensions (DWP) and HM Revenue and Customs (HMRC).
     services_additional: These services may set additional cookies and, if so, will have their own cookie policy and banner linking to it.
     services_external: GOV.UK is not responsible for the content of external websites or their use of cookies.
     third_parties: These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on GOV.UK.
-    preferences: These cookies do things like remember your preferences and the choices you make, to personalise your experience of using the site.
     types:
       campaigns:
         heading: Cookies that help with our communications and marketing
         question: Do you allow cookies that help with communications and marketing?
+      essential: Strictly necessary cookies
       settings:
         heading: Cookies that remember your settings
         question: Do you allow cookies that remember your settings?
       usage:
         heading: Cookies that measure website use
         question: Do you allow cookies that measure website use?
-      essential: Strictly necessary cookies
     usage_info: We collect some information about how you use GOV.UK so that we can improve the website. You cannot be identified from the data.
   csv_preview:
     access_limited:
@@ -711,10 +711,10 @@ en:
         one: Written statement to Parliament
         other: Written statements to Parliament
   gone:
+    archived: You can <a class="govuk-link" href="%{path}">view previous versions of this page in the UK government web archive</a>.
     page_title: No longer available
     published_in_error: The information on this page has been removed because it was published in error.
     title: The page you're looking for is no longer available
-    archived: You can <a class="govuk-link" href="%{path}">view previous versions of this page in the UK government web archive</a>.
   help:
     index:
       about: About GOV.UK

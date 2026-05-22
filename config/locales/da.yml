@@ -95,33 +95,23 @@ da:
   continue:
   cookies:
     always_on:
-    clicks:
     confirmation_message:
     confirmation_previous_referrer_link:
     confirmation_title:
-    cookie_settings:
     cookies_on_govuk:
     essential_explanation:
     explanation:
-    explanation_html:
-    four_types:
     google_collection:
-    google_info:
-    google_share:
     how_we_use:
-    how_you_got:
     javascript:
     javascript_extra:
     javascript_list:
-    lux_explain:
-    lux_info:
     off-campaigns:
     off-settings:
     off-usage:
     on-campaigns:
     on-settings:
     on-usage:
-    pages_visited:
     preferences:
     save_changes:
     services:

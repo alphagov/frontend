@@ -54,6 +54,7 @@ module ApplicationHelper
     "/government/publications/apply-for-the-england-woodland-creation-offer/guidance-on-how-to-apply-for-ewco",
     "/government/publications/apply-for-the-england-woodland-creation-offer/standard-cost-items-for-ewco",
     "/government/publications/apply-for-the-england-woodland-creation-offer/additional-contributions-for-ewco",
+    "/apply-to-come-to-the-uk",
   ].freeze
 
   def include_percentage_scroll_tracking?

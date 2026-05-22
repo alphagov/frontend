@@ -94,6 +94,7 @@ cy:
     email: E-bost
   continue: Parhau
   cookies:
+    aggregate-usage:
     always_on: Mae angen iddynt fod ymlaen bob amser.
     confirmation_message: Efallai y bydd gwasanaethau'r llywodraeth yn gosod cwcis ychwanegol ac, os felly, bydd ganddynt eu polisi cwcis a'u baner eu hun.
     confirmation_previous_referrer_link: Mynd yn ôl i'r dudalen roeddech chi'n edrych arni
@@ -101,6 +102,8 @@ cy:
     cookies_on_govuk: Cwcis ar GOV.UK
     essential_explanation: Mae'r cwcis hanfodol hyn yn gwneud pethau fel cofio'ch cynnydd drwy ffurflen (er enghraifft, cais am drwydded)
     explanation: Ffeiliau wedi'u cadw ar eich ffôn, eich tabled neu eich cyfrifiadur pan fyddwch chi'n ymweld â gwefan yw cwcis.
+    explanation_choice:
+    explanation_link_text:
     google_collection:
     how_we_use: Rydyn ni'n defnyddio cwcis i storio gwybodaeth am sut rydych chi'n defnyddio gwefan GOV.UK, fel y tudalennau rydych chi'n ymweld â nhw.
     javascript: 'Rydyn ni''n defnyddio Javascript i osod y rhan fwyaf o''n cwcis. Yn anffodus, nid yw Javascript yn rhedeg ar eich porwr, felly nid oes modd i chi newid eich gosodiadau. Gallwch drio:'
@@ -118,6 +121,7 @@ cy:
     save_changes: Cadw'r newidiadau
     services:
     services_additional:
+    services_external:
     third_parties: Efallai y caiff y cwcis hyn eu gosod gan wefannau trydydd parti ac y byddant yn gwneud pethau fel mesur sut rydych chi'n gwylio fideos YouTube sydd ar GOV.UK.
     types:
       campaigns:

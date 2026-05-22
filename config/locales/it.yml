@@ -94,6 +94,7 @@ it:
     email: E-mail
   continue:
   cookies:
+    aggregate-usage:
     always_on:
     confirmation_message:
     confirmation_previous_referrer_link:
@@ -101,6 +102,8 @@ it:
     cookies_on_govuk:
     essential_explanation:
     explanation:
+    explanation_choice:
+    explanation_link_text:
     google_collection:
     how_we_use:
     javascript:
@@ -116,6 +119,7 @@ it:
     save_changes:
     services:
     services_additional:
+    services_external:
     third_parties:
     types:
       campaigns:

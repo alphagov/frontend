@@ -25,12 +25,12 @@ RSpec.describe LinkHelper do
       expect(link[:href]).to eq("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path")
     end
 
-    it "returns a twitter link" do
-      link = share_links(base_path, title).select { |l| l[:text] == "Twitter" }.first
+    it "returns an X link" do
+      link = share_links(base_path, title).select { |l| l[:text] == "X" }.first
 
       expect(link).not_to be_nil
       expect(link[:icon]).to eq("twitter")
-      expect(link[:href]).to eq("https://twitter.com/share?url=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path&text=My%20Page")
+      expect(link[:href]).to eq("https://x.com/share?url=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path&text=My%20Page")
     end
   end
 

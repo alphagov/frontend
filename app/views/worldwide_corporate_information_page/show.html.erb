@@ -1,3 +1,79 @@
+<% if params["nav"] == "service" %>
+  <% content_for :before_content do %>
+    <%= render "govuk_publishing_components/components/service_navigation", {
+      navigation_items: [
+        {
+          text: "British Embassy Paris",
+          href: "/world/organisations/british-embassy-paris?nav=service",
+        },
+        {
+          text: "Office opening times",
+          href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=service",
+        },
+        {
+          text: "Complaints procedure",
+          href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=service",
+          active: true,
+        },
+        {
+          text: "Working for British Embassy Paris",
+          href: "/world/organisations/british-embassy-paris/about/recruitment?nav=service",
+        },
+      ],
+      full_width: false,
+    } %>
+  <% end %>
+<% end %>
+
+<% if params["nav"] == "missions" %>
+  <% content_for :before_content do %>
+    <%= render partial: "worldwide_organisation/navigation", locals: { :block => OpenStruct.new({ :name => "British Embassy Paris",
+:links => [
+  { text: "About British Embassy Paris",
+    href: "/world/organisations/british-embassy-paris?nav=missions" },
+      { text: "Office opening times",
+      href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=missions" },
+      { text: "Complaints procedure",
+      href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=missions" },
+      { text: "Working for British Embassy Paris",
+      href: "/world/organisations/british-embassy-paris/about/recruitment?nav=missions" },
+
+] }) } %>
+  <% end %>
+<% end %>
+
+<% if params["nav"] == "tabs" %>
+  <% content_for :before_content do %>
+    <div class="govuk-width-container govuk-!-margin-top-2">
+      <%= render "govuk_publishing_components/components/tabs", {
+        as_links: true,
+        tabs: [
+          {
+            href: "/world/organisations/british-embassy-paris?nav=tabs",
+            label: "British Embassy Paris",
+            active: false,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=tabs",
+            label: "Office opening times",
+            active: false,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/about/complaints-procedure?nav=tabs",
+            label: "Complaints procedure",
+            active: true,
+          },
+          {
+            href: "/world/organisations/british-embassy-paris/about/recruitment?nav=tabs",
+            label: "Work for this embassy",
+            active: false,
+          },
+        ],
+      } %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= render partial: "worldwide_organisation/header", locals: {
   worldwide_organisation: @presenter.worldwide_organisation,
   show_header_title: false,
@@ -8,6 +84,18 @@
     <%= render "govuk_publishing_components/components/contents_list",
                contents: @presenter.headers_for_contents_list_component,
                underline_links: true %>
+    <% if params["nav"] == "list" %>
+      <h2 class="govuk-heading-s">In this section</h2>
+      <ul class="gem-c-list govuk-list">
+        <li><a class="govuk-link" href="/world/organisations/british-embassy-paris?nav=list">British Embassy Paris</a>
+          <ul class="gem-c-list govuk-list govuk-list--bullet govuk-!-margin-left-2">
+            <li><a class='govuk-link' href='/world/organisations/british-embassy-paris/office/british-embassy-paris?nav=list'>Office opening times</a></li>
+            <li>Complaints Procedure</li>
+            <li><a class='govuk-link' href='/world/organisations/british-embassy-paris/about/recruitment?nav=list'>Working for British Embassy Paris</a></li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
   </div>
 
   <div class="govuk-grid-column-two-thirds">

@@ -76,7 +76,7 @@ RSpec.describe "Service Manual guide" do
           visit base_path
 
           within(".gem-c-published-dates") do
-            expect(page).not_to have_content("show all updates")
+            expect(page).not_to have_content("Show all updates")
             expect(page).not_to have_css(".gem-c-published-dates__toggle")
           end
         end

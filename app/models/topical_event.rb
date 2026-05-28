@@ -12,6 +12,12 @@ class TopicalEvent < FlexiblePage
                   variant: notable_death? ? "notable-death" : "plain",
                 ))
 
+    if navigation_items.any?
+      add_section(Navigation.new(
+                    items: navigation_items,
+                  ))
+    end
+
     add_section(ContentThenSidebarLayout.new(
                   content: Govspeak.new(govspeak: body),
                   sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,
@@ -119,5 +125,18 @@ private
         description: i["summary"],
       }
     end
+  end
+
+  def navigation_items
+    (main_menu["items"] || []).map do |item|
+      {
+        text: item["text"],
+        href: item["url"],
+      }
+    end
+  end
+
+  def main_menu
+    @main_menu ||= YAML.load_file(Rails.root.join("config/navigation.yml")).fetch("main_menu", {})
   end
 end

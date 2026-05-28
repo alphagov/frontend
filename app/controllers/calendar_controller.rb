@@ -5,6 +5,7 @@ class CalendarController < ContentItemsController
   before_action :set_cors_headers, if: :json_request?
   rescue_from Calendar::CalendarNotFound, with: :simple_404
   skip_before_action :set_expiry, only: [:division]
+  skip_before_action :allow_only_html_requests
 
   def show_calendar
     respond_to do |format|

@@ -3,6 +3,8 @@ class TravelAdviceController < ContentItemsController
 
   FOREIGN_TRAVEL_ADVICE_PATH = "/foreign-travel-advice".freeze
 
+  skip_before_action :allow_only_html_requests
+
   def index
     @presenter = TravelAdviceIndexPresenter.new(content_item.to_h)
 

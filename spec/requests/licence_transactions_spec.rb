@@ -84,5 +84,13 @@ RSpec.describe "Licence Transactions" do
 
       expect(response).to honour_content_store_ttl
     end
+
+    context "when probing for an invalid file format" do
+      it "returns not acceptable" do
+        get "/find-licences/new-licence/myapi.yaml"
+
+        expect(response).to have_http_status(:not_acceptable)
+      end
+    end
   end
 end

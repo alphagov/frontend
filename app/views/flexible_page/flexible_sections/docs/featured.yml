@@ -1,0 +1,90 @@
+name: Featured
+description: Wraps one or more image card components
+body: |
+  The Featured flexible section displays a number of image card components. The layout varies slightly depending on the number of image cards.
+
+  See the [image card component](/component-guide/image_card) for more details of what can be passed to the image card.
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      items:
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+  with_two_or_four_items:
+    description: When there are two or four items in the flexible section they should be displayed two per row.
+    data:
+      items:
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like. We also need to test what happens when they're different heights.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+  with_three_items:
+    description: When there are three items in the flexible section they should be displayed in a single row.
+    data:
+      items:
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like. We also need to test what happens when they're different heights.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+  with_more_than_four_items:
+    description: When there are more than four items they are laid out in rows of three.
+    data:
+      items:
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things, read all about it
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like. We also need to test what happens when they're different heights.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things
+      - href: /not-a-page
+        image_alt: some meaningful alt text please
+        image_src: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG
+        description: This is what a single featured item looks like.
+        heading_text: Government does things

@@ -1,0 +1,35 @@
+name: Document list
+description: A wrapper for the document list component
+body: |
+  This flexible section wraps the document list component and provides an additional header (above) and links (below).
+
+  See the [document list component](/component-guide/document_list) for more details of what can be passed to the document list.
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      email_signup_link: /email
+      email_signup_link_text: Get emails
+      heading_text: Some documents
+      see_all_items_link: /see_all
+      see_all_items_link_text: See all of these documents
+      items:
+      - link:
+          text: 'Alternative provision'
+          path: '/government/publications/alternative-provision'
+        metadata:
+          public_updated_at: 2016-06-27 10:29:44
+          document_type: 'Statutory guidance'
+      - link:
+          text: 'Behaviour and discipline in schools: guide for governing bodies'
+          path: '/government/publications/behaviour-and-discipline-in-schools-guidance-for-governing-bodies'
+        metadata:
+          public_updated_at: 2015-09-24 16:42:48
+          document_type: 'Statutory guidance'
+      - link:
+          text: 'Children missing education'
+          path: '/government/publications/children-missing-education'
+        metadata:
+          public_updated_at: 2016-09-05 16:48:27
+          document_type: 'Statutory guidance'

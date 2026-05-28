@@ -542,6 +542,9 @@ ku:
       find_results: ئەنجامەکانی نزیک خۆت بدۆزەرەوە
       further_information:
       postcode: پۆست كۆد
+      results:
+        for:
+        near:
       select_address: ناونیشانێک هەڵبژێرە
     policy:
       name:

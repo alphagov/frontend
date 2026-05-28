@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action do
-    I18n.locale = I18n.default_locale
-  end
+  before_action { I18n.locale = I18n.default_locale }
+  before_action :allow_only_html_requests
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -64,6 +63,12 @@ protected
   end
 
 private
+
+  def allow_only_html_requests
+    if params[:format] && params[:format] != "html"
+      head :not_acceptable
+    end
+  end
 
   def default_url_options
     {}.merge(token)

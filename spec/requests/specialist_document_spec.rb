@@ -37,7 +37,7 @@ RSpec.describe "Specialist Document" do
       it "returns 404" do
         get "/find-licences/new-licence/.well-known"
 
-        expect(response).to have_http_status(:not_found)
+        expect(response).to have_http_status(:not_acceptable)
       end
     end
   end

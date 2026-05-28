@@ -540,6 +540,7 @@ ti:
         other: ኣፋዊ መግለጺታት ናብ ባይቶ
     place:
       find_results: ኣብ ጥቓኻ ውጽኢት ርኸብ
+      further_information:
       postcode: ፖስታ ኮድ
       select_address: ኣድራሻ ምረጽ
     policy:

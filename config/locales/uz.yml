@@ -540,6 +540,7 @@ uz:
         other: Парламентга оғзаки баёнотлар
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

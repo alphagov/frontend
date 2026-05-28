@@ -540,6 +540,7 @@ hy:
         other: Խորհրդարանին ուղղված բանավոր հայտարարություններ
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

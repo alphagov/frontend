@@ -487,6 +487,7 @@ ja:
         other: 議会への口頭声明
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

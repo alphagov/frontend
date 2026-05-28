@@ -593,6 +593,7 @@ sk:
         other: Ústne vyhlásenia pred Parlamentom
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

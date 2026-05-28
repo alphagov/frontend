@@ -540,6 +540,7 @@ kk:
         other: Парламентке ауызша мәлімдемелер
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

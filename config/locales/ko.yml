@@ -487,6 +487,7 @@ ko:
         other: 의회로 구두 성명
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

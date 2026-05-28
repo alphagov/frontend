@@ -540,6 +540,7 @@ ku:
         other: لێدوانی زارەکی بۆ پەرلەمان
     place:
       find_results: ئەنجامەکانی نزیک خۆت بدۆزەرەوە
+      further_information:
       postcode: پۆست كۆد
       select_address: ناونیشانێک هەڵبژێرە
     policy:

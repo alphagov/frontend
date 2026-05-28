@@ -646,6 +646,7 @@ be:
         other: Вусныя даклады ў парламенце
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

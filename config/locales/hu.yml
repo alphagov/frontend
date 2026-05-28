@@ -540,6 +540,7 @@ hu:
         other: Parlamenti felszólalások
     place:
       find_results:
+      further_information:
       postcode:
       select_address:
     policy:

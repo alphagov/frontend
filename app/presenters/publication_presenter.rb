@@ -3,6 +3,7 @@ class PublicationPresenter < ContentItemPresenter
 
   PATHS_TO_HIDE = %w[
     /government/publications/govuk-app-testing-privacy-notice-how-we-use-your-data
+    /government/publications/govuk-test-app-privacy-notice
     /government/publications/pension-credit-claim-form--2
   ].freeze
 

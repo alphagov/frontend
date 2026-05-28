@@ -759,6 +759,9 @@ cy:
       find_results: Darganfod canlyniadau yn agos i chi
       further_information: Rhagor o wybodaeth
       postcode: Cod post
+      results:
+        for: Canlyniadau ar gyfer
+        near: Canlyniadau ger
       select_address: Dewiswch gyfeiriad
     policy:
       name:

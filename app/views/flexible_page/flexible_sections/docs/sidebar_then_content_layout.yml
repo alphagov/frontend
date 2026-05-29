@@ -1,0 +1,24 @@
+name: Sidebar then content layout
+description: A layout wrapper for other flexible sections
+body: |
+  Renders any two flexible sections in a standard grid column layout. `sidebar` is added first in a one third column, followed by `content` in a two thirds column.
+
+  For example, content for a rich contents list flexible section could be shown in the one third column, and content for a govspeak flexible section could be shown in the two thirds column.
+
+  Currently flexible sections that render other flexible sections cannot be displayed in the component guide, so there is no preview below.
+accessibility_criteria: |
+  The HTML should not be visible.
+display_html: false
+display_preview: false
+examples:
+  default:
+    data:
+      sidebar:
+        type: share
+        content:
+        - href: /facebook-share-link
+          text: Facebook
+          icon: facebook
+      content:
+        type: govspeak
+        content: This would be some govspeak content in a two thirds column.

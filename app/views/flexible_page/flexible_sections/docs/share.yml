@@ -1,0 +1,20 @@
+name: Share
+description: Wraps the share links component
+body: |
+  Provides a heading and a stacked instance of the share links component.
+
+  See the [share links component](/component-guide/share_links) for more details of what can be passed to the share links.
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      heading_text: Share
+      links:
+      - href: "/facebook-share-link"
+        text: "Facebook"
+        icon: "facebook"
+      - href: "/instagram-share-link"
+        text: "Instagram"
+        icon: "instagram"

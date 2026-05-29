@@ -1,0 +1,15 @@
+name: Image
+description: Displays an image
+accessibility_criteria: |
+  The image shown in this flexible section does not include alt text, so the image must be decorative.
+examples:
+  default:
+    data:
+      image:
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"

@@ -1,0 +1,33 @@
+name: Rich contents list
+description: Wraps the contents list component
+body: |
+  See the [contents list component](/component-guide/contents_list) for more details of what can be passed to the contents list.
+accessibility_criteria: |
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      contents_list:
+      - id: introduction
+        text: Introduction
+      - id: take-the-tour
+        text: Explore 10 Downing Street
+      - id: origins-and-early-inhabitants
+        text: Origins and early inhabitants
+  with_image:
+    data:
+      image:
+        src: "https://www.gov.uk/assets/government-frontend/history/buildings/number-10-300-00aa6cc4623aff497a924d2742fa5087533221bb81c65b88fa1d11a1fc942567.jpg"
+        alt: "The front door of 10 Downing Street"
+      contents_list:
+      - id: introduction
+        text: Introduction
+      - id: take-the-tour
+        text: Explore 10 Downing Street
+      - id: origins-and-early-inhabitants
+        text: Origins and early inhabitants
+    embed: |
+      <div class="govuk-!-width-one-third">
+        <%= component %>
+      </div>

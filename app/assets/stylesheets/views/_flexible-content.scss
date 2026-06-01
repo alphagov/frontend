@@ -11,14 +11,16 @@
   container-name: page;
 }
 
-.full-width__element {
-  padding: 0;
-  margin-left: -(govuk-spacing(3));
-  margin-right: -(govuk-spacing(3));
+@container page {
+  .full-width__element {
+    padding: 0;
+    margin-left: -(govuk-spacing(3));
+    margin-right: -(govuk-spacing(3));
 
-  @include govuk-media-query($from: tablet) {
-    margin-left: -(govuk-spacing(6));
-    margin-right: -(govuk-spacing(6));
+    @include govuk-media-query($from: tablet) {
+      margin-left: -(govuk-spacing(6));
+      margin-right: -(govuk-spacing(6));
+    }
   }
 }
 

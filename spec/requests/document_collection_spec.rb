@@ -16,5 +16,13 @@ RSpec.describe "Document Collection" do
     end
 
     it_behaves_like "it supports personalisation cache headers"
+
+    context "when requesting a non-english version of a page" do
+      let(:base_path) { "/government/collections/national-driving-and-riding-standards.hi" }
+
+      it "succeeds" do
+        expect(response).to have_http_status(:ok)
+      end
+    end
   end
 end

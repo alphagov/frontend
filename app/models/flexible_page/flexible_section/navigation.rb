@@ -1,12 +1,11 @@
 module FlexiblePage::FlexibleSection
   class Navigation < Base
-    attr_reader :text, :url
+    attr_reader :items
 
-    def initialize(text:, url:)
+    def initialize(items:)
       super
 
-      @text = text
-      @url = url
+      @items = items
     end
 
     def before_content

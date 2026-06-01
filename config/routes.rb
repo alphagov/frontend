@@ -152,7 +152,7 @@ Rails.application.routes.draw do
 
   # World
   scope "/world" do
-    get "/organisations/:organisation", to: "worldwide_organisation#show"
+    get "/organisations/:organisation(.:locale)", to: "worldwide_organisation#show"
     get "/organisations/:organisation/office/:office", to: "worldwide_office#show"
     get "/organisations/:organisation/about/:slug(.:locale)", to: "worldwide_corporate_information_page#show"
   end

@@ -102,7 +102,7 @@ Rails.application.routes.draw do
 
     get "/case-studies/:slug(.:locale)", to: "case_study#show", as: :case_study
 
-    get "/collections/:slug", to: "document_collection#show", as: :document_collection
+    get "/collections/:slug(.:locale)", to: "document_collection#show", as: :document_collection
 
     get "/consultations/:slug(.:locale)", to: "consultation#show"
 
@@ -152,7 +152,7 @@ Rails.application.routes.draw do
 
   # World
   scope "/world" do
-    get "/organisations/:organisation", to: "worldwide_organisation#show"
+    get "/organisations/:organisation(.:locale)", to: "worldwide_organisation#show"
     get "/organisations/:organisation/office/:office", to: "worldwide_office#show"
     get "/organisations/:organisation/about/:slug(.:locale)", to: "worldwide_corporate_information_page#show"
   end

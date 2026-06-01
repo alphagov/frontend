@@ -37,6 +37,11 @@ private
   end
 
   def safe_path?(base_path)
-    base_path == Pathname.new(base_path).expand_path.to_s
+    return false unless base_path == Pathname.new(base_path).expand_path.to_s
+
+    Addressable::URI.encode(base_path)
+    true
+  rescue Addressable::URI::InvalidURIError
+    false
   end
 end

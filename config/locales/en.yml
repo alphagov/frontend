@@ -545,7 +545,11 @@ en:
         other: Oral statements to Parliament
     place:
       find_results: Find results near you
+      further_information: Further information
       postcode: Postcode
+      results:
+        for: Results for
+        near: Results near
       select_address: Select an address
     policy:
       name:

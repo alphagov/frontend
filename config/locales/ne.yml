@@ -540,7 +540,11 @@ ne:
         other: 'संसदमा मौखिक वक्तव्यहरू '
     place:
       find_results:
+      further_information:
       postcode:
+      results:
+        for:
+        near:
       select_address:
     policy:
       name:

@@ -66,8 +66,9 @@
         ga4_set_indexes: "",
       } do %>
         <% if @places_presenter.places.any? %>
+          <% results_prefix = t("formats.place.results.#{@places_presenter.preposition}") %>
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Results #{@places_presenter.preposition} <strong>#{postcode}</strong>".html_safe,
+            text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
             margin_bottom: 4,
           } %>
           <ol id="options" class="govuk-list place-list">
@@ -80,7 +81,7 @@
       <section class="more">
         <div class="further-information">
           <%= render "govuk_publishing_components/components/heading", {
-            text: "Further information",
+            text: t("formats.place.further_information"),
             margin_bottom: 4,
           } %>
           <% if content_item.need_to_know.present? %>

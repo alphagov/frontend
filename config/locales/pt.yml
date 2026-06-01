@@ -540,7 +540,11 @@ pt:
         other: Declarações orais ao Parlamento
     place:
       find_results:
+      further_information:
       postcode:
+      results:
+        for:
+        near:
       select_address:
     policy:
       name:

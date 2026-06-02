@@ -57,6 +57,8 @@ Rails.application.routes.draw do
     get "/*any", to: "landing_page#show"
   end
 
+  get "/missions", to: "flexible_page#show"
+
   # Accounts
   get "/sign-in", to: "help#sign_in"
   get "/sign-in/redirect", to: "sessions#create"

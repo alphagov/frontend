@@ -20,6 +20,7 @@ module ApplicationHelper
                             history
                             homepage
                             landing_page
+                            plan_for_change_landing_page
                             service_manual_homepage
                             service_manual_guide
                             service_manual_service_standard

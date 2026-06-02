@@ -19,7 +19,7 @@
   @supports (display: grid) {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: govuk-spacing(2);
+    gap: govuk-spacing(2);
   }
 
   dt,
@@ -33,7 +33,6 @@
 .worldwide-organisation-contact-section {
   a {
     overflow-wrap: break-word;
-    word-wrap: break-word;
   }
 
   address {

@@ -1,11 +1,12 @@
 module FlexiblePage::FlexibleSection
   class Involved < Base
-    attr_reader :organisations
+    attr_reader :organisations, :heading
 
-    def initialize(organisations:)
+    def initialize(organisations:, heading: nil)
       super
 
       @organisations = organisations
+      @heading = heading
     end
 
     def organisation_data_for_components

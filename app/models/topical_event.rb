@@ -51,7 +51,10 @@ class TopicalEvent < FlexiblePage
                 ))
 
     if organisations_ordered_by_emphasis.any?
-      add_section(Involved.new(organisations: organisations_ordered_by_emphasis))
+      add_section(Involved.new(
+                    heading: "Who's involved",
+                    organisations: organisations_ordered_by_emphasis,
+                  ))
     end
   end
 

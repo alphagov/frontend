@@ -1,6 +1,7 @@
 RSpec.describe "Involved flexible section" do
-  subject(:flexible_section) { FlexiblePage::FlexibleSection::Involved.new(organisations:) }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Involved.new(organisations:, heading:) }
 
+  let(:heading) { nil }
   let(:organisations) { orgs_data.map { |org_data| Organisation.new(org_data) } }
   let(:orgs_data) do
     [
@@ -35,6 +36,7 @@ RSpec.describe "Involved flexible section" do
   end
 
   it "renders involved section" do
+    expect(rendered).not_to have_selector(".gem-c-heading")
     expect(rendered).to have_selector("[data-flexible-section='involved']")
   end
 
@@ -42,5 +44,13 @@ RSpec.describe "Involved flexible section" do
     expect(rendered).to have_selector(".gem-c-organisation-logo.brand--department-for-culture-media-sport", text: "Department for Digital, Culture, Media & Sport")
     expect(rendered).to have_selector(".gem-c-organisation-logo.brand--ministry-of-defence")
     expect(rendered).to have_selector(".gem-c-organisation-logo__image[alt='Department for International Trade Defence & Security Organisation'][src='https://assets.publishing.service.gov.uk/media/59fa00e8ed915d7bfae58209/DIT_DSO_logo_banner.jpg']")
+  end
+
+  describe "when given a heading" do
+    let(:heading) { "A heading" }
+
+    it "shows the heading" do
+      expect(rendered).to have_selector(".gem-c-heading", text: "A heading")
+    end
   end
 end

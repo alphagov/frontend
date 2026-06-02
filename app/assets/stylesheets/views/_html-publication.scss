@@ -57,8 +57,8 @@
 // Required to display a separate meta data page when printing
 @include govuk-media-query($media-type: print) {
   .print-metadata {
-    page-break-before: always;
-    page-break-after: always;
+    break-before: always;
+    break-after: always;
     display: block;
   }
 }

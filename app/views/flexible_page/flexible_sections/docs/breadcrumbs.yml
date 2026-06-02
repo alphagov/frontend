@@ -14,3 +14,39 @@ examples:
         url: "/example/"
       - title: "Breadcrumb"
         url: "/breadcrumb/"
+  with_custom_margin_bottom:
+    data:
+      margin_bottom: 0
+      breadcrumbs:
+      - title: "Home"
+        url: "/"
+      - title: "Example"
+        url: "/example/"
+      - title: "Breadcrumb"
+        url: "/breadcrumb/"
+  full_width:
+    description: The full width option by itself doesn't really change much, as the breadcrumbs are still limited to a `govuk-width-container`. This option is meant to be used with the background option, below.
+    data:
+      full_width: true
+      breadcrumbs:
+      - title: "Home"
+        url: "/"
+      - title: "Example"
+        url: "/example/"
+      - title: "Breadcrumb"
+        url: "/breadcrumb/"
+    context:
+      full_width: true
+  with_dark_background:
+    data:
+      background: dark
+      full_width: true
+      breadcrumbs:
+      - title: "Home"
+        url: "/"
+      - title: "Example"
+        url: "/example/"
+      - title: "Breadcrumb"
+        url: "/breadcrumb/"
+    context:
+      full_width: true

@@ -1,6 +1,9 @@
 RSpec.describe "Breadcrumbs flexible section" do
-  subject(:flexible_section) { FlexiblePage::FlexibleSection::Breadcrumbs.new(breadcrumbs: breadcrumb_params) }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Breadcrumbs.new(breadcrumbs: breadcrumb_params, margin_bottom:, full_width:, background:) }
 
+  let(:margin_bottom) { nil }
+  let(:full_width) { nil }
+  let(:background) { nil }
   let(:breadcrumb_params) do
     [
       {
@@ -21,5 +24,29 @@ RSpec.describe "Breadcrumbs flexible section" do
   it "renders a breadcrumb component" do
     expect(rendered).to have_selector(".gem-c-breadcrumbs")
     expect(rendered).to have_link("History of the UK Government", href: "/government/history")
+  end
+
+  describe "margin bottom" do
+    let(:margin_bottom) { 2 }
+
+    it "sets the margin_bottom of the breadcrumbs component" do
+      expect(rendered).to have_selector(".gem-c-breadcrumbs.govuk-\\!-margin-bottom-2")
+    end
+  end
+
+  describe "full width" do
+    let(:full_width) { true }
+
+    it "sets the flexible section to be full width" do
+      expect(rendered).to have_selector(".full-width__element")
+    end
+  end
+
+  describe "background" do
+    let(:background) { true }
+
+    it "sets the flexible section to be full width" do
+      expect(rendered).to have_selector(".breadcrumbs--dark-background")
+    end
   end
 end

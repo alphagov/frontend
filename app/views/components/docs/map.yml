@@ -3,6 +3,8 @@ description: A simple map component.
 body: |
   Displays a map, given a location and a zoom level. Maps can also display markers with popups. The map can be scrolled and zoomed.
 
+  This component uses the [DEFRA map component](https://defra.github.io/interactive-map/).
+
   Maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
 
   Note that the order of positional co-ordinates for this map and its contents is longitude followed by latitude. This is particularly important for markers.

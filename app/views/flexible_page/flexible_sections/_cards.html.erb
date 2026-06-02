@@ -2,9 +2,9 @@
   <ul class="cards__container">
     <% flexible_section.items.each do |item| %>
       <li class="cards__item">
-        <h2 class="cards__item-header">
+        <%= content_tag(flexible_section.heading, class: "cards__item-header") do %>
           <%= link_to(item[:title], item[:href], class: "cards__link govuk-link") %>
-        </h2>
+        <% end %>
         <p class="govuk-body govuk-!-margin-bottom-2"><%= item[:description] %></p>
       </li>
     <% end %>

@@ -72,3 +72,16 @@ examples:
           <%= component %>
         </div>
       </div>
+  with_custom_heading_level:
+    data:
+      heading_level: 4
+      items:
+      - title: Writing implements
+        href: /example
+        description: Pens, pencils, markers, crayons, chalk.
+      - title: Bones present in the human foot
+        href: /example
+        description: Talus, Calcaneus, Cuboid, Cuneiforms, Navicular, Metatarsals, Phalanges.
+      - title: Fruit
+        href: /example
+        description: The seed-bearing structure in flowering plants (angiosperms).

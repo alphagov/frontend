@@ -1,6 +1,7 @@
 RSpec.describe "Cards flexible section" do
-  subject(:flexible_section) { FlexiblePage::FlexibleSection::Cards.new(items:) }
+  subject(:flexible_section) { FlexiblePage::FlexibleSection::Cards.new(items:, heading_level:) }
 
+  let(:heading_level) { nil }
   let(:items) do
     [
       {
@@ -42,6 +43,14 @@ RSpec.describe "Cards flexible section" do
 
     it "renders no items" do
       expect(rendered).not_to have_selector(".cards__container .cards__item")
+    end
+  end
+
+  describe "with a custom heading level" do
+    let(:heading_level) { 3 }
+
+    it "sets the heading level correctly" do
+      expect(rendered).to have_selector("h3.cards__item-header", text: "test1")
     end
   end
 end

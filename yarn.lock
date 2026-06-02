@@ -278,9 +278,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@defra/interactive-map@npm:0.0.25-alpha":
-  version: 0.0.25-alpha
-  resolution: "@defra/interactive-map@npm:0.0.25-alpha"
+"@defra/interactive-map@npm:0.0.30-alpha":
+  version: 0.0.30-alpha
+  resolution: "@defra/interactive-map@npm:0.0.30-alpha"
   dependencies:
     "@babel/runtime": ^7.28.6
     "@turf/area": ^7.2.0
@@ -310,7 +310,7 @@ __metadata:
       optional: true
     proj4:
       optional: true
-  checksum: 67c56e0d33d8bf25a9263606ad03e0feb7ea631566b26f85a1beab3e62ef715e7eac5e673919b8fa7f343ac091ca2660cdac72c87f8a37c2b088bd1f1a46c985
+  checksum: 15078e363e4fe17b47a930c076d46a15bf1b0cba49bef349c82a7eee22598813cfe777a83e370887afbc23d0ca2f8b6d68e39f71676777ce65f2d46b46b867ba
   languageName: node
   linkType: hard
 
@@ -2460,7 +2460,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
-    "@defra/interactive-map": 0.0.25-alpha
+    "@defra/interactive-map": 0.0.30-alpha
     jasmine-browser-runner: ^4.0.0
     jasmine-core: ^6.2.0
     leaflet: ^1.9.4

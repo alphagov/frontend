@@ -4,6 +4,12 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
+    if navigation_items.any?
+      add_section(Navigation.new(
+                    items: navigation_items,
+                  ))
+    end
+
     add_section(ImpactHeader.new(
                   description:,
                   image: impact_image,
@@ -11,12 +17,6 @@ class TopicalEvent < FlexiblePage
                   title:,
                   variant: notable_death? ? "notable-death" : "plain",
                 ))
-
-    if navigation_items.any?
-      add_section(Navigation.new(
-                    items: navigation_items,
-                  ))
-    end
 
     add_section(ContentThenSidebarLayout.new(
                   content: Govspeak.new(govspeak: body),
@@ -129,10 +129,22 @@ private
 
   def navigation_items
     (main_menu["items"] || []).map do |item|
-      {
-        text: item["text"],
-        href: item["url"],
-      }
+      if item["links"]
+        {
+          text: item["text"],
+          links: (item["links"] || []).map do |link|
+            {
+              text: link["text"],
+              href: link["url"],
+            }
+          end,
+        }
+      else
+        {
+          text: item["text"],
+          href: item["url"],
+        }
+      end
     end
   end
 

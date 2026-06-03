@@ -34,9 +34,9 @@ RSpec.describe TopicalEvent do
             mobile_2x: nil,
           },
         },
-        image_type: :logo,
+        image_type: "logo",
         title: content_store_response["title"],
-        variant: :plain,
+        variant: "plain",
       }
     end
 
@@ -59,9 +59,9 @@ RSpec.describe TopicalEvent do
         {
           description: content_store_response["description"],
           image: nil,
-          image_type: :logo,
+          image_type: "logo",
           title: content_store_response["title"],
-          variant: :plain,
+          variant: "plain",
         }
       end
 
@@ -88,9 +88,9 @@ RSpec.describe TopicalEvent do
         {
           description: content_store_response["description"],
           image: nil,
-          image_type: :logo,
+          image_type: "logo",
           title: content_store_response["title"],
-          variant: :plain,
+          variant: "plain",
         }
       end
 
@@ -107,10 +107,10 @@ RSpec.describe TopicalEvent do
       let(:params) do
         {
           description: content_store_response["description"],
-          image_type: :header,
+          image_type: "header",
           title: content_store_response["title"],
           image: create_image_hash("header"),
-          variant: :plain,
+          variant: "plain",
         }
       end
 
@@ -137,10 +137,10 @@ RSpec.describe TopicalEvent do
       let(:params) do
         {
           description: content_store_response["description"],
-          image_type: :logo,
+          image_type: "logo",
           title: content_store_response["title"],
           image: create_image_hash("logo"),
-          variant: :plain,
+          variant: "plain",
         }
       end
 
@@ -176,9 +176,9 @@ RSpec.describe TopicalEvent do
               mobile_2x: nil,
             },
           },
-          image_type: :logo,
+          image_type: "logo",
           title: content_store_response["title"],
-          variant: :notable_death,
+          variant: "notable-death",
         }
       end
 

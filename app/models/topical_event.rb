@@ -7,9 +7,9 @@ class TopicalEvent < FlexiblePage
     add_section(ImpactHeader.new(
                   description:,
                   image: impact_image,
-                  image_type: header_image.present? ? :header : :logo,
+                  image_type: header_image.present? ? "header" : "logo",
                   title:,
-                  variant: notable_death? ? :notable_death : :plain,
+                  variant: notable_death? ? "notable-death" : "plain",
                 ))
 
     add_section(ContentThenSidebarLayout.new(

@@ -16,7 +16,7 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
       },
     }
   end
-  let(:variant) { :govuk }
+  let(:variant) { "govuk" }
 
   describe "when complete data is provided" do
     it "includes page title and description" do
@@ -48,7 +48,7 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
   end
 
   describe "when it contains a logo" do
-    subject(:impact_header) { described_class.new(description:, image:, image_type: :logo, title:, variant:) }
+    subject(:impact_header) { described_class.new(description:, image:, image_type: "logo", title:, variant:) }
 
     it "does not return a caption" do
       expect(impact_header.caption).to be_nil
@@ -56,7 +56,7 @@ RSpec.describe FlexiblePage::FlexibleSection::ImpactHeader do
   end
 
   describe "when the variant is notable-death" do
-    let(:variant) { :notable_death }
+    let(:variant) { "notable-death" }
 
     it "sets the caption inverse value to true" do
       expect(impact_header.caption[:inverse]).to be(true)

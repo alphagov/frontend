@@ -64,8 +64,8 @@ RSpec.describe "Impact header flexible section" do
     end
   end
 
-  context "with image_type set to :logo" do
-    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:) }
+  context "with image_type set to logo" do
+    subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:) }
 
     it "renders the logo layout" do
       expect(rendered).to have_selector(".impact-header.impact-header--logo")
@@ -73,7 +73,7 @@ RSpec.describe "Impact header flexible section" do
     end
 
     context "when the image has a caption" do
-      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, image_type: :logo, title:) }
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, image_type: "logo", title:) }
 
       it "does not render a caption" do
         expect(rendered).not_to have_selector(".impact-header .gem-c-details")
@@ -84,7 +84,7 @@ RSpec.describe "Impact header flexible section" do
   context "with the variant set to govuk" do
     subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, title:, variant:) }
 
-    let(:variant) { :govuk }
+    let(:variant) { "govuk" }
 
     it "renders the govuk variant" do
       expect(rendered).to have_selector(".impact-header.impact-header--govuk")
@@ -100,8 +100,8 @@ RSpec.describe "Impact header flexible section" do
       end
     end
 
-    context "with image_type set to :logo" do
-      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:, variant:) }
+    context "with image_type set to logo" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:, variant:) }
 
       it "renders the logo layout" do
         expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--govuk")
@@ -117,10 +117,10 @@ RSpec.describe "Impact header flexible section" do
     end
   end
 
-  context "with the variant set to notable_death" do
+  context "with the variant set to notable-death" do
     subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, title:, variant:) }
 
-    let(:variant) { :notable_death }
+    let(:variant) { "notable-death" }
 
     it "renders the notable-death variant" do
       expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
@@ -136,8 +136,8 @@ RSpec.describe "Impact header flexible section" do
       end
     end
 
-    context "with image_type set to :logo" do
-      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: :logo, title:, variant:) }
+    context "with image_type set to logo" do
+      subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:, variant:) }
 
       it "renders the logo layout" do
         expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--notable-death")

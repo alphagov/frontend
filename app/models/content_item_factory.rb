@@ -2,6 +2,8 @@ class ContentItemFactory
   def self.build(content_store_response)
     schema_name = if content_store_response["document_type"] == "licence_transaction"
                     content_store_response["document_type"]
+                  elsif content_store_response["document_type"] == "plan_for_change_landing_page"
+                    "missions"
                   else
                     content_store_response["schema_name"]
                   end

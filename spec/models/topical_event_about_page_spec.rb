@@ -5,7 +5,7 @@ RSpec.describe TopicalEventAboutPage do
 
   describe "flexible_sections attribute" do
     it "generates flexible sections if not supplied" do
-      expect(topical_event_about_page.flexible_sections.count).to eq(3)
+      expect(topical_event_about_page.flexible_sections.count).to eq(4)
       expect(topical_event_about_page.flexible_sections.first).to be_instance_of(FlexiblePage::FlexibleSection::Breadcrumbs)
       expect(topical_event_about_page.flexible_sections.second).to be_instance_of(FlexiblePage::FlexibleSection::PageTitle)
       expect(topical_event_about_page.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::SidebarThenContentLayout)

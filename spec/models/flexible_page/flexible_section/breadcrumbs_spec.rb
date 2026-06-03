@@ -1,9 +1,6 @@
 RSpec.describe FlexiblePage::FlexibleSection::Breadcrumbs do
-  subject(:breadcrumbs) { described_class.new(breadcrumbs: breadcrumb_params, margin_bottom:, full_width:, background:) }
+  subject(:model) { described_class.new(breadcrumbs_options:, full_width:, background:) }
 
-  let(:margin_bottom) { nil }
-  let(:full_width) { nil }
-  let(:background) { nil }
   let(:breadcrumb_params) do
     [
       {
@@ -12,24 +9,40 @@ RSpec.describe FlexiblePage::FlexibleSection::Breadcrumbs do
       },
     ]
   end
+  let(:breadcrumbs_options) do
+    { breadcrumbs: breadcrumb_params }
+  end
+  let(:full_width) { nil }
+  let(:background) { nil }
 
   describe "#initialize" do
     it "sets the attributes from the parameters" do
-      expect(breadcrumbs.breadcrumbs).to eq(breadcrumb_params)
+      expect(model.breadcrumbs_options).to eq(
+        {
+          collapse_on_mobile: true,
+          margin_bottom: 8,
+          breadcrumbs: breadcrumb_params,
+        },
+      )
     end
   end
 
   describe "#before_content?" do
     it "asks to be rendered in the before_content block" do
-      expect(breadcrumbs.before_content?).to be true
+      expect(model.before_content?).to be true
     end
   end
 
   describe "#margin_bottom" do
-    let(:margin_bottom) { 1 }
+    let(:breadcrumbs_options) do
+      {
+        breadcrumbs: breadcrumb_params,
+        margin_bottom: 1,
+      }
+    end
 
-    it "sets full width" do
-      expect(breadcrumbs.margin_bottom).to be 1
+    it "sets margin bottom on the breadcrumbs component" do
+      expect(model.breadcrumbs_options[:margin_bottom]).to be 1
     end
   end
 
@@ -37,7 +50,7 @@ RSpec.describe FlexiblePage::FlexibleSection::Breadcrumbs do
     let(:full_width) { true }
 
     it "sets full width" do
-      expect(breadcrumbs.full_width).to be true
+      expect(model.full_width).to be true
     end
   end
 
@@ -45,8 +58,8 @@ RSpec.describe FlexiblePage::FlexibleSection::Breadcrumbs do
     let(:background) { true }
 
     it "sets background" do
-      expect(breadcrumbs.background).to be true
-      expect(breadcrumbs.inverse).to be true
+      expect(model.background).to be true
+      expect(model.breadcrumbs_options[:inverse]).to be true
     end
   end
 end

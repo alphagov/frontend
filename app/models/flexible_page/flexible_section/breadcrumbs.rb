@@ -1,15 +1,18 @@
 module FlexiblePage::FlexibleSection
   class Breadcrumbs < Base
-    attr_reader :breadcrumbs, :margin_bottom, :full_width, :background, :inverse
+    attr_reader :breadcrumbs_options, :full_width, :background
 
-    def initialize(breadcrumbs:, margin_bottom: nil, full_width: false, background: false)
+    def initialize(breadcrumbs_options: {}, full_width: false, background: false)
       super
 
-      @breadcrumbs = breadcrumbs
       @full_width = full_width
       @background = background
-      @inverse = true if background
-      @margin_bottom = margin_bottom || 8
+
+      @breadcrumbs_options = {
+        collapse_on_mobile: true,
+        inverse: (true if background),
+        margin_bottom: 8,
+      }.merge(breadcrumbs_options).compact
     end
 
     def before_content?

@@ -1,6 +1,14 @@
-<div class="govuk-width-container" data-flexible-section="breadcrumbs">
-  <%= render "govuk_publishing_components/components/breadcrumbs",
-    collapse_on_mobile: true,
-    margin_bottom: 8,
-    breadcrumbs: flexible_section.breadcrumbs %>
-</div>
+<%
+  classes = %w[]
+  classes << "breadcrumbs--dark-background" if flexible_section.background
+  classes << "full-width__element" if flexible_section.full_width
+%>
+<%= content_tag("div", class: classes, data: { flexible_section: "breadcrumbs" }) do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs",
+      collapse_on_mobile: true,
+      margin_bottom: flexible_section.margin_bottom,
+      breadcrumbs: flexible_section.breadcrumbs,
+      inverse: flexible_section.inverse %>
+  </div>
+<% end %>

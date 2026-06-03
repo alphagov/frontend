@@ -114,6 +114,6 @@
 .im-c-error {
   margin: 0;
   background: #FFFFFF;
-  border-color: #d4351c;
+  border-color: govuk-colour("red");
   @include govuk-font(19)
 }

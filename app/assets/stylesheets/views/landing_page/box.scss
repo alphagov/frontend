@@ -1,6 +1,6 @@
 .box {
   padding: govuk-spacing(4);
-  background-color: govuk-colour("light-grey");
+  background-color: govuk-colour("black", $variant: "tint-95");
 }
 
 .box__content {

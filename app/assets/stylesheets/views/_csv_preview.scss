@@ -9,7 +9,7 @@
 }
 
 .csv-preview__outer {
-  border: govuk-spacing(1) solid govuk-colour("light-grey");
+  border: govuk-spacing(1) solid govuk-colour("black", $variant: "tint-95");
   margin-bottom: govuk-spacing(6);
 }
 

@@ -20,7 +20,9 @@ class CsvPreviewController < ApplicationController
 
     parent_document_path = URI(parent_document_uri).request_uri
 
-    @content_item = parent_content_item(parent_document_path)
+    @content_item = parent_content_item(parent_document_path, params[:id])
+    return cacheable_404 unless @content_item
+
     @attachment_metadata = @content_item.dig("details", "attachments").find do |attachment|
       attachment["filename"] == asset_filename
     end
@@ -66,18 +68,35 @@ private
     ["text/csv", "application/csv"]
   end
 
-  def parent_content_item(parent_document_path)
-    content_item = GdsApi.content_store.content_item(parent_document_path).to_hash
-    if content_item.dig("details", "attachments")
-      return content_item
+  MAXIMUM_REDIRECTS = 5
+
+  def parent_content_item(parent_document_path, attachment_id)
+    redirects = 0
+    current_path = parent_document_path
+
+    while redirects < MAXIMUM_REDIRECTS
+      content_item = GdsApi.content_store.content_item(current_path).to_hash
+      if content_item.dig("details", "attachments")
+        return content_item
+      end
+
+      redirect_path = content_item.dig("redirects", 0, "destination")
+      break unless redirect_path
+
+      redirects += 1
+      Rails.logger.debug("CSV attachment details missing for '#{attachment_id}' at '#{current_path}', following redirect #{redirects} to '#{redirect_path}'")
+      current_path = redirect_path
     end
 
-    Rails.logger.warn("CSV attachment details missing for '#{params[:id]}' at '#{parent_document_path}'")
-
-    redirect_path = content_item.dig("redirects", 0, "destination")
-    if redirect_path
-      Rails.logger.debug("CSV attachment details missing for '#{params[:id]}' at '#{parent_document_path}', following redirect to '#{redirect_path}'")
-      GdsApi.content_store.content_item(redirect_path).to_hash
-    end
+    Rails.logger.debug("CSV attachment details missing for '#{attachment_id}' at '#{current_path}'")
+    GovukError.notify(
+      "CSV preview - couldn't resolve attachment details",
+      extra: {
+        attachment_id:,
+        parent_document_path:,
+        redirects:,
+      },
+      level: "warning",
+    )
   end
 end

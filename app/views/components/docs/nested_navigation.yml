@@ -1,0 +1,37 @@
+name: Nested navigation (experimental)
+description: Renders a navigation that can contain a nested menu
+body: |
+
+shared_accessibility_criteria:
+- sub_navigation_menu
+
+accessibility_criteria: |
+  To do
+
+uses_component_wrapper_helper: true
+examples:
+  default:
+    data:
+      items:
+      - text: "Service Name"
+        href: "/service-name"
+      - text: "A basic link"
+        href: "/something"
+      - text: "Nested Heading"
+        links:
+          - text: "Example Link"
+            href: "/hello-world"
+          - text: "Example Link 2"
+            href: "/hello-world"
+          - text: "Example Link 3"
+            href: "/hello-world"
+          - text: "This is a very very very long link"
+            href: "/hello-world"
+          - text: "Another link that has a lot of characters"
+            href: "/hello-world"
+          - text: "Third link containing a lot of text"
+            href: "/hello-world"
+      - text: "Third Link"
+        href: "/example1"
+      - text: "Fourth Link"
+        href: "/example1"

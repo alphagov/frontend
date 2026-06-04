@@ -3,6 +3,7 @@
 //= link main.js
 //= link dependencies.js
 //= link test-dependencies.js
+//= link components/nested-navigation.js
 //= link components/map.js
 //= link components/map/defra-map.js
 //= link components/map/map-style-liberty.js

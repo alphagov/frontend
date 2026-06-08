@@ -1,0 +1,141 @@
+name: Impact header
+description: Provides a title and image for a page
+body: |
+  The component expects to receive images of a specific size.
+
+  - mobile: 640 x 360
+  - mobile (x2): 1280 x 720
+  - tablet: 768 x 432
+  - tablet (x2): 1536 x 864
+  - desktop: 512 x 512
+  - desktop (x2): 1024 x 1024
+accessibility_criteria: |
+  - Images in the impact header should have an empty alt text, as appropriate for purely decorative images
+  - The 'image details' disclosure element should be operable with a keyboard and understood by screen reader users
+shared_accessibility_criteria:
+  - link
+uses_component_wrapper_helper: true
+examples:
+  default:
+    data:
+      heading: This is the title of the impact header
+      description: This is the description of the impact header, containing words that form a paragraph of text.
+      image:
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  with_image_caption:
+    data:
+      heading: With image caption
+      description: This is the description of the impact header, containing words that form a paragraph of text.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  with_excessive_text:
+    description: When there is excessive text in the left side of the impact header the image on the right is aligned to the bottom of the flexible section.
+    data:
+      heading: This is the title of the impact header when there is a lot of text involved
+      description: The layout needs to adapt if the text of this description is very long. The layout also needs to account for where users have set a default large text size in their browser. In both cases, this text would be taller than the image. If the layout tried to keep the image the same height as the text it would result in more of the sides of the image being hidden as the image gets taller. Instead, the image is given a maximum height and vertically aligned centrally within the space available.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  without_image:
+    description: Where an impact header is provided no image, the component automatically uses a standard GOV.UK two thirds layout, to minimise the large empty space to the right.
+    data:
+      heading: No image
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    context:
+      full_width: true
+  legacy_layout:
+    description: |
+      Where a topical event contains an existing image we apply different styles to the image to prevent any part of it from being hidden. This is because these legacy images often contained text, which should not be cropped.
+
+      A legacy layout like this will not show an image caption, even if one is specified.
+    data:
+      heading: Legacy layout
+      description: Some descriptive text.
+      image_type: logo
+      image:
+        caption: Nope
+        sources:
+          desktop: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          desktop_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          mobile: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+    context:
+      full_width: true
+  legacy_layout_with_background:
+    description: Showing the legacy layout with a background.
+    data:
+      heading: Legacy layout with background
+      description: Some descriptive text.
+      image_type: logo
+      variant: notable-death
+      image:
+        sources:
+          desktop: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          desktop_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          mobile: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+          tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
+    context:
+      full_width: true
+  govuk_variant:
+    description: Currently unused.
+    data:
+      heading: GOVUK variant
+      variant: govuk
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  notable_death_variant:
+    description:
+    data:
+      heading: Notable death variant
+      variant: notable-death
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true

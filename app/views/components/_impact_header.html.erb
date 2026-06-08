@@ -1,0 +1,77 @@
+<%
+  heading ||= nil
+  description ||= nil
+  image ||= nil
+  image_type ||= nil
+  variant ||= nil
+
+  component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
+  component_helper.add_class("app-c-impact-header")
+  component_helper.add_class("app-c-impact-header--logo") if image_type == "logo"
+  component_helper.add_class("app-c-impact-header--govuk") if variant == "govuk"
+  component_helper.add_class("app-c-impact-header--with-background") if variant
+  component_helper.add_class("app-c-impact-header--plain") unless variant || image_type == "logo"
+
+  if variant == "notable-death"
+    component_helper.add_class("app-c-impact-header--notable-death") if variant == "notable-death"
+    inverse = true
+  end
+
+  show_caption = true if image && image[:caption] && !image[:caption].empty? && image_type != "logo"
+%>
+<% if heading %>
+  <% text = capture do %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: heading,
+      font_size: "xl",
+      margin_bottom: 6,
+      heading_level: 1,
+      inverse: inverse,
+    } %>
+
+    <%= render "govuk_publishing_components/components/lead_paragraph", {
+      text: description,
+      margin_bottom: 0,
+      inverse: inverse,
+    } %>
+  <% end %>
+
+  <div class="full-width__element">
+    <%= tag.div(**component_helper.all_attributes) do %>
+      <% if image %>
+        <div class="app-c-impact-header__container">
+          <div class="app-c-impact-header__detail">
+            <%= text %>
+          </div>
+
+          <%= render "flexible_page/flexible_sections/shared/picture",
+            image: image,
+            style: "app-c-impact-header",
+            alt_text: "" %>
+        </div>
+        <% if show_caption %>
+          <div class="app-c-impact-header__caption-wrapper">
+            <div class="app-c-impact-header__caption">
+              <%= render "govuk_publishing_components/components/details", {
+                title: "Image details",
+                theme: ("black" unless inverse),
+                inverse: inverse,
+                margin_bottom: 0,
+              } do %>
+                <%= image[:caption] %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="app-c-impact-header__grid">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+              <%= text %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

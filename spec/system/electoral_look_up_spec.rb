@@ -55,7 +55,6 @@ RSpec.describe "ElectoralLookUp" do
           expect(page).to have_selector("p[data-module=ga4-auto-tracker]")
           expect(page).to have_selector("p[data-ga4-auto]")
           expect(page).to have_selector("div[data-module=ga4-link-tracker]")
-          expect(page).to have_selector("div[data-ga4-track-links-only]")
           expect(page).to have_selector("div[data-ga4-set-indexes]")
           expect(page).to have_selector("div[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Contact your local Electoral Registration Office\",\"action\":\"information click\"}']")
         end

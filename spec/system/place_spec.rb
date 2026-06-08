@@ -218,7 +218,6 @@ RSpec.describe "Places" do
       expected_data_module = "ga4-auto-tracker ga4-link-tracker"
 
       expect(page).to have_selector("[data-ga4-set-indexes]")
-      expect(page).to have_selector("[data-ga4-track-links-only]")
 
       ga4_auto_attribute = page.find(".places-results")["data-ga4-link"]
       ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"place\",\"tool_name\":\"Find a passport interview office\"}"

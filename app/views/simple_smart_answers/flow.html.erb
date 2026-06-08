@@ -18,7 +18,6 @@
       class="simple-smart-answer__question-and-outcome"
       data-module="ga4-link-tracker"
       data-ga4-link="<%= ga4_attributes %>"
-      data-ga4-track-links-only
       data-ga4-set-indexes>
       <% if @flow_state.current_node.outcome? %>
         <%= render partial: "outcome", object: @flow_state.current_node %>

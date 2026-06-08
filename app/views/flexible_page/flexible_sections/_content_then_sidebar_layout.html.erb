@@ -1,6 +1,16 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render("flexible_page/flexible_sections/#{flexible_section.content.type}", flexible_section: flexible_section.content) %>
+    <hr>
+    <%= flexible_section.content.class %>
+    <% if flexible_section.content.is_a?(Hash) %>
+      <% if true %>
+        <%= render flexible_section.content[:component], flexible_section.content[:options] do %>
+          <%= flexible_section.content[:yield] %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= render("flexible_page/flexible_sections/#{flexible_section.content.type}", flexible_section: flexible_section.content) %>
+    <% end %>
   </div>
 
   <div class="govuk-grid-column-one-third">

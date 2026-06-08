@@ -25,4 +25,12 @@ class FlexiblePage < ContentItem
   def add_section(flexible_section)
     flexible_sections << flexible_section
   end
+
+  def insert_component(component, body, options)
+    {
+      component: "govuk_publishing_components/components/#{component}",
+      yield: (body.html_safe if body),
+      options: options,
+    }
+  end
 end

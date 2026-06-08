@@ -17,6 +17,16 @@ class TopicalEvent < FlexiblePage
                   sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,
                 ))
 
+    add_section(ContentThenSidebarLayout.new(
+      content: insert_component("govspeak", body, { margin_bottom: 2 }),
+      sidebar: nil,
+    ))
+
+    add_section(ContentThenSidebarLayout.new(
+      content: insert_component("action_link", nil, { text: "Go to NHS 111 online", href: "/page" }),
+      sidebar: nil,
+    ))
+
     if details["about_page_link_text"].present?
       add_section(Link.new(link: "#{base_path}/about", link_text: details["about_page_link_text"]))
     end

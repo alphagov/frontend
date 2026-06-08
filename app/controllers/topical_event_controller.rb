@@ -1,6 +1,8 @@
 class TopicalEventController < FlexiblePageController
   attr_reader :content_presenter
 
+  helper_method :content_presenter
+
   def show
     @content_presenter = TopicalEventPresenter.new(content_item)
 

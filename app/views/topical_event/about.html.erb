@@ -1,20 +1,26 @@
-<% content_for :head do %>
-  <meta name="description" content="<%= content_item.description %>">
-
-  <%= render "govuk_publishing_components/components/machine_readable_metadata",
-    schema: :article,
-    content_item: content_item.to_h %>
-<% end %>
-
-<% content_for :main_classes do %>govuk-!-padding-top-0<% end %>
-<% content_for :body_classes do %>full-width__container<% end %>
+<%= render("preamble") %>
 
 <% content_for :before_content do %>
-  <% content_presenter.flexible_sections.select { |fs| fs.before_content? }.each do |flexible_section| %>
-    <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs", content_presenter.breadcrumb_options %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <nav>
+    <%= render "govuk_publishing_components/components/contents_list", {
+      contents: content_presenter.contents_list,
+      id: "contents",
+    } %>
+  </nav>
+<% end %>
+
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+    <%= content_presenter.content.html_safe %>
   <% end %>
 <% end %>
 
-<% content_presenter.flexible_sections.reject { |fs| fs.before_content? }.each do |flexible_section| %>
-  <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
-<% end %>
+<%= render "shared/headers/page_title", options: content_presenter.page_title_options %>
+
+<%= render("sidebar_then_content") %>

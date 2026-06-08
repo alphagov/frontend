@@ -1,7 +1,7 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
 
-  About = Data.define(:title, :description, :contents_list, :body)
+  About = Data.define(:title, :description, :contents_outline, :body)
 
   def feed_items
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
@@ -24,7 +24,7 @@ class TopicalEvent < FlexiblePage
       title:,
       description:,
       body: details["about"]["body"],
-      contents_list: (content_store_response.dig("details", "about", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys },
+      contents_outline: ContentsOutline.new((content_store_response.dig("details", "about", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }),
     )
   end
 

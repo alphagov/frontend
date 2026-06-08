@@ -24,7 +24,7 @@ class TopicalEvent < FlexiblePage
       title:,
       description:,
       body: details["about"]["body"],
-      contents_list: [],
+      contents_list: (content_store_response.dig("details", "about", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys },
     )
   end
 

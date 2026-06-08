@@ -26,7 +26,7 @@
 }
 
 .govuk-block--background {
-  background: govuk-colour("light-grey");
+  background: govuk-colour("black", $variant: "tint-95");
   padding: govuk-spacing(8) 0;
 
   &:has(+ .govuk-block--background) {

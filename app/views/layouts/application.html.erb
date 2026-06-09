@@ -29,15 +29,7 @@
   <%= yield :extra_javascript %>
 <% end %>
 
-<%= render "govuk_publishing_components/components/layout_for_public", {
-    draft_watermark: draft_host?,
-    title: page_title,
-    title_lang: I18n.locale,
-    emergency_banner: render("govuk_web_banners/emergency_banner"),
-    global_banner: render("govuk_web_banners/global_banner"),
-    show_app_promo_banner: show_app_promo_banner?,
-    body_classes: body_classes,
-  } do %>
+<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title, body_classes:) do %>
   <%= yield :before_content %>
 
   <div class="govuk-width-container">

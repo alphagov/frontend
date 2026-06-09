@@ -127,26 +127,24 @@ private
     end
   end
 
-  # def navigation_items
-  #   (main_menu["items"] || []).map do |item|
-  #     {
-  #       text: item["text"],
-  #       href: item["url"],
-  #     }
-  #   end
-  # end
-
   def navigation_items
     (main_menu["items"] || []).map do |item|
-      {
-        text: item["text"],
-        links: (item["links"] || []).map do |link|
-          {
-            text: link["text"],
-            url: link["url"],
-          }
-        end,
-      }
+      if item["links"]
+        {
+          text: item["text"],
+          links: (item["links"] || []).map do |link|
+            {
+              text: link["text"],
+              href: link["url"],
+            }
+          end,
+        }
+      else
+        {
+          text: item["text"],
+          href: item["url"],
+        }
+      end
     end
   end
 

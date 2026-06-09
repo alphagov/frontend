@@ -1,16 +1,10 @@
-<%
-  page_title = yield :title
-  page_title = page_title.presence || page_title(content_item)
-  body_classes = yield :body_classes
-%>
+<% page_title = yield :title %>
 
 <%= content_for :head do %>
   <%= render("layouts/head") %>
 <% end %>
 
-<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title, body_classes:) do %>
-  <%= yield :before_content %>
-
+<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title) do %>
   <div class="govuk-width-container">
 
     <% if show_breadcrumbs?(content_item) %>

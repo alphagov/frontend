@@ -30,7 +30,7 @@
       action: "information click",
     }.to_json
   %>
-  <div class="govuk-!-margin-bottom-8" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-track-links-only data-ga4-link="<%= ga4_link %>">
+  <div class="govuk-!-margin-bottom-8" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-link="<%= ga4_link %>">
     <% if @presenter.use_registration_contact_details? && @presenter.scotland? %>
       <%= render partial: "contact_details",
         locals: {

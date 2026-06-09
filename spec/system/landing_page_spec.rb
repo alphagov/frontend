@@ -112,7 +112,6 @@ RSpec.describe "LandingPage" do
         visit base_path
 
         expect(page).to have_selector(".gem-c-organisation-logo[data-module=ga4-link-tracker]")
-        expect(page).to have_selector(".gem-c-organisation-logo[data-ga4-track-links-only]")
         expect(page).to have_selector(".gem-c-organisation-logo[data-ga4-link='{\"event_name\":\"navigation\",\"section\":\"Header\",\"type\":\"organisation logo\"}']")
       end
     end
@@ -122,7 +121,6 @@ RSpec.describe "LandingPage" do
         visit base_path
 
         expect(page).to have_selector(".columns-layout[data-module=ga4-link-tracker]")
-        expect(page).to have_selector(".columns-layout[data-ga4-track-links-only]")
         expect(page).to have_selector(".columns-layout[data-ga4-set-indexes]")
         expect(page).to have_selector(".columns-layout[data-ga4-link='{\"event_name\":\"navigation\",\"type\":\"box\"}']")
       end

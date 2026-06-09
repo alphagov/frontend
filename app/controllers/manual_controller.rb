@@ -1,6 +1,8 @@
 class ManualController < ContentItemsController
   include Cacheable
 
+  layout "manual"
+
   def show
     @presenter = ManualPresenter.new(content_item)
   end

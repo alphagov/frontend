@@ -2,6 +2,7 @@ RSpec.describe "Topical event page" do
   include GdsApi::TestHelpers::Search
 
   let(:base_path) { content_item.fetch("base_path") }
+  let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "topical-event-with-about-page") }
   let(:search_response) do
     {
       "results" => [
@@ -15,15 +16,14 @@ RSpec.describe "Topical event page" do
     }
   end
 
-  describe "GET show" do
-    let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
+  before do
+    stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+    stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
+      .to_return(body: search_response.to_json)
+  end
 
-    before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
-      stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
-        .to_return(body: search_response.to_json)
-      get base_path
-    end
+  describe "GET show" do
+    before { get base_path }
 
     it "succeeds" do
       expect(response).to have_http_status(:ok)
@@ -32,41 +32,26 @@ RSpec.describe "Topical event page" do
     it "renders the show template" do
       expect(response).to render_template(:show)
     end
+  end
 
-    it "includes an impact header flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_impact_header")
+  describe "GET about" do
+    let(:base_path) { "#{content_item.fetch('base_path')}/about" }
+
+    before { get base_path }
+
+    it "succeeds" do
+      expect(response).to have_http_status(:ok)
     end
 
-    it "includes a govspeak flexible section with the body" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_govspeak")
-    end
-
-    it "includes a link flexible section to the about page" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_link")
-    end
-
-    it "includes a document list flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_document_list")
-    end
-
-    it "includes a share flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_share")
-    end
-
-    it "includes an involved flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_involved")
+    it "renders the about template" do
+      expect(response).to render_template(:about)
     end
   end
 
   describe "GET show (atom format)" do
-    let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
+    let(:base_path) { "#{content_item.fetch('base_path')}.atom" }
 
-    before do
-      stub_conditional_loader_returns_content_item_for_path("#{base_path}.atom", content_item)
-      stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
-        .to_return(body: search_response.to_json)
-      get "#{base_path}.atom?graphql=false"
-    end
+    before { get "#{base_path}?graphql=false" }
 
     it "returns 200" do
       expect(response).to have_http_status(:ok)

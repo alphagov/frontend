@@ -141,8 +141,8 @@ Rails.application.routes.draw do
 
     get "/statistics/announcements/:slug", to: "statistics_announcement#show"
 
-    get "/topical-events/:slug", to: "flexible_page#show"
-    get "/topical-events/:slug/about", to: "flexible_page#show"
+    get "/topical-events/:slug", to: "topical_event#show"
+    get "/topical-events/:slug/about", to: "topical_event#about"
   end
 
   # Service manuals

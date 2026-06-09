@@ -35,6 +35,46 @@ RSpec.describe "CsvPreview" do
     end
   end
 
+  context "when the parent item does not contain attachment info" do
+    before do
+      setup_asset_manager(parent_document_url, asset_manager_id, asset_manager_filename)
+      stub_conditional_loader_returns_content_item_for_path(parent_document_base_path, {})
+    end
+
+    it "returns 404" do
+      get "/csv-preview/#{asset_manager_id}/#{asset_manager_filename}.csv"
+
+      expect(response).to have_http_status(404)
+    end
+
+    context "when the parent item is a redirect" do
+      before do
+        setup_redirect_content_item("/redirected", parent_document_base_path)
+        setup_content_item(path_from_filename(asset_manager_filename), parent_document_base_path)
+      end
+
+      it "follows the redirect and returns 200" do
+        get "/csv-preview/#{asset_manager_id}/#{asset_manager_filename}.csv"
+
+        expect(response).to have_http_status(200)
+      end
+
+      context "when it redirects more than 5 times" do
+        before do
+          setup_redirect_content_item(parent_document_base_path, parent_document_base_path)
+        end
+
+        it "returns 404 and records the problem in Sentry" do
+          expect(GovukError).to receive(:notify)
+
+          get "/csv-preview/#{asset_manager_id}/#{asset_manager_filename}.csv"
+
+          expect(response).to have_http_status(:not_found)
+        end
+      end
+    end
+  end
+
   def path_from_filename(base_name)
     "media/#{asset_manager_id}/#{base_name}.csv"
   end

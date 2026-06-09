@@ -9,9 +9,7 @@
   <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
   <% if content_item.to_h %>
     <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
-    <% if content_item&.meta_section.present? %>
-      <meta name="govuk:section" content="<%= content_item.meta_section %>">
-    <% end %>
+
     <% if show_app_promo_banner? %>
       <meta name="apple-itunes-app" content="app-id=6572293285">
     <% end %>

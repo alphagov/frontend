@@ -145,33 +145,6 @@ RSpec.describe ContentItem do
     end
   end
 
-  describe "#meta_section" do
-    subject(:content_item) do
-      described_class.new(
-        {
-          "links" => {
-            "parent" => [
-              {
-                "links" => {
-                  "parent" => [
-                    {
-                      "title" => "Title of the parent's parent link",
-                    },
-                  ],
-                },
-              },
-              "title" => "Title of the parent link",
-            ],
-          },
-        },
-      )
-    end
-
-    it "returns the title of the top parent link in lowercase" do
-      expect(content_item.meta_section).to eq("title of the parent's parent link")
-    end
-  end
-
   describe "#lead_paragraph" do
     subject(:content_item) { described_class.new(content_store_response) }
 

@@ -1,4 +1,4 @@
-<% content_for :extra_javascript do %>
+<% content_for :head do %>
   <%= javascript_include_tag "views/landing_page/map/leaflet.js", integrity: false, type: "module" %>
   <%= javascript_include_tag "views/landing_page/map/data/lookup.js", integrity: false, type: "module" %>
   <%= javascript_include_tag "views/landing_page/map/data/cdc.geojson.js", integrity: false, type: "module" %>

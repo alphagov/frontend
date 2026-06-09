@@ -21,6 +21,12 @@ RSpec.describe "Manual Section" do
 
         expect(response).to render_template(:section)
       end
+
+      it "renders using the manual layout" do
+        get base_path
+
+        expect(response).to render_template("layouts/manual")
+      end
     end
   end
 end

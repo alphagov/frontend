@@ -20,8 +20,8 @@ RSpec.describe "HRMC Manual Section" do
         expect(response).to render_template(:section)
       end
 
-      it "renders using the application layout" do
-        expect(response).to render_template("layouts/application")
+      it "renders using the manual layout" do
+        expect(response).to render_template("layouts/manual")
       end
     end
   end

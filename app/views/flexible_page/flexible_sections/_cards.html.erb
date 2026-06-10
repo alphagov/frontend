@@ -1,12 +1,5 @@
-<div class="flexible-section cards" data-flexible-section="cards">
-  <ul class="cards__container">
-    <% flexible_section.items.each do |item| %>
-      <li class="cards__item">
-        <%= content_tag(flexible_section.heading, class: "cards__item-header") do %>
-          <%= link_to(item[:title], item[:href], class: "cards__link govuk-link") %>
-        <% end %>
-        <p class="govuk-body govuk-!-margin-bottom-2"><%= item[:description] %></p>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<%= render "govuk_publishing_components/components/cards", {
+  columns: "auto",
+  # heading: flexible_section.heading,
+  items: flexible_section.items,
+} %>

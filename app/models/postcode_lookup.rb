@@ -3,31 +3,33 @@ require "ostruct"
 class PostcodeLookup
   ORDNANCE_SURVEY_CUSTODIAN_CODE = 7655
 
-  attr_reader :local_custodian_codes, :postcode
+  attr_reader :postcode
 
   def initialize(postcode)
     @postcode = postcode
     raise LocationError, "invalidPostcodeFormat" if postcode.blank?
 
-    @local_custodian_codes = Frontend.locations_api.local_custodian_code_for_postcode(postcode)
-    @local_custodian_codes.delete(ORDNANCE_SURVEY_CUSTODIAN_CODE)
+    response = Frontend.locations_api.results_for_postcode(postcode)
+    @results = response["results"] || []
+    @results.delete_if { it["local_custodian_code"] == ORDNANCE_SURVEY_CUSTODIAN_CODE }
 
-    raise LocationError, "noLaMatch" if @local_custodian_codes.empty?
+    raise LocationError, "noLaMatch" if @results.empty?
   rescue GdsApi::HTTPNotFound
     raise LocationError, "noLaMatch"
   rescue GdsApi::HTTPClientError
     raise LocationError, "invalidPostcodeFormat"
   end
 
+  def local_custodian_codes
+    @results.map { |r| r["local_custodian_code"] }.uniq
+  end
+
   def addresses
-    @addresses ||= begin
-      response = Frontend.locations_api.results_for_postcode(postcode)
-      response["results"].map do |result|
-        OpenStruct.new(
-          address: result["address"],
-          local_custodian_code: result["local_custodian_code"],
-        )
-      end
+    @addresses ||= @results.map do |result|
+      OpenStruct.new(
+        address: result["address"],
+        local_custodian_code: result["local_custodian_code"],
+      )
     end
   end
 end

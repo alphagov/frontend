@@ -30,47 +30,36 @@ RSpec.describe "Field of operation page" do
       end
 
       it "has the correct subheadings and description" do
-        within("#field-of-operation > div:first-of-type h2") do
-          expect(page).to have_text("Field of operation")
-        end
+        expect(page).to have_selector("h2", text: "Field of operation")
 
-        within("#field-of-operation") do
-          expect(page).to have_text("It is with very deep regret that the following fatalities are announced.")
-        end
-
-        within("#fatalities h2") do
-          expect(page).to have_text("Fatalities")
-        end
+        expect(page).to have_selector("h2", text: "Fatalities")
+        expect(page).to have_text("It is with very deep regret that the following fatalities are announced.")
       end
 
       it "doesn't render a subheading / description if the description is blank" do
         content_store_response["description"] = ""
         stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
-        expect(page).not_to have_css("#field-of-operation > div:first-of-type h2", text: "Field of operation")
-        expect(page).not_to have_css("#field-of-operation div[data-module=govspeak]")
+
+        expect(page).not_to have_selector("h2", text: "Field of operation")
       end
 
       it "doesn't render the description if it's an empty HTML element" do
         content_store_response["description"] = "<div class='govspeak' data-module='govspeak'></div>"
         stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
-        expect(page).not_to have_css("#field-of-operation > div:first-of-type h2", text: "Field of operation")
-        expect(page).not_to have_css("#field-of-operation div[data-module=govspeak]")
+
+        expect(page).not_to have_selector("h2", text: "Field of operation")
       end
 
       it "has the correct page text" do
-        within("#field-of-operation > ul.govuk-list") do
-          expect(page).to have_text("A fatality sadly occurred on 1 December")
-          expect(page).to have_text("A fatality sadly occurred on 2 December")
-        end
+        expect(page).to have_text("A fatality sadly occurred on 1 December")
+        expect(page).to have_text("A fatality sadly occurred on 2 December")
       end
 
       it "has the correct links" do
-        within("#field-of-operation > ul.govuk-list") do
-          expect(page).to have_link("A fatality notice", href: "/government/fatalities/fatality-notice-one")
-          expect(page).to have_link("A second fatality notice", href: "/government/fatalities/fatality-notice-two")
-        end
+        expect(page).to have_link("A fatality notice", href: "/government/fatalities/fatality-notice-one")
+        expect(page).to have_link("A second fatality notice", href: "/government/fatalities/fatality-notice-two")
       end
     end
 

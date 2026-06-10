@@ -15,61 +15,63 @@
     } %>
   </div>
 
-  <div class="govuk-grid-column-one-third govuk-!-margin-bottom-8">
-    <%= render "govuk_publishing_components/components/organisation_logo", organisation: @presenter.organisation %>
+  <div class="govuk-grid-column-one-third">
+    <%= render "govuk_publishing_components/components/organisation_logo",
+      organisation: @presenter.organisation,
+      margin_bottom: 8 %>
   </div>
 <% end %>
 
 <% content_for :sidebar do %>
   <% if @presenter.contents.present? %>
-    <%= render "govuk_publishing_components/components/contents_list", {
+    <%= render "govuk_publishing_components/components/contents_list",
           contents: @presenter.contents,
-        } %>
+          margin_bottom: 8 %>
   <% end %>
 <% end %>
 
 <% content_for :content do %>
-  <section id="field-of-operation">
-    <% unless @presenter.description.blank? %>
-      <%= render "govuk_publishing_components/components/heading", {
-        text: t("formats.fatality_notice.field_of_operation"),
-        margin_bottom: 4,
-      } %>
-      <%= render "govuk_publishing_components/components/govspeak", {
-          margin_bottom: 8,
-        } do %>
-          <%= @presenter.description %>
-      <% end %>
+  <% unless @presenter.description.blank? %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.fatality_notice.field_of_operation"),
+      id: "field-of-operation",
+      margin_bottom: 4,
+    } %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+        margin_bottom: 8,
+      } do %>
+        <%= @presenter.description %>
     <% end %>
-    <% if @content_item.fatality_notices.any? %>
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Fatalities",
-        id: "fatalities",
-        margin_bottom: 4,
-      } %>
-      <ul class="govuk-list">
-        <% @content_item.fatality_notices.each do |fatality_notice| %>
-          <li class="fatality-notice govuk-!-padding-bottom-3">
-            <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
-            <p class="govuk-body">
-              <%= @presenter.roll_call_introduction(fatality_notice) %>
-            </p>
-            <% end %>
-            <ul class="govuk-list govuk-list--spaced govuk-!-padding-left-4">
-              <% if @presenter.casualties(fatality_notice).present? %>
-                <% @presenter.casualties(fatality_notice).each do |casualty| %>
-                  <li class="govuk-list--bullet"><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
-                <% end %>
-              <% else %>
-                <li class="govuk-list--bullet"><%= link_to fatality_notice.title, fatality_notice.base_path, class: "govuk-link" %></li>
+  <% end %>
+
+  <% if @content_item.fatality_notices.any? %>
+    <%= render "govuk_publishing_components/components/heading", {
+      text: "Fatalities",
+      id: "fatalities",
+      margin_bottom: 4,
+    } %>
+    <ul class="govuk-list">
+      <% @content_item.fatality_notices.each do |fatality_notice| %>
+        <li class="fatality-notice govuk-!-padding-bottom-3">
+          <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
+          <p class="govuk-body">
+            <%= @presenter.roll_call_introduction(fatality_notice) %>
+          </p>
+          <% end %>
+          <ul class="govuk-list govuk-list--spaced govuk-list--bullet">
+            <% if @presenter.casualties(fatality_notice).present? %>
+              <% @presenter.casualties(fatality_notice).each do |casualty| %>
+                <li><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
               <% end %>
-            </ul>
-            <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-2">
-          </li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p class="govuk-body"><%= t("formats.fatality_notice.none_added") %></p>
-    <% end %>
-  </section>
+            <% else %>
+              <li><%= link_to fatality_notice.title, fatality_notice.base_path, class: "govuk-link" %></li>
+            <% end %>
+          </ul>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-top-2">
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="govuk-body"><%= t("formats.fatality_notice.none_added") %></p>
+  <% end %>
   <% end %>

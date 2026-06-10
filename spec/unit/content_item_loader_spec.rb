@@ -71,6 +71,24 @@ RSpec.describe ContentItemLoader do
       it "returns (but does not raise) an InvalidUrl exception" do
         expect(content_item_loader.load("/../my-missing-item")).to be_a(GdsApi::InvalidUrl)
       end
+
+      it "does not call the default loader to try to load the content item" do
+        expect(content_item_loader.default_loader).not_to receive(:load)
+
+        content_item_loader.load("/../my-missing-item")
+      end
+    end
+
+    context "when the path includes header repeat tricks" do
+      it "returns (but does not raise) an InvalidUrl exception" do
+        expect(content_item_loader.load("/my-missing-item HTTP/1.1\r\nOld-Header: bb-8")).to be_a(GdsApi::InvalidUrl)
+      end
+
+      it "does not call the default loader to try to load the content item" do
+        expect(content_item_loader.default_loader).not_to receive(:load)
+
+        content_item_loader.load("/my-missing-item HTTP/1.1\r\nOld-Header: bb-8")
+      end
     end
 
     context "with a missing content item" do

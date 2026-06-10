@@ -18,6 +18,11 @@ RSpec.describe "HMRC Manual" do
       expect(response).to render_template("show")
     end
 
+    it "renders using the manual layout" do
+      get base_path
+      expect(response).to render_template("layouts/manual")
+    end
+
     it "sets cache-control headers from the Content Store" do
       get base_path
       expect(response).to honour_content_store_ttl

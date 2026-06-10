@@ -4,32 +4,14 @@
 %>
 
 <%= content_for :head do %>
-  <%= csp_meta_tag %>
-  <link title="Search" rel="search" type="application/opensearchdescription+xml" href="/search/opensearch.xml">
-  <%= render "govuk_publishing_components/components/meta_tags", content_item: content_item.to_h %>
-
-  <% if include_percentage_scroll_tracking? %>
-    <meta name="govuk:scroll-tracker" content="" data-module="ga4-scroll-tracker">
-  <% end %>
-
-  <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
-  <%= yield :extra_javascript %>
+  <%= render("layouts/head") %>
 <% end %>
 
-<%= render "govuk_publishing_components/components/layout_for_public", {
-    draft_watermark: draft_host?,
-    title: page_title,
-    title_lang: I18n.locale,
-    emergency_banner: render("govuk_web_banners/emergency_banner"),
-    global_banner: render("govuk_web_banners/global_banner"),
-    homepage: @homepage_layout,
-  } do %>
+<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title, homepage: @homepage_layout) do %>
   <%= yield :before_content %>
 
   <main id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
     <span id="Top"></span>
     <%= yield %>
   </main>
-
-  <%= yield :after_content %>
 <% end %>

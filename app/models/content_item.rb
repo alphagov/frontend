@@ -60,12 +60,6 @@ class ContentItem
     translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
   end
 
-  def meta_section
-    @meta_section ||= content_store_response.dig(
-      "links", "parent", 0, "links", "parent", 0, "title"
-    )&.downcase
-  end
-
   def lead_paragraph
     content_store_response["description"]
   end

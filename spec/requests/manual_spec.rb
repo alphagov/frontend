@@ -20,6 +20,12 @@ RSpec.describe "Manual" do
 
         expect(response).to render_template("show")
       end
+
+      it "renders using the manual layout" do
+        get base_path
+
+        expect(response).to render_template("layouts/manual")
+      end
     end
 
     context "when visiting Manual updates page" do

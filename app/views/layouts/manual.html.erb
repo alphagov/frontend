@@ -1,0 +1,21 @@
+<% page_title = yield :title %>
+
+<%= content_for :head do %>
+  <%= render("layouts/head") %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title) do %>
+  <div class="govuk-width-container">
+
+    <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.for_contextual_breadcrumbs %>
+
+    <%= render "govuk_web_banners/recruitment_banner" %>
+
+    <%= yield :before_main %>
+
+    <main id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
+      <span id="Top"></span>
+      <%= yield %>
+    </main>
+  </div>
+<% end %>

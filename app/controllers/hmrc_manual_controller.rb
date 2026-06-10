@@ -1,6 +1,8 @@
 class HmrcManualController < ContentItemsController
   include Cacheable
 
+  layout "manual"
+
   def show
     @presenter = HmrcManualPresenter.new(content_item)
   end

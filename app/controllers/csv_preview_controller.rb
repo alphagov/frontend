@@ -89,6 +89,7 @@ private
     end
 
     Rails.logger.debug("CSV attachment details missing for '#{attachment_id}' at '#{current_path}'")
+
     GovukError.notify(
       "CSV preview - couldn't resolve attachment details",
       extra: {
@@ -98,5 +99,7 @@ private
       },
       level: "warning",
     )
+
+    nil
   end
 end

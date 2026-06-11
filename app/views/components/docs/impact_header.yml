@@ -1,6 +1,8 @@
 name: Impact header
 description: Provides a title and image for a page
 body: |
+  The impact header is designed to fill the full width of the page. Here in the component guide it is shown within a full width page element, but using it in an application is different. It will either need to be used outside of the normal `govuk-width-container` element, or wrapped in a full width class such as `.full-width__element`.
+
   The component expects to receive images of a specific size.
 
   - mobile: 640 x 360

@@ -36,42 +36,40 @@
     } %>
   <% end %>
 
-  <div class="full-width__element">
-    <%= tag.div(**component_helper.all_attributes) do %>
-      <% if image %>
-        <div class="app-c-impact-header__container">
-          <div class="app-c-impact-header__detail">
-            <%= text %>
-          </div>
-
-          <%= render "flexible_page/flexible_sections/shared/picture",
-            image: image,
-            style: "app-c-impact-header",
-            alt_text: "" %>
+  <%= tag.div(**component_helper.all_attributes) do %>
+    <% if image %>
+      <div class="app-c-impact-header__container">
+        <div class="app-c-impact-header__detail">
+          <%= text %>
         </div>
-        <% if show_caption %>
-          <div class="app-c-impact-header__caption-wrapper">
-            <div class="app-c-impact-header__caption">
-              <%= render "govuk_publishing_components/components/details", {
-                title: "Image details",
-                theme: ("black" unless inverse),
-                inverse: inverse,
-                margin_bottom: 0,
-              } do %>
-                <%= image[:caption] %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="app-c-impact-header__grid">
-          <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-              <%= text %>
-            </div>
+
+        <%= render "flexible_page/flexible_sections/shared/picture",
+          image: image,
+          style: "app-c-impact-header",
+          alt_text: "" %>
+      </div>
+      <% if show_caption %>
+        <div class="app-c-impact-header__caption-wrapper">
+          <div class="app-c-impact-header__caption">
+            <%= render "govuk_publishing_components/components/details", {
+              title: "Image details",
+              theme: ("black" unless inverse),
+              inverse: inverse,
+              margin_bottom: 0,
+            } do %>
+              <%= image[:caption] %>
+            <% end %>
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class="app-c-impact-header__grid">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <%= text %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 <% end %>

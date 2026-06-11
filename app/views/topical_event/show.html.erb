@@ -1,5 +1,7 @@
 <%= render("preamble") %>
 
+<%= render "components/impact_header", content_presenter.impact_header_options %>
+
 <% content_presenter.flexible_sections.each do |flexible_section| %>
   <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
 <% end %>

@@ -3,18 +3,30 @@ class TopicalEventPresenter
 
   attr_reader :flexible_sections
 
-  def initialize(content_item)
-    add_section(ImpactHeader.new(
-                  description: content_item.description,
-                  image: content_item.impact_image,
-                  image_type: content_item.header_image.present? ? "header" : "logo",
-                  title: content_item.title,
-                  variant: content_item.notable_death? ? "notable-death" : "plain",
-                ))
+  def impact_header_options
+    {
+      heading: @content_item.title,
+      description: @content_item.description,
+      image: @content_item.impact_image,
+      image_type: @content_item.header_image.present? ? "header" : "logo",
+      variant: @content_item.notable_death? ? "notable-death" : "plain",
+    }
+  end
 
+  def initialize(content_item)
+    @content_item = content_item
+    # add_section(ImpactHeader.new(
+    #               description: content_item.description,
+    #               image: content_item.impact_image,
+    #               image_type: content_item.header_image.present? ? "header" : "logo",
+    #               title: content_item.title,
+    #               variant: content_item.notable_death? ? "notable-death" : "plain",
+    #             ))
+
+    secondary_image = content_item.header_image && content_item.logo_image ? Image.new(image: content_item.logo_image) : nil
     add_section(ContentThenSidebarLayout.new(
                   content: Govspeak.new(govspeak: content_item.body),
-                  sidebar: content_item.header_image && content_item.logo_image ? Image.new(image: content_item.logo_image) : nil,
+                  sidebar: secondary_image,
                 ))
 
     if content_item.details["about_page_link_text"].present?

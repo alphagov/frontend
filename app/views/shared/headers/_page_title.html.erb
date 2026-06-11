@@ -1,0 +1,12 @@
+<div class="govuk-grid-column-two-thirds">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: options[:heading_text],
+    context: options[:context],
+    heading_level: 1,
+    font_size: "xl",
+    margin_bottom: 8,
+  } %>
+  <%= render "govuk_publishing_components/components/lead_paragraph", {
+    text: options[:lead_paragraph],
+  } %>
+</div>

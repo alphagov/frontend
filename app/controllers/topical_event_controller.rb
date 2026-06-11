@@ -14,6 +14,8 @@ class TopicalEventController < FlexiblePageController
   end
 
   def about
-    render "flexible_page/show"
+    return render "flexible_page/show" if content_item.instance_of?(TopicalEventAboutPage)
+
+    render layout: "header_sidebar_content"
   end
 end

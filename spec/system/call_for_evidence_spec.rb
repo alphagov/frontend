@@ -262,7 +262,7 @@ RSpec.describe "CallForEvidence" do
         expect(page).to have_content("Last updated 15 May 2023")
         expect(page).to have_content("7 November 2021")
         expect(page).to have_content("Added sub-topic tag.")
-        expect(page).to have_link("show all updates", href: "#full-history")
+        expect(page).to have_link("Show all updates", href: "#full-history")
       end
     end
   end

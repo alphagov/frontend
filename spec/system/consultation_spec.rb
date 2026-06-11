@@ -32,7 +32,7 @@ RSpec.describe "Consultation" do
         expect(page).to have_content("Last updated 7 November 2016")
         expect(page).to have_content("7 November 2011")
         expect(page).to have_content("Added sub-topic tag.")
-        expect(page).to have_link("show all updates", href: "#full-history")
+        expect(page).to have_link("Show all updates", href: "#full-history")
       end
     end
 

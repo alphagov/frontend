@@ -14,6 +14,10 @@
       <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.for_contextual_breadcrumbs %>
     <% end %>
 
+    <% if respond_to?(:content_presenter) && content_presenter.breadcrumb_options %>
+      <%= render "govuk_publishing_components/components/breadcrumbs", content_presenter.breadcrumb_options %>
+    <% end %>
+
     <%= render "govuk_web_banners/recruitment_banner" %>
 
     <main id="content" class="govuk-main-wrapper <%= rtl_attribute %>" <%= lang_attribute %>>

@@ -1,0 +1,26 @@
+<%= render("preamble") %>
+
+<% content_for :before_content do %>
+  <div class="govuk-width-container">
+    <%= render "govuk_publishing_components/components/breadcrumbs", content_presenter.breadcrumb_options %>
+  </div>
+<% end %>
+
+<% content_for :sidebar do %>
+  <nav>
+    <%= render "govuk_publishing_components/components/contents_list", {
+      contents: content_presenter.contents_list,
+      id: "contents",
+    } %>
+  </nav>
+<% end %>
+
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+    <%= content_presenter.content.html_safe %>
+  <% end %>
+<% end %>
+
+<%= render "shared/headers/page_title", options: content_presenter.page_title_options %>
+
+<%= render("sidebar_then_content") %>

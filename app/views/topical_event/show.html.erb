@@ -1,0 +1,28 @@
+<%= render("preamble") %>
+
+<%= render "components/impact_header", content_presenter.impact_header_options %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+      <%= content_presenter.body.html_safe %>
+    <% end %>
+
+    <% if content_presenter.about_page_link_text %>
+      <p class="govuk-body"><%= link_to(content_presenter.about_page_link_text, content_presenter.about_page_path, class: "govuk-link") %></p>
+    <% end %>
+  </div>
+
+  <% if content_presenter.secondary_image %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "shared/picture",
+        image: content_presenter.secondary_image,
+        style: "body-with-image",
+        alt_text: "" %>
+    </div>
+  <% end %>
+</div>
+
+<% content_presenter.flexible_sections.each do |flexible_section| %>
+  <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
+<% end %>

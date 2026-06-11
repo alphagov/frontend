@@ -2,6 +2,10 @@ class TopicalEventAboutPage < FlexiblePage
   def initialize(content_store_response)
     super
 
+    if navigation_items.any?
+      add_section(Navigation.new(items: navigation_items))
+    end
+
     add_section(Breadcrumbs.new(breadcrumbs:))
     add_section(PageTitle.new(heading_text: title, lead_paragraph: description))
     add_section(SidebarThenContentLayout.new(
@@ -22,5 +26,30 @@ private
 
   def contents_list
     (content_store_response.dig("details", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }
+  end
+
+  def navigation_items
+    (main_menu["items"] || []).map do |item|
+      if item["links"]
+        {
+          text: item["text"],
+          links: (item["links"] || []).map do |link|
+            {
+              text: link["text"],
+              href: link["url"],
+            }
+          end,
+        }
+      else
+        {
+          text: item["text"],
+          href: item["url"],
+        }
+      end
+    end
+  end
+
+  def main_menu
+    @main_menu ||= YAML.load_file(Rails.root.join("config/navigation.yml")).fetch("main_menu", {})
   end
 end

@@ -1,0 +1,105 @@
+.js-enabled {
+  .js-app-c-nested-navigation--hidden {
+    display: none;
+  }
+
+  .app-c-nested-navigation__sub-list {
+    position: absolute;
+  }
+}
+
+.app-c-nested-navigation {
+  background-color: $govuk-blue-tint-95;
+  border-bottom: 1px solid govuk-colour("blue");
+  position: relative;
+}
+
+.app-c-nested-navigation__button {
+  background: none;
+  border: 0;
+  color: govuk-colour("blue");
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  position: relative;
+  @include govuk-link-style-default;
+  @include govuk-font($size: 19);
+}
+
+.app-c-nested-navigation__button[aria-expanded="false"] {
+  background: none;
+}
+
+.app-c-nested-navigation__button[aria-expanded="true"] {
+  background-color: govuk-colour("white");
+}
+
+.app-c-nested-navigation__button:focus[aria-expanded="true"], .app-c-nested-navigation__button:focus[aria-expanded="false"]  {
+  background-color: $govuk-focus-colour;
+}
+
+
+
+.app-c-nested-navigation__link {
+  text-decoration: none;
+}
+
+// Shared styles for the expanded and collapsed arrow icon. Based off of the super navigation menu button.
+.app-c-nested-navigation__button::after {
+  border-bottom: 2px solid govuk-colour("blue");
+  border-right: 2px solid govuk-colour("blue");
+  content: "";
+  display: inline-block;
+  height: 8px;
+  margin-left: 10px;
+  vertical-align: middle;
+  width: 8px;
+}
+
+.app-c-nested-navigation__button:focus::after {
+  border-color: govuk-colour("black");
+}
+
+.app-c-nested-navigation__button[aria-expanded="false"]::after {
+  // Collapsed arrow icon
+  transform: translateY(-35%) rotate(45deg) scale(1);
+}
+
+.app-c-nested-navigation__button[aria-expanded="true"]::after {
+  transform: translateY(1px) rotate(225deg) scale(1);
+}
+
+
+// .app-c-nested-navigation__button[aria-expanded=false]::after {
+//   content: "▼"
+// }
+
+// .app-c-nested-navigation__button[aria-expanded=true]::after {
+//   content: "▲"
+// }
+
+.app-c-nested-navigation__service-name:link {
+  color: govuk-colour("black");
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.app-c-nested-navigation__sub-list {
+  padding-left: 0;
+  background-color: govuk-colour("white");
+}
+
+.app-c-nested-navigation__sub-list-item {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  list-style: none;
+  @include govuk-font($size: 19);
+}
+
+.app-c-nested-navigation__list-item {
+  display: inline-block;
+  vertical-align: top;
+  @include govuk-font($size: 19);
+  padding: 15px;
+}

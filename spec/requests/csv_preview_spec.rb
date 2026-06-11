@@ -65,11 +65,12 @@ RSpec.describe "CsvPreview" do
         end
 
         it "returns 404 and records the problem in Sentry" do
-          expect(GovukError).to receive(:notify)
+          allow(GovukError).to receive(:notify).and_return(instance_double(Sentry::ErrorEvent))
 
           get "/csv-preview/#{asset_manager_id}/#{asset_manager_filename}.csv"
 
           expect(response).to have_http_status(:not_found)
+          expect(GovukError).to have_received(:notify)
         end
       end
     end

@@ -410,6 +410,20 @@ RSpec.describe TopicalEvent do
       end
     end
   end
+
+  describe "#about" do
+    context "when the page has an embedded about block" do
+      let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name: "topical-event-with-about-page") }
+
+      it "returns an About datastruct filled in from the embedded about info" do
+        expect(topical_event.about).to be_a(TopicalEvent::About)
+        expect(topical_event.about.title).to eq(content_store_response["details"]["about"]["title"])
+        expect(topical_event.about.summary).to eq(content_store_response["details"]["about"]["summary"])
+        expect(topical_event.about.body).to eq(content_store_response["details"]["about"]["body"])
+        expect(topical_event.about.contents_outline).to be_a(ContentsOutline)
+      end
+    end
+  end
 end
 
 def create_image_hash(type)

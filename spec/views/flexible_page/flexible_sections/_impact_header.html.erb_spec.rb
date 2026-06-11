@@ -23,35 +23,33 @@ RSpec.describe "Impact header flexible section" do
   end
 
   it "renders impact header section" do
-    expect(rendered).to have_selector("[data-flexible-section='impact-header']")
-    expect(rendered).to have_selector(".impact-header .impact-header__container")
+    expect(rendered).to have_selector(".app-c-impact-header .app-c-impact-header__container")
   end
 
   it "renders the text and image" do
     expect(rendered).to have_selector(".gem-c-heading", text: "page title")
     expect(rendered).to have_selector(".gem-c-lead-paragraph", text: "page description")
-    expect(rendered).to have_selector(".impact-header__image[src='https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg']")
-    expect(rendered).to have_selector(".impact-header__image[alt='']")
+    expect(rendered).to have_selector(".app-c-impact-header__image[src='https://assets.publishing.service.gov.uk/media/674725702f94bef8ff48c043/hero_desktop_1x_F_Desktop_HD-50.jpg']")
+    expect(rendered).to have_selector(".app-c-impact-header__image[alt='']")
   end
 
   it "defaults to the plain variant" do
-    expect(rendered).to have_selector(".impact-header.impact-header--plain")
+    expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--plain")
   end
 
   it "does not render a caption" do
-    expect(rendered).not_to have_selector(".impact-header .gem-c-details")
+    expect(rendered).not_to have_selector(".app-c-impact-header .gem-c-details")
   end
 
   context "without an image" do
     subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:) }
 
     it "renders the impact header section" do
-      expect(rendered).to have_selector("[data-flexible-section='impact-header']")
-      expect(rendered).to have_selector(".impact-header .impact-header__grid .govuk-grid-row")
+      expect(rendered).to have_selector(".app-c-impact-header .app-c-impact-header__grid .govuk-grid-row")
     end
 
     it "does not render an image" do
-      expect(rendered).not_to have_selector(".impact-header__image")
+      expect(rendered).not_to have_selector(".app-c-impact-header__image")
     end
   end
 
@@ -59,8 +57,8 @@ RSpec.describe "Impact header flexible section" do
     subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:) }
 
     it "renders a caption" do
-      expect(rendered).to have_selector(".impact-header.impact-header--plain .impact-header__caption")
-      expect(rendered).to have_selector(".impact-header.impact-header--plain .impact-header__caption .gem-c-details", text: "My Caption")
+      expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--plain .app-c-impact-header__caption")
+      expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--plain .app-c-impact-header__caption .gem-c-details", text: "My Caption")
     end
   end
 
@@ -68,15 +66,15 @@ RSpec.describe "Impact header flexible section" do
     subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:) }
 
     it "renders the logo layout" do
-      expect(rendered).to have_selector(".impact-header.impact-header--logo")
-      expect(rendered).not_to have_selector(".impact-header--plain")
+      expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--logo")
+      expect(rendered).not_to have_selector(".app-c-impact-header--plain")
     end
 
     context "when the image has a caption" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, image_type: "logo", title:) }
 
       it "does not render a caption" do
-        expect(rendered).not_to have_selector(".impact-header .gem-c-details")
+        expect(rendered).not_to have_selector(".app-c-impact-header .gem-c-details")
       end
     end
   end
@@ -87,16 +85,16 @@ RSpec.describe "Impact header flexible section" do
     let(:variant) { "govuk" }
 
     it "renders the govuk variant" do
-      expect(rendered).to have_selector(".impact-header.impact-header--govuk")
-      expect(rendered).not_to have_selector(".impact-header--plain")
+      expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--govuk")
+      expect(rendered).not_to have_selector(".app-c-impact-header--plain")
     end
 
     context "when a caption is provided" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:, variant:) }
 
       it "renders a caption" do
-        expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption")
-        expect(rendered).to have_selector(".impact-header.impact-header--govuk .impact-header__caption .gem-c-details")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--govuk .app-c-impact-header__caption")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--govuk .app-c-impact-header__caption .gem-c-details")
       end
     end
 
@@ -104,7 +102,7 @@ RSpec.describe "Impact header flexible section" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:, variant:) }
 
       it "renders the logo layout" do
-        expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--govuk")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--logo.app-c-impact-header--govuk")
       end
     end
 
@@ -112,7 +110,7 @@ RSpec.describe "Impact header flexible section" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:, variant:) }
 
       it "renders the govuk variant" do
-        expect(rendered).to have_selector(".impact-header.impact-header--govuk")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--govuk")
       end
     end
   end
@@ -123,16 +121,16 @@ RSpec.describe "Impact header flexible section" do
     let(:variant) { "notable-death" }
 
     it "renders the notable-death variant" do
-      expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
-      expect(rendered).not_to have_selector(".impact-header--plain")
+      expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--notable-death")
+      expect(rendered).not_to have_selector(".app-c-impact-header--plain")
     end
 
     context "when a caption is provided" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image: image_with_caption, title:, variant:) }
 
       it "renders a caption" do
-        expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption")
-        expect(rendered).to have_selector(".impact-header.impact-header--notable-death .impact-header__caption .gem-c-details")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--notable-death .app-c-impact-header__caption")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--notable-death .app-c-impact-header__caption .gem-c-details")
       end
     end
 
@@ -140,7 +138,7 @@ RSpec.describe "Impact header flexible section" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, image:, image_type: "logo", title:, variant:) }
 
       it "renders the logo layout" do
-        expect(rendered).to have_selector(".impact-header.impact-header--logo.impact-header--notable-death")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--logo.app-c-impact-header--notable-death")
       end
     end
 
@@ -148,7 +146,7 @@ RSpec.describe "Impact header flexible section" do
       subject(:flexible_section) { FlexiblePage::FlexibleSection::ImpactHeader.new(description:, title:, variant:) }
 
       it "renders the notable-death variant" do
-        expect(rendered).to have_selector(".impact-header.impact-header--notable-death")
+        expect(rendered).to have_selector(".app-c-impact-header.app-c-impact-header--notable-death")
       end
     end
   end

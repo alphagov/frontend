@@ -1,53 +1,7 @@
-<% text = capture do %>
-  <% inverse = true if flexible_section.variant == "notable-death" %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: flexible_section.title,
-    font_size: "xl",
-    margin_bottom: 6,
-    heading_level: 1,
-    inverse: inverse,
-  } %>
-
-  <%= render "govuk_publishing_components/components/lead_paragraph", {
-    text: flexible_section.description,
-    margin_bottom: 0,
-    inverse: inverse,
-  } %>
-<% end %>
-
-<%= tag.div(class: "impact-header full-width__element #{flexible_section.modifier_classes}", data: { flexible_section: "impact-header" }) do %>
-  <% if flexible_section.image %>
-    <div class="impact-header__container">
-      <div class="impact-header__detail">
-        <%= text %>
-      </div>
-
-      <%= render "flexible_page/flexible_sections/shared/picture",
-        image: flexible_section.image,
-        style: "impact-header",
-        alt_text: "" %>
-    </div>
-    <% if flexible_section.caption %>
-      <div class="impact-header__caption-wrapper">
-        <div class="impact-header__caption">
-          <%= render "govuk_publishing_components/components/details", {
-            title: "Image details",
-            theme: flexible_section.caption[:theme],
-            inverse: flexible_section.caption[:inverse],
-            margin_bottom: 0,
-          } do %>
-            <%= flexible_section.caption[:caption_text] %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% else %>
-    <div class="impact-header__grid">
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <%= text %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+<%= render "components/impact_header", {
+  heading: flexible_section.title,
+  description: flexible_section.description,
+  image: flexible_section.image,
+  image_type: flexible_section.image_type,
+  variant: flexible_section.variant,
+} %>

@@ -1,6 +1,6 @@
 module FlexiblePage::FlexibleSection
   class ImpactHeader < Base
-    attr_reader :caption, :description, :image, :modifier_classes, :title, :variant
+    attr_reader :caption, :description, :image, :modifier_classes, :title, :variant, :image_type
 
     def initialize(description:, title:, image: nil, image_type: "header", variant: nil)
       super
@@ -8,6 +8,7 @@ module FlexiblePage::FlexibleSection
       @description = description
       @title = title
       @variant = variant if %w[govuk notable-death].include? variant
+      @image_type = image_type
 
       @image = build_image(image)
       @modifier_classes = build_modifier_classes(image_type)

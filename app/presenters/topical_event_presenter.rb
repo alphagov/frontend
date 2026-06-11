@@ -1,7 +1,7 @@
 class TopicalEventPresenter
   include FlexiblePage::FlexibleSection
 
-  attr_reader :flexible_sections
+  attr_reader :flexible_sections, :secondary_image
 
   def impact_header_options
     {
@@ -13,8 +13,20 @@ class TopicalEventPresenter
     }
   end
 
+  delegate :body, to: :@content_item
+
+  def about_page_path
+    "#{@content_item.base_path}/about"
+  end
+
+  def about_page_link_text
+    @content_item.details["about_page_link_text"]
+  end
+
   def initialize(content_item)
     @content_item = content_item
+    @secondary_image = content_item.header_image && content_item.logo_image ? content_item.logo_image : nil
+
     # add_section(ImpactHeader.new(
     #               description: content_item.description,
     #               image: content_item.impact_image,
@@ -23,26 +35,26 @@ class TopicalEventPresenter
     #               variant: content_item.notable_death? ? "notable-death" : "plain",
     #             ))
 
-    secondary_image = content_item.header_image && content_item.logo_image ? Image.new(image: content_item.logo_image) : nil
-    add_section(ContentThenSidebarLayout.new(
-                  content: Govspeak.new(govspeak: content_item.body),
-                  sidebar: secondary_image,
-                ))
+    # secondary_image =
+    # add_section(ContentThenSidebarLayout.new(
+    #               content: Govspeak.new(govspeak: content_item.body),
+    #               sidebar: secondary_image,
+    #             ))
 
-    if content_item.details["about_page_link_text"].present?
-      add_section(Link.new(link: "#{content_item.base_path}/about", link_text: content_item.details["about_page_link_text"]))
-    end
+    # if content_item.details["about_page_link_text"].present?
+    #   add_section(Link.new(link: "#{content_item.base_path}/about", link_text: content_item.details["about_page_link_text"]))
+    # end
 
-    if content_item.featured_items.any?
-      add_section(Featured.new(
-                    items: content_item.featured_items,
-                    ga4_image_card_json: {
-                      event_name: "navigation",
-                      type: "image_card",
-                      section: "Featured",
-                    },
-                  ))
-    end
+    # if content_item.featured_items.any?
+    #   add_section(Featured.new(
+    #                 items: content_item.featured_items,
+    #                 ga4_image_card_json: {
+    #                   event_name: "navigation",
+    #                   type: "image_card",
+    #                   section: "Featured",
+    #                 },
+    #               ))
+    # end
 
     share_section = if content_item.details["social_media_links"].present?
                       Share.new(

@@ -1,6 +1,8 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
 
+  About = Data.define(:title, :summary, :contents_outline, :body)
+
   def initialize(content_store_response)
     super
 
@@ -56,6 +58,15 @@ class TopicalEvent < FlexiblePage
                     organisations: organisations_ordered_by_emphasis,
                   ))
     end
+  end
+
+  def about
+    About.new(
+      title: details["about"]["title"],
+      summary: details["about"]["summary"],
+      body: details["about"]["body"],
+      contents_outline: ContentsOutline.new((content_store_response.dig("details", "about", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }),
+    )
   end
 
   def feed_items

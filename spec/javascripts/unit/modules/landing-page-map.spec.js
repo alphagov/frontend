@@ -30,11 +30,11 @@ describe('Map Block module', function () {
   }
 
   function agreeToCookies () {
-    GOVUK.setCookie('cookies_policy', '{"essential":true,"settings":true,"usage":true,"campaigns":true}')
+    GOVUK.setCookie('cookies_policy', '{"essential":true,"settings":true,"usage":true,"campaigns":true,"aggregate":false}')
   }
 
   function denyCookies () {
-    GOVUK.setCookie('cookies_policy', '{"essential":false,"settings":false,"usage":false,"campaigns":false}')
+    GOVUK.setCookie('cookies_policy', '{"essential":false,"settings":false,"usage":false,"campaigns":false,"aggregate":false}')
   }
 
   afterEach(function () {
@@ -66,12 +66,7 @@ describe('Map Block module', function () {
   })
 
   describe('when initialising analytics', function () {
-    function setupMap (allowCookies) {
-      if (allowCookies) {
-        agreeToCookies()
-      } else {
-        denyCookies()
-      }
+    function setupMap () {
       createMapDom('not_really_the_key')
       module = new GOVUK.Modules.LandingPageMap(el.querySelector('.map__canvas'))
       // need to spy on all these functions so they don't call through and error
@@ -82,18 +77,27 @@ describe('Map Block module', function () {
     }
 
     it('does not initialise analytics if consent is rejected', function () {
-      setupMap(false)
+      denyCookies()
+      setupMap()
       expect(module.enableTracking).not.toHaveBeenCalled()
     })
 
     it('does initialise analytics if consent is given', function () {
-      setupMap(true)
+      agreeToCookies()
+      setupMap()
+      expect(module.enableTracking).toHaveBeenCalled()
+    })
+
+    it('starts the module if aggregate consent has already been given', function () {
+      window.GOVUK.setDefaultConsentCookie()
+      setupMap()
       expect(module.enableTracking).toHaveBeenCalled()
     })
 
     it('initialises analytics if consent is given later', function () {
       window.GOVUK.Modules = window.GOVUK.Modules || {}
-      setupMap(false)
+      denyCookies()
+      setupMap()
       expect(module.enableTracking).not.toHaveBeenCalled()
       module.enableTracking.calls.reset()
 

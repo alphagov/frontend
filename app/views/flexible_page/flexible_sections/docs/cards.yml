@@ -1,46 +1,56 @@
 name: Cards
-description: A layout of boxes that adapts to both the screen size and the column size it is placed within.
+description: A wrapper for the cards component
 body: |
-  This flexible section is not a wrapper for the [cards component](/component-guide/cards), although it is styled to mimic its appearance.
+  This flexible section wraps the [cards component](/component-guide/cards) using the `auto` option for automatic column layout.
 shared_accessibility_criteria:
   - link
 examples:
   default:
     data:
       items:
-      - title: Writing implements
-        href: /example
+      - link:
+          text: Writing implements
+          path: /example
         description: Pens, pencils, markers, crayons, chalk.
-      - title: Bones present in the human foot
-        href: /example
+      - link:
+          text: Bones present in the human foot
+          path: /example
         description: Talus, Calcaneus, Cuboid, Cuneiforms, Navicular, Metatarsals, Phalanges.
-      - title: Fruit
-        href: /example
+      - link:
+          text: Fruit
+          path: /example
         description: The seed-bearing structure in flowering plants (angiosperms).
-      - title: Pixar movies with sequels
-        href: /example
+      - link:
+          text: Pixar movies with sequels
+          path: /example
         description: Toy Story, Cars, The Incredibles, Finding Nemo and more.
-      - title: Types of brick
-        href: /example
+      - link:
+          text: Types of brick
+          path: /example
         description: Facing bricks, Common bricks, Engineering bricks, Air bricks, Fire bricks, Concrete blocks, Lego bricks.
   in_two_thirds_column:
     description: The flexible section should show boxes of the same width, despite being constrained within a two thirds column. This is handled automatically and does not require any additional configuration.
     data:
       items:
-      - title: Writing implements
-        href: /example
+      - link:
+          text: Writing implements
+          path: /example
         description: Pens, pencils, markers, crayons, chalk.
-      - title: Bones present in the human foot
-        href: /example
+      - link:
+          text: Bones present in the human foot
+          path: /example
         description: Talus, Calcaneus, Cuboid, Cuneiforms, Navicular, Metatarsals, Phalanges.
-      - title: Fruit
-        href: /example
+      - link:
+          text: Fruit
+          path: /example
         description: The seed-bearing structure in flowering plants (angiosperms).
-      - title: Pixar movies with sequels
-        href: /example
+      - link:
+          text: Pixar movies with sequels
+          path: /example
         description: Toy Story, Cars, The Incredibles, Finding Nemo and more.
-      - title: Types of brick
-        href: /example
+      - link:
+          text: Types of brick
+          path: /example
         description: Facing bricks, Common bricks, Engineering bricks, Air bricks, Fire bricks, Concrete blocks, Lego bricks.
     embed: |
       <div class="govuk-grid-row">
@@ -51,20 +61,25 @@ examples:
   in_one_third_column:
     data:
       items:
-      - title: Writing implements
-        href: /example
+      - link:
+          text: Writing implements
+          path: /example
         description: Pens, pencils, markers, crayons, chalk.
-      - title: Bones present in the human foot
-        href: /example
+      - link:
+          text: Bones present in the human foot
+          path: /example
         description: Talus, Calcaneus, Cuboid, Cuneiforms, Navicular, Metatarsals, Phalanges.
-      - title: Fruit
-        href: /example
+      - link:
+          text: Fruit
+          path: /example
         description: The seed-bearing structure in flowering plants (angiosperms).
-      - title: Pixar movies with sequels
-        href: /example
+      - link:
+          text: Pixar movies with sequels
+          path: /example
         description: Toy Story, Cars, The Incredibles, Finding Nemo and more.
-      - title: Types of brick
-        href: /example
+      - link:
+          text: Types of brick
+          path: /example
         description: Facing bricks, Common bricks, Engineering bricks, Air bricks, Fire bricks, Concrete blocks, Lego bricks.
     embed: |
       <div class="govuk-grid-row">
@@ -72,16 +87,3 @@ examples:
           <%= component %>
         </div>
       </div>
-  with_custom_heading_level:
-    data:
-      heading_level: 4
-      items:
-      - title: Writing implements
-        href: /example
-        description: Pens, pencils, markers, crayons, chalk.
-      - title: Bones present in the human foot
-        href: /example
-        description: Talus, Calcaneus, Cuboid, Cuneiforms, Navicular, Metatarsals, Phalanges.
-      - title: Fruit
-        href: /example
-        description: The seed-bearing structure in flowering plants (angiosperms).

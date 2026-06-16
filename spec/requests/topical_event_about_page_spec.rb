@@ -5,17 +5,15 @@ RSpec.describe "Topical event about page" do
 
     before do
       stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+
+      get base_path
     end
 
     it "succeeds" do
-      get base_path
-
       expect(response).to have_http_status(:ok)
     end
 
     it "renders the show template" do
-      get base_path
-
       expect(response).to render_template(:show)
     end
   end

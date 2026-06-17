@@ -32,7 +32,7 @@ $large-desktop-height: 500px;
   min-height: 170px;
   padding: govuk-spacing(6);
   margin-top: -(170px);
-  background: govuk-colour("light-grey");
+  background: govuk-colour("black", $variant: "tint-95");
 
   @include govuk-media-query($until: tablet) {
     min-height: 0;

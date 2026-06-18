@@ -88,6 +88,18 @@ RSpec.describe DocumentCollectionPresenter do
         expect(presenter.group_as_document_list(group).first[:metadata][:public_updated_at]).to be_nil
       end
     end
+
+    context "when a document type in the group doesn't have translations" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("document_collection", example_name: "document_collection").tap do |item|
+          item["links"]["documents"][8]["document_type"] = "test document"
+        end
+      end
+
+      it "sets the document type as the default translation value" do
+        expect(presenter.group_as_document_list(group).first[:metadata][:document_type]).to eq("Test document")
+      end
+    end
   end
 
   describe "#collection_groups_headers" do

@@ -19,7 +19,7 @@ class DocumentCollectionPresenter < ContentItemPresenter
           document_type: I18n.t(
             "formats.#{document.document_type}.name",
             count: 1,
-            default: nil,
+            default: document.document_type.humanize,
           ),
         },
       }

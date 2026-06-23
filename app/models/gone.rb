@@ -15,5 +15,7 @@ class Gone < ContentItem
     URI.parse(alternative_path).host == "webarchive.nationalarchives.gov.uk"
   rescue URI::InvalidURIError
     false
+  def test
+    puts "do something"
   end
 end

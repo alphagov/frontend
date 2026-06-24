@@ -1,7 +1,7 @@
 @import "govuk_publishing_components/base";
 
 .service-toolkit {
-  border-bottom: 1px solid $govuk-border-colour;
+  border-bottom: 1px solid govuk-functional-colour(border);
   margin-bottom: govuk-spacing(5);
   padding-bottom: govuk-spacing(3);
 

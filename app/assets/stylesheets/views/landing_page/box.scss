@@ -11,11 +11,11 @@
 @include govuk-media-query($media-type: print) {
   .box {
     background: none;
-    border-top: 2pt solid $govuk-print-text-colour;
+    border-top: 2pt solid govuk-functional-colour(print-text);
     padding-inline: 0;
 
     * {
-      color: $govuk-print-text-colour !important; // stylelint-disable-line declaration-no-important
+      color: govuk-functional-colour(print-text) !important; // stylelint-disable-line declaration-no-important
     }
   }
 }

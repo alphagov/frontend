@@ -1,7 +1,7 @@
 @import "govuk_publishing_components/base";
 
 .metadata-wrapper {
-  border-top: 1px solid $govuk-border-colour;
+  border-top: 1px solid govuk-functional-colour(border);
   margin-left: govuk-spacing(3);
   margin-right: govuk-spacing(3);
   @include govuk-clearfix;

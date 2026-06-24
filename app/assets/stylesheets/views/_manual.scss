@@ -17,14 +17,14 @@
   }
 
   .subsection-id {
-    color: $govuk-secondary-text-colour;
+    color: govuk-functional-colour(secondary-text);
     min-width: 135px;
     padding-right: govuk-spacing(3);
   }
 }
 
 .section-list-item {
-  border-top: 1px solid $govuk-border-colour;
+  border-top: 1px solid govuk-functional-colour(border);
   list-style: none;
   @include govuk-font(19);
 
@@ -33,7 +33,7 @@
   }
 
   &:last-child {
-    border-bottom: 1px solid $govuk-border-colour;
+    border-bottom: 1px solid govuk-functional-colour(border);
   }
 }
 
@@ -49,7 +49,7 @@
   }
 
   .subsection-summary {
-    color: $govuk-text-colour;
+    color: govuk-functional-colour(text);
     display: block;
   }
 

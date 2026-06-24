@@ -1,6 +1,6 @@
 .block-error {
   padding: govuk-spacing(3);
-  border: $govuk-border-width-narrow solid $govuk-error-colour;
+  border: $govuk-border-width-narrow solid govuk-functional-colour(error);
   @include govuk-responsive-margin(8, "bottom");
 
   @include govuk-media-query($from: tablet) {

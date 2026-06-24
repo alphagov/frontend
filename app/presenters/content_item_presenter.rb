@@ -10,4 +10,17 @@ class ContentItemPresenter
       { text: content_item.title, path: content_item.base_path }
     end
   end
+
+  def default_breadcrumb_options
+    {
+      collapse_on_mobile: true,
+      breadcrumbs: [
+        {
+          title: "Home",
+          url: "/",
+        },
+      ],
+      margin_bottom: 5,
+    }
+  end
 end

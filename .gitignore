@@ -18,6 +18,7 @@ spec/reports/pacts
 .yarn/cache/
 .yarn/install-state.gz
 .DS_Store
+ga4_exports/
 
 # vim swap files and tags
 *.sw[a-z]

@@ -50,14 +50,14 @@
   }
 
   .countries-list {
-    border-bottom: 1px solid $govuk-border-colour;
+    border-bottom: 1px solid govuk-functional-colour(border);
     display: block;
     padding-bottom: govuk-spacing(4);
   }
 
   .countries-list__item {
     box-sizing: border-box;
-    color: $govuk-secondary-text-colour;
+    color: govuk-functional-colour(secondary-text);
     float: left;
     padding-right: govuk-spacing(3);
     width: 50%;
@@ -75,7 +75,7 @@
 
 .travel-advice-notice {
   background-color: govuk-colour("black", $variant: "tint-95");
-  border: 1px solid $govuk-border-colour;
+  border: 1px solid govuk-functional-colour(border);
   margin-bottom: govuk-spacing(7);
   position: relative;
 }

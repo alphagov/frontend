@@ -1,0 +1,194 @@
+
+{
+  "analytics_identifier": null,
+  "base_path": "/government/topical-events/sample",
+  "content_id": "03271421-4cfe-4b50-a4e0-5b953541be54",
+  "description": "On 10 July 2018 the UK hosted the Western Balkans Summit in London. The summit brought together the leaders of the Western Balkans countries and like-minded European partners to strengthen security co-operation, increase economic stability and encourage political co-operation.",
+  "details": {
+    "about": {
+      "body": "<div class=\"govspeak\"><p>On 10 July 2018 the UK hosted the Western Balkans Summit in London, the fifth summit convened under the Berlin Process.</p>\n</div>",
+      "title": "This is my title",
+      "description": "This is my description",
+      "headers": [
+        {
+          "id": "summit-aims",
+          "level": 2,
+          "text": "Summit aims"
+        }
+      ]
+    },
+    "about_page_link_text": "Read more about the summit",
+    "body": "<div class=\"govspeak\">\n</div>",
+    "emphasised_organisations": [],
+    "end_date": "2018-12-31T00:00:00+00:00",
+    "image": {
+      "alt_text": "Western Balkans Summit London 2018",
+      "high_resolution_url": "https://assets.publishing.service.gov.uk/media/5abbc256e5274a1aa2d41ad0/s960_WB_Summit_Logo_Main.png",
+      "medium_resolution_url": "https://assets.publishing.service.gov.uk/media/5abbc25740f0b67d67479d09/s630_WB_Summit_Logo_Main.png",
+      "url": "https://assets.publishing.service.gov.uk/media/5abbc29b40f0b67d67479d0b/s300_WB_Summit_Logo_Main.png"
+    },
+    "ordered_featured_documents": [
+      {
+        "document_type": "Press release",
+        "href": "/government/news/uk-hosts-western-balkans-summit",
+        "image": {
+          "alt_text": "Family Photo",
+          "url": "https://assets.publishing.service.gov.uk/media/5b45a61be5274a3755402bfa/s465_IMG_11Jul2018at072855.jpg"
+        },
+        "public_updated_at": "2018-07-11T07:36:00.000+01:00",
+        "summary": "The fifth Western Balkans Summit concluded on 10 July with the signing of joint declarations on Good Neighbourly Relations, War Crimes and Missing Persons.",
+        "title": "UK hosts Western Balkans Summit"
+      },
+      {
+        "document_type": "Policy paper",
+        "href": "/government/publications/western-balkans-summit-leaders-meeting-10-july-2018-chairs-conclusions",
+        "image": {
+          "alt_text": "PM and Chancellor",
+          "url": "https://assets.publishing.service.gov.uk/media/5b45af18e5274a3779f80a5f/s465_IMG_11Jul2018at081529.jpg"
+        },
+        "public_updated_at": "2018-07-11T07:52:00.000+01:00",
+        "summary": "Prime Minister Theresa May's conclusions from the leaders meeting of the London 2018 Western Balkans Summit.",
+        "title": "Western Balkans Summit Leaders Meeting, 10 July 2018: chair's conclusions"
+      },
+      {
+        "document_type": "Policy paper",
+        "href": "/government/publications/joint-declarations-signed-at-the-leaders-meeting-of-the-western-balkans-summit-by-berlin-process-participants",
+        "image": {
+          "alt_text": "plenary",
+          "url": "https://assets.publishing.service.gov.uk/media/5b45ae80e5274a377077466a/s465_IMG_11Jul2018at073300.jpg"
+        },
+        "public_updated_at": "2018-07-11T08:12:00.000+01:00",
+        "summary": "These joint declarations cover regional cooperation and good neighbourly relations, war crimes and missing persons, as part of the Berlin Process framework.",
+        "title": "Leaders Meeting of the London 2018 Western Balkans Summit: joint declarations"
+      },
+      {
+        "document_type": "Press release",
+        "href": "/government/news/pm-reveals-package-of-measures-to-promote-a-more-peaceful-prosperous-and-democratic-western-balkans",
+        "image": {
+          "alt_text": "PM reveals package of measures to promote a more peaceful, prosperous and democratic Western Balkans’ within ‘Western Balkans Summit: London 2018’",
+          "url": "https://assets.publishing.service.gov.uk/media/5b44b224e5274a37779450a2/s465_43251111092_7aeb21688c_k.jpg"
+        },
+        "public_updated_at": "2018-07-11T08:53:30.000+01:00",
+        "summary": "UK to remain fully committed to Western Balkans prosperity and security after Brexit, PM confirms as host of Summit.",
+        "title": "PM reveals package of measures to promote a more peaceful, prosperous and democratic Western Balkans"
+      },
+      {
+        "document_type": "News story",
+        "href": "/government/news/global-entrepreneur-scheme-set-to-boost-trade-with-western-balkans",
+        "image": {
+          "alt_text": "Start Up Games",
+          "url": "https://assets.publishing.service.gov.uk/media/5b44558340f0b678c68bcf37/s465_IMG_10Jul2018at074156.jpg"
+        },
+        "public_updated_at": "2018-07-09T11:34:00.000+01:00",
+        "summary": "The Department for International Trade's programme will be expanded into 6 new countries, strengthening relationships and promoting investment.",
+        "title": "Global entrepreneur scheme set to boost trade with Western Balkans"
+      }
+    ],
+    "social_media_links": [
+      {
+        "href": "https://twitter.com/foreignoffice",
+        "service_type": "twitter",
+        "title": "Twitter"
+      }
+    ],
+    "start_date": "2018-07-10T00:00:00+00:00"
+  },
+  "document_type": "topical_event",
+  "first_published_at": "2018-03-28T17:27:00+01:00",
+  "links": {
+    "available_translations": [
+      {
+        "api_path": "/api/content/government/topical-events/western-balkans-summit-london-2018",
+        "api_url": "https://www.gov.uk/api/content/government/topical-events/western-balkans-summit-london-2018",
+        "base_path": "/government/topical-events/western-balkans-summit-london-2018",
+        "content_id": "03271421-4cfe-4b50-a4e0-5b953541be54",
+        "document_type": "topical_event",
+        "links": {},
+        "locale": "en",
+        "public_updated_at": "2018-07-12T14:24:09Z",
+        "schema_name": "topical_event",
+        "title": "Western Balkans Summit: London 2018",
+        "web_url": "https://www.gov.uk/government/topical-events/western-balkans-summit-london-2018",
+        "withdrawn": false
+      }
+    ],
+    "children": [
+      {
+        "api_path": "/api/content/government/topical-events/western-balkans-summit-london-2018/about",
+        "api_url": "https://www.gov.uk/api/content/government/topical-events/western-balkans-summit-london-2018/about",
+        "base_path": "/government/topical-events/western-balkans-summit-london-2018/about",
+        "content_id": "5095cc32-51b3-4f60-8e6e-b29945644cb1",
+        "document_type": "topical_event_about_page",
+        "links": {
+          "parent": [
+            {
+              "api_path": "/api/content/government/topical-events/western-balkans-summit-london-2018",
+              "api_url": "https://www.gov.uk/api/content/government/topical-events/western-balkans-summit-london-2018",
+              "base_path": "/government/topical-events/western-balkans-summit-london-2018",
+              "content_id": "03271421-4cfe-4b50-a4e0-5b953541be54",
+              "document_type": "topical_event",
+              "links": {},
+              "locale": "en",
+              "public_updated_at": "2018-07-12T14:24:09Z",
+              "schema_name": "topical_event",
+              "title": "Western Balkans Summit: London 2018",
+              "web_url": "https://www.gov.uk/government/topical-events/western-balkans-summit-london-2018",
+              "withdrawn": false
+            }
+          ]
+        },
+        "locale": "en",
+        "public_updated_at": "2018-07-12T14:27:55Z",
+        "schema_name": "topical_event_about_page",
+        "title": "About the Western Balkans Summit",
+        "web_url": "https://www.gov.uk/government/topical-events/western-balkans-summit-london-2018/about",
+        "withdrawn": false
+      }
+    ],
+    "organisations": [
+      {
+        "analytics_identifier": "D13",
+        "api_path": "/api/content/government/organisations/foreign-commonwealth-office",
+        "api_url": "https://www.gov.uk/api/content/government/organisations/foreign-commonwealth-office",
+        "base_path": "/government/organisations/foreign-commonwealth-office",
+        "content_id": "9adfc4ed-9f6c-4976-a6d8-18d34356367c",
+        "details": {
+          "acronym": "FCO",
+          "brand": "foreign-commonwealth-office",
+          "default_news_image": {
+            "high_resolution_url": "https://assets.publishing.service.gov.uk/media/5a37dae3ed915d5a5f966021/s960_Main-building-gov.uk.jpg",
+            "url": "https://assets.publishing.service.gov.uk/media/5a37dae240f0b649cceb1839/s300_Main-building-gov.uk.jpg"
+          },
+          "logo": {
+            "crest": "single-identity",
+            "formatted_title": "Foreign &amp;<br/>Commonwealth <br/>Office"
+          },
+          "organisation_govuk_status": {
+            "status": "replaced",
+            "updated_at": "2020-09-02T00:00:00.000+01:00",
+            "url": "http://www.gov.uk/fco"
+          }
+        },
+        "document_type": "organisation",
+        "links": {},
+        "locale": "en",
+        "schema_name": "organisation",
+        "title": "Foreign & Commonwealth Office",
+        "web_url": "https://www.gov.uk/government/organisations/foreign-commonwealth-office",
+        "withdrawn": false
+      }
+    ]
+  },
+  "locale": "en",
+  "phase": "live",
+  "public_updated_at": "2018-07-12T15:24:09+01:00",
+  "publishing_app": "whitehall",
+  "publishing_request_id": "21-1773065422.485-10.13.22.162-2475",
+  "publishing_scheduled_at": null,
+  "rendering_app": "frontend",
+  "scheduled_publishing_delay_seconds": null,
+  "schema_name": "topical_event",
+  "title": "Western Balkans Summit: London 2018",
+  "updated_at": "2026-03-09T14:10:27+00:00",
+  "withdrawn_notice": {}
+}

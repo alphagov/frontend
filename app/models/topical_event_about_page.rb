@@ -18,9 +18,8 @@ class TopicalEventAboutPage < FlexiblePage
     }
   end
 
-private
-
-  def contents_list
-    (content_store_response.dig("details", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }
+  def contents_outline
+    list = (content_store_response.dig("details", "headers") || []).map { |header| header.except("headers").deep_symbolize_keys }
+    ContentsOutline.new(list)
   end
 end

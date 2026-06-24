@@ -31,7 +31,7 @@
 .cards__item {
   position: relative;
   padding: 20px 0;
-  border-top: solid 1px $govuk-border-colour;
+  border-top: solid 1px govuk-functional-colour(border);
   margin-bottom: 30px;
 }
 
@@ -56,8 +56,8 @@
     $dimension: 7px;
     $width: 3px;
 
-    border-right: $width solid $govuk-brand-colour;
-    border-top: $width solid $govuk-brand-colour;
+    border-right: $width solid govuk-functional-colour(brand);
+    border-top: $width solid govuk-functional-colour(brand);
     content: "";
     display: block;
     height: $dimension;
@@ -71,13 +71,13 @@
 
   &:hover {
     &::before {
-      border-color: $govuk-link-hover-colour;
+      border-color: govuk-functional-colour(link-hover);
     }
   }
 
   &:focus {
     &::before {
-      border-color: $govuk-focus-text-colour;
+      border-color: govuk-functional-colour(focus-text);
     }
   }
 }

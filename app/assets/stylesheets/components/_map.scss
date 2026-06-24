@@ -5,7 +5,7 @@
   background-color: #d7e0e5;
 
   @include govuk-media-query($from: tablet) {
-    border: solid 1px $govuk-border-colour;
+    border: solid 1px govuk-functional-colour(border);
   }
 
   @include govuk-media-query($until: desktop) {

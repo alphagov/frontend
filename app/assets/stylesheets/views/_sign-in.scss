@@ -2,7 +2,7 @@
 
 .app-promo {
   padding-top: govuk-spacing(6);
-  border-top: 4px solid $govuk-brand-colour;
+  border-top: 4px solid govuk-functional-colour(brand);
   margin-top: govuk-spacing(8);
 
   @include govuk-media-query($from: "tablet") {

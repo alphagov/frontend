@@ -14,8 +14,8 @@
 
 <% content_for :sidebar do %>
   <nav>
-    <% if content_presenter.image %>
-      <%= image_tag(content_presenter.image.src, alt: content_presenter.image.alt, class: "card__image govuk-!-width-full", loading: "lazy") %>
+    <% if content_presenter.sidebar_image %>
+      <%= image_tag(content_presenter.sidebar_image.src(key: "s960"), alt: content_presenter.sidebar_image.caption, class: "card__image govuk-!-width-full", loading: "lazy") %>
     <% end %>
 
     <%= render "govuk_publishing_components/components/contents_list", {

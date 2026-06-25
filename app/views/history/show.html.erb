@@ -27,6 +27,6 @@
 
 <% content_for :content do %>
   <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
-    <%= content_presenter.body.html_safe %>
+    <%= content_item.body.html_safe %>
   <% end %>
 <% end %>

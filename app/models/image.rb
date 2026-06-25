@@ -9,7 +9,7 @@ class Image
     @type = info["type"]
   end
 
-  def src(type: "s300")
-    sources[type]
+  def src(key: "s300")
+    sources[key]
   end
 end

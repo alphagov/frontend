@@ -7,18 +7,19 @@ module HasImages
     nil
   end
 
-  def default_image
-  end
-
   def images
     @images ||= extract_images
   end
 
   def extract_images
     images_info = content_store_response.dig("details", "images")
-    images_info.map { |info| Image.new(info) } if images_info.is_a?(Array)
+    images = images_info.map { |info| Image.new(info) } if images_info.is_a?(Array)
 
-    default_image = Image.new(info)
-    content_store_response.dig("details", "image")
+    single_image_info = content_store_response.dig("details", "image")
+    if single_image_info
+      images << Image.new(content_store_response.dig("details", "image").merge("type" => "default"))
+    end
+
+    images
   end
 end

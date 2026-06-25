@@ -5,6 +5,12 @@ class ContentItemsController < ApplicationController
 
   attr_reader :content_item
 
+  helper_method :content_presenter
+
+  def content_presenter
+    @content_presenter ||= ContentItemPresenter.new(content_item)
+  end
+
 private
 
   def set_content_item_and_cache_control

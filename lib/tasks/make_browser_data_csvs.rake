@@ -50,7 +50,7 @@ task make_browser_data_csvs: :environment do
   uniq_browser_names = data.each_with_object([]) { |month, names| names.concat(month.browser_names) }.uniq
   data.each { |month| month.fill_browser_session_data(uniq_browser_names) }
 
-  uniq_os_names = data.each_with_object([]) { |month, names| names.concat(month.os_names) }.uniq
+  data.each_with_object([]) { |month, names| names.concat(month.os_names) }.uniq
 
   data.first.device_categories.each do |device_category|
     create_browser_csv_file(data, device_category, "percentages") { |month, browser| display_percent(month.percentage_data[browser][device_category]) }
@@ -124,7 +124,7 @@ DEVICE_DISPLAY_NAMES = {
   "desktop" => "Desktop",
   "tablet" => "Tablet",
   "smart tv" => "Smart TV and games consoles",
-}
+}.freeze
 
 def display_percent(percent)
   "#{(percent || 0).round(2)}%"
@@ -177,16 +177,16 @@ class MonthlyBrowserData
     browser_names.each do |browser|
       next if @session_data[browser]
 
-      @session_data[browser] = device_categories.map.with_index { |category, i| [category, 0] }.to_h
+      @session_data[browser] = device_categories.map.with_index { |category, _i| [category, 0] }.to_h
     end
   end
 
   def browser_os_combos_filtered_and_sorted
-    @browser_os_combo_data.reject { |k, v| v < 1000 }.sort_by { |k, v| v }.reverse.map { |k, v| k }
+    @browser_os_combo_data.reject { |_k, v| v < 1000 }.sort_by { |_k, v| v }.reverse.map { |k, _v| k }
   end
 
   def os_names
-    @browser_os_combo_data.each_with_object([]) { |(k, v), os_names|
+    @browser_os_combo_data.each_with_object([]) { |(k, _v), os_names|
       os_names << k.second
     }.uniq
   end

@@ -2,7 +2,7 @@
 @import "govuk_publishing_components/components/mixins/grid-helper";
 
 .homepage-header {
-  background-color: $govuk-brand-colour;
+  background-color: govuk-functional-colour(brand);
   padding-bottom: 28px;
   padding-top: govuk-spacing(3);
   @include govuk-typography-common;
@@ -99,7 +99,7 @@
 .homepage-section__heading {
   border-top-style: solid;
   border-top-width: 4px;
-  border-top-color: $govuk-brand-colour;
+  border-top-color: govuk-functional-colour(brand);
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(8) 0 0;
 
@@ -217,7 +217,7 @@
 
 .app-promo {
   padding-top: govuk-spacing(6);
-  border-top: 4px solid $govuk-brand-colour;
+  border-top: 4px solid govuk-functional-colour(brand);
   margin-top: govuk-spacing(8);
   margin-bottom: govuk-spacing(6);
 
@@ -297,7 +297,7 @@
   border: none;
 
   @include govuk-media-query($from: "desktop") {
-    border-top: 4px solid $govuk-brand-colour;
+    border-top: 4px solid govuk-functional-colour(brand);
   }
 }
 

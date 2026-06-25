@@ -13,7 +13,7 @@
 .map__canvas {
   padding: govuk-spacing(6);
   margin-bottom: govuk-spacing(1);
-  border: solid 1px $govuk-border-colour;
+  border: solid 1px govuk-functional-colour(border);
 }
 
 .map__canvas--enabled {
@@ -97,6 +97,6 @@
   z-index: 999 !important; // stylelint-disable-line declaration-no-important
   outline: none;
   background: #FFFFFF;
-  box-shadow: 0 0 0 3px $govuk-focus-text-colour;
+  box-shadow: 0 0 0 3px govuk-functional-colour(focus-text);
   border-radius: 100%;
 }

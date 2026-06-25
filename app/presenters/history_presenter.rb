@@ -20,7 +20,7 @@ class HistoryPresenter < ContentItemPresenter
     end
   end
 
-  def image
-    nil
+  def sidebar_image
+    content_item.image("sidebar")
   end
 end

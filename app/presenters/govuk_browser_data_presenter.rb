@@ -16,8 +16,15 @@ class GovukBrowserDataPresenter < ContentItemPresenter
       {
         id: "#{table[:filename_base]}-#{key}",
         label:,
-        content: @view_context.render("govuk_publishing_components/components/table", content_item.table_data_from("#{table[:filename_base]}-#{key}.csv")),
+        content: wrapped_table_for("#{table[:filename_base]}-#{key}"),
       }
     end
+  end
+
+private
+
+  def wrapped_table_for(name)
+    table = @view_context.render("govuk_publishing_components/components/table", content_item.table_data_from("#{name}.csv"))
+    "<div class=\"govuk-browser-data-tabbed-table\">#{table}</div>".html_safe
   end
 end

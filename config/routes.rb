@@ -117,8 +117,8 @@ Rails.application.routes.draw do
 
     get "/groups/:slug", to: "working_group#show"
 
-    get "/history", to: "flexible_page#show"
-    get "/history/:slug", to: "flexible_page#show"
+    get "/history", to: "history#show"
+    get "/history/:slug", to: "history#show"
 
     get "/how-government-works", to: "how_government_works#show"
 

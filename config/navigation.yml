@@ -1,0 +1,23 @@
+main_menu:
+  items:
+    - text: Heading 1
+      url: /
+    
+    - text: Heading 2
+      url: /
+
+    - text: Heading 3
+      links:
+        - text: Sub text 31
+          url: /
+        - text: Sub text 32
+          url: /
+        - text: Sub text 33
+          url: /
+
+    - text: Heading 4
+      url: /
+
+    - text: Heading 5
+      url: /
+        

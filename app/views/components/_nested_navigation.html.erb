@@ -1,0 +1,31 @@
+
+<%
+  items ||= nil
+
+  # I have to clone the array here, otherwise when the array is manipulated the component guide renders the manipulated array instead of the original one passed through.
+  cloned_items = items.clone
+  first_item = cloned_items.shift if cloned_items
+%>
+<% unless !items %>
+  <div class="govuk-width-container">
+    <%= javascript_include_tag "components/nested-navigation.js", integrity: false, type: "module" %>
+    <ul data-module="nested-navigation" class="app-c-nested-navigation">
+      <li class="app-c-nested-navigation__list-item"> <%= tag.a(href: first_item[:href], class: "govuk-link app-c-nested-navigation__service-name") { first_item[:text] } %> </li>
+      <% cloned_items.each do | item | %>
+        <% if item[:links] %>
+          <li class="app-c-nested-navigation__list-item">
+            <% menu_id = "nested-navigation-#{SecureRandom.hex(4)}" %>
+            <%= tag.button data: { app_c_nested_navigation_button: ""}, aria: { controls: menu_id, expanded: false }, class: "app-c-nested-navigation__button" do %> <%= item[:text] %> <% end %>
+            <ul class="js-app-c-nested-navigation--hidden app-c-nested-navigation__sub-list" id="<%= menu_id %>">
+              <% item[:links].each do | sub_item | %>
+                <li class="app-c-nested-navigation__sub-list-item"> <%= tag.a(href: sub_item[:href], class: "govuk-link app-c-nested-navigation__link") { sub_item[:text] } %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% else %>
+          <li class="app-c-nested-navigation__list-item">  <%= tag.a(href: item[:href], class: "govuk-link app-c-nested-navigation__link") { item[:text] } %> </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

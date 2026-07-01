@@ -1,0 +1,102 @@
+<% content_for :title, "Landing page prototype" %>
+<% content_for :body_classes, "full-width__container" %>
+<% content_for :main_classes, "govuk-!-padding-top-0" %>
+
+<div class="full-width__element">
+  <nav class="nav-test">
+    <div class="govuk-width-container">
+      <div class="nav-test__inner">
+        <div class="nav-test__home">
+          <a href="#" class="govuk-link govuk-link--no-underline nav-test__home-link">Stock photographs</a>
+        </div>
+        <ul class="nav-test__list">
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">Common usage</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">Examples</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">Types</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">Watermarking</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">History</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">International trends and variations</a></li>
+          <li class="nav-test__list-item"><a href="#" class="govuk-link govuk-link--no-underline">Further reading</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <%= render "components/impact_header", {
+    heading: "Stock photographs",
+    description: "A deep dive into the world of stock photography, from classic well-known images to more subtle, newer pictures.",
+    variant: "govuk",
+    image: {
+      sources: {
+        desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg",
+        desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg",
+        mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg",
+        mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg",
+        tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg",
+        tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+      }
+    }
+  } %>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <h2>Introduction</h2>
+      <p>Stock photographs are everywhere. Sometimes they're so ubiquitous that we don't even notice them. But what goes into the production of stock photographs, and why do we rely on them so much? Read on for some insight into this very public, but almost unknown world.</p>
+
+      <h2>Video overview</h2>
+      <p>Watch the video below if you enjoy consuming content that way.</p>
+
+      <p><a href="https://www.youtube.com/watch?v=y6hbrS3DheU">Operations: a developer's guide, by Anna Shipman</a></p>
+      <p><a href="">Video transcript</a></p>
+
+      <div class="call-to-action">
+        <figure class="image embedded">
+          <div class="img">
+            <img src="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/40160/Picture2.jpg" alt="Open water with only mangrove stumps showing above the water. Credit: Blue Ventures-Garth Cripps">
+          </div>
+          <figcaption>
+            <p>Deforested area. Credit: Blue Ventures-Garth Cripps</p>
+          </figcaption>
+        </figure>
+        <h2>A typical stock photograph</h2>
+        <p>Some tree stumps standing in water. It's a very well taken picture, but what does it mean? Depending on the context, almost anything - perhaps a metaphor for humanity's rampant exploitation of the environment, or a representation of the isolation we can all feel sometimes despite being surrounded by others. Or maybe it's just a picture of some trees.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Navigation",
+  font_size: "l",
+  padding: true,
+  border_top: 5,
+  margin_bottom: 3,
+} %>
+
+<%
+  navigation_items = [
+    {
+      href: "/href",
+      image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+      image_alt: "",
+      heading_text: "hello",
+      description: "description",
+    }
+  ]
+%>
+
+<div class="govuk-grid-row">
+  <% navigation_items.each do |item| %>
+    <%= tag.div(class: "govuk-grid-column-one-third") do %>
+      <%= render "govuk_publishing_components/components/image_card", {
+        href: item[:href],
+        image_src: item[:image_src],
+        image_alt: item[:image_alt],
+        heading_text: item[:heading_text],
+        description: sanitize(item[:description]).truncate(160, separator: " "),
+      } %>
+    <% end %>
+  <% end %>
+</div>

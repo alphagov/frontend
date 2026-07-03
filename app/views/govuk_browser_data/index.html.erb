@@ -1,0 +1,43 @@
+<% content_for :title, build_page_title([content_item.title]) %>
+
+<% content_for :head do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= stylesheet_link_tag "views/_govuk-browser-data", media: "all" %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <%= render "shared/headers/page_title", options: content_presenter.page_title_options %>
+</div>
+
+<% content_item.tables.each do |table| %>
+  <div class="govuk-grid-row">
+    <%= render "govuk_publishing_components/components/heading", {
+    text: table[:title],
+    heading_level: 2,
+    font_size: "l",
+    margin_bottom: 2,
+  } %>
+  </div>
+
+  <%= render "govuk_publishing_components/components/tabs", { tabs: content_presenter.tabs(table) } %>
+<% end %>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-row">
+    <%= render "govuk_publishing_components/components/heading", {
+    text: "Caveats",
+    heading_level: 2,
+    font_size: "l",
+    margin_bottom: 2,
+  } %>
+
+  <ol>
+    <li>Data is sourced from the main GOV.UK website, hosted at www.gov.uk. Parts of the site under different domains, such as blogs and services, collect analytics seperately and are not included in this data.</li>
+    <li>This data only includes users with JavaScript available and who explicitly opted into analytics tracking.</li>
+    <li>Mobile device usage is likely to appear inflated compared to other device types, as the analytics consent banner on GOV.UK is more visually intrusive on smaller screens.</li>
+    <li>Browsers that automatically restrict or block analytics tracking will, by their nature, be underrepresented in data or not appear at all.</li>
+    <li>Although GOV.UK draws many international visitors, it’s a UK-centric website and the majority of sessions (about 90%) originate from within the UK. The data should not be considered representative of browser usage in other countries.</li>
+    <li>Month-by-month differences can be affected by public holidays and seasonal trends, and may not represent wider trends. For example, there are notably fewer sessions from Windows devices in December and the summer months, when more people are off work.</li>
+    <li>This data is provided 'as is' without support or guarantees of accuracy. Percentages and monthly change values may not add up as expected due to rounding or removal of 'junk' data in some contexts.</li>
+  </ol>
+</div>

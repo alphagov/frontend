@@ -1,4 +1,4 @@
-RSpec.shared_examples "it open can have images" do |document_type, example_name, image_type|
+RSpec.shared_examples "it can have images" do |document_type, example_name, image_type|
   let(:content_store_response) { GovukSchemas::Example.find(document_type, example_name:) }
 
   it "can retrieve an image by type" do

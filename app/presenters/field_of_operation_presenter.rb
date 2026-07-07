@@ -1,10 +1,4 @@
-class FieldOfOperationPresenter
-  attr_reader :content_item
-
-  def initialize(content_item)
-    @content_item = content_item
-  end
-
+class FieldOfOperationPresenter < ContentItemPresenter
   def organisation
     org = @content_item.content_store_response.dig("links", "primary_publishing_organisation", 0)
     logo = org.dig("details", "logo")

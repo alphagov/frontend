@@ -15,25 +15,11 @@ class TopicalEventAboutPagePresenter < ContentItemPresenter
   end
 
   def breadcrumb_options
-    {
-      collapse_on_mobile: true,
-      breadcrumbs:,
-      margin_bottom: 5,
-    }
-  end
-
-private
-
-  def breadcrumbs
-    [
-      {
-        title: "Home",
-        url: "/",
-      },
-      {
+    default_breadcrumb_options.tap do |opts|
+      opts[:breadcrumbs] << {
         title: content_item.title,
         url: content_item.base_path,
-      },
-    ]
+      }
+    end
   end
 end

@@ -1,4 +1,6 @@
 class HistoryController < ContentItemsController
+  include Cacheable
+
   layout "header_sidebar_content"
 
   def show

@@ -1,0 +1,21 @@
+<% content_for :title, build_page_title([content_item.title]) %>
+
+<% content_for :head do %>
+  <meta name="description" content="<%= content_item.description %>">
+
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :article,
+    content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :header do %>
+<% end %>
+
+<% content_for :sidebar do %>
+<% end %>
+
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+    <%= content_item.body.html_safe %>
+  <% end %>
+<% end %>

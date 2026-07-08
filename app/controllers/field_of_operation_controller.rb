@@ -4,6 +4,6 @@ class FieldOfOperationController < ContentItemsController
   layout "header_sidebar_content"
 
   def show
-    @presenter = FieldOfOperationPresenter.new(@content_item)
+    @content_item_presenter = FieldOfOperationPresenter.new(@content_item)
   end
 end

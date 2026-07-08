@@ -17,21 +17,21 @@
 
   <div class="govuk-grid-column-one-third">
     <%= render "govuk_publishing_components/components/organisation_logo",
-      organisation: @presenter.organisation,
+      organisation: content_item_presenter.organisation,
       margin_bottom: 8 %>
   </div>
 <% end %>
 
 <% content_for :sidebar do %>
-  <% if @presenter.contents.present? %>
+  <% if content_item_presenter.contents.present? %>
     <%= render "govuk_publishing_components/components/contents_list",
-          contents: @presenter.contents,
+          contents: content_item_presenter.contents,
           margin_bottom: 8 %>
   <% end %>
 <% end %>
 
 <% content_for :content do %>
-  <% unless @presenter.description.blank? %>
+  <% unless content_item_presenter.description.blank? %>
     <%= render "govuk_publishing_components/components/heading", {
       text: t("formats.fatality_notice.field_of_operation"),
       id: "field-of-operation",
@@ -40,7 +40,7 @@
     <%= render "govuk_publishing_components/components/govspeak", {
         margin_bottom: 8,
       } do %>
-        <%= @presenter.description %>
+        <%= content_item_presenter.description %>
     <% end %>
   <% end %>
 
@@ -53,14 +53,14 @@
     <ul class="govuk-list">
       <% @content_item.fatality_notices.each do |fatality_notice| %>
         <li class="fatality-notice govuk-!-padding-bottom-3">
-          <% unless @presenter.roll_call_introduction(fatality_notice).blank? %>
+          <% unless content_item_presenter.roll_call_introduction(fatality_notice).blank? %>
           <p class="govuk-body">
-            <%= @presenter.roll_call_introduction(fatality_notice) %>
+            <%= content_item_presenter.roll_call_introduction(fatality_notice) %>
           </p>
           <% end %>
           <ul class="govuk-list govuk-list--spaced govuk-list--bullet">
-            <% if @presenter.casualties(fatality_notice).present? %>
-              <% @presenter.casualties(fatality_notice).each do |casualty| %>
+            <% if content_item_presenter.casualties(fatality_notice).present? %>
+              <% content_item_presenter.casualties(fatality_notice).each do |casualty| %>
                 <li><%= link_to casualty, fatality_notice.base_path, class: "govuk-link" %></li>
               <% end %>
             <% else %>

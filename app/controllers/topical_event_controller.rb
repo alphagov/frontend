@@ -1,10 +1,6 @@
 class TopicalEventController < FlexiblePageController
   skip_before_action :allow_only_html_requests, only: [:show]
 
-  attr_reader :content_presenter
-
-  helper_method :content_presenter
-
   def show
     respond_to do |format|
       format.html do
@@ -20,7 +16,7 @@ class TopicalEventController < FlexiblePageController
   def about
     return render "flexible_page/show" if content_item.instance_of?(TopicalEventAboutPage)
 
-    @content_presenter = TopicalEventAboutPagePresenter.new(content_item)
+    @content_item_presenter = TopicalEventAboutPagePresenter.new(content_item)
     render layout: "header_sidebar_content"
   end
 end

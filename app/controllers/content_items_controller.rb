@@ -3,7 +3,9 @@ class ContentItemsController < ApplicationController
   before_action :reroute_to_gone, if: -> { content_item.schema_name == "gone" }
   before_action :set_locale, if: -> { request.format.html? }
 
-  attr_reader :content_item
+  attr_reader :content_item, :content_item_presenter
+
+  helper_method :content_item_presenter
 
 private
 

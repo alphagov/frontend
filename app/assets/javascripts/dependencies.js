@@ -21,4 +21,7 @@
 //= require govuk_publishing_components/components/table
 //= require govuk_publishing_components/components/tabs
 
+//= require govuk_publishing_components/components/service-navigation
+
+
 //= require govuk_web_banners/dependencies

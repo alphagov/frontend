@@ -3,6 +3,7 @@
 <% content_for :main_classes, "govuk-!-padding-top-0" %>
 
 <div class="full-width__element">
+  <% if false %>
   <nav class="nav-test">
     <div class="govuk-width-container">
       <div class="nav-test__inner">
@@ -21,6 +22,49 @@
       </div>
     </div>
   </nav>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/service_navigation", {
+    service_name: "Stock photographs home",
+    service_name_url: "#",
+    toggle_text: "Stock photographs",
+    hide_service_name_on_mobile: true,
+    columns_layout: true,
+    navigation_items: [
+      {
+        text: "Stock photographs home",
+        href: "#"
+      },
+      {
+        text: "Common usage",
+        href: "#"
+      },
+      {
+        text: "Examples",
+        href: "#"
+      },
+      {
+        text: "Types",
+        href: "#"
+      },
+      {
+        text: "Examples",
+        href: "#"
+      },
+      {
+        text: "Watermarking",
+        href: "#"
+      },
+      {
+        text: "International trends and variations",
+        href: "#"
+      },
+      {
+        text: "Further reading",
+        href: "#"
+      },
+    ]
+  } %>
 
   <%= render "components/impact_header", {
     heading: "Stock photographs",

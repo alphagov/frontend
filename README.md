@@ -45,13 +45,13 @@ The content items are obtained using [`govuk_content_item_loader`](https://githu
 |                       ||https://www.gov.uk/government/publications/usa-apply-for-a-uk-visa/apply-for-a-uk-visa-in-the-usa|
 |Licence finder         |schema: [specialist_document](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/find-licences/premises-licence|
 |                       |document_type: [licence_transaction](https://docs.publishing.service.gov.uk/document-types/licence_transaction.html)|https://www.gov.uk/find-licences/zoo-licence|
-|Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|http://www.gov.uk/school-term-holiday-dates|
-|                       ||http://www.gov.uk/apply-council-tax-reduction|
+|Local transaction      |[local_transaction](https://docs.publishing.service.gov.uk/content-schemas/specialist_document.html)|https://www.gov.uk/school-term-holiday-dates|
+|                       ||https://www.gov.uk/apply-council-tax-reduction|
 |Manual           |[manual](https://docs.publishing.service.gov.uk/content-schemas/manual.html)|https://www.gov.uk/guidance/the-highway-code|
-|Manual Section         |[manual_section](https://docs.publishing.service.gov.uk/content-schemas/manual_section.html)|http://www.gov.uk/guidance/systems-change-learning/1-securing-strategic-buy-in-and-alignment
+|Manual Section         |[manual_section](https://docs.publishing.service.gov.uk/content-schemas/manual_section.html)|https://www.gov.uk/guidance/systems-change-learning/1-securing-strategic-buy-in-and-alignment
 |News Article           |[news_article](https://docs.publishing.service.gov.uk/content-schemas/news_article.html)|https://www.gov.uk/government/news/the-personal-independence-payment-amendment-regulations-2017-statement-by-paul-gray|
-|Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|http://www.gov.uk/register-offices|
-|                       ||http://www.gov.uk/register-offices|
+|Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|https://www.gov.uk/register-offices|
+|                       ||https://www.gov.uk/register-offices|
 |Publication            |[publication](https://docs.publishing.service.gov.uk/content-schemas/publication.html)|https://www.gov.uk/government/publications/budget-2016-documents|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
 |Service Manual guide|[service_manual_guide](https://docs.publishing.service.gov.uk/content-schemas/service_manual_guide.html)|https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works|

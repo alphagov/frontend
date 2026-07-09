@@ -15,10 +15,4 @@ class WorldwideOfficePresenter < ContentItemPresenter
 
     WorldwideOrganisationPresenter.new(content_item.worldwide_organisation)
   end
-
-private
-
-  def show_contents_list?
-    true
-  end
 end

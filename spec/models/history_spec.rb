@@ -5,6 +5,15 @@ RSpec.describe History do
 
   it_behaves_like "it can have images", "history", "history", "sidebar"
 
+  describe "#contents_outline" do
+    it "makes a content outline object from details/headers" do
+      expect(history.contents_outline).to be_instance_of(ContentsOutline)
+      expect(history.contents_outline.items.count).to eq(2)
+      expect(history.contents_outline.items.first.text).to eq("Introduction – by Sir Anthony Seldon")
+      expect(history.contents_outline.items.first.id).to eq("introduction-by-sir-anthony-seldon")
+    end
+  end
+
   describe "#lead_paragraph" do
     it "returns the lead paragraph from the details" do
       expect(history.lead_paragraph).to be_nil

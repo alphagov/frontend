@@ -19,6 +19,10 @@
         alt: content_item.image_for("sidebar").caption,
       } %>
     <% end %>
+
+    <%= render "govuk_publishing_components/components/contents_list", {
+      contents: content_item_presenter.contents,
+    } %>
 <% end %>
 
 <% content_for :content do %>

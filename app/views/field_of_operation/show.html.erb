@@ -4,21 +4,23 @@
 <% end %>
 
 <% content_for :header do %>
-  <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/heading", {
-      context: I18n.t("formats.field_of_operation.context"),
-      text: "#{I18n.t('formats.field_of_operation.title')} #{content_item.title}",
-      font_size: "xl",
-      heading_level: 1,
-      margin_bottom: 8,
-      lang: content_item.locale,
-    } %>
-  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/heading", {
+        context: I18n.t("formats.field_of_operation.context"),
+        text: "#{I18n.t('formats.field_of_operation.title')} #{content_item.title}",
+        font_size: "xl",
+        heading_level: 1,
+        margin_bottom: 8,
+        lang: content_item.locale,
+      } %>
+    </div>
 
-  <div class="govuk-grid-column-one-third">
-    <%= render "govuk_publishing_components/components/organisation_logo",
-      organisation: content_item_presenter.organisation,
-      margin_bottom: 8 %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "govuk_publishing_components/components/organisation_logo",
+        organisation: content_item_presenter.organisation,
+        margin_bottom: 8 %>
+    </div>
   </div>
 <% end %>
 

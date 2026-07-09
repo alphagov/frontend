@@ -20,19 +20,10 @@
       margin_bottom: 8,
     } %>
 
-    <%= render "govuk_publishing_components/components/govspeak", {
-    } do %>
-      <p><%= t("cookies.explanation") %></p>
-      <p><%= t("cookies.how_we_use") %></p>
-      <p><%= t("cookies.explanation_html") %></p>
-    <% end %>
-
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("cookies.cookie_settings"),
-      heading_level: 2,
-      font_size: "l",
-      margin_bottom: 5,
-    } %>
+    <p class="govuk-body"><%= t("cookies.explanation") %></p>
+    <p class="govuk-body"><%= t("cookies.how_we_use") %></p>
+    <p class="govuk-body"><%= t("cookies.explanation_choice") %></p>
+    <p class="govuk-body"><%= link_to t("cookies.explanation_link_text"), "help/cookie-details", class: "govuk-link" %>.</p>
 
     <div class="cookie-settings__no-js">
       <%= render "govuk_publishing_components/components/govspeak", {
@@ -48,9 +39,17 @@
     </div>
 
     <div class="cookie-settings__form-wrapper">
-      <p class="govuk-body govuk-!-margin-bottom-7"><%= t("cookies.four_types") %></p>
-
       <form data-module="cookie-settings">
+        <%= render "govuk_publishing_components/components/heading", {
+            text: t("cookies.types.essential"),
+            font_size: "l",
+            heading_level: 2,
+            margin_bottom: 6,
+        } %>
+
+        <p class="govuk-body govuk-!-padding-bottom-4">
+          <%= t("cookies.essential_explanation") %>. <%= t("cookies.always_on") %>
+        </p>
 
         <%= render "govuk_publishing_components/components/heading", {
           text: t("cookies.types.usage.heading"),
@@ -59,15 +58,6 @@
         } %>
 
         <p class="govuk-body"><%= t("cookies.usage_info") %></p>
-        <p class="govuk-body"><%= t("cookies.google_info") %></p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li><%= t("cookies.how_you_got") %></li>
-          <li><%= t("cookies.pages_visited") %></li>
-          <li><%= t("cookies.clicks") %></li>
-        </ul>
-        <p class="govuk-body"><%= t("cookies.lux_explain") %></p>
-        <p class="govuk-body"><%= t("cookies.lux_info") %></p>
-        <p class="govuk-body"><%= t("cookies.google_share") %></p>
 
         <%= render "govuk_publishing_components/components/fieldset", {
           legend_text: t("cookies.types.usage.question"),
@@ -81,6 +71,11 @@
               {
                 value: "on",
                 text: t("cookies.on-usage"),
+              },
+              {
+                value: "aggregate",
+                text: t("cookies.aggregate-usage"),
+                checked: true,
               },
               {
                 value: "off",
@@ -153,19 +148,6 @@
           } %>
         <% end %>
 
-        <%= render "govuk_publishing_components/components/heading", {
-            text: t("cookies.types.essential"),
-            font_size: "l",
-            heading_level: 2,
-            margin_bottom: 6,
-        } %>
-
-        <%= render "govuk_publishing_components/components/govspeak", {
-          } do %>
-          <p><%= t("cookies.essential_explanation") %></p>
-          <p><%= t("cookies.always_on") %></p>
-        <% end %>
-
         <%= render "govuk_publishing_components/components/button", {
           text: t("cookies.save_changes"),
         } %>
@@ -181,6 +163,7 @@
       } %>
       <p class="govuk-body"><%= t("cookies.services") %></p>
       <p class="govuk-body"><%= t("cookies.services_additional") %></p>
+      <p class="govuk-body"><%= t("cookies.services_external") %></p>
     </div>
   </div>
 </div>

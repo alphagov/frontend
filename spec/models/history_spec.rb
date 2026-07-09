@@ -8,6 +8,7 @@ RSpec.describe History do
         "body" => "Hello",
         "headers" => [],
         "images" => images,
+        "lead_paragraph" => "this is a lead paragraph",
       },
     }
   end
@@ -90,6 +91,12 @@ RSpec.describe History do
         expect(history.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
         expect(history.flexible_sections.third.sidebar.image).to be_nil
       end
+    end
+  end
+
+  describe "#lead_paragraph" do
+    it "returns the lead paragraph from the details" do
+      expect(history.lead_paragraph).to eq("this is a lead paragraph")
     end
   end
 end

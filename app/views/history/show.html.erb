@@ -13,6 +13,12 @@
 <% end %>
 
 <% content_for :sidebar do %>
+    <% if content_item.image_for("sidebar") %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: content_item.image_for("sidebar").src(key: "s630"),
+        alt: content_item.image_for("sidebar").caption,
+      } %>
+    <% end %>
 <% end %>
 
 <% content_for :content do %>

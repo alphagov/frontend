@@ -26,6 +26,8 @@ RSpec.describe History do
     ]
   end
 
+  it_behaves_like "it can have images", "history", "history", "sidebar"
+
   describe "flexible_sections attribute" do
     it "generates flexible sections" do
       expect(history.flexible_sections.count).to eq(3)

@@ -1,4 +1,4 @@
-<%= render "shared/header", h1_size: "xl" %>
+<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 
 <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-4">
 
@@ -253,7 +253,7 @@
               </div>
               <div class="govuk-grid-column-one-third govuk-!-display-inline-block">
                 <%= render "govuk_publishing_components/components/big_number", {
-                  number: @presenter.agencies_and_other_public_bodies,
+                  number: content_item_presenter.agencies_and_other_public_bodies,
                   label: "Agencies and other public bodies",
                   href: "/government/organisations#agencies_and_other_public_bodies",
                 } %>

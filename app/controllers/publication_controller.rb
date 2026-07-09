@@ -3,6 +3,6 @@ class PublicationController < ContentItemsController
   include Personalisable
 
   def show
-    @presenter = PublicationPresenter.new(content_item)
+    @content_item_presenter = PublicationPresenter.new(content_item)
   end
 end

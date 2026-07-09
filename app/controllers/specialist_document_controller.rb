@@ -4,6 +4,6 @@ class SpecialistDocumentController < ContentItemsController
   def show
     raise RecordNotFound unless @content_item.instance_of?(SpecialistDocument)
 
-    @presenter = SpecialistDocumentPresenter.new(content_item)
+    @content_item_presenter = SpecialistDocumentPresenter.new(content_item)
   end
 end

@@ -6,10 +6,10 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<%= render "shared/header" %>
+<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 
 <%= render "shared/publisher_metadata", locals: {
-  from: govuk_styled_links_list(@case_study_presenter.contributor_links),
+  from: govuk_styled_links_list(content_item_presenter.contributor_links),
   first_published: display_date(content_item.initial_publication_date),
   last_updated: display_date(content_item.updated),
   see_updates_link: true,

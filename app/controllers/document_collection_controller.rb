@@ -3,6 +3,6 @@ class DocumentCollectionController < ContentItemsController
   include Personalisable
 
   def show
-    @presenter = DocumentCollectionPresenter.new(content_item)
+    @content_item_presenter = DocumentCollectionPresenter.new(content_item)
   end
 end

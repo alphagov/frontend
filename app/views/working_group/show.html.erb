@@ -3,11 +3,11 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<%= render "shared/header", h1_size: "xl" %>
+<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component(additional_headers: @presenter.additional_headers) do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.additional_headers) do %>
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
       } do %>

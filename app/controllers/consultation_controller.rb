@@ -3,6 +3,6 @@ class ConsultationController < ContentItemsController
   include Personalisable
 
   def show
-    @presenter = ConsultationPresenter.new(content_item)
+    @content_item_presenter = ConsultationPresenter.new(content_item)
   end
 end

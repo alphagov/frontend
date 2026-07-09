@@ -2,21 +2,21 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :faq } %>
   <meta name="description" content="<%= strip_tags(content_item.description) %>">
 
-  <% if @presenter.hide_from_search_engines? %>
+  <% if content_item_presenter.hide_from_search_engines? %>
     <meta name="robots" content="noindex">
   <% end %>
 <% end %>
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
 
-<%= render "shared/header" %>
+<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 
 <%= render "shared/publisher_metadata", locals: {
-  from: govuk_styled_links_list(@presenter.contributor_links),
+  from: govuk_styled_links_list(content_item_presenter.contributor_links),
   first_published: display_date(content_item.first_public_at || content_item.first_published_at),
   last_updated: display_date(content_item.updated),
   see_updates_link: true,
-  logo: @presenter.logo,
+  logo: content_item_presenter.logo,
   } %>
 <%= render "shared/single_page_notification_button", content_item: content_item %>
 <%= render "shared/history_notice", content_item: content_item %>
@@ -39,7 +39,7 @@
       } %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @presenter.headers_for_contents_list_component do %>
+    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component do %>
       <%= render "govuk_publishing_components/components/print_link", {
         margin_bottom: 6,
       } %>

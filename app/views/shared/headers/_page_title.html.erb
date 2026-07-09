@@ -1,5 +1,5 @@
-<div class="govuk-grid-row gem-print-columns-none translation-nav-header">
-  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
+<div class="govuk-grid-row gem-print-columns-none page-title__row">
+  <div class="govuk-grid-column-two-thirds page-title__column">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -11,7 +11,7 @@
     } %>
   </div>
   <% if options[:translations] %>
-    <div class="govuk-grid-column-one-third translation-nav-header__child">
+    <div class="govuk-grid-column-one-third page-title__column">
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
         margin_bottom: 0,

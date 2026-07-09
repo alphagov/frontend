@@ -1,10 +1,10 @@
-.translation-nav-header {
+.page-title__row {
   @include govuk-media-query($from: tablet) {
     margin-bottom: govuk-spacing(8);
   }
 }
 
-.translation-nav-header__child {
+.page-title__column {
   @include govuk-media-query($until: tablet) {
     margin-bottom: govuk-spacing(6);
   }

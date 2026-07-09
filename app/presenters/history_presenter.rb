@@ -8,6 +8,10 @@ class HistoryPresenter < ContentItemPresenter
     ]
   end
 
+  def contents
+    ContentsOutlinePresenter.new(content_item.contents_outline).for_contents_list_component
+  end
+
   def page_title_options
     {
       context: "History",

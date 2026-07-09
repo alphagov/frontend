@@ -10,6 +10,15 @@ RSpec.describe HistoryPresenter do
     end
   end
 
+  describe "#contents" do
+    it "returns options for a contents outline component" do
+      expect(history_presenter.contents).to eq([
+        { href: "#introduction-by-sir-anthony-seldon", items: [], text: "Introduction – by Sir Anthony Seldon" },
+        { href: "#explore-10-downing-street", items: [], text: "Explore 10 Downing Street" },
+      ])
+    end
+  end
+
   describe "#page_title_options" do
     it "has a context" do
       expect(history_presenter.page_title_options[:context]).to eq("History")

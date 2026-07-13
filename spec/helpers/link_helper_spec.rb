@@ -29,7 +29,7 @@ RSpec.describe LinkHelper do
       link = share_links(base_path, title).select { |l| l[:text] == "Share on X" }.first
 
       expect(link).not_to be_nil
-      expect(link[:icon]).to eq("twitter")
+      expect(link[:icon]).to eq("x")
       expect(link[:href]).to eq("https://x.com/share?url=http%3A%2F%2Fwww.dev.gov.uk%2Fbase-path&text=My%20Page")
     end
   end

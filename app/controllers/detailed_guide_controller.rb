@@ -3,6 +3,6 @@ class DetailedGuideController < ContentItemsController
   include Personalisable
 
   def show
-    @presenter = DetailedGuidePresenter.new(content_item)
+    @content_item_presenter = DetailedGuidePresenter.new(content_item)
   end
 end

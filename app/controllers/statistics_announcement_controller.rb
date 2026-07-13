@@ -2,6 +2,6 @@ class StatisticsAnnouncementController < ContentItemsController
   include Cacheable
 
   def show
-    @presenter = StatisticsAnnouncementPresenter.new(content_item)
+    @content_item_presenter = StatisticsAnnouncementPresenter.new(content_item)
   end
 end

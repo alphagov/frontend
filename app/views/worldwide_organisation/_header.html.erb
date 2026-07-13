@@ -1,5 +1,5 @@
-<header class="govuk-grid-row translation-nav-header">
-  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
+<header class="govuk-grid-row page-title__row">
+  <div class="govuk-grid-column-two-thirds page-title__column">
     <% locals = {
         organisation: worldwide_organisation.organisation_logo,
         inline: true,
@@ -22,7 +22,7 @@
       <% end %>
   </div>
 
-  <div class="govuk-grid-column-one-third translation-nav-header__child">
+  <div class="govuk-grid-column-one-third page-title__column">
     <% if @content_item.available_translations? %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         margin_bottom: 4,

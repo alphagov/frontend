@@ -1,7 +1,9 @@
 class WebchatController < ContentItemsController
   include Cacheable
 
-  def show; end
+  def show
+    @content_item_presenter = CallForEvidencePresenter.new(content_item)
+  end
 
   content_security_policy do |p|
     p.connect_src(*p.connect_src, -> { content_item.csp_connect_src })

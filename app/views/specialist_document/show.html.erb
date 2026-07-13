@@ -56,11 +56,11 @@
       </div>
 
       <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/published_dates", {
-            published: display_date(content_item.initial_publication_date),
-            last_updated: display_date(content_item.updated),
-            history: formatted_history(content_item.history),
-          } %>
+        <%= render "govuk_publishing_components/components/metadata", {
+          first_published: display_date(content_item.initial_publication_date),
+          last_updated: display_date(content_item.updated),
+          page_history: formatted_history(content_item.history),
+        } %>
       </div>
 
       <% if content_item_presenter.show_finder_link? %>

@@ -51,11 +51,11 @@
           title: t("components.share_links.share_this_page") %>
       </div>
 
-      <%= render "govuk_publishing_components/components/published_dates", {
+      <%= render "govuk_publishing_components/components/metadata", {
         dir: page_text_direction,
-        published: display_date(content_item.initial_publication_date),
+        first_published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),
-        history: formatted_history(content_item.history),
+        page_history: formatted_history(content_item.history),
       } %>
     </div>
   </div>

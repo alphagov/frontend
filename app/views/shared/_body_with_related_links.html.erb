@@ -20,9 +20,9 @@
       <% end %>
 
       <% if @content_item.public_updated_at && @content_item.schema_name == "help_page" %>
-      <%= render "govuk_publishing_components/components/published_dates", {
-        last_updated: display_date(@content_item.public_updated_at),
-      } %>
+        <%= render "govuk_publishing_components/components/metadata", {
+          last_updated: display_date(@content_item.public_updated_at),
+        } %>
       <% end %>
     </div>
   </div>

@@ -51,13 +51,12 @@
           } %>
       </div>
 
-      <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/published_dates", {
-          published: display_date(content_item.initial_publication_date),
-          last_updated: display_date(content_item.updated),
-          history: formatted_history(content_item.history),
-        } %>
-      </div>
+      <%= render "govuk_publishing_components/components/metadata", {
+        first_published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        page_history: formatted_history(content_item.history),
+        margin_bottom: 8,
+      } %>
     <% end %>
   </div>
   <%= render "shared/sidebar_navigation" %>

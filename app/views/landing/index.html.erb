@@ -24,46 +24,107 @@
   </nav>
   <% end %>
 
+<%
+  nav = [
+    {
+      text: "Stock photographs home",
+      href: "#"
+    },
+    {
+      text: "Common usage",
+      href: "#"
+    },
+    {
+      text: "Examples",
+      href: "#"
+    },
+    {
+      text: "Types",
+      href: "#"
+    },
+    {
+      text: "Examples",
+      href: "#"
+    },
+    {
+      text: "Watermarking",
+      href: "#"
+    },
+    {
+      text: "International trends and variations",
+      href: "#"
+    },
+    {
+      text: "Further reading",
+      href: "#"
+    },
+  ]
+  service_name = "Stock photographs home"
+
+  nav = [
+    {
+      text: "Advice and guidance for charity trustees home",
+      href: "#"
+    },
+    {
+      text: "5-minute guides",
+      href: "#"
+    },
+    {
+      text: "Updated guidance",
+      href: "#"
+    },
+    {
+      text: "Take the trustee quiz",
+      href: "#"
+    },
+    {
+      text: "Trustee finance toolkit",
+      href: "#"
+    },
+    {
+      text: "About us",
+      href: "#"
+    },
+  ]
+  service_name = "Advice and guidance for charity trustees"
+
+  nav = [
+    {
+      text: "Advice and guidance for charity trustees home",
+      href: "#"
+    },
+    {
+      text: "5-minute guides",
+      href: "#"
+    },
+    {
+      text: "Updated guidance",
+      href: "#"
+    },
+    {
+      text: "Take the trustee quiz",
+      href: "#"
+    },
+    {
+      text: "Trustee finance toolkit",
+      href: "#"
+    },
+    {
+      text: "About us",
+      href: "#"
+    },
+  ]
+  service_name = "Advice and guidance"
+%>
+
   <%= render "govuk_publishing_components/components/service_navigation", {
-    service_name: "Stock photographs home",
+    service_name: service_name,
     service_name_url: "#",
     toggle_text: "Stock photographs",
     hide_service_name_on_mobile: true,
-    columns_layout: true,
-    navigation_items: [
-      {
-        text: "Stock photographs home",
-        href: "#"
-      },
-      {
-        text: "Common usage",
-        href: "#"
-      },
-      {
-        text: "Examples",
-        href: "#"
-      },
-      {
-        text: "Types",
-        href: "#"
-      },
-      {
-        text: "Examples",
-        href: "#"
-      },
-      {
-        text: "Watermarking",
-        href: "#"
-      },
-      {
-        text: "International trends and variations",
-        href: "#"
-      },
-      {
-        text: "Further reading",
-        href: "#"
-      },
-    ]
+    # columns_layout: false,
+    navigation_items: nav,
   } %>
 
   <%= render "components/impact_header", {

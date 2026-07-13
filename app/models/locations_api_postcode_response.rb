@@ -4,6 +4,7 @@ class LocationsApiPostcodeResponse
   def initialize(postcode, local_custodian_codes, error)
     @postcode = postcode
     @local_custodian_codes = local_custodian_codes
+    @local_custodian_codes&.delete(7655)
     @error = error
   end
 

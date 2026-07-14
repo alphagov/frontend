@@ -12,7 +12,8 @@ class ServiceManualController < ContentItemsController
   end
 
   def service_manual_guide
-    @presenter = ServiceManualGuidePresenter.new(content_item)
+    @content_item_presenter = ServiceManualGuidePresenter.new(content_item)
+    render layout: "header_sidebar_content"
   end
 
   def service_manual_topic

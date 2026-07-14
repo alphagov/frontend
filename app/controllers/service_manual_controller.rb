@@ -7,7 +7,8 @@ class ServiceManualController < ContentItemsController
   end
 
   def service_standard
-    @presenter = ServiceManualServiceStandardPresenter.new(content_item)
+    @content_item_presenter = ServiceManualServiceStandardPresenter.new(content_item)
+    render layout: "header_content_sidebar"
   end
 
   def service_manual_guide

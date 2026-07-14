@@ -8,10 +8,9 @@ RSpec.describe "Service manual service standard page" do
       visit base_path
     end
 
-    it "service standard page has a heading, summary and intro" do
+    it "service standard page has a heading and lead paragraph" do
       expect(page).to have_css(".gem-c-heading__text", text: "Service Standard"), "No title found"
-      expect(page).to have_css(".app-page-header__summary", text: "The Service Standard is a set of 18 criteria to help government create and run good digital services."), "No description found"
-      expect(page).to have_css(".app-page-header__intro", text: "All public facing transactional services must meet the standard. It’s used by departments and the Government Digital Service to check whether a service is good enough for public use."), "No body found"
+      expect(page).to have_css(".gem-c-lead-paragraph", text: "The Service Standard is a set of 18 criteria to help government create and run good digital services."), "No description found"
     end
 
     it "service standard page has points" do

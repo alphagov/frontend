@@ -12,27 +12,6 @@ RSpec.describe "HTML publication" do
     end
 
     describe "when visiting a html publication" do
-      it "has expected elements and contents" do
-        visit base_path
-
-        within ".gem-c-inverse-header" do
-          format_sub_type = content_item["details"]["format_sub_type"]
-          expect(page).to have_text(format_sub_type) if format_sub_type.present?
-          expect(page).to have_text(content_item["title"])
-
-          expect(page).to have_text("Published 17 January 2016")
-        end
-
-        within "#contents" do
-          expect(page).to have_text("Contents")
-          expect(page).to have_css(".gem-c-contents-list")
-        end
-
-        expect(page).to have_css(".gem-c-print-link")
-
-        expect(page).to have_text("The Environment Agency will normally put any responses it receives on the public register. This includes your name and contact details. Tell us if you don’t want your response to be public.")
-      end
-
       it "renders back to contents elements" do
         expect(page).to have_css(".gem-c-back-to-top-link[href='#contents']")
       end

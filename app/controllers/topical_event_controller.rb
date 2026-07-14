@@ -3,7 +3,9 @@ class TopicalEventController < ContentItemsController
 
   def show
     respond_to do |format|
-      format.html
+      format.html do
+        @content_item_presenter = TopicalEventPresenter.new(content_item)
+      end
       format.atom do
         set_expiry(5.minutes)
         headers["Access-Control-Allow-Origin"] = "*"

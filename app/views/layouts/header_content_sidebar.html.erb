@@ -1,0 +1,39 @@
+<%
+  page_title = yield :title
+  page_title = page_title.presence || page_title(content_item)
+%>
+
+<%= content_for :head do %>
+  <%= render("layouts/head") %>
+<% end %>
+
+<%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title) do %>
+  <div class="govuk-width-container">
+
+    <% if content_item_presenter.breadcrumbs.any? %>
+      <%= render "govuk_publishing_components/components/breadcrumbs", {
+        collapse_on_mobile: true,
+        breadcrumbs: content_item_presenter.breadcrumbs,
+      } %>
+    <% end %>
+
+    <%= render "govuk_web_banners/recruitment_banner" %>
+
+    <main id="content" class="govuk-main-wrapper <%= rtl_attribute %>" <%= lang_attribute %>>
+      <span id="Top"></span>
+
+      <%= yield :header %>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <%= yield :content %>
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <%= yield :sidebar %>
+        </div>
+
+      </div>
+    </main>
+  </div>
+<% end %>

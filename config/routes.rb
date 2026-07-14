@@ -217,10 +217,6 @@ Rails.application.routes.draw do
     get "*path(.:locale)", to: "detailed_guide#show"
   end
 
-  constraints FullPathFormatRoutingConstraint.new("flexible_page") do
-    get "*path(.atom)", to: "flexible_page#show"
-  end
-
   constraints FullPathFormatRoutingConstraint.new("html_publication") do
     get "*path(.:locale)", to: "html_publication#show"
   end

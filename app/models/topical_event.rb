@@ -1,5 +1,6 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
+  include HasImages
 
   About = Data.define(:title, :summary, :contents_outline, :body)
 
@@ -73,6 +74,10 @@ class TopicalEvent < FlexiblePage
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
   end
 
+  def notable_death?
+    linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
+  end
+
 private
 
   def header_image
@@ -100,10 +105,6 @@ private
         mobile_2x: nil,
       },
     }
-  end
-
-  def notable_death?
-    linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
   end
 
   def impact_image

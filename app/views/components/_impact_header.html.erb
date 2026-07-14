@@ -2,22 +2,21 @@
   heading ||= nil
   description ||= nil
   image ||= nil
-  image_type ||= nil
   variant ||= nil
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.add_class("app-c-impact-header")
-  component_helper.add_class("app-c-impact-header--logo") if image_type == "logo"
+  component_helper.add_class("app-c-impact-header--logo") if image.type == "logo"
   component_helper.add_class("app-c-impact-header--govuk") if variant == "govuk"
   component_helper.add_class("app-c-impact-header--with-background") if variant
-  component_helper.add_class("app-c-impact-header--plain") unless variant || image_type == "logo"
+  component_helper.add_class("app-c-impact-header--plain") unless variant || image.type == "logo"
 
   if variant == "notable-death"
     component_helper.add_class("app-c-impact-header--notable-death") if variant == "notable-death"
     inverse = true
   end
 
-  show_caption = true if image && image[:caption] && !image[:caption].empty? && image_type != "logo"
+  show_caption = true if image && image.caption && !image.caption.empty? && image.type != "logo"
 %>
 <% if heading %>
   <% text = capture do %>
@@ -43,11 +42,18 @@
           <%= text %>
         </div>
 
-        <%= render "flexible_page/flexible_sections/shared/picture",
+        <%#= render "flexible_page/flexible_sections/shared/picture",
           image: image,
           style: "app-c-impact-header",
           alt_text: "" %>
+        <%= picture_tag(class: "#app-c-impact-header__image-wrapper") do %>
+          <%= tag.source srcset: srcset_string("desktop", image), media: "(min-width: 769px)" %>
+          <%= tag.source srcset: srcset_string("tablet", image), media: "(min-width: 641px) and (max-width: 768px)" %>
+          <%= tag.source srcset: srcset_string("mobile", image), media: "(max-width: 640px)" %>
+          <%= image_tag(image.sources["desktop"], class: "app-c-impact-header__image", alt: image.alt) %>
+      <% end %>
       </div>
+
       <% if show_caption %>
         <div class="app-c-impact-header__caption-wrapper">
           <div class="app-c-impact-header__caption">

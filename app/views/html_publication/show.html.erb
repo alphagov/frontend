@@ -381,10 +381,7 @@
     </ol>
   </div>
 </div>'
-
 %>
-
-
 
 <% content_for :head do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
@@ -474,7 +471,7 @@
       <% end %>
 
       <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-a",
+          header_three_quarters: true,
           chart_type: "bar",
           heading: "Chart 5: Share of traffic by vehicle types in Great Britain, 2025",
           h_axis_title: "% of total",
@@ -483,12 +480,12 @@
           hide_legend: true,
           h_axis_format: "percent",
           source: "Department for Transport",
-          keys: [
-            "Cars",
-            "Vans",
-            "Lorries",
-            "Motorcyles",
-            "Buses",
+          keys: %w[
+            Cars
+            Vans
+            Lorries
+            Motorcyles
+            Buses
           ],
           rows: [
             {
@@ -499,9 +496,9 @@
                 5,
                 1,
                 1,
-              ]
-            }
-          ]
+              ],
+            },
+          ],
         } %>
       <%= render "govuk_publishing_components/components/govspeak_html_publication", {
         direction: page_text_direction,
@@ -510,7 +507,7 @@
       <% end %>
 
         <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-quarters",
+          header_three_quarters: true,
           chart_type: "column",
           heading: "Chart 6: Vehicle miles travelled by vehicle type in Great Britain, 2019 to 2025",
           h_axis_title: "Vehicle Type",
@@ -518,12 +515,12 @@
           description: "Chart 6 is a bar chart that shows that car traffic levels in 2025 increased by 2.5% from 2024, and were similar to pre-pandemic (2019) levels.",
           hide_legend: true,
           source: "Department for Transport",
-          keys: [
-            "Cars",
-            "Vans",
-            "Lorries",
-            "Motorcyles",
-            "Buses",
+          keys: %w[
+            Cars
+            Vans
+            Lorries
+            Motorcyles
+            Buses
           ],
           rows: [
             {
@@ -534,7 +531,7 @@
                 15,
                 3,
                 5,
-              ]
+              ],
             },
             {
               label: "2020",
@@ -544,7 +541,7 @@
                 13,
                 1,
                 1,
-              ]
+              ],
             },
                         {
               label: "2021",
@@ -554,7 +551,7 @@
                 13,
                 1,
                 1,
-              ]
+              ],
             },
                         {
               label: "2022",
@@ -564,7 +561,7 @@
                 15,
                 1,
                 1,
-              ]
+              ],
             },
                         {
               label: "2023",
@@ -574,7 +571,7 @@
                 13,
                 1,
                 1,
-              ]
+              ],
             },
                         {
               label: "2024",
@@ -584,7 +581,7 @@
                 11,
                 1,
                 1,
-              ]
+              ],
             },
                         {
               label: "2025",
@@ -594,9 +591,9 @@
                 10,
                 1,
                 1,
-              ]
+              ],
             },
-          ]
+          ],
         } %>
 
       <%= render "govuk_publishing_components/components/govspeak_html_publication", {
@@ -605,9 +602,8 @@
         <%= raw(html_3.html_safe) %>
       <% end %>
 
-
       <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-quarters",
+          header_three_quarters: true,
           chart_type: "column",
           heading: "Chart 7: Car and taxi miles in Great Britain, 2015 to 2025",
           h_axis_title: "Year",
@@ -615,7 +611,7 @@
           description: "Chart 7 is a bar chart that shows that car miles travelled in Great Britain saw year-on-year growth in each year between 2015 and 2019. This was followed by a sharp decline in 2020 and increases in the years since. Traffic levels increased by 2.5% between 2024 and 2025 and were similar to pre-pandemic (2019) levels.",
           hide_legend: true,
           source: "Department for Transport",
-          keys: ["2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"],
+          keys: %w[2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025],
           rows: [{
               label: "Billion Vehicle Miles",
               values: [
@@ -629,13 +625,13 @@
                 245.88,
                 253.26,
                 258.07,
-                264.52
-              ]
-            }]
+                264.52,
+              ],
+            }],
         } %>
 
       <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-quarters",
+        header_three_quarters: true,
         chart_type: "column",
         heading: "Chart 8: Car and taxi miles by road type in Great Britain, 2025",
         h_axis_title: "Road type",
@@ -649,30 +645,30 @@
             values: [
               50,
               117,
-              94
-            ]
-          }]
+              94,
+            ],
+          }],
       } %>
   <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-quarters",
+    header_three_quarters: true,
     heading: "Chart 9: Monthly trend in car and taxi traffic, 2025",
     h_axis_title: "Month",
     v_axis_title: "Traffic Equivalent",
     description: "Chart 9 is a line chart that shows that during 2025 car traffic varied around the pre-pandemic levels for the equivalent months in 2019. Car and taxi traffic levels were between 1% above and 2% below the levels for the equivalent month of 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators. Index: 100 = same traffic as equivalent month in 2019",
     source: "Department for Transport",
-    keys: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
+    keys: %w[
+      Jan
+      Feb
+      Mar
+      Apr
+      May
+      Jun
+      Jul
+      Aug
+      Sep
+      Oct
+      Nov
+      Dec
     ],
     rows: [
       {
@@ -689,21 +685,21 @@
           100,
           105,
           100,
-          105
-        ]
-      }
-    ]
+          105,
+        ],
+      },
+    ],
   } %>
 
   <%= render "govuk_publishing_components/components/chart", {
-          header_max_width: "three-quarters",
+    header_three_quarters: true,
     heading: "Chart 10: Hourly car and taxi traffic trends on all road types in Great Britain, 2025",
     h_axis_title: "Day",
     v_axis_title: "Views",
     description: "Chart 10 is a line chart that shows that on an average weekday in 2025, car traffic was highest in the afternoon peak, between 4pm and 6pm. On an average weekend in 2025, car traffic was highest in the middle of the day, between 11pm and 1pm.",
     source: "Department for Transport",
      keys: [
-    "00:00",
+       "00:00",
     "01:00",
     "02:00",
     "03:00",
@@ -727,32 +723,97 @@
     "21:00",
     "22:00",
     "23:00",
-  ],
+     ],
   rows: [
     {
       label: "Monday to Thursday",
       values: [
-        10, 6, 5, 7, 11, 37, 85, 162, 183, 140, 135, 141,
-        147, 148, 159, 182, 206, 210, 165, 115, 78, 57, 40, 23
-      ]
+        10,
+6,
+5,
+7,
+11,
+37,
+85,
+162,
+183,
+140,
+135,
+141,
+        147,
+148,
+159,
+182,
+206,
+210,
+165,
+115,
+78,
+57,
+40,
+23,
+      ],
     },
     {
       label: "Friday",
       values: [
-        13, 8, 6, 8, 10, 33, 74, 143, 170, 143, 150, 162,
-        175, 177, 188, 207, 213, 207, 169, 123, 88, 67, 51, 35
-    ]
+        13,
+8,
+6,
+8,
+10,
+33,
+74,
+143,
+170,
+143,
+150,
+162,
+        175,
+177,
+188,
+207,
+213,
+207,
+169,
+123,
+88,
+67,
+51,
+35,
+      ],
     },
     {
       label: "Weekend",
       values: [
-        23, 14, 9, 9, 8, 15, 28, 49, 83, 131, 167, 186,
-        194, 186, 176, 169, 164, 152, 128, 105, 79, 61, 46, 31
-    ]
-    }
-  ]
+        23,
+14,
+9,
+9,
+8,
+15,
+28,
+49,
+83,
+131,
+167,
+186,
+        194,
+186,
+176,
+169,
+164,
+152,
+128,
+105,
+79,
+61,
+46,
+31,
+      ],
+    },
+  ],
 } %>
-
 
     </div>
   </div>

@@ -1,5 +1,5 @@
-<div class="govuk-grid-row gem-print-columns-none page-title__row">
-  <div class="govuk-grid-column-two-thirds page-title__column">
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -7,27 +7,41 @@
       dir: options[:page_text_direction],
       heading_level: 1,
       font_size: "xl",
-      margin_bottom: 0,
+      margin_bottom: 8,
     } %>
   </div>
 
   <% if options[:translations] %>
-    <div class="govuk-grid-column-one-third page-title__column">
+    <div class="govuk-grid-column-one-third">
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
-        margin_bottom: 0,
+        margin_bottom: 8,
       } %>
     </div>
   <% end %>
 </div>
 
-<% if options[:lead_paragraph] %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
+    <% if options[:lead_paragraph] %>
       <%= render "govuk_publishing_components/components/lead_paragraph", {
         text: options[:lead_paragraph],
         dir: options[:page_text_direction],
+        margin_bottom: 8,
       } %>
-    </div>
+    <% end %>
+
+    <% if options[:metadata] %>
+      <%= render "govuk_publishing_components/components/metadata", options[:metadata] %>
+    <% end %>
   </div>
-<% end %>
+
+  <div class="govuk-grid-column-one-third page-title__right">
+    <% if options[:links] %>
+      <%= render "govuk_publishing_components/components/list", {
+        items: options[:links],
+        margin_bottom: 8,
+      } %>
+    <% end %>
+  </div>
+</div>

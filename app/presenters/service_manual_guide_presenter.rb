@@ -37,7 +37,10 @@ class ServiceManualGuidePresenter < ContentItemPresenter
       heading_text: content_item.title,
       lead_paragraph: (content_item.lead_paragraph if show_description?),
       metadata: metadata,
-      links: [link_to("Give feedback about this page", "/contact/govuk", class: "govuk-link")],
+      link: {
+        text: "Give feedback about this page",
+        href: "/contact/govuk",
+      },
     }
   end
 

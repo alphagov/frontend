@@ -102,3 +102,12 @@
     text-align: start;
   }
 }
+
+.feedback-link {
+  text-align: left;
+  margin-bottom: govuk-spacing(8);
+
+  @include govuk-media-query($from: tablet) {
+    text-align: right;
+  }
+}

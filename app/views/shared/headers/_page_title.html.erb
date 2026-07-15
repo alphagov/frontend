@@ -32,16 +32,13 @@
     <% end %>
 
     <% if options[:metadata] %>
-      <%= render "govuk_publishing_components/components/metadata", options[:metadata] %>
+      <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8 }) %>
     <% end %>
   </div>
 
-  <div class="govuk-grid-column-one-third page-title__right">
-    <% if options[:links] %>
-      <%= render "govuk_publishing_components/components/list", {
-        items: options[:links],
-        margin_bottom: 8,
-      } %>
-    <% end %>
-  </div>
+  <% if options[:link] %>
+    <div class="govuk-grid-column-one-third feedback-link">
+      <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
+    </div>
+  <% end %>
 </div>

@@ -3,7 +3,7 @@
       margin-top: govuk-spacing(6);
       margin-bottom: govuk-spacing(6);
       padding-bottom: govuk-spacing(3);
-      border-bottom: 1px solid govuk-colour("black", $variant: "tint-80");
+      border-bottom: 1px solid govuk-functional-colour("border");
 
       @include govuk-media-query($from: tablet) {
         margin-top: 0;

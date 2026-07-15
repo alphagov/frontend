@@ -24,7 +24,7 @@ RSpec.describe "Speech" do
         expect(page).to have_text("Department of Energy & Climate Change and The Rt Hon Andrea Leadsom MP")
         expect(page).to have_link("Department of Energy", href: "/government/organisations/department-of-energy-climate-change")
         expect(page).to have_link("The Rt Hon Andrea Leadsom MP", href: "/government/people/andrea-leadsom")
-        expect(page).to have_text("Published 8 March 2016")
+        expect(page).to have_text("Published: 8 March 2016")
       end
 
       within("[class*='important-metadata']") do

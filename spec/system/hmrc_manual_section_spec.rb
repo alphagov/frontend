@@ -29,7 +29,7 @@ RSpec.describe "HMRC Manual Section" do
     within(".gem-c-metadata") do
       expect(page).to have_text("From: HM Revenue & Customs")
       expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
-      expect(page).to have_content("Published 11 February 2015")
+      expect(page).to have_content("Published: 11 February 2015")
       expect(page).to have_link(I18n.t("formats.manuals.see_all_updates"), href: "#{manual_content_item['base_path']}/updates")
     end
   end

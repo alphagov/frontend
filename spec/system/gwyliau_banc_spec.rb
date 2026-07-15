@@ -202,7 +202,7 @@ RSpec.describe "GwyliauBanc" do
       visit "/gwyliau-banc"
 
       within(".gem-c-metadata") do
-        expect(page).to have_content("Diweddarwyd ddiwethaf 12 Rhagfyr 2023")
+        expect(page).to have_content("Diweddarwyd ddiwethaf: 12 Rhagfyr 2023")
       end
     end
   end

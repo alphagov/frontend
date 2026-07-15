@@ -26,7 +26,7 @@ RSpec.describe "Hmrc manual" do
       within("[class*='gem-c-inverse-header']") do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
-        expect(page).to have_text("Published 11 February 2015")
+        expect(page).to have_text("Published: 11 February 2015")
         expect(page).to have_text("Updated: 11 February 2015")
       end
     end
@@ -169,7 +169,7 @@ RSpec.describe "Hmrc manual" do
       within(".gem-c-metadata--inverse") do
         expect(page).to have_text("From:")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
-        expect(page).to have_text("Published 11 February 2015")
+        expect(page).to have_text("Published: 11 February 2015")
         expect(page).to have_text("Updated:")
       end
     end

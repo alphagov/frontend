@@ -24,7 +24,7 @@ RSpec.describe "Manual" do
       within(".gem-c-metadata--inverse") do
         expect(page).to have_text("From:")
         expect(page).to have_link("Government Digital Service", href: "/government/organisations/government-digital-service")
-        expect(page).to have_text("Published 27 April 2015")
+        expect(page).to have_text("Published: 27 April 2015")
         expect(page).to have_text("Updated:")
         expect(page).to have_link("See all updates", href: "#{base_path}/updates")
       end
@@ -84,7 +84,7 @@ RSpec.describe "Manual" do
       within(".gem-c-metadata--inverse") do
         expect(page).to have_text("From:")
         expect(page).to have_link("Government Digital Service", href: "/government/organisations/government-digital-service")
-        expect(page).to have_text("Published 27 April 2015")
+        expect(page).to have_text("Published: 27 April 2015")
         expect(page).to have_text("Updated: 27 April 2015")
       end
     end

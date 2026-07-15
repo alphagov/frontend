@@ -25,8 +25,8 @@ RSpec.describe "DetailedGuide" do
       within("[class*='metadata-column']") do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
-        expect(page).to have_text("Published 12 June 2014")
-        expect(page).to have_text("Last updated 18 February 2016")
+        expect(page).to have_text("Published: 12 June 2014")
+        expect(page).to have_text("Last updated: 18 February 2016")
       end
     end
 

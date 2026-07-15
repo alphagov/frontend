@@ -34,7 +34,7 @@ RSpec.describe "Publication" do
       within("[class*='metadata-column']") do
         expect(page).to have_link("Environment Agency", href: "/government/organisations/environment-agency")
         expect(page).to have_link("The Rt Hon Sir Eric Pickles MP", href: "/government/people/eric-pickles")
-        expect(page).to have_text("Published 3 May 2016")
+        expect(page).to have_text("Published: 3 May 2016")
       end
     end
 

@@ -20,8 +20,8 @@ RSpec.describe "Consultation" do
     it "displays the metadata" do
       within(".gem-c-metadata") do
         expect(page).to have_content("From: Department for Education")
-        expect(page).to have_content("Published 4 November 2016")
-        expect(page).to have_content("Last updated 7 November 2016")
+        expect(page).to have_content("Published: 4 November 2016")
+        expect(page).to have_content("Last updated: 7 November 2016")
         expect(page).to have_link("See all updates", href: "#full-publication-update-history")
       end
     end

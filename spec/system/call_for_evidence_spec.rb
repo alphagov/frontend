@@ -16,8 +16,8 @@ RSpec.describe "CallForEvidence" do
     it "displays the metadata" do
       within(".gem-c-metadata") do
         expect(page).to have_content("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
-        expect(page).to have_content("Published 11 April 2023")
-        expect(page).to have_content("Last updated 15 May 2023")
+        expect(page).to have_content("Published: 11 April 2023")
+        expect(page).to have_content("Last updated: 15 May 2023")
         expect(page).to have_link("See all updates", href: "#full-publication-update-history")
       end
     end

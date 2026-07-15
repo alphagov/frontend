@@ -30,7 +30,7 @@ RSpec.describe "Manual Section" do
       within(".gem-c-metadata") do
         expect(page).to have_text("From: Government Digital Service")
         expect(page).to have_link("Government Digital Service", href: "/government/organisations/government-digital-service")
-        expect(page).to have_content("Published 27 April 2015")
+        expect(page).to have_content("Published: 27 April 2015")
         expect(page).to have_link(I18n.t("formats.manuals.see_all_updates"), href: "#{manual_content_item['base_path']}/updates")
       end
     end

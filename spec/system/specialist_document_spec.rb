@@ -191,8 +191,8 @@ RSpec.describe "Specialist Document" do
 
         within ".metadata-column .gem-c-metadata" do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
-          expect(page).to have_text("Published 3 October 2024")
-          expect(page).to have_text("Last updated 7 February 2025")
+          expect(page).to have_text("Published: 3 October 2024")
+          expect(page).to have_text("Last updated: 7 February 2025")
         end
       end
 
@@ -222,8 +222,8 @@ RSpec.describe "Specialist Document" do
 
         within ".metadata-column .gem-c-metadata" do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
-          expect(page).to have_text("Published 15 October 2020")
-          expect(page).not_to have_text("Last updated 15 October 2020")
+          expect(page).to have_text("Published: 15 October 2020")
+          expect(page).not_to have_text("Last updated: 15 October 2020")
         end
       end
 

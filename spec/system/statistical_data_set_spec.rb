@@ -30,7 +30,7 @@ RSpec.describe "Statistical Data Set" do
 
       within("[class*='metadata-column']") do
         expect(page).to have_text("Department for Transport")
-        expect(page).to have_text("Published 13 December 2012")
+        expect(page).to have_text("Published: 13 December 2012")
       end
     end
 

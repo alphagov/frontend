@@ -262,7 +262,7 @@ RSpec.describe "BankHolidays" do
     visit "/bank-holidays"
 
     within(".gem-c-metadata") do
-      expect(page).to have_content("Last updated 12 December 2023")
+      expect(page).to have_content("Last updated: 12 December 2023")
     end
   end
 

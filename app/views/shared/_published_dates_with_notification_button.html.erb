@@ -2,12 +2,12 @@
   <%= stylesheet_link_tag "views/_published-dates-button-group", media: "all" %>
 <% end %>
 
-<%= render "govuk_publishing_components/components/published_dates", {
-    published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    history: formatted_history(content_item.history),
-    margin_bottom: 5,
-  } %>
+<%= render "govuk_publishing_components/components/metadata", {
+  first_published: display_date(content_item.initial_publication_date),
+  last_updated: display_date(content_item.updated),
+  page_history: formatted_history(content_item.history),
+  margin_bottom: 5,
+} %>
 
 <div class="published-dates-button-group">
   <h2 class="govuk-visually-hidden">

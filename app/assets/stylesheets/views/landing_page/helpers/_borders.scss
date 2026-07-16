@@ -1,7 +1,0 @@
-@import "colours";
-
-@each $name, $colour in $colours {
-  .border-top--theme-#{$name} {
-    border-top: 20px solid $colour;
-  }
-}

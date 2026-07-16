@@ -65,7 +65,7 @@
 <div id="contents">
   <div class="govuk-grid-row gem-print-columns-none">
     <% if content_item.headers.any? %>
-      <div class="govuk-grid-column-one-quarter-from-desktop contents-list-container">
+      <div class="govuk-grid-column-one-quarter-from-desktop sticky-column">
         <%= render "govuk_publishing_components/components/contents_list", contents: @presenter.headers_for_contents_list_component, format_numbers: true %>
 
         <%= render "govuk_publishing_components/components/print_link", {

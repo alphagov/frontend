@@ -65,6 +65,8 @@
 @import "govuk_publishing_components/components/translation-nav";
 @import "govuk_publishing_components/components/warning-text";
 
+@import "govuk_publishing_components/components/service-navigation";
+
 @import "views/flexible-content";
 
 @import "components/calendar";
@@ -101,5 +103,51 @@
 
   table th {
     text-align: start;
+  }
+}
+
+.nav-test {
+  background: #f4f8fb;
+  border-bottom: solid 1px #b1c4d2;
+}
+
+.nav-test__inner {
+  display: flex;
+  flex-direction: column;
+
+  @include govuk-media-query($from: tablet) {
+    flex-direction: row;
+  }
+}
+
+.nav-test__list {
+  padding: 0 0 0.5em 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.nav-test__list-item {
+  padding: 0.5em 1em 0.5em 0;
+  @include govuk-font(19);
+
+  @include govuk-media-query($from: tablet) {
+    padding: 0.5em;
+  }
+}
+
+.nav-test__home {
+  flex-shrink: 0;
+  padding: 0.5em 1em 0.5em 0;
+}
+
+.nav-test__home-link {
+  padding-left: 0;
+  @include govuk-font(19, $weight: "bold");
+
+  &:link {
+    color: black;
   }
 }

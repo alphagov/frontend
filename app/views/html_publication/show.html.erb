@@ -1,3 +1,388 @@
+<%
+  html_1 =
+  '<div class="govspeak">
+  <h2 id="about-this-release">About this release</h2>
+  <p>This release presents the 2025 annual estimates of traffic on Great Britain’s roads broken down by vehicle type.</p>
+  <p>Please see the companion releases for a <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2025/road-traffic-estimates-in-great-britain-2025-headline-figures">an overview of the 2025 traffic estimates</a>, a <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2025/road-traffic-estimates-in-great-britain-2025-traffic-in-great-britain-by-road-type">breakdown by road type</a>, a <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2025/road-traffic-estimates-in-great-britain-2025-traffic-on-englands-road-networks">breakdown for England’s road networks</a>. </p>
+  <p>Annual traffic statistics are compiled using data from around 7,000 roadside 12-hour manual counts, continuous data from automatic traffic counters, and data on road lengths. Please see our <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2024/background-quality-report">background quality report</a> for more details. </p>
+  <p>The next annual traffic statistics release is expected to be published in May 2027, reporting 2026 traffic figures.</p>
+  <p>This publication includes both accredited official statistics <sup id="fnref:1">
+      <a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">[footnote 1]</a>
+    </sup> and official statistics. For more information, see the <a href="#background-information">background information section</a>. </p>
+  <h2 id="overview">Overview</h2>
+  <div class="call-to-action">
+    <p>In 2025, cars continue to be the main contributor to changes in overall motor vehicle traffic.</p>
+  </div>'
+
+  html_2 = '
+  <p>Vans have become more important over the last decades, accounting for 17% of all motor vehicle traffic in 2025.</p>
+  <p>Lorries, buses and coaches, and motorcycles have had similar shares of traffic over the last few decades. In 2025, lorries accounted for 5% of traffic; buses and coaches were 1% of traffic; and motorcycles were 1% of traffic.</p>
+  <div class="call-to-action">
+    <p>In 2025, traffic levels for cars, buses and coaches and motorcycles were above the previous year’s levels, whereas lorries were below, and vans were broadly similar. Pedal cycle traffic levels in 2025 increased when compared to the previous year.</p>
+  </div>
+  '
+  html_3 = '
+  <p>Van traffic levels for 2025 showed little change (+0.5%) from 2024 but remain above pre-pandemic levels. Lorry traffic estimates decreased by 1.7% from 2024 and were below pre-pandemic levels.</p>
+  <p>Bus traffic levels were 1.8% above 2024 but remained lower than 2019 levels. Motorcycle traffic increased by 2.3% from 2024 and were higher than levels before the pandemic.</p>
+  <p>Pedal cycle traffic levels increased by 4.2% between 2024 and 2025. Pedal cycle traffic was above pre-pandemic levels in 2025.</p>
+  <h2 id="car-and-taxi-traffic">Car and taxi traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definition</strong>
+    </p>
+    <p>
+      <strong>Cars and taxis</strong>
+    </p>
+    <p>Includes passenger vehicles with 9 or fewer seats, 3 wheeled cars and 4 wheel-drive ‘sports utility vehicles’. Cars towing caravans or trailers are counted as one vehicle.</p>
+  </div>
+  <div class="call-to-action">
+    <p>Compared with 2024, car and taxi traffic in Great Britain increased by 2.5% to 262.4 billion vehicle miles in 2025. Car and taxi traffic in 2025 was similar to pre-pandemic levels (-0.2% when compared to 2019).</p>
+  </div>'
+
+  html_4 = '
+  <h2 id="van-traffic">Van traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definition</strong>
+    </p>
+    <p>
+      <strong>Vans (Light Commercial Vehicles - LCVs)</strong>
+    </p>
+    <p>Includes goods vehicles not exceeding 3.5 tonnes gross vehicle weight. Includes all car-based vans and those of the next largest carrying capacity such as transit vans. Also included are ambulances, pickups and milk floats.</p>
+  </div>
+  <div class="call-to-action">
+    <p>Compared with 2024, van traffic in Great Britain showed little change (+0.5%) at 58.8 billion vehicle miles in 2025. Van traffic in 2025 was 10.0% higher than 2019.</p>
+  </div>
+  <p>
+    <strong>Chart 11: Van miles in Great Britain, 2015 to 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a383af7c2e79c33db9053/chart11-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 11 is a bar chart that shows that van miles travelled in Great Britain saw year-on-year growth in each year between 2015 and 2019. This was followed by a decline in 2020 and then increases in the years since. Traffic levels showed little change (+0.5%) between 2024 and 2025 and were 58.8 billion vehicle miles in 2025.</p>
+  <p>
+    <strong>Chart 12: Van miles by road type in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3846c75cc34a8ff8f370/chart12-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 12 is a bar chart that shows that in 2025:</p>
+  <ul>
+    <li>van traffic on motorways was 13.0 billion vehicle miles, 22% of total van miles</li>
+    <li>van traffic on ‘A’ roads was 25.0 billion vehicle miles, 42% of total van miles</li>
+    <li>van traffic on minor roads was 20.8 billion vehicle miles, 35% of total van miles</li>
+  </ul>
+  <p>Note: percentages may not sum due to rounding.</p>
+  <p>
+    <strong>Chart 13: Monthly trend in van traffic, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3850c510c3913d8266e0/chart13-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 13 is a line chart that shows that during 2025 van traffic was higher in every month than the pre-pandemic levels for the equivalent months in 2019. Van traffic levels were between 7% above and 12% above the levels for the equivalent months in 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators.</p>
+  <p>
+    <strong>Chart 14: Hourly van traffic trends on all road types in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3859f7c2e79c33db9054/chart14-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 14 is a line chart that shows that on average in 2025, vans had similar daily travel patterns to cars. The weekday morning and afternoon peaks were a similar level to cars, however, the afternoon peak is higher for cars.</p>
+  <p>The proportion of vans on the road at weekends was generally lower than weekdays, even at the peak periods.</p>
+  <h2 id="lorry-traffic">Lorry traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definition</strong>
+    </p>
+    <p>
+      <strong>Lorries (Heavy Goods Vehicles - HGVs)</strong>
+    </p>
+    <p>Includes all goods vehicles over 3.5 tonnes gross vehicle weight.</p>
+  </div>
+  <div class="call-to-action">
+    <p>In 2025 lorries travelled 16.3 billion vehicle miles, a decline of 1.7% when compared with 2024. Lorry traffic in 2025 was 5.1% lower than 2019 levels.</p>
+  </div>
+  <p>
+    <strong>Chart 15: Lorry miles in Great Britain, 2015 to 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3865c75cc34a8ff8f371/chart15-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 15 is a bar chart that shows that lorry miles travelled in Great Britain saw small levels of growth in each year between 2015 and 2017, and then remained broadly stable until 2019. This was then followed by a decline in 2020. Lorry traffic increased in 2021, before small falls in the years since. Traffic levels in 2025 were 1.7% lower when compared with 2024.</p>
+  <p>
+    <strong>Chart 16: Lorry miles by road type in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3871c75cc34a8ff8f372/chart16-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 16 is a bar chart that shows that in 2025:</p>
+  <ul>
+    <li>lorry traffic on motorways was 7.7 billion vehicle miles, 47% of total lorry miles</li>
+    <li>lorry traffic on ‘A’ roads was 7.3 billion vehicle miles, 45% of total lorry miles</li>
+    <li>lorry traffic on minor roads was 1.3 billion vehicle miles, 8% of total lorry miles</li>
+  </ul>
+  <p>
+    <strong>Chart 17: Monthly trend in lorry traffic, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a387ff7c2e79c33db9055/chart17-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 17 is a line chart that shows that during 2025 lorry traffic was lower in every month than the pre-pandemic levels for the equivalent months in 2019. Lorry traffic levels were between 9% below and 1% below the levels for the equivalent months in 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators.</p>
+  <p>
+    <strong>Chart 18: Hourly lorry traffic trends on all road types in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3889f7c2e79c33db9056/chart18-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 18 is a line chart that shows that on an average weekday in 2025 lorries had a more constant level of traffic from 6am to 5pm, compared to the morning and evening peaks seen in cars and vans. There were much lower numbers of lorries on the roads at the weekends than on weekdays.</p>
+  <h2 id="motorcycle-and-scooter-traffic">Motorcycle and scooter traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definition</strong>
+    </p>
+    <p>
+      <strong>Motorcycles and scooters</strong>
+    </p>
+    <p>Includes motorcycles, scooters and mopeds and all motorcycle or scooter combinations.</p>
+  </div>
+  <div class="call-to-action">
+    <p>Compared to 2024, motorcycle and scooter (excluding e-scooter) traffic increased by 2.3% in 2025 and reached 3.0 billion vehicle miles. Motorcycle traffic in 2025 was 13.1% higher than 2019.</p>
+  </div>
+  <p>
+    <strong>Chart 19: Motorcycle and scooter miles in Great Britain, 2015 to 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a3895279ebb7d24f8f36a/chart19-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 19 is a bar chart that shows that motorcycle miles travelled in Great Britain saw growth between 2015 and 2016, followed by small falls between 2017 and 2019. This was then followed by a greater decline in 2020. Motorcycle traffic has increased each year since, and reached 3.0 billion vehicle miles in 2025.</p>
+  <p>
+    <strong>Chart 20: Motorcycle and scooter miles by road type in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38a0c510c3913d8266e1/chart20-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 20 is a bar chart that shows that in 2025:</p>
+  <ul>
+    <li>motorcycle traffic on motorways was 0.2 billion vehicle miles, 6% of total motorcycle miles</li>
+    <li>motorcycle traffic on ‘A’ roads was 1.3 billion vehicle miles, 42% of total motorcycle miles</li>
+    <li>motorcycle traffic on minor roads was 1.6 billion vehicle miles, 52% of total motorcycle miles</li>
+  </ul>
+  <p>
+    <strong>Chart 21: Monthly trend in motorcycle and scooter traffic, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38ac229555d0fe8266db/chart21-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 21 is a line chart that shows that during 2025 motorcycle traffic was higher than the equivalent month in 2019 in the majority of months. Motorcycle traffic levels were between 6% below and 27% above the levels for the equivalent months in 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators.</p>
+  <h2 id="bus-and-coach-traffic">Bus and coach traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definition</strong>
+    </p>
+    <p>
+      <strong>Buses and coaches</strong>
+    </p>
+    <p>Includes all public service vehicles and works buses which have a gross weight greater than 3.5 tonnes.</p>
+  </div>
+  <div class="call-to-action">
+    <p>Bus and coach traffic saw a 1.8% rise between 2024 and 2025, and reached 2.0 billion vehicle miles in 2025. Compared to 2019, bus and coach traffic was 15.7% lower in 2025.</p>
+  </div>
+  <p>
+    <strong>Chart 22: Bus and coach miles in Great Britain, 2015 to 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38b8279ebb7d24f8f36b/chart22-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 22 is a bar chart that shows that bus and coach miles travelled in Great Britain generally saw year-on-year falls in each year between 2015 and 2019. This was then followed by a sharper decline in 2020. Bus traffic increased in 2021 and 2022, before a small fall in 2023. Traffic levels showed a 1.8% rise between 2024 and 2025; but 2025 bus and coach traffic levels remained lower than the 2019 levels.</p>
+  <p>
+    <strong>Chart 23: Bus and coach miles by road type in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38c3279ebb7d24f8f36c/chart23-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 23 is a bar chart that shows that in 2025:</p>
+  <ul>
+    <li>bus and coach traffic on motorways was 0.2 billion vehicle miles, 9% of total bus and coach miles</li>
+    <li>bus and coach traffic on ‘A’ roads was 0.9 billion vehicle miles, 45% of total bus and coach miles</li>
+    <li>bus and coach traffic on minor roads was 0.9 billion vehicle miles, 46% of total bus and coach miles</li>
+  </ul>
+  <p>
+    <strong>Chart 24: Monthly trend in bus and coach traffic, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38cef7c2e79c33db9057/chart24-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 24 is a line chart that shows that during 2025 bus and coach traffic was lower in every month than the pre-pandemic levels for the equivalent months in 2019. Bus and coach traffic levels were between 20% below and 13% below the levels for the equivalent months in 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators.</p>
+  <h2 id="pedal-cycle-traffic">Pedal cycle traffic</h2>
+  <div class="example">
+    <p>
+      <strong>Definitions</strong>
+    </p>
+    <p>
+      <strong>Pedal cycles</strong>
+    </p>
+    <p>Includes all non-motorised pedal cycles and includes electric bicycles. Estimates for pedal cycle traffic only include cycling on public highways, and on cycle paths and footpaths adjacent to them. Cycle activity elsewhere (for example on canal towpaths, byways or bridleways) is not included in road traffic statistics.</p>
+  </div>
+  <div class="call-to-action">
+    <p>Pedal cycles travelled 3.7 billion miles on roads <sup id="fnref:2">
+        <a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">[footnote 2]</a>
+      </sup> in 2025, 4.2% higher than in 2024. Pedal cycle traffic was 1.2% higher when compared to 2019. </p>
+  </div>
+  <p>
+    <strong>Chart 25: Pedal cycle miles in Great Britain, 2015 to 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38db229555d0fe8266dc/chart25-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 25 is a bar chart that shows that pedal cycle miles travelled on roads <sup id="fnref:2:1">
+      <a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">[footnote 2]</a>
+    </sup> in Great Britain saw year-on-year increases in each year between 2017 and 2019. This was then followed by a sharp increase in 2020 and then falls in the following years to 2024. Pedal cycle traffic levels increased between 2024 and 2025, to reach 3.7 billion vehicle miles, and in 2025 were 1.2% higher than 2019 levels. </p>
+  <p>
+    <strong>Chart 26: Pedal cycle miles by road type in Great Britain, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38e5279ebb7d24f8f36d/chart26-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 26 is a bar chart that shows that in 2025:</p>
+  <ul>
+    <li>cycle traffic on ‘A’ roads was 0.7 billion vehicle miles, 19% of total cycle miles</li>
+    <li>cycle traffic on minor roads was 3.0 billion vehicle miles, 81% of total cycle miles</li>
+  </ul>
+  <p>
+    <strong>Chart 27: Monthly trend in pedal cycle traffic, 2025</strong>
+  </p>
+  <figure class="image embedded">
+    <div class="img">
+      <img src="https://assets.publishing.service.gov.uk/media/6a0a38eff7c2e79c33db9058/chart27-road_traffic_estimates.svg" alt="">
+    </div>
+  </figure>
+  <p>Chart 27 is a line chart that shows that monthly pedal cycle traffic levels varied around the pre-pandemic levels for the equivalent months in 2019. Pedal cycle traffic levels were between 13% below and 9% above the levels for the equivalent months in 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators.</p>
+  <h2 id="background-information">Background information</h2>
+  <p>Annual estimates make use of data from around 8,000 manual traffic counts in addition to continuous data from a national network of automatic traffic counters (ATCs). These data sources produce accurate estimates on traffic levels in Great Britain by vehicle type and by road type.</p>
+  <p>This publication is a compendium of both accredited official statistics <sup id="fnref:1:1">
+      <a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">[footnote 1]</a>
+    </sup> and official statistics. The type of statistics presented is detailed below. </p>
+  <ul>
+    <li>
+      <strong>Accredited Official Statistics:</strong> National and regional road traffic estimates and flow estimates
+    </li>
+  </ul>
+  <p>(Datasets: TRA0101-TRA0106, TRA0202-TRA0206, TRA0301-TRA0303, TRA0401-TRA0413, TRA3105, TRA4101-TRA4116, TRA4201-TRA4216.)</p>
+  <p>These official statistics were independently reviewed by the Office for Statistics Regulation in February 2013. They comply with the standards of trustworthiness, quality and value in the Code of Practice for Statistics and should be labelled <a rel="external" href="https://osr.statisticsauthority.gov.uk/policies/official-statistics-policies/accredited-official-statistics-policy/">‘accredited official statistics’</a>. </p>
+  <ul>
+    <li>
+      <strong>Other official statistics:</strong> Temporal road traffic estimates
+    </li>
+  </ul>
+  <p>(Datasets: TRA0305-TRA0308.)</p>
+  <p>Traffic temporal distributions are not as robust, as they are based on only the ATC data, and must be treated with caution. These statistics are <a rel="external" href="https://osr.statisticsauthority.gov.uk/policies/official-statistics-policies/official-statistics-policy/">official statistics</a>. They comply with the standards of trustworthiness, quality, and value in the <a rel="external" href="https://code.statisticsauthority.gov.uk/the-code/">Code of Practice for Statistics</a>. </p>
+  <ul>
+    <li>
+      <strong>Other official statistics:</strong> Static road network road traffic estimates
+    </li>
+  </ul>
+  <p>(Datasets: TRA4201-TRA4216)</p>
+  <p>Traffic estimates based on a static road management status were developed after the last review of these statistics. These statistics are <a rel="external" href="https://osr.statisticsauthority.gov.uk/policies/official-statistics-policies/official-statistics-policy/">official statistics</a>. They comply with the standards of trustworthiness, quality, and value in the <a rel="external" href="https://code.statisticsauthority.gov.uk/the-code/">Code of Practice for Statistics</a>. </p>
+  <ul>
+    <li>
+      <strong>Other official statistics:</strong> Local authority road traffic estimates
+    </li>
+  </ul>
+  <p>(Datasets: TRA8901-TRA8907)</p>
+  <p>Traffic at this level is not as robust, due to the sample size of the minor road data, and must be treated with caution. These statistics are <a rel="external" href="https://osr.statisticsauthority.gov.uk/policies/official-statistics-policies/official-statistics-policy/">official statistics</a>. They comply with the standards of trustworthiness, quality, and value in the <a rel="external" href="https://code.statisticsauthority.gov.uk/the-code/">Code of Practice for Statistics</a>. </p>
+  <p>Further information about these statistics is <a href="https://www.gov.uk/guidance/road-traffic-statistics-information">available</a>, including: </p>
+  <ul>
+    <li>
+      <p>a detailed explanation of the methodology used to produce DfT road traffic statistics can be found online in the <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2024/background-quality-report">annual road traffic estimates: background quality report</a>
+      </p>
+    </li>
+    <li>
+      <p>
+        <a href="https://www.gov.uk/government/statistics/road-traffic-estimates-in-great-britain-2024/notes-and-definitions">notes and definitions</a> for the road traffic statistics
+      </p>
+    </li>
+    <li>
+      <p>the <a href="https://www.gov.uk/government/statistical-data-sets/road-traffic-statistics-tra">data tables</a>, which give further detail of the key results presented in this statistical release </p>
+    </li>
+    <li>
+      <p>a <a rel="external" href="https://roadtraffic.dft.gov.uk">geographical website</a> that allows users to view and download estimated traffic flows on every link of the ‘A’ road and motorway network in Great Britain </p>
+    </li>
+  </ul>
+  <p>
+    <br>
+  </p>
+  <p>Details of Ministers and officials who receive <strong>pre-release access</strong> to these statistics up to 24 hours before release can be found on the <a href="https://www.gov.uk/government/publications/pre-release-access-lists-for-road-traffic-speeds-and-congestion-series">pre-release access page</a>. </p>
+  <h2 id="instructions-for-printing-and-saving">Instructions for printing and saving</h2>
+  <p>Depending on which browser you use and the type of device you use (such as a mobile or laptop) these instructions may vary.</p>
+  <p>You will find your print and save options in your browser’s menu. You may also have other options available on your device. Tablets and mobile device instructions will be specific to the make and model of the device.</p>
+  <h2 id="how-to-search">How to search</h2>
+  <div class="call-to-action">
+    <p>
+      <strong>Select Ctrl and F on a Windows laptop or Command and F on a Mac</strong>
+    </p>
+  </div>
+  <p>This will open a search box in the top right-hand corner of the page. Type the word you are looking for in the search bar and press enter.</p>
+  <p>Your browser will highlight the word, usually in yellow, wherever it appears on the page. Press enter to move to the next place it appears.</p>
+  <h2 id="contact-details">Contact details</h2>
+  <div class="contact contact" id="contact_1335">
+    <p class="govuk-body">Road traffic and vehicle speed compliance statistics</p>
+    <div>
+      <p class="govuk-body govuk-!-margin-bottom-4"> Email <a class="govuk-link" href="mailto:roadtraff.stats@dft.gov.uk">roadtraff.stats@dft.gov.uk</a>
+      </p>
+      <p class="govuk-body govuk-!-margin-bottom-4"> Media enquiries 0300 7777 878 </p>
+    </div>
+  </div>
+  <p>To hear more about Department for Transport (DfT) statistical publications as they are released, follow us on X at <a rel="external" href="https://x.com/dftstats?lang=en">DfTstats</a>. </p>
+  <div class="footnotes" role="doc-endnotes">
+    <ol>
+      <li id="fn:1">
+        <p>Accredited official statistics are called National Statistics in the Statistics and Registration Service Act 2007 <a href="#fnref:1" class="reversefootnote" role="doc-backlink" aria-label="go to where this is referenced">↩</a>
+          <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink" aria-label="go to where this is referenced 2">↩ <sup>2</sup>
+          </a>
+        </p>
+      </li>
+      <li id="fn:2">
+        <p>Estimates for pedal cycle traffic only include cycling on public highways, and on cycle paths and footpaths adjacent to them. Cycle activity elsewhere (for example on canal towpaths, byways or bridleways) is not included in road traffic statistics. Therefore, they may not give a complete representation of cycling. Further analyses are available from other sources, such as <a href="https://www.gov.uk/government/collections/national-travel-survey-statistics">DfT’s National Travel Survey</a> and <a rel="external" href="https://activelives.sportengland.org/Home/AdultData">Sport England’s Active Lives Survey</a>. <a href="#fnref:2" class="reversefootnote" role="doc-backlink" aria-label="go to where this is referenced">↩</a>
+          <a href="#fnref:2:1" class="reversefootnote" role="doc-backlink" aria-label="go to where this is referenced 2">↩ <sup>2</sup>
+          </a>
+        </p>
+      </li>
+    </ol>
+  </div>
+</div>'
+%>
+
 <% content_for :head do %>
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :html_publication,
@@ -82,8 +467,354 @@
       <%= render "govuk_publishing_components/components/govspeak_html_publication", {
         direction: page_text_direction,
       } do %>
-        <%= raw(content_item.body.html_safe) %>
+        <%= raw(html_1.html_safe) %>
       <% end %>
+
+      <%= render "govuk_publishing_components/components/chart", {
+          header_three_quarters: true,
+          chart_type: "bar",
+          heading: "Chart 5: Share of traffic by vehicle types in Great Britain, 2025",
+          h_axis_title: "% of total",
+          v_axis_title: "Vehicle Type",
+          description: "Chart 5 is a bar chart that shows that cars account for the majority (77%) of all motor vehicle traffic. Therefore, cars continue to be the main contributor to changes in overall motor vehicle traffic.",
+          hide_legend: true,
+          h_axis_format: "percent",
+          source: "Department for Transport",
+          keys: %w[
+            Cars
+            Vans
+            Lorries
+            Motorcyles
+            Buses
+          ],
+          rows: [
+            {
+              label: "Vehicles",
+              values: [
+                77,
+                17,
+                5,
+                1,
+                1,
+              ],
+            },
+          ],
+        } %>
+      <%= render "govuk_publishing_components/components/govspeak_html_publication", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(html_2.html_safe) %>
+      <% end %>
+
+        <%= render "govuk_publishing_components/components/chart", {
+          header_three_quarters: true,
+          chart_type: "column",
+          heading: "Chart 6: Vehicle miles travelled by vehicle type in Great Britain, 2019 to 2025",
+          h_axis_title: "Vehicle Type",
+          v_axis_title: "Billion Vehicle Miles",
+          description: "Chart 6 is a bar chart that shows that car traffic levels in 2025 increased by 2.5% from 2024, and were similar to pre-pandemic (2019) levels.",
+          hide_legend: true,
+          source: "Department for Transport",
+          keys: %w[
+            Cars
+            Vans
+            Lorries
+            Motorcyles
+            Buses
+          ],
+          rows: [
+            {
+              label: "2019",
+              values: [
+                250,
+                51,
+                15,
+                3,
+                5,
+              ],
+            },
+            {
+              label: "2020",
+              values: [
+                200,
+                45,
+                13,
+                1,
+                1,
+              ],
+            },
+                        {
+              label: "2021",
+              values: [
+                220,
+                50,
+                13,
+                1,
+                1,
+              ],
+            },
+                        {
+              label: "2022",
+              values: [
+                240,
+                50,
+                15,
+                1,
+                1,
+              ],
+            },
+                        {
+              label: "2023",
+              values: [
+                245,
+                50,
+                13,
+                1,
+                1,
+              ],
+            },
+                        {
+              label: "2024",
+              values: [
+                247,
+                50,
+                11,
+                1,
+                1,
+              ],
+            },
+                        {
+              label: "2025",
+              values: [
+                250,
+                50,
+                10,
+                1,
+                1,
+              ],
+            },
+          ],
+        } %>
+
+      <%= render "govuk_publishing_components/components/govspeak_html_publication", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(html_3.html_safe) %>
+      <% end %>
+
+      <%= render "govuk_publishing_components/components/chart", {
+          header_three_quarters: true,
+          chart_type: "column",
+          heading: "Chart 7: Car and taxi miles in Great Britain, 2015 to 2025",
+          h_axis_title: "Year",
+          v_axis_title: "Billion Vehicle Miles",
+          description: "Chart 7 is a bar chart that shows that car miles travelled in Great Britain saw year-on-year growth in each year between 2015 and 2019. This was followed by a sharp decline in 2020 and increases in the years since. Traffic levels increased by 2.5% between 2024 and 2025 and were similar to pre-pandemic (2019) levels.",
+          hide_legend: true,
+          source: "Department for Transport",
+          keys: %w[2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025],
+          rows: [{
+              label: "Billion Vehicle Miles",
+              values: [
+                250,
+                254.5,
+                259.59,
+                260.88,
+                264.8,
+                198.86,
+                223.12,
+                245.88,
+                253.26,
+                258.07,
+                264.52,
+              ],
+            }],
+        } %>
+
+      <%= render "govuk_publishing_components/components/chart", {
+        header_three_quarters: true,
+        chart_type: "column",
+        heading: "Chart 8: Car and taxi miles by road type in Great Britain, 2025",
+        h_axis_title: "Road type",
+        v_axis_title: "Billion Vehicle Miles",
+        description: "Chart 8 is a bar chart that shows that in 2025 car traffic on motorways was 50.8 billion vehicle miles, 19% of total car miles. Car traffic on ‘A’ roads was 117.1 billion vehicle miles, 45% of total car miles. Car traffic on minor roads was 94.4 billion vehicle miles, 36% of total car miles.",
+        hide_legend: true,
+        source: "Department for Transport",
+        keys: ["Motorways", "All 'A' Roads", "All Minor Roads"],
+        rows: [{
+            label: "Billion Vehicle Miles",
+            values: [
+              50,
+              117,
+              94,
+            ],
+          }],
+      } %>
+  <%= render "govuk_publishing_components/components/chart", {
+    header_three_quarters: true,
+    heading: "Chart 9: Monthly trend in car and taxi traffic, 2025",
+    h_axis_title: "Month",
+    v_axis_title: "Traffic Equivalent",
+    description: "Chart 9 is a line chart that shows that during 2025 car traffic varied around the pre-pandemic levels for the equivalent months in 2019. Car and taxi traffic levels were between 1% above and 2% below the levels for the equivalent month of 2019. Note that monthly levels are likely to be influenced by factors including the weather, holiday periods in months in 2025 and in the 2019 comparators. Index: 100 = same traffic as equivalent month in 2019",
+    source: "Department for Transport",
+    keys: %w[
+      Jan
+      Feb
+      Mar
+      Apr
+      May
+      Jun
+      Jul
+      Aug
+      Sep
+      Oct
+      Nov
+      Dec
+    ],
+    rows: [
+      {
+        label: "Traffic",
+        values: [
+          96,
+          99,
+          100,
+          100,
+          98,
+          105,
+          100,
+          100,
+          100,
+          105,
+          100,
+          105,
+        ],
+      },
+    ],
+  } %>
+
+  <%= render "govuk_publishing_components/components/chart", {
+    header_three_quarters: true,
+    heading: "Chart 10: Hourly car and taxi traffic trends on all road types in Great Britain, 2025",
+    h_axis_title: "Day",
+    v_axis_title: "Views",
+    description: "Chart 10 is a line chart that shows that on an average weekday in 2025, car traffic was highest in the afternoon peak, between 4pm and 6pm. On an average weekend in 2025, car traffic was highest in the middle of the day, between 11pm and 1pm.",
+    source: "Department for Transport",
+     keys: [
+       "00:00",
+    "01:00",
+    "02:00",
+    "03:00",
+    "04:00",
+    "05:00",
+    "06:00",
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00",
+     ],
+  rows: [
+    {
+      label: "Monday to Thursday",
+      values: [
+        10,
+6,
+5,
+7,
+11,
+37,
+85,
+162,
+183,
+140,
+135,
+141,
+        147,
+148,
+159,
+182,
+206,
+210,
+165,
+115,
+78,
+57,
+40,
+23,
+      ],
+    },
+    {
+      label: "Friday",
+      values: [
+        13,
+8,
+6,
+8,
+10,
+33,
+74,
+143,
+170,
+143,
+150,
+162,
+        175,
+177,
+188,
+207,
+213,
+207,
+169,
+123,
+88,
+67,
+51,
+35,
+      ],
+    },
+    {
+      label: "Weekend",
+      values: [
+        23,
+14,
+9,
+9,
+8,
+15,
+28,
+49,
+83,
+131,
+167,
+186,
+        194,
+186,
+176,
+169,
+164,
+152,
+128,
+105,
+79,
+61,
+46,
+31,
+      ],
+    },
+  ],
+} %>
+
     </div>
   </div>
 

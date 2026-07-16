@@ -19,7 +19,6 @@ module ApplicationHelper
     no_breadcrumbs_for = %w[flexible_page
                             history
                             homepage
-                            landing_page
                             service_manual_homepage
                             service_manual_guide
                             service_manual_service_standard

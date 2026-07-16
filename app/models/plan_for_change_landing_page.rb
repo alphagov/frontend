@@ -1,2 +1,0 @@
-class PlanForChangeLandingPage < LandingPage
-end

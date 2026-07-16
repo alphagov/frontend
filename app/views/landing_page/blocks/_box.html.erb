@@ -1,9 +1,0 @@
-<div class="box <%= "border-top--#{style(block.data["theme_colour"])}" %>">
-  <p class="govuk-body box__content">
-    <%= govuk_styled_link(block.content, path: block.href) %>
-  </p>
-
-  <% block.box_content.each do |subblock| %>
-    <%= render_block(subblock) %>
-  <% end %>
-</div>

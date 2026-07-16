@@ -14,7 +14,7 @@ RSpec.describe "Service Manual guide" do
       end
 
       it "service manual guide shows content owners" do
-        within(".app-metadata--heading") do
+        within(".gem-c-metadata") do
           expect(page).to have_link("Agile delivery community")
         end
       end
@@ -27,7 +27,7 @@ RSpec.describe "Service Manual guide" do
       end
 
       it "does not display the description for a normal guide" do
-        expect(page).not_to have_css(".app-page-header__summary")
+        expect(page).not_to have_css(".gem-c-lead-paragraph")
       end
 
       it "displays a link to give feedback" do
@@ -97,7 +97,7 @@ RSpec.describe "Service Manual guide" do
         stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
         visit base_path
 
-        within(".app-page-header__summary") do
+        within(".gem-c-lead-paragraph") do
           expect(page).to have_content("Research to develop a deep knowledge of who the service users are")
         end
       end

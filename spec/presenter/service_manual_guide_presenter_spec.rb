@@ -36,7 +36,7 @@ RSpec.describe ServiceManualGuidePresenter do
   end
 
   it "#category_title is the title of the category" do
-    expect(presenter.category_title).to eq("Agile")
+    expect(presenter.page_title_options[:context]).to eq("Agile")
   end
 
   describe "#category_title" do
@@ -46,7 +46,7 @@ RSpec.describe ServiceManualGuidePresenter do
       end
 
       it "returns nil" do
-        expect(presenter.category_title).to be_nil
+        expect(presenter.page_title_options[:context]).to be_nil
       end
     end
 
@@ -56,7 +56,7 @@ RSpec.describe ServiceManualGuidePresenter do
       end
 
       it "#category_title is the title of the parent for a point" do
-        expect(presenter.category_title).to eq("The Service Standard")
+        expect(presenter.page_title_options[:context]).to eq("The Service Standard")
       end
     end
   end

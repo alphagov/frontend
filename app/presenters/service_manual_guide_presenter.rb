@@ -1,4 +1,6 @@
 class ServiceManualGuidePresenter < ContentItemPresenter
+  include ActionView::Helpers::UrlHelper
+
   ContentOwner = Struct.new(:title, :href)
   Change = Struct.new(:public_timestamp, :note)
 
@@ -19,10 +21,6 @@ class ServiceManualGuidePresenter < ContentItemPresenter
     end
   end
 
-  def category_title
-    category.content_store_response["title"] if category.present?
-  end
-
   def breadcrumbs
     crumbs = [{ title: "Service manual", url: "/service-manual" }]
     crumbs << { title: category.content_store_response["title"], url: category.content_store_response["base_path"] } if category
@@ -31,6 +29,27 @@ class ServiceManualGuidePresenter < ContentItemPresenter
 
   def show_description?
     details["show_description"].present?
+  end
+
+  def page_title_options
+    {
+      context: (category.content_store_response["title"] if category.present?),
+      heading_text: content_item.title,
+      lead_paragraph: (content_item.lead_paragraph if show_description?),
+      metadata: metadata,
+      link: {
+        text: "Give feedback about this page",
+        href: "/contact/govuk",
+      },
+    }
+  end
+
+  def metadata
+    {
+      from: content_owners.map do |content_owner|
+        link_to(content_owner.title, content_owner.href)
+      end,
+    }
   end
 
 private

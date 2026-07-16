@@ -76,8 +76,8 @@
 
 // Helper stylesheets (things on more than one page layout)
 @import "helpers/inverse-background";
+@import "helpers/sticky-column";
 @import "helpers/sticky-element-container";
-@import "helpers/page-title";
 
 .responsive-bottom-margin {
   margin-bottom: govuk-spacing(3);
@@ -101,5 +101,14 @@
 
   table th {
     text-align: start;
+  }
+}
+
+.feedback-link {
+  text-align: left;
+  margin-bottom: govuk-spacing(8);
+
+  @include govuk-media-query($from: tablet) {
+    text-align: right;
   }
 }

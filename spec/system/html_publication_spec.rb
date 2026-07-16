@@ -28,6 +28,8 @@ RSpec.describe "HTML publication" do
           expect(page).to have_css(".gem-c-contents-list")
         end
 
+        expect(page).to have_css(".gem-c-print-link")
+
         expect(page).to have_text("The Environment Agency will normally put any responses it receives on the public register. This includes your name and contact details. Tell us if you don’t want your response to be public.")
       end
 
@@ -133,6 +135,20 @@ RSpec.describe "HTML publication" do
 
       it "adds a noindex meta tag" do
         expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+      end
+    end
+
+    describe "when there is no contents list" do
+      let(:content_item) do
+        GovukSchemas::Example.find(:html_publication, example_name: "published").tap do |example|
+          example["details"]["headers"] = nil
+        end
+      end
+
+      it "still renders a print link" do
+        expect(page).to have_css("#contents")
+        expect(page).not_to have_css(".gem-c-contents-list")
+        expect(page).to have_css(".gem-c-print-link")
       end
     end
   end

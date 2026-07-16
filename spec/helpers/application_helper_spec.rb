@@ -57,16 +57,16 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe "it doesn't show breadcrumbs" do
+  describe "#show_breadcrumb?" do
     describe "when the content item is a homepage" do
-      let(:content_item) { ContentItem.new({ "schema_name" => "landing_page" }) }
+      let(:content_item) { ContentItem.new({ "schema_name" => "homepage" }) }
 
       it "does not show breadcrumbs" do
         expect(show_breadcrumbs?(content_item)).to be(false)
       end
     end
 
-    describe "when the content item is a landing page" do
+    describe "when the content item is not in the excluded list" do
       let(:content_item) { ContentItem.new({ "schema_name" => "a_different_page" }) }
 
       it "shows breadcrumbs" do
@@ -74,7 +74,7 @@ RSpec.describe ApplicationHelper do
       end
     end
 
-    describe "when landing_page is undefined" do
+    describe "when schema_name is undefined" do
       let(:content_item) { ContentItem.new({}) }
 
       it "shows breadcrumbs" do

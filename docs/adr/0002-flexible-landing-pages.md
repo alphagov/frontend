@@ -61,3 +61,7 @@ Accepted
 ## Consequences
 We will add support for the landing_page schema in frontend, and adding it as
 an editionable item in Whitehall.
+
+## Update 2026-07-16
+The landing page that kicked off this decision is being archived, and there were
+no other landing pages created, so this code will be removed.

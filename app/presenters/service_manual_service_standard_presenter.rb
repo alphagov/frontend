@@ -14,11 +14,4 @@ class ServiceManualServiceStandardPresenter < ContentItemPresenter
   def email_alert_signup_link
     "/email-signup?link=#{@content_item.base_path}"
   end
-
-  def page_title_options
-    {
-      heading_text: content_item.title,
-      lead_paragraph: content_item.lead_paragraph,
-    }
-  end
 end

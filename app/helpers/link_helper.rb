@@ -14,11 +14,6 @@ module LinkHelper
         text: "Facebook",
         icon: "facebook",
       },
-      {
-        href: twitter_share_url(base_path, title),
-        text: "Twitter",
-        icon: "twitter",
-      },
     ]
   end
 
@@ -39,10 +34,6 @@ private
 
   def facebook_share_url(base_path)
     "https://www.facebook.com/sharer/sharer.php?u=#{share_url(base_path)}"
-  end
-
-  def twitter_share_url(base_path, title)
-    "https://twitter.com/share?url=#{share_url(base_path)}&text=#{ERB::Util.url_encode(title)}"
   end
 
   def share_url(base_path)

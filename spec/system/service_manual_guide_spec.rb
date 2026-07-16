@@ -27,7 +27,7 @@ RSpec.describe "Service Manual guide" do
       end
 
       it "does not display the description for a normal guide" do
-        expect(page).not_to have_css(".app-page-header__summary")
+        expect(page).not_to have_css(".gem-c-lead-paragraph")
       end
 
       it "displays a link to give feedback" do

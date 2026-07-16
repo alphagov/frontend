@@ -28,7 +28,7 @@ class TopicalEvent < FlexiblePage
                     items: featured_items,
                     ga4_image_card_json: {
                       event_name: "navigation",
-                      type: "image_card",
+                      type: "image card",
                       section: "Featured",
                     },
                   ))

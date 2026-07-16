@@ -308,7 +308,7 @@ RSpec.describe TopicalEvent do
         })
         expect(settings[:ga4_image_card_json]).to eq({
           event_name: "navigation",
-          type: "image_card",
+          type: "image card",
           section: "Featured",
         })
       end

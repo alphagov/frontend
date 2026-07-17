@@ -3,30 +3,30 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 <% end %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.additional_headers) do %>
-      <%= render "govuk_publishing_components/components/govspeak", {
-        direction: page_text_direction,
-      } do %>
-        <%= raw(content_item.body) %>
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.additional_headers) do %>
+    <%= render "govuk_publishing_components/components/govspeak", {
+      direction: page_text_direction,
+    } do %>
+      <%= raw(content_item.body) %>
 
-        <% if content_item.policies.any? %>
-          <h2 id="policies"><%= t("formats.working_group.policies") %></h2>
-          <ul>
-            <% content_item.policies.each do |policy| %>
-              <li><%= link_to policy.title, policy.base_path %></li>
-            <% end %>
-          </ul>
-        <% end %>
+      <% if content_item.policies.any? %>
+        <h2 id="policies"><%= t("formats.working_group.policies") %></h2>
+        <ul>
+          <% content_item.policies.each do |policy| %>
+            <li><%= link_to policy.title, policy.base_path %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-        <% if content_item.email.present? %>
-          <h2 id="contact-details"><%= t("formats.working_group.contact_details") %></h2>
-          <p><%= mail_to content_item.email, content_item.email %></p>
-        <% end %>
+      <% if content_item.email.present? %>
+        <h2 id="contact-details"><%= t("formats.working_group.contact_details") %></h2>
+        <p><%= mail_to content_item.email, content_item.email %></p>
       <% end %>
     <% end %>
-  </div>
-</div>
+  <% end %>
+<% end %>

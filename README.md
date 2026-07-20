@@ -69,6 +69,7 @@ The content items are obtained using [`govuk_content_item_loader`](https://githu
 |Speech                 |[speech](https://docs.publishing.service.gov.uk/content-schemas/speech.html)|https://www.gov.uk/government/speeches/motorcycle-testing|
 |Statistical Data Set   |[statistical_data_set](https://docs.publishing.service.gov.uk/content-schemas/statistical_data_set.html)|https://www.gov.uk/government/statistical-data-sets/local-government-pension-scheme-funds-summary-data-2011-to-2012|
 |Statistics announcement|[statistics_announcement](https://docs.publishing.service.gov.uk/content-schemas/statistics_announcement.html)|https://www.gov.uk/government/statistics/announcements/diagnostic-imaging-dataset-for-september-2015|
+|Topical Event|[topical_event](https://docs.publishing.service.gov.uk/content-schemas/topical_event.html)|https://www.gov.uk/government/topical-events/youth-matters-national-youth-strategy|
 |Topical Event About Page|[topical_event_about_page](https://docs.publishing.service.gov.uk/content-schemas/topical_event_about_page.html)|https://www.gov.uk/government/topical-events/western-balkans-summit-london-2018/about|
 |Transaction start page |[transaction](https://docs.publishing.service.gov.uk/content-schemas/transaction.html)|https://www.gov.uk/register-to-vote|
 |                       ||https://www.gov.uk/vehicle-tax|

@@ -49,6 +49,13 @@ describe('A hide-other-links module', function () {
     it('sets the correct aria value', function () {
       expect(list.getAttribute('aria-live')).toEqual('polite')
     })
+
+    it('shows the links when the show more links link is clicked', function () {
+      var link = list.querySelector('.show-other-content')
+      window.GOVUK.triggerEvent(link, 'click')
+
+      expect(list.querySelector('.other-content').getAttribute('style')).not.toEqual('display: none;')
+    })
   })
 
   describe('with a list of 2 short links', function () {
@@ -98,6 +105,18 @@ describe('A hide-other-links module', function () {
 
     it('the show link does not appear', function () {
       expect(list.querySelector('.animals-without-text-attribute .show-other-content')).toBeNull()
+    })
+  })
+
+  describe('with a single long link', function () {
+    beforeEach(function () {
+      list.classList.add('empty-list')
+      list.innerHTML = '<a href="http://en.wikipedia.org/wiki/Lopado­temacho­selacho­galeo­kranio­leipsano­drim­hypo­trimmato­silphio­parao­melito­katakechy­meno­kichl­epi­kossypho­phatto­perister­alektryon­opte­kephallio­kigklo­peleio­lagoio­siraio­baphe­tragano­pterygon">Lopado­temacho­selacho­galeo­kranio­leipsano­drim­hypo­trimmato­silphio­parao­melito­katakechy­meno­kichl­epi­kossypho­phatto­perister­alektryon­opte­kephallio­kigklo­peleio­lagoio­siraio­baphe­tragano­pterygon</a>'
+      subject()
+    })
+
+    it('the show link does not appear', function () {
+      expect(list.querySelector('.empty-list .show-other-content')).toBeNull()
     })
   })
 })

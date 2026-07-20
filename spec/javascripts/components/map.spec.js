@@ -45,6 +45,26 @@ describe('Map component', function () {
         name: 'Kings Cross',
         description: 'A station in London'
       }
+    },
+    {
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5163, -0.1766]
+      },
+      properties: {
+        name: 'Postbox',
+        description: 'A postbox near Paddington'
+      }
+    },
+    {
+      geometry: {
+        type: 'Point',
+        coordinates: [51.5316, -0.1236]
+      },
+      properties: {
+        name: 'Postbox',
+        description: 'A postbox near Kings Cross'
+      }
     }
   ]
 
@@ -124,7 +144,7 @@ describe('Map component', function () {
 
     it('adds a list of markers beneath the map', function () {
       module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
-      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(2)
+      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(4)
       expect(el.querySelector('.js-list-markers li:first-child').textContent).toEqual('Kings Cross A station in London')
       expect(module.map.fitToBounds).toHaveBeenCalled()
     })
@@ -221,7 +241,7 @@ describe('Map component', function () {
       await module.addAllMarkers()
 
       expect(window.fetch).toHaveBeenCalled()
-      expect(module.markers.length).toEqual(2)
+      expect(module.markers.length).toEqual(4)
     })
   })
 
@@ -256,20 +276,22 @@ describe('Map component', function () {
 
     it('adds both types of markers', async () => {
       await module.addAllMarkers()
-      expect(module.markers.length).toEqual(4)
+      expect(module.markers.length).toEqual(6)
       expect(module.markers[0]).toEqual(fakeGeoJson.features[0])
       expect(module.markers[1]).toEqual(markers[1])
       expect(module.markers[2]).toEqual(markers[0])
-      expect(module.markers[3]).toEqual(fakeGeoJson.features[1])
+      // Elements 5 and 6 might appear in either order, because they have identical sort prefixes
+      expect(module.markers[5]).toEqual(fakeGeoJson.features[1])
     })
 
     it('adds an alphabetical list of both types of markers beneath the map', async () => {
       await module.addAllMarkers()
-      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(4)
+      expect(el.querySelectorAll('.js-list-markers li').length).toEqual(6)
       expect(el.querySelector('.js-list-markers li:nth-child(1)').textContent).toEqual('Birmingham A city')
       expect(el.querySelector('.js-list-markers li:nth-child(2)').textContent).toEqual('Kings Cross A station in London')
       expect(el.querySelector('.js-list-markers li:nth-child(3)').textContent).toContain('Paddington A station in London')
-      expect(el.querySelector('.js-list-markers li:nth-child(4)').textContent).toEqual('Wolverhampton')
+      // Elements 5 and 6 might appear in either order, because they have identical sort prefixes
+      expect(el.querySelector('.js-list-markers li:nth-child(6)').textContent).toEqual('Wolverhampton')
     })
   })
 

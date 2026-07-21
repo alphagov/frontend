@@ -9,11 +9,6 @@
 //= link components/map/map-test.geojson
 //= link components/map/maplibre-gl-csp-worker.js
 //= link views/travel-advice.js
-//= link views/landing_page/map/leaflet.js
-//= link views/landing_page/map/data/lookup.js
-//= link views/landing_page/map/data/cdc.geojson.js
-//= link views/landing_page/map/data/hub.geojson.js
-//= link views/landing_page/map/data/icb.geojson.js
 
 //= link static-error-pages.js
 

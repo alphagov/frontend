@@ -58,7 +58,7 @@ RSpec.describe ContentItem do
     it "responds to the various methods" do
       expect(content_item.respond_to?(:is_a_fancy_page_type?)).to be true
       expect(content_item.respond_to?(:is_an_organisation?)).to be true
-      expect(content_item.respond_to?(:was_a_landing_page?)).to be false
+      expect(content_item.respond_to?(:was_a_topical_event?)).to be false
     end
   end
 

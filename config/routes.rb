@@ -52,11 +52,6 @@ Rails.application.routes.draw do
   get "/foreign-travel-advice/:country/print", to: "travel_advice#show", defaults: { variant: :print }
   get "/foreign-travel-advice/:country/:slug", to: "travel_advice#show"
 
-  scope "/landing-page" do
-    get "/", to: "landing_page#show"
-    get "/*any", to: "landing_page#show"
-  end
-
   # Accounts
   get "/sign-in", to: "help#sign_in"
   get "/sign-in/redirect", to: "sessions#create"
@@ -225,10 +220,6 @@ Rails.application.routes.draw do
     get "*path(.:locale)", to: "html_publication#show"
   end
 
-  constraints FullPathFormatRoutingConstraint.new("landing_page") do
-    get "*path", to: "landing_page#show"
-  end
-
   constraints FullPathFormatRoutingConstraint.new("manual") do
     get "*path/updates", to: "manual#manual_updates"
     get "*path", to: "manual#show"
@@ -236,10 +227,6 @@ Rails.application.routes.draw do
 
   constraints FullPathFormatRoutingConstraint.new("manual_section") do
     get "*path", to: "manual#section"
-  end
-
-  constraints FullPathFormatRoutingConstraint.new("plan_for_change_landing_page") do
-    get "*path", to: "landing_page#show"
   end
 
   # Publications - these are all under /government/publications or /government/statistics

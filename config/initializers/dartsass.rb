@@ -23,7 +23,6 @@ APP_STYLESHEETS = {
   "views/_sign-in.scss" => "views/_sign-in.css",
   "views/_travel-advice.scss" => "views/_travel-advice.css",
   "views/_worldwide-organisation.scss" => "views/_worldwide-organisation.css",
-  "views/_landing_page.scss" => "views/_landing_page.css",
 }.freeze
 
 all_stylesheets = APP_STYLESHEETS.merge(GovukPublishingComponents::Config.component_guide_stylesheet)

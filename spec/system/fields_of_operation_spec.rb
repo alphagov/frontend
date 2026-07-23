@@ -24,7 +24,7 @@ RSpec.describe "Fields of operation page" do
         expect(page).to have_text("British fatalities")
       end
 
-      locale = page.find(".gem-c-heading")["lang"]
+      locale = page.find(".gem-c-heading__context")["lang"]
       expect(locale).to eq content_store_response["locale"]
     end
 

@@ -41,7 +41,7 @@ jobs:
       RAILS_ENV: test
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7.0.0
+        uses: actions/checkout@v7.0.1
         with:
           repository: alphagov/frontend
           ref: ${{ inputs.ref }}

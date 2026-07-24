@@ -1,5 +1,9 @@
 class FieldsOfOperationController < ContentItemsController
   include Cacheable
 
-  def index; end
+  layout "header_content_sidebar"
+
+  def index
+    @content_item_presenter = ContentItemPresenter.new(content_item)
+  end
 end

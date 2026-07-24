@@ -31,25 +31,21 @@
 .homepage-header__title {
   @include govuk-typography-weight-bold;
   color: govuk-colour("white");
-  font-size: 40px;
   font-size: govuk-px-to-rem(40);
   line-height: 1.2;
   margin: 0;
   margin-bottom: govuk-spacing(6);
 
   @include govuk-media-query($from: tablet) {
-    font-size: 50px;
     font-size: govuk-px-to-rem(50);
     margin-bottom: govuk-spacing(7);
   }
 
   @include govuk-media-query($from: desktop) {
-    font-size: 55px;
     font-size: govuk-px-to-rem(55);
   }
 
   @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
-    font-size: 64px;
     font-size: govuk-px-to-rem(64);
   }
 }
@@ -63,7 +59,6 @@
 .homepage-header__intro {
   @include govuk-typography-weight-bold;
 
-  font-size: 40px;
   font-size: govuk-px-to-rem(40);
   margin: 0;
   line-height: 1.07;
@@ -71,17 +66,14 @@
   text-wrap: balance;
 
   @include govuk-media-query($from: tablet) {
-    font-size: 50px;
     font-size: govuk-px-to-rem(50);
   }
 
   @include govuk-media-query($from: desktop) {
-    font-size: 55px;
     font-size: govuk-px-to-rem(55);
   }
 
   @media (min-width: 1281px) { // stylelint-disable-line media-feature-range-notation
-    font-size: 64px;
     font-size: govuk-px-to-rem(64);
   }
 }
@@ -106,7 +98,6 @@
   .govuk-heading-l {
     // Ensure font-size is 32px on mobile for the new homepage design
     @include govuk-media-query($until: "tablet") {
-      font-size: 32px;
       font-size: govuk-px-to-rem(32);
     }
   }
@@ -139,7 +130,6 @@
   .govuk-heading-l {
     // Ensure font-size is 32px on mobile for the new homepage design
     @include govuk-media-query($until: "tablet") {
-      font-size: 32px;
       font-size: govuk-px-to-rem(32);
     }
   }
@@ -183,7 +173,6 @@
   padding: 0 0 24px;
 
   a {
-    font-size: 19px;
     font-size: govuk-px-to-rem(19);
   }
 
@@ -288,7 +277,6 @@
 
   // Ensure font-size is 19px on mobile for the new homepage design
   @include govuk-media-query($until: "tablet") {
-    font-size: 19px;
     font-size: govuk-px-to-rem(19);
   }
 }

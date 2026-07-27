@@ -9,7 +9,7 @@ RSpec.describe "Gone" do
     it "redirects the gone item to the gone controller" do
       get "/foreign-travel-advice/grand-fenwick"
 
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:gone)
     end
 
     it "renders the show template" do

@@ -2,6 +2,13 @@
   <%= stylesheet_link_tag "views/_sidebar-navigation", media: "all" %>
 <% end %>
 
-<div class="govuk-grid-column-one-third sidebar-navigation">
+<% sidebar_content = capture do %>
   <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
-</div>
+<% end %>
+
+<% if !sidebar_content.empty? && !sidebar_content.blank? && !sidebar_content.nil? && sidebar_content.strip != "" && sidebar_content.present? %>
+  <div class="govuk-grid-column-one-third sidebar-navigation">
+    <%= sidebar_content %>
+  </div>
+<% end %>
+

@@ -10,8 +10,7 @@
       margin_bottom: 8,
     } %>
   </div>
-
-  <% if options[:translations] %>
+  <% if options[:translations] && options[:translations].count > 1 %>
     <div class="govuk-grid-column-one-third">
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],

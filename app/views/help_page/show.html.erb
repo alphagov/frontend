@@ -1,9 +1,35 @@
 <% content_for :head do %>
-  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :article } %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
 
   <% if @content_item.base_path == '/help/cookie-details' %>
     <meta name="robots" content="noindex">
   <% end %>
+
+  <%= stylesheet_link_tag "views/_sidebar-navigation", media: "all" %>
 <% end %>
 
-<%= render "shared/body_with_related_links" %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options.merge({ lead_paragraph: nil }) %>
+<% end %>
+
+<% content_for :content do %>
+
+  <%= render "govuk_publishing_components/components/govspeak", {
+    direction: page_text_direction,
+    disable_youtube_expansions: true,
+  } do %>
+    <%= raw(content_item.body) %>
+  <% end %>
+
+  <% if content_item.public_updated_at && content_item.schema_name == "help_page" %>
+      <%= render "govuk_publishing_components/components/published_dates", {
+        last_updated: display_date(content_item.public_updated_at),
+      } %>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h, dir: page_text_direction %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+<% end %>

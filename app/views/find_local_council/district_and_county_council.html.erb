@@ -1,5 +1,9 @@
 <% content_for :title, "Find your local council: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
 
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
 <%= render layout: "base_page" do %>
   <%= render "govuk_publishing_components/components/heading", {
     text: t("formats.local_transaction.county_district_council"),

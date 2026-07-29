@@ -74,7 +74,7 @@
 }
 
 .travel-advice-notice {
-  background-color: govuk-colour("light-grey");
+  background-color: govuk-colour("black", $variant: "tint-95");
   border: 1px solid $govuk-border-colour;
   margin-bottom: govuk-spacing(7);
   position: relative;

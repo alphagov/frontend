@@ -132,7 +132,6 @@ GEM
     debug_inspector (1.2.0)
     diff-lcs (1.6.2)
     dig_rb (1.0.1)
-    docile (1.4.1)
     domain_name (0.6.20240107)
     dotenv (3.2.0)
     dotenv-rails (3.2.0)
@@ -721,12 +720,7 @@ GEM
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
-    simplecov (0.22.0)
-      docile (~> 1.1)
-      simplecov-html (~> 0.11)
-      simplecov_json_formatter (~> 0.1)
-    simplecov-html (0.13.1)
-    simplecov_json_formatter (0.1.4)
+    simplecov (1.0.2)
     smart_properties (1.17.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)

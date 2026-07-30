@@ -7,6 +7,8 @@ Local Transactions, license transactions with local authority results, and relat
 
 Unfortunately, recent changes to search engines have resulted in general searches (eg local council bins) returning specific results (eg the bin collection day link page for a specific council), which leads to users entering at the wrong page and being confused by the results.
 
+Users can also be directed to the wrong local authority and submit applications or requests that are not intended for that authority. This increases the workload of local authorities unnecessarily and affects both user experience and operational efficiency for local authorities.
+
 Example: [This google search](https://www.google.com/search?q=premises+licence+change+of+address) at the time of writing the ADR returns GOV.UK as the third result, and the description and link shown in google imply that it's a general page for England and Wales, but in fact it's the specific page for East Hampshire.
 
 

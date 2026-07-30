@@ -41,6 +41,7 @@ RSpec.describe "ElectoralLookUp" do
           expect(page).to have_selector("h2", text: "Get help with electoral registration")
           expect(page).to have_text("Need help? Get in touch with your local electoral registration team.")
           expect(page).to have_selector("address", text: "bar")
+          expect(page).to have_selector("meta[name=robots][content=noindex]", visible: :all)
         end
       end
 

@@ -72,6 +72,10 @@ RSpec.describe "FindLocalCouncil" do
           expect(page).to have_title("Find your local council: #{I18n.t('formats.local_transaction.search_result')} - GOV.UK", exact: true)
         end
 
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+        end
+
         it "adds GA4 attributes for exit link tracking" do
           element = page.find("main .gem-c-button")
           data_module = element["data-module"]
@@ -129,6 +133,10 @@ RSpec.describe "FindLocalCouncil" do
             expect(page).to have_content("District councils are responsible for services like:")
             expect(page).to have_link("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
+        end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
         end
 
         it "adds GA4 attributes for exit link tracking" do
@@ -313,6 +321,10 @@ RSpec.describe "FindLocalCouncil" do
 
           expect(page).to have_content("Your local authority is Beechester.")
         end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+        end
       end
 
       context "when multiple authorities (6 or more) are found" do
@@ -361,6 +373,10 @@ RSpec.describe "FindLocalCouncil" do
           expect(page).to have_content("House 5")
           expect(page).to have_content("House 6")
           expect(page).to have_content("House 7")
+        end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
         end
       end
 

@@ -158,6 +158,10 @@ RSpec.describe "LicenceTransaction" do
           end
         end
 
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+        end
+
         context "when visiting a licence action" do
           before { click_link("How to apply") }
 
@@ -189,6 +193,10 @@ RSpec.describe "LicenceTransaction" do
 
           it "displays the email address in a mailto link" do
             expect(page).to have_link("test@example.com", href: "mailto:test@example.com")
+          end
+
+          it "adds a noindex meta tag" do
+            expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
           end
 
           context "when an email address isn't present" do
@@ -665,6 +673,10 @@ RSpec.describe "LicenceTransaction" do
           expect(page).to have_content("House 2")
           expect(page).to have_content("House 3")
         end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+        end
       end
 
       context "when there are 6 or more addresses to choose from" do
@@ -713,6 +725,10 @@ RSpec.describe "LicenceTransaction" do
           expect(page).to have_content("House 5")
           expect(page).to have_content("House 6")
           expect(page).to have_content("House 7")
+        end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
         end
       end
     end

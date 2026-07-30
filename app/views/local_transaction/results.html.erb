@@ -1,6 +1,7 @@
 <% content_for :title, "#{content_item.title}: #{t('formats.local_transaction.search_result')} - GOV.UK" %>
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_local-transaction", media: "all" %>
+  <meta name="robots" content="noindex">
 <% end %>
 
 <%= render layout: "shared/base_page", locals: {

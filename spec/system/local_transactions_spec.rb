@@ -254,6 +254,10 @@ RSpec.describe "LocalTransactions" do
       it "does not show link to change location" do
         expect(page).not_to have_link("(change location)")
       end
+
+      it "adds a noindex meta tag" do
+        expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+      end
     end
 
     context "when visiting the local transaction with an incorrect postcode" do
@@ -398,6 +402,10 @@ RSpec.describe "LocalTransactions" do
 
           expect(page).to have_content("We’ve matched the postcode to Beechester")
         end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
+        end
       end
 
       context "when there are 6 or more addresses to choose from" do
@@ -446,6 +454,10 @@ RSpec.describe "LocalTransactions" do
           expect(page).to have_content("House 5")
           expect(page).to have_content("House 6")
           expect(page).to have_content("House 7")
+        end
+
+        it "adds a noindex meta tag" do
+          expect(page).to have_css('meta[name="robots"][content="noindex"]', visible: :hidden)
         end
       end
     end

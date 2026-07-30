@@ -171,7 +171,7 @@ GEM
       rake (~> 13.3)
     googleapis-common-protos-types (1.23.0)
       google-protobuf (~> 4.26)
-    govspeak (10.11.2)
+    govspeak (10.11.3)
       actionview (>= 6, < 8.1.4)
       addressable (>= 2.3.8, < 2.9.1)
       govuk_publishing_components (>= 43)
@@ -612,7 +612,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rbs (4.1.0)
+    rbs (4.1.1)
       logger
       prism (>= 1.6.0)
       tsort

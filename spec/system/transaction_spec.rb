@@ -119,6 +119,44 @@ RSpec.describe "Transaction" do
     end
   end
 
+  describe "utm_campaign passthrough" do
+    before do
+      content_store_has_example_item("/foo", schema: "transaction")
+      visit transaction_path
+    end
+
+    context "when a utm_campaign tag is not passed" do
+      let(:transaction_path) { "/foo" }
+
+      it "does not include the utm_campaign parameter on the start button link" do
+        expect(page).to have_button_as_link("Start now", rel: "external", href: "http://cti.voa.gov.uk/cti/inits.asp", start: true)
+      end
+    end
+
+    context "when a utm_campaign tag is passed" do
+      let(:transaction_path) { "/foo?utm_campaign=test-value" }
+
+      it "includes the utm_campaign parameter on the start button link" do
+        expect(page).to have_button_as_link("Start now", rel: "external", href: "http://cti.voa.gov.uk/cti/inits.asp?utm_campaign=test-value", start: true)
+      end
+    end
+
+    context "when a utm_campaign tag is passed and other parameters already exist on the start link" do
+      let(:transaction_path) { "/foo?utm_campaign=test-value" }
+
+      before do
+        content_item = GovukSchemas::Example.find("transaction", example_name: "transaction")
+        content_item["details"]["transaction_start_link"] = "http://cti.voa.gov.uk/cti/inits.asp?a=b"
+        stub_conditional_loader_returns_content_item_for_path("/foo", content_item)
+        visit transaction_path
+      end
+
+      it "includes the utm_campaign parameter on the start button link" do
+        expect(page).to have_button_as_link("Start now", rel: "external", href: "http://cti.voa.gov.uk/cti/inits.asp?a=b&utm_campaign=test-value", start: true)
+      end
+    end
+  end
+
   context "when locale is 'cy'" do
     before do
       @payload = {

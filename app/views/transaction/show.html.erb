@@ -34,7 +34,7 @@
       <%= render "govuk_publishing_components/components/button",
                   text: @transaction_presenter.start_button_text.html_safe,
                   rel: "external",
-                  href: content_item.transaction_start_link,
+                  href: add_parameter_if_present(content_item.transaction_start_link, "utm_campaign"),
                   start: true,
                   info_text: info_text,
                   margin_bottom: true %>

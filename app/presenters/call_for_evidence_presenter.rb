@@ -16,6 +16,10 @@ class CallForEvidencePresenter < ContentItemPresenter
     content_item.unopened? ? I18n.t("formats.call_for_evidence.opens") : ""
   end
 
+  def breadcrumbs
+    GovukPublishingComponents::Presenters::ContentBreadcrumbsBasedOnTaxons.call(content_item.content_store_response)
+  end
+
   def page_title_options
     super.merge({
       metadata: {

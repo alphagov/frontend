@@ -4,9 +4,11 @@
   image ||= nil
   image_type ||= nil
   variant ||= nil
+  test ||= false
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.add_class("app-c-impact-header")
+  component_helper.add_class("app-c-impact-header--test") if test
   component_helper.add_class("app-c-impact-header--logo") if image_type == "logo"
   component_helper.add_class("app-c-impact-header--govuk") if variant == "govuk"
   component_helper.add_class("app-c-impact-header--with-background") if variant
@@ -36,6 +38,23 @@
     } %>
   <% end %>
 
+  <% caption = capture do %>
+    <% if show_caption %>
+      <div class="app-c-impact-header__caption-wrapper">
+        <div class="app-c-impact-header__caption">
+          <%= render "govuk_publishing_components/components/details", {
+            title: "Image details",
+            theme: ("black" unless inverse),
+            inverse: inverse,
+            margin_bottom: 0,
+          } do %>
+            <%= image[:caption] %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
   <%= tag.div(**component_helper.all_attributes) do %>
     <% if image %>
       <div class="app-c-impact-header__container">
@@ -43,24 +62,25 @@
           <%= text %>
         </div>
 
-        <%= render "flexible_page/flexible_sections/shared/picture",
-          image: image,
-          style: "app-c-impact-header",
-          alt_text: "" %>
+        <% if test %>
+          <div class="">
+            <%= picture_tag(class: "app-c-impact-header__image-wrapper") do %>
+              <%= tag.source srcset: srcset_string(:desktop, image), media: "(min-width: 769px)" %>
+              <%= tag.source srcset: srcset_string(:tablet, image), media: "(min-width: 641px) and (max-width: 768px)" %>
+              <%= tag.source srcset: srcset_string(:mobile, image), media: "(max-width: 640px)" %>
+              <%= image_tag(image[:sources][:desktop], class: "app-c-impact-header__image", alt: "") %>
+            <% end %>
+            <%= caption %>
+          </div>
+        <% else %>
+          <%= render "flexible_page/flexible_sections/shared/picture",
+            image: image,
+            style: "app-c-impact-header",
+            alt_text: "" %>
+        <% end %>
       </div>
       <% if show_caption %>
-        <div class="app-c-impact-header__caption-wrapper">
-          <div class="app-c-impact-header__caption">
-            <%= render "govuk_publishing_components/components/details", {
-              title: "Image details",
-              theme: ("black" unless inverse),
-              inverse: inverse,
-              margin_bottom: 0,
-            } do %>
-              <%= image[:caption] %>
-            <% end %>
-          </div>
-        </div>
+        <%= caption %>
       <% end %>
     <% else %>
       <div class="app-c-impact-header__grid">

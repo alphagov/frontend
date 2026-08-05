@@ -188,3 +188,13 @@ $gap: 30px;
 .app-c-impact-header--notable-death {
   background: #0b0c0c;
 }
+
+.app-c-impact-header--test {
+  .app-c-impact-header__container {
+    min-height: 0;
+  }
+
+  .app-c-impact-header__image-wrapper {
+    align-self: flex-start;
+  }
+}

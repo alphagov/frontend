@@ -67,16 +67,13 @@
 
   <%= render partial: "shared/phased/ways_to_respond" if content_item.ways_to_respond? %>
 
-  <div class="content-bottom-margin">
-    <div class="govuk-!-display-none-print responsive-bottom-margin">
-      <%= render "govuk_publishing_components/components/share_links",
-        links: share_links(content_item.base_path, content_item.title),
-        track_as_sharing: true,
-        title: t("components.share_links.share_this_page") %>
-    </div>
+  <%= render "govuk_publishing_components/components/share_links",
+    links: share_links(content_item.base_path, content_item.title),
+    track_as_sharing: true,
+    margin_bottom: 8,
+    title: t("components.share_links.share_this_page") %>
 
-    <%= render "shared/published_dates_with_notification_button" %>
-  </div>
+  <%= render "shared/published_dates_with_notification_button" %>
 
   <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>

@@ -10,12 +10,6 @@
 <% end %>
 
 <% content_for :content do %>
-  <%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(content_item_presenter.contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-  } %>
-
   <% if content_item.withdrawn? %>
     <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
     <%= render "govuk_publishing_components/components/notice", {

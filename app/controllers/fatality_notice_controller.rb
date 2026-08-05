@@ -1,7 +1,9 @@
 class FatalityNoticeController < ContentItemsController
   include Cacheable
 
+  layout "header_content_sidebar"
+
   def show
-    @content_item_presenter = ContentItemPresenter.new(content_item)
+    @content_item_presenter = FatalityNoticePresenter.new(content_item)
   end
 end

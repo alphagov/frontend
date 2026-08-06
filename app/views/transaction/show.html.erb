@@ -39,6 +39,10 @@
                   info_text: info_text,
                   margin_bottom: true %>
     </p>
+
+    <p>Params: <%= params.keys.join(", ") %></p>
+    <p>Value of :utm_campaign: <%= params[:utm_campaign] %></p>
+    <p>Value of "utm_campaign": <%= params["utm_campaign"] %></p>
   </section>
 
   <section class="more">

@@ -11,6 +11,10 @@ class ContentItemPresenter
     default_breadcrumbs
   end
 
+  def use_contextual_components?
+    false
+  end
+
   def contributor_links
     content_item.contributors.map do |content_item|
       { text: content_item.title, path: content_item.base_path }

@@ -2,6 +2,10 @@ class FatalityNoticePresenter < ContentItemPresenter
   include LinkHelper
   include DateHelper
 
+  def use_contextual_components?
+    true
+  end
+
   def page_title_options
     super.merge({
       metadata: {

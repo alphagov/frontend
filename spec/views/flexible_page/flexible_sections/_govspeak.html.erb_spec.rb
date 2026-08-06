@@ -6,7 +6,7 @@ RSpec.describe "Govspeak flexible section" do
   end
 
   it "renders govspeak" do
-    expect(rendered).to have_selector(".govuk-govspeak h2", text: "Introduction")
+    expect(rendered).to have_selector(".gem-c-govspeak h2", text: "Introduction")
     expect(rendered).to have_text("Hello to this section")
   end
 end

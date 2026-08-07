@@ -28,6 +28,7 @@ class CallForEvidencePresenter < ContentItemPresenter
         last_updated: display_date(content_item.updated),
         see_updates_link: true,
       },
+      display_single_page_notification_button: true,
     })
   end
 end

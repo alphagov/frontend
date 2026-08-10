@@ -1,0 +1,22 @@
+<% page_class "govuk-main-wrapper govuk-main-wrapper--auto-spacing" %>
+
+<header class="govuk-grid-row translation-nav-header">
+  <div class="govuk-grid-column-two-thirds translation-nav-header__child">
+    <%= render "govuk_publishing_components/components/heading", {
+      context: person.current_roles_title,
+      text: person.title,
+      heading_level: 1,
+      margin_bottom: 0,
+      font_size: "xl",
+      dir: page_text_direction
+    } %>
+  </div>
+
+  <div class="govuk-grid-column-one-third translation-nav-header__child <%= direction_rtl_class %>" <%= dir_attribute %> <%= lang_attribute %>>
+    <%= render "govuk_publishing_components/components/translation_nav", {
+      translations: person.translations,
+      no_margin_top: true,
+      margin_bottom: 0
+    } %>
+  </div>
+</header>

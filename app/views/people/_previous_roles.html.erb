@@ -1,0 +1,19 @@
+<% if person.has_previous_non_ministerial_roles? %>
+  <div 
+    class="previous-roles govuk-!-padding-bottom-9 <%= direction_rtl_class %>"
+    <%= dir_attribute %>
+    <%= lang_attribute %>
+  >
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("people.previous_roles_in_government"),
+      lang: t_fallback("people.previous_roles_in_government"),
+      id: "previous-roles",
+      margin_bottom: 2
+      } 
+    %>
+
+    <%= render "govuk_publishing_components/components/document_list", {
+      items: person.previous_non_ministerial_roles_items
+    } %>
+  </div>
+<% end %>

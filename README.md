@@ -50,6 +50,7 @@ The content items are obtained from ContentStore using the ContentStore#content_
 |Manual           |[manual](https://docs.publishing.service.gov.uk/content-schemas/manual.html)|https://www.gov.uk/guidance/the-highway-code|
 |Manual Section         |[manual_section](https://docs.publishing.service.gov.uk/content-schemas/manual_section.html)|https://www.gov.uk/guidance/systems-change-learning/1-securing-strategic-buy-in-and-alignment
 |News Article           |[news_article](https://docs.publishing.service.gov.uk/content-schemas/news_article.html)|https://www.gov.uk/government/news/the-personal-independence-payment-amendment-regulations-2017-statement-by-paul-gray|
+|Person                 |[person](https://docs.publishing.service.gov.uk/content-schemas/person.html)|https://www.gov.uk/government/people/matthew-hancock|
 |Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|https://www.gov.uk/register-offices|
 |                       ||https://www.gov.uk/register-offices|
 |Publication            |[publication](https://docs.publishing.service.gov.uk/content-schemas/publication.html)|https://www.gov.uk/government/publications/budget-2016-documents|

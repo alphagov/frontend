@@ -1,23 +1,21 @@
 <% if announcements.items.present? %>
-  <div id="announcements" <%= direction_rtl_class(prefix: true) %> <%= dir_attribute %>>
+  <div id="announcements">
     <%= render "govuk_publishing_components/components/heading", {
-        text: t("shared.schema_name.announcement.other"),
-        lang: t_fallback("shared.schema_name.announcement.other"),
-        margin_bottom: 5,
+      text: t("formats.announcement.name", count: 2),
+      margin_bottom: 5,
     } %>
 
     <div
       data-module="ga4-link-tracker"
-      data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Content" }'
-    >
+      data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Content" }'>
       <%= render "govuk_publishing_components/components/subscription_links", {
-          email_signup_link: announcements.links[:email_signup],
-          margin_bottom: 5
+        email_signup_link: announcements.links[:email_signup],
+        margin_bottom: 5,
       } %>
     </div>
 
     <%= render "govuk_publishing_components/components/document_list", {
-        items: announcements.items
+      items: announcements.items,
     } %>
 
     <div class="read-more">

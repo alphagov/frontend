@@ -1,31 +1,32 @@
 <% if person.currently_in_a_role? %>
-  <div id="current-roles" <%= direction_rtl_class(prefix: true) %> <%= dir_attribute %> <%= lang_attribute %>>
+  <div id="current-roles">
     <% person.current_roles.each do |role| %>
       <div class="role_appointment role govuk-!-padding-bottom-8">
         <%= render "govuk_publishing_components/components/heading", {
-          text: role["title"],
+          text: role.title,
           margin_bottom: 2,
         } %>
 
         <%= render "govuk_publishing_components/components/govspeak", {
+          direction: page_text_direction,
         } do %>
-          <%= role["details"]["body"].html_safe %>
-        <% end  %>
+          <%= role.body&.html_safe %>
+        <% end %>
 
-        <% if role["document_type"] == "ministerial_role" %>
+        <% if role.document_type == "ministerial_role" %>
           <p class="govuk-body-s">
-            <a href="<%= role["base_path"] %>" <%= t_lang("roles.read_more") %> class="govuk-link">
-              <%= t("roles.read_more") %>
-            </a>
+            <%= link_to t("formats.roles.read_more"), role.base_path, class: "govuk-link" %>
           </p>
         <% end %>
 
-        <p class="govuk-body">
-          <%= role["links"].fetch("ordered_parent_organisations", [])
-            .map { |parent| link_to(parent["title"], parent["base_path"], class: "govuk-link") }
-            .to_sentence
-            .html_safe %>
-        </p>
+        <% if role.parent_organisations.any? %>
+          <p class="govuk-body">
+            <%= safe_join(
+              role.parent_organisations.map { |organisation| link_to(organisation.title, organisation.base_path, class: "govuk-link") },
+              " #{t('common.and')} ",
+            ) %>
+          </p>
+        <% end %>
       </div>
     <% end %>
   </div>

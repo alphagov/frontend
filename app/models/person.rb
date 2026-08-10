@@ -1,120 +1,71 @@
 class Person < ContentItem
-  def current_roles_title
-    current_roles.map { |role| role["title"] }.to_sentence(locale:)
+  Organisation = Data.define(:title, :base_path)
+  Role = Data.define(:title, :base_path, :document_type, :body, :parent_organisations)
+  RoleAppointment = Data.define(:role, :started_on, :ended_on, :current, :order)
+
+  def currently_in_a_role?
+    current_roles.any?
   end
 
-  def previous_non_ministerial_roles_items
-    formatted_previous_non_ministerial_roles.map do |role|
-      {
-        link: {
-          text: role["title"],
-          path: role["base_path"],
-        },
-        metadata: {
-          appointment_duration: "#{role['start_year']} to #{role['end_year']}",
-        },
-      }
-    end
+  def current_roles
+    current_role_appointments.map(&:role)
+  end
+
+  def previous_non_ministerial_role_appointments
+    role_appointments
+      .select { |appointment| appointment.ended_on.present? && appointment.role.document_type != "ministerial_role" }
+      .sort_by(&:started_on)
+      .reverse
   end
 
   def has_previous_non_ministerial_roles?
-    formatted_previous_non_ministerial_roles.present?
+    previous_non_ministerial_role_appointments.any?
   end
 
   def image_url
     image&.dig("url")
   end
 
-  def biography
-    body
-  end
-
-  def announcements
-    @announcements ||= AnnouncementsPresenter.new(slug, filter_key: "people")
-  end
-
-  def translations
-    available_translations.map do |translation|
-      translation
-        .slice("locale", "base_path")
-        .symbolize_keys
-        .merge(
-          text: language_name(translation["locale"]),
-          active: locale == translation["locale"],
-        )
-    end
-  end
-
-  def currently_in_a_role?
-    current_role_appointments.any?
-  end
-
-  def current_roles
-    current_role_appointments.map { |appointment| appointment.dig("links", "role", 0) }.compact
-  end
-
-private
-
   def slug
     base_path.split("/").last
   end
 
+private
+
+  def current_role_appointments
+    role_appointments
+      .select(&:current)
+      .sort_by(&:order)
+  end
+
   def role_appointments
-    @role_appointments ||= links&.fetch("role_appointments", []) || []
+    @role_appointments ||= links&.fetch("role_appointments", [])&.filter_map do |appointment|
+      role_data = appointment.dig("links", "role", 0)
+      next unless role_data
+
+      RoleAppointment.new(
+        role: build_role(role_data),
+        started_on: parse_date(appointment.dig("details", "started_on")),
+        ended_on: parse_date(appointment.dig("details", "ended_on")),
+        current: appointment.dig("details", "current"),
+        order: appointment.dig("details", "person_appointment_order"),
+      )
+    end || []
   end
 
-  def sort_by_appointment_order(appointments)
-    appointments.sort_by { |role_appointment| role_appointment.dig("details", "person_appointment_order") }
-  end
-
-  def role_appointment(current:)
-    sort_by_appointment_order(
-      role_appointments.filter { |role_appointment| role_appointment.dig("details", "current") == current },
+  def build_role(role_data)
+    Role.new(
+      title: role_data["title"],
+      base_path: role_data["base_path"],
+      document_type: role_data["document_type"],
+      body: role_data.dig("details", "body"),
+      parent_organisations: role_data.dig("links", "ordered_parent_organisations")&.map do |organisation|
+        Organisation.new(title: organisation["title"], base_path: organisation["base_path"])
+      end || [],
     )
   end
 
-  def current_role_appointments
-    @current_role_appointments ||= role_appointment(current: true)
-  end
-
-  def previous_non_ministerial_roles
-    @previous_non_ministerial_roles ||=
-      sort_by_appointment_order(
-        role_appointments
-          .filter { |role_appointment| role_appointment.dig("details", "ended_on").present? }
-          .filter { |role_appointment| non_ministerial_role?(role_appointment) },
-      )
-  end
-
-  def formatted_previous_non_ministerial_roles
-    @formatted_previous_non_ministerial_roles ||=
-      previous_non_ministerial_roles
-        .sort_by { |role_appointment| role_appointment.dig("details", "started_on") }
-        .reverse
-        .map { |role_appointment| format_role_with_dates(role_appointment) }
-  end
-
-  def language_name(language)
-    I18n.t("language_names.#{language}", locale: language)
-  end
-
-  def non_ministerial_role?(role_appointment)
-    role = role_from_appointment(role_appointment)
-    role && role["document_type"] != "ministerial_role"
-  end
-
-  def role_from_appointment(appointment)
-    appointment.dig("links", "role", 0)
-  end
-
-  def format_role_with_dates(role_appointment)
-    role_from_appointment(role_appointment).dup.tap do |role|
-      role["start_year"] = format_year(role_appointment.dig("details", "started_on"))
-      role["end_year"] = format_year(role_appointment.dig("details", "ended_on"))
-    end
-  end
-
-  def format_year(date_string)
-    Time.zone.parse(date_string).strftime("%Y")
+  def parse_date(value)
+    Time.zone.parse(value) if value.present?
   end
 end

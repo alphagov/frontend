@@ -1,0 +1,25 @@
+<div <%= t_lang("people.biography") %>>
+  <%= render "govuk_publishing_components/components/contents_list", {
+    contents: [
+      {
+        text: t("people.biography"),
+        href: "#biography"
+      },
+
+      person.currently_in_a_role? ? {
+        text: t("roles.heading.one"),
+        href: "#current-roles"
+      } : nil,
+
+      person.has_previous_non_ministerial_roles? ? {
+        text: t("people.previous_roles"),
+        href: "#previous-roles"
+      } : nil,
+
+      person.announcements.items.present? ? {
+        text: t("shared.schema_name.announcement.other"),
+        href: "#announcements"
+      } : nil,
+    ].compact
+  } %>
+</div>

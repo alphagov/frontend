@@ -61,7 +61,7 @@ RSpec.describe PersonPresenter do
   describe "#page_title_options" do
     it "uses current roles as the heading context" do
       expect(presenter.page_title_options).to include(
-        title: "Rufus Scrimgeour",
+        heading_text: "Rufus Scrimgeour",
         context: "Minister for Magic",
         context_locale: "en",
       )

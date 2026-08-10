@@ -14,7 +14,7 @@ RSpec.describe "Gone page" do
       end
 
       it "displays the page" do
-        expect(page.status_code).to eq(200)
+        expect(page.status_code).to eq(410)
       end
 
       it "has the correct title" do
@@ -65,7 +65,7 @@ RSpec.describe "Gone page" do
       end
 
       it "displays the page" do
-        expect(page.status_code).to eq(200)
+        expect(page.status_code).to eq(410)
       end
 
       it "has the correct alternative path text" do

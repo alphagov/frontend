@@ -21,10 +21,10 @@
 
         <% if role.parent_organisations.any? %>
           <p class="govuk-body">
-            <%= safe_join(
-              role.parent_organisations.map { |organisation| link_to(organisation.title, organisation.base_path, class: "govuk-link") },
-              " #{t('common.and')} ",
-            ) %>
+            <%= role.parent_organisations
+              .map { |organisation| link_to(organisation.title, organisation.base_path, class: "govuk-link") }
+              .to_sentence(locale: person.locale)
+              .html_safe %>
           </p>
         <% end %>
       </div>

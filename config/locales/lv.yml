@@ -538,6 +538,11 @@ lv:
       name:
         one: Mutisks paziņojums parlamentam
         other: Mutiski paziņojumi parlamentam
+    people:
+      biography: Biogrāfija
+      previous_roles: Iepriekšējie amati
+      previous_roles_in_government: Iepriekšējie amati valdībā
+      read_more: Vairāk par šo personu
     place:
       find_results:
       further_information:

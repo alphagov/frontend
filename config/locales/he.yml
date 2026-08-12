@@ -538,6 +538,11 @@ he:
       name:
         one: הצהרה בעל פה לפרלמנט
         other: הצהרות בעל פה לפרלמנט
+    people:
+      biography: ביוגרפיה
+      previous_roles: תפקידים קודמים
+      previous_roles_in_government: תפקידים קודמים בממשלה
+      read_more: עוד על האדם הזה
     place:
       find_results:
       further_information:

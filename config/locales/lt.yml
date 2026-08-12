@@ -591,6 +591,11 @@ lt:
         few:
         one: Žodinis kreipimasis į parlamentą
         other: Žodiniai kreipimaisi į parlamentą
+    people:
+      biography: Biografija
+      previous_roles: Ankstesnė funkcija
+      previous_roles_in_government: Ankstesnė funkcija vyriausybėje
+      read_more: Daugiau informacijos apie šį asmenį
     place:
       find_results:
       further_information:

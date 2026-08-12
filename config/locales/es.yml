@@ -538,6 +538,11 @@ es:
       name:
         one: Declaración formulada oralmente
         other: Declaraciones formuladas oralmente
+    people:
+      biography: Biografía
+      previous_roles: Funciones anteriores
+      previous_roles_in_government: Funciones anteriores en el gobierno
+      read_more: Más sobre esta persona
     place:
       find_results:
       further_information:

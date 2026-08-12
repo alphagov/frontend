@@ -538,6 +538,11 @@ ka:
       name:
         one: ზეპირი განცხადება პარლამენტში
         other: ზეპირი განცხადებები პარლამენტში
+    people:
+      biography: ბიოგრაფია
+      previous_roles: წინა როლები
+      previous_roles_in_government: წინა რომელი სახელმწიფოში
+      read_more: მეტი ამ ადამიანის შესახებ
     place:
       find_results:
       further_information:

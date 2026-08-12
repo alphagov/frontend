@@ -538,6 +538,11 @@ sw:
       name:
         one: Taarifa ya Matamshi kwa Bunge
         other: Taarifa za Matamshi kwa Bunge
+    people:
+      biography: Wasifu
+      previous_roles: Nafasi za awali
+      previous_roles_in_government: Nafasi za awali katika serikali
+      read_more: Maelezo zaidi kuhusu mtu huyu
     place:
       find_results:
       further_information:

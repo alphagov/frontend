@@ -644,6 +644,11 @@ sl:
         one: Ustna izjava za parlament
         other: Ustne izjave za parlament
         two:
+    people:
+      biography: Biografija
+      previous_roles: Prejšnje vloge
+      previous_roles_in_government: Prejšnje vloge v vladi
+      read_more: Več o tej osebi
     place:
       find_results:
       further_information:

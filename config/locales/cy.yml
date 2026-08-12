@@ -755,6 +755,11 @@ cy:
         other: Datganiadau llafar i'r Senedd
         two:
         zero:
+    people:
+      biography: Bywgraffiad
+      previous_roles: Rolau blaenorol
+      previous_roles_in_government: Rolau blaenorol yn y llywodraeth
+      read_more: Mwy am y person hwn
     place:
       find_results: Darganfod canlyniadau yn agos i chi
       further_information: Rhagor o wybodaeth

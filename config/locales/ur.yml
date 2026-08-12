@@ -538,6 +538,11 @@ ur:
       name:
         one: پارلیمان کے لیے زبانی بیان
         other: پارلیمان کے لیے زبانی بیانات
+    people:
+      biography: سوانح عمری
+      previous_roles: گزشتہ کردار
+      previous_roles_in_government: حکومت میں گزشتہ کردار
+      read_more: اس شخص کے بارے میں مزید
     place:
       find_results:
       further_information:

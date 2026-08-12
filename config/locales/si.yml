@@ -538,6 +538,11 @@ si:
       name:
         one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
         other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
+    people:
+      biography: චරිතාපදානය
+      previous_roles: පෙර භූමිකාවන්
+      previous_roles_in_government: රජයේ පෙර භූමිකාවන්
+      read_more: මෙම පුද්ගලයා ගැන වැඩි විස්තර
     place:
       find_results:
       further_information:

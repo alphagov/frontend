@@ -538,6 +538,11 @@ fi:
       name:
         one: Suullinen lausuma parlamentille
         other: Suulliset lausumat parlamentille
+    people:
+      biography: Elämäkerta
+      previous_roles: Aiemmat roolit
+      previous_roles_in_government: Aiemmat tehtävät julkishallinnossa
+      read_more: Lisää tästä henkilöstä
     place:
       find_results:
       further_information:

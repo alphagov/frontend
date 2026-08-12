@@ -538,6 +538,11 @@ et:
       name:
         one: Suuline avaldus parlamendile
         other: Suulised avaldused parlamendile
+    people:
+      biography: Biograafia
+      previous_roles: Varasemad rollid
+      previous_roles_in_government: Varasemad rollid valitsuses
+      read_more: Rohkem selle isiku kohta
     place:
       find_results:
       further_information:

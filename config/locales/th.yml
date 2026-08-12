@@ -485,6 +485,11 @@ th:
     oral_statement:
       name:
         other: แถลงการณ์ด้วยวาจาต่อรัฐสภา
+    people:
+      biography: ชีวประวัติ
+      previous_roles: บทบาทหน้าที่ก่อนหน้านี้
+      previous_roles_in_government: บทบาทหน้าที่ก่อนหน้านี้ในรัฐบาล
+      read_more: ข้อมูลเพิ่มเติมเกี่ยวกับบุคคลนี้
     place:
       find_results:
       further_information:

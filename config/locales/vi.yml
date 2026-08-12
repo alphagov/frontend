@@ -485,6 +485,11 @@ vi:
     oral_statement:
       name:
         other: Tuyên bố bằng lời trước Quốc hội
+    people:
+      biography: Tiểu sử
+      previous_roles: Các vai trò trước đây
+      previous_roles_in_government: Các vai trò trước đây trong chính phủ
+      read_more: Thông tin thêm về người này
     place:
       find_results:
       further_information:

@@ -4,7 +4,7 @@
   .show-other-content {
     all: inherit;
     white-space: nowrap;
-    color: $govuk-link-colour;
+    color: govuk-functional-colour(link);
     cursor: pointer;
     @include govuk-link-common;
     @include govuk-font(16);

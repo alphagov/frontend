@@ -538,6 +538,11 @@ es-419:
       name:
         one: Declaracion oral ante el Parlamento
         other: Declaraciones orales ante el Parlamento
+    people:
+      biography: Biografía
+      previous_roles: Funciones anteriores
+      previous_roles_in_government: Funciones anteriores en el gobierno
+      read_more: Más información sobre esta persona
     place:
       find_results:
       further_information:

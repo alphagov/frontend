@@ -538,6 +538,11 @@ da:
       name:
         one: Mundtlig erklæring til Parlamentet
         other: Mundtlige erklæring til Parlamentet
+    people:
+      biography: Biografi
+      previous_roles: Tidligere roller
+      previous_roles_in_government: Tidligere roller i regeringen
+      read_more: Mere om denne person
     place:
       find_results:
       further_information:

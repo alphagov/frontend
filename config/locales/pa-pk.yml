@@ -538,6 +538,11 @@ pa-pk:
       name:
         one: قومی مجلس دے سامنے زبانی بیان
         other: قومی مجلس دے سامنے زبانی بیانات
+    people:
+      biography: سوانح حیات
+      previous_roles: پچھلے کردار
+      previous_roles_in_government: حکومت دے وچ پچھلا کردار
+      read_more: ایس بندے بارے کُج ہور
     place:
       find_results:
       further_information:

@@ -538,6 +538,11 @@ hu:
       name:
         one: Parlamenti felszólalás
         other: Parlamenti felszólalások
+    people:
+      biography: Életrajz
+      previous_roles: Korábbi beosztások
+      previous_roles_in_government: Korábbi állami beosztások
+      read_more: Több erről a személyről
     place:
       find_results:
       further_information:

@@ -538,6 +538,11 @@ de:
       name:
         one: Mündliche Erklärung vor dem Parlament
         other: Mündliche Erklärungen vor dem Parlament
+    people:
+      biography: Biografie
+      previous_roles: Frühere Funktionen
+      previous_roles_in_government: Frühere Funktionen in der Regierung
+      read_more: Mehr über diese Person
     place:
       find_results:
       further_information:

@@ -538,6 +538,11 @@ ku:
       name:
         one: لێدوانی زارەکی بۆ پەرلەمان
         other: لێدوانی زارەکی بۆ پەرلەمان
+    people:
+      biography:
+      previous_roles:
+      previous_roles_in_government:
+      read_more:
     place:
       find_results: ئەنجامەکانی نزیک خۆت بدۆزەرەوە
       further_information:

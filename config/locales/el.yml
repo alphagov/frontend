@@ -538,6 +538,11 @@ el:
       name:
         one: Προφορική δήλωση στη Βουλή
         other: Προφορικές δηλώσεις στη Βουλή
+    people:
+      biography: Βιογραφία
+      previous_roles: Προηγούμενοι ρόλοι
+      previous_roles_in_government: Προηγούμενοι ρόλοι στην κυβέρνηση
+      read_more: Περισσότερα για αυτό το άτομο
     place:
       find_results:
       further_information:

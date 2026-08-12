@@ -750,6 +750,11 @@ ar:
         other: بيانات شفوية للبرلمان
         two:
         zero:
+    people:
+      biography: سيرة ذاتية
+      previous_roles: الأدوار السابقة
+      previous_roles_in_government: الأدوار السابقة بالحكومة
+      read_more: المزيد عن هذه الشخصية
     place:
       find_results:
       further_information:

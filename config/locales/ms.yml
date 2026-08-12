@@ -485,6 +485,11 @@ ms:
     oral_statement:
       name:
         other: Kenyataan lisan kepada Parlimen
+    people:
+      biography: Biografi
+      previous_roles: Peranan sebelum ini
+      previous_roles_in_government: Peranan sebelum ini dalam kerajaan
+      read_more: Lebih lanjut tentang individu ini
     place:
       find_results:
       further_information:

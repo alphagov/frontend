@@ -538,6 +538,11 @@ ps:
       name:
         one: پارلماني غونډې ته وینا
         other: پارلمان ته شفاهي څرګندونې
+    people:
+      biography: ژوندلیک
+      previous_roles: پخواني رولونه
+      previous_roles_in_government: په حکومت کې پخوانی رول
+      read_more: د دې کس په اړه نور
     place:
       find_results:
       further_information:

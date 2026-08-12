@@ -644,6 +644,11 @@ ru:
         many:
         one: Устное заявление парламенту
         other: Устные заявления парламенту
+    people:
+      biography: Биография
+      previous_roles: Предыдущие должности
+      previous_roles_in_government: Предыдущие должности в правительстве
+      read_more: Больше о человеке
     place:
       find_results:
       further_information:

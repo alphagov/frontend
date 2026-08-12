@@ -485,6 +485,11 @@ id:
     oral_statement:
       name:
         other: Pernyataan lisan kepada Parlemen
+    people:
+      biography: Biografi
+      previous_roles: Peran sebelumnya
+      previous_roles_in_government: Peran sebelumnya dalam pemerintahan
+      read_more: Selengkapnya tentang orang ini
     place:
       find_results:
       further_information:

@@ -538,6 +538,11 @@ it:
       name:
         one: Dichiarazione orale al Parlamento
         other: Dichiarazioni orali al Parlamento
+    people:
+      biography: Biografia
+      previous_roles: Ruoli precedenti
+      previous_roles_in_government: Ruoli precedenti nel governo
+      read_more: Maggiori informazioni su questa persona
     place:
       find_results:
       further_information:

@@ -538,6 +538,11 @@ nl:
       name:
         one: Mondelinge verklaring voor het Parlement
         other: Mondelinge verklaringen aan het Parlement
+    people:
+      biography: Biografie
+      previous_roles: Vorige functies
+      previous_roles_in_government: Eerdere functies bij de overheid
+      read_more: Meer over deze persoon
     place:
       find_results:
       further_information:

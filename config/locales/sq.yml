@@ -538,6 +538,11 @@ sq:
       name:
         one: Deklarata gojore në Parlament
         other: Deklarata gojore në Parlament
+    people:
+      biography: Biografia
+      previous_roles: Rolet e mëparshme
+      previous_roles_in_government: Rolet e mëparshme në qeveri
+      read_more: Më shumë për këtë person
     place:
       find_results:
       further_information:

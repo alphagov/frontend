@@ -644,6 +644,11 @@ pl:
         many:
         one: Ustne oświadczenie przed parlamentem
         other: Ustne oświadczenia przed parlamentem
+    people:
+      biography: Biografia
+      previous_roles: Poprzednie funkcje
+      previous_roles_in_government: Poprzednie funkcje w rządzie
+      read_more: Więcej o tej osobie
     place:
       find_results:
       further_information:

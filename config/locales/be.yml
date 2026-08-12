@@ -644,6 +644,11 @@ be:
         many:
         one: Вусная заява ў парламенце
         other: Вусныя даклады ў парламенце
+    people:
+      biography: Бiяграфiя
+      previous_roles: Папярэднія пасады
+      previous_roles_in_government: Папярэднія дзяржаўныя пасады
+      read_more: Больш аб гэтай персоне
     place:
       find_results:
       further_information:

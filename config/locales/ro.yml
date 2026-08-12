@@ -591,6 +591,11 @@ ro:
         few:
         one: Expunere orală către Parlament
         other: Expuneri orale către Parlament
+    people:
+      biography: Biografie
+      previous_roles: Roluri anterioare
+      previous_roles_in_government: Roluri anterioare în guvern
+      read_more: Mai multe despre această persoană
     place:
       find_results:
       further_information:

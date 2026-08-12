@@ -538,6 +538,11 @@ sv:
       name:
         one: Muntligt uttalande till parlamentet
         other: Muntliga uttalanden till parlamentet
+    people:
+      biography: Biografi
+      previous_roles: Tidigare roller
+      previous_roles_in_government: Tidigare roller inom den offentliga sektorn
+      read_more: Mer om den här personen
     place:
       find_results:
       further_information:

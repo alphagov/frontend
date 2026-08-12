@@ -541,6 +541,11 @@ dr:
       name:
         one: بیانیهء شفاهی به پارلمان
         other: بیانیه هایی شفاهی به پارلمان
+    people:
+      biography: بیوگرافی
+      previous_roles: وظیفه هایی قبلی
+      previous_roles_in_government: وظیفه هایی قبلی در دولت
+      read_more: اطلاعات بیشتر در بارهء این شخص
     place:
       find_results:
       further_information:

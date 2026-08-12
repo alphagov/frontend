@@ -538,6 +538,11 @@ is:
       name:
         one: Munnleg yfirlýsing til Þingsins
         other: Munnlegar yfirlýsingar til Þingsins
+    people:
+      biography: Ævisaga
+      previous_roles: Fyrri hlutverki
+      previous_roles_in_government: Fyrri hlutverk hjá ríkinu
+      read_more: Meira um þessa manneskju
     place:
       find_results:
       further_information:

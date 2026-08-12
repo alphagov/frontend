@@ -538,6 +538,11 @@ fa:
       name:
         one: بیانیه شفاهی به پارلمان
         other: بیانیه‌های شفاهی به پارلمان
+    people:
+      biography: زندگی‌نامه
+      previous_roles: نقش‌های قبلی
+      previous_roles_in_government: نقش‌های قبلی در دولت
+      read_more: اطلاعات بیشتر درباره این فرد
     place:
       find_results:
       further_information:

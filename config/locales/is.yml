@@ -599,6 +599,20 @@ is:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Kynntu þér hver gegndi þessari stöðu áður í %{link} hlutanum.
+      heading:
+        one: Hlutverk
+        other: Hlutverk
+      headings:
+        current_holder: Gegnir stöðunni núna
+        previous_holders: Gegndu stöðunni áður
+        responsibilities: Ábyrgð
+      ministerial: Ráðherrastóll
+      organisations:
+      past: fyrri
+      previous_holders: Gegndu þessari stöðu áður
+      read_more: Meira um þessa stöðu
     service_sign_in:
       name:
         one:

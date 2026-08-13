@@ -599,6 +599,20 @@ de:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Weitere Informationen über frühere Inhaber dieser Funktion finden Sie in unserem Abschnitt %{link}.
+      heading:
+        one: Funktion
+        other: Funktionen
+      headings:
+        current_holder: Derzeitiger Funktionsinhaber
+        previous_holders: Frühere Funktionsinhaber
+        responsibilities: Zuständigkeiten
+      ministerial: Ministerielle Funktion
+      organisations:
+      past: früherer
+      previous_holders: Frühere Inhaber dieser Funktion
+      read_more: Mehr über diese Funktion
     service_sign_in:
       name:
         one:

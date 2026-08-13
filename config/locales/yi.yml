@@ -599,6 +599,20 @@ yi:
       name:
         one:
         other:
+    roles:
+      find_out_more_html:
+      heading:
+        one:
+        other:
+      headings:
+        current_holder:
+        previous_holders:
+        responsibilities:
+      ministerial:
+      organisations:
+      past:
+      previous_holders:
+      read_more:
     service_sign_in:
       name:
         one:

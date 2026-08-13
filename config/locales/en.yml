@@ -604,6 +604,20 @@ en:
       name:
         one: Residential property tribunal decision
         other: Residential property tribunal decisions
+    roles:
+      find_out_more_html: Find out more about previous holders of this role in our %{link} section.
+      heading:
+        one: Role
+        other: Roles
+      headings:
+        current_holder: Current role holder
+        previous_holders: Previous holders
+        responsibilities: Responsibilities
+      ministerial: Ministerial role
+      organisations: Organisations
+      past: past
+      previous_holders: Previous holders of this role
+      read_more: More about this role
     service_sign_in:
       name:
         one: Service sign in

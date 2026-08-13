@@ -864,6 +864,24 @@ cy:
         other: Penderfyniadau'r tribiwnlys eiddo preswyl
         two:
         zero:
+    roles:
+      find_out_more_html: Dysgwch fwy am ddeiliaid blaenorol y rôl hon yn ein hadran %{link}.
+      heading:
+        few:
+        many:
+        one: Rôl
+        other: Rolau
+        two:
+        zero:
+      headings:
+        current_holder: Deiliad presennol y rôl
+        previous_holders: Deiliaid blaenorol
+        responsibilities: Cyfrifoldebau
+      ministerial: Rôl weinidogol
+      organisations:
+      past: gorffennol
+      previous_holders: Deiliaid blaenorol y rôl hon
+      read_more: Mwy am y rôl hon
     service_sign_in:
       name:
         few:

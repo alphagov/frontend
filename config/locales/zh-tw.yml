@@ -534,6 +534,19 @@ zh-tw:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: 在我們的 %{link} 部分了解更多有關此角色過去的負責人的資訊。
+      heading:
+        other: 角色
+      headings:
+        current_holder: 目前角色負責人
+        previous_holders: 先前負責人
+        responsibilities: 職責
+      ministerial: 部長角色
+      organisations:
+      past: 過去
+      previous_holders: 此角色的先前負責人
+      read_more: 了解更多此角色
     service_sign_in:
       name:
         other:

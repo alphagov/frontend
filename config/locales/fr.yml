@@ -599,6 +599,20 @@ fr:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Pour plus d'informations sur les titulaires précédents de ce poste, consultez notre section %{link}.
+      heading:
+        one: Rôle
+        other: Rôles
+      headings:
+        current_holder: Titulaire actuel du poste
+        previous_holders: Titulaires précédents
+        responsibilities: Responsabilités
+      ministerial: Rôle ministériel
+      organisations:
+      past: passé
+      previous_holders: Titulaires précédents de ce rôle
+      read_more: Plus d'informations sur ce rôle
     service_sign_in:
       name:
         one:

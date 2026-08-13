@@ -729,6 +729,22 @@ mt:
         many:
         one:
         other:
+    roles:
+      find_out_more_html: Kun af iktar dwar detenturi preċedenti ta' dan ir-rwol fis-sezzjoni tagħna %{link}.
+      heading:
+        few:
+        many:
+        one: Rwol
+        other: Rwolijiet
+      headings:
+        current_holder: Detentur tar-rwol attwali
+        previous_holders: Detenturi preċedenti
+        responsibilities: Responsabbiltajiet
+      ministerial: Rwol ministerjali
+      organisations:
+      past: passat
+      previous_holders: Detenturi preċedenti ta' dan ir-rwol
+      read_more: Iktar dwar dan ir-rwol
     service_sign_in:
       name:
         few:

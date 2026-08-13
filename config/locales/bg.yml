@@ -599,6 +599,20 @@ bg:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Научете повече за предишните изпълняващи тази длъжност в нашия раздел %{link}.
+      heading:
+        one: Длъжност
+        other: Длъжности
+      headings:
+        current_holder: Сегашен изпълняващ длъжността
+        previous_holders: Предишни изпълняващи
+        responsibilities: Отговорности
+      ministerial: Министерска длъжност
+      organisations:
+      past: преди
+      previous_holders: Предишни изпълняващи длъжността
+      read_more: Повече за тази длъжност
     service_sign_in:
       name:
         one:

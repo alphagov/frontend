@@ -599,6 +599,20 @@ es:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Obtenga más información sobre los titulares anteriores de este puesto en nuestra sección %{link}.
+      heading:
+        one: Función
+        other: Funciones
+      headings:
+        current_holder: Titular actual de la función
+        previous_holders: Titulares anteriores
+        responsibilities: Responsabilidades
+      ministerial: Función ministerial
+      organisations:
+      past: pasado
+      previous_holders: Titulares anteriores de esta función
+      read_more: Más información sobre este papel
     service_sign_in:
       name:
         one:

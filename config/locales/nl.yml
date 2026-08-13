@@ -599,6 +599,20 @@ nl:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Meer informatie over eerdere dragers van deze functie vindt u in onze %{link} sectie.
+      heading:
+        one: Rol
+        other: Rollen
+      headings:
+        current_holder: Huidige rolhouder
+        previous_holders: Eerdere houders
+        responsibilities: Verantwoordelijkheden
+      ministerial: Ministeriële rol
+      organisations:
+      past: verleden
+      previous_holders: Eerdere houders van deze rol
+      read_more: Meer over deze rol
     service_sign_in:
       name:
         one:

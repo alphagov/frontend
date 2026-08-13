@@ -534,6 +534,19 @@ id:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: Cari tahu selengkapnya tentang pemegang sebelumnya dari peran ini pada bagian %{link} kami.
+      heading:
+        other: Peran
+      headings:
+        current_holder: Pemegang peran saat ini
+        previous_holders: Pemegang sebelumnya
+        responsibilities: Tanggung jawab
+      ministerial: Peran kementerian
+      organisations:
+      past: sebelumnya
+      previous_holders: Pemegang sebelumnya dari peran ini
+      read_more: Selengkapnya tentang peran ini
     service_sign_in:
       name:
         other:

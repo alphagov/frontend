@@ -664,6 +664,21 @@ cs:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Více informací o předchozích držitelích této funkce najdete v sekci %{link}.
+      heading:
+        few:
+        one: Úloha
+        other: Úlohy
+      headings:
+        current_holder: Současný držitel funkce
+        previous_holders: Předchozí držitelé
+        responsibilities: Odpovědnosti
+      ministerial: Úloha ministra
+      organisations:
+      past: minulost
+      previous_holders: Předchozí držitelé této funkce
+      read_more: Více o této roli
     service_sign_in:
       name:
         few:

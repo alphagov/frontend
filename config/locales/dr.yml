@@ -602,6 +602,20 @@ dr:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: در قسمت{link}%بیشتر در مورد دارنده گان قبلی ای وظیفه بدانید
+      heading:
+        one: وظیه
+        other: وظیفه ها
+      headings:
+        current_holder: دارنده فعلی وظیفه
+        previous_holders: دارنده گان قبلی
+        responsibilities: مسئولیت ها
+      ministerial: وظیفه وزیر
+      organisations:
+      past: گذشته
+      previous_holders: دارنده گان قبلی این وظیفه
+      read_more: معلومات بیشتر در مورد این وظیفه
     service_sign_in:
       name:
         one:

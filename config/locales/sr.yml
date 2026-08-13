@@ -664,6 +664,21 @@ sr:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Saznajte više o prethodnim nosiocima ove funkcije u našem odeljku %{link}.
+      heading:
+        few:
+        one: Uloga
+        other: Uloge
+      headings:
+        current_holder: Aktuelni nosioci funkcije
+        previous_holders: Prethodni nosioci
+        responsibilities: Zaduženja
+      ministerial: Resorna funkcija
+      organisations:
+      past: prethodno
+      previous_holders: Prethodno nosioci ove funkcije
+      read_more: Više o ovoj funkciji
     service_sign_in:
       name:
         few:

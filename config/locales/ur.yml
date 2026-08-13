@@ -599,6 +599,20 @@ ur:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: ہمارے %{link} سیکشن میں اس کردار کے گزشتہ ہولڈرز کے بارے میں مزید جانیں۔
+      heading:
+        one: کردار
+        other: کردار
+      headings:
+        current_holder: حالیہ کردار کا ہولڈر
+        previous_holders: گزشتہ ہولڈرز
+        responsibilities: ذمہ داریاں
+      ministerial: وزارتی کردارا
+      organisations:
+      past: ماضی
+      previous_holders: اس کردار کے گزشتہ ہولڈرز
+      read_more: اس کردار کے بارے میں مزید
     service_sign_in:
       name:
         one:

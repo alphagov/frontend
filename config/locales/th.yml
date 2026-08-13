@@ -534,6 +534,19 @@ th:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: ดูข้อมูลเพิ่มเติมเกี่ยวกับผู้ที่เคยดำรงตำแหน่งนี้ในส่วน %{link} ของเรา
+      heading:
+        other: บทบาท
+      headings:
+        current_holder: ผู้ดำรงตำแหน่งปัจจุบัน
+        previous_holders: ผู้ดำรงตำแหน่งก่อนหน้านี้
+        responsibilities: ความรับผิดชอบ
+      ministerial: บทบาทหน้าที่รัฐมนตรี
+      organisations:
+      past: อดีต
+      previous_holders: ผู้ดำรงตำแหน่งนี้ก่อนหน้านี้
+      read_more: ข้อมูลเพิ่มเติมเกี่ยวกับบทบาทหน้าที่นี้
     service_sign_in:
       name:
         other:

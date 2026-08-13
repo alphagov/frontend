@@ -599,6 +599,20 @@ pa:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: ਸਾਡੇ %{link} ਭਾਗ ਵਿੱਚ ਇਸ ਭੂਮਿਕਾ ਦੇ ਪਿਛਲੇ ਧਾਰਕਾਂ ਬਾਰੇ ਹੋਰ ਜਾਣੋ।
+      heading:
+        one: ਭੂਮਿਕਾ
+        other: ਭੂਮਿਕਾਵਾਂ
+      headings:
+        current_holder: ਮੌਜੂਦਾ ਰੋਲ ਧਾਰਕ
+        previous_holders: ਪਿਛਲੇ ਧਾਰਕ
+        responsibilities: ਜ਼ਿੰਮੇਵਾਰੀਆਂ
+      ministerial: ਮੰਤਰੀ ਦੀ ਭੂਮਿਕਾ
+      organisations:
+      past: ਬੀਤੇ
+      previous_holders: ਇਸ ਭੂਮਿਕਾ ਦੇ ਪਿਛਲੇ ਧਾਰਕ
+      read_more: ਇਸ ਭੂਮਿਕਾ ਬਾਰੇ ਹੋਰ
     service_sign_in:
       name:
         one:

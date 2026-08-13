@@ -534,6 +534,19 @@ vi:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: Tìm hiểu thêm về những người nắm giữ vai trò này trước đây trong phần %{link} của chúng tôi.
+      heading:
+        other: Vai trò
+      headings:
+        current_holder: Người nắm giữ vai trò hiện tại
+        previous_holders: Người nắm giữ vai trò trước đây
+        responsibilities: Trách nhiệm
+      ministerial: Vai trò bộ trưởng
+      organisations:
+      past: quá khứ
+      previous_holders: Những người nắm giữ vai trò này trước đây
+      read_more: Thông tin thêm về vai trò này
     service_sign_in:
       name:
         other:

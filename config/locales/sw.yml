@@ -599,6 +599,20 @@ sw:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Pata maelezo zaidi kuhusu watu walioshikilia nafasi hii hapo awali katika sehemu yetu ya %{link}.
+      heading:
+        one: Nafasi
+        other: Nafasi
+      headings:
+        current_holder: Anayeshikilia nafasi kwa sasa
+        previous_holders: Walioshikilia nafasi hapo awali
+        responsibilities: Majukumu
+      ministerial: Nafasi ya waziri
+      organisations:
+      past: awali
+      previous_holders: Walioshikilia nafasi hii hapo awali
+      read_more: Maelezo zaidi kuhusu nafasi hii
     service_sign_in:
       name:
         one:

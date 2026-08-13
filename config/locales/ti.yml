@@ -599,6 +599,20 @@ ti:
       name:
         one: ውሳነ ቤት ፍርዲ ናይ መንበሪ ገዛ
         other: ውሳነታት ቤት ፍርዲ ናይ መንበሪ ገዛ
+    roles:
+      find_out_more_html:
+      heading:
+        one:
+        other:
+      headings:
+        current_holder:
+        previous_holders:
+        responsibilities:
+      ministerial:
+      organisations:
+      past:
+      previous_holders:
+      read_more:
     service_sign_in:
       name:
         one: ናብ ኣገልግሎት ምእታው

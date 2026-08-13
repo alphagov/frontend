@@ -599,6 +599,20 @@ hu:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Tudjon meg többet a jelen pozíciót korábban betöltő emberekről a(z) %{link} szekciónkból.
+      heading:
+        one: Beosztás
+        other: Beosztások
+      headings:
+        current_holder: A pozíciót jelenleg betölti
+        previous_holders: A pozíciót korábban betöltők
+        responsibilities: Felelősségi körök
+      ministerial: Miniszteri pozíció
+      organisations:
+      past: múlt
+      previous_holders: A pozíciót korábban betöltő személyek
+      read_more: Tudjon meg többet erről a pozícióról
     service_sign_in:
       name:
         one:

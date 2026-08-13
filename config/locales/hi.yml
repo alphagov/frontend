@@ -599,6 +599,20 @@ hi:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: हमारे %{link} अनुभाग में यह भूमिका निभाने वाले पिछले लोगों के बारे में और जानें।
+      heading:
+        one: भूमिका
+        other: भूमिकाएं
+      headings:
+        current_holder: भूमिका निभाने वाला वर्तमान व्यक्ति
+        previous_holders: भूमिका निभाने वाले पिछले लोग
+        responsibilities: जिम्मेदारियां
+      ministerial: मंत्री संबंधी भूमिका
+      organisations:
+      past: पिछली
+      previous_holders: इस भूमिका निभाने वाले पिछले लोग
+      read_more: इस भूमिका के बारे में और बातें
     service_sign_in:
       name:
         one:

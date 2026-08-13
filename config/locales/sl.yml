@@ -729,6 +729,22 @@ sl:
         one:
         other:
         two:
+    roles:
+      find_out_more_html: Izvedite več o prejšnjih nosilcih te vloge v našem razdelku %{link}.
+      heading:
+        few:
+        one: Vloga
+        other: Vloge
+        two:
+      headings:
+        current_holder: Trenutni nosilec vloge
+        previous_holders: Predhodni nosilci
+        responsibilities: Odgovornosti
+      ministerial: Vloga ministra
+      organisations:
+      past: pretekli
+      previous_holders: Prejšnji nosilci te vloge
+      read_more: Več o teh vlogi
     service_sign_in:
       name:
         few:

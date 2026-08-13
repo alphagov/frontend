@@ -599,6 +599,20 @@ fi:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Lue lisää tämän tehtävän aiemmista haltijoista %{link}osastostamme.
+      heading:
+        one: Rooli
+        other: Roolit
+      headings:
+        current_holder: Nykyinen roolin haltija
+        previous_holders: Aiemmat haltijat
+        responsibilities: Vastuut
+      ministerial: Ministerin rooli
+      organisations:
+      past: ohi
+      previous_holders: Tämän roolin aiemmat haltijat
+      read_more: Lisää tästä roolista
     service_sign_in:
       name:
         one:

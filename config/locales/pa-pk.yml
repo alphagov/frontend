@@ -599,6 +599,20 @@ pa-pk:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: ایس کردار والے بندے بارے ساڈے ایس لنک تے اوندے پچھلے کردار نوں جانوں %{link} section.سیکشن
+      heading:
+        one: اک کردار
+        other: کردار
+      headings:
+        current_holder: موجودہ کردار کرن والا
+        previous_holders: پچھلے کردار کرن والے
+        responsibilities: ذمہ داریاں
+      ministerial: وزیر دا کردار
+      organisations:
+      past: ماضی
+      previous_holders: ایہ کردار کرن والے پچھلے لوگ
+      read_more: 'ایس کردار بارے ہور '
     service_sign_in:
       name:
         one:

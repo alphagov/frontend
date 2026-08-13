@@ -664,6 +664,21 @@ lt:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Daugiau informacijos apie žmones, atliekančius šią funkciją pateikiama mūsų %{link} skyriuje.
+      heading:
+        few:
+        one: Funkcija
+        other: Vaidmenys
+      headings:
+        current_holder: Dabar funkciją atliekantis asmuo
+        previous_holders: Anksčiau funkciją atlikę asmenys
+        responsibilities: Pareigos
+      ministerial: Funkcija ministerijoje
+      organisations:
+      past: praeitis
+      previous_holders: Anksčiau funkciją atlikę asmenys
+      read_more: Daugiau informacijos apie šią funkciją
     service_sign_in:
       name:
         few:

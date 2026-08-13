@@ -599,6 +599,20 @@ he:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: למידע נוסף על בעלים קודמים לתפקיד זה בקטע %{link} שלנו.
+      heading:
+        one: תפקיד
+        other: תפקידים
+      headings:
+        current_holder: בעל תפקיד נוכחי
+        previous_holders: בעלים קודמים
+        responsibilities: אחריות
+      ministerial: תפקיד שר
+      organisations:
+      past: עבר
+      previous_holders: בעלים קודמים לתפקיד זה
+      read_more: עוד על התפקיד הזה
     service_sign_in:
       name:
         one:

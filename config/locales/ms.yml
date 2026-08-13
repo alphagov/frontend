@@ -534,6 +534,19 @@ ms:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: Ketahui lebih lanjut tentang pemegang jawatan ini sebelum ini dalam seksyen %{link} kami.
+      heading:
+        other: Peranan
+      headings:
+        current_holder: Pemegang jawatan ketika ini
+        previous_holders: Pemegang jawatan sebelum ini
+        responsibilities: Tanggungjawab
+      ministerial: Peranan menteri
+      organisations:
+      past: lalu
+      previous_holders: Pemegang jawatan ini sebelum ini
+      read_more: Lebih lanjut tentang peranan ini
     service_sign_in:
       name:
         other:

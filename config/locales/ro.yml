@@ -664,6 +664,21 @@ ro:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Află mai multe despre deținătorii acestei funcții în secțiunea noastră %{link}.
+      heading:
+        few:
+        one: Rol
+        other: Roluri
+      headings:
+        current_holder: Deținătorul curent al funcției
+        previous_holders: Deținători anteriori
+        responsibilities: Responsabilități
+      ministerial: Funcție ministerială
+      organisations:
+      past: trecut
+      previous_holders: Deținători anteriori ai acestei funcții
+      read_more: Mai multe despre această funcție
     service_sign_in:
       name:
         few:

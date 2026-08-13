@@ -729,6 +729,22 @@ gd:
         one:
         other:
         two:
+    roles:
+      find_out_more_html: Chun níos mó a fhoghlaim faoi na hiar-shealbhóirí, féach ar ár gcuid %{link}.
+      heading:
+        few:
+        one: Ról
+        other: Róil
+        two:
+      headings:
+        current_holder: Sealbhóir poist reatha
+        previous_holders: Sealbhóirí roimhe seo
+        responsibilities: Freagrachtaí
+      ministerial: Ról aireachta
+      organisations:
+      past: pas
+      previous_holders: Iarchomhaltaí na feidhme seo
+      read_more: Níos mó a fhoghlaim faoin ngné seo
     service_sign_in:
       name:
         few:

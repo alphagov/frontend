@@ -599,6 +599,20 @@ da:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Få mere at vide om tidligere indehavere af denne rolle i afsnittet %{link}.
+      heading:
+        one: Rolle
+        other: Roller
+      headings:
+        current_holder: Nuværende rolleindehaver
+        previous_holders: Tidligere indehavere
+        responsibilities: Ansvarsområder
+      ministerial: Ministeriel rolle
+      organisations:
+      past: fortid
+      previous_holders: Tidligere indehavere af denne rolle
+      read_more: Mere om denne stilling
     service_sign_in:
       name:
         one:

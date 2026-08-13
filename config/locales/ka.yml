@@ -599,6 +599,20 @@ ka:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: გაიგეთ მეტი ამ როლის წინა მფლობელების შესახებ ჩვენს %{link} სექციაში.
+      heading:
+        one: როლი
+        other: როლები
+      headings:
+        current_holder: როლის ამჟამინდელი მფლობელი
+        previous_holders: წინა მფლობელები
+        responsibilities: პასუხისმგებლობები
+      ministerial: მინისტრის როლი
+      organisations:
+      past: წინა
+      previous_holders: ამ როლის წინა მფლობელები
+      read_more: მეტი ამ როლის შესახებ
     service_sign_in:
       name:
         one:

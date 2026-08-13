@@ -599,6 +599,20 @@ kk:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Біздің %{link} бөлімдегі осы рөлдің алдыңғы иегерлері туралы қосымша ақпарат алыңыз.
+      heading:
+        one: Рөл
+        other: Рөлдер
+      headings:
+        current_holder: Ағымдағы рөл иегері
+        previous_holders: Алдыңғы иегерлер
+        responsibilities: Жауапкершіліктер
+      ministerial: Министрлік рөл
+      organisations:
+      past: өткен
+      previous_holders: Осы рөлдің алдыңғы иегерлері
+      read_more: Осы рөл туралы қосымша ақпарат
     service_sign_in:
       name:
         one:

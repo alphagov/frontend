@@ -599,6 +599,20 @@ ps:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: زموږ د %{link} برخې کې د دې رول پخوانیو لرونکو په اړه نور معلومات ترلاسه کړئ.
+      heading:
+        one: رول
+        other: رولونه
+      headings:
+        current_holder: اوسنی رول لرونکی
+        previous_holders: پخوانۍ لرونکي
+        responsibilities: مسؤلیتونه
+      ministerial: د وزیر رول
+      organisations:
+      past: تېر
+      previous_holders: د دې رول پخواني لرونکي
+      read_more: د دې رول په اړه نور
     service_sign_in:
       name:
         one:

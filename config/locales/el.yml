@@ -599,6 +599,20 @@ el:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Μάθετε περισσότερα για τους προηγούμενους κατόχους αυτού του ρόλου στην ενότητα %{link}.
+      heading:
+        one: Ρόλος
+        other: Ρόλοι
+      headings:
+        current_holder: Τρέχων κάτοχος ρόλου
+        previous_holders: Προηγούμενοι κάτοχοι
+        responsibilities: Ευθύνες
+      ministerial: Υπουργικός ρόλος
+      organisations:
+      past: στο παρελθόν
+      previous_holders: Προηγούμενοι κάτοχοι αυτού του ρόλου
+      read_more: Περισσότερα για αυτόν τον ρόλο
     service_sign_in:
       name:
         one:

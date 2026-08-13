@@ -3,17 +3,17 @@
 # :nocov:
 namespace :consolidation do
   desc <<~END_DESC
-    Copy a locale key for all locales from government-frontend to frontend
+    Copy a locale key for all locales from collections to frontend
 
     Usage:
       rake "consolidation:copy_translation[components]" # copies the whole components tree
       rake "consolidation:copy_translation[components.figure]" # copies just the components.figure tree
       rake "consolidation:copy_translation[components.figure,component_details.figure]" # copies just the components.figure tree, but puts it into component_details.figure in frontend
 
-    Note that government-frontend needs to be checked out out in a sibling directory
+    Note that collections needs to be checked out out in a sibling directory
   END_DESC
   task :copy_translation, %i[key target_key] => :environment do |_, args|
-    abort("government-frontend not checked out in a sibling directory") unless Dir.exist?(Rails.root.join("../government-frontend"))
+    abort("collections not checked out in a sibling directory") unless Dir.exist?(Rails.root.join("../collections"))
 
     key = args.fetch(:key, nil)
     target_key = args.fetch(:target_key, key)
@@ -21,15 +21,16 @@ namespace :consolidation do
     target_key_parts = target_key.split(".")
     abort("You need to specify a key to copy") unless key
 
-    puts("Copying #{key} translations from government-frontend to frontend")
+    puts("Copying #{key} translations from collections to frontend")
 
     frontend_locale_files = Dir.entries(Rails.root.join("config/locales")).select { |name| name.end_with?(".yml") }.sort
 
     frontend_locale_files.each do |flf|
-      government_frontend_keys = YAML.load(File.read(Rails.root.join("../government-frontend/config/locales", flf)))
+      locale_dir = flf.delete_suffix(".yml")
+      collections_keys = YAML.load(File.read(Rails.root.join("../collections/config/locales", locale_dir, "#{key}.yml")))
       locale_key_parts = [flf.gsub(".yml", "")] + key_parts
-      translation_tree = government_frontend_keys.dig(*locale_key_parts)
-      abort("key #{key} not found in government-frontend's #{flf}") unless key_tree_exists?(government_frontend_keys, locale_key_parts)
+      translation_tree = collections_keys.dig(*locale_key_parts)
+      abort("key #{key} not found in collections' #{flf}") unless key_tree_exists?(collections_keys, locale_key_parts)
 
       target_locale_key_parts = [flf.gsub(".yml", "")] + target_key_parts
       if translation_tree.is_a?(Hash)

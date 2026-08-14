@@ -36,6 +36,21 @@
     } %>
   <% end %>
 
+  <% caption = capture do %>
+    <% if show_caption %>
+      <div class="app-c-impact-header__caption">
+        <%= render "govuk_publishing_components/components/details", {
+          title: "Image details",
+          theme: ("black" unless inverse),
+          inverse: inverse,
+          margin_bottom: 0,
+        } do %>
+          <%= image[:caption] %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
   <%= tag.div(**component_helper.all_attributes) do %>
     <% if image %>
       <div class="app-c-impact-header__container">
@@ -43,25 +58,18 @@
           <%= text %>
         </div>
 
-        <%= render "flexible_page/flexible_sections/shared/picture",
-          image: image,
-          style: "app-c-impact-header",
-          alt_text: "" %>
-      </div>
-      <% if show_caption %>
-        <div class="app-c-impact-header__caption-wrapper">
-          <div class="app-c-impact-header__caption">
-            <%= render "govuk_publishing_components/components/details", {
-              title: "Image details",
-              theme: ("black" unless inverse),
-              inverse: inverse,
-              margin_bottom: 0,
-            } do %>
-              <%= image[:caption] %>
+        <div class="app-c-impact-header__image-wrapper">
+          <div class="app-c-impact-header__image-thing">
+            <%= picture_tag(class: "") do %>
+              <%= tag.source srcset: srcset_string(:desktop, image), media: "(min-width: 769px)" %>
+              <%= tag.source srcset: srcset_string(:tablet, image), media: "(min-width: 641px) and (max-width: 768px)" %>
+              <%= tag.source srcset: srcset_string(:mobile, image), media: "(max-width: 640px)" %>
+              <%= image_tag(image[:sources][:desktop], class: "app-c-impact-header__image", alt: "") %>
             <% end %>
           </div>
+        <%= caption %>
         </div>
-      <% end %>
+      </div>
     <% else %>
       <div class="app-c-impact-header__grid">
         <div class="govuk-grid-row">

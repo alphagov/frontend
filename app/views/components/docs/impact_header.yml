@@ -32,6 +32,20 @@ examples:
           tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
     context:
       full_width: true
+  with_smaller_image:
+    data:
+      heading: This is the title of the impact header
+      description: This is the description of the impact header, containing words that form a paragraph of text.
+      image:
+        sources:
+          desktop: "/assets/frontend/flexible-pages/example_desktop_1x_landscape.jpg"
+          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x_landscape.jpg"
+          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+    context:
+      full_width: true
   with_image_caption:
     data:
       heading: With image caption

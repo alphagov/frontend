@@ -32,8 +32,9 @@ $gap: 30px;
 
 .app-c-impact-header__detail {
   padding: 15px;
-  flex-shrink: 1;
-  flex-grow: 0;
+  // flex-shrink: 1;
+  // flex-grow: 0;
+  align-self: flex-start;
 
   @include govuk-media-query($from: tablet) {
     padding: 30px;

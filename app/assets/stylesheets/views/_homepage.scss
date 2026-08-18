@@ -291,14 +291,6 @@
 
 // Overrides
 
-// Ensures the card text takes up the full width of the container
-.gem-c-cards__list-item-wrapper {
-  .gem-c-cards__sub-heading,
-  .gem-c-cards__description {
-    max-width: 100%;
-  }
-}
-
 // Temporary overrides for global bar styling on homepage.
 // Doing this here avoids the need for republishing the
 // gem and therefore will be easier to remove later.

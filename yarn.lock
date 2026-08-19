@@ -2415,7 +2415,7 @@ __metadata:
   dependencies:
     "@defra/interactive-map": 0.0.30-alpha
     jasmine-browser-runner: ^5.0.0
-    jasmine-core: ^6.3.0
+    jasmine-core: ^7.0.1
     leaflet: ^1.9.4
     maplibre-gl: 5.24.0
     nyc: ^18.0.0
@@ -3347,10 +3347,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jasmine-core@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "jasmine-core@npm:6.3.0"
-  checksum: 4e0b2cfc4c26fa9185786b12bd2ee75670ccdc8069216b4a3ee1633a5c2e9d2aa85221d5655fce325238ff7e158be780a0405e15f7bbfc76bf1a455dc85a10c8
+"jasmine-core@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "jasmine-core@npm:7.0.1"
+  checksum: 5e0947c88ed9b377eadbb51abc1401191a6c587a58d11dc5607183917f4f5a55290d4dac1c2d2235b020656db12622b4d3cc39ff046b3ca7440096e3d026ede7
   languageName: node
   linkType: hard
 

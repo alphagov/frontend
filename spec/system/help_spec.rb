@@ -6,6 +6,7 @@ RSpec.describe "Help" do
         format: "special_route",
         title: "Help using GOV.UK",
         description: "",
+        links: {},
       }
       stub_conditional_loader_returns_content_item_for_path("/help", payload)
     end

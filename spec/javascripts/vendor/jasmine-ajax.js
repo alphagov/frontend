@@ -1,6 +1,7 @@
+(function() {
 /*
 
-Jasmine-Ajax - v3.4.0: a set of helpers for testing AJAX requests under the Jasmine
+Jasmine-Ajax - v5.0.0: a set of helpers for testing AJAX requests under the Jasmine
 BDD framework for JavaScript.
 
 http://github.com/jasmine/jasmine-ajax
@@ -8,6 +9,7 @@ http://github.com/jasmine/jasmine-ajax
 Jasmine Home page: http://jasmine.github.io/
 
 Copyright (c) 2008-2015 Pivotal Labs
+Copyright (c) 2012-2026 The Jasmine developers
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -29,24 +31,15 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
-// jshint latedef: nofunc
+// eslint-disable-next-line no-redeclare
+var getAjaxRequireObj = (function() {
+  var r = {};
+  return function() {
+    return r;
+  };
+})();
 
-//Module wrapper to support both browser and CommonJS environment
-(function (root, factory) {
-    // if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
-        // // CommonJS
-        // var jasmineRequire = require('jasmine-core');
-        // module.exports = factory(root, function() {
-            // return jasmineRequire;
-        // });
-    // } else {
-        // Browser globals
-        window.MockAjax = factory(root, getJasmineRequireObj);
-    // }
-}(typeof window !== 'undefined' ? window : global, function (global, getJasmineRequireObj) {
-
-//
-getJasmineRequireObj().ajax = function(jRequire) {
+getAjaxRequireObj().ajax = function(jRequire) {
   var $ajax = {};
 
   $ajax.RequestStub = jRequire.AjaxRequestStub();
@@ -61,7 +54,7 @@ getJasmineRequireObj().ajax = function(jRequire) {
   return $ajax.MockAjax;
 };
 
-getJasmineRequireObj().AjaxEvent = function() {
+getAjaxRequireObj().AjaxEvent = function() {
   function now() {
     return new Date().getTime();
   }
@@ -113,7 +106,7 @@ getJasmineRequireObj().AjaxEvent = function() {
     }
   };
 };
-getJasmineRequireObj().AjaxEventBus = function(eventFactory) {
+getAjaxRequireObj().AjaxEventBus = function(eventFactory) {
   function EventBus(source) {
     this.eventList = {};
     this.source = source;
@@ -176,24 +169,15 @@ getJasmineRequireObj().AjaxEventBus = function(eventFactory) {
   };
 };
 
-getJasmineRequireObj().AjaxFakeRequest = function(eventBusFactory) {
+getAjaxRequireObj().AjaxFakeRequest = function(eventBusFactory) {
   function extend(destination, source, propertiesToSkip) {
     propertiesToSkip = propertiesToSkip || [];
     for (var property in source) {
-      if (!arrayContains(propertiesToSkip, property)) {
+      if (!propertiesToSkip.includes(property)) {
         destination[property] = source[property];
       }
     }
     return destination;
-  }
-
-  function arrayContains(arr, item) {
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i] === item) {
-        return true;
-      }
-    }
-    return false;
   }
 
   function wrapProgressEvent(xhr, eventName) {
@@ -251,7 +235,7 @@ getJasmineRequireObj().AjaxFakeRequest = function(eventBusFactory) {
           headers = rawHeaders;
         } else {
           for (var headerName in rawHeaders) {
-            if (rawHeaders.hasOwnProperty(headerName)) {
+            if (Object.hasOwn(rawHeaders, headerName)) {
               headers.push({ name: headerName, value: rawHeaders[headerName] });
             }
           }
@@ -277,7 +261,7 @@ getJasmineRequireObj().AjaxFakeRequest = function(eventBusFactory) {
     var xmlParsables = ['text/xml', 'application/xml'];
 
     function getResponseXml(responseText, contentType) {
-      if (arrayContains(xmlParsables, contentType.toLowerCase())) {
+      if (xmlParsables.includes(contentType.toLowerCase())) {
         return parseXml(responseText, contentType);
       } else if (contentType.match(/\+xml$/)) {
         return parseXml(responseText, 'text/xml');
@@ -311,7 +295,7 @@ extend(FakeXMLHttpRequest, {
           throw new Error('DOMException: Failed to execute "setRequestHeader" on "XMLHttpRequest": The object\'s state must be OPENED.');
         }
 
-        if(this.requestHeaders.hasOwnProperty(header)) {
+        if (Object.hasOwn(this.requestHeaders, header)) {
           this.requestHeaders[header] = [this.requestHeaders[header], value].join(', ');
         } else {
           this.requestHeaders[header] = value;
@@ -563,7 +547,7 @@ extend(FakeXMLHttpRequest, {
   return fakeRequest;
 };
 
-getJasmineRequireObj().MockAjax = function($ajax) {
+getAjaxRequireObj().MockAjax = function($ajax) {
   function MockAjax(global) {
     var requestTracker = new $ajax.RequestTracker(),
       stubTracker = new $ajax.StubTracker(),
@@ -616,7 +600,7 @@ getJasmineRequireObj().MockAjax = function($ajax) {
   return MockAjax;
 };
 
-getJasmineRequireObj().AjaxParamParser = function() {
+getAjaxRequireObj().AjaxParamParser = function() {
   function ParamParser() {
     var defaults = [
       {
@@ -673,12 +657,7 @@ getJasmineRequireObj().AjaxParamParser = function() {
   return ParamParser;
 };
 
-getJasmineRequireObj().AjaxRequestStub = function() {
-  var RETURN = 0,
-      ERROR = 1,
-      TIMEOUT = 2,
-      CALL = 3;
-
+getAjaxRequireObj().AjaxRequestStub = function() {
   var normalizeQuery = function(query) {
     return query ? query.split('&').sort().join('&') : undefined;
   };
@@ -730,7 +709,7 @@ getJasmineRequireObj().AjaxRequestStub = function() {
     },
 
     matches: function(fullUrl, data, method) {
-      var urlMatches = false;
+      var urlMatches;
       fullUrl = fullUrl.toString();
       if (this.url instanceof RegExp) {
         urlMatches = this.url.test(fullUrl);
@@ -740,7 +719,7 @@ getJasmineRequireObj().AjaxRequestStub = function() {
             query = urlSplit[1];
         urlMatches = this.url === url && this.query === normalizeQuery(query);
       }
-      var dataMatches = false;
+      var dataMatches;
       if (this.data instanceof RegExp) {
         dataMatches = this.data.test(data);
       } else {
@@ -753,7 +732,7 @@ getJasmineRequireObj().AjaxRequestStub = function() {
   return RequestStub;
 };
 
-getJasmineRequireObj().AjaxRequestTracker = function() {
+getAjaxRequireObj().AjaxRequestTracker = function() {
   function RequestTracker() {
     var requests = [];
 
@@ -805,7 +784,7 @@ getJasmineRequireObj().AjaxRequestTracker = function() {
   return RequestTracker;
 };
 
-getJasmineRequireObj().AjaxStubTracker = function() {
+getAjaxRequireObj().AjaxStubTracker = function() {
   function StubTracker() {
     var stubs = [];
 
@@ -830,10 +809,10 @@ getJasmineRequireObj().AjaxStubTracker = function() {
   return StubTracker;
 };
 
+(function() {
+    var jRequire = getAjaxRequireObj();
+    window.MockAjax = jRequire.ajax(jRequire);
+    jasmine.Ajax = new window.MockAjax(window);
+})();
 
-    var jRequire = getJasmineRequireObj();
-    var MockAjax = jRequire.ajax(jRequire);
-    jasmine.Ajax = new MockAjax(global);
-
-    return MockAjax;
-}));
+})()

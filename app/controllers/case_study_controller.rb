@@ -1,5 +1,7 @@
 class CaseStudyController < ContentItemsController
+  layout "header_content_sidebar"
+
   def show
-    @content_item_presenter = ContentItemPresenter.new(content_item)
+    @content_item_presenter = CaseStudyPresenter.new(content_item)
   end
 end

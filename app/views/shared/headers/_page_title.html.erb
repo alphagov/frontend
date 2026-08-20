@@ -43,24 +43,22 @@
     <% end %>
   </div>
 
-  <% if options[:link] %>
-    <div class="govuk-grid-column-one-third feedback-link">
-      <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
+  <% if options[:link] || options[:world_location_links] || options[:sponsoring_organisation_links] %>
+    <div class="govuk-grid-column-one-third">
+      <% if options[:link] %>
+        <div class="feedback-link">
+          <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
+        </div>
+      <% end %>
+
+      <% if options[:world_location_links] || options[:sponsoring_organisation_links] %>
+        <%= render "govuk_publishing_components/components/metadata", {
+          other: {
+            "#{t("worldwide_organisation.news")}": options[:world_location_links],
+          },
+          part_of: options[:sponsoring_organisation_links],
+        } %>
+      <% end %>
     </div>
   <% end %>
-
-  <div class="govuk-grid-column-one-third">
-    <dl class="worldwide-organisation-header__metadata">
-      <% if options[:world_location_links].present? %>
-        <dt><%= t("worldwide_organisation.news") %>:</dt>
-        <dd data-module="hide-other-links" data-hide-other-links-link-text="<%= t("worldwide_organisation.show_more", hiddenLinksCount: options[:world_location_links].scan(/govuk-link/).count - 1) %>" data-hide-other-links-visually-hidden-link-text="<%= t("worldwide_organisation.show_more_visually_hidden") %>">
-          <%= options[:world_location_links] %></dd>
-      <% end %>
-
-      <% if options[:sponsoring_organisation_links].present? %>
-        <dt><%= t("worldwide_organisation.part_of") %>:</dt>
-        <dd lang="en"><%= options[:sponsoring_organisation_links] %></dd>
-      <% end %>
-    </dl>
-  </div>
 </div>

@@ -12,6 +12,15 @@ class PublicationPresenter < ContentItemPresenter
   ].freeze
 
   def hide_from_search_engines?
-    PATHS_TO_HIDE.include?(content_item.base_path)
+    PATHS_TO_HIDE.any? do |path_to_hide|
+      base_path = content_item.base_path
+      locale = content_item.locale
+
+      unless locale == "en"
+        base_path = content_item.base_path.gsub(".#{locale}", "")
+      end
+
+      path_to_hide == base_path
+    end
   end
 end

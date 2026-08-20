@@ -31,5 +31,28 @@ RSpec.describe PublicationPresenter do
         end
       end
     end
+
+    context "when a page is in the hide list and has translated pages" do
+      %w[
+        /government/publications/govuk-app-testing-privacy-notice-how-we-use-your-data
+        /government/publications/govuk-test-app-privacy-notice
+        /government/publications/pension-credit-claim-form--2
+        /government/publications/hpv-self-testing-kit-instructions
+        /government/publications/hpv-self-testing-a-self-test-to-help-protect-against-cervical-cancer
+        /government/publications/hpv-self-testing-easy-read-letter-templates
+        /government/publications/hpv-self-testing-easy-guides
+      ].each do |path|
+        let(:content_store_response) do
+          GovukSchemas::Example.find("publication", example_name: "publication").merge({
+            "base_path" => "#{path}.cy",
+            "locale" => "cy",
+          })
+        end
+
+        it "#{path} returns true" do
+          expect(publication_presenter.hide_from_search_engines?).to be true
+        end
+      end
+    end
   end
 end

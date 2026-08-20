@@ -7,7 +7,7 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
   def page_title_options
     super.merge({
       organisation_logo: organisation_logo,
-      world_location_links: world_location_links,
+      world_location_links: world_location_links_array,
       sponsoring_organisation_links: sponsoring_organisation_links,
     })
   end
@@ -26,19 +26,23 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
     links.to_sentence.html_safe
   end
 
-  def world_location_links
+  def world_location_links_array
     return if world_locations.empty?
 
     world_location_name_translations = content_item.content_store_response["details"]["world_location_names"]
 
-    links = world_locations.map do |location|
+    world_locations.map do |location|
       world_location_translation = world_location_name_translations.find do |translation|
         translation["content_id"] == location["content_id"]
       end
       link_to(I18n.t("worldwide_organisation.world_news_link", country: world_location_translation["name"]), WorldLocationBasePathService.for(location), class: "govuk-link")
     end
+  end
 
-    links.to_sentence.html_safe
+  def world_location_links
+    return unless world_location_links_array
+
+    world_location_links_array.to_sentence.html_safe
   end
 
   def logo

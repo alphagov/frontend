@@ -25,7 +25,7 @@
         <% unless content_item_presenter.people_in_primary_roles.empty? %>
           <% content_item_presenter.people_in_primary_roles.each do |person, i| %>
             <% counter += 1 %>
-            <li class="govuk-grid-column-one-quarter <%= "worldwide-organisation-clear-column" if counter % 5 == 0 %>">
+            <li class="govuk-grid-column-one-third <%= "worldwide-organisation-clear-column" if counter % 5 == 0 %>">
               <%= render "govuk_publishing_components/components/image_card", {
                 href: person[:href],
                 image_src: person[:image_url],

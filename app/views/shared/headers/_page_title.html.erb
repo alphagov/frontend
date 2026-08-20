@@ -1,3 +1,11 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <% if options[:organisation_logo] %>
+      <%= render "govuk_publishing_components/components/organisation_logo", organisation: options[:organisation_logo], margin_bottom: 8 %>
+    <% end %>
+  </div>
+</div>
+
 <div class="govuk-grid-row gem-print-columns-none">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/heading", {
@@ -40,4 +48,19 @@
       <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
     </div>
   <% end %>
+
+  <div class="govuk-grid-column-one-third">
+    <dl class="worldwide-organisation-header__metadata">
+      <% if options[:world_location_links].present? %>
+        <dt><%= t("worldwide_organisation.news") %>:</dt>
+        <dd data-module="hide-other-links" data-hide-other-links-link-text="<%= t("worldwide_organisation.show_more", hiddenLinksCount: options[:world_location_links].scan(/govuk-link/).count - 1) %>" data-hide-other-links-visually-hidden-link-text="<%= t("worldwide_organisation.show_more_visually_hidden") %>">
+          <%= options[:world_location_links] %></dd>
+      <% end %>
+
+      <% if options[:sponsoring_organisation_links].present? %>
+        <dt><%= t("worldwide_organisation.part_of") %>:</dt>
+        <dd lang="en"><%= options[:sponsoring_organisation_links] %></dd>
+      <% end %>
+    </dl>
+  </div>
 </div>

@@ -4,6 +4,14 @@ class WorldwideOrganisationPresenter < ContentItemPresenter
 
   WorldwideOffice = Struct.new(:contact, :has_access_and_opening_times?, :public_url, keyword_init: true)
 
+  def page_title_options
+    super.merge({
+      organisation_logo: organisation_logo,
+      world_location_links: world_location_links,
+      sponsoring_organisation_links: sponsoring_organisation_links,
+    })
+  end
+
   def formatted_title
     content_item.content_store_response["details"]["logo"]["formatted_title"]
   end

@@ -1,13 +1,11 @@
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+<div class="page-title">
+  <div class="page-title__org">
     <% if options[:organisation_logo] %>
       <%= render "govuk_publishing_components/components/organisation_logo", organisation: options[:organisation_logo], margin_bottom: 8, inline: true %>
     <% end %>
   </div>
-</div>
 
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="page-title__heading">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -18,33 +16,16 @@
       margin_bottom: 8,
     } %>
   </div>
-  <% if options[:translations] && options[:translations].count > 1 %>
-    <div class="govuk-grid-column-one-third">
+
+  <div class="page-title__translations">
+    <% if options[:translations] && options[:translations].count > 1 %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
         margin_bottom: 8,
       } %>
-    </div>
-  <% end %>
-</div>
-
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds">
-    <% if options[:lead_paragraph] %>
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: options[:lead_paragraph],
-        dir: options[:page_text_direction],
-        margin_bottom: 8,
-      } %>
     <% end %>
 
-    <% if options[:metadata] %>
-      <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8, border_top: true }) %>
-    <% end %>
-  </div>
-
-  <% if options[:link] || options[:world_location_links] || options[:sponsoring_organisation_links] %>
-    <div class="govuk-grid-column-one-third">
+    <% if options[:link] || options[:world_location_links] || options[:sponsoring_organisation_links] %>
       <% if options[:link] %>
         <div class="feedback-link">
           <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
@@ -59,6 +40,20 @@
           part_of: options[:sponsoring_organisation_links],
         } %>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <div class="page-title__lead">
+    <% if options[:lead_paragraph] %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
+        text: options[:lead_paragraph],
+        dir: options[:page_text_direction],
+        margin_bottom: 8,
+      } %>
+    <% end %>
+
+    <% if options[:metadata] %>
+      <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8, border_top: true }) %>
+    <% end %>
+  </div>
 </div>

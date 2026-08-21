@@ -34,14 +34,12 @@ RSpec.describe "Worldwide corporate information page" do
     end
 
     it "includes the world locations and sponsoring organisations" do
-      within find(".worldwide-organisation-header__metadata", match: :first) do
-        expect(page).to have_text("News:")
-        expect(page).to have_link("Philippines with translation and the UK", href: "/world/philippines/news")
-        expect(page).to have_link("Palau with translation and the UK", href: "/world/palau/news")
+      expect(page).to have_text("News:")
+      expect(page).to have_link("Philippines with translation and the UK", href: "/world/philippines/news")
+      expect(page).to have_link("Palau with translation and the UK", href: "/world/palau/news")
 
-        expect(page).to have_text("Part of:")
-        expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
-      end
+      expect(page).to have_text("Part of:")
+      expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
     end
 
     it "omits the world locations and sponsoring organisations when they are absent" do
@@ -51,10 +49,8 @@ RSpec.describe "Worldwide corporate information page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
-      within find(".worldwide-organisation-header__metadata", match: :first) do
-        expect(page).not_to have_text("Location:")
-        expect(page).not_to have_text("Part of:")
-      end
+      expect(page).not_to have_text("Location:")
+      expect(page).not_to have_text("Part of:")
     end
 
     it "does not render the translations when there are no translations" do

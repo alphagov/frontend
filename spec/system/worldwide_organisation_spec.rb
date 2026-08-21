@@ -147,7 +147,7 @@ RSpec.describe "Worldwide organisation page" do
     end
 
     it "includes the world locations and sponsoring organisations" do
-      within find(".worldwide-organisation-header__metadata", match: :first) do
+      within find(".gem-c-metadata", match: :first) do
         expect(page).to have_content("News:")
         expect(page).to have_link("India with translation and the UK", href: "/world/india/news")
         expect(page).to have_link("Another location with translation and the UK", href: "/world/another-location/news")
@@ -163,10 +163,8 @@ RSpec.describe "Worldwide organisation page" do
 
       setup_and_visit_page
 
-      within find(".worldwide-organisation-header__metadata", match: :first) do
-        expect(page).not_to have_content("Location:")
-        expect(page).not_to have_content("Part of:")
-      end
+      expect(page).not_to have_content("Location:")
+      expect(page).not_to have_content("Part of:")
     end
   end
 end

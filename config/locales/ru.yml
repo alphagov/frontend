@@ -644,6 +644,11 @@ ru:
         many:
         one: Устное заявление парламенту
         other: Устные заявления парламенту
+    people:
+      biography: Биография
+      previous_roles: Предыдущие должности
+      previous_roles_in_government: Предыдущие должности в правительстве
+      read_more: Больше о человеке
     place:
       find_results:
       further_information:
@@ -724,6 +729,22 @@ ru:
         many:
         one:
         other:
+    roles:
+      find_out_more_html: Читайте больше о том, кто ранее занимал данную должность в нашем   %{link} разделе.
+      heading:
+        few:
+        many:
+        one: Должность
+        other: Должности
+      headings:
+        current_holder: Кто занимает должность в настоящий момент
+        previous_holders: Кто занимал должность ранее
+        responsibilities: Обязанности
+      ministerial: Должность министра
+      organisations:
+      past: в прошлом
+      previous_holders: Кто занимал должность ранее
+      read_more: Больше о должности
     service_sign_in:
       name:
         few:

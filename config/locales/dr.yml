@@ -541,6 +541,11 @@ dr:
       name:
         one: بیانیهء شفاهی به پارلمان
         other: بیانیه هایی شفاهی به پارلمان
+    people:
+      biography: بیوگرافی
+      previous_roles: وظیفه هایی قبلی
+      previous_roles_in_government: وظیفه هایی قبلی در دولت
+      read_more: اطلاعات بیشتر در بارهء این شخص
     place:
       find_results:
       further_information:
@@ -597,6 +602,20 @@ dr:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: در قسمت{link}%بیشتر در مورد دارنده گان قبلی ای وظیفه بدانید
+      heading:
+        one: وظیه
+        other: وظیفه ها
+      headings:
+        current_holder: دارنده فعلی وظیفه
+        previous_holders: دارنده گان قبلی
+        responsibilities: مسئولیت ها
+      ministerial: وظیفه وزیر
+      organisations:
+      past: گذشته
+      previous_holders: دارنده گان قبلی این وظیفه
+      read_more: معلومات بیشتر در مورد این وظیفه
     service_sign_in:
       name:
         one:

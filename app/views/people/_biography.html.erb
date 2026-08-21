@@ -1,0 +1,14 @@
+<% if person.body.present? %>
+  <div id="biography" class="govuk-!-padding-bottom-9">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.people.biography"),
+      margin_bottom: 2,
+    } %>
+
+    <%= render "govuk_publishing_components/components/govspeak", {
+      direction: page_text_direction,
+    } do %>
+      <%= person.body.html_safe %>
+    <% end %>
+  </div>
+<% end %>

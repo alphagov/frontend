@@ -538,6 +538,11 @@ tr:
       name:
         one: Parlamentoya sözlü açıklama
         other: Parlamentoya sözlü açıklamalar
+    people:
+      biography: Biyografi
+      previous_roles: Önceki makamlar
+      previous_roles_in_government: Devlette önceki makamları
+      read_more: Bu kişi hakkında daha fazla
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ tr:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: "%{link} bölümümüzde bu makamın önceki sahipleri hakkında daha fazla bilgi al."
+      heading:
+        one: Makam
+        other: Makamlar
+      headings:
+        current_holder: Mevcut makam sahibi
+        previous_holders: Önceki makam sahipleri
+        responsibilities: Sorumluluklar
+      ministerial: Bakanlık görevi
+      organisations:
+      past: geçmiş
+      previous_holders: Bu makamın önceki sahipleri
+      read_more: Bu makam hakkında daha fazla bilgi
     service_sign_in:
       name:
         one:

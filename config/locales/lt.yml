@@ -591,6 +591,11 @@ lt:
         few:
         one: Žodinis kreipimasis į parlamentą
         other: Žodiniai kreipimaisi į parlamentą
+    people:
+      biography: Biografija
+      previous_roles: Ankstesnė funkcija
+      previous_roles_in_government: Ankstesnė funkcija vyriausybėje
+      read_more: Daugiau informacijos apie šį asmenį
     place:
       find_results:
       further_information:
@@ -659,6 +664,21 @@ lt:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Daugiau informacijos apie žmones, atliekančius šią funkciją pateikiama mūsų %{link} skyriuje.
+      heading:
+        few:
+        one: Funkcija
+        other: Vaidmenys
+      headings:
+        current_holder: Dabar funkciją atliekantis asmuo
+        previous_holders: Anksčiau funkciją atlikę asmenys
+        responsibilities: Pareigos
+      ministerial: Funkcija ministerijoje
+      organisations:
+      past: praeitis
+      previous_holders: Anksčiau funkciją atlikę asmenys
+      read_more: Daugiau informacijos apie šią funkciją
     service_sign_in:
       name:
         few:

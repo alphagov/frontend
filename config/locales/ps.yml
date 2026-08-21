@@ -538,6 +538,11 @@ ps:
       name:
         one: پارلماني غونډې ته وینا
         other: پارلمان ته شفاهي څرګندونې
+    people:
+      biography: ژوندلیک
+      previous_roles: پخواني رولونه
+      previous_roles_in_government: په حکومت کې پخوانی رول
+      read_more: د دې کس په اړه نور
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ ps:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: زموږ د %{link} برخې کې د دې رول پخوانیو لرونکو په اړه نور معلومات ترلاسه کړئ.
+      heading:
+        one: رول
+        other: رولونه
+      headings:
+        current_holder: اوسنی رول لرونکی
+        previous_holders: پخوانۍ لرونکي
+        responsibilities: مسؤلیتونه
+      ministerial: د وزیر رول
+      organisations:
+      past: تېر
+      previous_holders: د دې رول پخواني لرونکي
+      read_more: د دې رول په اړه نور
     service_sign_in:
       name:
         one:

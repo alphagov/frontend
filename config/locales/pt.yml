@@ -538,6 +538,11 @@ pt:
       name:
         one: Declaração oral ao Parlamento
         other: Declarações orais ao Parlamento
+    people:
+      biography: Biografia
+      previous_roles: Cargos anteriores
+      previous_roles_in_government: Cargos anteriores no governo
+      read_more: Mais sobre esta pessoa
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ pt:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Saiba mais sobre os detentores anteriores deste cargo na nossa secção %{link}.
+      heading:
+        one: Cargo
+        other: Cargos
+      headings:
+        current_holder: Titular atual do cargo
+        previous_holders: Titulares anteriores
+        responsibilities: Responsabilidades
+      ministerial: Cargo ministerial
+      organisations:
+      past: passado
+      previous_holders: Titulares anteriores deste cargo
+      read_more: Mais sobre este cargo
     service_sign_in:
       name:
         one:

@@ -591,6 +591,11 @@ hr:
         few:
         one: Usmena izjava Parlamentu
         other: Usmene izjave Parlamentu
+    people:
+      biography: Biografija
+      previous_roles: Prethodne uloge
+      previous_roles_in_government: Ranije uloge u vladi
+      read_more: Više o ovoj osobi
     place:
       find_results:
       further_information:
@@ -659,6 +664,21 @@ hr:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Saznajte više o prethodnim nositeljima ove uloge u našem %{link} odjeljku .
+      heading:
+        few:
+        one: Uloga
+        other: Uloge
+      headings:
+        current_holder: Trenutni nosilac uloge
+        previous_holders: Prethodni nositelji
+        responsibilities: Odgovornosti
+      ministerial: Ministarska uloga
+      organisations:
+      past: prošli
+      previous_holders: Dosadašnji nositelji ove uloge
+      read_more: Više o ovoj ulozi
     service_sign_in:
       name:
         few:

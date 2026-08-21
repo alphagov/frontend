@@ -644,6 +644,11 @@ uk:
         many:
         one: Усна заява до Парламенту
         other: Усні заяви до Парламенту
+    people:
+      biography: Біографія
+      previous_roles: Попередні функції
+      previous_roles_in_government: Попередні функції в уряді
+      read_more: Детальніше про цю особу
     place:
       find_results:
       further_information:
@@ -724,6 +729,22 @@ uk:
         many:
         one:
         other:
+    roles:
+      find_out_more_html: Дізнайтесь більше про попередників у нашому розділі %{link}.
+      heading:
+        few:
+        many:
+        one: Функція
+        other: Функції
+      headings:
+        current_holder: Поточний виконавець функції
+        previous_holders: Попередні виконавці
+        responsibilities: Обов’язки
+      ministerial: Міністерська функція
+      organisations:
+      past: минуле
+      previous_holders: Попередники
+      read_more: Детальніше про цю функцію
     service_sign_in:
       name:
         few:

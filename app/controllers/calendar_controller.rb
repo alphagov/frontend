@@ -6,11 +6,12 @@ class CalendarController < ContentItemsController
   rescue_from Calendar::CalendarNotFound, with: :simple_404
   skip_before_action :set_expiry, only: [:division]
   skip_before_action :allow_only_html_requests
+  layout "header_content_sidebar"
 
   def show_calendar
     respond_to do |format|
       format.html do
-        @faq_presenter = FaqPresenter.new(calendar.type, calendar, content_item.to_h, view_context)
+        @content_item_presenter = FaqPresenter.new(calendar.type, calendar, content_item.to_h, view_context)
 
         render calendar.type.tr("-", "_")
       end

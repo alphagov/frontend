@@ -1,9 +1,14 @@
-class FaqPresenter
+class FaqPresenter < ContentItemPresenter
   def initialize(type, calendar, content_item, view_context)
+    super(content_item)
     @type = type
     @calendar = calendar
     @content_item = content_item.symbolize_keys
     @view_context = view_context
+  end
+
+  def use_contextual_components?
+    true
   end
 
   def metadata

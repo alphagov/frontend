@@ -22,6 +22,8 @@
 
     <%= render "govuk_web_banners/recruitment_banner" %>
 
+    <%= yield :before_main %>
+
     <main id="content" class="govuk-main-wrapper <%= rtl_attribute %>" <%= lang_attribute %>>
       <span id="Top"></span>
 

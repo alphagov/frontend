@@ -12,6 +12,7 @@
   key_heading_text ||= "Map key"
   key ||= nil
   bounds ||= nil
+  theme ||= "default"
 
   heading_obj = { text: heading_text, heading_level: heading_level, margin_bottom: 4, font_size: "m"}
   heading_obj[:font_size] = "s" if heading_level > 2

@@ -9,7 +9,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       const cspWorker = this.$module.getAttribute('data-csp-worker')
-
+      const theme = this.$module.getAttribute('data-theme') || 'default'
       this.interactPlugin = defra.interactPlugin({
         deselectOnClickOutside: true
       })
@@ -18,7 +18,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
         behaviour: 'inline',
         mapStyle: {
-          url: window.GOVUK.mapComponentStyles,
+          url: window.GOVUK.mapThemes[theme],
           backgroundColor: '#f5f5f0'
         },
         plugins: [this.interactPlugin],

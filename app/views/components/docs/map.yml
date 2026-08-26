@@ -27,6 +27,34 @@ examples:
       centre:
       - -3.1883
       - 55.9533
+  with_gds_font:
+    data:
+      heading_text: An example map
+      zoom: 12
+      centre:
+      - -3.1883
+      - 55.9533
+      data_attributes:
+         theme: "gdsTransport"
+
+  with_gds_blue_water:
+    data:
+      heading_text: An example map
+      zoom: 12
+      centre:
+      - -3.1883
+      - 55.9533
+      data_attributes:
+         theme: "gdsBlueWater"
+  with_a_different_theme_entirely:
+    data:
+      heading_text: An example map
+      zoom: 12
+      centre:
+      - -3.1883
+      - 55.9533
+      data_attributes:
+         theme: "positron"
   custom_heading_description_and_copyright:
     description: |
       All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
@@ -229,3 +257,4 @@ examples:
         properties:
           name: Paddington Station
           description: Designed by Isambard Kingdom Brunel and opened in 1838.
+

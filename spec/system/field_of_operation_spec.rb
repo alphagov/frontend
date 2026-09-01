@@ -4,7 +4,7 @@ RSpec.describe "Field of operation page" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -38,7 +38,7 @@ RSpec.describe "Field of operation page" do
 
       it "doesn't render a subheading / description if the description is blank" do
         content_store_response["description"] = ""
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         expect(page).not_to have_selector("h2", text: "Field of operation")
@@ -46,7 +46,7 @@ RSpec.describe "Field of operation page" do
 
       it "doesn't render the description if it's an empty HTML element" do
         content_store_response["description"] = "<div class='govspeak' data-module='govspeak'></div>"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         expect(page).not_to have_selector("h2", text: "Field of operation")
@@ -66,7 +66,7 @@ RSpec.describe "Field of operation page" do
     context "when there are no fatality notices present" do
       it "doesn't render the fatality notice heading / list" do
         content_store_response["links"]["fatality_notices"] = []
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
         expect(page).not_to have_css("#fatalities")
         expect(page).not_to have_css("#fatalities ~ ul.govuk-list")

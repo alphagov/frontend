@@ -4,7 +4,7 @@ RSpec.describe "CallForEvidence" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -34,7 +34,7 @@ RSpec.describe "CallForEvidence" do
 
       it "does not display the button on foreign language pages" do
         content_store_response["locale"] = "cy"
-        stub_conditional_loader_returns_content_item_for_path("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
+        stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
         expect(page).not_to have_css(".gem-c-single-page-notification-button")
@@ -42,7 +42,7 @@ RSpec.describe "CallForEvidence" do
 
       it "does not render the button on exempt pages" do
         content_store_response["content_id"] = "c5c8d3cd-0dc2-4ca3-8672-8ca0a6e92165"
-        stub_conditional_loader_returns_content_item_for_path("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
+        stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
         expect(page).not_to have_css(".gem-c-single-page-notification-button")
@@ -59,7 +59,7 @@ RSpec.describe "CallForEvidence" do
 
       before do
         content_store_response.deep_merge!(overrides)
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -91,7 +91,7 @@ RSpec.describe "CallForEvidence" do
       }
 
       content_store_response.deep_merge!(overrides)
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       within(".gem-c-notice__title") do
@@ -116,7 +116,7 @@ RSpec.describe "CallForEvidence" do
       }
 
       content_store_response.deep_merge!(overrides)
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       within(".gem-c-devolved-nations") do
@@ -152,7 +152,7 @@ RSpec.describe "CallForEvidence" do
       let(:base_path) { content_store_response.fetch("base_path") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -178,7 +178,7 @@ RSpec.describe "CallForEvidence" do
 
       it "does not display accessible format option when accessible is true and email is supplied" do
         content_store_response["details"]["attachments"][0]["accessible"] = true
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within("#documents") do
@@ -189,7 +189,7 @@ RSpec.describe "CallForEvidence" do
 
       it "does not display accessible format option when accessible is false and email is not supplied" do
         content_store_response["details"]["attachments"][0].delete("alternative_format_contact_email")
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within("#documents") do
@@ -218,7 +218,7 @@ RSpec.describe "CallForEvidence" do
       let(:ways_to_respond) { content_store_response.dig("details", "ways_to_respond") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -272,7 +272,7 @@ RSpec.describe "CallForEvidence" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -284,7 +284,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays when the call for evidence closes" do
       content_store_response["details"]["closing_date"] = "2023-02-02T13:00:00.000+00:00"
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       within(".gem-c-summary-banner") do
@@ -308,7 +308,7 @@ RSpec.describe "CallForEvidence" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -327,7 +327,7 @@ RSpec.describe "CallForEvidence" do
 
       it "displays the opening time" do
         content_store_response["details"]["opening_date"] = "2023-01-02T13:00:00.000+00:00"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-notice") do
@@ -339,7 +339,7 @@ RSpec.describe "CallForEvidence" do
     context "when it displays the blue summary box" do
       it "displays when the call for evidence opens" do
         content_store_response["details"]["opening_date"] = "2023-01-02T13:00:00.000+00:00"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -349,7 +349,7 @@ RSpec.describe "CallForEvidence" do
 
       it "displays when the call for evidence closes" do
         content_store_response["details"]["closing_date"] = "2023-02-01T13:00:00.000+00:00"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -359,7 +359,7 @@ RSpec.describe "CallForEvidence" do
 
       it "links to external url call for evidence page if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -380,7 +380,7 @@ RSpec.describe "CallForEvidence" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -400,7 +400,7 @@ RSpec.describe "CallForEvidence" do
 
       it "links to external url call for evidence page if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -425,7 +425,7 @@ RSpec.describe "CallForEvidence" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -469,7 +469,7 @@ RSpec.describe "CallForEvidence" do
       it "displays when the call for evidence ran" do
         content_store_response["details"]["closing_date"] = "2022-02-01T13:00:00.000+00:00"
         content_store_response["details"]["opening_date"] = "2022-01-01T13:00:00.000+00:00"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -480,7 +480,7 @@ RSpec.describe "CallForEvidence" do
 
       it "links to external url call for evidence page if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do

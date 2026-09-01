@@ -8,7 +8,7 @@ RSpec.describe "Help" do
         description: "",
         links: {},
       }
-      stub_conditional_loader_returns_content_item_for_path("/help", payload)
+      stub_content_store_has_item("/help", payload)
     end
 
     it "renders the help index page correctly" do

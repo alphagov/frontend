@@ -40,14 +40,14 @@ RSpec.describe ContentItemLoader do
         path: "/my-random-item",
         env: {},
         headers: {},
-        params: { "graphql" => "false" },
+        params: {},
       )
       request_2 = instance_double(
         ActionDispatch::Request,
         path: "/my-random-item",
         env: {},
         headers: {},
-        params: { "graphql" => "false" },
+        params: {},
       )
 
       loader_1 = described_class.for_request(request_1)

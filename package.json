@@ -43,7 +43,7 @@
     "jasmine-browser-runner": "^5.0.0",
     "jasmine-core": "^7.0.2",
     "nyc": "^18.0.0",
-    "standardx": "^7.0.0",
+    "standard": "^17.0.0",
     "stylelint": "^17.14.1",
     "stylelint-config-gds": "^3.0.0"
   },

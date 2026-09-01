@@ -116,7 +116,7 @@
 @include govuk-media-query($from: tablet) {
   .page-title {
     display: grid;
-    grid-template-columns: [content] 66% [sidebar] auto;
+    grid-template-columns: [content] 65.666% [sidebar] auto;
     column-gap: 30px;
   }
 

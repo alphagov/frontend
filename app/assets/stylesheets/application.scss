@@ -112,3 +112,40 @@
     text-align: right;
   }
 }
+
+@include govuk-media-query($from: tablet) {
+  .page-title {
+    display: grid;
+    grid-template-columns: [content] 65.666% [sidebar] auto;
+    column-gap: 30px;
+  }
+
+  .page-title__org,
+  .page-title__heading,
+  .page-title__lead {
+    grid-column: content;
+  }
+
+  .page-title__org {
+    grid-row: 1;
+  }
+
+  .page-title__heading {
+    grid-row: 2;
+  }
+
+  .page-title__lead {
+    grid-row: 3;
+  }
+
+  .page-title__translations {
+    grid-column: sidebar;
+    grid-row: 2/4;
+  }
+
+  .direction-rtl {
+   .page-title {
+     grid-template-columns: [sidebar] auto [content] 66%;
+   }
+  }
+}

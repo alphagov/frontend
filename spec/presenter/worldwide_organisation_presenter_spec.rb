@@ -233,6 +233,15 @@ RSpec.describe WorldwideOrganisationPresenter do
     expect(worldwide_organisation_presenter.world_location_links).to eq(expected_links)
   end
 
+  it "#world_location_links_array returns the world locations as an array of links" do
+    expected_links = [
+      '<a class="govuk-link" href="/world/india/news">India with translation and the UK</a>',
+      '<a class="govuk-link" href="/world/another-location/news">Another location with translation and the UK</a>',
+    ]
+
+    expect(worldwide_organisation_presenter.world_location_links_array).to eq(expected_links)
+  end
+
   it "#world_location_links returns nil when world locations are empty" do
     content_item.content_store_response["links"].delete("world_locations")
     presenter = described_class.new(content_item)

@@ -11,7 +11,7 @@ class ContentItemLoader
     @cache = {}
     @content_items_from_content_store = []
     @request = request
-    @default_loader = ContentItemLoaders::ConditionalContentLoader.new(request:)
+    @default_loader = ContentItemLoaders::ContentStoreLoader.new
     @alternative_loaders = [
       ContentItemLoaders::LocalFileLoader.new,
       ContentItemLoaders::HubRedirectLoader.new(content_store_loader: default_loader),

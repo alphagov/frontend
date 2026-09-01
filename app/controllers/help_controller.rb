@@ -15,6 +15,9 @@ class HelpController < ContentItemsController
     ab_test = GovukAbTesting::AbTest.new("Example")
     @requested_variant = ab_test.requested_variant(request.headers)
     @requested_variant.configure_response(response)
+
+    @content_item_presenter = ContentItemPresenter.new(content_item)
+    render layout: "header_content_sidebar"
   end
 
   def sign_in

@@ -2,37 +2,25 @@
   <%= stylesheet_link_tag "views/_worldwide-organisation", media: "all" %>
 <% end %>
 
-<%= render partial: "worldwide_organisation/header", locals: {
-  worldwide_organisation: content_item_presenter.worldwide_organisation,
-  show_header_title: false,
-} %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-<article class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
-    <%= render "govuk_publishing_components/components/contents_list",
-      contents: content_item_presenter.headers_for_contents_list_component,
-      underline_links: true %>
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/contents_list",
+    contents: content_item_presenter.headers_for_contents_list_component,
+    underline_links: true %>
+
+  <hr class="govuk-section-break govuk-section-break--visible">
+
+  <div class="govuk-!-padding-top-6 govuk-!-padding-bottom-6 govuk-clearfix">
+    <%= render partial: "worldwide_organisation/contact", locals: {
+      contact: content_item_presenter.contact,
+      hide_title: true,
+    } %>
   </div>
 
-  <div class="govuk-grid-column-two-thirds">
-    <div class="body">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: sanitize("<span class='govuk-visually-hidden'>About </span>#{@content_item.contact.title}"),
-        heading_level: 2,
-        font_size: "xl",
-        margin_bottom: 4,
-      } %>
-
-      <hr class="govuk-section-break govuk-section-break--visible">
-      <div class="govuk-!-padding-top-6 govuk-!-padding-bottom-6 govuk-clearfix">
-        <%= render partial: "worldwide_organisation/contact", locals: {
-          contact: content_item_presenter.contact,
-          hide_title: true,
-        } %>
-      </div>
-      <%= render "govuk_publishing_components/components/govspeak", {} do
-        raw(content_item_presenter.body)
-      end %>
-    </div>
-  </div>
-</article>
+  <%= render "govuk_publishing_components/components/govspeak", {} do
+    raw(content_item_presenter.body)
+  end %>
+<% end %>

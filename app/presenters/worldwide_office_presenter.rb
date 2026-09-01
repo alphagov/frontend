@@ -2,6 +2,12 @@ class WorldwideOfficePresenter < ContentItemPresenter
   include WorldwideOrganisationBranding
   include ContentsList
 
+  def page_title_options
+    super.merge({
+      organisation_logo: worldwide_organisation.organisation_logo,
+    })
+  end
+
   def body
     content_item.content_store_response["details"]["access_and_opening_times"]
   end

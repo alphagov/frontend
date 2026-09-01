@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "lint": "yarn run lint:js && yarn run lint:scss",
-    "lint:js": "standardx 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
+    "lint:js": "standard 'app/assets/javascripts/**/*.js' 'spec/javascripts/**/*.js'",
     "lint:scss": "stylelint app/assets/stylesheets/",
     "rails:precompile-assets": "RAILS_ENV=test bundle exec rails assets:clobber assets:precompile",
     "nyc:instrument": "yarn run nyc instrument --delete public/assets/frontend tmp/nyc_output/assets",
@@ -19,22 +19,17 @@
   "imports": {
     "#root/*": "./*"
   },
-  "standardx": {
-    "env": {
-      "browser": true,
-      "jasmine": true
-    },
+  "standard": {
+    "env": [
+      "browser",
+      "jasmine"
+    ],
     "globals": [
       "GOVUK"
     ],
     "ignore": [
       "spec/javascripts/vendor"
     ]
-  },
-  "eslintConfig": {
-    "rules": {
-      "no-var": 0
-    }
   },
   "stylelint": {
     "extends": "stylelint-config-gds/scss"

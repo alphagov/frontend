@@ -38,7 +38,7 @@ RSpec.describe "CsvPreview" do
   context "when the parent item does not contain attachment info" do
     before do
       setup_asset_manager(parent_document_url, asset_manager_id, asset_manager_filename)
-      stub_conditional_loader_returns_content_item_for_path(parent_document_base_path, {})
+      stub_content_store_has_item(parent_document_base_path, {})
     end
 
     it "returns 404" do

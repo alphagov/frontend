@@ -1,7 +1,11 @@
 <div class="page-title">
   <% if options[:organisation_logo] %>
     <div class="page-title__org">
-      <%= render "govuk_publishing_components/components/organisation_logo", organisation: options[:organisation_logo], margin_bottom: 8, inline: true %>
+      <%= render "govuk_publishing_components/components/organisation_logo",
+        organisation: options[:organisation_logo],
+        heading_level: options[:organisation_logo_heading_level],
+        margin_bottom: 8,
+        inline: true %>
     </div>
   <% end %>
 
@@ -11,7 +15,7 @@
       context: options[:context],
       context_locale: options[:context_locale],
       dir: options[:page_text_direction],
-      heading_level: 1,
+      heading_level: options[:heading_level],
       font_size: "xl",
       margin_bottom: 8,
     } %>

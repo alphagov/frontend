@@ -39,9 +39,7 @@ private
 
   def announcements
     @announcements ||= Rails.cache.fetch(search_options, expires_in: 5.minutes) do
-      GovukStatsd.time("search.request_time") do
-        search_api.search(search_options).to_h["results"]
-      end
+      search_api.search(search_options).to_h["results"]
     end
   end
 

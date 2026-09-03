@@ -90,14 +90,12 @@ RSpec.describe "Worldwide office page" do
     end
 
     it "includes the world locations and sponsoring organisations" do
-      within(".worldwide-organisation-header__metadata") do
-        expect(page).to have_text("News:")
-        expect(page).to have_link("Philippines", href: "/world/philippines/news")
-        expect(page).to have_link("Palau", href: "/world/palau/news")
+      expect(page).to have_text("News:")
+      expect(page).to have_link("Philippines", href: "/world/philippines/news")
+      expect(page).to have_link("Palau", href: "/world/palau/news")
 
-        expect(page).to have_text("Part of:")
-        expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
-      end
+      expect(page).to have_text("Part of:")
+      expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
     end
 
     it "omits the world locations and sponsoring organisations when they are absent" do
@@ -105,10 +103,8 @@ RSpec.describe "Worldwide office page" do
       content_store_response["links"]["worldwide_organisation"][0]["links"]["world_locations"] = nil
       setup_and_visit_page
 
-      within(".worldwide-organisation-header__metadata") do
-        expect(page.has_content?("Location:")).to be(false)
-        expect(page.has_content?("Part of:")).to be(false)
-      end
+      expect(page.has_content?("Location:")).to be(false)
+      expect(page.has_content?("Part of:")).to be(false)
     end
   end
 end

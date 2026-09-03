@@ -1,9 +1,13 @@
 <div class="page-title">
-  <div class="page-title__org">
-    <% if options[:organisation_logo] %>
-      <%= render "govuk_publishing_components/components/organisation_logo", organisation: options[:organisation_logo], margin_bottom: 8, inline: true %>
-    <% end %>
-  </div>
+  <% if options[:organisation_logo] %>
+    <div class="page-title__org">
+      <%= render "govuk_publishing_components/components/organisation_logo",
+        organisation: options[:organisation_logo],
+        heading_level: options[:organisation_logo_heading_level],
+        margin_bottom: 8,
+        inline: true %>
+    </div>
+  <% end %>
 
   <div class="page-title__heading">
     <%= render "govuk_publishing_components/components/heading", {
@@ -11,7 +15,7 @@
       context: options[:context],
       context_locale: options[:context_locale],
       dir: options[:page_text_direction],
-      heading_level: 1,
+      heading_level: options[:heading_level],
       font_size: "xl",
       margin_bottom: 8,
     } %>
@@ -25,21 +29,19 @@
       } %>
     <% end %>
 
-    <% if options[:link] || options[:world_location_links] || options[:sponsoring_organisation_links] %>
-      <% if options[:link] %>
-        <div class="feedback-link">
-          <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
-        </div>
-      <% end %>
+    <% if options[:link] %>
+      <div class="feedback-link">
+        <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
+      </div>
+    <% end %>
 
-      <% if options[:world_location_links] || options[:sponsoring_organisation_links] %>
-        <%= render "govuk_publishing_components/components/metadata", {
-          other: {
-            "#{t("worldwide_organisation.news")}": options[:world_location_links],
-          },
-          part_of: options[:sponsoring_organisation_links],
-        } %>
-      <% end %>
+    <% if options[:world_location_links] || options[:sponsoring_organisation_links] %>
+      <%= render "govuk_publishing_components/components/metadata", {
+        other: {
+          "#{t("worldwide_organisation.news")}": options[:world_location_links],
+        },
+        part_of: options[:sponsoring_organisation_links],
+      } %>
     <% end %>
   </div>
 

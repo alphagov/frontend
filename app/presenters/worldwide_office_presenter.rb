@@ -2,6 +2,17 @@ class WorldwideOfficePresenter < ContentItemPresenter
   include WorldwideOrganisationBranding
   include ContentsList
 
+  def page_title_options
+    super.merge({
+      organisation_logo: worldwide_organisation.organisation_logo,
+      organisation_logo_heading_level: 1,
+      heading_level: 2,
+      heading_text: ActionController::Base.helpers.sanitize("<span class='govuk-visually-hidden'>About </span> #{content_item.contact.title}"),
+      world_location_links: worldwide_organisation.world_location_links,
+      sponsoring_organisation_links: worldwide_organisation.sponsoring_organisation_links,
+    })
+  end
+
   def body
     content_item.content_store_response["details"]["access_and_opening_times"]
   end

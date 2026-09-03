@@ -64,8 +64,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.hasResized = false
       this.hasScrolled = true
 
-      var windowDimensions = this.getWindowDimensions()
-      var elementHeight = this.wrapper.offsetHeight || parseFloat(this.wrapper.style.height.replace('px', ''))
+      const windowDimensions = this.getWindowDimensions()
+      const elementHeight = this.wrapper.offsetHeight || parseFloat(this.wrapper.style.height.replace('px', ''))
       this.startPosition = this.wrapper.offsetTop
       this.stopPosition = this.wrapper.offsetTop + elementHeight - windowDimensions.height
     }
@@ -83,7 +83,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   StickyElementContainer.prototype.updateVisibility = function () {
-    var isPastStart = this.startPosition < this.windowVerticalPosition
+    const isPastStart = this.startPosition < this.windowVerticalPosition
     if (isPastStart) {
       this.show()
     } else {
@@ -92,7 +92,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   StickyElementContainer.prototype.updatePosition = function () {
-    var isPastEnd = this.stopPosition < this.windowVerticalPosition
+    const isPastEnd = this.stopPosition < this.windowVerticalPosition
     if (isPastEnd) {
       this.stickToParent()
     } else {

@@ -3,14 +3,14 @@
 (function () {
   'use strict'
 
-  var root = this
+  const root = this
 
   /* istanbul ignore next */
   if (typeof root.GOVUK === 'undefined') { root.GOVUK = {} }
 
-  var CountryFilter = function (searchInput) {
-    var enterKeyCode = 13
-    var filterInst = this
+  const CountryFilter = function (searchInput) {
+    const enterKeyCode = 13
+    const filterInst = this
 
     this.container = searchInput.closest('.js-travel-container')
 
@@ -21,12 +21,12 @@
     })
 
     searchInput.addEventListener('keyup', function () {
-      var filter = this.value
+      const filter = this.value
       filterInst.filterListItems(filter)
     })
     /* istanbul ignore next */
     if (this.container) {
-      var countryCount = this.container.getElementsByClassName('js-country-count')[0]
+      const countryCount = this.container.getElementsByClassName('js-country-count')[0]
       if (countryCount) {
         countryCount.setAttribute('aria-live', 'polite')
       }
@@ -34,22 +34,22 @@
   }
 
   CountryFilter.prototype.filterHeadings = function (countryHeadings) {
-    var filterInst = this
+    const filterInst = this
 
-    var headingHasVisibleCountries = function (headingFirstLetter) {
-      var countries = filterInst.container.querySelector('#' + headingFirstLetter.toUpperCase()).querySelectorAll('li')
-      var countryList = []
+    const headingHasVisibleCountries = function (headingFirstLetter) {
+      const countries = filterInst.container.querySelector('#' + headingFirstLetter.toUpperCase()).querySelectorAll('li')
+      const countryList = []
 
-      for (var i = 0; i < countries.length; i++) {
-        var innerVar = countries[i].style.display === 'none' ? countries[i] : undefined
+      for (let i = 0; i < countries.length; i++) {
+        const innerVar = countries[i].style.display === 'none' ? countries[i] : undefined
         if (innerVar) { countryList.push(innerVar) }
       }
 
       return countryList.length < countries.length
     }
 
-    for (var i = 0; i < countryHeadings.length; i++) {
-      var header = countryHeadings[i].textContent.match(/[A-Z]{1}$/)[0]
+    for (let i = 0; i < countryHeadings.length; i++) {
+      const header = countryHeadings[i].textContent.match(/[A-Z]{1}$/)[0]
 
       if (headingHasVisibleCountries(header)) {
         countryHeadings[i].parentNode.style.display = ''
@@ -60,10 +60,10 @@
   }
 
   CountryFilter.prototype.doesSynonymMatch = function (elem, synonym) {
-    var synonyms = elem.getAttribute('data-synonyms').split('|')
-    var results = []
+    const synonyms = elem.getAttribute('data-synonyms').split('|')
+    const results = []
 
-    for (var i = 0; i < synonyms.length; i++) {
+    for (let i = 0; i < synonyms.length; i++) {
       if (synonyms[i].toLowerCase().indexOf(synonym.toLowerCase()) > -1) {
         results.push(synonyms[i])
       }
@@ -73,18 +73,18 @@
   }
 
   CountryFilter.prototype.filterListItems = function (filter) {
-    var countryHeadings = this.container.querySelectorAll('h3.countries-initial-letter')
-    var listItems = this.container.querySelectorAll('ul.js-countries-list li')
+    const countryHeadings = this.container.querySelectorAll('h3.countries-initial-letter')
+    const listItems = this.container.querySelectorAll('ul.js-countries-list li')
 
-    var itemsShowing = 0
-    var synonymMatch = false
-    var filterInst = this
-    var i = 0
-    var listItem = null
+    let itemsShowing = 0
+    let synonymMatch = false
+    const filterInst = this
+    let i = 0
+    let listItem = null
 
     for (i = 0; i < listItems.length; i++) {
       listItem = listItems[i]
-      var link = listItem.getElementsByTagName('a')[0]
+      const link = listItem.getElementsByTagName('a')[0]
       listItem.textContent = ''
       listItem.appendChild(link)
       listItem.style.display = ''
@@ -92,7 +92,7 @@
 
     filter = filter.replace(/^\s+|\s+$/g, '') // Remove whitespace
     if (filter && filter.length > 0) {
-      var hideCount = 0
+      let hideCount = 0
       for (i = 0; i < listItems.length; i++) {
         listItem = listItems[i]
         if (listItem.children[0].firstChild.textContent.toLowerCase().includes(filter.toLowerCase())) {
@@ -106,11 +106,11 @@
 
       for (i = 0; i < listItems.length; i++) {
         listItem = listItems[i]
-        var synonyms = filterInst.doesSynonymMatch(listItem, filter)
+        const synonyms = filterInst.doesSynonymMatch(listItem, filter)
         if (synonyms.length > 0) {
           synonymMatch = true
           listItem.style.display = ''
-          for (var j = 0; j < synonyms.length; j++) {
+          for (let j = 0; j < synonyms.length; j++) {
             listItem.appendChild(document.createTextNode('(' + synonyms[j] + ') '))
           }
         }
@@ -137,8 +137,8 @@
   }
 
   CountryFilter.prototype.updateCounter = function (showingCount) {
-    var counter = this.container.getElementsByClassName('js-country-count')[0]
-    var filter = this.container.getElementsByClassName('js-filter-count')[0]
+    const counter = this.container.getElementsByClassName('js-country-count')[0]
+    const filter = this.container.getElementsByClassName('js-filter-count')[0]
 
     filter.innerText = showingCount
     counter.innerHTML = counter.innerHTML.replace(/\s*results$/, '')
@@ -150,8 +150,8 @@
 
   GOVUK.countryFilter = CountryFilter
 
-  var inputs = root.document.querySelectorAll('input#country')
-  for (var i = 0; i < inputs.length; i++) {
+  const inputs = root.document.querySelectorAll('input#country')
+  for (let i = 0; i < inputs.length; i++) {
     /* istanbul ignore next */
     new GOVUK.countryFilter(inputs[i]) // eslint-disable-line new-cap, no-new
   }

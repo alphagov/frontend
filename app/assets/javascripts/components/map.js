@@ -14,7 +14,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         deselectOnClickOutside: true
       })
 
-      var config = {
+      const config = {
         mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
         behaviour: 'inline',
         mapStyle: {
@@ -64,7 +64,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
         if (e.selectedMarkers.length > 0) {
-          var marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
+          let marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
           marker = this.markers[marker]
           this.map.addPanel('the-panel', {
             focus: false,
@@ -176,7 +176,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       if (popupsListWrapper && popupsListEl) {
         popupsListWrapper.classList.add('app-c-map__markers-list--visible')
-        var popupsList = []
+        const popupsList = []
         this.markers.forEach(marker => {
           popupsList.push(this.createPopupContent(marker))
         })

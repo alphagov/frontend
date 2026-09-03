@@ -1,10 +1,10 @@
 describe('A hide-other-links module', function () {
-  var list
-  var GOVUK = window.GOVUK
+  let list
+  const GOVUK = window.GOVUK
 
   function subject () {
     document.body.appendChild(list)
-    var instance = new GOVUK.Modules.HideOtherLinks(list)
+    const instance = new GOVUK.Modules.HideOtherLinks(list)
     instance.init()
   }
 
@@ -51,7 +51,7 @@ describe('A hide-other-links module', function () {
     })
 
     it('shows the links when the show more links link is clicked', function () {
-      var link = list.querySelector('.show-other-content')
+      const link = list.querySelector('.show-other-content')
       window.GOVUK.triggerEvent(link, 'click')
 
       expect(list.querySelector('.other-content').getAttribute('style')).not.toEqual('display: none;')

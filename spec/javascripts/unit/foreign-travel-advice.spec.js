@@ -1,10 +1,10 @@
 // Foreign travel advice tests
 function getVisibleCountries (countries) {
-  var visibleCountries = Array.from(countries.querySelectorAll('ul.js-countries-list li'))
+  const visibleCountries = Array.from(countries.querySelectorAll('ul.js-countries-list li'))
   return visibleCountries.filter((country) => country.style.display !== 'none')
 }
 
-var GOVUKTest = {
+const GOVUKTest = {
   countryFilter: {
     threeCategories: '<div id="W" class="list">' +
       '<h3 class="countries-initial-letter">' +
@@ -69,7 +69,7 @@ GOVUKTest.countryFilter.countryCounter = '<p class="js-country-count"><span clas
 
 /* eslint-disable new-cap */
 describe('CountryFilter', function () {
-  var input,
+  let input,
     filter
 
   beforeEach(function () {
@@ -83,10 +83,10 @@ describe('CountryFilter', function () {
 
   describe('Creating a CountryFilter instance', function () {
     it('Should require a parameter for its constructor', function () {
-      var createAFilterNoParam = function () {
+      const createAFilterNoParam = function () {
         filter = new GOVUK.countryFilter()
       }
-      var createAFilterWithParam = function () {
+      const createAFilterWithParam = function () {
         filter = new GOVUK.countryFilter(input)
       }
 
@@ -143,10 +143,10 @@ describe('CountryFilter', function () {
     })
 
     it('Should set aria attributes on `.js-country-count`', function () {
-      var container = document.createElement('div')
+      const container = document.createElement('div')
       container.classList.add('js-travel-container')
 
-      var countriesWrapper = document.createElement('div')
+      const countriesWrapper = document.createElement('div')
       countriesWrapper.classList.add('js-country-count')
 
       container.append(input, countriesWrapper)
@@ -158,7 +158,7 @@ describe('CountryFilter', function () {
   })
 
   describe('CountryFilter.filterHeadings', function () {
-    var countries
+    let countries
 
     it('Should leave headings with their countries showing visible', function () {
       countries = document.createElement('div')
@@ -167,11 +167,11 @@ describe('CountryFilter', function () {
       filter = new GOVUK.countryFilter(input)
       filter.container = countries
 
-      var headings = Array.from(countries.querySelectorAll('h3'))
+      const headings = Array.from(countries.querySelectorAll('h3'))
 
       filter.filterHeadings(headings)
 
-      var visibleHeadings = headings.filter((heading) => heading.style.display !== 'none')
+      const visibleHeadings = headings.filter((heading) => heading.style.display !== 'none')
       expect(visibleHeadings.length).toEqual(3)
     })
 
@@ -182,52 +182,52 @@ describe('CountryFilter', function () {
       filter = new GOVUK.countryFilter(input)
       filter.container = countries
 
-      var headings = Array.from(countries.querySelectorAll('h3'))
+      const headings = Array.from(countries.querySelectorAll('h3'))
 
       filter.filterHeadings(headings)
 
-      var headingsWithoutCountries = headings.filter((heading) => heading.parentNode.style.display !== 'none')
+      const headingsWithoutCountries = headings.filter((heading) => heading.parentNode.style.display !== 'none')
       expect(headingsWithoutCountries.length).toEqual(1)
     })
   })
 
   describe('CountryFilter.doesSynonymMatch', function () {
-    var result
+    let result
 
     beforeEach(function () {
       filter = new GOVUK.countryFilter(input)
     })
 
     it('Should not find a match on an element with no synonyms', function () {
-      var element = document.createElement('ul')
+      const element = document.createElement('ul')
       element.innerHTML = GOVUKTest.countryFilter.synonyms.noSynonyms
-      var synonym = 'Sahel'
+      const synonym = 'Sahel'
       result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual([])
     })
 
     it('Should find a match on an element with a single synonym equal to that sent', function () {
-      var element = document.createElement('ul')
+      const element = document.createElement('ul')
       element.innerHTML = GOVUKTest.countryFilter.synonyms.withSaharaSynonym
-      var synonym = 'Sahel'
+      const synonym = 'Sahel'
       result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual(['Sahel'])
     })
 
     it('Should find no match on an element with no synonyms equal to that sent', function () {
-      var element = document.createElement('ul')
+      const element = document.createElement('ul')
       element.innerHTML = GOVUKTest.countryFilter.synonyms.withUSASynonym
-      var synonym = 'Sahel'
+      const synonym = 'Sahel'
       result = filter.doesSynonymMatch(element.firstChild, synonym)
       expect(result).toEqual([])
     })
   })
 
   describe('CountryFilter.updateCounter', function () {
-    var counter
+    let counter
 
     beforeEach(function () {
-      var container = document.createElement('div')
+      const container = document.createElement('div')
       container.classList.add('js-travel-container')
       container.innerHTML = GOVUKTest.countryFilter.countryCounter
       container.appendChild(input)
@@ -258,8 +258,8 @@ describe('CountryFilter', function () {
   })
 
   describe('CountryFilter.filterListItems', function () {
-    var countries
-    var container
+    let countries
+    let container
 
     beforeEach(function () {
       container = document.createElement('div')

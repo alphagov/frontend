@@ -19,7 +19,7 @@ RSpec.describe "Topical event page" do
     let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_item)
+      stub_content_store_has_item(base_path, content_item)
       stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
         .to_return(body: search_response.to_json)
       get base_path
@@ -62,10 +62,10 @@ RSpec.describe "Topical event page" do
     let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path("#{base_path}.atom", content_item)
+      stub_content_store_has_item("#{base_path}.atom", content_item)
       stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/)
         .to_return(body: search_response.to_json)
-      get "#{base_path}.atom?graphql=false"
+      get "#{base_path}.atom"
     end
 
     it "returns 200" do

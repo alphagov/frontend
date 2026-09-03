@@ -1,17 +1,9 @@
-require "govuk_content_item_loader/test_helpers"
-
 RSpec.describe ContentItemLoader do
-  include GovukConditionalContentItemLoaderTestHelpers
   include ContentStoreHelpers
 
-  subject(:content_item_loader) { described_class.for_request(request) }
+  subject(:content_item_loader) { described_class.new }
 
-  let(:request) { instance_double(ActionDispatch::Request, path: "/my-random-item", env: {}, params: {}) }
-
-  before do
-    allow(GovukConditionalContentItemLoader).to receive(:new).and_call_original
-    stub_conditional_loader_returns_content_item_for_path("/my-random-item")
-  end
+  let!(:item_request) { stub_content_store_has_item("/my-random-item") }
 
   describe ".for_request" do
     it "returns a new object per request" do
@@ -39,7 +31,7 @@ RSpec.describe ContentItemLoader do
       content_item_loader.load("/my-random-item")
       content_item_loader.load("/my-random-item")
 
-      expect(GovukConditionalContentItemLoader).to have_received(:new).once
+      expect(item_request).to have_been_made.once
     end
 
     it "restricts cache to the specific instance of the class, so does not cache across requests" do
@@ -48,14 +40,14 @@ RSpec.describe ContentItemLoader do
         path: "/my-random-item",
         env: {},
         headers: {},
-        params: { "graphql" => "false" },
+        params: {},
       )
       request_2 = instance_double(
         ActionDispatch::Request,
         path: "/my-random-item",
         env: {},
         headers: {},
-        params: { "graphql" => "false" },
+        params: {},
       )
 
       loader_1 = described_class.for_request(request_1)
@@ -64,7 +56,7 @@ RSpec.describe ContentItemLoader do
       loader_1.load(request_1.path)
       loader_2.load(request_2.path)
 
-      expect(GovukConditionalContentItemLoader).to have_received(:new).twice
+      expect(item_request).to have_been_made.twice
     end
 
     context "when the path uses traversal tricks" do
@@ -75,7 +67,7 @@ RSpec.describe ContentItemLoader do
 
     context "with a missing content item" do
       before do
-        stub_conditional_loader_does_not_return_content_item_for_path("/my-missing-item")
+        stub_content_store_does_not_have_item("/my-missing-item")
       end
 
       it "returns (but does not raise) the original exception" do

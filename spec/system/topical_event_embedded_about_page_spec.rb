@@ -5,7 +5,7 @@ RSpec.describe "Topical Event Embedded About Page" do
   let(:base_path) { "#{content_store_response.fetch('base_path')}/about" }
 
   before do
-    stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+    stub_content_store_has_item(base_path, content_store_response)
     stub_request(:get, /\A#{Plek.new.find('search-api')}\/search.json/).to_return(body: { "results" => [] }.to_json)
 
     visit base_path

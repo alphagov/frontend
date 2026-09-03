@@ -1,1 +1,0 @@
-GovukGraphqlTrafficRates.configure

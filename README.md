@@ -2,7 +2,7 @@
 
 Frontend renders the citizen-facing part of content items, and some hard-coded routes.
 
-The content items are obtained using [`govuk_content_item_loader`](https://github.com/alphagov/govuk_content_item_loader) from either Content Store or Publishing API (GraphQL). The code for some types of documents also obtains additional data directly from Content Store, after the original content item has been retrieved from the content item loader.
+The content items are obtained from ContentStore using the ContentStore#content_item method of [`gds-api-adapters`](https://github.com/alphagov/gds-api-adapters).
 
 ## Formats
 

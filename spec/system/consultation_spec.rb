@@ -4,7 +4,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -51,7 +51,7 @@ RSpec.describe "Consultation" do
       }
 
       content_store_response.deep_merge!(overrides)
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       within(".gem-c-notice__title") do
@@ -101,7 +101,7 @@ RSpec.describe "Consultation" do
       }
 
       content_store_response.deep_merge!(overrides)
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       within(".gem-c-devolved-nations") do
@@ -118,7 +118,7 @@ RSpec.describe "Consultation" do
       let(:base_path) { content_store_response.fetch("base_path") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -145,7 +145,7 @@ RSpec.describe "Consultation" do
       it "doesn't render accessible format option when accessible is true and email is supplied" do
         content_store_response["details"]["attachments"][0]["accessible"] = true
 
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within "#documents" do
@@ -158,7 +158,7 @@ RSpec.describe "Consultation" do
       it "doesn't render accessible format option when accessible is false and email is not supplied" do
         content_store_response["details"]["attachments"][0].delete("alternative_format_contact_email")
 
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within "#documents" do
@@ -189,7 +189,7 @@ RSpec.describe "Consultation" do
       let(:ways_to_respond) { content_store_response.dig("details", "ways_to_respond") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -237,7 +237,7 @@ RSpec.describe "Consultation" do
 
       it "does not render the button on foreign language pages" do
         content_store_response["locale"] = "cy"
-        stub_conditional_loader_returns_content_item_for_path("/government/consultations/postgraduate-doctoral-loans", content_store_response)
+        stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
         expect(page).not_to have_css(".gem-c-single-page-notification-button")
@@ -245,7 +245,7 @@ RSpec.describe "Consultation" do
 
       it "does not render the button on exempt pages" do
         content_store_response["content_id"] = "c5c8d3cd-0dc2-4ca3-8672-8ca0a6e92165"
-        stub_conditional_loader_returns_content_item_for_path("/government/consultations/postgraduate-doctoral-loans", content_store_response)
+        stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
         expect(page).not_to have_css(".gem-c-single-page-notification-button")
@@ -258,7 +258,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -286,7 +286,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -311,7 +311,7 @@ RSpec.describe "Consultation" do
 
       it "includes 'on' if opening time is 12am" do
         content_store_response["details"]["opening_date"] = "2016-11-04T00:00:00+00:00"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-notice") do
@@ -329,7 +329,7 @@ RSpec.describe "Consultation" do
 
       it "links to external consultation url if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -350,7 +350,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -384,7 +384,7 @@ RSpec.describe "Consultation" do
 
       it "links to external consultation page if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -405,7 +405,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 
@@ -445,7 +445,7 @@ RSpec.describe "Consultation" do
 
       it "links to external consultation url if available" do
         content_store_response["details"]["held_on_another_website_url"] = "https://consult.education.gov.uk/part-time-maintenance-loans/post-graduate-doctoral-loans/"
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
         within(".gem-c-summary-banner") do
@@ -461,7 +461,7 @@ RSpec.describe "Consultation" do
       let(:base_path) { content_store_response.fetch("base_path") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -479,7 +479,7 @@ RSpec.describe "Consultation" do
       let(:base_path) { content_store_response.fetch("base_path") }
 
       before do
-        stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+        stub_content_store_has_item(base_path, content_store_response)
         visit base_path
       end
 
@@ -514,7 +514,7 @@ RSpec.describe "Consultation" do
     let(:base_path) { content_store_response.fetch("base_path") }
 
     before do
-      stub_conditional_loader_returns_content_item_for_path(base_path, content_store_response)
+      stub_content_store_has_item(base_path, content_store_response)
       visit base_path
     end
 

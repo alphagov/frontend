@@ -9,7 +9,6 @@
 
 <%= render "govuk_publishing_components/components/layout_for_public", layout_for_public_options(title: page_title) do %>
   <div class="govuk-width-container">
-
     <% if show_breadcrumbs?(content_item) %>
       <% if content_item_presenter.use_contextual_components? %>
         <%= render "govuk_publishing_components/components/contextual_breadcrumbs", content_item: content_item.for_contextual_breadcrumbs %>
@@ -22,6 +21,8 @@
     <% end %>
 
     <%= render "govuk_web_banners/recruitment_banner" %>
+
+    <%= yield :before_main %>
 
     <main id="content" class="govuk-main-wrapper <%= rtl_attribute %>" <%= lang_attribute %>>
       <span id="Top"></span>

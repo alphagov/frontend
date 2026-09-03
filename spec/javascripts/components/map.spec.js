@@ -5,8 +5,10 @@ describe('Map component', function () {
   var el, module
 
   function setupMap (config, markers, url, hideMarkerList) {
+    window.GOVUK.mapThemes = { default: '' }
     el = document.createElement('div')
     el.setAttribute('id', 'map-1234')
+    el.setAttribute('theme', 'default')
     if (config) { el.setAttribute('data-config', JSON.stringify(config)) }
     if (markers) { el.setAttribute('data-markers', JSON.stringify(markers)) }
     if (url) { el.setAttribute('data-geojson', url) }

@@ -32,7 +32,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   HideOtherLinks.prototype.sortChildNodes = function () {
-    var linksCount = 0
+    let linksCount = 0
 
     this.childNodes.forEach(function (node) {
       if (linksCount >= 1) {
@@ -48,8 +48,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   HideOtherLinks.prototype.createShowLink = function () {
-    var linkText = this.module.getAttribute('data-hide-other-links-link-text')
-    var linkTextVisuallyHidden = this.module.getAttribute('data-hide-other-links-visually-hidden-link-text')
+    const linkText = this.module.getAttribute('data-hide-other-links-link-text')
+    const linkTextVisuallyHidden = this.module.getAttribute('data-hide-other-links-visually-hidden-link-text')
 
     if (linkText) {
       this.showLink = document.createElement('button')
@@ -57,7 +57,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.showLink.textContent = linkText
 
       if (linkTextVisuallyHidden) {
-        var visuallyHiddenSpan = document.createElement('span')
+        const visuallyHiddenSpan = document.createElement('span')
         visuallyHiddenSpan.classList.add('govuk-visually-hidden')
         visuallyHiddenSpan.textContent = linkTextVisuallyHidden
         this.showLink.appendChild(visuallyHiddenSpan)
@@ -82,7 +82,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   HideOtherLinks.prototype.createHiddenElementContainer = function () {
-    var showHide = document.createElement('span')
+    const showHide = document.createElement('span')
     showHide.classList.add('other-content')
     showHide.id = 'other-content'
 

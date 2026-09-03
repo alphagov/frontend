@@ -1,12 +1,12 @@
 describe('A sticky-element-container module', function () {
   'use strict'
 
-  var GOVUK = window.GOVUK
+  const GOVUK = window.GOVUK
 
   describe('on desktop', function () {
-    var element
-    var footer
-    var instance
+    let element
+    let footer
+    let instance
 
     beforeEach(function () {
       element = document.createElement('div')

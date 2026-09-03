@@ -2,7 +2,7 @@
 describe('Map component', function () {
   'use strict'
 
-  var el, module
+  let el, module
 
   function setupMap (config, markers, url, hideMarkerList) {
     el = document.createElement('div')
@@ -332,18 +332,18 @@ describe('Map component', function () {
     })
 
     it('creates content when there is a name and description', function () {
-      var result = module.createPopupContent(feature1)
+      const result = module.createPopupContent(feature1)
       expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> Description')
     })
 
     it('creates content when there is only a name', function () {
-      var result = module.createPopupContent(feature2)
+      const result = module.createPopupContent(feature2)
       expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2>')
     })
 
     it('sets heading levels based on the passed value', function () {
       module.headingLevel = 3
-      var result = module.createPopupContent(feature2)
+      const result = module.createPopupContent(feature2)
       expect(result).toEqual('<h3 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h3>')
     })
   })

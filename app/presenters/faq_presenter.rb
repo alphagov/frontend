@@ -11,6 +11,12 @@ class FaqPresenter < ContentItemPresenter
     true
   end
 
+  def page_title_options
+    {
+      heading_text: @calendar.title,
+    }
+  end
+
   def metadata
     # http://schema.org/FAQPage
     {

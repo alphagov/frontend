@@ -1,5 +1,4 @@
 @import "govuk_publishing_components/base";
-@import "govuk_publishing_components/components/mixins/grid-helper";
 
 .homepage-header {
   background-color: $govuk-brand-colour;
@@ -147,13 +146,13 @@
 
   display: grid;
   grid-auto-flow: row; // Use CSS grid to calculate the number of rows
-  grid-template-columns: fractions(1);
+  grid-template-columns: 1fr;
 
   @include govuk-media-query($from: "desktop") {
     align-items: center;
     // Note that browsers that don't support CSS grid display the component as one column on all
     // breakpoints
-    grid-template-columns: fractions(3);
+    grid-template-columns: repeat(3, 1fr);
 
     // For browsers that don't support CSS grid, constrain the width to 50% to improve usability
     // especially for screen magnifier users

@@ -54,7 +54,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
     }
 
-    var request = new XMLHttpRequest()
+    const request = new XMLHttpRequest()
     request.open('GET', this.availabilityUrl, true)
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', done.bind(this))

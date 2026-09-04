@@ -46,7 +46,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   Webchat.prototype.checkAvailability = function () {
-    var done = function () {
+    const done = function () {
       if (request.readyState === 4 && request.status === 200) {
         this.apiSuccess(JSON.parse(request.response))
       } else {
@@ -54,7 +54,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
     }
 
-    var request = new XMLHttpRequest()
+    const request = new XMLHttpRequest()
     request.open('GET', this.availabilityUrl, true)
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
     request.addEventListener('load', done.bind(this))
@@ -63,7 +63,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
   }
 
   Webchat.prototype.apiSuccess = function (result) {
-    var validState, state
+    let validState, state
 
     /* istanbul ignore next */
     if (Object.prototype.hasOwnProperty.call(result, 'inHOP')) {
@@ -104,10 +104,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
   Webchat.prototype.advisorStateChange = function (state) {
     state = state.toLowerCase()
-    var currentState = this.module.querySelector('[class^="' + this.webchatStateClass + state + '"]')
-    var allStates = this.module.querySelectorAll('[class^="' + this.webchatStateClass + '"]')
+    const currentState = this.module.querySelector('[class^="' + this.webchatStateClass + state + '"]')
+    const allStates = this.module.querySelectorAll('[class^="' + this.webchatStateClass + '"]')
 
-    for (var index = 0; index < allStates.length; index++) {
+    for (let index = 0; index < allStates.length; index++) {
       allStates[index].classList.add('govuk-!-display-none')
     }
     currentState.classList.remove('govuk-!-display-none')

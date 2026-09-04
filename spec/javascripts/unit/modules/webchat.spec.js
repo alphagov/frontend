@@ -1,9 +1,9 @@
 describe('Webchat', function () {
-  var GOVUK = window.GOVUK
+  const GOVUK = window.GOVUK
 
-  var CHILD_BENEFIT_API_URL = 'https://hmrc-uk.digital.nuance.com/tagserver/launch/agentAvailability?agentGroupID=10006859&siteID=10006719&businessUnitID=19001235'
+  const CHILD_BENEFIT_API_URL = 'https://hmrc-uk.digital.nuance.com/tagserver/launch/agentAvailability?agentGroupID=10006859&siteID=10006719&businessUnitID=19001235'
 
-  var INSERTION_HOOK = '<div class="js-webchat" data-availability-url="' + CHILD_BENEFIT_API_URL + '" data-open-url="' + CHILD_BENEFIT_API_URL + '" data-redirect="true">' +
+  const INSERTION_HOOK = '<div class="js-webchat" data-availability-url="' + CHILD_BENEFIT_API_URL + '" data-open-url="' + CHILD_BENEFIT_API_URL + '" data-redirect="true">' +
     '<div class="js-webchat-advisers-error">Error</div>' +
     '<div class="js-webchat-advisers-unavailable govuk-!-display-none">Unavailable</div>' +
     '<div class="js-webchat-advisers-busy govuk-!-display-none">Busy</div>' +
@@ -11,25 +11,25 @@ describe('Webchat', function () {
       'Available, <div class="js-webchat-open-button">chat now</div>' +
     '</div>' +
   '</div>'
-  var $advisersUnavailable
-  var $advisersBusy
-  var $advisersAvailable
-  var $advisersError
+  let $advisersUnavailable
+  let $advisersBusy
+  let $advisersAvailable
+  let $advisersError
 
-  var jsonNormalised = function (status, response) {
+  const jsonNormalised = function (status, response) {
     return {
       status: 200,
       response: '{"status":"' + status + '","response":"' + response + '"}'
     }
   }
 
-  var jsonNormalisedAvailable = jsonNormalised('success', 'AVAILABLE')
-  var jsonNormalisedUnavailable = jsonNormalised('success', 'UNAVAILABLE')
-  var jsonNormalisedBusy = jsonNormalised('success', 'BUSY')
-  var jsonNormalisedError = [404, {}, '404 not found']
+  const jsonNormalisedAvailable = jsonNormalised('success', 'AVAILABLE')
+  const jsonNormalisedUnavailable = jsonNormalised('success', 'UNAVAILABLE')
+  const jsonNormalisedBusy = jsonNormalised('success', 'BUSY')
+  const jsonNormalisedError = [404, {}, '404 not found']
 
-  var fixture
-  var webchat
+  let fixture
+  let webchat
 
   beforeEach(function () {
     jasmine.Ajax.install()

@@ -30,13 +30,16 @@
 
   <%= render "govuk_publishing_components/components/govspeak", {
     direction: page_text_direction,
+    margin_bottom: 8,
   } do %>
     <%= raw(content_item.body) %>
   <% end %>
-
-  <%= render "shared/footer_navigation" %>
 <% end %>
 
 <%= content_for :sidebar do %>
-  <%= render "shared/sidebar_navigation" %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<%= content_for :footer do %>
+  <%= render "shared/footer_navigation" %>
 <% end %>

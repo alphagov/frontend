@@ -1,8 +1,14 @@
-class GetInvolvedPresenter
-  attr_reader :content_item
+class GetInvolvedPresenter < ContentItemPresenter
+  def use_contextual_components?
+    true
+  end
 
-  def initialize(content_item)
-    @content_item = content_item
+  def page_title_options
+    super.merge({
+      heading_text: I18n.t("formats.get_involved.page_heading"),
+      context: "Government activity",
+      lead_paragraph: I18n.t("formats.get_involved.intro_paragraph.body_html"),
+    })
   end
 
   def recently_opened

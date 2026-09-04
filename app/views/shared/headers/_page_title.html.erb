@@ -57,5 +57,9 @@
     <% if options[:metadata] %>
       <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8, border_top: true }) %>
     <% end %>
+
+    <% if options[:display_single_page_notification_button] %>
+      <%= render "shared/single_page_notification_button", content_item: content_item %>
+    <% end %>
   </div>
 </div>

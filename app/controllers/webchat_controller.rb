@@ -2,7 +2,7 @@ class WebchatController < ContentItemsController
   include Cacheable
 
   def show
-    @content_item_presenter = CallForEvidencePresenter.new(content_item)
+    @content_item_presenter = ContentItemPresenter.new(content_item)
   end
 
   content_security_policy do |p|

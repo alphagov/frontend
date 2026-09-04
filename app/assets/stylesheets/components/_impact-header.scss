@@ -5,25 +5,6 @@ $gap: 30px;
   margin-bottom: 30px;
 }
 
-.app-c-impact-header__caption-wrapper {
-  max-width: 1020px;
-  margin: 0 auto;
-
-  @include govuk-media-query($from: desktop) {
-    display: flex;
-    gap: $gap;
-
-    &::before {
-      content: "";
-      display: block;
-      height: 1px;
-      width: 50%;
-      flex-shrink: 1;
-      max-width: 495px;
-    }
-  }
-}
-
 .app-c-impact-header__caption {
   padding: 15px;
 
@@ -33,8 +14,7 @@ $gap: 30px;
 
   @include govuk-media-query($from: desktop) {
     box-sizing: border-box;
-    width: 50%;
-    padding-left: 0;
+    padding: 30px 0;
   }
 }
 
@@ -47,17 +27,14 @@ $gap: 30px;
   @include govuk-media-query($from: desktop) {
     flex-direction: row;
     gap: $gap;
-    min-height: $box-size;
   }
 }
 
 .app-c-impact-header__detail {
   padding: 15px;
-  flex-shrink: 1;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // flex-shrink: 1;
+  // flex-grow: 0;
+  align-self: flex-start;
 
   @include govuk-media-query($from: tablet) {
     padding: 30px;
@@ -66,25 +43,25 @@ $gap: 30px;
   @include govuk-media-query($from: desktop) {
     box-sizing: border-box;
     width: 50%;
-    padding: 30px 0 30px 30px;
+    padding: 60px 0 30px 30px;
   }
 }
 
 .app-c-impact-header__image-wrapper {
   flex-shrink: 1;
   flex-grow: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  aspect-ratio: 16 / 9;
   box-sizing: border-box;
 
   @include govuk-media-query($from: desktop) {
     width: 50%;
-    aspect-ratio: auto;
     max-width: $box-size;
-    align-self: flex-end;
+    align-self: flex-start;
+  }
+}
+
+.app-c-impact-header__image-thing {
+  @include govuk-media-query($from: desktop) {
+    overflow: hidden;
   }
 }
 
@@ -94,7 +71,6 @@ $gap: 30px;
   margin: 0 auto;
 
   @include govuk-media-query($from: desktop) {
-    max-height: $box-size;
     max-width: none;
   }
 }

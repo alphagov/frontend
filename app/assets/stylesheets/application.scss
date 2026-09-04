@@ -114,10 +114,17 @@
 }
 
 @include govuk-media-query($from: tablet) {
+  $content-width: 66.6667%;
+  $sidebar-width: auto;
+
   .page-title {
     display: grid;
-    grid-template-columns: [content] 65.666% [sidebar] auto;
-    column-gap: 30px;
+    grid-template-columns: [content] $content-width [sidebar] $sidebar-width;
+    margin: 0 -15px;
+  }
+
+  .page-title__column {
+    margin: 0 15px;
   }
 
   .page-title__org,
@@ -145,7 +152,7 @@
 
   .direction-rtl {
    .page-title {
-     grid-template-columns: [sidebar] auto [content] 66%;
+     grid-template-columns: [sidebar] $sidebar-width [content] $content-width;
    }
   }
 }

@@ -1,6 +1,6 @@
 <div class="page-title">
   <% if options[:organisation_logo] %>
-    <div class="page-title__org">
+    <div class="page-title__column page-title__org">
       <%= render "govuk_publishing_components/components/organisation_logo",
         organisation: options[:organisation_logo],
         heading_level: options[:organisation_logo_heading_level],
@@ -9,7 +9,7 @@
     </div>
   <% end %>
 
-  <div class="page-title__heading">
+  <div class="page-title__column page-title__heading">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -21,7 +21,7 @@
     } %>
   </div>
 
-  <div class="page-title__translations">
+  <div class="page-title__column page-title__translations">
     <% if options[:translations] && options[:translations].count > 1 %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
@@ -45,7 +45,7 @@
     <% end %>
   </div>
 
-  <div class="page-title__lead">
+  <div class="page-title__column page-title__lead">
     <% if options[:lead_paragraph] %>
       <%= render "govuk_publishing_components/components/lead_paragraph", {
         text: options[:lead_paragraph],

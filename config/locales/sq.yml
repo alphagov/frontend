@@ -538,6 +538,11 @@ sq:
       name:
         one: Deklarata gojore në Parlament
         other: Deklarata gojore në Parlament
+    people:
+      biography: Biografia
+      previous_roles: Rolet e mëparshme
+      previous_roles_in_government: Rolet e mëparshme në qeveri
+      read_more: Më shumë për këtë person
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ sq:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Mësoni më shumë për mbajtësit e mëparshëm të këtij roli në seksionin tonë %{link}.
+      heading:
+        one: Roli
+        other: Rolet
+      headings:
+        current_holder: Mbajtësi i rolit aktual
+        previous_holders: Mbajtësit e mëparshëm
+        responsibilities: Përgjegjësitë
+      ministerial: Roli ministeral
+      organisations:
+      past: e shkuar
+      previous_holders: Mbajtësit e mëparshëm të këtij roli
+      read_more: Më shumë rreth këtij roli
     service_sign_in:
       name:
         one:

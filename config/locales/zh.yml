@@ -485,6 +485,11 @@ zh:
     oral_statement:
       name:
         other: 议会口头声明
+    people:
+      biography: 自我介绍
+      previous_roles: 以前的职位
+      previous_roles_in_government: 以前的政府职位
+      read_more: 更多关于这个人的信息
     place:
       find_results:
       further_information:
@@ -529,6 +534,19 @@ zh:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: 在 %{link} 小节中了解更多关于此职位的前任担任者的信息。
+      heading:
+        other: 职责
+      headings:
+        current_holder: 当前职位担任者
+        previous_holders: 以前的担任者
+        responsibilities: 责任
+      ministerial: 部长级职位
+      organisations:
+      past: 过去
+      previous_holders: 本职位的前任担任者
+      read_more: 关于本职位的更多信息
     service_sign_in:
       name:
         other:

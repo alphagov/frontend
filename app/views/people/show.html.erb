@@ -1,0 +1,92 @@
+<% content_for :title, build_page_title([content_item.title]) %>
+
+<% content_for :head do %>
+  <meta name="description" content="<%= content_item.description %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", {
+    schema: :person,
+    content_item: content_item.to_h,
+  } %>
+<% end %>
+
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <% if content_item.currently_in_a_role? %>
+    <%= render "govuk_publishing_components/components/image_card", {
+      href: "#",
+      image_src: content_item.image_url,
+    } %>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/contents_list", {
+    contents: content_item_presenter.contents,
+  } %>
+<% end %>
+
+<% content_for :content do %>
+  <% if content_item.body.present? %>
+    <div id="biography" class="govuk-!-padding-bottom-9">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("formats.people.biography"),
+        margin_bottom: 2,
+      } %>
+
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= content_item.body.html_safe %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if content_item.currently_in_a_role? %>
+    <div id="current-roles">
+      <% content_item.current_roles.each do |role| %>
+        <div class="role_appointment role govuk-!-padding-bottom-8">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: role.title,
+            margin_bottom: 2,
+          } %>
+
+          <%= render "govuk_publishing_components/components/govspeak", {
+            direction: page_text_direction,
+          } do %>
+            <%= role.body&.html_safe %>
+          <% end %>
+
+          <% if role.document_type == "ministerial_role" %>
+            <p class="govuk-body-s">
+              <%= link_to t("formats.roles.read_more"), role.base_path, class: "govuk-link" %>
+            </p>
+          <% end %>
+
+          <% if role.parent_organisations.any? %>
+            <p class="govuk-body">
+              <%= role.parent_organisations
+                .map { |organisation| link_to(organisation.title, organisation.base_path, class: "govuk-link") }
+                .to_sentence(locale: content_item.locale)
+                .html_safe %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if content_item.has_previous_non_ministerial_roles? %>
+    <div class="previous-roles govuk-!-padding-bottom-9" id="previous-roles">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("formats.people.previous_roles_in_government"),
+        margin_bottom: 2,
+      } %>
+
+      <%= render "govuk_publishing_components/components/document_list", {
+        items: content_item_presenter.previous_roles_items,
+      } %>
+    </div>
+  <% end %>
+
+  <%= render "shared/announcements", announcements: content_item_presenter.announcements %>
+<% end %>

@@ -538,6 +538,11 @@ az:
       name:
         one: Parlamentə şifahi müraciət
         other: Parlamentə şifahi müraciətlər
+    people:
+      biography: Bioqrafiya
+      previous_roles: Əvvəlki vəzifələri
+      previous_roles_in_government: Hökumət orqanında əvvəlki vəzifələri
+      read_more: Bu şəxs haqqında ətraflı
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ az:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: "%{link} bölməmizdə bu vəzifənin əvvəlki sahibləri haqqında daha çox məlumat əldə edin."
+      heading:
+        one: Vəzifə
+        other: Vəzifələr
+      headings:
+        current_holder: Vəzifənin hazırkı sahibi
+        previous_holders: Əvvəlki sahibləri
+        responsibilities: Cavabdehliklər
+      ministerial: Nazir vəzifəsi
+      organisations:
+      past: keçmiş
+      previous_holders: Bu vəzifənin əvvəlki sahibləri
+      read_more: Bu vəzifə haqqında ətraflı
     service_sign_in:
       name:
         one:

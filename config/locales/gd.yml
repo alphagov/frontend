@@ -644,6 +644,11 @@ gd:
         one: Ráiteas ó bhéal don Pharlaimint
         other: Ráitis ó bhéal sa Pharlaimint
         two:
+    people:
+      biography: Beathaisnéis
+      previous_roles: Feidhmeanna roimhe seo
+      previous_roles_in_government: Róil a bhí ar siúl roimhe seo ag Aireacht an Taobh istigh
+      read_more: Níos mó a fhoghlaim faoin duine seo
     place:
       find_results:
       further_information:
@@ -724,6 +729,22 @@ gd:
         one:
         other:
         two:
+    roles:
+      find_out_more_html: Chun níos mó a fhoghlaim faoi na hiar-shealbhóirí, féach ar ár gcuid %{link}.
+      heading:
+        few:
+        one: Ról
+        other: Róil
+        two:
+      headings:
+        current_holder: Sealbhóir poist reatha
+        previous_holders: Sealbhóirí roimhe seo
+        responsibilities: Freagrachtaí
+      ministerial: Ról aireachta
+      organisations:
+      past: pas
+      previous_holders: Iarchomhaltaí na feidhme seo
+      read_more: Níos mó a fhoghlaim faoin ngné seo
     service_sign_in:
       name:
         few:

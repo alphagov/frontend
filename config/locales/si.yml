@@ -538,6 +538,11 @@ si:
       name:
         one: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශයක්
         other: පාර්ලිමේන්තුව වෙත වාචික ප්රකාශ
+    people:
+      biography: චරිතාපදානය
+      previous_roles: පෙර භූමිකාවන්
+      previous_roles_in_government: රජයේ පෙර භූමිකාවන්
+      read_more: මෙම පුද්ගලයා ගැන වැඩි විස්තර
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ si:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: අපේ %{link} කොටස තුළින් කළින් මෙම භූමිකාව දැරූ අය වැඩි විස්තර සොයාගන්න.
+      heading:
+        one: කාර්යභාරය
+        other: කාර්යභාර
+      headings:
+        current_holder: වත්මනයේ භූමිකාව දරන්නා
+        previous_holders: පෙර දැරූ අය
+        responsibilities: වගකීම්
+      ministerial: අමාත්‍යාංශීය භූමිකාව
+      organisations:
+      past: පසුගිය
+      previous_holders: මෙම භූමිකාව පෙර දැරූ අය
+      read_more: මෙම භූමිකාව ගැන වැඩි විස්තර
     service_sign_in:
       name:
         one:

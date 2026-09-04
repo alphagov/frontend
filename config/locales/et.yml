@@ -538,6 +538,11 @@ et:
       name:
         one: Suuline avaldus parlamendile
         other: Suulised avaldused parlamendile
+    people:
+      biography: Biograafia
+      previous_roles: Varasemad rollid
+      previous_roles_in_government: Varasemad rollid valitsuses
+      read_more: Rohkem selle isiku kohta
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ et:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Lisateavet selle rolli varasemate hoidjate kohta leiate meie jaotisest %{link}.
+      heading:
+        one: Roll
+        other: Rollid
+      headings:
+        current_holder: Praegune rollihoidja
+        previous_holders: Eelmised hoidjad
+        responsibilities: Kohustused
+      ministerial: Ministri roll
+      organisations:
+      past: minevik
+      previous_holders: Selle rolli varasemad hoidjad
+      read_more: Rohkem selle rolli kohta
     service_sign_in:
       name:
         one:

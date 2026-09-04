@@ -538,6 +538,11 @@ ta:
       name:
         one: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்பு
         other: பாராளுமன்றத்துக்கு வாய்வழி அறிவிப்புகள்
+    people:
+      biography: வாழ்வுரை
+      previous_roles: முந்தைய பங்களிப்புகள்
+      previous_roles_in_government: அரசாங்கத்தில் முந்தைய பங்களிப்புகள்
+      read_more: இந்த நபர் பற்றி மேலும் தகவல்கள்
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ ta:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: எங்களது %{link} பிரிவில் இந்தப் பங்களிப்பில் முன்பிருந்தவர்கள் குறித்து மேலும் கண்டறியவும்..
+      heading:
+        one: பங்களிப்பு
+        other: பங்களிப்புகள்
+      headings:
+        current_holder: தற்போது பதவி வகிப்பவர்
+        previous_holders: முன்பு பதவியில் இருந்தவர்கள்
+        responsibilities: பொறுப்புகள்
+      ministerial: அமைச்சரின் பங்களிப்பு
+      organisations:
+      past: முந்தைய
+      previous_holders: இந்தப் பதவியில் முன்பு இருந்தவர்கள்
+      read_more: இந்தப் பதவி குறித்து மேலும்
     service_sign_in:
       name:
         one:

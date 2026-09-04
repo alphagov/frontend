@@ -1,7 +1,9 @@
 class AnswerController < ContentItemsController
   include Cacheable
 
+  layout "header_content_sidebar"
+
   def show
-    @presenter = ContentItemPresenter.new(content_item)
+    @content_item_presenter = AnswerPresenter.new(content_item)
   end
 end

@@ -73,10 +73,16 @@
     title: t("components.share_links.share_this_page") %>
 
   <%= render "shared/published_dates_with_notification_button" %>
-
-  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>
 
 <% content_for :sidebar do %>
   <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+    </div>
+  </div>
 <% end %>

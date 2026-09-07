@@ -22,10 +22,8 @@ RSpec.describe "Document Collection" do
     it "renders metadata and document footer" do
       visit base_path
 
-      within("[class*='metadata-column']") do
-        expect(page).to have_text("Driver and Vehicle Standards Agency")
-        expect(page).to have_text("Published: 29 February 2016")
-      end
+      expect(page).to have_text("Driver and Vehicle Standards Agency")
+      expect(page).to have_text("Published: 29 February 2016")
 
       expect(page).to have_selector(".gem-c-published-dates", text: "Published 29 February 2016")
     end

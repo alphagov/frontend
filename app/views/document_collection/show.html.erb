@@ -7,83 +7,73 @@
 
 <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <% if content_item.withdrawn? %>
-      <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
-
-      <%= render "govuk_publishing_components/components/notice", {
-        title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
-        description_govspeak: content_item.withdrawn_explanation&.html_safe,
-        time: withdrawn_time_tag,
-        lang: "en",
-      } %>
-    <% end %>
-
-    <%= render "shared/history_notice", content_item: %>
-  </div>
-</div>
-
-<%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(content_item_presenter.contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    see_updates_link: true,
-  } %>
-
-<% if content_item_presenter.show_email_signup_link? %>
-  <div
-    data-module="ga4-link-tracker"
-    data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'>
-    <%= render "govuk_publishing_components/components/signup_link", {
-      link_text: "Get emails about this topic",
-      link_href: "/email-signup/confirm?topic=#{content_item.taxonomy_topic_email_override_base_path}",
-      margin_bottom: 6,
-    } %>
-  </div>
-<% elsif content_item.display_single_page_notification_button? %>
-  <%= render "shared/single_page_notification_button", { content_item:, skip_account: !logged_in? } %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 <% end %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.collection_groups_headers) do %>
-      <div class="responsive-bottom-margin">
-        <% if content_item.body.present? %>
-          <div class="govuk-!-margin-bottom-8">
-          <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
-          </div>
-        <% end %>
+<% content_for :content do %>
+  <% if content_item.withdrawn? %>
+    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
-        <% content_item_presenter.displayable_collection_groups.each do |group| %>
+    <%= render "govuk_publishing_components/components/notice", {
+      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+      description_govspeak: content_item.withdrawn_explanation&.html_safe,
+      time: withdrawn_time_tag,
+      lang: "en",
+    } %>
+  <% end %>
 
-          <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
+  <%= render "shared/history_notice", content_item: %>
 
-          <% if group.body.present? %>
-            <%= render "govuk_publishing_components/components/govspeak", {
-                content: group.body.html_safe,
-                direction: page_text_direction,
-              } %>
-          <% end %>
+  <% if content_item_presenter.show_email_signup_link? %>
+    <div
+      data-module="ga4-link-tracker"
+      data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Top" }'>
+      <%= render "govuk_publishing_components/components/signup_link", {
+        link_text: "Get emails about this topic",
+        link_href: "/email-signup/confirm?topic=#{content_item.taxonomy_topic_email_override_base_path}",
+        margin_bottom: 6,
+      } %>
+    </div>
+  <% elsif content_item.display_single_page_notification_button? %>
+    <%= render "shared/single_page_notification_button", { content_item:, skip_account: !logged_in? } %>
+  <% end %>
 
-          <div class="govuk-!-margin-bottom-8">
-            <%= render "govuk_publishing_components/components/document_list", items: content_item_presenter.group_as_document_list(group) %>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/published_dates", {
-          published: display_date(content_item.initial_publication_date),
-          last_updated: display_date(content_item.updated),
-          history: formatted_history(content_item.history),
-        } %>
+  <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.collection_groups_headers) do %>
+    <% if content_item.body.present? %>
+      <div class="govuk-!-margin-bottom-8">
+      <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
       </div>
     <% end %>
-  </div>
-  <%= render "shared/sidebar_navigation" %>
-</div>
 
-<%= render "shared/footer_navigation" %>
+    <% content_item_presenter.displayable_collection_groups.each do |group| %>
+      <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
+
+      <% if group.body.present? %>
+        <%= render "govuk_publishing_components/components/govspeak", {
+            content: group.body.html_safe,
+            direction: page_text_direction,
+          } %>
+      <% end %>
+
+      <div class="govuk-!-margin-bottom-8">
+        <%= render "govuk_publishing_components/components/document_list", items: content_item_presenter.group_as_document_list(group) %>
+      </div>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/published_dates", {
+      published: display_date(content_item.initial_publication_date),
+      last_updated: display_date(content_item.updated),
+      history: formatted_history(content_item.history),
+      margin_bottom: 8,
+    } %>
+  <% end %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "shared/footer_navigation" %>
+<% end %>

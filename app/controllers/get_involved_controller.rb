@@ -1,6 +1,7 @@
 class GetInvolvedController < ContentItemsController
   def show
-    @presenter = GetInvolvedPresenter.new(@content_item)
+    @content_item_presenter = GetInvolvedPresenter.new(@content_item)
+    render layout: "header_content_sidebar"
   end
 
 private

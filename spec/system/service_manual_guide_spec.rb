@@ -87,9 +87,7 @@ RSpec.describe "Service Manual guide" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
-        within(".gem-c-metadata") do
-          expect(page).not_to have_content("Published by")
-        end
+        expect(page).not_to have_content("Published by")
       end
 
       it "displays the description for a point" do

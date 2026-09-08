@@ -2,7 +2,10 @@ require "ostruct"
 
 module ContentItemLoaders
   class LocalFileLoader
-    LOCAL_ITEMS_PATH = "lib/data/local-content-items".freeze
+    LOCAL_ITEMS_PATHS = [
+      "lib/data/local-content-items",
+      "../publishing-api/content_schemas",
+    ].freeze
 
     def can_load?(base_path:)
       use_local_file? && File.exist?(local_filename(base_path))
@@ -14,7 +17,12 @@ module ContentItemLoaders
     end
 
     def local_filename(base_path)
-      Rails.root.join("#{LOCAL_ITEMS_PATH}#{base_path}.json")
+      LOCAL_ITEMS_PATHS.each do |path|
+        full_path = Rails.root.join("#{path}#{base_path}.json")
+        return full_path if File.exist?(full_path)
+      end
+
+      ""
     end
 
     def load_local_file(base_path)

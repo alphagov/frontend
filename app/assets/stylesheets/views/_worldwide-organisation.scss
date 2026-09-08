@@ -13,7 +13,7 @@
 
 .worldwide-organisation-header__metadata {
   margin: 0;
-  @include govuk-text-colour;
+  color: govuk-functional-colour(text);
   @include govuk-font($size: 16);
 
   @supports (display: grid) {

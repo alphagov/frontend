@@ -1,7 +1,277 @@
 {
   "ignored_warnings": [
-
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 84,
+      "fingerprint": "0aeea7976eb46cd22af59efedc25e5fbfb9f8c859ac2dadb6d73064d3dbe9525",
+      "check_name": "RenderInline",
+      "message": "Unescaped model attribute rendered inline",
+      "file": "app/views/travel_advice/show.html.erb",
+      "line": 58,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_scripting/",
+      "code": "render(text => ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).current_part_title, { :heading_level => 1, :font_size => \"xl\", :margin_bottom => 6 })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "TravelAdviceController",
+          "method": "show",
+          "line": 30,
+          "file": "app/controllers/travel_advice_controller.rb",
+          "rendered": {
+            "name": "travel_advice/show",
+            "file": "app/views/travel_advice/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "travel_advice/show"
+      },
+      "user_input": "ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).current_part_title",
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is completely controlled, coming from the content item."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "1470af70581d8ea4579fced6946800fd3f3fc9d341310151b5cdfe23160c6e3c",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/travel_advice/show.html.erb",
+      "line": 68,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).current_part_body",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "TravelAdviceController",
+          "method": "show",
+          "line": 30,
+          "file": "app/controllers/travel_advice_controller.rb",
+          "rendered": {
+            "name": "travel_advice/show",
+            "file": "app/views/travel_advice/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "travel_advice/show"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is entirely controlled, coming from the content item."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 84,
+      "fingerprint": "150e938cb2bc3a4d78f2b7b10ade2cc97a7955bf6fd5ca7ba2cf5eec4deda1aa",
+      "check_name": "RenderInline",
+      "message": "Unescaped model attribute rendered inline",
+      "file": "app/views/travel_advice/show.html.erb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_scripting/",
+      "code": "render(text => ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).country_name, { :context => I18n.t(\"formats.travel_advice.context\"), :heading_level => 1, :font_size => \"xl\", :margin_bottom => 8 })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "TravelAdviceController",
+          "method": "show",
+          "line": 30,
+          "file": "app/controllers/travel_advice_controller.rb",
+          "rendered": {
+            "name": "travel_advice/show",
+            "file": "app/views/travel_advice/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "travel_advice/show"
+      },
+      "user_input": "ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).country_name",
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is completely controlled, coming from the content item."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "5793e96a8d95dfc95cae9bc2d35f1ebc2fc774c619da5310f1d1f3f0b1d591f5",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/get_involved/show.html.erb",
+      "line": 75,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(t(\"formats.get_involved.search_all\"), GetInvolved.new(ContentItemLoader.for_request(request).load(content_item_path).to_hash).consultations_link, :class => \"govuk-link\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "GetInvolvedController",
+          "method": "show",
+          "line": 4,
+          "file": "app/controllers/get_involved_controller.rb",
+          "rendered": {
+            "name": "get_involved/show",
+            "file": "app/views/get_involved/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "get_involved/show"
+      },
+      "user_input": "GetInvolved.new(ContentItemLoader.for_request(request).load(content_item_path).to_hash).consultations_link",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is entirely controlled, coming from a helper method."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "5793e96a8d95dfc95cae9bc2d35f1ebc2fc774c619da5310f1d1f3f0b1d591f5",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/get_involved/show.html.erb",
+      "line": 92,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(t(\"formats.get_involved.search_all\"), GetInvolved.new(ContentItemLoader.for_request(request).load(content_item_path).to_hash).consultations_link, :class => \"govuk-link\")",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "GetInvolvedController",
+          "method": "show",
+          "line": 4,
+          "file": "app/controllers/get_involved_controller.rb",
+          "rendered": {
+            "name": "get_involved/show",
+            "file": "app/views/get_involved/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "get_involved/show"
+      },
+      "user_input": "GetInvolved.new(ContentItemLoader.for_request(request).load(content_item_path).to_hash).consultations_link",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is entirely controlled, coming from a helper method."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 84,
+      "fingerprint": "a7035ce6b708e206a7616dbb6be170954d8a781bb36a4a8ad1cceb191f23637b",
+      "check_name": "RenderInline",
+      "message": "Unescaped model attribute rendered inline",
+      "file": "app/views/worldwide_corporate_information_page/show.html.erb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_scripting/",
+      "code": "render(text => ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).title, { :heading_level => 2, :font_size => \"xl\", :margin_bottom => 4 })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "WorldwideCorporateInformationPageController",
+          "method": "show",
+          "line": 6,
+          "file": "app/controllers/worldwide_corporate_information_page_controller.rb",
+          "rendered": {
+            "name": "worldwide_corporate_information_page/show",
+            "file": "app/views/worldwide_corporate_information_page/show.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "worldwide_corporate_information_page/show"
+      },
+      "user_input": "ContentItemFactory.build(ContentItemLoader.for_request(request).load(content_item_path).to_hash).title",
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "This value is completely controlled, coming from the content item."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 84,
+      "fingerprint": "b83ce9c217791020e91c0a969fd2591bc60df43b247cb3de04f668f0c7e06388",
+      "check_name": "RenderInline",
+      "message": "Unescaped model attribute rendered inline",
+      "file": "app/views/find_local_council/district_and_county_council.html.erb",
+      "line": 70,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_scripting/",
+      "code": "render(text => LocalAuthority.from_slug(params[:authority_slug]).name, { :heading_level => 3, :font_size => \"m\" })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "FindLocalCouncilController",
+          "method": "result",
+          "line": 46,
+          "file": "app/controllers/find_local_council_controller.rb",
+          "rendered": {
+            "name": "find_local_council/district_and_county_council",
+            "file": "app/views/find_local_council/district_and_county_council.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "find_local_council/district_and_county_council"
+      },
+      "user_input": "LocalAuthority.from_slug(params[:authority_slug]).name",
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "Name value comes from content item, so is completely controlled."
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 84,
+      "fingerprint": "da6d4bee5f680ed05fedbe326dd34f6d907ca11b9d16c5c72bf3406da1f13a59",
+      "check_name": "RenderInline",
+      "message": "Unescaped model attribute rendered inline",
+      "file": "app/views/find_local_council/district_and_county_council.html.erb",
+      "line": 31,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross-site_scripting/",
+      "code": "render(text => LocalAuthority.from_slug(params[:authority_slug]).parent.name, { :heading_level => 3, :font_size => \"m\" })",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "FindLocalCouncilController",
+          "method": "result",
+          "line": 46,
+          "file": "app/controllers/find_local_council_controller.rb",
+          "rendered": {
+            "name": "find_local_council/district_and_county_council",
+            "file": "app/views/find_local_council/district_and_county_council.html.erb"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "find_local_council/district_and_county_council"
+      },
+      "user_input": "LocalAuthority.from_slug(params[:authority_slug]).parent.name",
+      "confidence": "Medium",
+      "cwe_id": [
+        79
+      ],
+      "note": "Name value comes from content item, so is completely controlled."
+    }
   ],
-  "updated": "2021-06-08 15:56:59 +0000",
-  "brakeman_version": "5.0.2"
+  "brakeman_version": "8.0.4"
 }

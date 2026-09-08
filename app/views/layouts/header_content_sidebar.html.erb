@@ -30,16 +30,35 @@
       <%= yield :header %>
 
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
+        <% @content = capture do %>
           <%= yield :content %>
-        </div>
+        <% end %>
+        <% if @content.present? %>
+          <div class="govuk-grid-column-two-thirds">
+            <%= @content %>
+          </div>
+        <% end %>
 
-        <div class="govuk-grid-column-one-third">
+        <% @sidebar = capture do %>
           <%= yield :sidebar %>
-        </div>
+        <% end %>
+        <% if @sidebar.present? %>
+          <div class="govuk-grid-column-one-third">
+            <%= @sidebar %>
+          </div>
+        <% end %>
       </div>
 
-      <%= yield :footer %>
+      <% @footer = capture do %>
+        <%= yield :footer %>
+      <% end %>
+      <% if @footer.present? %>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <%= @footer %>
+          </div>
+        </div>
+      <% end %>
     </main>
   </div>
 <% end %>

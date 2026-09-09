@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   # Favicon redirect
   get "/favicon.ico", to: "favicon#redirect_to_asset"
 
+  # Short-term workaround for WHIT-3992-style Asset Manager auth handshake
+  # failures - see AssetManagerPreflightController.
+  get "/draft-asset-preflight", to: "asset_manager_preflight#show", as: :asset_manager_preflight
+
   unless Rails.env.production?
     get "/development", to: "development#index"
   end

@@ -1,0 +1,51 @@
+<%#
+  Deliberately minimal, layout-free page - see AssetManagerPreflightController
+  for what this is for. It should be on screen for a moment at most, so it
+  isn't styled with the usual GOV.UK page furniture.
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Signing in to Asset Manager</title>
+  <meta http-equiv="refresh" content="4;url=<%= return_to_path %>">
+</head>
+<body>
+  <p>Setting up your Asset Manager session so draft images can load&hellip;</p>
+  <p>You should be redirected automatically in a moment. If nothing happens, <a href="<%= return_to_path %>">continue to the page you requested</a>.</p>
+
+  <%# This is what actually establishes the Asset Manager session: loading
+      it here, on its own, lets the Signon handshake for Asset Manager
+      complete before the user reaches a page with several draft images on
+      it (which would otherwise fire off several handshakes at once and
+      invalidate each other). We don't care whether the image itself loads
+      successfully - only that the request round-trip has completed. %>
+  <img src="<%= placeholder_asset_url %>" alt="" width="1" height="1" style="position:absolute;visibility:hidden" id="asset-manager-preflight-image">
+
+  <%= javascript_tag nonce: true do -%>
+    (function () {
+      var redirected = false;
+      var returnTo = <%= return_to_path.to_json %>;
+
+      function goBack() {
+        if (redirected) { return; }
+        redirected = true;
+        window.location.replace(returnTo);
+      }
+
+      var img = document.getElementById("asset-manager-preflight-image");
+      if (img) {
+        img.addEventListener("load", goBack);
+        img.addEventListener("error", goBack);
+      }
+
+      // Belt-and-braces fallback in case neither event fires promptly.
+      // The <meta http-equiv="refresh"> above is a further, JS-free
+      // fallback behind this one.
+      window.setTimeout(goBack, 2500);
+    })();
+  <% end -%>
+</body>
+</html>

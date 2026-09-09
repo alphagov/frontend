@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   # Favicon redirect
   get "/favicon.ico", to: "favicon#redirect_to_asset"
 
+  get "/draft-asset-preflight", to: "asset_manager_preflight#show", as: :asset_manager_preflight
+
   unless Rails.env.production?
     get "/development", to: "development#index"
   end

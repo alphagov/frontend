@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Signing in to Asset Manager</title>
+  <%# Only a factor when JS doesn't run at all. With JS available,
+      script-driven redirects below fire first and this never
+      gets a chance to. %>
+  <meta http-equiv="refresh" content="4;url=<%= return_to_path %>">
+</head>
+<body>
+  <p>Setting up your Asset Manager session so draft images can load.</p>
+  <p>You should be redirected automatically in a moment. If nothing happens, <a href="<%= return_to_path %>">continue to the page you requested</a>.</p>
+
+  <noscript>
+    <img src="<%= placeholder_asset_url %>" alt="" width="1" height="1">
+  </noscript>
+
+  <div
+    id="asset-manager-preflight"
+    data-return-to="<%= return_to_path %>"
+    data-asset-url="<%= placeholder_asset_url %>"></div>
+
+  <%= javascript_tag nonce: true do -%>
+    (function () {
+      var element = document.getElementById("asset-manager-preflight");
+      var returnTo = element.dataset.returnTo;
+      var assetUrl = element.dataset.assetUrl;
+
+      function goBack() {
+        window.location.replace(returnTo);
+      }
+
+      // Wire up onload/onerror *before* setting .src, so we can't miss the
+      // event on a fast (e.g. cached) response. The browser follows the
+      // whole redirect chain - including the hop out to Signon and back -
+      // transparently as part of loading this one image, so onload/onerror
+      // only fire once that chain has actually finished, whichever way it
+      // finishes. We don't care which one fires, only that one of them did.
+      var img = new Image();
+      img.onload = goBack;
+      img.onerror = goBack;
+      img.src = assetUrl;
+    })();
+  <% end -%>
+</body>
+</html>

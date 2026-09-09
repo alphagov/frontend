@@ -42,7 +42,7 @@
     "stylelint": "^17.15.0",
     "stylelint-config-gds": "^3.0.0"
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@4.18.0",
   "dependencies": {
     "@defra/interactive-map": "0.0.30-alpha",
     "leaflet": "^1.9.4",

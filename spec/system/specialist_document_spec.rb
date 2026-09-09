@@ -243,13 +243,23 @@ RSpec.describe "Specialist Document" do
       expect(page).to have_css("img[src*='protected-designation-of-origin-pdo']")
     end
 
-    it "displays a start button when continuation details exist" do
+    it "displays a start button when continuation link exists" do
       content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme")
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
       expect(page).to have_css(".gem-c-button[href='http://www.bigissueinvest.com']", text: "Find out more")
       expect(page).to have_text("on the Big Issue Invest website")
+    end
+
+    it "displays a start button when continuation link exists but will continue on doesn't exist" do
+      content_store_response = GovukSchemas::Example.find("specialist_document", example_name: "business-finance-support-scheme").tap do |content_store_response|
+        content_store_response["details"]["metadata"].delete("will_continue_on")
+      end
+      stub_content_store_has_item(base_path, content_store_response)
+      visit base_path
+
+      expect(page).to have_css(".gem-c-button[href='http://www.bigissueinvest.com']", text: "Find out more")
     end
 
     it "does not render with the single page notification button" do

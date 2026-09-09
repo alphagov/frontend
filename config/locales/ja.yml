@@ -485,6 +485,11 @@ ja:
     oral_statement:
       name:
         other: 議会への口頭声明
+    people:
+      biography: 経歴
+      previous_roles: 以前の役割
+      previous_roles_in_government: 政府における以前の役割
+      read_more: この人についての詳細
     place:
       find_results:
       further_information:
@@ -529,6 +534,19 @@ ja:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: この役割の前所有者については、%{link}セクションをご覧ください
+      heading:
+        other: 役割
+      headings:
+        current_holder: 現在の役割保有者
+        previous_holders: 以前の保有者
+        responsibilities: 責任
+      ministerial: 大臣の役割
+      organisations:
+      past: 以前の役割
+      previous_holders: この役割の前保有者
+      read_more: この役割の詳細
     service_sign_in:
       name:
         other:

@@ -485,6 +485,11 @@ ko:
     oral_statement:
       name:
         other: 의회로 구두 성명
+    people:
+      biography: 약력
+      previous_roles: 이전 역할
+      previous_roles_in_government: 정부 내 이전 역할
+      read_more: 이 사람에 대해 자세히 살펴보기
     place:
       find_results:
       further_information:
@@ -529,6 +534,19 @@ ko:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: 저희의 %{link} 섹션에서 이 역할의 기존 보유자에 대해 더 알아봅니다.
+      heading:
+        other: 역할
+      headings:
+        current_holder: 현재 역할 보유자
+        previous_holders: 이전 보유자
+        responsibilities: 책임
+      ministerial: 장관 역할
+      organisations:
+      past: 과거
+      previous_holders: 이 역할의 과거 보유자
+      read_more: 이 역할에 대해 더 알아보기
     service_sign_in:
       name:
         other:

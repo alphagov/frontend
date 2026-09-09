@@ -538,6 +538,11 @@ tk:
       name:
         one: Mejlise dilden beýan
         other: Mejlise dilden beýanlar
+    people:
+      biography: Terjimehaly
+      previous_roles: Öňki wezipeleri
+      previous_roles_in_government: Hökümetdäki öňki wezipeleri
+      read_more: Bu adam hakda has giňişleýin
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ tk:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Bu wezipäniň öňki eýeleri barada has giňişleýin maglumaty %{link} bölümimizden tapyň.
+      heading:
+        one: Wezipe
+        other: RollarWezipeler
+      headings:
+        current_holder: Wezipäniň häzirki eýesi
+        previous_holders: Öňki eýesi
+        responsibilities: Jogapkärçilik
+      ministerial: Ministrlik wezipesi
+      organisations:
+      past: geçen
+      previous_holders: Wezipäniň öňki eýeleri
+      read_more: Bu wezipe hakda has giňişleýin
     service_sign_in:
       name:
         one:

@@ -538,6 +538,11 @@
       name:
         one: Muntlig uttalelse til Stortinget
         other: Muntlige uttalelser til Stortinget
+    people:
+      biography: Biografi
+      previous_roles: Tidligere roller
+      previous_roles_in_government: Tidligere roller i regjeringen
+      read_more: Mer om denne personen
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Finn ut mer om tidligere innehavere av denne rollen i %{link}-delen vår.
+      heading:
+        one: Rolle
+        other: Roller
+      headings:
+        current_holder: Nåværende rolleinnehaver
+        previous_holders: Tidligere innehavere
+        responsibilities: Ansvar
+      ministerial: Ministerrolle
+      organisations:
+      past: fortid
+      previous_holders: Tidligere innehavere av denne rollen
+      read_more: Mer om denne rollen
     service_sign_in:
       name:
         one:

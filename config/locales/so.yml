@@ -538,6 +538,11 @@ so:
       name:
         one: Bayaanka loogu talogalay Baarlamaanka
         other: Bayaanada loogu talogalay Baarlamaanka
+    people:
+      biography: Qoraalka
+      previous_roles: Doorarka hore
+      previous_roles_in_government: Doorarka hore ee dawlada
+      read_more: Waxbadan oo khuseeya qofkan
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ so:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Waxbadan ka ogow qabtayaasha hore ee doorkan %{link} qeybteena.
+      heading:
+        one: Doorka
+        other: Doorarka
+      headings:
+        current_holder: Cida hada haysta doorka
+        previous_holders: Cidii horey u haysay
+        responsibilities: Masuuliyadaha
+      ministerial: Dorka wasiirnimo
+      organisations:
+      past: Hore
+      previous_holders: Cida horey u haysay doorkan
+      read_more: Waxbadan oo khuseeya doorkan
     service_sign_in:
       name:
         one:

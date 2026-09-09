@@ -485,6 +485,11 @@ zh-hk:
     oral_statement:
       name:
         other: 提交國會的口頭聲明
+    people:
+      biography: 人員簡介
+      previous_roles: 上一職位
+      previous_roles_in_government: 上一政府職位
+      read_more: 該人士之詳情
     place:
       find_results:
       further_information:
@@ -529,6 +534,19 @@ zh-hk:
     residential_property_tribunal_decision:
       name:
         other:
+    roles:
+      find_out_more_html: 請前往我們的 %{link} 部份了解上一位擔任這一職位之人士。
+      heading:
+        other: 其他職責
+      headings:
+        current_holder: 現任職務
+        previous_holders: 上一持有人
+        responsibilities: 責任
+      ministerial: 部長級職位
+      organisations:
+      past: 過往
+      previous_holders: 該職位之上一擔任人
+      read_more: 關於這一職位之詳情
     service_sign_in:
       name:
         other:

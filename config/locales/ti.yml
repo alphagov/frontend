@@ -538,6 +538,11 @@ ti:
       name:
         one: ኣፋዊ መግለጺ ናብ ባይቶ
         other: ኣፋዊ መግለጺታት ናብ ባይቶ
+    people:
+      biography:
+      previous_roles:
+      previous_roles_in_government:
+      read_more:
     place:
       find_results: ኣብ ጥቓኻ ውጽኢት ርኸብ
       further_information:
@@ -594,6 +599,20 @@ ti:
       name:
         one: ውሳነ ቤት ፍርዲ ናይ መንበሪ ገዛ
         other: ውሳነታት ቤት ፍርዲ ናይ መንበሪ ገዛ
+    roles:
+      find_out_more_html:
+      heading:
+        one:
+        other:
+      headings:
+        current_holder:
+        previous_holders:
+        responsibilities:
+      ministerial:
+      organisations:
+      past:
+      previous_holders:
+      read_more:
     service_sign_in:
       name:
         one: ናብ ኣገልግሎት ምእታው

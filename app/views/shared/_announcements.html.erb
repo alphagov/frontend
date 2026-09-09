@@ -1,0 +1,25 @@
+<% if announcements.items.present? %>
+  <div id="announcements">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: t("formats.announcement.name", count: 2),
+      margin_bottom: 5,
+    } %>
+
+    <div
+      data-module="ga4-link-tracker"
+      data-ga4-link='{ "event_name": "navigation", "type": "subscribe", "index_link": 1, "index_total": 1, "section": "Content" }'>
+      <%= render "govuk_publishing_components/components/subscription_links", {
+        email_signup_link: announcements.links[:email_signup],
+        margin_bottom: 5,
+      } %>
+    </div>
+
+    <%= render "govuk_publishing_components/components/document_list", {
+      items: announcements.items,
+    } %>
+
+    <div class="read-more">
+      <%= link_to "View all announcements", announcements.links[:link_to_news_and_communications], class: "govuk-link", lang: "en" %>
+    </div>
+  </div>
+<% end %>

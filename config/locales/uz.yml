@@ -538,6 +538,11 @@ uz:
       name:
         one: Парламентга оғзаки баёнот
         other: Парламентга оғзаки баёнотлар
+    people:
+      biography: Биография
+      previous_roles: Олдинги рольлар
+      previous_roles_in_government: Ҳукуматдаги олдинги рольлар
+      read_more: Ушбу шахс ҳақида кўпроқ маълумотлар
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ uz:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Ушбу рольни олган олдинги эгалар ҳақида кўпроқ бизнинг бўлимдан %{link} билиб олинг.
+      heading:
+        one: Роль
+        other: Роллар
+      headings:
+        current_holder: Рольни олган жорий эга
+        previous_holders: Олдинги эга
+        responsibilities: Жавобгарлик
+      ministerial: Вазирликдаги роль
+      organisations:
+      past: олдинги
+      previous_holders: Ушбу рольни олган олдинги эга
+      read_more: Ушбу роль ҳақида кўпроғини билиб олиш
     service_sign_in:
       name:
         one:

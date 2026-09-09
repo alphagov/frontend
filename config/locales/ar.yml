@@ -750,6 +750,11 @@ ar:
         other: بيانات شفوية للبرلمان
         two:
         zero:
+    people:
+      biography: سيرة ذاتية
+      previous_roles: الأدوار السابقة
+      previous_roles_in_government: الأدوار السابقة بالحكومة
+      read_more: المزيد عن هذه الشخصية
     place:
       find_results:
       further_information:
@@ -854,6 +859,24 @@ ar:
         other:
         two:
         zero:
+    roles:
+      find_out_more_html: تعرَّف على المزيد حول المكلفين بهذا الدور السابقين في قسم %{link} لدينا.
+      heading:
+        few:
+        many:
+        one: دور
+        other: أدوار
+        two:
+        zero:
+      headings:
+        current_holder: المكلف حاليًا بالدور
+        previous_holders: المكلفين السابقين
+        responsibilities: المسؤوليات
+      ministerial: دور وزاري
+      organisations:
+      past: سابق
+      previous_holders: المكلفين السابقين بهذا الدور
+      read_more: المزيد حول هذا الدور
     service_sign_in:
       name:
         few:

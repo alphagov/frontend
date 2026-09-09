@@ -538,6 +538,11 @@ gu:
       name:
         one: સંસદમાં મૌખિક નિવેદન
         other: સંસદમાં મૌખિક નિવેદનો
+    people:
+      biography: જીવનચરિત્ર
+      previous_roles: અગાઉની ભૂમિકાઓ
+      previous_roles_in_government: સરકારમાં અગાઉની ભૂમિકાઓ
+      read_more: આ વ્યક્તિ વિશે વધુ
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ gu:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: આપણાં %{link} વિભાગમાં આ ભૂમિકા અગાઉ જેણે ભજવેલ હોય, તેમના વિશે વધુ શોધી કાઢો.
+      heading:
+        one: ભૂમિકા
+        other: ભૂમિકાઓ
+      headings:
+        current_holder: વર્તમાન ભૂમિકા ધારક
+        previous_holders: પાછલા ધારકો
+        responsibilities: જવાબદારીઓ
+      ministerial: મંત્રીની ભૂમિકા
+      organisations:
+      past: ભૂતકાળ
+      previous_holders: આ ભૂમિકાના અગાઉના ધારકો
+      read_more: આ ભૂમિકા વિશે વધુ
     service_sign_in:
       name:
         one:

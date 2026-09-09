@@ -644,6 +644,11 @@ be:
         many:
         one: Вусная заява ў парламенце
         other: Вусныя даклады ў парламенце
+    people:
+      biography: Бiяграфiя
+      previous_roles: Папярэднія пасады
+      previous_roles_in_government: Папярэднія дзяржаўныя пасады
+      read_more: Больш аб гэтай персоне
     place:
       find_results:
       further_information:
@@ -724,6 +729,22 @@ be:
         many:
         one:
         other:
+    roles:
+      find_out_more_html: Даведайцеся больш пра папярэдніх кандыдатаў на гэту пасаду ў нашым %{link} падзеле.
+      heading:
+        few:
+        many:
+        one: Роля
+        other: Ролі
+      headings:
+        current_holder: Дзейны выканавец пасады
+        previous_holders: Папярэдні выканавец пасады
+        responsibilities: Абавязкi
+      ministerial: Мiнiстэрская пасада
+      organisations:
+      past: папярэднi
+      previous_holders: Папярэдні выканавец гэтай пасады
+      read_more: Больш аб гэтай пасадзе
     service_sign_in:
       name:
         few:

@@ -591,6 +591,11 @@ sk:
         few:
         one: Ústne vyhlásenie pred Parlamentom
         other: Ústne vyhlásenia pred Parlamentom
+    people:
+      biography: Biografia
+      previous_roles: Predchádzajúce funkcie
+      previous_roles_in_government: Predchádzajúce funkcie v štátnej správe
+      read_more: Viac o tejto osobe
     place:
       find_results:
       further_information:
@@ -659,6 +664,21 @@ sk:
         few:
         one:
         other:
+    roles:
+      find_out_more_html: Viac informácií o predchádzajúcich držiteľoch tejto funkcie nájdete v našej sekcii %{link}.
+      heading:
+        few:
+        one: Úloha
+        other: Úlohy
+      headings:
+        current_holder: Súčasný držiteľ funkcie
+        previous_holders: Predchádzajúci držitelia
+        responsibilities: Zodpovednosti
+      ministerial: Úloha ministra
+      organisations:
+      past: minulosť
+      previous_holders: Predchádzajúci držitelia tejto funkcie
+      read_more: Viac o tejto úlohe
     service_sign_in:
       name:
         few:

@@ -538,6 +538,11 @@ sv:
       name:
         one: Muntligt uttalande till parlamentet
         other: Muntliga uttalanden till parlamentet
+    people:
+      biography: Biografi
+      previous_roles: Tidigare roller
+      previous_roles_in_government: Tidigare roller inom den offentliga sektorn
+      read_more: Mer om den här personen
     place:
       find_results:
       further_information:
@@ -594,6 +599,20 @@ sv:
       name:
         one:
         other:
+    roles:
+      find_out_more_html: Läs mer om tidigare innehavare av denna roll i vårt avsnitt %{link}.
+      heading:
+        one: Roll
+        other: Roller
+      headings:
+        current_holder: Nuvarande innehavare av rollen
+        previous_holders: Tidigare innehavare
+        responsibilities: Ansvarsområden
+      ministerial: Ministerroll
+      organisations:
+      past: tidigare
+      previous_holders: Tidigare innehavare av denna roll
+      read_more: Mer om denna roll
     service_sign_in:
       name:
         one:

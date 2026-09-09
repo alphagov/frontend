@@ -84,5 +84,52 @@ RSpec.describe "Asset Manager preflight" do
       expect(response.body).not_to include("evil.example.com")
       expect(response.body).to include('url=/"')
     end
+
+    # The whole point of this page is to wait for the Asset Manager/Signon
+    # redirect chain to actually finish before sending the user back - see
+    # WHIT-3992. These pin down the two things that make that true, so a
+    # future edit doesn't quietly reintroduce a race or a too-eager fallback.
+    describe "waiting for the placeholder asset to actually finish loading" do
+      it "only requests the placeholder asset directly (no JS) as a <noscript> fallback" do
+        get "/draft-asset-preflight"
+
+        noscript_start = response.body.index("<noscript>")
+        noscript_end = response.body.index("</noscript>")
+        script_start = response.body.index("<script")
+        expect(noscript_start).to be_present
+        # The eagerly-loading <img> tag must live inside <noscript>, and
+        # before the <script> tag that builds its own Image() - otherwise
+        # we're back to the original race (the <img> can start, and finish,
+        # loading before the script attaches any listener to it).
+        expect(noscript_start).to be < noscript_end
+        expect(noscript_end).to be < script_start
+      end
+
+      it "wires onload/onerror on a freshly-created Image before setting its src" do
+        get "/draft-asset-preflight"
+
+        on_load_index = response.body.index("img.onload")
+        on_error_index = response.body.index("img.onerror")
+        src_index = response.body.index("img.src")
+
+        expect(on_load_index).to be_present
+        expect(on_error_index).to be_present
+        expect(src_index).to be_present
+        expect(on_load_index).to be < src_index
+        expect(on_error_index).to be < src_index
+      end
+
+      it "has a generous, clearly-last-resort JS fallback timeout" do
+        get "/draft-asset-preflight"
+
+        expect(response.body).to include("window.setTimeout(goBack, 10000)")
+      end
+
+      it "keeps the no-JS <meta refresh> fallback longer than the JS fallback timeout" do
+        get "/draft-asset-preflight"
+
+        expect(response.body).to include('content="12;url=')
+      end
+    end
   end
 end

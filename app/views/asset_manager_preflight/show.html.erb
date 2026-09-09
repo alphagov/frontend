@@ -2,6 +2,16 @@
   Deliberately minimal, layout-free page - see AssetManagerPreflightController
   for what this is for. It should be on screen for a moment at most, so it
   isn't styled with the usual GOV.UK page furniture.
+
+  Why the JS below builds its own Image() rather than listening on a plain
+  <img> tag: a static <img src="..."> starts fetching as soon as the parser
+  reaches it, which can be before a later <script> tag gets a chance to
+  attach "load"/"error" listeners - on a fast response we could miss the
+  event entirely and fall straight through to the fixed-time fallback,
+  which defeats the point (the fallback exists for when the redirect chain
+  is slow, not as the normal path). Building the Image() in script and
+  wiring onload/onerror before setting .src removes that race - see
+  https://gov-uk.atlassian.net/browse/WHIT-3992 for the wider context.
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,24 +20,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Signing in to Asset Manager</title>
-  <meta http-equiv="refresh" content="4;url=<%= return_to_path %>">
+  <%# Only a factor when JS doesn't run at all (see <noscript> below): with
+      JS available, script-driven redirects below fire first and this never
+      gets a chance to. Deliberately generous, since it's a hard cut-off
+      with no way to know whether the Asset Manager/Signon handshake
+      (asset -> /auth/gds -> Signon -> /auth/gds/callback -> asset) has
+      actually finished by the time it fires. %>
+  <meta http-equiv="refresh" content="12;url=<%= return_to_path %>">
 </head>
 <body>
   <p>Setting up your Asset Manager session so draft images can load&hellip;</p>
   <p>You should be redirected automatically in a moment. If nothing happens, <a href="<%= return_to_path %>">continue to the page you requested</a>.</p>
 
-  <%# This is what actually establishes the Asset Manager session: loading
-      it here, on its own, lets the Signon handshake for Asset Manager
-      complete before the user reaches a page with several draft images on
-      it (which would otherwise fire off several handshakes at once and
-      invalidate each other). We don't care whether the image itself loads
-      successfully - only that the request round-trip has completed. %>
-  <img src="<%= placeholder_asset_url %>" alt="" width="1" height="1" style="position:absolute;visibility:hidden" id="asset-manager-preflight-image">
+  <%# No-JS fallback only: with JS, the placeholder asset is requested by
+      the script below instead, so that we can actually tell when the
+      request - and the Signon redirect chain it triggers - has finished,
+      rather than just guessing with a timer. Without JS, this is the only
+      way the request happens at all, and <meta http-equiv="refresh"> above
+      is the only way we come back. %>
+  <noscript>
+    <img src="<%= placeholder_asset_url %>" alt="" width="1" height="1">
+  </noscript>
 
   <%= javascript_tag nonce: true do -%>
     (function () {
       var redirected = false;
       var returnTo = <%= return_to_path.to_json %>;
+      var assetUrl = <%= placeholder_asset_url.to_json %>;
 
       function goBack() {
         if (redirected) { return; }
@@ -35,16 +54,24 @@
         window.location.replace(returnTo);
       }
 
-      var img = document.getElementById("asset-manager-preflight-image");
-      if (img) {
-        img.addEventListener("load", goBack);
-        img.addEventListener("error", goBack);
-      }
+      // Wire up onload/onerror *before* setting .src, so we can't miss the
+      // event on a fast (e.g. cached) response. The browser follows the
+      // whole redirect chain - including the hop out to Signon and back -
+      // transparently as part of loading this one image, so onload/onerror
+      // only fire once that chain has actually finished, whichever way it
+      // finishes. We don't care which one fires, only that one of them did.
+      var img = new Image();
+      img.onload = goBack;
+      img.onerror = goBack;
+      img.src = assetUrl;
 
-      // Belt-and-braces fallback in case neither event fires promptly.
-      // The <meta http-equiv="refresh"> above is a further, JS-free
-      // fallback behind this one.
-      window.setTimeout(goBack, 2500);
+      // Last-resort circuit breaker in case the request hangs and neither
+      // event ever fires. Deliberately long: this should essentially never
+      // be the thing that sends the user back - onload/onerror above
+      // should always win first in normal operation. If this fires often
+      // in practice, that's a sign the redirect chain is taking longer
+      // than expected, not a reason to shorten it.
+      window.setTimeout(goBack, 10000);
     })();
   <% end -%>
 </body>

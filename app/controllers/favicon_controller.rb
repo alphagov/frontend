@@ -2,6 +2,8 @@
 # to redirect it to the asset. When there's a better solution to this
 # problem we can remove this controller and routes.
 class FaviconController < ApplicationController
+  skip_before_action :redirect_to_asset_manager_preflight_if_required
+
   before_action { expires_in(1.day, public: true) }
 
   def redirect_to_asset

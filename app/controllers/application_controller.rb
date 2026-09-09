@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  include DraftHelper
+
   before_action { I18n.locale = I18n.default_locale }
   before_action :allow_only_html_requests
+  before_action :redirect_to_asset_manager_preflight_if_required, if: -> { request.format.html? }
 
   rescue_from GdsApi::TimedOutException, with: :error_503
   rescue_from GdsApi::EndpointNotFound, with: :error_503
@@ -85,5 +88,31 @@ private
 
   def set_no_cache_headers
     response.headers["Cache-Control"] = "no-store"
+  end
+
+  # Redirects the current (draft-host, GET, HTML) request to
+  # AssetManagerPreflightController, unless the session already
+  # records that we've recently warmed up an Asset Manager session.
+  def redirect_to_asset_manager_preflight_if_required
+    return unless request.get?
+    return unless draft_host?
+    return if asset_manager_session_warm?
+
+    redirect_params = request.query_parameters.except(*AssetManagerPreflightController::ASSET_MANAGER_PREFLIGHT_RESERVED_PARAMS)
+    return_to = request.path
+
+    return_to += "?#{redirect_params.to_query}" if redirect_params.present?
+
+    redirect_params["return_to"] = return_to
+
+    redirect_to asset_manager_preflight_path(redirect_params)
+  end
+
+  # The session stores an epoch timestamp so we can tell how long
+  # ago the Asset Manager session was warmed up and treat it as
+  # stale after ASSET_MANAGER_PREFLIGHT_TTL.
+  def asset_manager_session_warm?
+    set_up_at = session[AssetManagerPreflightController::ASSET_MANAGER_SESSION_KEY]
+    set_up_at.present? && set_up_at > AssetManagerPreflightController::ASSET_MANAGER_PREFLIGHT_TTL.ago.to_i
   end
 end

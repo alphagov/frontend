@@ -1,4 +1,6 @@
 class CsvPreviewRedirectController < ApplicationController
+  skip_before_action :redirect_to_asset_manager_preflight_if_required
+
   before_action { expires_in(1.day, public: true) }
 
   def redirect

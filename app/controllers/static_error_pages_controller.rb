@@ -1,4 +1,6 @@
 class StaticErrorPagesController < ApplicationController
+  skip_before_action :redirect_to_asset_manager_preflight_if_required
+
   ERROR_CODES = %w[
     400
     401

@@ -20,6 +20,8 @@
 class AssetManagerPreflightController < ApplicationController
   include DraftHelper
 
+  skip_before_action :redirect_to_asset_manager_preflight_if_required # avoid circular loop
+
   # Query params that are either meaningless to forward (Rails routing
   # internals) or that we set ourselves and must never let an incoming
   # request's own query string collide with/override - most importantly

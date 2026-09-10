@@ -8,3 +8,22 @@
     </div>
   </div>
 <% end %>
+
+<% if draft_host? %>
+  <%
+    host = if GovukEnvironment.current == "staging"
+             "staging.publishing.service.gov.uk"
+           elsif GovukEnvironment.current == "integration"
+             "integration.publishing.service.gov.uk"
+           else
+             "publishing.service.gov.uk"
+           end
+    placeholder_asset_url = "https://draft-assets.#{host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"
+  %>
+  <div
+    data-module="AssetManagerSession"
+    data-placeholder-asset-url="<%= placeholder_asset_url %>"
+    class="govuk-visually-hidden">
+  </div>
+  <%= javascript_include_tag "asset-manager-session.js", integrity: false %>
+<% end %>

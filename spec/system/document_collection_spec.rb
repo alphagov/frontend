@@ -19,13 +19,11 @@ RSpec.describe "Document Collection" do
       expect(page).to have_text("The standards set out what it takes to be a safe and responsible driver and rider and provide training to drivers and riders.")
     end
 
-    it "renders metadata and document footer" do
+    it "renders metadata" do
       visit base_path
 
       expect(page).to have_text("Driver and Vehicle Standards Agency")
       expect(page).to have_text("Published: 29 February 2016")
-
-      expect(page).to have_selector(".gem-c-published-dates", text: "Published 29 February 2016")
     end
 
     context "when a body is provided" do

@@ -40,33 +40,28 @@
   <% end %>
 
   <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(additional_headers: content_item_presenter.collection_groups_headers) do %>
-    <% if content_item.body.present? %>
-      <div class="govuk-!-margin-bottom-8">
-      <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
-      </div>
-    <% end %>
-
-    <% content_item_presenter.displayable_collection_groups.each do |group| %>
-      <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
-
-      <% if group.body.present? %>
-        <%= render "govuk_publishing_components/components/govspeak", {
-            content: group.body.html_safe,
-            direction: page_text_direction,
-          } %>
+    <div class="responsive-bottom-margin">
+      <% if content_item.body.present? %>
+        <div class="govuk-!-margin-bottom-8">
+        <%= render "govuk_publishing_components/components/govspeak", { content: content_item.body.html_safe, direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr") } %>
+        </div>
       <% end %>
 
-      <div class="govuk-!-margin-bottom-8">
-        <%= render "govuk_publishing_components/components/document_list", items: content_item_presenter.group_as_document_list(group) %>
-      </div>
-    <% end %>
+      <% content_item_presenter.displayable_collection_groups.each do |group| %>
+        <h3 class="govuk-heading-m govuk-!-font-size-27" id="<%= group.id %>"><%= group.title %></h3>
 
-    <%= render "govuk_publishing_components/components/published_dates", {
-      published: display_date(content_item.initial_publication_date),
-      last_updated: display_date(content_item.updated),
-      history: formatted_history(content_item.history),
-      margin_bottom: 8,
-    } %>
+        <% if group.body.present? %>
+          <%= render "govuk_publishing_components/components/govspeak", {
+              content: group.body.html_safe,
+              direction: page_text_direction,
+            } %>
+        <% end %>
+
+        <div class="govuk-!-margin-bottom-8">
+          <%= render "govuk_publishing_components/components/document_list", items: content_item_presenter.group_as_document_list(group) %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
 

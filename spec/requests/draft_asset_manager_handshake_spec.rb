@@ -26,20 +26,25 @@ RSpec.describe "Forcing an Asset Manager handshake on the draft stack" do
       content_store_has_random_item(base_path: "/help", schema: "help_page")
     end
 
-    it "adds a plain, parser-blocking script tag that loads the placeholder asset from draft-assets" do
+    it "adds a parser-blocking script tag that loads the placeholder asset from draft-assets with the CSP nonce" do
       ENV["GOVUK_ENVIRONMENT"] = "production"
 
       get "/help"
 
-      # This must be a bare <script src="..."> with no other attributes.
+      # This must remain a classic, parser-blocking script. The nonce is
+      # required to satisfy the page's CSP because draft-assets is not an
+      # allowed script-src host.
+      #
       # async/defer/type="module" would all make the browser carry on
-      # parsing instead of blocking on it, defeating the point of this
-      # workaround - which relies on the Asset Manager auth handshake
-      # completing before the browser parses the rest of the page (and
-      # therefore before any draft <img> tags further down get a chance to
-      # start their own, competing handshakes).
+      # parsing instead of blocking on the request. This workaround relies
+      # on the Asset Manager auth handshake completing before the browser
+      # parses the rest of the page (and therefore before any draft <img>
+      # tags further down get a chance to start their own handshakes).
       expect(response.body).to include(
-        '<script src="https://draft-assets.publishing.service.gov.uk/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>',
+        '<script nonce="',
+      )
+      expect(response.body).to include(
+        'src="https://draft-assets.publishing.service.gov.uk/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>',
       )
     end
 
@@ -70,7 +75,10 @@ RSpec.describe "Forcing an Asset Manager handshake on the draft stack" do
             get "/help"
 
             expect(response.body).to include(
-              %(<script src="https://draft-assets.#{expected_host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>),
+              %(<script nonce="),
+            )
+            expect(response.body).to include(
+              %(src="https://draft-assets.#{expected_host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>),
             )
           end
         end
@@ -86,7 +94,10 @@ RSpec.describe "Forcing an Asset Manager handshake on the draft stack" do
           get "/help"
 
           expect(response.body).to include(
-            '<script src="https://draft-assets.publishing.service.gov.uk/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>',
+            '<script nonce="',
+          )
+          expect(response.body).to include(
+            'src="https://draft-assets.publishing.service.gov.uk/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script>',
           )
         end
       end

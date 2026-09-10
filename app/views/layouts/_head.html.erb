@@ -31,5 +31,5 @@
   <!-- Deliberately parser-blocking: forces auth handshake for the image to complete before
        the rest of the document is parsed. Results in a syntax error in the console, but
        that can be safely ignored, as other JS in the page is unaffected. -->
-  <script src="https://draft-assets.<%= host %>/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script><%# erb_lint:disable AllowedScriptType %>
+  <script nonce="<%= content_security_policy_nonce %>" src="https://draft-assets.<%= host %>/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script><%# erb_lint:disable AllowedScriptType %>
 <% end %>

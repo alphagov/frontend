@@ -19,17 +19,3 @@
 <% end %>
 
 <%= javascript_include_tag "test-dependencies.js", type: "module" if Rails.env.test? %>
-
-<% if draft_host? %>
-  <% host = if GovukEnvironment.current == "staging"
-              "staging.publishing.service.gov.uk"
-            elsif GovukEnvironment.current == "integration"
-              "integration.publishing.service.gov.uk"
-            else
-              "publishing.service.gov.uk"
-            end %>
-  <!-- Deliberately parser-blocking: forces auth handshake for the image to complete before
-       the rest of the document is parsed. Results in a syntax error in the console, but
-       that can be safely ignored, as other JS in the page is unaffected. -->
-  <script src="https://draft-assets.<%= host %>/media/5e59279b86650c53b2cefbfe/placeholder.jpg"></script><%# erb_lint:disable AllowedScriptType %>
-<% end %>

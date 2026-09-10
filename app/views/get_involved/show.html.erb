@@ -1,6 +1,6 @@
 <% content_for :head do %>
-  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: @content_item.to_h, schema: :article } %>
-  <meta name="description" content="<%= strip_tags(@content_item.description) %>">
+  <%= render "govuk_publishing_components/components/machine_readable_metadata", { content_item: content_item.to_h, schema: :article } %>
+  <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
 
 <% content_for :header do %>
@@ -32,21 +32,21 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-one-half">
         <%= render "govuk_publishing_components/components/big_number", {
-          number: @content_item.open_consultation_count,
+          number: content_item.open_consultation_count,
           label: t("formats.get_involved.open_consultations"),
           href: "/search/policy-papers-and-consultations?content_store_document_type=open_consultations",
         } %>
       </div>
       <div class="govuk-grid-column-one-half">
         <%= render "govuk_publishing_components/components/big_number", {
-          number: @content_item.closed_consultation_count,
+          number: content_item.closed_consultation_count,
           label: t("formats.get_involved.closed_consultations"),
           href: "/search/policy-papers-and-consultations?content_store_document_type=closed_consultations",
         } %>
       </div>
     </div>
 
-    <% if @content_item.next_closing_consultation %>
+    <% if content_item.next_closing_consultation %>
       <%# Attention to closing consultation  %>
       <%= render "govuk_publishing_components/components/inset_text", {
       } do %>
@@ -56,7 +56,7 @@
           font_size: "s",
           margin_bottom: 4,
         } %>
-        <%= link_to @content_item.next_closing_consultation["title"], @content_item.next_closing_consultation["link"], class: "govuk-link" %>
+        <%= link_to content_item.next_closing_consultation["title"], content_item.next_closing_consultation["link"], class: "govuk-link" %>
       <% end %>
     <% end %>
 
@@ -72,7 +72,7 @@
     <%= render "govuk_publishing_components/components/document_list", {
       items: content_item_presenter.recently_opened,
     } %>
-    <%= link_to(t("formats.get_involved.search_all"), @content_item.consultations_link, class: "govuk-link" ) %>
+    <%= link_to(t("formats.get_involved.search_all"), content_item.consultations_link, class: "govuk-link" ) %>
   </div>
 
   <div class="govuk-!-padding-bottom-8">
@@ -89,7 +89,7 @@
       items: content_item_presenter.recent_outcomes,
     } %>
 
-    <%= link_to(t("formats.get_involved.search_all"), @content_item.consultations_link, class: "govuk-link" ) %>
+    <%= link_to(t("formats.get_involved.search_all"), content_item.consultations_link, class: "govuk-link" ) %>
   </div>
 
   <div class="govuk-!-padding-bottom-6">

@@ -8,3 +8,37 @@
     </div>
   </div>
 <% end %>
+
+<% if draft_host? %>
+  <%
+    host = if GovukEnvironment.current == "staging"
+             "staging.publishing.service.gov.uk"
+           elsif GovukEnvironment.current == "integration"
+             "integration.publishing.service.gov.uk"
+           else
+             "publishing.service.gov.uk"
+           end
+    placeholder_asset_url = "https://draft-assets.#{host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"
+  %>
+  <script type="text/javascript" nonce="<%= content_security_policy_nonce %>">
+    (() => {
+      const draftAssets = [...document.images].filter((image) =>
+        image.src.includes("assets.")
+      );
+
+      if (draftAssets.length < 2) return;
+
+      const retryDraftAssets = () => {
+        draftAssets.forEach((image) => {
+          image.src = `${image.src}${image.src.includes("?") ? "&" : "?"}_asset_manager_retry=${Date.now()}`;
+        });
+      };
+
+      const placeholder = new Image();
+      placeholder.onload = retryDraftAssets;
+      placeholder.onerror = retryDraftAssets;
+      placeholder.src = "<%= placeholder_asset_url %>";
+      console.log("placeholder img", placeholder)
+    })();
+  </script>
+<% end %>

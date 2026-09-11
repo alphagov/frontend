@@ -9,6 +9,7 @@
 //= link components/map/map-test.geojson
 //= link components/map/maplibre-gl-csp-worker.js
 //= link views/travel-advice.js
+//= link lib/asset-manager-session.js
 
 //= link static-error-pages.js
 

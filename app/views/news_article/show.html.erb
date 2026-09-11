@@ -5,62 +5,48 @@
     content_item: content_item.to_h %>
 <% end %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
-
-<%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(content_item_presenter.contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    see_updates_link: true,
-  } %>
-
-<%= render "shared/history_notice", content_item: %>
-
-<% if content_item.withdrawn? %>
-  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
-
-  <%= render "govuk_publishing_components/components/notice", {
-    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
-    description_govspeak: content_item.withdrawn_explanation&.html_safe,
-    time: withdrawn_time_tag,
-    lang: "en",
-  } %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 <% end %>
 
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds ">
-    <div class="content-bottom-margin">
-      <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/figure",
-          src: content_item.image_url,
-          alt: content_item.image["alt_text"],
-          credit: content_item.image["credit"],
-          caption: content_item.image["caption"] if content_item.image_url %>
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(content_item.body) %>
-        <% end %>
-      </div>
+<% content_for :content do %>
+  <%= render "shared/history_notice", content_item: %>
 
-      <div class="govuk-!-display-none-print responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/share_links",
-          dir: page_text_direction,
-          links: share_links(content_item.base_path, content_item.title),
-          track_as_sharing: true,
-          title: t("components.share_links.share_this_page") %>
-      </div>
+  <% if content_item.withdrawn? %>
+    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
-      <%= render "govuk_publishing_components/components/published_dates", {
-        dir: page_text_direction,
-        published: display_date(content_item.initial_publication_date),
-        last_updated: display_date(content_item.updated),
-        history: formatted_history(content_item.history),
-      } %>
-    </div>
-  </div>
+    <%= render "govuk_publishing_components/components/notice", {
+      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+      description_govspeak: content_item.withdrawn_explanation&.html_safe,
+      time: withdrawn_time_tag,
+      lang: "en",
+    } %>
+  <% end %>
 
+  <%= render "govuk_publishing_components/components/figure",
+    src: content_item.image_url,
+    alt: content_item.image["alt_text"],
+    credit: content_item.image["credit"],
+    caption: content_item.image["caption"] if content_item.image_url %>
+  <%= render "govuk_publishing_components/components/govspeak", {
+    direction: page_text_direction,
+    margin_bottom: 8,
+  } do %>
+    <%= raw(content_item.body) %>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/share_links",
+    dir: page_text_direction,
+    links: share_links(content_item.base_path, content_item.title),
+    track_as_sharing: true,
+    title: t("components.share_links.share_this_page"),
+    margin_bottom: 8 %>
+<% end %>
+
+<% content_for :sidebar do %>
   <%= render "shared/sidebar_navigation" %>
-</div>
+<% end %>
 
-<%= render "shared/footer_navigation" %>
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+<% end %>

@@ -37,6 +37,7 @@
   @include_script ||= OpenStruct.new(script_included: false)
 %>
 <% if heading_text && ((map_config[:center] && map_config[:zoom]) || (markers || !geojson.nil?)) %>
+  <%= javascript_importmap_tags %>
   <%= render "govuk_publishing_components/components/heading", heading_obj %>
   <% if description %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>
@@ -64,9 +65,7 @@
   <% end %>
 
   <% unless @include_script[:script_included] %>
-    <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
-    <%= javascript_include_tag "components/map/map-style-liberty.js", integrity: false %>
     <% @include_script[:script_included] = true %>
   <% end %>
 

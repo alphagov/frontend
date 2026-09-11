@@ -2,6 +2,9 @@
 window.GOVUK = window.GOVUK || {}
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
+import InteractiveMap from '@defra/interactive-map'
+import maplibreProvider from '@defra/interactive-map/providers/maplibre'
+
 (function (Modules) {
   class Map {
     constructor ($module) {
@@ -15,7 +18,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       const config = {
-        mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
+        mapProvider: maplibreProvider({ workerUrl: cspWorker }),
         behaviour: 'inline',
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
@@ -54,7 +57,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
 
-      this.map = new defra.InteractiveMap(this.map_id, this.config)
+      this.map = new InteractiveMap(this.map_id, this.config)
 
       /* istanbul ignore next */
       this.map.on('map:ready', () => {

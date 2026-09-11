@@ -41,14 +41,6 @@
     track_as_sharing: true,
     title: t("components.share_links.share_this_page"),
     margin_bottom: 8 %>
-
-  <%= render "govuk_publishing_components/components/published_dates", {
-    dir: page_text_direction,
-    published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    history: formatted_history(content_item.history),
-    margin_bottom: 8,
-  } %>
 <% end %>
 
 <% content_for :sidebar do %>

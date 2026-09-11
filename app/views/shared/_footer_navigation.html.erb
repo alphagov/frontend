@@ -20,10 +20,11 @@
            end
     placeholder_asset_url = "https://draft-assets.#{host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"
   %>
-  <div
-    data-module="AssetManagerSession"
-    data-placeholder-asset-url="<%= placeholder_asset_url %>"
-    class="govuk-visually-hidden">
-  </div>
-  <%= javascript_include_tag "asset-manager-session.js", integrity: false %>
+  <%# Inlined verbatim, rather than via javascript_include_tag, so this never
+      goes near the asset pipeline or the site's main JS bundle - live pages
+      load and run none of it. See
+      app/assets/javascripts/asset-manager-session.js, which this pulls in
+      unchanged: that file is also what spec/javascripts/unit/asset-manager-session.spec.js
+      tests directly, so what ships here is exactly what's tested. %>
+  <script type="text/javascript" nonce="<%= content_security_policy_nonce %>" data-placeholder-asset-url="<%= placeholder_asset_url %>"><%= raw Rails.root.join("app/assets/javascripts/asset-manager-session.js").read %></script>
 <% end %>

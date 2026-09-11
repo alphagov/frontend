@@ -1,56 +1,57 @@
-/* Warms up the Asset Manager draft-assets session cookie via a single
- * placeholder image request, then retries any draft images already on
- * the page once that request has settled (success or failure).
+/* Warms up the Asset Manager draft-assets session before the browser gets a
+ * chance to request any of the page's own draft images.
  *
- * Usage: add `data-module="AssetManagerSession"` and
- * `data-placeholder-asset-url="..."` to an element.
+ * Each draft image on a page independently triggers its own Signon/Asset
+ * Manager OAuth handshake when there's no existing session. With more than
+ * one draft image, these handshakes race and clobber each other's CSRF
+ * state, so all but (at best) one image fail to load.
+ *
+ * This file is inlined verbatim into a single <script> tag in the page
+ * <head>, only on draft-stack pages - see _footer_navigation.html.erb. It
+ * deliberately isn't shipped as part of the site's main JavaScript bundle,
+ * so live pages are completely unaffected and don't load or run any of it.
+ * That <script> tag also carries the data-placeholder-asset-url attribute
+ * this file reads its configuration from.
+ *
+ * Plain, self-executing script rather than a GOVUK.Modules-style module:
+ * there's nothing here for other code to discover or instantiate, and
+ * wrapping a single self-starting instance in a module class would only be
+ * indirection for its own sake.
  */
+(function () {
+  // Captured synchronously, while this script is still the one executing -
+  // document.currentScript is only valid during that window, so it can't be
+  // read later from inside warmUpSession, which runs on a subsequent 'load'
+  // event.
+  const scriptElement = document.currentScript
 
-/* istanbul ignore next */
-window.GOVUK = window.GOVUK || {}
-/* istanbul ignore next */
-window.GOVUK.Modules = window.GOVUK.Modules || {};
-
-(function (Modules) {
-  function AssetManagerSession (element) {
-    this.element = element
-  }
-
-  AssetManagerSession.prototype.init = function () {
-    window.addEventListener('load', this.warmUpSession.bind(this))
-  }
-
-  AssetManagerSession.prototype.warmUpSession = function () {
-    const draftAssets = this.draftAssetImages()
-    // fewer than 2 images means there's no concurrent-request race to fix, so nothing to warm up
-    if (draftAssets.length < 2) return
-
-    const reloadDraftImages = this.reloadDraftImages.bind(this, draftAssets)
-    const placeholder = new Image()
-    placeholder.onload = reloadDraftImages
-    placeholder.onerror = reloadDraftImages
-    placeholder.src = this.element.getAttribute('data-placeholder-asset-url')
-  }
-
-  AssetManagerSession.prototype.draftAssetImages = function () {
+  function draftAssetImages () {
     return [...document.images].filter((image) =>
       image.src.includes('assets.') // currently, asset urls in draft preview point to their live link: 'assets.xyz' instead of 'draft-assets.xyz'. Created a backlog item for this: https://gov-uk.atlassian.net/browse/WHIT-4008.
     )
   }
 
-  AssetManagerSession.prototype.reloadDraftImages = function (draftAssets) {
+  function reloadDraftImages (draftAssets) {
     draftAssets.forEach((image) => {
       // re-setting src tries to fetch the image again, with the hope that a prior success is just served from cache
       image.setAttribute('src', image.getAttribute('src'))
     })
   }
 
-  Modules.AssetManagerSession = AssetManagerSession
-  // Self-start now instead of waiting for GOVUK.modules.start()
-  // on DOMContentLoaded, so the window 'load' listener is registered as early as possible.
-  var element = document.querySelector('[data-module="AssetManagerSession"]')
-  if (element && !element.getAttribute('data-assetmanagersession-module-started')) {
-    new AssetManagerSession(element).init()
-    element.setAttribute('data-assetmanagersession-module-started', 'true')
+  function warmUpSession () {
+    const draftAssets = draftAssetImages()
+    // fewer than 2 images means there's no concurrent-request race to fix, so nothing to warm up
+    if (draftAssets.length < 2) return
+
+    const reload = reloadDraftImages.bind(null, draftAssets)
+    const placeholder = new Image()
+    placeholder.onload = reload
+    placeholder.onerror = reload
+    placeholder.src = scriptElement.getAttribute('data-placeholder-asset-url')
   }
-})(window.GOVUK.Modules)
+
+  // { once: true } so a fresh execution of this script - such as one run by
+  // a test - can't end up with more than one handler responding to a single
+  // 'load' event.
+  window.addEventListener('load', warmUpSession, { once: true })
+})()

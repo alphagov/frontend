@@ -9,3 +9,5 @@ Rails.application.config.assets.paths << Rails.root.join("node_modules")
 
 # Precompile map.js independently so it can be fetched directly by the importmap
 Rails.application.config.assets.precompile += %w( components/map.js )
+Rails.application.config.assets.precompile += %w( components/map/defra.js )
+Rails.application.config.assets.precompile += %w( components/map/maplibre.js )

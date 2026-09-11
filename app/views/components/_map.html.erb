@@ -37,7 +37,6 @@
   @include_script ||= OpenStruct.new(script_included: false)
 %>
 <% if heading_text && ((map_config[:center] && map_config[:zoom]) || (markers || !geojson.nil?)) %>
-  <%= javascript_importmap_tags %>
   <%= render "govuk_publishing_components/components/heading", heading_obj %>
   <% if description %>
     <%= render "govuk_publishing_components/components/govspeak", {} do %>

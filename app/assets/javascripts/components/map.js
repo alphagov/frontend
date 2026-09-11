@@ -48,6 +48,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
     }
 
+    analytics (message) {
+      console.log(`analytics ${message}`)
+    }
+
     init () {
       const id = this.$module.getAttribute('id')
       this.$module.setAttribute('id', '')
@@ -59,10 +63,20 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
+        this.analytics('map ready')
+      })
+
+      this.map.on('app:panelopened', ({ panelId }) => {
+        this.analytics(`Panel opened: ${panelId}`)
+      })
+
+      this.map.on('app:panelclosed', ({ panelId }) => {
+        this.analytics(`Panel closed: ${panelId}`)
       })
 
       /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
+        console.log(e)
         if (e.selectedMarkers.length > 0) {
           let marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
           marker = this.markers[marker]
@@ -74,6 +88,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             tablet: { slot: 'left-top', dismissible: true, width: '280px' },
             desktop: { slot: 'left-top', dismissible: true, width: '280px' }
           })
+          this.analytics(`clicked on marker ${marker.properties.name}`)
         } else {
           this.map.hidePanel('the-panel')
         }

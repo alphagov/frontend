@@ -317,9 +317,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@defra/interactive-map@npm:0.0.30-alpha":
-  version: 0.0.30-alpha
-  resolution: "@defra/interactive-map@npm:0.0.30-alpha"
+"@defra/interactive-map@npm:0.0.43-alpha":
+  version: 0.0.43-alpha
+  resolution: "@defra/interactive-map@npm:0.0.43-alpha"
   dependencies:
     "@babel/runtime": "npm:^7.28.6"
     "@turf/area": "npm:^7.2.0"
@@ -329,9 +329,7 @@ __metadata:
     "@turf/boolean-valid": "npm:^7.2.0"
     "@turf/destination": "npm:^7.3.3"
     "@turf/helpers": "npm:^7.2.0"
-    "@turf/line-intersect": "npm:^7.3.3"
-    "@turf/point-to-line-distance": "npm:^7.3.3"
-    "@turf/polygon-to-line": "npm:^7.3.3"
+    "@turf/union": "npm:^7.3.5"
     accessible-autocomplete: "npm:^3.0.1"
     govuk-frontend: "npm:^5.13.0"
     maplibre-gl: "npm:^5.23.0"
@@ -349,7 +347,7 @@ __metadata:
       optional: true
     proj4:
       optional: true
-  checksum: 10/857b6c3da11fa47cd7e004e26c84aae6bbbe2978b2fecb79f54b20989e469b14e270b326e8e1e42528f6a1821f871ba26d4afd16cfe5f547706ff66cc42f8da9
+  checksum: 10/2efc55470262774631f5cb8b6c5dac55f5963ccf4827e3c5b88b1c6f397e71392d797177832fd46c47a42525dc80b85b787ac8aa3d52b1a7c70b243231cfb5ac
   languageName: node
   linkType: hard
 
@@ -722,7 +720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/bearing@npm:7.3.4, @turf/bearing@npm:^7.3.3":
+"@turf/bearing@npm:^7.3.3":
   version: 7.3.4
   resolution: "@turf/bearing@npm:7.3.4"
   dependencies:
@@ -863,17 +861,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/clone@npm:7.3.4":
-  version: 7.3.4
-  resolution: "@turf/clone@npm:7.3.4"
-  dependencies:
-    "@turf/helpers": "npm:7.3.4"
-    "@types/geojson": "npm:^7946.0.10"
-    tslib: "npm:^2.8.1"
-  checksum: 10/7ad9d7ff643ac2c24619320f684e1fcad91edb55fdd3f4a664e9b89ab4e320d9a191987f86410a416d79f24f603f903a92fb764728333240090cbc7e3054bbfd
-  languageName: node
-  linkType: hard
-
 "@turf/clone@npm:^6.5.0":
   version: 6.5.0
   resolution: "@turf/clone@npm:6.5.0"
@@ -931,6 +918,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@turf/helpers@npm:7.4.0":
+  version: 7.4.0
+  resolution: "@turf/helpers@npm:7.4.0"
+  dependencies:
+    "@types/geojson": "npm:^7946.0.10"
+    tslib: "npm:^2.8.1"
+  checksum: 10/3f4b222f96cae436c1d475127b7193d4b2f21c5f1c65525b112de3a97d10081dccba4a17b35e51d39c6923076981a4cb65e68d9feb4b7797d2d5183cf37634e6
+  languageName: node
+  linkType: hard
+
 "@turf/helpers@npm:^6.5.0":
   version: 6.5.0
   resolution: "@turf/helpers@npm:6.5.0"
@@ -958,7 +955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/line-intersect@npm:7.3.4, @turf/line-intersect@npm:^7.3.3":
+"@turf/line-intersect@npm:7.3.4":
   version: 7.3.4
   resolution: "@turf/line-intersect@npm:7.3.4"
   dependencies:
@@ -1012,6 +1009,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@turf/meta@npm:7.4.0":
+  version: 7.4.0
+  resolution: "@turf/meta@npm:7.4.0"
+  dependencies:
+    "@turf/helpers": "npm:7.4.0"
+    "@types/geojson": "npm:^7946.0.10"
+    tslib: "npm:^2.8.1"
+  checksum: 10/41236081fac0c6ebd197e5c8db62bfcef61a6576a24218973fff79e8829d90abd04c2332006ed9efeee0f15cf27acf6490f027a39a9ccb72e44e20d54a36d0d5
+  languageName: node
+  linkType: hard
+
 "@turf/meta@npm:^6.5.0":
   version: 6.5.0
   resolution: "@turf/meta@npm:6.5.0"
@@ -1035,26 +1043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/point-to-line-distance@npm:^7.3.3":
-  version: 7.3.4
-  resolution: "@turf/point-to-line-distance@npm:7.3.4"
-  dependencies:
-    "@turf/bearing": "npm:7.3.4"
-    "@turf/distance": "npm:7.3.4"
-    "@turf/helpers": "npm:7.3.4"
-    "@turf/invariant": "npm:7.3.4"
-    "@turf/meta": "npm:7.3.4"
-    "@turf/nearest-point-on-line": "npm:7.3.4"
-    "@turf/projection": "npm:7.3.4"
-    "@turf/rhumb-bearing": "npm:7.3.4"
-    "@turf/rhumb-distance": "npm:7.3.4"
-    "@types/geojson": "npm:^7946.0.10"
-    tslib: "npm:^2.8.1"
-  checksum: 10/e2cfe0951e41552bde1424cb95e34ed7442046fafcfd1b47f55b83858ac44b729263802642bad19f963c64aa02827ffc093a01f3f58746045666cbe6f815f2f1
-  languageName: node
-  linkType: hard
-
-"@turf/polygon-to-line@npm:7.3.4, @turf/polygon-to-line@npm:^7.3.3":
+"@turf/polygon-to-line@npm:7.3.4":
   version: 7.3.4
   resolution: "@turf/polygon-to-line@npm:7.3.4"
   dependencies:
@@ -1063,19 +1052,6 @@ __metadata:
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
   checksum: 10/6c523c1c65857a4e8dbec8869e4073699bc1560bd004597afd8eb1f9745e381c4bbd78c09bf84cef4481ecf41eedc3725477f1e04999cf9972a289365b7727a7
-  languageName: node
-  linkType: hard
-
-"@turf/projection@npm:7.3.4":
-  version: 7.3.4
-  resolution: "@turf/projection@npm:7.3.4"
-  dependencies:
-    "@turf/clone": "npm:7.3.4"
-    "@turf/helpers": "npm:7.3.4"
-    "@turf/meta": "npm:7.3.4"
-    "@types/geojson": "npm:^7946.0.10"
-    tslib: "npm:^2.8.1"
-  checksum: 10/b756ea368aa9995fe951a39f659c1536f3c4f058c95e1702b3be155760f3df36c82e64174f2744d08326bccade7b07e7e2e81585904e00d8860d805cb570b121
   languageName: node
   linkType: hard
 
@@ -1092,27 +1068,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/rhumb-bearing@npm:7.3.4":
-  version: 7.3.4
-  resolution: "@turf/rhumb-bearing@npm:7.3.4"
+"@turf/union@npm:^7.3.5":
+  version: 7.4.0
+  resolution: "@turf/union@npm:7.4.0"
   dependencies:
-    "@turf/helpers": "npm:7.3.4"
-    "@turf/invariant": "npm:7.3.4"
+    "@turf/helpers": "npm:7.4.0"
+    "@turf/meta": "npm:7.4.0"
     "@types/geojson": "npm:^7946.0.10"
+    polyclip-ts: "npm:^0.16.8"
     tslib: "npm:^2.8.1"
-  checksum: 10/04312ee4dc5ab61f12c6122a841e6e40c148724e4c6a8d2f389b05ac1a79c8a99b5cc6799f32306749454d58756f2750ad5d80ff05e5ecfc80ae86f22eb76383
-  languageName: node
-  linkType: hard
-
-"@turf/rhumb-distance@npm:7.3.4":
-  version: 7.3.4
-  resolution: "@turf/rhumb-distance@npm:7.3.4"
-  dependencies:
-    "@turf/helpers": "npm:7.3.4"
-    "@turf/invariant": "npm:7.3.4"
-    "@types/geojson": "npm:^7946.0.10"
-    tslib: "npm:^2.8.1"
-  checksum: 10/5b3e3cf3fb3e1e54781d3c5f2bb5f88ecba297fdaf1b1aef3c9268ff62ba4a9291d66730594808d78a2bfa8b5ab3367c345166b2f13763f530a3cf19d204370b
+  checksum: 10/2eed604f8f1d88fb9af7dba0d089cc1f5fede265d1a78f1a07d30d030a7dc7c0a84ba31b688c035e880c739bf3e7e54571bb501083f757bc9c48c70833b27c9b
   languageName: node
   linkType: hard
 
@@ -1422,6 +1387,13 @@ __metadata:
   bin:
     baseline-browser-mapping: dist/cli.cjs
   checksum: 10/5263ac0e5f2d5cac5f48fe131a97a2e7a267487934403443282119c7a1a76670762fcb48e42a0eab4501dd1f2bb5021f4033e3fa07d96dddae4ebca6ae3bb24d
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:^9.1.0":
+  version: 9.3.1
+  resolution: "bignumber.js@npm:9.3.1"
+  checksum: 10/1be0372bf0d6d29d0a49b9e6a9cefbd54dad9918232ad21fcd4ec39030260773abf0c76af960c6b3b98d3115a3a71e61c6a111812d1395040a039cfa178e0245
   languageName: node
   linkType: hard
 
@@ -2595,7 +2567,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
-    "@defra/interactive-map": "npm:0.0.30-alpha"
+    "@defra/interactive-map": "npm:0.0.43-alpha"
     jasmine-browser-runner: "npm:^5.0.0"
     jasmine-core: "npm:^7.0.2"
     leaflet: "npm:^1.9.4"
@@ -4495,6 +4467,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"polyclip-ts@npm:^0.16.8":
+  version: 0.16.8
+  resolution: "polyclip-ts@npm:0.16.8"
+  dependencies:
+    bignumber.js: "npm:^9.1.0"
+    splaytree-ts: "npm:^1.0.2"
+  checksum: 10/879f1d8a0a869c1bc187be9f3b977d49696bce50bad111b8705badbf90c25a235927a371040720d8393b5fdb303b0d70eeb3dbde1f5bffe6df6e0902e4ffac16
+  languageName: node
+  linkType: hard
+
 "polygon-splitter@npm:^0.0.11":
   version: 0.0.11
   resolution: "polygon-splitter@npm:0.0.11"
@@ -5221,6 +5203,13 @@ __metadata:
     signal-exit: "npm:^3.0.2"
     which: "npm:^2.0.1"
   checksum: 10/8f8779f3092c00733d3df72d8f1a1b527637b075e58ac7086e87b789030f4f95aa7d66627cbc80140a087043ea5ca65378a3beaa6fd2186974566ed7d586d4d7
+  languageName: node
+  linkType: hard
+
+"splaytree-ts@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "splaytree-ts@npm:1.0.2"
+  checksum: 10/4fb74236f1d8d7d30904c4c6bf7de69ccf7a60af199aadabe149b51254491b25750bd356cdfe01f0fb60514a7153dd60cea3ff29ea06c70ec328a46d6b19e33d
   languageName: node
   linkType: hard
 

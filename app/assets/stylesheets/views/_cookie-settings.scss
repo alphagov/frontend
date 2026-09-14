@@ -2,6 +2,7 @@
 
 .cookie-settings__form-wrapper {
   display: none;
+  margin-bottom: govuk-spacing(8);
 
   .govuk-frontend-supported & {
     display: block;
@@ -16,8 +17,4 @@
 
 .cookie-settings__confirmation {
   display: none;
-}
-
-.cookie-settings__gov-services {
-  margin-top: govuk-spacing(8);
 }

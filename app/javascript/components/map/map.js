@@ -8,6 +8,7 @@ import maplibreProvider from '@defra/interactive-map/providers/maplibre'
 (function (Modules) {
   class Map {
     constructor ($module) {
+      console.log('constructor')
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')

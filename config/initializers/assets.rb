@@ -6,3 +6,15 @@ Rails.application.config.assets.version = "1.0"
 # Add additional assets to the asset load path.
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
+
+# Precompile map.js independently so it can be fetched directly by the importmap
+Rails.application.config.assets.precompile += %w( components/map/map.js )
+
+Rails.application.config.assets.precompile += %w( components/map/index.js )
+Rails.application.config.assets.precompile += %w( components/map/im-core.js )
+Rails.application.config.assets.precompile += %w( components/map/im-shell.js )
+Rails.application.config.assets.precompile += %w( components/map/maplibre.js )
+
+Rails.application.config.assets.precompile += %w( components/map/asyncToGenerator.js )
+Rails.application.config.assets.precompile += %w( components/map/defineProperty.js )
+Rails.application.config.assets.precompile += %w( components/map/objectWithoutProperties.js )

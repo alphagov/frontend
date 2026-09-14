@@ -25,17 +25,9 @@
 
   <%= render "govuk_publishing_components/components/contents_list_with_body", contents: @content_item_presenter.headers_for_contents_list_component  do %>
     <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          content: content_item.body.html_safe,
-          direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr"),
-        } %>
-    </div>
-
-    <div class="responsive-bottom-margin">
-      <%= render "govuk_publishing_components/components/published_dates", {
-        published: display_date(content_item.initial_publication_date),
-        last_updated: display_date(content_item.updated),
-        history: formatted_history(content_item.history),
+      <%= render "govuk_publishing_components/components/govspeak", {
+        content: content_item.body.html_safe,
+        direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr"),
       } %>
     </div>
   <% end %>

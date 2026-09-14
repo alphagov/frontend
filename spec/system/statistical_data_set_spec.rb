@@ -28,7 +28,7 @@ RSpec.describe "Statistical Data Set" do
     it "renders metadata" do
       visit base_path
 
-      within("[class*='metadata-column']") do
+      within(".gem-c-metadata") do
         expect(page).to have_text("Department for Transport")
         expect(page).to have_text("Published: 13 December 2012")
       end

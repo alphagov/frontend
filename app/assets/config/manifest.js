@@ -13,7 +13,3 @@
 //= link static-error-pages.js
 
 //= link_tree ../builds
-
-//= link @defra/interactive-map/dist/esm/index.js
-//= link @defra/interactive-map/providers/maplibre/dist/esm/index.js
-//= link @defra/interactive-map/plugins/interact/dist/esm/index.js

@@ -64,7 +64,8 @@
   <% end %>
 
   <% unless @include_script[:script_included] %>
-    <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_import_module_tag "components/map/map" %>
     <% @include_script[:script_included] = true %>
   <% end %>
 

@@ -8,9 +8,13 @@ Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.paths << Rails.root.join("node_modules")
 
 # Precompile map.js independently so it can be fetched directly by the importmap
-Rails.application.config.assets.precompile += %w( components/map.js )
-Rails.application.config.assets.precompile += %w( components/map/defra.js )
+Rails.application.config.assets.precompile += %w( components/map/map.js )
+
+Rails.application.config.assets.precompile += %w( components/map/index.js )
+Rails.application.config.assets.precompile += %w( components/map/im-core.js )
+Rails.application.config.assets.precompile += %w( components/map/im-shell.js )
 Rails.application.config.assets.precompile += %w( components/map/maplibre.js )
-Rails.application.config.assets.precompile += %w( @babel/runtime/helpers/asyncToGenerator.js )
-Rails.application.config.assets.precompile += %w( @babel/runtime/helpers/defineProperty.js )
-Rails.application.config.assets.precompile += %w( @babel/runtime/helpers/objectWithoutProperties.js )
+
+Rails.application.config.assets.precompile += %w( components/map/asyncToGenerator.js )
+Rails.application.config.assets.precompile += %w( components/map/defineProperty.js )
+Rails.application.config.assets.precompile += %w( components/map/objectWithoutProperties.js )

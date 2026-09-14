@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   rescue_from GdsApi::HTTPNotFound, with: :cacheable_404
   rescue_from GdsApi::InvalidUrl, with: :cacheable_404
   rescue_from GdsApi::HTTPForbidden, with: :error_403
+  rescue_from GdsApi::HTTPBadRequest, with: :error_400
   rescue_from RecordNotFound, with: :cacheable_404
 
   # Because this code contains an if statement evaluated on Rails load and is just
@@ -26,6 +27,10 @@ class ApplicationController < ActionController::Base
 protected
 
   helper_method :content_item
+
+  def error_400
+    error :bad_request
+  end
 
   def error_403
     error :forbidden

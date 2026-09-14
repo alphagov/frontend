@@ -32,7 +32,7 @@ private
     end
 
     default_loader.load(base_path:)
-  rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl => e
+  rescue GdsApi::HTTPErrorResponse, GdsApi::InvalidUrl, GdsApi::HTTPBadRequest => e
     e
   end
 

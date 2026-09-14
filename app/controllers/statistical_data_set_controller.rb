@@ -1,7 +1,8 @@
 class StatisticalDataSetController < ContentItemsController
   include Cacheable
+  layout "header_content_sidebar"
 
   def show
-    @presenter = StatisticalDataSetPresenter.new(content_item)
+    @content_item_presenter = StatisticalDataSetPresenter.new(content_item)
   end
 end

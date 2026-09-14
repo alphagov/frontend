@@ -1,0 +1,18 @@
+<% if draft_host? %>
+  <%
+    host = if GovukEnvironment.current == "staging"
+             "staging.publishing.service.gov.uk"
+           elsif GovukEnvironment.current == "integration"
+             "integration.publishing.service.gov.uk"
+           else
+             "publishing.service.gov.uk"
+           end
+    placeholder_asset_url = "https://draft-assets.#{host}/media/5e59279b86650c53b2cefbfe/placeholder.jpg"
+  %>
+  <%= javascript_include_tag "lib/asset-manager-session.js", integrity: false %>
+  <%= javascript_tag nonce: true do %>
+    window.addEventListener("load", function () {
+      GOVUK.warmUpAssetManagerSession('<%= placeholder_asset_url %>')
+    })
+  <% end %>
+<% end %>

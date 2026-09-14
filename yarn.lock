@@ -169,6 +169,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs3@npm:^8.0.5":
+  version: 8.0.5
+  resolution: "@babel/runtime-corejs3@npm:8.0.5"
+  dependencies:
+    core-js-pure: "npm:^3.48.0"
+  checksum: 10/5f8e90a52a45ce386a34af2b788aefd76ba34d12c5fa5e345c0ac3b71ab60d1d844b0a9634c38f7114a8530e15a096c133d633fbdd946e335bc9d775a51b9442
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.28.6":
   version: 7.29.2
   resolution: "@babel/runtime@npm:7.29.2"
@@ -1643,6 +1652,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js-pure@npm:^3.48.0":
+  version: 3.50.0
+  resolution: "core-js-pure@npm:3.50.0"
+  checksum: 10/4009d549c955dbd4274b58a6c36c7afce8a8f468a631bacb06708873bf503b1c91cbf5baa88c8605c2fff2ccc481fb337e9358c16c029c701d0fffa074e1706e
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -2595,6 +2611,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "frontend@workspace:."
   dependencies:
+    "@babel/runtime-corejs3": "npm:^8.0.5"
     "@defra/interactive-map": "npm:0.0.30-alpha"
     jasmine-browser-runner: "npm:^5.0.0"
     jasmine-core: "npm:^7.0.2"

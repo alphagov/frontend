@@ -1,4 +1,8 @@
 class SpeechPresenter < ContentItemPresenter
+  def use_contextual_components?
+    true
+  end
+
   def speech_contributor_links
     return contributor_links unless content_item.speaker_without_profile
 

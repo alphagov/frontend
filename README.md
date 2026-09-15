@@ -21,6 +21,7 @@ The content items are obtained from ContentStore using the ContentStore#content_
 |Cookies                |hardcoded|https://www.gov.uk/help/cookies|
 |Corporate information pages  |[corporate_information_page](https://docs.publishing.service.gov.uk/content-schemas/corporate_information_page.html)|https://www.gov.uk/government/organisations/forensic-science-regulator/about|
 |                             |                                   |https://www.gov.uk/government/organisations/forensic-science-regulator/about/accessible-documents-policy|
+|CSV Preview           |hardcoded| https://www.gov.uk/csv-preview/6a3006add95ffddb05d4b078/Birthday_2026_overseas_international_list_order_british_empire.csv|
 |Detailed Guide        |[detailed_guide](https://docs.publishing.service.gov.uk/content-schemas/detailed_guide.html)|https://www.gov.uk/guidance/selling-second-hand-vehicles-using-a-vat-margin-scheme|
 |Document collection    |[document_collection](https://docs.publishing.service.gov.uk/content-schemas/document_collection.html)|https://www.gov.uk/government/collections/statutory-guidance-schools|
 |Fatality notice        |[fatality_notice](https://docs.publishing.service.gov.uk/content-schemas/fatality_notice.html)|https://www.gov.uk/government/fatalities/corporal-lee-churcher-dies-in-iraq|

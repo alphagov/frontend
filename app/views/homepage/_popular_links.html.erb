@@ -2,6 +2,50 @@
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+        <%= render "components/map", {
+          heading_text: "London stations",
+          markers: [
+            {
+              geometry: {
+                type: "Point",
+                coordinates: [
+                  -0.1766,
+                  51.5163,
+                ],
+              },
+              properties: {
+                name: "Paddington Station",
+                description: "Designed by Isambard Kingdom Brunel and opened in 1838.",
+              },
+            },
+            {
+              geometry: {
+                type: "Point",
+                coordinates: [
+                  -0.1236,
+                  51.5316,
+                ],
+              },
+              properties: {
+                name: "Kings Cross station",
+                description: "Opened in 1852 and built on the site of a <a href='#'>smallpox and fever</a> hospital.",
+              },
+            },
+            {
+              geometry: {
+                type: "Point",
+                coordinates: [
+                  -0.1632,
+                  51.5224,
+                ],
+              },
+              properties: {
+                name: "Marylebone Station",
+              },
+            },
+          ],
+        } %>
+
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "l",
           margin_bottom: 6,

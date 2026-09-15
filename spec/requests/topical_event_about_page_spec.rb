@@ -17,20 +17,7 @@ RSpec.describe "Topical event about page" do
     end
 
     it "renders the show template" do
-      expect(response).to render_template(:show)
-    end
-
-    context "when the about information is embedded within a topical event content item" do
-      let(:content_item) { GovukSchemas::Example.find("topical_event", example_name: "topical-event-with-about-page") }
-      let(:base_path) { "#{content_item.fetch('base_path')}/about" }
-
-      it "succeeds" do
-        expect(response).to have_http_status(:ok)
-      end
-
-      it "renders the show template" do
-        expect(response).to render_template("topical_event/about")
-      end
+      expect(response).to render_template(:about)
     end
   end
 end

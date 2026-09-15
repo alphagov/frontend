@@ -8,6 +8,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
+      this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
 
       this.interactPlugin = defra.interactPlugin({
@@ -59,6 +60,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
+        this.analytics({ text: 'map ready' })
+      })
+
+      this.map.on('app:panelopened', ({ panelId }) => {
+        this.analytics({ text: `panel opened: ${panelId}` })
+      })
+
+      this.map.on('app:panelclosed', ({ panelId }) => {
+        this.analytics({ text: `panel closed: ${panelId}` })
       })
 
       /* istanbul ignore next */
@@ -74,6 +84,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             tablet: { slot: 'left-top', dismissible: true, width: '280px' },
             desktop: { slot: 'left-top', dismissible: true, width: '280px' }
           })
+          this.analytics({ text: `clicked on marker ${marker.properties.name}` })
         } else {
           this.map.hidePanel('the-panel')
         }
@@ -185,6 +196,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           listItem.innerHTML = popup
           popupsListEl.appendChild(listItem)
         })
+      }
+    }
+
+    analytics (data) {
+      if (window.dataLayer && this.trackingEnabled) {
+        window.GOVUK.analyticsGa4.core.applySchemaAndSendData(data, 'event_data')
       }
     }
   }

@@ -4,12 +4,13 @@ describe('Map component', function () {
 
   let el, module
 
-  function setupMap (config, markers, url, hideMarkerList) {
+  function setupMap (config, markers, url, hideMarkerList, enableGa4) {
     el = document.createElement('div')
     el.setAttribute('id', 'map-1234')
     if (config) { el.setAttribute('data-config', JSON.stringify(config)) }
     if (markers) { el.setAttribute('data-markers', JSON.stringify(markers)) }
     if (url) { el.setAttribute('data-geojson', url) }
+    if (enableGa4) { el.setAttribute('data-tracking-enabled', true) }
     let markersList = ''
     if ((markers || url) && !hideMarkerList) { markersList = '<div class="app-c-map__markers-list"><div class="js-list-markers"><ol></ol></div></div>' }
     el.innerHTML = `<div class="app-c-map"></div>${markersList}`
@@ -364,9 +365,6 @@ describe('Map component', function () {
     }
 
     beforeEach(function () {
-      el = document.createElement('div')
-      document.body.appendChild(el)
-      module = new GOVUK.Modules.Map(el)
       spyOn(module, 'addAllMarkers')
       setupMap()
       module.init()
@@ -409,6 +407,22 @@ describe('Map component', function () {
       ]
       module.addMarkers()
       expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
+  })
+
+  describe('with analytics enabled', function () {
+    beforeEach(function () {
+      window.dataLayer = []
+      setupMap({}, markers, false, false, true)
+      module.init()
+    })
+
+    afterEach(function () {
+      delete window.dataLayer
+    })
+
+    it('detects that tracking should occur', function () {
+      expect(module.trackingEnabled).toEqual(true)
     })
   })
 })

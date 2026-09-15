@@ -30,7 +30,7 @@ RSpec.describe "MapComponent", type: :view do
 
   it "renders the basic component" do
     render_component(centre: [0, 1], zoom: 8, heading_text: "heading")
-    expect(rendered).to have_css(".app-c-map")
+    expect(rendered).to have_css("[data-tracking-enabled] .app-c-map")
     expect(rendered).to have_css(".gem-c-heading h2", text: "heading")
     expect(rendered).to have_selector("[data-config*='\"center\":[0,1],\"zoom\":8,\"mapLabel\":\"Interactive map: heading\"']")
   end
@@ -124,5 +124,10 @@ RSpec.describe "MapComponent", type: :view do
     render_component(centre: [0, 1], zoom: 8, heading_text: "heading", heading_level: 3, key: key, key_heading_text: "Custom key heading")
     expect(rendered).to have_css("h3.gem-c-heading__text.govuk-heading-s", text: "heading")
     expect(rendered).to have_css("h4.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
+  end
+
+  it "can disable GA4 tracking" do
+    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", disable_ga4: true)
+    expect(rendered).not_to have_css("[data-tracking-enabled] .app-c-map")
   end
 end

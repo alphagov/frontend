@@ -9,7 +9,10 @@ class HelpController < ContentItemsController
     render layout: "header_content_sidebar"
   end
 
-  def cookie_settings; end
+  def cookie_settings
+    @content_item_presenter = ContentItemPresenter.new(content_item)
+    render layout: "header_content_sidebar"
+  end
 
   def ab_testing
     ab_test = GovukAbTesting::AbTest.new("Example")

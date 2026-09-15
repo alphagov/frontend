@@ -6,6 +6,7 @@ RSpec.describe "HelpCookies" do
         format: "special_route",
         title: "Cookies on GOV.UK",
         description: "You can choose which cookies you're happy for GOV.UK to use.",
+        links: {},
       }
       stub_content_store_has_item("/help/cookies", payload)
     end
@@ -13,13 +14,13 @@ RSpec.describe "HelpCookies" do
     it "renders the cookies setting page correctly" do
       visit "/help/cookies"
 
-      within("#content") { expect(page).to have_title("Cookies on GOV.UK") }
+      within("main") { expect(page).to have_title("Cookies on GOV.UK") }
     end
 
     it "has radio buttons set to disable cookies by default" do
       visit "/help/cookies"
 
-      within("#content") do
+      within("form[data-module='cookie-settings']") do
         expect(page).to have_css("input[name=cookies-usage][value=off][checked]")
         expect(page).to have_css("input[name=cookies-campaigns][value=off][checked]")
         expect(page).to have_css("input[name=cookies-settings][value=off][checked]")

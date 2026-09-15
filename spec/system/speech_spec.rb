@@ -20,7 +20,7 @@ RSpec.describe "Speech" do
     it "renders metadata and document footer, including speaker" do
       visit "/government/speeches/speech"
 
-      within("[class*='metadata-column']") do
+      within(".page-title") do
         expect(page).to have_text("Department of Energy & Climate Change and The Rt Hon Andrea Leadsom MP")
         expect(page).to have_link("Department of Energy", href: "/government/organisations/department-of-energy-climate-change")
         expect(page).to have_link("The Rt Hon Andrea Leadsom MP", href: "/government/people/andrea-leadsom")

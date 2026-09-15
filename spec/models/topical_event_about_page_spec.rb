@@ -3,26 +3,19 @@ RSpec.describe TopicalEventAboutPage do
 
   let(:content_store_response) { GovukSchemas::Example.find("topical_event_about_page", example_name: "topical_event_about_page") }
 
-  describe "flexible_sections attribute" do
-    it "generates flexible sections if not supplied" do
-      expect(topical_event_about_page.flexible_sections.count).to eq(3)
-      expect(topical_event_about_page.flexible_sections.first).to be_instance_of(FlexiblePage::FlexibleSection::Breadcrumbs)
-      expect(topical_event_about_page.flexible_sections.second).to be_instance_of(FlexiblePage::FlexibleSection::PageTitle)
-      expect(topical_event_about_page.flexible_sections.third).to be_instance_of(FlexiblePage::FlexibleSection::SidebarThenContentLayout)
-      expect(topical_event_about_page.flexible_sections.third.sidebar).to be_instance_of(FlexiblePage::FlexibleSection::RichContentsList)
-      expect(topical_event_about_page.flexible_sections.third.content).to be_instance_of(FlexiblePage::FlexibleSection::Govspeak)
+  describe "#contents_outline" do
+    it "makes a content outline object from details/headers" do
+      expect(topical_event_about_page.contents_outline).to be_instance_of(ContentsOutline)
+      expect(topical_event_about_page.contents_outline.items.count).to eq(6)
+      expect(topical_event_about_page.contents_outline.items.first.text).to eq("Response in the UK")
+      expect(topical_event_about_page.contents_outline.items.first.id).to eq("response-in-the-uk")
     end
   end
 
-  describe "#breadcrumbs" do
-    it "extends the base breadcrumbs to add the parent event base_path" do
-      expect(topical_event_about_page.breadcrumbs.count).to eq(2)
-      expect(topical_event_about_page.breadcrumbs.last).to eq(
-        {
-          title: "Ebola virus: UK government response",
-          url: "/government/topical-events/ebola-virus-government-response",
-        },
-      )
+  describe "#parent" do
+    it "returns an object from links/parent/0" do
+      expect(topical_event_about_page.parent.title).to eq("Ebola virus: UK government response")
+      expect(topical_event_about_page.parent.base_path).to eq("/government/topical-events/ebola-virus-government-response")
     end
   end
 end

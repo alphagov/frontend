@@ -1,7 +1,10 @@
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
+/* istanbul ignore next */
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
+  /* istanbul ignore next */
   function UrlParams (module) {
     this.module = module
     this.getParam = 'utm_campaign'

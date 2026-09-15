@@ -410,5 +410,33 @@ describe('Map component', function () {
       module.addMarkers()
       expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
     })
+
+    it('defaults to circle when passed a valid colour and a null symbol', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: null,
+            colour: 'blue'
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
+
+    it('defaults to blue when passed a valid symbol and a null colour', function () {
+      module.markers = [
+        {
+          geometry: geometryOptions,
+          marker: {
+            symbol: 'circle',
+            colour: null
+          }
+        }
+      ]
+      module.addMarkers()
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+    })
   })
 })

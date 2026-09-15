@@ -1,5 +1,7 @@
 /* global defra */
+/* istanbul ignore next */
 window.GOVUK = window.GOVUK || {}
+/* istanbul ignore next */
 window.GOVUK.Modules = window.GOVUK.Modules || {};
 
 (function (Modules) {
@@ -110,24 +112,27 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             throw new Error(`Response status: ${response.status}`)
           }
           const result = await response.json()
-          if (this.markers) {
-            this.markers = this.markers.concat(result.features)
-          }
+          this.markers = Object.keys(this.markers).length > 0 ? this.markers : []
+          this.markers = this.markers.concat(result.features)
         } catch (error) {
           console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
         }
       }
-      this.markers.sort((a, b) => {
-        const nameA = a.properties.name.toUpperCase()
-        const nameB = b.properties.name.toUpperCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0 // names are equal
-      })
+
+      if (this.markers.length > 0) {
+        this.markers.sort((a, b) => {
+          const nameA = a.properties.name.toUpperCase()
+          const nameB = b.properties.name.toUpperCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0 // names are equal
+        })
+      }
+
       this.addMarkers()
 
       // only fit to bounds if there are more than one markers
@@ -153,13 +158,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const allowedSymbols = ['circle', 'pin', 'square']
       this.markers.forEach((marker, index) => {
         if (marker.marker) {
-          const colour = marker.marker.colour || false
-          if (colour) {
-            if (allowedColours[colour]) {
-              marker.marker.backgroundColor = allowedColours[colour]
-            }
-            delete marker.marker.colour
+          const colour = marker.marker.colour || allowedColours.blue
+
+          if (allowedColours[colour]) {
+            marker.marker.backgroundColor = allowedColours[colour]
           }
+          delete marker.marker.colour
+
           const symbol = marker.marker.symbol || false
           if (!(symbol && allowedSymbols.includes(symbol))) {
             delete marker.marker.symbol

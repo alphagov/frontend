@@ -17,7 +17,7 @@ RSpec.describe "Topical event about page" do
     end
 
     it "renders the show template" do
-      expect(response).to render_template(:about)
+      expect(response).to render_template("topical_event/about")
     end
   end
 end

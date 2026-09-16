@@ -1,10 +1,10 @@
 module ImpactHeader
-  def image_header_options
+  def impact_header_options
     {
       heading: content_item.title,
       description: content_item.description,
-      image: build_image(content_item.impact_header_image),
-      image_type: content_item.impact_header_image_type,
+      image: build_image(impact_header_image),
+      image_type: impact_header_image_type,
       variant: notable_death? ? "notable-death" : "plain",
     }
   end

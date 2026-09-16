@@ -42,12 +42,6 @@
   } do %>
     <%= raw(content_item.body) %>
   <% end %>
-
-  <%= render "govuk_publishing_components/components/published_dates", {
-    published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    history: formatted_history(content_item.history),
-  } %>
 <% end %>
 
 <% content_for :sidebar do %>

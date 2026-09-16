@@ -73,8 +73,6 @@ class TopicalEvent < FlexiblePage
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
   end
 
-private
-
   def header_image
     return unless details["images"]
 

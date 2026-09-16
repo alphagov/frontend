@@ -2,6 +2,8 @@ class TopicalEventController < ContentItemsController
   skip_before_action :allow_only_html_requests, only: [:show]
 
   def show
+    @content_item_presenter = TopicalEventPresenter.new(content_item)
+
     respond_to do |format|
       format.html
       format.atom do

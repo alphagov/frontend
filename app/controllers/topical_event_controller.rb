@@ -1,4 +1,4 @@
-class TopicalEventController < FlexiblePageController
+class TopicalEventController < ContentItemsController
   skip_before_action :allow_only_html_requests, only: [:show]
 
   def show

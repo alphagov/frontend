@@ -4,10 +4,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    if details["about_page_link_text"].present?
-      add_section(Link.new(link: "#{base_path}/about", link_text: details["about_page_link_text"]))
-    end
-
     if featured_items.any?
       add_section(Featured.new(
                     items: featured_items,

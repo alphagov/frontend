@@ -6,7 +6,7 @@ module OrderedFeaturedDocuments
         image_src: i["image"]["url"],
         image_alt: i["image"]["alt_text"],
         heading_text: i["title"],
-        description: i["summary"],
+        description: sanitize(i["summary"]).truncate(160, separator: " "),
       }
     end
   end

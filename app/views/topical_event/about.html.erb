@@ -1,7 +1,7 @@
-<% content_for :title, build_page_title([content_item.about.title]) %>
+<% content_for :title, build_page_title([content_item.title]) %>
 
 <% content_for :head do %>
-  <meta name="description" content="<%= content_item.about.summary %>">
+  <meta name="description" content="<%= content_item.description %>">
 
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,

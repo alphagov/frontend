@@ -1,6 +1,10 @@
 class TopicalEventPresenter < ContentItemPresenter
   include ImpactHeader
 
+  def about_page_link_text
+    content_item.details["about_page_link_text"]
+  end
+
   def body_with_image?
     content_item.header_image && content_item.logo_image
   end

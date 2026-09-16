@@ -1,0 +1,2 @@
+class TopicalEventPresenter < ContentItemPresenter
+end

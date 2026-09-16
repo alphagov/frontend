@@ -6,14 +6,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    add_section(ImpactHeader.new(
-                  description:,
-                  image: impact_image,
-                  image_type: header_image.present? ? "header" : "logo",
-                  title:,
-                  variant: notable_death? ? "notable-death" : "plain",
-                ))
-
     add_section(ContentThenSidebarLayout.new(
                   content: Govspeak.new(govspeak: body),
                   sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,
@@ -98,14 +90,6 @@ class TopicalEvent < FlexiblePage
         mobile_2x: nil,
       },
     }
-  end
-
-  def notable_death?
-    linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
-  end
-
-  def impact_image
-    [header_image, logo_image, legacy_logo].find { it }
   end
 
   def format_social_media_links(links)

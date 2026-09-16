@@ -119,7 +119,7 @@ RSpec.describe "Publication" do
           attachments = page.find_all(".gem-c-attachment")
 
           expect(attachments.length).to eq(1)
-          details = attachments.first.find("details")["data-ga4-event"]
+          details = attachments.first.find(".govuk-details__summary")["data-ga4-event"]
           actual_tracking = JSON.parse(details)
 
           expect(actual_tracking["index_section_count"]).to eq(1)

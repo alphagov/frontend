@@ -1,0 +1,23 @@
+<% grid_layout_options = grid_layout_options(content_item.featured_items.count) %>
+
+<div class="flexible-section" data-flexible-section="featured">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Featured",
+    font_size: "l",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3,
+  } %>
+
+  <div class="govuk-grid-row">
+    <% content_item_presenter.ordered_featured_documents_for_image_cards.each.with_index(1) do |item, index| %>
+      <%= tag.div(class: grid_layout_options[:class], data: nil) do %>
+        <%= render "govuk_publishing_components/components/image_card", item.merge(large: grid_layout_options[:large]) %>
+      <% end %>
+      <% if index % grid_layout_options[:break_at_column] == 0 && index < content_item.featured_items.count %>
+        </div>
+        <div class="govuk-grid-row">
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<% content_for :head do %>
+  <meta name="description" content="<%= content_item.description %>">
+
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :article,
+    content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :main_classes do %>govuk-!-padding-top-0<% end %>
+<% content_for :body_classes do %>full-width__container<% end %>
+
+<div class="full-width__element">
+  <%= render "components/impact_header", content_item_presenter.impact_header_options %>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+      <%= content_item.body.html_safe %>
+    <% end %>
+  </div>
+
+  <% if content_item_presenter.body_with_image? %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "shared/picture", image: content_item.logo_image, style: "body-with-image", alt_text: "" %>
+    </div>
+  <% end %>
+</div>
+
+<% if content_item_presenter.about_page_link_text.present? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body"><%= link_to(content_item_presenter.about_page_link_text, content_item_presenter.about_page_path, class: "govuk-link") %></p>
+    </div>
+  </div>
+<% end %>
+
+<% if content_item.featured_items.any? %>
+  <%= render("shared/ordered_featured_documents") %>
+<% end %>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "shared/document_feed", { options: content_item_presenter.document_feed_options } %>
+  </div>
+
+  <% if content_item_presenter.formatted_social_media_links.any? %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Follow us",
+        font_size: "l",
+        margin_bottom: 1,
+        padding: true,
+        border_top: 5,
+      } %>
+
+      <%= render "govuk_publishing_components/components/share_links", {
+        stacked: true,
+        links: content_item_presenter.formatted_social_media_links,
+        track_as_follow: true,
+        margin_bottom: 8,
+      } %>
+    </div>
+  <% end %>
+</div>
+
+<% if content_item.organisations_ordered_by_emphasis.any? %>
+  <%= render("shared/involved") %>
+<% end %>

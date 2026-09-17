@@ -16,8 +16,7 @@ module ApplicationHelper
   def show_breadcrumbs?(content_item)
     return false if content_item.nil?
 
-    no_breadcrumbs_for = %w[flexible_page
-                            history
+    no_breadcrumbs_for = %w[history
                             homepage
                             service_manual_homepage
                             service_manual_guide

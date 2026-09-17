@@ -36,36 +36,7 @@
 <% end %>
 
 <% if content_item.featured_items.any? %>
-  <% grid_layout_options = grid_layout_options(content_item.featured_items.count)%>
-
-  <div class="flexible-section" data-flexible-section="featured">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "Featured",
-      font_size: "l",
-      padding: true,
-      border_top: 5,
-      margin_bottom: 3,
-    } %>
-
-    <div class="govuk-grid-row">
-      <% content_item_presenter.ordered_featured_documents_for_image_cards.each.with_index(1) do |item, index| %>
-        <%= tag.div(class: grid_layout_options[:class], data: ) do %>
-          <%= render "govuk_publishing_components/components/image_card", item.merge(large: grid_layout_options[:large])
-            href: item[:href],
-            image_src: item[:image_src],
-            image_alt: item[:image_alt],
-            heading_text: item[:heading_text],
-            description: sanitize(item[:description]).truncate(160, separator: " "),
-            large: grid_layout_options[:large],
-          } %>
-        <% end %>
-        <% if index % grid_layout_options[:break_at_column] == 0 && index < flexible_section.items.length %>
-          </div>
-          <div class="govuk-grid-row">
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%= render("shared/ordered_featured_documents") %>
 <% end %>
 
 <% content_item.flexible_sections.each do |flexible_section| %>

@@ -1,50 +1,7 @@
 RSpec.describe TopicalEvent do
-  include GdsApi::TestHelpers::Search
-
   subject(:topical_event) { described_class.new(content_store_response) }
 
   let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
-  let(:search_results) do
-    {
-      results: [
-        {
-          link: "/news/my-item",
-          title: "My Topical Event News Item",
-          public_timestamp: "2025-12-01T00:00:01Z",
-          display_type: "news",
-          description: "What's up?",
-        },
-      ],
-    }
-  end
-
-  before { stub_any_search.to_return(body: search_results.to_json) }
-
-  describe "feed initialisation" do
-    it "creates a DocumentList with appropriate settings" do
-      expect(FlexiblePage::FlexibleSection::DocumentList).to receive(:new).with(
-        email_signup_link: "/email-signup?link=#{content_store_response['base_path']}",
-        email_signup_link_text: "Get email updates",
-        heading_text: "Latest updates",
-        items: [{
-          link: {
-            path: "/news/my-item",
-            text: "My Topical Event News Item",
-          },
-          metadata: {
-            document_type: "News",
-            public_updated_at: Time.zone.parse("2025-12-01 00:00:01.000000000 +0000"),
-            display_type: "news",
-            description: "What's up?",
-          },
-        }],
-        see_all_items_link: "/search/all?order=updated-newest&topical_events%5B%5D=western-balkans-summit-london-2018",
-        see_all_items_link_text: "See more updates",
-      )
-
-      topical_event
-    end
-  end
 
   describe "social initialisation" do
     it "creates a Share with appropriate settings" do

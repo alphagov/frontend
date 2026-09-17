@@ -1,13 +1,12 @@
 <div>
-  <% if flexible_section.heading %>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "Who's involved",
-      font_size: "l",
-      padding: true,
-      border_top: 5,
-      margin_bottom: 3,
-    } %>
-  <% end %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Who's involved",
+    font_size: "l",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3,
+  } %>
+
   <ul class="govuk-list">
   <% content_item_presenter.organisation_data_for_components.each do |org| %>
     <li>

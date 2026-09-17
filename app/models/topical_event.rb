@@ -1,4 +1,4 @@
-class TopicalEvent < FlexiblePage
+class TopicalEvent < ContentItem
   include EmphasisedOrganisations
 
   def feed_items

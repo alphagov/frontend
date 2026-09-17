@@ -55,14 +55,12 @@
 
   <% if content_item.outcome? %>
     <hr class="govuk-section-break govuk-section-break--visible govuk-section-break--l">
-      <header>
-        <%= render "govuk_publishing_components/components/heading", {
-          heading_level: 2,
-          id: "original-consultation-title",
-          margin_bottom: 4,
-          text: t("formats.consultation.original_consultation"),
-        } %>
-      </header>
+    <%= render "govuk_publishing_components/components/heading", {
+      heading_level: 2,
+      id: "original-consultation-title",
+      margin_bottom: 4,
+      text: t("formats.consultation.original_consultation"),
+    } %>
   <% end %>
 
   <%= render partial: "shared/phased/summary_banner" %>

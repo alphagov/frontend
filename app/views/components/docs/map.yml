@@ -229,3 +229,24 @@ examples:
         properties:
           name: Paddington Station
           description: Designed by Isambard Kingdom Brunel and opened in 1838.
+  without_ga4_tracking:
+    data:
+      disable_ga4: true
+      heading_text: London stations
+      markers:
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1766
+          - 51.5163
+        properties:
+          name: Paddington Station
+          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      - geometry:
+          type: Point
+          coordinates:
+          - -0.1236
+          - 51.5316
+        properties:
+          name: Kings Cross station
+          description: Opened in 1852 and built on the site of a smallpox and fever hospital.

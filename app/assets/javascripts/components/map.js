@@ -10,6 +10,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module = $module
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
+      this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
 
       this.interactPlugin = defra.interactPlugin({
@@ -64,17 +65,49 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       /* istanbul ignore next */
+      this.map.on('app:panelopened', () => {
+        this.panelOpen = true
+        this.sendAnalytics({
+          event_name: 'select_content',
+          type: 'map',
+          action: 'opened',
+          text: this.currentMarker
+        })
+      })
+
+      /* istanbul ignore next */
+      this.map.on('app:panelclosed', () => {
+        if (this.panelOpen) {
+          this.sendAnalytics({
+            event_name: 'select_content',
+            type: 'map',
+            action: 'closed',
+            text: this.currentMarker
+          })
+          this.panelOpen = false
+        }
+      })
+
+      /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
         if (e.selectedMarkers.length > 0) {
           let marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
           marker = this.markers[marker]
+
+          this.currentMarker = marker.name
           this.map.addPanel('the-panel', {
             focus: false,
-            label: marker.name,
+            label: this.currentMarker,
             html: this.createPopupContent(marker),
             mobile: { slot: 'drawer', dismissible: true },
             tablet: { slot: 'left-top', dismissible: true, width: '280px' },
             desktop: { slot: 'left-top', dismissible: true, width: '280px' }
+          })
+          this.sendAnalytics({
+            event_name: 'select_content',
+            type: 'map',
+            action: 'markerClick',
+            text: marker.properties.name
           })
         } else {
           this.map.hidePanel('the-panel')
@@ -190,6 +223,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           listItem.innerHTML = popup
           popupsListEl.appendChild(listItem)
         })
+      }
+    }
+
+    /* istanbul ignore next */
+    sendAnalytics (data) {
+      if (window.dataLayer && this.trackingEnabled) {
+        window.GOVUK.analyticsGa4.core.applySchemaAndSendData(data, 'event_data')
       }
     }
   }

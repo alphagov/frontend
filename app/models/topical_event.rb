@@ -1,17 +1,6 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
 
-  def initialize(content_store_response)
-    super
-
-    if organisations_ordered_by_emphasis.any?
-      add_section(Involved.new(
-                    heading: "Who's involved",
-                    organisations: organisations_ordered_by_emphasis,
-                  ))
-    end
-  end
-
   def feed_items
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
   end

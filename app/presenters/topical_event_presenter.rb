@@ -1,6 +1,7 @@
 class TopicalEventPresenter < ContentItemPresenter
   include DocumentFeed
   include ImpactHeader
+  include Involved
   include OrderedFeaturedDocuments
 
   def about_page_path

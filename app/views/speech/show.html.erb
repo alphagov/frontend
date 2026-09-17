@@ -3,62 +3,51 @@
    <meta name="description" content="<%= strip_tags(content_item.description) %>">
 <% end %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
-
-<%= render "shared/publisher_metadata", locals: {
-  from: govuk_styled_links_list(content_item_presenter.speech_contributor_links),
-  first_published: display_date(content_item.initial_publication_date),
-  last_updated: display_date(content_item.updated),
-  see_updates_link: true,
-  } %>
-<%= render "shared/history_notice", content_item: content_item %>
-<% if content_item.withdrawn? %>
-  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
-
-  <%= render "govuk_publishing_components/components/notice", {
-    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
-    description_govspeak: content_item.withdrawn_explanation&.html_safe,
-    time: withdrawn_time_tag,
-    lang: "en",
-  } %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
 <% end %>
 
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="content-bottom-margin">
-      <div class="responsive-bottom-margin">
-          <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
-          <% delivered_on = tag.time(display_date(content_item.delivered_on_date), datetime: content_item.delivered_on_date) %>
-          <% speech_type_explanation = content_item.speech_type_explanation %>
-           <%= render "govuk_publishing_components/components/metadata", {
-              inverse: true,
-              other: { I18n.t("formats.speech.location") => content_item.location , content_item_presenter.delivery_type => "#{delivered_on}#{speech_type_explanation}" },
-              margin_bottom: 0,
-            } %>
-        <% end %>
+<% content_for :content do %>
+  <%= render "shared/history_notice", content_item: content_item %>
+  <% if content_item.withdrawn? %>
+    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
-        <%= render "govuk_publishing_components/components/figure",
-          src: content_item.image["url"],
-          alt: content_item.image["alt_text"],
-          credit: content_item.image["credit"],
-          caption: content_item.image["caption"] if content_item.image %>
+    <%= render "govuk_publishing_components/components/notice", {
+      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+      description_govspeak: content_item.withdrawn_explanation&.html_safe,
+      time: withdrawn_time_tag,
+      lang: "en",
+    } %>
+  <% end %>
 
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(content_item.body) %>
-        <% end %>
-      </div>
+  <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
+    <% delivered_on = tag.time(display_date(content_item.delivered_on_date), datetime: content_item.delivered_on_date) %>
+    <% speech_type_explanation = content_item.speech_type_explanation %>
+    <%= render "govuk_publishing_components/components/metadata", {
+      inverse: true,
+      other: { I18n.t("formats.speech.location") => content_item.location , content_item_presenter.delivery_type => "#{delivered_on}#{speech_type_explanation}" },
+      margin_bottom: 0,
+    } %>
+  <% end %>
 
-      <%= render "govuk_publishing_components/components/published_dates", {
-          published: display_date(content_item.initial_publication_date),
-          last_updated: display_date(content_item.updated),
-          history: formatted_history(content_item.history),
-      } %>
-    </div>
-  </div>
+  <%= render "govuk_publishing_components/components/figure",
+    src: content_item.image["url"],
+    alt: content_item.image["alt_text"],
+    credit: content_item.image["credit"],
+    caption: content_item.image["caption"] if content_item.image %>
 
-  <%= render "shared/sidebar_navigation" %>
-</div>
+  <%= render "govuk_publishing_components/components/govspeak", {
+    direction: page_text_direction,
+    margin_bottom: 8,
+  } do %>
+    <%= raw(content_item.body) %>
+  <% end %>
+<% end %>
 
-<%= render "shared/footer_navigation" %>
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+<% end %>

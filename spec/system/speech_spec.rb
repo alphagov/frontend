@@ -20,7 +20,7 @@ RSpec.describe "Speech" do
     it "renders metadata and document footer, including speaker" do
       visit "/government/speeches/speech"
 
-      within("[class*='metadata-column']") do
+      within(".page-title") do
         expect(page).to have_text("Department of Energy & Climate Change and The Rt Hon Andrea Leadsom MP")
         expect(page).to have_link("Department of Energy", href: "/government/organisations/department-of-energy-climate-change")
         expect(page).to have_link("The Rt Hon Andrea Leadsom MP", href: "/government/people/andrea-leadsom")
@@ -31,7 +31,6 @@ RSpec.describe "Speech" do
         expect(page).to have_text("Delivered on: 2 February 2016 (Original script, may differ from delivered version)")
         expect(page).to have_text("Location: Women in Nuclear UK Conference, Church House Conference Centre, Dean's Yard, Westminster, London")
       end
-      expect(page).to have_selector(".gem-c-published-dates", text: "Published 8 March 2016")
     end
 
     it "does not display a single page notification button" do

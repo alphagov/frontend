@@ -100,18 +100,3 @@ RSpec.describe TopicalEvent do
     end
   end
 end
-
-def create_image_hash(type)
-  {
-    content_type: "image/jpeg",
-    sources: {
-      desktop: "https://www.test.gov.uk/desktop_#{type}.jpg",
-      desktop_2x: "https://www.test.gov.uk/desktop_#{type}_2x.jpg",
-      mobile: "https://www.test.gov.uk/mobile_#{type}.jpg",
-      mobile_2x: "https://www.test.gov.uk/mobile_#{type}_2x.jpg",
-      tablet: "https://www.test.gov.uk/tablet_#{type}.jpg",
-      tablet_2x: "https://www.test.gov.uk/tablet_#{type}_2x.jpg",
-    },
-    type:,
-  }
-end

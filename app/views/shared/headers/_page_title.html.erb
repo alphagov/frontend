@@ -43,6 +43,13 @@
         part_of: options[:sponsoring_organisation_links],
       } %>
     <% end %>
+
+    <% if options[:logo] %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: options[:logo][:path],
+        alt: options[:logo][:alt_text],
+      } %>
+    <% end %>
   </div>
 
   <div class="page-title__column page-title__lead">

@@ -62,5 +62,12 @@
         margin_bottom: 6,
       } %>
     <% end %>
+
+    <% if options[:logo] %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: options[:logo][:path],
+        alt: options[:logo][:alt_text],
+      } %>
+    <% end %>
   </div>
 </div>

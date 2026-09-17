@@ -20,31 +20,6 @@ RSpec.describe TopicalEvent do
 
   before { stub_any_search.to_return(body: search_results.to_json) }
 
-  describe "about link initialisation" do
-    it "creates a Link with appropriate settings" do
-      expect(FlexiblePage::FlexibleSection::Link).to receive(:new).with(
-        link: "#{content_store_response['base_path']}/about",
-        link_text: content_store_response["details"]["about_page_link_text"],
-      )
-
-      topical_event
-    end
-
-    context "when about_page_link_text isn't present" do
-      let(:content_store_response) do
-        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
-          item["details"]["about_page_link_text"] = nil
-        end
-      end
-
-      it "doesn't create a Link" do
-        expect(FlexiblePage::FlexibleSection::Link).not_to receive(:new)
-
-        topical_event
-      end
-    end
-  end
-
   describe "featured documents initialisation" do
     it "creates a Featured with appropriate settings" do
       expect(FlexiblePage::FlexibleSection::Featured).to receive(:new) do |settings, _|

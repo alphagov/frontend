@@ -35,6 +35,7 @@ class ContentItemPresenter
       organisation_logo_heading_level: nil,
       heading_text: content_item.title,
       heading_level: 1,
+      heading_locale: nil,
       context: content_item.context,
       context_locale: t_locale_fallback("formats.#{content_item.document_type}.name", default: nil, count: 1),
       page_text_direction: page_text_direction,

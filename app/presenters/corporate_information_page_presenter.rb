@@ -2,6 +2,10 @@ class CorporateInformationPagePresenter < ContentItemPresenter
   include LinkHelper
   include ContentsList
 
+  def use_contextual_components?
+    true
+  end
+
   def additional_headers
     return [] unless corporate_information_pages?
 

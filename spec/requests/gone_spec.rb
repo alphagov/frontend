@@ -3,7 +3,7 @@ RSpec.describe "Gone" do
     let(:base_path) { "/government/publications/berkshires-national-nature-reserve" }
 
     before do
-      stub_content_store_has_item(base_path, schema_name: "gone")
+      stub_content_store_has_item(base_path, { schema_name: "gone", links: {} })
     end
 
     it "redirects the gone item to the gone controller" do
@@ -30,6 +30,7 @@ RSpec.describe "Gone" do
         title: "Test",
         base_path: "/government/publications/berkshires-national-nature-reserve.cy",
         locale: :cy,
+        links: {},
       })
       get "/government/publications/berkshires-national-nature-reserve.cy", params: { locale: "cy" }
 

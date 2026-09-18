@@ -242,7 +242,7 @@ Rails.application.routes.draw do
   end
 
   constraints FullPathFormatRoutingConstraint.new("gone") do
-    get "*path", to: "gone#show"
+    get "*path(.:locale)", to: "gone#show"
   end
 
   # route API errors to the error handler

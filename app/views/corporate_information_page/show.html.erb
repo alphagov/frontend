@@ -21,18 +21,7 @@
     } %>
   <% end %>
 
-  <hr class="govuk-section-break govuk-section-break--visible">
-  <div class="govuk-!-width-one-half govuk-!-margin-top-3 responsive-bottom-margin">
-    <%= render "govuk_publishing_components/components/organisation_logo", {
-      organisation: {
-        name: content_item.default_organisation.logo.formatted_title.html_safe,
-        url: content_item.default_organisation.base_path,
-        brand: content_item.default_organisation.brand,
-        crest: content_item.default_organisation.logo.crest,
-        image: content_item.default_organisation.logo.image,
-      },
-    } %>
-  </div>
+  <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
 
   <% @additional_body = capture do %>
     <% if content_item.corporate_information? %>

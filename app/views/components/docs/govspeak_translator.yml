@@ -1,0 +1,30 @@
+name: Govspeak translator
+description: Translates govspeak markdown into HTML.
+body: |
+  This component wraps the existing [govspeak component](https://components.publishing.service.gov.uk/component-guide/govspeak) from govuk_publishing_components but instead of displaying previously generated HTML it accepts govspeak markdown and converts it into markup.
+
+  There is a quirk of displaying this in the component guide where if the first line of the markdown is a heading, it is converted into a paragraph. Current testing shows that the conversion works correctly in practice.
+accessibility_criteria: |
+  - headings must be part of a correct heading structure for the page
+  - text should have a text contrast ratio higher than 4.5:1 against the background colour to meet WCAG AA
+shared_accessibility_criteria:
+  - link
+examples:
+  default:
+    data:
+      block: |
+        This is a paragraph. See how it looks.
+
+        * This is a list item
+        * This is another list item
+        * One more list item
+
+        ###A heading
+
+        And now an address.
+
+        $A
+        HM Revenue and Customs
+        Bradford
+        BD98 1YY
+        $A

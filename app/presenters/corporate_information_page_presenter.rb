@@ -2,6 +2,22 @@ class CorporateInformationPagePresenter < ContentItemPresenter
   include LinkHelper
   include ContentsList
 
+  def use_contextual_components?
+    true
+  end
+
+  def page_title_options
+    super.merge({
+      organisation_logo: {
+        name: content_item.default_organisation.logo.formatted_title.html_safe,
+        url: content_item.default_organisation.base_path,
+        brand: content_item.default_organisation.brand,
+        crest: content_item.default_organisation.logo.crest,
+        image: content_item.default_organisation.logo.image,
+      },
+    })
+  end
+
   def additional_headers
     return [] unless corporate_information_pages?
 

@@ -2,6 +2,81 @@
   <div class="govuk-width-container">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+
+<%= render "components/map", {
+  heading_text: "London stations",
+  description: sanitize("<p>As an avid train enthusiast, this map records the London stations that I have visited.</p>
+    "),
+  key: [
+    {
+      name: "Stations I have visited",
+      symbol: "square",
+      colour: "red"
+    },
+    {
+      name: "Stations I have stood outside",
+      symbol: "pin",
+      colour: "orange"
+    },
+    {
+      name: "Stations I want to visit",
+      symbol: "circle",
+      colour: "green"
+    }
+  ],
+  key_heading: "Key for map",
+  markers: [
+    {
+      geometry: {
+        type: "Point",
+        coordinates: [
+          -0.1766,
+          51.5163
+        ]
+      },
+      properties: {
+        name: "Paddington Station",
+        description: "Designed by Isambard Kingdom Brunel and opened in 1838."
+      },
+      marker: {
+        symbol: "square",
+        colour: "red"
+      }
+    },
+    {
+      geometry: {
+        type: "Point",
+        coordinates: [
+          -0.1236,
+          51.5316
+        ]
+      },
+      properties: {
+        name: "Kings Cross station",
+        description: "Opened in 1852 and built on the site of a <a href='https://en.wikipedia.org/wiki/London_King%27s_Cross_railway_station' class='govuk-link'>smallpox and fever hospital</a>."
+      },
+      marker: {
+        symbol: "pin",
+        colour: "orange"
+      }
+    },
+    {
+      geometry: {
+        type: "Point",
+        coordinates: [
+          -0.1632,
+          51.5224
+        ]
+      },
+      properties: {
+        name: "Marylebone Station"
+      },
+      marker: {
+        colour: "green"
+      }
+    }
+  ]
+} %>
         <%= render "govuk_publishing_components/components/heading", {
           font_size: "l",
           margin_bottom: 6,

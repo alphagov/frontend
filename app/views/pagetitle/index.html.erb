@@ -1,6 +1,5 @@
 <%
   org_logo = true
-  heading = true
   translations = true
   news = true
   lead = true
@@ -21,21 +20,19 @@
     </div>
   <% end %>
 
-  <% if heading %>
-    <div class="page-title__block page-title__heading">
-      <div class="js-toggle">
-        <div class="js-1">
-          <%= render partial: "heading" %>
-        </div>
-        <div class="js-2">
-          <%= render partial: "heading-large" %>
-        </div>
+  <div class="page-title__block page-title__heading">
+    <div class="js-toggle">
+      <div class="js-1">
+        <%= render partial: "heading" %>
+      </div>
+      <div class="js-2">
+        <%= render partial: "heading-large" %>
       </div>
     </div>
-  <% end %>
+  </div>
 
-  <div class="page-title__block page-title__translations">
-    <% if translations %>
+  <% if translations %>
+    <div class="page-title__block page-title__translations">
       <div class="js-toggle">
         <div class="js-1">
           <%= render partial: "translations" %>
@@ -44,20 +41,10 @@
           <%= render partial: "translations-large" %>
         </div>
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
-    <% if news %>
-      <div class="js-toggle">
-        <div class="js-1">
-          <%= render partial: "news" %>
-        </div>
-        <div class="js-2">
-        </div>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="page-title__block page-title__lead">
+  <div class="page-title__block page-title__content">
     <% if lead %>
       <div class="js-toggle">
         <div class="js-1">
@@ -81,8 +68,18 @@
     <% end %>
   </div>
 
-  <% if image %>
-    <div class="page-title__block page-title__image">
+  <div class="page-title__block page-title__sidebar">
+    <% if news %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "news" %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    <% end %>
+
+    <% if image %>
       <div class="js-toggle">
         <div class="js-1">
           <%= render "govuk_publishing_components/components/figure", {
@@ -97,8 +94,8 @@
           } %>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="govuk-grid-row">

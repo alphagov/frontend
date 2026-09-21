@@ -43,30 +43,30 @@
         part_of: options[:sponsoring_organisation_links],
       } %>
     <% end %>
-
-    <% if options[:logo] %>
-      <%= render "govuk_publishing_components/components/figure", {
-        src: options[:logo][:path],
-        alt: options[:logo][:alt_text],
-      } %>
-    <% end %>
   </div>
 
-  <div class="page-title__column page-title__lead">
-    <% if options[:lead_paragraph] %>
+  <% if options[:lead_paragraph] %>
+    <div class="page-title__column page-title__lead">
       <%= render "govuk_publishing_components/components/lead_paragraph", {
         text: options[:lead_paragraph],
         dir: options[:page_text_direction],
         margin_bottom: 8,
       } %>
-    <% end %>
+    </div>
+  <% end %>
 
-    <% if options[:metadata] %>
+  <% if options[:metadata] %>
+    <div class="page-title__column page-title__metadata">
       <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8, border_top: true }) %>
-    <% end %>
+    </div>
+  <% end %>
 
-    <% if options[:display_single_page_notification_button] %>
-      <%= render "shared/single_page_notification_button", content_item: content_item %>
-    <% end %>
-  </div>
+  <% if options[:logo] %>
+    <div class="page-title__column page-title__image">
+      <%= render "govuk_publishing_components/components/figure", {
+        src: options[:logo][:path],
+        alt: options[:logo][:alt_text],
+      } %>
+    </div>
+  <% end %>
 </div>

@@ -21,6 +21,8 @@ class DetailedGuidePresenter < ContentItemPresenter
         see_updates_link: true,
       },
       logo: logo,
+      display_single_page_notification_button: true,
+      display_print_link: true,
     })
   end
 

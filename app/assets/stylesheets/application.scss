@@ -129,7 +129,8 @@
 
   .page-title__org,
   .page-title__heading,
-  .page-title__lead {
+  .page-title__lead,
+  .page-title__metadata {
     grid-column: content;
   }
 
@@ -145,9 +146,18 @@
     grid-row: 3;
   }
 
+  .page-title__metadata {
+    grid-row: 4;
+  }
+
   .page-title__translations {
     grid-column: sidebar;
     grid-row: 2/4;
+  }
+
+  .page-title__image {
+    grid-column: sidebar;
+    grid-row: 4;
   }
 
   .direction-rtl {

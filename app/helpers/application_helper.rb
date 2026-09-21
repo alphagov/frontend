@@ -47,7 +47,10 @@ module ApplicationHelper
     ].include?(content_item.base_path)
   end
 
-  PERCENTAGE_SCROLL_TRACKING_URLS = [].freeze
+  PERCENTAGE_SCROLL_TRACKING_URLS = [
+    "/apply-postal-vote",
+    "/register-to-vote",
+  ].freeze
   HEADER_SCROLL_TRACKING_URLS = [
     "/guidance/england-woodland-creation-offer",
     "/government/publications/apply-for-the-england-woodland-creation-offer/guidance-on-how-to-apply-for-ewco",

@@ -120,13 +120,8 @@
     column-gap: 30px;
   }
 
-  .page-title__block {
-    // outline: dashed 1px silver;
-  }
-
   .page-title__org,
-  .page-title__heading,
-  .page-title__content {
+  .page-title__heading {
     grid-column: content;
   }
 
@@ -136,18 +131,6 @@
 
   .page-title__heading {
     grid-row: 2;
-  }
-
-  .page-title__translations {
-    grid-column: sidebar;
-    grid-row: 1;
-    align-self: end;
-  }
-
-  .page-title__translations--lower {
-    grid-row: 2;
-    align-self: start;
-    grid-row: 2/4;
   }
 
   .page-title__sidebar {

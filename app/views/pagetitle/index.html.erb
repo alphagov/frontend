@@ -1,24 +1,104 @@
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%#= render partial: "logo" %>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render partial: "heading" %>
-  </div>
-  <div class="govuk-grid-column-one-third">
-    <%= render partial: "translations-large" %>
+<%
+  org_logo = true
+  heading = true
+  translations = true
+  news = true
+  lead = true
+  metadata = true
+  image = true
+%>
 
-    <%#= render partial: "news" %>
-  </div>
-</div>
+<div class="page-title">
+  <% if org_logo %>
+    <div class="page-title__block page-title__org">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "logo" %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    </div>
+  <% end %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <%= render partial: "lead" %>
-    <%= render partial: "metadata" %>
+  <% if heading %>
+    <div class="page-title__block page-title__heading">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "heading" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "heading-large" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="page-title__block page-title__translations">
+    <% if translations %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "translations" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "translations-large" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if news %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "news" %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    <% end %>
   </div>
+
+  <div class="page-title__block page-title__lead">
+    <% if lead %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "lead" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "lead-large" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if metadata %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "metadata" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "metadata-large" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <% if image %>
+    <div class="page-title__block page-title__image">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render "govuk_publishing_components/components/figure", {
+            src: "/assets/frontend/logo.png",
+            alt: "European Assets thing"
+          } %>
+        </div>
+        <div class="js-2">
+          <%= render "govuk_publishing_components/components/figure", {
+            src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/54374/s630_the_lords_chamber.jpg",
+            alt: "An image of the lords chamber"
+          } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <div class="govuk-grid-row">

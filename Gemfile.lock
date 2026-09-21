@@ -166,7 +166,7 @@ GEM
       rest-client (~> 2.0)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    google-protobuf (4.36.1)
+    google-protobuf (4.36.2)
       bigdecimal
       rake (~> 13.3)
     googleapis-common-protos-types (1.23.0)
@@ -198,7 +198,7 @@ GEM
     govuk_personalisation (1.2.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (70.0.1)
+    govuk_publishing_components (70.1.0)
       chartkick
       govuk_app_config
       govuk_personalisation (>= 0.7.0)

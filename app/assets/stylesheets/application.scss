@@ -126,11 +126,6 @@
 
   .page-title__org,
   .page-title__heading,
-  .page-title__lead,
-  .page-title__metadata {
-    grid-column: content;
-  }
-
   .page-title__content {
     grid-column: content;
   }
@@ -149,19 +144,17 @@
     align-self: end;
   }
 
-  // .page-title__lead {
-  //   grid-row: 3;
-  // }
+  .page-title__translations--lower {
+    grid-row: 2;
+    align-self: start;
+    grid-row: 2/4;
+  }
 
   .page-title__sidebar {
     grid-column: sidebar;
     grid-row: 2/4;
+    align-self: end;
   }
-
-  // .page-title__image {
-  //   grid-column: sidebar;
-  //   grid-row: 4;
-  // }
 
   .direction-rtl {
    .page-title {

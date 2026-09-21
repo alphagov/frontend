@@ -120,6 +120,11 @@
     column-gap: 30px;
   }
 
+  .page-title__block {
+    outline: dashed 1px silver;
+    margin-bottom: 25px;
+  }
+
   .page-title__org,
   .page-title__heading,
   .page-title__lead {
@@ -143,9 +148,30 @@
     grid-row: 2/4;
   }
 
+  .page-title__image {
+    grid-column: sidebar;
+    grid-row: 4;
+  }
+
   .direction-rtl {
    .page-title {
      grid-template-columns: [sidebar] auto [content] 66%;
    }
+  }
+}
+
+.js-toggle {
+  position: relative;
+}
+
+.toggle-button {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: silver;
+  cursor: pointer;
+
+  &:before {
+    content: "toggle"
   }
 }

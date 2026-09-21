@@ -121,13 +121,17 @@
   }
 
   .page-title__block {
-    outline: dashed 1px silver;
-    margin-bottom: 25px;
+    // outline: dashed 1px silver;
   }
 
   .page-title__org,
   .page-title__heading,
-  .page-title__lead {
+  .page-title__lead,
+  .page-title__metadata {
+    grid-column: content;
+  }
+
+  .page-title__content {
     grid-column: content;
   }
 
@@ -139,19 +143,25 @@
     grid-row: 2;
   }
 
-  .page-title__lead {
-    grid-row: 3;
+  .page-title__translations {
+    grid-column: sidebar;
+    grid-row: 1;
+    align-self: end;
   }
 
-  .page-title__translations {
+  // .page-title__lead {
+  //   grid-row: 3;
+  // }
+
+  .page-title__sidebar {
     grid-column: sidebar;
     grid-row: 2/4;
   }
 
-  .page-title__image {
-    grid-column: sidebar;
-    grid-row: 4;
-  }
+  // .page-title__image {
+  //   grid-column: sidebar;
+  //   grid-row: 4;
+  // }
 
   .direction-rtl {
    .page-title {
@@ -166,12 +176,17 @@
 
 .toggle-button {
   position: absolute;
-  bottom: 100%;
-  left: 0;
+  top: 0;
+  left: 100%;
   background: silver;
   cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background: lightblue;
+  }
 
   &:before {
-    content: "toggle"
+    content: "<>"
   }
 }

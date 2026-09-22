@@ -16,6 +16,16 @@ RSpec.shared_examples "it can present an impact header" do |document_type, examp
       expect(presenter.impact_header_options[:image]).not_to be_empty
     end
 
+    context "when there is no presentable image" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(document_type, example_name:).tap { |item| item["details"]["images"] = [] }
+      end
+
+      it "returns nil" do
+        expect(presenter.impact_header_options[:image]).to be_nil
+      end
+    end
+
     it "returns a plain variant" do
       expect(presenter.impact_header_options[:variant]).to eq("plain")
     end

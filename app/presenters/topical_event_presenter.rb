@@ -1,4 +1,6 @@
 class TopicalEventPresenter < ContentItemPresenter
+  include ImpactHeader
+
   def impact_header_image
     [content_item.header_image, content_item.logo_image, content_item.legacy_logo].find { it }
   end

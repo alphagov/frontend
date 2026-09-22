@@ -5,6 +5,8 @@ RSpec.describe TopicalEventPresenter do
   let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
   let(:example_name) { "topical-event" }
 
+  it_behaves_like "it can present an impact header", "topical_event", "topical-event"
+
   describe "#impact_header_image" do
     it "returns the header image" do
       expect(topical_event_presenter.impact_header_image[:type]).to eq("header")

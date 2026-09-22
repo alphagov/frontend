@@ -1,7 +1,7 @@
 <%
   org_logo = true
-  translations = nil
-  translations_secondary = true
+  translations = true
+  translations_secondary = nil
   lead = true
   metadata = true
   image = true
@@ -9,7 +9,6 @@
   print = true
 
   translations_lower = "page-title__translations--lower" unless news or image or print
-  translations_lower = ""
 %>
 
 <div class="page-title">
@@ -20,6 +19,19 @@
           <%= render partial: "logo" %>
         </div>
         <div class="js-2">
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if translations %>
+    <div class="page-title__block page-title__translations <%= translations_lower %>">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "translations" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "translations-large" %>
         </div>
       </div>
     </div>
@@ -69,19 +81,6 @@
     <% end %>
   </div>
 
-  <% if translations %>
-    <div class="page-title__block page-title__translations <%= translations_lower %>">
-      <div class="js-toggle">
-        <div class="js-1">
-          <%= render partial: "translations" %>
-        </div>
-        <div class="js-2">
-          <%= render partial: "translations-large" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
   <div class="page-title__block page-title__sidebar">
     <% if news %>
       <div class="js-toggle">
@@ -111,9 +110,15 @@
     <% end %>
 
     <% if print %>
-      <%= render "govuk_publishing_components/components/print_link", {
-        margin_bottom: 6,
-      } %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render "govuk_publishing_components/components/print_link", {
+            margin_bottom: 6,
+          } %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

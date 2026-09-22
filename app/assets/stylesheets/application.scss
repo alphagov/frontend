@@ -149,6 +149,16 @@
     align-self: end;
   }
 
+  .page-title__translations {
+    grid-column: sidebar;
+    align-self: end;
+  }
+
+  .page-title__translations--lower {
+    grid-row: 2;
+    align-self: start;
+  }
+
   .direction-rtl {
    .page-title {
      grid-template-columns: [sidebar] $sidebar-width [content] $content-width;

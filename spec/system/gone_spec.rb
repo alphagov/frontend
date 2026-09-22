@@ -28,7 +28,7 @@ RSpec.describe "Gone page" do
       end
 
       it "has the correct 'published in error' text" do
-        within(".gem-c-heading + p") do
+        within("main p.govuk-body") do
           expect(page).to have_text("The information on this page has been removed because it was published in error.")
         end
       end
@@ -54,7 +54,7 @@ RSpec.describe "Gone page" do
       it "has the correct locale on the explanation" do
         content_store_response["locale"] = "cy"
         setup_and_visit_page
-        expect(page).to have_css(".gem-c-heading + p[lang=cy]")
+        expect(page).to have_css("main p[lang=cy]")
       end
     end
 

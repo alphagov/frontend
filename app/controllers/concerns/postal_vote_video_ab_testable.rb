@@ -5,6 +5,7 @@ module PostalVoteVideoAbTestable
   def self.included(base)
     base.helper_method(
       :current_guide_part_body,
+      :postal_vote_video_ab_test_page?,
       :postal_vote_video_ab_test_variant,
       :postal_vote_video_page?,
       :show_postal_vote_video?,
@@ -33,17 +34,25 @@ module PostalVoteVideoAbTestable
     request.path == POSTAL_VOTE_PATH
   end
 
+  def postal_vote_video_ab_test_page?
+    postal_vote_video_page? && !draft_preview?
+  end
+
   def show_postal_vote_video?
-    postal_vote_video_page? && postal_vote_video_ab_test_variant.variant?("B")
+    postal_vote_video_page? && (draft_preview? || postal_vote_video_ab_test_variant.variant?("B"))
   end
 
 private
+
+  def draft_preview?
+    draft_token.present?
+  end
 
   def hide_postal_vote_video?
     postal_vote_video_page? && !show_postal_vote_video?
   end
 
   def set_postal_vote_video_ab_test_response_header
-    postal_vote_video_ab_test_variant.configure_response(response) if postal_vote_video_page?
+    postal_vote_video_ab_test_variant.configure_response(response) if postal_vote_video_ab_test_page?
   end
 end

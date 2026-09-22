@@ -14,7 +14,7 @@
     canonical_url: Plek.new.website_root + content_item.current_part_path,
     body: current_guide_part_body.presence,
   } %>
-  <%= postal_vote_video_ab_test_variant.analytics_meta_tag.html_safe if postal_vote_video_page? %>
+  <%= postal_vote_video_ab_test_variant.analytics_meta_tag.html_safe if postal_vote_video_ab_test_page? %>
 <% end %>
 
 <% if content_item.first_part? %>

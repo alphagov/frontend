@@ -184,6 +184,17 @@ RSpec.describe "Guide" do
       end
     end
 
+    it "shows the YouTube video in draft preview without applying the A/B test" do
+      setup_ab_variant("PostalVoteVideo", "A")
+
+      visit "/how-to-vote/postal-voting?token=some-token"
+
+      expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+      expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+      assert_response_not_modified_for_ab_test("PostalVoteVideo")
+      expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
+    end
+
     it "does not apply the A/B test on other guide pages" do
       setup_ab_variant("PostalVoteVideo", "A")
 

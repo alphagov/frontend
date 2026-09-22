@@ -4,14 +4,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    add_section(ImpactHeader.new(
-                  description:,
-                  image: impact_image,
-                  image_type: header_image.present? ? "header" : "logo",
-                  title:,
-                  variant: notable_death? ? "notable-death" : "plain",
-                ))
-
     add_section(ContentThenSidebarLayout.new(
                   content: Govspeak.new(govspeak: body),
                   sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,

@@ -33,10 +33,6 @@ RSpec.describe "Topical event page" do
       expect(response).to render_template(:show)
     end
 
-    it "includes an impact header flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_impact_header")
-    end
-
     it "includes a govspeak flexible section with the body" do
       expect(response).to render_template(partial: "flexible_page/flexible_sections/_govspeak")
     end

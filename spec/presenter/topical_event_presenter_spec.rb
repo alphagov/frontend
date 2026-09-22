@@ -6,6 +6,7 @@ RSpec.describe TopicalEventPresenter do
   let(:example_name) { "topical-event" }
 
   it_behaves_like "it can present an impact header", "topical_event", "topical-event"
+  it_behaves_like "it can present ordered featured documents", "topical_event", "topical-event"
 
   describe "#about_page_path" do
     it "returns the base path with about appended" do

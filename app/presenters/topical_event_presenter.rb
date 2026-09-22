@@ -1,5 +1,6 @@
 class TopicalEventPresenter < ContentItemPresenter
   include ImpactHeader
+  include OrderedFeaturedDocuments
 
   def about_page_path
     "#{content_item.base_path}/about"

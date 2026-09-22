@@ -91,10 +91,6 @@ class TopicalEvent < FlexiblePage
 
 private
 
-  def notable_death?
-    linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
-  end
-
   def format_social_media_links(links)
     links.map do |social_media_link|
       {

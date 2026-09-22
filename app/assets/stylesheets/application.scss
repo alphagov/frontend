@@ -128,8 +128,7 @@
   }
 
   .page-title__org,
-  .page-title__heading,
-  .page-title__lead {
+  .page-title__content {
     grid-column: content;
   }
 
@@ -137,17 +136,14 @@
     grid-row: 1;
   }
 
-  .page-title__heading {
+  .page-title__content {
     grid-row: 2;
   }
 
-  .page-title__lead {
-    grid-row: 3;
-  }
-
-  .page-title__translations {
+  .page-title__sidebar {
     grid-column: sidebar;
-    grid-row: 2/4;
+    grid-row: 2/3;
+    align-self: end;
   }
 
   .direction-rtl {

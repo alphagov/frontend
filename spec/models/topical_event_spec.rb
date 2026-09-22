@@ -4,6 +4,7 @@ RSpec.describe TopicalEvent do
   subject(:topical_event) { described_class.new(content_store_response) }
 
   let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018") }
+
   let(:search_results) do
     {
       results: [
@@ -407,6 +408,58 @@ RSpec.describe TopicalEvent do
         expect(FlexiblePage::FlexibleSection::Involved).not_to receive(:new)
 
         topical_event
+      end
+    end
+  end
+
+  describe "#header_image" do
+    let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
+    let(:example_name) { "topical-event" }
+
+    it "returns the first image of type header" do
+      expect(topical_event.header_image[:type]).to eq("header")
+    end
+
+    context "when rendering a legacy topical event" do
+      let(:example_name) { "western-balkans-summit-london-2018" }
+
+      it "returns nil" do
+        expect(topical_event.header_image).to be_nil
+      end
+    end
+  end
+
+  describe "#logo_image" do
+    let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
+    let(:example_name) { "topical-event" }
+
+    it "returns the first image of type logo" do
+      expect(topical_event.logo_image[:type]).to eq("logo")
+    end
+
+    context "when rendering a legacy topical event" do
+      let(:example_name) { "western-balkans-summit-london-2018" }
+
+      it "returns nil" do
+        expect(topical_event.logo_image).to be_nil
+      end
+    end
+  end
+
+  describe "#legacy_logo" do
+    let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
+    let(:example_name) { "topical-event" }
+
+    it "returns nil" do
+      expect(topical_event.legacy_logo).to be_nil
+    end
+
+    context "when rendering a legacy topical event" do
+      let(:example_name) { "western-balkans-summit-london-2018" }
+
+      it "returns the legacy logo suitable for use as a header image" do
+        expect(topical_event.legacy_logo.key?(:type)).to be false
+        expect(topical_event.legacy_logo[:sources]).not_to be_nil
       end
     end
   end

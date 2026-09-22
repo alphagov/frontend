@@ -62,8 +62,6 @@ class TopicalEvent < FlexiblePage
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
   end
 
-private
-
   def header_image
     return unless details["images"]
 
@@ -91,12 +89,10 @@ private
     }
   end
 
+private
+
   def notable_death?
     linked("taxons").find { |taxon| taxon.base_path == "/society-and-culture/notable-death" }.present?
-  end
-
-  def impact_image
-    [header_image, logo_image, legacy_logo].find { it }
   end
 
   def format_social_media_links(links)

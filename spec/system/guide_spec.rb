@@ -1,5 +1,6 @@
 RSpec.describe "Guide" do
   include SchemaOrgHelpers
+  include GovukAbTesting::RspecHelpers
 
   context "when visiting a guide" do
     let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide") }
@@ -127,6 +128,70 @@ RSpec.describe "Guide" do
       it "appends draft access tokens to part links within navigation" do
         expect(page).to have_selector('.gem-c-contents-list a[href$="?token=some_token"]')
       end
+    end
+  end
+
+  context "when visiting the postal vote video test" do
+    let(:content_store_response) do
+      GovukSchemas::Example.find("guide", example_name: "guide").tap do |content_item|
+        content_item["base_path"] = "/how-to-vote"
+        content_item["title"] = "How to vote"
+        content_item["details"]["parts"] = [
+          {
+            "body" => youtube_link,
+            "slug" => "overview",
+            "title" => "Overview",
+          },
+          {
+            "body" => youtube_link,
+            "slug" => "postal-voting",
+            "title" => "Voting by post",
+          },
+        ]
+      end
+    end
+    let(:youtube_url) { "https://www.youtube.com/watch?v=abc123" }
+    let(:youtube_link) { %(<p><a href="#{youtube_url}">How to complete your postal vote</a></p>) }
+
+    before do
+      stub_content_store_has_item("/how-to-vote", content_store_response)
+    end
+
+    it "removes the YouTube video for variant A" do
+      with_variant(PostalVoteVideo: "A") do
+        visit "/how-to-vote/postal-voting"
+
+        expect(page).not_to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
+      end
+    end
+
+    it "shows the YouTube video for variant B" do
+      with_variant(PostalVoteVideo: "B") do
+        visit "/how-to-vote/postal-voting"
+
+        expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+      end
+    end
+
+    it "removes the YouTube video for variant Z" do
+      with_variant(PostalVoteVideo: "Z") do
+        visit "/how-to-vote/postal-voting"
+
+        expect(page).not_to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
+      end
+    end
+
+    it "does not apply the A/B test on other guide pages" do
+      setup_ab_variant("PostalVoteVideo", "A")
+
+      visit "/how-to-vote"
+
+      expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+      assert_response_not_modified_for_ab_test("PostalVoteVideo")
+      expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
     end
   end
 end

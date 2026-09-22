@@ -365,8 +365,8 @@ describe('Map component', function () {
     }
 
     beforeEach(function () {
-      spyOn(module, 'addAllMarkers')
       setupMap()
+      spyOn(module, 'addAllMarkers')
       module.init()
       spyOn(module.map, 'addMarker')
     })

@@ -5,6 +5,7 @@ RSpec.describe TopicalEventPresenter do
   let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
   let(:example_name) { "topical-event" }
 
+  it_behaves_like "it can present a document feed", "topical_event", "topical-event"
   it_behaves_like "it can present an impact header", "topical_event", "topical-event"
   it_behaves_like "it can present ordered featured documents", "topical_event", "topical-event"
 

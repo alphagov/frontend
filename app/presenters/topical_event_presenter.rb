@@ -1,4 +1,5 @@
 class TopicalEventPresenter < ContentItemPresenter
+  include DocumentFeed
   include ImpactHeader
   include OrderedFeaturedDocuments
 

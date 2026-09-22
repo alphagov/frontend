@@ -7,6 +7,20 @@ RSpec.describe TopicalEventPresenter do
 
   it_behaves_like "it can present an impact header", "topical_event", "topical-event"
 
+  describe "#body_with_image?" do
+    it "returns true" do
+      expect(topical_event_presenter.body_with_image?).to be true
+    end
+
+    context "when there is only a logo" do
+      let(:example_name) { "western-balkans-summit-london-2018" }
+
+      it "returns false" do
+        expect(topical_event_presenter.body_with_image?).to be false
+      end
+    end
+  end
+
   describe "#impact_header_image" do
     it "returns the header image" do
       expect(topical_event_presenter.impact_header_image[:type]).to eq("header")

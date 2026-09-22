@@ -24,12 +24,12 @@ examples:
       description: This is the description of the impact header, containing words that form a paragraph of text.
       image:
         sources:
-          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true
   with_image_caption:
@@ -39,12 +39,12 @@ examples:
       image:
         caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         sources:
-          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true
   without_image:
@@ -100,12 +100,12 @@ examples:
       image:
         caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         sources:
-          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true
   notable_death_variant:
@@ -117,11 +117,11 @@ examples:
       image:
         caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         sources:
-          desktop: "/assets/frontend/flexible-pages/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/flexible-pages/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/flexible-pages/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/flexible-pages/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/flexible-pages/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/flexible-pages/example_tablet_2x.jpg"
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true

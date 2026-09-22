@@ -4,11 +4,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    add_section(ContentThenSidebarLayout.new(
-                  content: Govspeak.new(govspeak: body),
-                  sidebar: header_image && logo_image ? Image.new(image: logo_image) : nil,
-                ))
-
     if details["about_page_link_text"].present?
       add_section(Link.new(link: "#{base_path}/about", link_text: details["about_page_link_text"]))
     end

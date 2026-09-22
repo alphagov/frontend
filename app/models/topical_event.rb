@@ -65,18 +65,6 @@ class TopicalEvent < FlexiblePage
     }
   end
 
-private
-
-  def format_social_media_links(links)
-    links.map do |social_media_link|
-      {
-        href: social_media_link["href"],
-        text: social_media_link["title"],
-        icon: social_media_link["service_type"],
-      }
-    end
-  end
-
   def featured_items
     (details["ordered_featured_documents"] || []).map do |i|
       {

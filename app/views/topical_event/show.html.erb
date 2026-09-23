@@ -13,10 +13,14 @@
   <%= render "components/impact_header", content_item_presenter.impact_header_options %>
 </div>
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row responsive-bottom-margin">
   <div class="govuk-grid-column-two-thirds">
     <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
       <%= content_item.body.html_safe %>
+    <% end %>
+
+    <% if content_item.about_page_link_text.present? %>
+      <p class="govuk-body"><%= link_to(content_item.about_page_link_text, content_item_presenter.about_page_path, class: "govuk-link") %></p>
     <% end %>
   </div>
 
@@ -26,14 +30,6 @@
     </div>
   <% end %>
 </div>
-
-<% if content_item_presenter.about_page_link_text.present? %>
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body"><%= link_to(content_item.about_page_link_text, content_item_presenter.about_page_path, class: "govuk-link") %></p>
-    </div>
-  </div>
-<% end %>
 
 <% if content_item.featured_items.any? %>
   <%= render("shared/ordered_featured_documents") %>

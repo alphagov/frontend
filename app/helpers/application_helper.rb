@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def build_page_title(elements = [], withdrawn: false)
     title = (elements + ["GOV.UK"]).compact.join(" - ")
-    withdrawn ? "[Withdrawn] #{title}" : title
+    withdrawn && !title.start_with?("[Withdrawn]") ? "[Withdrawn] #{title}" : title
   end
 
   def current_path_without_query_string

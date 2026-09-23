@@ -41,6 +41,10 @@ RSpec.describe ApplicationHelper do
     it "prepends the withdrawn tag if flag is set" do
       expect(build_page_title(["Title", nil, "Type"], withdrawn: true)).to eq("[Withdrawn] Title - Type - GOV.UK")
     end
+
+    it "does not prepend when title has withdrawn already" do
+      expect(build_page_title(["[Withdrawn] Title", nil, "Type"], withdrawn: true)).to eq("[Withdrawn] Title - Type - GOV.UK")
+    end
   end
 
   describe "#current_path_without_query_string" do

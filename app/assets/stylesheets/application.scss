@@ -65,8 +65,6 @@
 @import "govuk_publishing_components/components/translation-nav";
 @import "govuk_publishing_components/components/warning-text";
 
-@import "views/flexible-content";
-
 @import "components/calendar";
 @import "components/download-link";
 @import "components/impact-header";
@@ -75,6 +73,7 @@
 @import "govuk_web_banners/dependencies";
 
 // Helper stylesheets (things on more than one page layout)
+@import "helpers/full-width";
 @import "helpers/inverse-background";
 @import "helpers/sticky-column";
 @import "helpers/sticky-element-container";

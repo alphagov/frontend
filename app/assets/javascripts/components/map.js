@@ -125,11 +125,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const heading = `h${this.headingLevel}`
       let popupContent = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feature.properties.name}</${heading}>`
       if (feature.properties.description) {
-        popupContent = `${popupContent} ${feature.properties.description}`
+        popupContent = `${popupContent} <p class="govuk-body govuk-!-margin-bottom-2">${feature.properties.description}</p>`
       }
       feature.marker = feature.marker || {}
       if (feature.marker.name) {
-        popupContent = `${popupContent} <span class="govuk-visually-hidden">Categorised under: ${feature.marker.name}</span>`
+        popupContent = `${popupContent} <p class="govuk-body-s"><span class="app-c-map__key app-c-map__key--${feature.marker.symbol} app-c-map__key--${feature.marker.colour}"></span> Categorised under: ${feature.marker.name}</p>`
       }
       popupContent = this.removeScript(popupContent)
       return popupContent
@@ -205,8 +205,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
           if (allowedColours[colour]) {
             marker.marker.backgroundColor = allowedColours[colour]
+          } else {
+            delete marker.marker.colour
           }
-          delete marker.marker.colour
 
           const symbol = marker.marker.symbol || false
           if (!(symbol && allowedSymbols.includes(symbol))) {

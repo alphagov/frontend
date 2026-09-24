@@ -7,6 +7,12 @@ RSpec.describe TopicalEventPresenter do
 
   it_behaves_like "it can present an impact header", "topical_event", "topical-event"
 
+  describe "#about_page_path" do
+    it "returns the base path with about appended" do
+      expect(topical_event_presenter.about_page_path).to eq("#{content_store_response['base_path']}/about")
+    end
+  end
+
   describe "#body_with_image?" do
     it "returns true" do
       expect(topical_event_presenter.body_with_image?).to be true

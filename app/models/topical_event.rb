@@ -45,6 +45,10 @@ class TopicalEvent < FlexiblePage
     end
   end
 
+  def about_page_link_text
+    details["about_page_link_text"]
+  end
+
   def feed_items
     @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
   end

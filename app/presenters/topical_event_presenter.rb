@@ -1,6 +1,10 @@
 class TopicalEventPresenter < ContentItemPresenter
   include ImpactHeader
 
+  def about_page_path
+    "#{content_item.base_path}/about"
+  end
+
   def body_with_image?
     content_item.header_image.present? && content_item.logo_image.present?
   end

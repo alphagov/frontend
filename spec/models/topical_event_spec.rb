@@ -21,6 +21,23 @@ RSpec.describe TopicalEvent do
 
   before { stub_any_search.to_return(body: search_results.to_json) }
 
+  describe "#about_page_link_text" do
+    let(:content_store_response) { GovukSchemas::Example.find("topical_event", example_name:) }
+    let(:example_name) { "topical-event" }
+
+    it "returns nil" do
+      expect(topical_event.about_page_link_text).to be_nil
+    end
+
+    context "when text is present in the content item" do
+      let(:example_name) { "western-balkans-summit-london-2018" }
+
+      it "returns that text" do
+        expect(topical_event.about_page_link_text).to eq(content_store_response["details"]["about_page_link_text"])
+      end
+    end
+  end
+
   describe "about link initialisation" do
     it "creates a Link with appropriate settings" do
       expect(FlexiblePage::FlexibleSection::Link).to receive(:new).with(

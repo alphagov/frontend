@@ -94,18 +94,6 @@
   }
 }
 
-// leaflet element override styles
-.leaflet-popup-content {
-  padding: govuk-spacing(2) 0;
-  padding-top: govuk-spacing(3);
-  @include govuk-font(16);
-}
-
-.leaflet-popup-close-button {
-  transform: scale(1.5);
-  transform-origin: top right;
-}
-
 // defra map override styles
 .im-c-open-map-button {
   margin-bottom: govuk-spacing(2);

@@ -1,17 +1,6 @@
 class TopicalEvent < FlexiblePage
   include EmphasisedOrganisations
 
-  def initialize(content_store_response)
-    super
-
-    if organisations_ordered_by_emphasis.any?
-      add_section(Involved.new(
-                    heading: "Who's involved",
-                    organisations: organisations_ordered_by_emphasis,
-                  ))
-    end
-  end
-
   def about_page_link_text
     details["about_page_link_text"]
   end

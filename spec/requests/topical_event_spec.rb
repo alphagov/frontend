@@ -32,10 +32,6 @@ RSpec.describe "Topical event page" do
     it "renders the show template" do
       expect(response).to render_template(:show)
     end
-
-    it "includes an involved flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_involved")
-    end
   end
 
   describe "GET show (atom format)" do

@@ -80,8 +80,6 @@ examples:
       Marker symbol type and colour can be customised. If this option is used to make different markers on the same map a key must be provided to explain to users what the different markers indicate.
 
       Valid marker symbols are `pin`, `circle` or `square`. Allowed colour values are `blue`, `green`, `orange` or `red`.
-
-      Values for the key are the same as the markers.
     data:
       heading_text: London stations
       description: |
@@ -106,9 +104,7 @@ examples:
         properties:
           name: Paddington Station
           description: Designed by Isambard Kingdom Brunel and opened in 1838.
-        marker:
-          symbol: square
-          colour: red
+        key: 0
       - geometry:
           type: Point
           coordinates:
@@ -117,9 +113,7 @@ examples:
         properties:
           name: Kings Cross station
           description: Opened in 1852 and built on the site of a smallpox and fever hospital.
-        marker:
-          symbol: pin
-          colour: orange
+        key: 1
       - geometry:
           type: Point
           coordinates:
@@ -127,8 +121,7 @@ examples:
           - 51.5224
         properties:
           name: Marylebone Station
-        marker:
-          colour: green
+        key: 2
   hide_markers_beneath:
     description: By default any map pins are listed beneath the map for ease of accessibility. In some situations it may be preferable to produce a different alternative to the map, so this option can be used to hide that list.
     data:

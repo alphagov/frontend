@@ -35,6 +35,10 @@
   </div>
 <% end %>
 
+<% if content_item.featured_items.any? %>
+  <%= render("shared/ordered_featured_documents") %>
+<% end %>
+
 <% content_item.flexible_sections.each do |flexible_section| %>
   <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
 <% end %>

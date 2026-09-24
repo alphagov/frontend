@@ -4,17 +4,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    if featured_items.any?
-      add_section(Featured.new(
-                    items: featured_items,
-                    ga4_image_card_json: {
-                      event_name: "navigation",
-                      type: "image card",
-                      section: "Featured",
-                    },
-                  ))
-    end
-
     share_section = if details["social_media_links"].present?
                       Share.new(
                         heading_text: "Follow us",

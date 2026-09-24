@@ -38,42 +38,6 @@ RSpec.describe TopicalEvent do
     end
   end
 
-  describe "featured documents initialisation" do
-    it "creates a Featured with appropriate settings" do
-      expect(FlexiblePage::FlexibleSection::Featured).to receive(:new) do |settings, _|
-        expect(settings[:items].count).to eq(5)
-        expect(settings[:items].first).to eq({
-          description: "The fifth Western Balkans Summit concluded on 10 July with the signing of joint declarations on Good Neighbourly Relations, War Crimes and Missing Persons.",
-          heading_text: "UK hosts Western Balkans Summit",
-          href: "/government/news/uk-hosts-western-balkans-summit",
-          image_alt: "Family Photo",
-          image_src: "https://assets.publishing.service.gov.uk/media/5b45a61be5274a3755402bfa/s465_IMG_11Jul2018at072855.jpg",
-        })
-        expect(settings[:ga4_image_card_json]).to eq({
-          event_name: "navigation",
-          type: "image card",
-          section: "Featured",
-        })
-      end
-
-      topical_event
-    end
-
-    context "when there are no ordered_featured_documents" do
-      let(:content_store_response) do
-        GovukSchemas::Example.find("topical_event", example_name: "western-balkans-summit-london-2018").tap do |item|
-          item["details"]["ordered_featured_documents"] = []
-        end
-      end
-
-      it "doesn't create a Featured" do
-        expect(FlexiblePage::FlexibleSection::Featured).not_to receive(:new)
-
-        topical_event
-      end
-    end
-  end
-
   describe "feed initialisation" do
     it "creates a DocumentList with appropriate settings" do
       expect(FlexiblePage::FlexibleSection::DocumentList).to receive(:new).with(

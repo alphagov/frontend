@@ -40,6 +40,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
         this.geoJsonUrl = false
       }
+      this.key = JSON.parse(this.$module.getAttribute('data-key')) || []
       this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 
       this.markerOptions = {
@@ -126,6 +127,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       if (feature.properties.description) {
         popupContent = `${popupContent} ${feature.properties.description}`
       }
+      feature.marker = feature.marker || {}
+      if (feature.marker.name) {
+        popupContent = `${popupContent} <span class="govuk-visually-hidden">Categorised under: ${feature.marker.name}</span>`
+      }
       popupContent = this.removeScript(popupContent)
       return popupContent
     }
@@ -153,6 +158,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
 
       if (this.markers.length > 0) {
+        if (this.key.length) {
+          this.markers.forEach(marker => {
+            marker.marker = this.key[parseInt(marker.key)] || {}
+          })
+        }
         this.markers.sort((a, b) => {
           const nameA = a.properties.name.toUpperCase()
           const nameB = b.properties.name.toUpperCase()

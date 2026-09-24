@@ -35,7 +35,8 @@ describe('Map component', function () {
       properties: {
         name: 'Paddington',
         description: 'A station in London<script>moo!</script><script>hello;</script> < scrip<script>is removed</script>t>moo</script>'
-      }
+      },
+      marker: {}
     },
     {
       geometry: {
@@ -45,7 +46,8 @@ describe('Map component', function () {
       properties: {
         name: 'Kings Cross',
         description: 'A station in London'
-      }
+      },
+      marker: {}
     },
     {
       geometry: {
@@ -65,7 +67,8 @@ describe('Map component', function () {
       properties: {
         name: 'Postbox',
         description: 'A postbox near Kings Cross'
-      }
+      },
+      marker: {}
     }
   ]
 
@@ -200,7 +203,8 @@ describe('Map component', function () {
             52.485470314900795,
             -1.89032729180704
           ]
-        }
+        },
+        marker: {}
       },
       {
         properties: {
@@ -212,7 +216,8 @@ describe('Map component', function () {
             52.5862548496693,
             -2.127508995156802
           ]
-        }
+        },
+        marker: {}
       }
     ]
   }

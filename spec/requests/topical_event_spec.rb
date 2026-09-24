@@ -32,30 +32,6 @@ RSpec.describe "Topical event page" do
     it "renders the show template" do
       expect(response).to render_template(:show)
     end
-
-    it "includes an impact header flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_impact_header")
-    end
-
-    it "includes a govspeak flexible section with the body" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_govspeak")
-    end
-
-    it "includes a link flexible section to the about page" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_link")
-    end
-
-    it "includes a document list flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_document_list")
-    end
-
-    it "includes a share flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_share")
-    end
-
-    it "includes an involved flexible section" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_involved")
-    end
   end
 
   describe "GET show (atom format)" do

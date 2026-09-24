@@ -33,10 +33,6 @@ RSpec.describe "Topical event page" do
       expect(response).to render_template(:show)
     end
 
-    it "includes a link flexible section to the about page" do
-      expect(response).to render_template(partial: "flexible_page/flexible_sections/_link")
-    end
-
     it "includes a document list flexible section" do
       expect(response).to render_template(partial: "flexible_page/flexible_sections/_document_list")
     end

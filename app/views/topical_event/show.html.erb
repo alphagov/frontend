@@ -27,6 +27,14 @@
   <% end %>
 </div>
 
+<% if content_item_presenter.about_page_link_text.present? %>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-body"><%= link_to(content_item.about_page_link_text, content_item_presenter.about_page_path, class: "govuk-link") %></p>
+    </div>
+  </div>
+<% end %>
+
 <% content_item.flexible_sections.each do |flexible_section| %>
   <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
 <% end %>

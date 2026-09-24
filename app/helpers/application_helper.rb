@@ -52,10 +52,6 @@ module ApplicationHelper
     "/register-to-vote",
   ].freeze
   HEADER_SCROLL_TRACKING_URLS = [
-    "/guidance/england-woodland-creation-offer",
-    "/government/publications/apply-for-the-england-woodland-creation-offer/guidance-on-how-to-apply-for-ewco",
-    "/government/publications/apply-for-the-england-woodland-creation-offer/standard-cost-items-for-ewco",
-    "/government/publications/apply-for-the-england-woodland-creation-offer/additional-contributions-for-ewco",
     "/apply-to-come-to-the-uk",
   ].freeze
 

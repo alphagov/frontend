@@ -35,7 +35,8 @@ describe('Map component', function () {
       properties: {
         name: 'Paddington',
         description: 'A station in London<script>moo!</script><script>hello;</script> < scrip<script>is removed</script>t>moo</script>'
-      }
+      },
+      marker: {}
     },
     {
       geometry: {
@@ -45,7 +46,8 @@ describe('Map component', function () {
       properties: {
         name: 'Kings Cross',
         description: 'A station in London'
-      }
+      },
+      marker: {}
     },
     {
       geometry: {
@@ -65,7 +67,8 @@ describe('Map component', function () {
       properties: {
         name: 'Postbox',
         description: 'A postbox near Kings Cross'
-      }
+      },
+      marker: {}
     }
   ]
 
@@ -200,7 +203,8 @@ describe('Map component', function () {
             52.485470314900795,
             -1.89032729180704
           ]
-        }
+        },
+        marker: {}
       },
       {
         properties: {
@@ -212,7 +216,8 @@ describe('Map component', function () {
             52.5862548496693,
             -2.127508995156802
           ]
-        }
+        },
+        marker: {}
       }
     ]
   }
@@ -325,6 +330,18 @@ describe('Map component', function () {
     }
   }
 
+  const feature3 = {
+    properties: {
+      name: 'Name',
+      description: 'Description'
+    },
+    marker: {
+      name: 'Marker',
+      symbol: 'square',
+      colour: 'red'
+    }
+  }
+
   describe('the createPopupContent function', function () {
     beforeEach(function () {
       el = document.createElement('div')
@@ -334,7 +351,12 @@ describe('Map component', function () {
 
     it('creates content when there is a name and description', function () {
       const result = module.createPopupContent(feature1)
-      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> Description')
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> <p class="govuk-body govuk-!-margin-bottom-2">Description</p>')
+    })
+
+    it('creates content when there is a name, description and key entry', function () {
+      const result = module.createPopupContent(feature3)
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> <p class="govuk-body govuk-!-margin-bottom-2">Description</p> <p class="govuk-body-s"><span class="app-c-map__key app-c-map__key--square app-c-map__key--red"></span> Categorised under: Marker</p>')
     })
 
     it('creates content when there is only a name', function () {
@@ -392,7 +414,7 @@ describe('Map component', function () {
         }
       ]
       module.addMarkers()
-      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], Object.assign(Object.assign({}, defaultMarkerOptions), { symbol: 'pin', backgroundColor: '#f47738' }))
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], Object.assign(Object.assign({}, defaultMarkerOptions), { symbol: 'pin', backgroundColor: '#f47738', colour: 'orange' }))
     })
 
     it('ignores invalid custom colours and shapes', function () {
@@ -420,7 +442,7 @@ describe('Map component', function () {
         }
       ]
       module.addMarkers()
-      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], defaultMarkerOptions)
+      expect(module.map.addMarker).toHaveBeenCalledWith('marker-0', [-1.4915442661594511, 52.40292688379728], Object.assign(Object.assign({}, defaultMarkerOptions), { backgroundColor: '#1d70b8', colour: 'blue' }))
     })
 
     it('defaults to blue when passed a valid symbol and a null colour', function () {

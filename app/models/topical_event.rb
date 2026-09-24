@@ -4,24 +4,6 @@ class TopicalEvent < FlexiblePage
   def initialize(content_store_response)
     super
 
-    share_section = if details["social_media_links"].present?
-                      Share.new(
-                        heading_text: "Follow us",
-                        links: format_social_media_links(details["social_media_links"]),
-                      )
-                    end
-    add_section(ContentThenSidebarLayout.new(
-                  content: DocumentList.new(
-                    email_signup_link: "/email-signup?link=#{base_path}",
-                    email_signup_link_text: "Get email updates",
-                    heading_text: "Latest updates",
-                    items: feed_items,
-                    see_all_items_link: "/search/all?order=updated-newest&topical_events%5B%5D=#{base_path.split('/').last}",
-                    see_all_items_link_text: "See more updates",
-                  ),
-                  sidebar: share_section,
-                ))
-
     if organisations_ordered_by_emphasis.any?
       add_section(Involved.new(
                     heading: "Who's involved",

@@ -39,6 +39,31 @@
   <%= render("shared/ordered_featured_documents") %>
 <% end %>
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "shared/document_feed", { options: content_item_presenter.document_feed_options } %>
+  </div>
+
+  <% if content_item_presenter.formatted_social_media_links.any? %>
+    <div class="govuk-grid-column-one-third">
+      <%= render "govuk_publishing_components/components/heading", {
+        text: "Follow us",
+        font_size: "l",
+        margin_bottom: 1,
+        padding: true,
+        border_top: 5,
+      } %>
+
+      <%= render "govuk_publishing_components/components/share_links", {
+        stacked: true,
+        links: content_item_presenter.formatted_social_media_links,
+        track_as_follow: true,
+        margin_bottom: 8,
+      } %>
+    </div>
+  <% end %>
+</div>
+
 <% content_item.flexible_sections.each do |flexible_section| %>
   <%= render("flexible_page/flexible_sections/#{flexible_section.type}", flexible_section:) %>
 <% end %>

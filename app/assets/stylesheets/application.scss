@@ -112,6 +112,10 @@
   }
 }
 
+.image {
+  max-width: 100%;
+}
+
 @include govuk-media-query($from: tablet) {
   $content-width: 66.6667%;
   $sidebar-width: auto;

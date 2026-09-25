@@ -7,20 +7,21 @@
   <% end %>
 <% end %>
 
-<%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
+<% content_for :header do %>
+  <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% content_for :content do %>
+  <div class="published-dates-button-group">
+    <%= render "shared/single_page_notification_button", content_item: content_item %>
+    <%= render "govuk_publishing_components/components/print_link", {
+      margin_bottom: 6,
+    } %>
+  </div>
 
-<%= render "shared/publisher_metadata", locals: {
-  from: govuk_styled_links_list(content_item_presenter.contributor_links),
-  first_published: display_date(content_item.first_public_at || content_item.first_published_at),
-  last_updated: display_date(content_item.updated),
-  see_updates_link: true,
-  logo: content_item_presenter.logo,
-  } %>
-<%= render "shared/single_page_notification_button", content_item: content_item %>
-<%= render "shared/history_notice", content_item: content_item %>
-<% if content_item.withdrawn? %>
+  <%= render "shared/history_notice", content_item: content_item %>
+  <% if content_item.withdrawn? %>
     <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
 
     <%= render "govuk_publishing_components/components/notice", {
@@ -30,27 +31,27 @@
       lang: "en",
     } %>
   <% end %>
-<div class="govuk-grid-row gem-print-columns-none">
-  <div class="govuk-grid-column-two-thirds">
-    <% if content_item.national_applicability.present? %>
-      <%= render "govuk_publishing_components/components/devolved_nations", {
-        national_applicability: content_item.national_applicability,
-        content_type: content_item.schema_name,
-      } %>
+
+  <% if content_item.national_applicability.present? %>
+    <%= render "govuk_publishing_components/components/devolved_nations", {
+      national_applicability: content_item.national_applicability,
+      content_type: content_item.schema_name,
+    } %>
+  <% end %>
+
+  <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component do %>
+    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+      <%= raw(content_item.body.html_safe) %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component do %>
-      <%= render "govuk_publishing_components/components/print_link", {
-        margin_bottom: 6,
-      } %>
+    <%= render "shared/published_dates_with_notification_button" %>
+  <% end %>
+<% end %>
 
-      <%= render "govuk_publishing_components/components/govspeak", {} do %>
-        <%= raw(content_item.body.html_safe) %>
-      <% end %>
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
 
-      <%= render "shared/published_dates_with_notification_button" %>
-    <% end %>
-  </div>
-  <%= render "shared/sidebar_navigation" %>
-</div>
-<%= render "shared/footer_navigation" %>
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+<% end %>

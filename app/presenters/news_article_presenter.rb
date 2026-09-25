@@ -13,6 +13,9 @@ class NewsArticlePresenter < ContentItemPresenter
         first_published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),
         page_history: formatted_history(content_item.history),
+        page_history_details_ga4: {
+          type: "content history",
+        },
       },
     })
   end

@@ -8,70 +8,68 @@
     content_item: content_item.to_h %>
 <% end %>
 
-<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-<%= render "shared/publisher_metadata", locals: {
-    from: govuk_styled_links_list(content_item_presenter.contributor_links),
-    first_published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    see_updates_link: true,
-  } %>
+<% content_for :content do %>
+  <% if content_item_presenter.important_metadata.any? && content_item_presenter.show_metadata_block? %>
+    <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
+      <%= render "govuk_publishing_components/components/metadata", {
+        inverse: true,
+        other: content_item_presenter.important_metadata,
+        margin_bottom: 0,
+      } %>
+    <% end %>
+  <% end %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <% if content_item_presenter.important_metadata.any? && content_item_presenter.show_metadata_block? %>
-      <%= content_tag :div, class: "important-metadata inverse-background responsive-bottom-margin" do %>
-        <%= render "govuk_publishing_components/components/metadata", {
-          inverse: true,
-          other: content_item_presenter.important_metadata,
-          margin_bottom: 0,
-        } %>
-      <% end %>
+  <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(nested_headers: true, visible: content_item_presenter.show_table_of_contents?) do %>
+
+    <% if content_item_presenter.show_protection_type_image? %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: image_path(content_item_presenter.protection_image_path),
+        alt: content_item_presenter.protection_image_alt_text,
+      } %>
     <% end %>
 
-    <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component(nested_headers: true, visible: content_item_presenter.show_table_of_contents?) do %>
+    <div class="responsive-bottom-margin">
+      <%= render "govuk_publishing_components/components/govspeak", {
+        direction: page_text_direction,
+      } do %>
+        <%= raw(content_item.body.html_safe) %>
+      <% end %>
 
-      <% if content_item_presenter.show_protection_type_image? %>
-        <%= render "govuk_publishing_components/components/figure", {
-          src: image_path(content_item_presenter.protection_image_path),
-          alt: content_item_presenter.protection_image_alt_text,
+      <% if content_item.continuation_link %>
+        <%= render "govuk_publishing_components/components/button", {
+          href: content_item.continuation_link.html_safe,
+          info_text: content_item.will_continue_on&.html_safe,
+          start: true,
+          text: "Find out more",
         } %>
       <% end %>
+    </div>
 
+    <div class="responsive-bottom-margin">
+      <%= render "govuk_publishing_components/components/published_dates", {
+          published: display_date(content_item.initial_publication_date),
+          last_updated: display_date(content_item.updated),
+          history: formatted_history(content_item.history),
+        } %>
+    </div>
+
+    <% if content_item_presenter.show_finder_link? %>
       <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= raw(content_item.body.html_safe) %>
-        <% end %>
-
-        <% if content_item.continuation_link %>
-          <%= render "govuk_publishing_components/components/button", {
-            href: content_item.continuation_link.html_safe,
-            info_text: content_item.will_continue_on&.html_safe,
-            start: true,
-            text: "Find out more",
-          } %>
-        <% end %>
+        <%= govuk_styled_link("See all #{content_item.finder.title}",
+                              path: content_item.finder.base_path) %>
       </div>
-
-      <div class="responsive-bottom-margin">
-        <%= render "govuk_publishing_components/components/published_dates", {
-            published: display_date(content_item.initial_publication_date),
-            last_updated: display_date(content_item.updated),
-            history: formatted_history(content_item.history),
-          } %>
-      </div>
-
-      <% if content_item_presenter.show_finder_link? %>
-        <div class="responsive-bottom-margin">
-          <%= govuk_styled_link("See all #{content_item.finder.title}",
-                                path: content_item.finder.base_path) %>
-        </div>
-      <% end %>
     <% end %>
-  </div>
-  <%= render "shared/sidebar_navigation" %>
-</div>
+  <% end %>
+<% end %>
 
-<%= render "shared/footer_navigation" %>
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+<% end %>

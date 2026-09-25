@@ -27,6 +27,9 @@ class CallForEvidencePresenter < ContentItemPresenter
         first_published: display_date(content_item.initial_publication_date),
         last_updated: display_date(content_item.updated),
         see_updates_link: true,
+        page_history_details_ga4: {
+          type: "content history",
+        },
       },
       display_single_page_notification_button: true,
     })

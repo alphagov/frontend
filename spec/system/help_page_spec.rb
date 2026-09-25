@@ -29,4 +29,10 @@ RSpec.describe "HelpPage" do
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
     end
   end
+
+  it "shows metadata" do
+    visit "/help/about-govuk"
+
+    expect(page).to have_text("Last updated: 27 September 2023")
+  end
 end

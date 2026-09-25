@@ -1,5 +1,6 @@
 class GuideController < ContentItemsController
   include Cacheable
+  include PostalVoteVideoAbTestable
 
   helper_method :draft_token
 

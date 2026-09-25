@@ -49,14 +49,6 @@
       <% end %>
     </div>
 
-    <div class="responsive-bottom-margin">
-      <%= render "govuk_publishing_components/components/published_dates", {
-          published: display_date(content_item.initial_publication_date),
-          last_updated: display_date(content_item.updated),
-          history: formatted_history(content_item.history),
-        } %>
-    </div>
-
     <% if content_item_presenter.show_finder_link? %>
       <div class="responsive-bottom-margin">
         <%= govuk_styled_link("See all #{content_item.finder.title}",

@@ -4,12 +4,12 @@
       <%= render "govuk_publishing_components/components/organisation_logo",
         organisation: options[:organisation_logo],
         heading_level: options[:organisation_logo_heading_level],
-        margin_bottom: 8,
+        margin_bottom: 6,
         inline: true %>
     </div>
   <% end %>
 
-  <div class="page-title__column page-title__heading">
+  <div class="page-title__column page-title__content">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -18,18 +18,35 @@
       heading_level: options[:heading_level],
       lang: options[:heading_locale],
       font_size: "xl",
-      margin_bottom: 8,
+      margin_bottom: 6,
     } %>
-  </div>
 
-  <div class="page-title__column page-title__translations">
     <% if options[:translations] && options[:translations].count > 1 %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
-        margin_bottom: 8,
+        margin_bottom: 6,
+        omit_border: true,
       } %>
     <% end %>
 
+    <% if options[:lead_paragraph] %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
+        text: options[:lead_paragraph],
+        dir: options[:page_text_direction],
+        margin_bottom: 6,
+      } %>
+    <% end %>
+
+    <% if options[:metadata] %>
+      <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 6, border_top: true }) %>
+    <% end %>
+
+    <% if options[:display_single_page_notification_button] %>
+      <%= render "shared/single_page_notification_button", content_item: content_item %>
+    <% end %>
+  </div>
+
+  <div class="page-title__column page-title__sidebar">
     <% if options[:link] %>
       <div class="feedback-link">
         <%= link_to(options[:link][:text], options[:link][:href], class: "govuk-link") %>
@@ -42,25 +59,8 @@
           "#{t("worldwide_organisation.news")}": options[:world_location_links],
         },
         part_of: options[:sponsoring_organisation_links],
+        margin_bottom: 6,
       } %>
-    <% end %>
-  </div>
-
-  <div class="page-title__column page-title__lead">
-    <% if options[:lead_paragraph] %>
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        text: options[:lead_paragraph],
-        dir: options[:page_text_direction],
-        margin_bottom: 8,
-      } %>
-    <% end %>
-
-    <% if options[:metadata] %>
-      <%= render "govuk_publishing_components/components/metadata", options[:metadata].merge({ margin_bottom: 8, border_top: true }) %>
-    <% end %>
-
-    <% if options[:display_single_page_notification_button] %>
-      <%= render "shared/single_page_notification_button", content_item: content_item %>
     <% end %>
   </div>
 </div>

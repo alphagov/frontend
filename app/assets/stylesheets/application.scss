@@ -131,8 +131,7 @@
   }
 
   .page-title__org,
-  .page-title__heading,
-  .page-title__lead {
+  .page-title__heading {
     grid-column: content;
   }
 
@@ -144,18 +143,46 @@
     grid-row: 2;
   }
 
-  .page-title__lead {
-    grid-row: 3;
+  .page-title__sidebar {
+    grid-column: sidebar;
+    grid-row: 2/4;
+    align-self: end;
   }
 
   .page-title__translations {
     grid-column: sidebar;
-    grid-row: 2/4;
+    align-self: end;
+  }
+
+  .page-title__translations--lower {
+    grid-row: 2;
+    align-self: start;
   }
 
   .direction-rtl {
    .page-title {
      grid-template-columns: [sidebar] $sidebar-width [content] $content-width;
    }
+  }
+}
+
+.js-toggle {
+  position: relative;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: silver;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    background: lightblue;
+  }
+
+  &:before {
+    content: "<>"
   }
 }

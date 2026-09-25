@@ -1,0 +1,145 @@
+<%
+  org_logo = true
+  translations = true
+  translations_secondary = nil
+  lead = true
+  metadata = true
+  image = true
+  news = true
+  print = true
+
+  translations_lower = "page-title__translations--lower" unless news or image or print
+%>
+
+<div class="page-title">
+  <% if org_logo %>
+    <div class="page-title__block page-title__org">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "logo" %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if translations %>
+    <div class="page-title__block page-title__translations <%= translations_lower %>">
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "translations" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "translations-large" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="page-title__block page-title__heading">
+    <div class="js-toggle">
+      <div class="js-1">
+        <%= render partial: "heading" %>
+      </div>
+      <div class="js-2">
+        <%= render partial: "heading-large" %>
+      </div>
+    </div>
+
+    <% if translations_secondary %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "translations" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "translations-large" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if lead %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "lead" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "lead-large" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if metadata %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "metadata" %>
+        </div>
+        <div class="js-2">
+          <%= render partial: "metadata-large" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="page-title__block page-title__sidebar">
+    <% if news %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render partial: "news" %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    <% end %>
+
+    <% if image %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render "govuk_publishing_components/components/figure", {
+            src: "/assets/frontend/logo.png",
+            alt: "European Assets thing"
+          } %>
+        </div>
+        <div class="js-2">
+          <%= render "govuk_publishing_components/components/figure", {
+            src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/54374/s630_the_lords_chamber.jpg",
+            alt: "An image of the lords chamber"
+          } %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if print %>
+      <div class="js-toggle">
+        <div class="js-1">
+          <%= render "govuk_publishing_components/components/print_link", {
+            margin_bottom: 6,
+          } %>
+        </div>
+        <div class="js-2">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <p class="govuk-body">
+      This is a two thirds GOVUK Frontend grid column.
+    </p>
+    <p class="govuk-body">
+      This is an example paragraph for the purposes of comparison, containing text that extends and fills the space available.</p>
+    </p>
+    <p class="govuk-body">
+      This is another paragraph also containing words, such as gasp, fortitude, polygon, immaterial, slovenly, orange, fast, spectacular and rhodedendron.
+    </p>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+    <p class="govuk-body">
+      This is a one third GOVUK Frontend grid column.
+    </p>
+  </div>
+</div>

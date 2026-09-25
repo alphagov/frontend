@@ -12,43 +12,46 @@
   <% end %>
 <% end %>
 
-<%= render layout: "shared/base_page", locals: {
-  title: content_item.title,
-  publication: content_item,
-  edition: @edition,
-} do %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-  <section class="intro">
-    <div class="get-started-intro">
-      <%= render "govuk_publishing_components/components/govspeak", { } do %>
-        <%= content_item.introductory_paragraph.try(:html_safe) %>
-      <% end %>
-    </div>
-    <% if content_item.downtime_message.present? %>
-      <%= render "govuk_publishing_components/components/warning_text", {
-        text: sanitize(content_item.downtime_message),
-      } %>
-    <% end %>
-    <p id="get-started" class="get-started group">
-      <% info_text = "#{t('formats.transaction.on')} #{content_item.will_continue_on}" if content_item.will_continue_on.present? %>
-      <%= render "govuk_publishing_components/components/button",
-                  data_attributes: {
-                    module: "url-params",
-                  },
-                  text: @transaction_presenter.start_button_text.html_safe,
-                  rel: "external",
-                  href: content_item.transaction_start_link,
-                  start: true,
-                  info_text: info_text,
-                  margin_bottom: true %>
-    </p>
-  </section>
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/govspeak", { } do %>
+    <%= content_item.introductory_paragraph.try(:html_safe) %>
+  <% end %>
 
-  <section class="more">
-    <% if content_item.multiple_more_information_sections? %>
-      <%= render :partial => "additional_information_tabbed" %>
-    <% else %>
-      <%= render :partial => "additional_information_single" %>
-    <% end %>
-  </section>
+  <% if content_item.downtime_message.present? %>
+    <%= render "govuk_publishing_components/components/warning_text", {
+      text: sanitize(content_item.downtime_message),
+    } %>
+  <% end %>
+
+  <p id="get-started" class="get-started group">
+    <% info_text = "#{t('formats.transaction.on')} #{content_item.will_continue_on}" if content_item.will_continue_on.present? %>
+    <%= render "govuk_publishing_components/components/button",
+                data_attributes: {
+                  module: "url-params",
+                },
+                text: @content_item_presenter.start_button_text.html_safe,
+                rel: "external",
+                href: content_item.transaction_start_link,
+                start: true,
+                info_text: info_text,
+                margin_bottom: true %>
+  </p>
+
+  <% if content_item.multiple_more_information_sections? %>
+    <%= render :partial => "additional_information_tabbed" %>
+  <% else %>
+    <%= render :partial => "additional_information_single" %>
+  <% end %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h %>
 <% end %>

@@ -13,7 +13,6 @@
 <% end %>
 
 <% content_for :content do %>
-
   <%= render "govuk_publishing_components/components/govspeak", {
     direction: page_text_direction,
     disable_youtube_expansions: true,
@@ -22,9 +21,9 @@
   <% end %>
 
   <% if content_item.public_updated_at && content_item.schema_name == "help_page" %>
-      <%= render "govuk_publishing_components/components/published_dates", {
-        last_updated: display_date(content_item.public_updated_at),
-      } %>
+    <%= render "govuk_publishing_components/components/metadata", {
+      last_updated: display_date(content_item.public_updated_at),
+    } %>
   <% end %>
 
   <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h, dir: page_text_direction %>

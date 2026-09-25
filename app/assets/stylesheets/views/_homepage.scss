@@ -1,17 +1,20 @@
 @import "govuk_publishing_components/base";
 
-.homepage-header {
-  background-color: govuk-functional-colour(brand);
-  padding-bottom: 28px;
-  padding-top: govuk-spacing(3);
-  @include govuk-typography-common;
-
+%homepage-mobile-padding {
   // Add 9px of padding to the left and right on mobile screen sizes
   // This gives a total size of 24px (9px padding + 15px margin)
   @include govuk-media-query($until: "tablet") {
     padding-left: 9px;
     padding-right: 9px;
   }
+}
+
+.homepage-header {
+  background-color: govuk-functional-colour(brand);
+  padding-bottom: 28px;
+  padding-top: govuk-spacing(3);
+  @include govuk-typography-common;
+  @extend %homepage-mobile-padding;
 
   @include govuk-media-query($from: "tablet") {
     padding-top: govuk-spacing(6);
@@ -94,13 +97,6 @@
   margin: 0 0 govuk-spacing(6);
   padding: govuk-spacing(8) 0 0;
 
-  .govuk-heading-l {
-    // Ensure font-size is 32px on mobile for the new homepage design
-    @include govuk-media-query($until: "tablet") {
-      font-size: govuk-px-to-rem(32);
-    }
-  }
-
   @include govuk-media-query($from: "desktop") {
     border: none;
     padding: 0;
@@ -118,23 +114,20 @@
 .homepage-section__popular-links {
   background: govuk-colour("white");
   padding: 28px 0 0;
+  @extend %homepage-mobile-padding;
 
-  // Add 9px of padding to the left and right on mobile screen sizes
-  // This gives a total size of 24px (9px padding + 15px margin)
-  @include govuk-media-query($until: "tablet") {
-    padding-left: 9px;
-    padding-right: 9px;
+  @include govuk-media-query($from: "desktop") {
+    padding: govuk-spacing(9) 0 28px;
   }
+}
 
+.homepage-section__heading,
+.homepage-section__popular-links {
   .govuk-heading-l {
     // Ensure font-size is 32px on mobile for the new homepage design
     @include govuk-media-query($until: "tablet") {
       font-size: govuk-px-to-rem(32);
     }
-  }
-
-  @include govuk-media-query($from: "desktop") {
-    padding: govuk-spacing(9) 0 28px;
   }
 }
 
@@ -175,28 +168,21 @@
     font-size: govuk-px-to-rem(19);
   }
 
-  &:last-of-type {
-    padding-bottom: 0;
+  // Remove bottom padding on the last item when stacked vertically on mobile
+  @include govuk-media-query($until: "desktop") {
+    &:last-of-type {
+      padding-bottom: 0;
+    }
   }
 
   @include govuk-media-query($from: "desktop") {
     padding-bottom: 32px;
-
-    &:last-of-type {
-      padding-bottom: 32px;
-    }
   }
 }
 
 .homepage-section--promotion-slots {
   padding: 26px 0 govuk-spacing(4);
-
-  // Add 9px of padding to the left and right on mobile screen sizes
-  // This gives a total size of 24px (9px padding + 15px margin)
-  @include govuk-media-query($until: "tablet") {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
+  @extend %homepage-mobile-padding;
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;
@@ -216,13 +202,7 @@
 
 .homepage-section--services-and-info {
   padding: govuk-spacing(8) 0 0;
-
-  // Add 9px of padding to the left and right on mobile screen sizes
-  // This gives a total size of 24px (9px padding + 15px margin)
-  @include govuk-media-query($until: "tablet") {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
+  @extend %homepage-mobile-padding;
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) govuk-spacing(4) govuk-spacing(9) 0;
@@ -231,13 +211,7 @@
 
 .homepage-section__government-activity {
   padding: 0 0 24px;
-
-  // Add 9px of padding to the left and right on mobile screen sizes
-  // This gives a total size of 24px (9px padding + 15px margin)
-  @include govuk-media-query($until: "tablet") {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
+  @extend %homepage-mobile-padding;
 
   @include govuk-media-query($from: "desktop") {
     padding-top: govuk-spacing(9);
@@ -247,13 +221,7 @@
 
 .homepage-section__more-on-govuk {
   padding: 0;
-
-  // Add 9px of padding to the left and right on mobile screen sizes
-  // This gives a total size of 24px (9px padding + 15px margin)
-  @include govuk-media-query($until: "tablet") {
-    padding-left: 9px;
-    padding-right: 9px;
-  }
+  @extend %homepage-mobile-padding;
 
   @include govuk-media-query($from: "desktop") {
     padding: govuk-spacing(9) 0;

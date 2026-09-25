@@ -3,6 +3,24 @@ class SpecialistDocumentPresenter < ContentItemPresenter
   include LinkHelper
   include ContentsList
 
+  def use_contextual_components?
+    true
+  end
+
+  def page_title_options
+    super.merge({
+      metadata: {
+        from: govuk_styled_links_list(contributor_links),
+        first_published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        page_history: formatted_history(content_item.history),
+        page_history_details_ga4: {
+          type: "content history",
+        },
+      },
+    })
+  end
+
   def show_protection_type_image?
     protected_food_drink_name? && content_item.protection_type_image.present?
   end

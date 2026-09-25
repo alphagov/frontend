@@ -46,25 +46,25 @@ RSpec.describe "Service Manual guide" do
         end
 
         it "shows the time it was published if it has been published" do
-          within(".gem-c-published-dates") do
-            expect(page).to have_text("Published 1 January 2015")
+          within(".govuk-grid-column-two-thirds .gem-c-metadata") do
+            expect(page).to have_text("Published: 1 January 2015")
           end
         end
 
         it "displays the published date of the most recent change" do
-          within(".gem-c-published-dates") do
-            expect(page).to have_text("Last updated 9 October 2015")
+          within(".govuk-grid-column-two-thirds .gem-c-metadata") do
+            expect(page).to have_text("Last updated: 9 October 2015")
           end
         end
 
         it "displays the most recent change history for a guide" do
-          within(".gem-c-published-dates") do
+          within(".govuk-grid-column-two-thirds .gem-c-metadata") do
             expect(page).to have_content("This is our latest change")
           end
         end
 
         it "displays the change history for a guide" do
-          within(".gem-c-published-dates") do
+          within(".govuk-grid-column-two-thirds .gem-c-metadata") do
             expect(page).to have_content("This is another change")
             expect(page).to have_content("Guidance first published")
           end
@@ -75,9 +75,9 @@ RSpec.describe "Service Manual guide" do
           stub_content_store_has_item(base_path, content_store_response)
           visit base_path
 
-          within(".gem-c-published-dates") do
+          within(".govuk-grid-column-two-thirds .gem-c-metadata") do
             expect(page).not_to have_content("Show all updates")
-            expect(page).not_to have_css(".gem-c-published-dates__toggle")
+            expect(page).not_to have_css(".gem-c-details")
           end
         end
       end

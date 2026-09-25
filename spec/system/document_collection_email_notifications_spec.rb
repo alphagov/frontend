@@ -60,7 +60,7 @@ RSpec.describe "Document Collection Email Notifications" do
         "url" => "/email-signup",
       }
 
-      button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
+      button = page.find(:button, class: "gem-c-button__outline--notification")
 
       expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
     end
@@ -88,7 +88,7 @@ RSpec.describe "Document Collection Email Notifications" do
           "url" => "/email/subscriptions/single-page/new",
         }
 
-        button = page.find(:button, class: "gem-c-single-page-notification-button__submit")
+        button = page.find(:button, class: "gem-c-button__outline--notification")
 
         expect(JSON.parse(button["data-ga4-link"])).to eq(expected_tracking)
       end

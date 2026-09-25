@@ -3,6 +3,7 @@
 //= require govuk_publishing_components/components/accordion
 //= require govuk_publishing_components/components/app-promo-banner
 //= require govuk_publishing_components/components/button
+//= require govuk_publishing_components/components/chart
 //= require govuk_publishing_components/components/checkboxes
 //= require govuk_publishing_components/components/contents-list-with-body
 //= require govuk_publishing_components/components/cookie-banner

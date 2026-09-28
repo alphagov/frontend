@@ -15,6 +15,7 @@ class CaseStudyPresenter < ContentItemPresenter
         page_history: formatted_history(content_item.history),
         page_history_details_ga4: {
           type: "content history",
+          section: "Top",
         },
       },
     })

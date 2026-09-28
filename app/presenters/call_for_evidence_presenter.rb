@@ -29,6 +29,7 @@ class CallForEvidencePresenter < ContentItemPresenter
         see_updates_link: true,
         page_history_details_ga4: {
           type: "content history",
+          section: "Top",
         },
       },
       display_single_page_notification_button: true,

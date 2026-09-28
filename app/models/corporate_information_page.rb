@@ -31,6 +31,13 @@ class CorporateInformationPage < ContentItem
     linked("corporate_information_pages")
   end
 
+  def title_without_organisation(title)
+    organisation_title = default_organisation&.title
+    return title if organisation_title.blank?
+
+    title.delete_suffix(" - #{organisation_title}")
+  end
+
 private
 
   def normalised_group_links(group)
@@ -43,7 +50,7 @@ private
       # it's possible for corporation_information_groups in details and links hashes to be out of sync.
       if group_item_link
         {
-          title: group_item_link.title,
+          title: title_without_organisation(group_item_link.title),
           path: group_item_link.base_path,
         }
       end

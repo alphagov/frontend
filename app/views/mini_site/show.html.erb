@@ -10,22 +10,7 @@
 <% content_for :body_classes do %>full-width__container<% end %>
 
 <%= render "govuk_publishing_components/components/service_navigation", {
-  navigation_items: [
-    {
-      text: "Navigation item 1",
-      href: "#",
-      active: true
-    },
-    {
-      text: "Navigation item 2",
-      href: "#"
-    },
-    {
-      text: "Navigation item 3",
-      href: "#"
-    }
-  ]
-} %>
+  navigation_items: content_item_presenter.ordered_navigation_items_for_service_navigation } %>
 
 <div class="full-width__element">
   <%= render "components/impact_header", content_item_presenter.impact_header_options %>

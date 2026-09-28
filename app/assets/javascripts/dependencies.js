@@ -14,6 +14,7 @@
 //= require govuk_publishing_components/components/print-link
 //= require govuk_publishing_components/components/radio
 //= require govuk_publishing_components/components/search-with-autocomplete
+//= require govuk_publishing_components/components/service-navigation
 //= require govuk_publishing_components/components/single-page-notification-button
 //= require govuk_publishing_components/components/sub-navigation-menu
 //= require govuk_publishing_components/components/skip-link

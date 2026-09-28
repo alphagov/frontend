@@ -18,6 +18,7 @@ module ApplicationHelper
 
     no_breadcrumbs_for = %w[history
                             homepage
+                            mini_site
                             service_manual_homepage
                             service_manual_guide
                             service_manual_service_standard

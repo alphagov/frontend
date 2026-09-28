@@ -55,7 +55,7 @@ class ContentItem
   end
 
   def available_translations
-    translations = content_store_response["links"]["available_translations"] || []
+    translations = content_store_response.dig("links", "available_translations") || []
 
     translations.sort_by { |t| t["locale"] == I18n.default_locale.to_s ? "" : t["locale"] }
   end

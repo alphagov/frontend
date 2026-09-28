@@ -33,7 +33,14 @@ class MiniSite < ContentItem
     shared_navigations = linked("shared_navigations") || []
     return [] unless shared_navigations.first.content_store_response["navigation_items"]
 
-    navigation_items = shared_navigations.first.content_store_response["navigation_items"]
-    navigation_items.map { |hash| ContentItemFactory.build(hash) }
+    hash = shared_navigations.first.content_store_response["navigation_items"]
+    navigation_items = hash.map { |hash| ContentItemFactory.build(hash) }
+
+    items_in_order = []
+    content_store_response["details"]["ordered_navigation_items"].each do |item|
+      navigation_item = navigation_items.find { it.content_id == item["content_id"] }
+      items_in_order << navigation_item if navigation_item
+    end
+    items_in_order
   end
 end

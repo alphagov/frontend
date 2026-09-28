@@ -189,7 +189,7 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
-        within ".metadata-column .gem-c-metadata" do
+        within ".gem-c-metadata" do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
           expect(page).to have_text("Published: 3 October 2024")
           expect(page).to have_text("Last updated: 7 February 2025")
@@ -199,14 +199,16 @@ RSpec.describe "Specialist Document" do
       it "displays change history" do
         visit base_path
 
-        within(".gem-c-published-dates__change-history") do
-          expect(page.find(".gem-c-published-dates__change-item:first-child").text)
+        page.find(".gem-c-metadata .govuk-details__summary").click
+
+        within(".gem-c-metadata") do
+          expect(page.find(".gem-c-metadata__change-history-item:first-child").text)
             .to match(content_store_response["details"]["change_history"].last["note"])
 
-          expect(page.find(".gem-c-published-dates__change-item:last-child").text)
+          expect(page.find(".gem-c-metadata__change-history-item:last-child").text)
             .to match(content_store_response["details"]["change_history"].first["note"])
 
-          expect(all(".gem-c-published-dates__change-item").size)
+          expect(all(".gem-c-metadata__change-history-item").size)
             .to eq(content_store_response["details"]["change_history"].size)
         end
       end
@@ -220,7 +222,7 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
-        within ".metadata-column .gem-c-metadata" do
+        within ".gem-c-metadata" do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
           expect(page).to have_text("Published: 15 October 2020")
           expect(page).not_to have_text("Last updated: 15 October 2020")

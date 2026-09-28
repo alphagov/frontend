@@ -43,13 +43,9 @@ RSpec.describe "Transaction" do
 
       within("#content") do
         within(".gem-c-heading h1") { expect(page).to have_title("Carrots") }
-        within(".content-bottom-margin") do
-          within("section.intro") do
-            expect(page).to have_selector(".get-started-intro", text: "This is the introduction to carrots")
-            expect(page).to have_button_as_link("Eat Carrots Now", href: "http://carrots.example.com", start: true, rel: "external")
-            expect(page).to have_content("Carrotworld")
-          end
-        end
+        expect(page).to have_selector(".gem-c-govspeak", text: "This is the introduction to carrots")
+        expect(page).to have_button_as_link("Eat Carrots Now", href: "http://carrots.example.com", start: true, rel: "external")
+        expect(page).to have_content("Carrotworld")
       end
 
       within(".gem-c-warning-text") do
@@ -141,12 +137,7 @@ RSpec.describe "Transaction" do
 
     it "renders start button text 'Dechrau nawr'" do
       visit "/cymraeg"
-
-      within(".content-bottom-margin") do
-        within("section.intro") do
-          expect(page).to have_button_as_link("Dechrau nawr", rel: "external", start: true, href: "http://cymraeg.example.com")
-        end
-      end
+      expect(page).to have_button_as_link("Dechrau nawr", rel: "external", start: true, href: "http://cymraeg.example.com")
     end
   end
 

@@ -2,9 +2,11 @@ class TransactionController < ContentItemsController
   include Cacheable
   include LocaleHelper
 
+  layout "header_content_sidebar"
+
   def show
     content_item.set_variant(params["variant"])
-    @transaction_presenter = TransactionPresenter.new(content_item)
+    @content_item_presenter = TransactionPresenter.new(content_item)
   end
 
 private

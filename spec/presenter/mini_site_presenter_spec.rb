@@ -39,6 +39,13 @@ RSpec.describe MiniSitePresenter do
     end
   end
 
+  describe "formatted_social_media_links" do
+    it "returns the links simplified and formatted" do
+      expect(mini_site_presenter.formatted_social_media_links.count).to eq(2)
+      expect(mini_site_presenter.formatted_social_media_links.first.keys).to eq(%i[href icon text])
+    end
+  end
+
   describe "#impact_header_image" do
     it "returns the header image" do
       expect(mini_site_presenter.impact_header_image[:type]).to eq("header")

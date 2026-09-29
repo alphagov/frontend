@@ -28,4 +28,12 @@ class MiniSite < ContentItem
 
     details["images"].select { |i| i["type"] == "logo" }.first&.deep_symbolize_keys
   end
+
+  def ordered_navigation_items
+    shared_navigations = linked("shared_navigations") || []
+    return [] unless shared_navigations.first.content_store_response["navigation_items"]
+
+    navigation_items = shared_navigations.first.content_store_response["navigation_items"]
+    navigation_items.map { |hash| ContentItemFactory.build(hash) }
+  end
 end

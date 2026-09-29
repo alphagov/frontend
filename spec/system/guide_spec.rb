@@ -23,12 +23,12 @@ RSpec.describe "Guide" do
     it "displays the navigation" do
       parts_size = content_store_response["details"]["parts"].size
 
-      expect(page).to have_css(".part-navigation-container nav li", count: parts_size)
-      expect(page).to have_css(".part-navigation-container nav li", text: content_store_response["details"]["parts"].first["title"])
-      expect(page).not_to have_css(".part-navigation li a", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_css(".gem-c-contents-list li", count: parts_size)
+      expect(page).to have_css(".gem-c-contents-list li", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).not_to have_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
 
       content_store_response["details"]["parts"][1..parts_size].each do |part|
-        expect(page).to have_css(".part-navigation-container nav li a[href*=\"#{part['slug']}\"]", text: part["title"])
+        expect(page).to have_css(".gem-c-contents-list li a[href*=\"#{part['slug']}\"]", text: part["title"])
       end
 
       expect(page).to have_css(".govuk-pagination")

@@ -1,9 +1,11 @@
 RSpec.describe MiniSite do
   include GdsApi::TestHelpers::Search
+  include SharedContexts::ContentItemImageArrays
 
   subject(:mini_site) { described_class.new(content_store_response) }
 
-  let(:content_store_response) { GovukSchemas::Example.find("mini_site", example_name:) }
+  let(:content_store_response) { GovukSchemas::Example.find(schema_name, example_name:) }
+  let(:schema_name) { "mini_site" }
   let(:example_name) { "mini-site" }
 
   let(:search_results) do
@@ -21,22 +23,6 @@ RSpec.describe MiniSite do
   end
 
   before { stub_any_search.to_return(body: search_results.to_json) }
-
-  shared_context "when there are no images" do
-    let(:content_store_response) do
-      GovukSchemas::Example.find("mini_site", example_name:).tap do |item|
-        item["details"].delete("images")
-      end
-    end
-  end
-
-  shared_context "when it has a logo image instead of a header" do
-    let(:content_store_response) do
-      GovukSchemas::Example.find("mini_site", example_name:).tap do |item|
-        item["details"]["images"][0]["type"] = "logo"
-      end
-    end
-  end
 
   describe "#featured_items" do
     it "returns an array of featured_item hashes" do
@@ -58,7 +44,7 @@ RSpec.describe MiniSite do
     end
 
     context "when a logo is present instead of a header" do
-      include_context "when it has a logo image instead of a header"
+      include_context "when details/images has a single image of type ", "logo"
 
       it "returns nil" do
         expect(mini_site.header_image).to be_nil
@@ -66,7 +52,7 @@ RSpec.describe MiniSite do
     end
 
     context "when details/images is empty" do
-      include_context "when there are no images"
+      include_context "with no details/images"
 
       it "returns nil" do
         expect(mini_site.header_image).to be_nil
@@ -80,7 +66,7 @@ RSpec.describe MiniSite do
     end
 
     context "when a logo image is present" do
-      include_context "when it has a logo image instead of a header"
+      include_context "when details/images has a single image of type ", "logo"
 
       it "returns the first image of type logo" do
         expect(mini_site.logo_image[:type]).to eq("logo")
@@ -88,7 +74,7 @@ RSpec.describe MiniSite do
     end
 
     context "when details/images is empty" do
-      include_context "when there are no images"
+      include_context "with no details/images"
 
       it "returns nil" do
         expect(mini_site.logo_image).to be_nil

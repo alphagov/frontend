@@ -38,6 +38,20 @@ RSpec.describe MiniSite do
     end
   end
 
+  describe "#featured_items" do
+    it "returns an array of featured_item hashes" do
+      expect(mini_site.featured_items.count).to eq(content_store_response["details"]["ordered_featured_documents"].count)
+      expect(mini_site.featured_items.first.keys).to eq(%i[description heading_text href image_alt image_src])
+    end
+  end
+
+  describe "#feed_items" do
+    it "returns values from the feed service" do
+      expect(mini_site.feed_items.count).to eq(1)
+      expect(mini_site.feed_items.first.keys).to eq(%i[link metadata])
+    end
+  end
+
   describe "#header_image" do
     it "returns the first image of type header" do
       expect(mini_site.header_image[:type]).to eq("header")

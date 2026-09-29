@@ -31,6 +31,7 @@
   component_helper.add_data_attribute({ module: "map" })
   component_helper.add_data_attribute({ config: map_config })
   component_helper.add_data_attribute({ markers: markers.to_json }) if markers
+  component_helper.add_data_attribute({ key: key.to_json }) if markers && key
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
   component_helper.add_data_attribute({ heading_level: key_heading_obj.nil? ? heading_level + 1 : heading_level + 2 })
   component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") })

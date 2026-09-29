@@ -1,4 +1,15 @@
 class GuidePresenter < ContentItemPresenter
+  def use_contextual_components?
+    true
+  end
+
+  def page_title_options
+    super.merge({
+      heading_text: title,
+      lead_paragraph: nil,
+    })
+  end
+
   def page_title
     "#{content_item.title}: #{content_item.current_part_title}"
   end

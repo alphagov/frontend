@@ -3,13 +3,14 @@ class GuideController < ContentItemsController
   include PostalVoteVideoAbTestable
 
   helper_method :draft_token
+  layout "header_content_sidebar"
 
   def show
     content_item.set_current_part(params[:part])
 
     redirect_to content_item.base_path if content_item.current_part.blank?
 
-    @presenter = GuidePresenter.new(content_item)
+    @content_item_presenter = GuidePresenter.new(content_item)
 
     request.variant = :print if params[:variant] == :print
   end

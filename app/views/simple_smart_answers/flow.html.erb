@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="robots" content="noindex">
+<% end %>
+
 <%
   ga4_attributes = {
     event_name: "information_click",
@@ -6,27 +10,23 @@
     action: "information click",
     tool_name: content_item.title,
   }.to_json
-
-  content_for :head do
 %>
-  <meta name="robots" content="noindex">
-<% end %>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <section
-      class="simple-smart-answer__question-and-outcome"
-      data-module="ga4-link-tracker"
-      data-ga4-link="<%= ga4_attributes %>"
-      data-ga4-set-indexes>
-      <% if @flow_state.current_node.outcome? %>
-        <%= render partial: "outcome", object: @flow_state.current_node %>
-      <% else %>
-        <%= render partial: "current_question", locals: {
-          question: @flow_state.current_node,
-        } %>
-      <% end %>
-    </section>
+<% content_for :content do %>
+  <section
+    class="simple-smart-answer__question-and-outcome"
+    data-module="ga4-link-tracker"
+    data-ga4-link="<%= ga4_attributes %>"
+    data-ga4-set-indexes>
+    <% if @flow_state.current_node.outcome? %>
+      <%= render partial: "outcome", object: @flow_state.current_node %>
+    <% else %>
+      <%= render partial: "current_question", locals: {
+        question: @flow_state.current_node,
+      } %>
+    <% end %>
+  </section>
+
   <% if @flow_state.completed_questions.any? %>
     <section class="govuk-!-padding-top-6">
       <%= render "govuk_publishing_components/components/heading", {
@@ -59,12 +59,12 @@
       } %>
     </section>
   <% end %>
-  </div>
+<% end %>
+
+<% content_for :sidebar do %>
   <% if @flow_state.current_node.outcome? %>
-    <div class="govuk-grid-column-one-third">
-      <%= render "govuk_publishing_components/components/contextual_sidebar", {
-        content_item: content_item.to_h,
-      } %>
-    </div>
+    <%= render "govuk_publishing_components/components/contextual_sidebar", {
+      content_item: content_item.to_h,
+    } %>
   <% end %>
-</div>
+<% end %>

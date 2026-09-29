@@ -92,12 +92,8 @@ RSpec.describe "SimpleSmartAnswers" do
 
     within("#content") do
       expect(page).to have_title("The Bridge of Death")
-      within(".content-bottom-margin") do
-        within(".intro") do
-          expect(page).to have_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
-          expect(page).to have_button_as_link("Start now", href: "/the-bridge-of-death/y", start: true, rel: "nofollow")
-        end
-      end
+      expect(page).to have_content("He who would cross the Bridge of Death Must answer me These questions three Ere the other side he see.")
+      expect(page).to have_button_as_link("Start now", href: "/the-bridge-of-death/y", start: true, rel: "nofollow")
     end
   end
 

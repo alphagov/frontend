@@ -2,12 +2,14 @@ require "simple_smart_answers/flow"
 
 class SimpleSmartAnswersController < ContentItemsController
   include Cacheable
+  layout "header_content_sidebar"
 
   def show
-    @presenter = SimpleSmartAnswerPresenter.new(content_item)
+    @content_item_presenter = SimpleSmartAnswerPresenter.new(content_item)
   end
 
   def flow
+    @content_item_presenter = SimpleSmartAnswerPresenter.new(content_item)
     responses = params[:responses].to_s.split("/")
     @flow = SimpleSmartAnswers::Flow.new(content_item.nodes)
     @flow_state = @flow.state_for_responses(responses)

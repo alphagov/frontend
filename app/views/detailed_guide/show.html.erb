@@ -40,11 +40,11 @@
   <% end %>
 
   <%= render "govuk_publishing_components/components/contents_list_with_body", contents: content_item_presenter.headers_for_contents_list_component do %>
-    <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
       <%= raw(content_item.body.html_safe) %>
     <% end %>
 
-    <%= render "shared/published_dates_with_notification_button" %>
+    <%= render "shared/published_dates_with_notification_button", hide_history: true %>
   <% end %>
 <% end %>
 

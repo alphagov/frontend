@@ -18,7 +18,7 @@ class DetailedGuidePresenter < ContentItemPresenter
         from: govuk_styled_links_list(contributor_links),
         first_published: display_date(content_item.first_public_at || content_item.first_published_at),
         last_updated: display_date(content_item.updated),
-        see_updates_link: true,
+        page_history: formatted_history(content_item.history),
       },
       logo: logo,
     })

@@ -216,7 +216,7 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.42.0)
+    govuk_web_banners (1.43.0)
       govuk_app_config (>= 9)
       govuk_publishing_components
       rails (>= 7)
@@ -550,7 +550,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.7)
-    rack-proxy (1.0.2)
+    rack-proxy (1.0.3)
       rack (>= 2.0, < 4)
     rack-session (2.1.2)
       base64 (>= 0.1.0)
@@ -612,7 +612,7 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    rdoc (8.0.0)
+    rdoc (8.1.0)
       erb
       prism (>= 1.6.0)
       rbs (>= 4.0.0)

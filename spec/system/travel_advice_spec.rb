@@ -117,7 +117,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_css(".gem-c-contents-list li", count: parts_size)
       expect(page).to have_css(".gem-c-contents-list li", text: content_store_response["details"]["parts"].first["title"])
-      expect(page).not_to have_css(".part-navigation li a", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).not_to have_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
 
       content_store_response["details"]["parts"][1..parts_size].each do |part|
         expect(page).to have_css(".gem-c-contents-list li a[href*=\"#{part['slug']}\"]", text: part["title"])
@@ -231,6 +231,40 @@ RSpec.describe "TravelAdvice" do
       }.to_json
 
       expect(page).to have_css("a[data-ga4-link='#{expected_ga4_json}']")
+    end
+  end
+
+  describe "GET /foreign-travel-advice/<country>/print" do
+    let(:content_store_response) { GovukSchemas::Example.find("travel_advice", example_name: "full-country") }
+
+    it "displays the page" do
+      visit "#{base_path}/print"
+
+      expect(page.status_code).to eq(200)
+    end
+
+    it "displays the title" do
+      visit "#{base_path}/print"
+
+      expect(page).to have_title("#{content_store_response['details']['country']['name']} travel advice")
+
+      within(".page-title .gem-c-heading") do
+        expect(page).to have_content(content_store_response["details"]["country"]["name"])
+      end
+    end
+
+    it "has the expected elements and content from all the parts" do
+      visit "#{base_path}/print"
+
+      expect(page).to have_css(".gem-c-lead-paragraph", text: "Printable version")
+      expect(page).to have_css("h1", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_css("h1", text: content_store_response["details"]["parts"][1]["title"])
+      expect(page).to have_css("h1", text: content_store_response["details"]["parts"][2]["title"])
+
+      expect(page).not_to have_css(".gem-c-related-navigation")
+      expect(page).not_to have_css(".govuk-pagination")
+      expect(page).not_to have_css(".gem-c-contents-list")
+      expect(page).not_to have_css('.govuk-link[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
     end
   end
 end

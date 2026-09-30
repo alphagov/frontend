@@ -12,6 +12,7 @@ RSpec.describe MiniSitePresenter do
   it_behaves_like "it can present an impact header", "mini_site", "mini-site"
   it_behaves_like "it can present an involved list", "mini_site", "mini-site"
   it_behaves_like "it can present ordered featured documents", "mini_site", "mini-site"
+  it_behaves_like "it can present service navigation items", "mini_site", "mini-site"
 
   describe "#body_with_image?" do
     context "when there is only a header" do

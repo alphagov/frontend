@@ -1,4 +1,16 @@
 class TravelAdvicePresenter < ContentItemPresenter
+  def use_contextual_components?
+    true
+  end
+
+  def page_title_options
+    super.merge({
+      heading_text: @content_item.country_name,
+      context: I18n.t("formats.travel_advice.context"),
+      lead_paragraph: nil,
+    })
+  end
+
   def page_title_parts
     parts = []
     parts << content_item.current_part_title unless content_item.part_slug.blank? || content_item.first_part?

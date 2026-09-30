@@ -35,6 +35,10 @@ class MiniSite < ContentItem
     }.compact
   end
 
+  def root_navigation_item
+    navigation_items.find { it.document_type == "mini_site_landing" }
+  end
+
 private
 
   def navigation_items

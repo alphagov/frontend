@@ -99,7 +99,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_title("#{content_store_response['details']['country']['name']} travel advice")
 
-      within(".travel-advice__header .gem-c-heading") do
+      within(".page-title .gem-c-heading") do
         expect(page).to have_content(content_store_response["details"]["country"]["name"])
       end
     end
@@ -115,12 +115,12 @@ RSpec.describe "TravelAdvice" do
 
       parts_size = content_store_response["details"]["parts"].size
 
-      expect(page).to have_css(".part-navigation-container nav li", count: parts_size)
-      expect(page).to have_css(".part-navigation-container nav li", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_css(".gem-c-contents-list li", count: parts_size)
+      expect(page).to have_css(".gem-c-contents-list li", text: content_store_response["details"]["parts"].first["title"])
       expect(page).not_to have_css(".part-navigation li a", text: content_store_response["details"]["parts"].first["title"])
 
       content_store_response["details"]["parts"][1..parts_size].each do |part|
-        expect(page).to have_css(".part-navigation-container nav li a[href*=\"#{part['slug']}\"]", text: part["title"])
+        expect(page).to have_css(".gem-c-contents-list li a[href*=\"#{part['slug']}\"]", text: part["title"])
       end
 
       expect(page).to have_css(".govuk-pagination")
@@ -203,8 +203,8 @@ RSpec.describe "TravelAdvice" do
       it "does not display navigation links for the part" do
         visit "#{base_path}/#{part['slug']}"
 
-        expect(page).to have_css(".part-navigation-container nav li", text: part["title"])
-        expect(page).not_to have_css(".part-navigation-container nav li a", text: part["title"])
+        expect(page).to have_css(".gem-c-contents-list li", text: part["title"])
+        expect(page).not_to have_css(".gem-c-contents-list li a", text: part["title"])
       end
     end
 

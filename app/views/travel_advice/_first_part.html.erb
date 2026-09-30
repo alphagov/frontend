@@ -1,5 +1,5 @@
 <%
-  latest_update = simple_format(@travel_advice_presenter.latest_update, { class: "metadata__update" }, wrapper_tag: "span") if @travel_advice_presenter.latest_update.present?
+  latest_update = simple_format(content_item_presenter.latest_update, { class: "metadata__update" }, wrapper_tag: "span") if content_item_presenter.latest_update.present?
 %>
 <%= render "govuk_publishing_components/components/metadata", {
     other: {

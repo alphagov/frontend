@@ -19,12 +19,11 @@ class TravelAdviceController < ContentItemsController
 
   def show
     content_item.set_current_part(params[:slug])
+    return redirect_to content_item.base_path if content_item.current_part.blank?
 
-    redirect_to content_item.base_path if content_item.current_part.blank?
-
-    @travel_advice_presenter = TravelAdvicePresenter.new(content_item)
-
+    @content_item_presenter = TravelAdvicePresenter.new(content_item)
     request.variant = :print if params[:variant] == :print
+    render layout: "header_content_sidebar"
 
     respond_to do |format|
       format.html

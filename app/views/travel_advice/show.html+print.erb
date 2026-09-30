@@ -1,48 +1,33 @@
 <%
-  content_for :title, "Print #{@travel_advice_presenter.page_title_parts.join(" - ")}"
+  content_for :title, "Print #{content_item_presenter.page_title_parts.join(" - ")}"
   content_for :extra_head_content do
 %>
   <meta name="robots" content="noindex, nofollow">
   <%= stylesheet_link_tag "views/_travel-advice", media: "all" %>
 <% end %>
 
-<div class="govuk-grid-row" id="travel-advice-print">
-  <div class="govuk-grid-column-two-thirds">
-    <div class="govuk-!-margin-bottom-6">
-      <%= render "govuk_publishing_components/components/heading", {
-        context: I18n.t("formats.travel_advice.context"),
-        text: @content_item.country_name,
-        heading_level: 1,
-        font_size: "xl",
-        margin_bottom: 8,
-      } %>
-    </div>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options.merge({ lead_paragraph: t("multi_page.printable_version") }) %>
+<% end %>
 
-    <div class="govuk-!-display-none-print">
-      <%= render "govuk_publishing_components/components/lead_paragraph", {
-        margin_bottom: 6,
-        text: t("multi_page.printable_version"),
-      } %>
-    </div>
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/print_link", {
+    margin_bottom: 8,
+  } %>
 
-    <%= render "govuk_publishing_components/components/print_link", {
-      margin_bottom: 8,
-    } %>
+  <% @content_item.parts.each_with_index do |part, i| %>
+    <section>
+      <h1 class="part-title">
+        <%= part["title"] %>
+      </h1>
 
-    <% @content_item.parts.each_with_index do |part, i| %>
-      <section>
-        <h1 class="part-title">
-          <%= part["title"] %>
-        </h1>
+      <%= render "first_part", content_item: @content_item if i == 0 %>
 
-        <%= render "first_part", content_item: @content_item if i == 0 %>
+      <%= render "govuk_publishing_components/components/govspeak",
+        content: part["body"].html_safe,
+        direction: page_text_direction %>
+    </section>
+  <% end %>
 
-        <%= render "govuk_publishing_components/components/govspeak",
-          content: part["body"].html_safe,
-          direction: page_text_direction %>
-      </section>
-    <% end %>
-
-    <%= render "govuk_publishing_components/components/print_link" %>
-  </div>
-</div>
+  <%= render "govuk_publishing_components/components/print_link" %>
+<% end %>

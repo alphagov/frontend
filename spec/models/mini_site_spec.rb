@@ -84,7 +84,7 @@ RSpec.describe MiniSite do
 
   describe "#ordered_navigation_items" do
     it "extracts the navigation items from links/shared_navigations/navigation_items as models" do
-      expect(mini_site.ordered_navigation_items.count).to eq(3)
+      expect(mini_site.ordered_navigation_items.count).to eq(content_store_response["details"]["ordered_navigation_items"].count)
       expect(mini_site.ordered_navigation_items.first).to be_instance_of(described_class)
     end
   end

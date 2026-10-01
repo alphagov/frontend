@@ -155,6 +155,23 @@ $gap: 30px;
   }
 }
 
+.app-c-impact-header--plain,
+.app-c-impact-header--with-background {
+  @include govuk-media-query($from: desktop) {
+    .app-c-impact-header__image {
+      min-height: 330px;
+    }
+  }
+}
+
+.app-c-impact-header--logo {
+  @include govuk-media-query($from: desktop) {
+    .app-c-impact-header__image {
+      min-height: 0;
+    }
+  }
+}
+
 .app-c-impact-header--govuk {
   background: #d2e2f1;
 }

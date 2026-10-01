@@ -143,18 +143,7 @@
 
   @include govuk-media-query($from: "desktop") {
     align-items: center;
-    // Note that browsers that don't support CSS grid display the component as one column on all
-    // breakpoints
     grid-template-columns: repeat(3, 1fr);
-
-    // For browsers that don't support CSS grid, constrain the width to 50% to improve usability
-    // especially for screen magnifier users
-    width: 50%;
-
-    // Reset the width for browsers that support CSS grid
-    @supports (display: grid) {
-      width: initial;
-    }
   }
 }
 

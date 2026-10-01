@@ -87,5 +87,60 @@ RSpec.describe MiniSite do
       expect(mini_site.ordered_navigation_items.count).to eq(content_store_response["details"]["ordered_navigation_items"].count)
       expect(mini_site.ordered_navigation_items.first).to be_instance_of(described_class)
     end
+
+    context "when there is no links/shared_navigations item" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
+          item["links"].delete("shared_navigations")
+        end
+      end
+
+      it "returns an empty array" do
+        expect(mini_site.ordered_navigation_items).to be_empty
+      end
+    end
+
+    context "when there are no navigation items in links/shared_navigations" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
+          item["links"]["shared_navigations"][0]["navigation_items"] = []
+        end
+      end
+
+      it "returns an empty array" do
+        expect(mini_site.ordered_navigation_items).to be_empty
+      end
+    end
+  end
+
+  describe "#root_navigation_item" do
+    it "extracts the root navigation item from links/shared_navigations/navigation_items as a model" do
+      expect(mini_site.root_navigation_item).to be_instance_of(described_class)
+      expect(mini_site.root_navigation_item.content_id).to eq(mini_site.content_id)
+    end
+
+    context "when there is no links/shared_navigations item" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
+          item["links"].delete("shared_navigations")
+        end
+      end
+
+      it "returns nil" do
+        expect(mini_site.root_navigation_item).to be_nil
+      end
+    end
+
+    context "when there are no navigation items in links/shared_navigations" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
+          item["links"]["shared_navigations"][0]["navigation_items"] = []
+        end
+      end
+
+      it "returns nil" do
+        expect(mini_site.root_navigation_item).to be_nil
+      end
+    end
   end
 end

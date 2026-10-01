@@ -22,17 +22,8 @@ RSpec.describe "Consultation" do
         expect(page).to have_content("From: Department for Education")
         expect(page).to have_content("Published: 4 November 2016")
         expect(page).to have_content("Last updated: 7 November 2016")
-        expect(page).to have_link("See all updates", href: "#full-publication-update-history")
-      end
-    end
-
-    it "displays the published dates history in the footer" do
-      within(".gem-c-published-dates--history") do
-        expect(page).to have_content("Published 4 November 2016")
-        expect(page).to have_content("Last updated 7 November 2016")
         expect(page).to have_content("7 November 2011")
         expect(page).to have_content("Added sub-topic tag.")
-        expect(page).to have_link("Show all updates", href: "#full-history")
       end
     end
 

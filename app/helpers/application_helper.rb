@@ -53,6 +53,28 @@ module ApplicationHelper
   ].freeze
   HEADER_SCROLL_TRACKING_URLS = [
     "/apply-to-come-to-the-uk",
+    "/guidance/starting-a-food-business",
+    "/running-food-business",
+    "/running-food-business/staff-training-illness-hygiene",
+    "/running-food-business/allergies",
+    "/running-food-business/suppliers-and-traceability",
+    "/running-food-business/food-inspections",
+    "/food-safety-management-systems",
+    "/food-safety-management-systems/creating-a-food-safety-management-system",
+    "/food-safety-management-systems/make-an-haccp-plan",
+    "/food-hygiene-businesses",
+    "/food-hygiene-businesses/cooking",
+    "/food-hygiene-businesses/chilling-and-freezing",
+    "/food-hygiene-businesses/cleaning",
+    "/food-hygiene-businesses/cross-contamination",
+    "/food-hygiene-businesses/storing-and-transporting-food",
+    "/government/publications/food-hygiene-rating-scheme-fhrs-guidance-for-businesses/food-hygiene-rating-scheme-fhrs-guidance-for-businesses",
+    "/government/publications/food-hygiene-rating-scheme/food-hygiene-rating-scheme",
+    "/guidance/food-business-registration",
+    "/guidance/hazard-analysis-and-critical-control-point-haccp",
+    "/government/publications/food-safety-for-food-delivery/food-safety-for-food-delivery",
+    "/government/publications/providing-food-at-community-and-charity-events/providing-food-at-community-and-charity-events",
+    "/government/publications/businesses-that-supply-or-produce-food-on-the-move/businesses-that-supply-or-produce-food-on-the-move",
   ].freeze
 
   def include_percentage_scroll_tracking?

@@ -22,7 +22,7 @@ RSpec.describe "DetailedGuide" do
     end
 
     it "renders the relevant metadata" do
-      within("[class*='metadata-column']") do
+      within(".page-title") do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
         expect(page).to have_text("Published: 12 June 2014")
@@ -102,7 +102,7 @@ RSpec.describe "DetailedGuide" do
     let(:content_store_response) { GovukSchemas::Example.find("detailed_guide", example_name: "england-2014-to-2020-european-structural-and-investment-funds") }
 
     it "conditionally renders a logo" do
-      expect(page).to have_css(".metadata-logo[alt='European structural investment funds']")
+      expect(page).to have_css(".gem-c-figure [alt='European structural investment funds']")
     end
   end
 

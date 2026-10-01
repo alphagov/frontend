@@ -9,7 +9,7 @@
     </div>
   <% end %>
 
-  <div class="page-title__column page-title__content">
+  <div class="page-title__column page-title__heading">
     <%= render "govuk_publishing_components/components/heading", {
       text: options[:heading_text],
       context: options[:context],
@@ -20,7 +20,9 @@
       font_size: "xl",
       margin_bottom: 6,
     } %>
+  </div>
 
+  <div class="page-title__column page-title__content">
     <% if options[:translations] && options[:translations].count > 1 %>
       <%= render "govuk_publishing_components/components/translation_nav", {
         translations: options[:translations],
@@ -60,6 +62,13 @@
         },
         part_of: options[:sponsoring_organisation_links],
         margin_bottom: 6,
+      } %>
+    <% end %>
+
+    <% if options[:logo] %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: options[:logo][:path],
+        alt: options[:logo][:alt_text],
       } %>
     <% end %>
   </div>

@@ -1,5 +1,4 @@
 class MiniSitePresenter < ContentItemPresenter
-  include DocumentFeed
   include ImpactHeader
   include Involved
   include OrderedFeaturedDocuments

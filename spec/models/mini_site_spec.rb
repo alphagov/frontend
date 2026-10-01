@@ -31,13 +31,6 @@ RSpec.describe MiniSite do
     end
   end
 
-  describe "#feed_items" do
-    it "returns values from the feed service" do
-      expect(mini_site.feed_items.count).to eq(1)
-      expect(mini_site.feed_items.first.keys).to eq(%i[link metadata])
-    end
-  end
-
   describe "#header_image" do
     it "returns the first image of type header" do
       expect(mini_site.header_image[:type]).to eq("header")

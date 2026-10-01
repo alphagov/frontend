@@ -36,29 +36,27 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <%= render "shared/document_feed", { options: content_item_presenter.document_feed_options } %>
+    <% if content_item.organisations_ordered_by_emphasis.any? %>
+      <%= render("shared/involved") %>
+    <% end %>
   </div>
 
-  <% if content_item_presenter.formatted_social_media_links.any? %>
     <div class="govuk-grid-column-one-third">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "Follow us",
-        font_size: "l",
-        margin_bottom: 1,
-        padding: true,
-        border_top: 5,
-      } %>
+      <% if content_item_presenter.formatted_social_media_links.any? %>
+        <%= render "govuk_publishing_components/components/heading", {
+          text: "Follow us",
+          font_size: "l",
+          margin_bottom: 1,
+          padding: true,
+          border_top: 5,
+        } %>
 
-      <%= render "govuk_publishing_components/components/share_links", {
-        stacked: true,
-        links: content_item_presenter.formatted_social_media_links,
-        track_as_follow: true,
-        margin_bottom: 8,
-      } %>
-    </div>
-  <% end %>
+        <%= render "govuk_publishing_components/components/share_links", {
+          stacked: true,
+          links: content_item_presenter.formatted_social_media_links,
+          track_as_follow: true,
+          margin_bottom: 8,
+        } %>
+      <% end %>
+  </div>
 </div>
-
-<% if content_item.organisations_ordered_by_emphasis.any? %>
-  <%= render("shared/involved") %>
-<% end %>

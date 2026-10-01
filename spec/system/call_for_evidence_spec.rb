@@ -13,12 +13,14 @@ RSpec.describe "CallForEvidence" do
       expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
     end
 
-    it "displays the metadata" do
+    it "displays the metadata including the page history" do
       within(".gem-c-metadata") do
         expect(page).to have_content("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
         expect(page).to have_content("Published: 11 April 2023")
         expect(page).to have_content("Last updated: 15 May 2023")
-        expect(page).to have_link("See all updates", href: "#full-publication-update-history")
+        expect(page).to have_content("7 November 2021")
+        expect(page).to have_content("Added sub-topic tag.")
+        # expect(page).to have_link("See all updates", href: "#full-publication-update-history")
       end
     end
 
@@ -253,16 +255,6 @@ RSpec.describe "CallForEvidence" do
         expect(page).to have_css("h2", text: "Share this page")
         expect(page).to have_css("a", text: "Share on Facebook")
         expect(page).to have_css("a", text: "Share on X")
-      end
-    end
-
-    it "displays the published dates history in the footer" do
-      within(".gem-c-published-dates--history") do
-        expect(page).to have_content("Published 11 April 2023")
-        expect(page).to have_content("Last updated 15 May 2023")
-        expect(page).to have_content("7 November 2021")
-        expect(page).to have_content("Added sub-topic tag.")
-        expect(page).to have_link("Show all updates", href: "#full-history")
       end
     end
   end

@@ -8,7 +8,6 @@ RSpec.describe MiniSitePresenter do
   let(:example_name) { "mini-site" }
   let(:schema_name) { "mini_site" }
 
-  it_behaves_like "it can present a document feed", "mini_site", "mini-site"
   it_behaves_like "it can present an impact header", "mini_site", "mini-site"
   it_behaves_like "it can present an involved list", "mini_site", "mini-site"
   it_behaves_like "it can present ordered featured documents", "mini_site", "mini-site"

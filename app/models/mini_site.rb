@@ -13,10 +13,6 @@ class MiniSite < ContentItem
     end
   end
 
-  def feed_items
-    @feed_items ||= FeedService.new(search_options: { filter_topical_events: base_path.split("/").last }).fetch_related_documents_with_format
-  end
-
   def header_image
     return unless details["images"]
 

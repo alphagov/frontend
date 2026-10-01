@@ -72,7 +72,7 @@
     margin_bottom: 8,
     title: t("components.share_links.share_this_page") %>
 
-  <%= render "shared/published_dates_with_notification_button" %>
+  <%= render "shared/published_dates_with_notification_button", hide_history: true %>
 <% end %>
 
 <% content_for :sidebar do %>

@@ -20,7 +20,7 @@
       margin_bottom: 4,
     } %>
 
-    <section class="govuk-!-margin-bottom-9 prime-minister">
+    <section class="govuk-!-margin-bottom-9">
       <%= render "govuk_publishing_components/components/heading", {
         text: "The Prime Minister",
         font_size: "m",
@@ -88,7 +88,7 @@
     } %>
 
     <% unless content_item.reshuffle_in_progress? %>
-      <div class="govuk-grid-row feature-ministers">
+      <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half">
           <%= render "govuk_publishing_components/components/big_number", {
             number: content_item.ministerial_role_counts["prime_minister"],
@@ -106,7 +106,7 @@
         </div>
       </div>
 
-      <div class="govuk-grid-row feature-ministers">
+      <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-half">
           <%= render "govuk_publishing_components/components/big_number", {
             number: content_item.ministerial_role_counts["other_ministers"],

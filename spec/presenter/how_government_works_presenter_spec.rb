@@ -13,5 +13,54 @@ RSpec.describe HowGovernmentWorksPresenter do
     it "returns the figure truncated with a plus sign" do
       expect(how_government_works_presenter.agencies_and_other_public_bodies).to eq("400+")
     end
+
+    it "uses contextual components" do
+      expect(how_government_works_presenter.use_contextual_components?).to be(true)
+    end
+
+    it "returns the contents list array" do
+      expect(how_government_works_presenter.contents_list).to eq([
+        {
+          href: "#who-runs-government",
+          text: "Who runs government",
+        },
+        {
+          href: "#how-government-is-run",
+          text: "How government is run",
+        },
+        {
+          href: "#civil-service",
+          text: "Civil service",
+        },
+        {
+          href: "#get-involved",
+          text: "Get involved",
+        },
+        {
+          href: "#legislation",
+          text: "Legislation",
+        },
+        {
+          href: "#access-to-information",
+          text: "Access to information",
+        },
+        {
+          href: "#devolved-government",
+          text: "Devolved government",
+        },
+        {
+          href: "#local-government",
+          text: "Local government",
+        },
+        {
+          href: "#parliament",
+          text: "Parliament",
+        },
+        {
+          href: "#history-uk-government",
+          text: "History of government",
+        },
+      ])
+    end
   end
 end

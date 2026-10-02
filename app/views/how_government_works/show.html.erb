@@ -6,12 +6,11 @@
 <% end %>
 
 <% content_for :content do %>
-  <div class="govuk-!-margin-bottom-9">
-    <%= render "govuk_publishing_components/components/contents_list", {
-      aria_label: "Pages in this guide",
-      contents: content_item_presenter.contents_list,
-    } %>
-  </div>
+  <%= render "govuk_publishing_components/components/contents_list", {
+    aria_label: "Pages in this guide",
+    contents: content_item_presenter.contents_list,
+    margin_bottom: 9,
+  } %>
 
   <section>
     <%= render "govuk_publishing_components/components/heading", {

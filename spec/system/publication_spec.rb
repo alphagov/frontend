@@ -31,7 +31,7 @@ RSpec.describe "Publication" do
     it "renders metadata" do
       visit base_path
 
-      within("[class*='metadata-column']") do
+      within(".gem-c-metadata") do
         expect(page).to have_link("Environment Agency", href: "/government/organisations/environment-agency")
         expect(page).to have_link("The Rt Hon Sir Eric Pickles MP", href: "/government/people/eric-pickles")
         expect(page).to have_text("Published: 3 May 2016")
@@ -276,7 +276,7 @@ RSpec.describe "Publication" do
       it "renders metadata date in Welsh" do
         visit base_path
 
-        within("[class*='metadata-column']") do
+        within(".gem-c-metadata") do
           expect(page).to have_text("3 Mai 2016")
         end
       end

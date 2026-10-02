@@ -44,12 +44,6 @@ RSpec.describe "Publication" do
       expect(find_schema_of_type("Article")).not_to be_nil
     end
 
-    it "shows the published date in the footer" do
-      visit base_path
-
-      expect(page).to have_selector(".gem-c-published-dates", text: "Published 3 May 2016")
-    end
-
     context "when there are featured and non-featured attachments" do
       let(:content_item) do
         GovukSchemas::Example.find(:publication, example_name: "publication-with-featured-attachments").tap do |example|
@@ -284,7 +278,21 @@ RSpec.describe "Publication" do
       it "shows the published date in the footer in Welsh" do
         visit base_path
 
-        expect(page).to have_selector(".gem-c-published-dates", text: "Cyhoeddwyd ar 3 Mai 2016")
+        within(".gem-c-metadata") do
+          expect(page).to have_text("Cyhoeddwyd: 3 Mai 2016")
+        end
+      end
+    end
+
+    context "when the page has a change history" do
+      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "best-practice-form-2") }
+
+      it "renders the page history" do
+        visit base_path
+
+        within(".gem-c-metadata") do
+          expect(page).to have_text("Added a link to the 'DVSA data protection statement'.")
+        end
       end
     end
   end

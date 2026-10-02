@@ -9,8 +9,8 @@ body: |
   - mobile (x2): 1280 x 720
   - tablet: 768 x 432
   - tablet (x2): 1536 x 864
-  - desktop: 512 x 334
-  - desktop (x2): 1024 x 668
+  - desktop: 512 x 330
+  - desktop (x2): 1024 x 660
 accessibility_criteria: |
   - Images in the impact header should have an empty alt text, as appropriate for purely decorative images
   - The 'image details' disclosure element should be operable with a keyboard and understood by screen reader users

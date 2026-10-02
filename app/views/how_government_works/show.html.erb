@@ -12,57 +12,55 @@
     margin_bottom: 9,
   } %>
 
-  <section>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Who runs government",
+    id: "who-runs-government",
+    font_size: "l",
+    margin_bottom: 4,
+  } %>
+
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
-      text: "Who runs government",
-      id: "who-runs-government",
-      font_size: "l",
+      text: "The Prime Minister",
+      font_size: "m",
+      heading_level: 3,
       margin_bottom: 4,
     } %>
 
-    <section class="govuk-!-margin-bottom-9">
-      <%= render "govuk_publishing_components/components/heading", {
-        text: "The Prime Minister",
-        font_size: "m",
-        heading_level: 3,
-        margin_bottom: 4,
+    <p class="govuk-body">The <%= link_to("Prime Minister", "/government/ministers/prime-minister", class: "govuk-link") %> is the leader of His Majesty’s Government and is ultimately responsible for all policy and decisions.</p>
+    <p class="govuk-body">The Prime Minister also:</p>
+
+    <%= render "govuk_publishing_components/components/list", {
+      extra_spacing: true,
+      visible_counters: true,
+      items: [
+        "oversees the operation of the Civil Service and government agencies",
+        "appoints members of the government",
+        "is the principal government figure in the House of Commons",
+      ],
+    } %>
+
+    <% if content_item.current_prime_minister.present? %>
+      <p class="govuk-body">The Prime Minister is <%= link_to content_item.current_prime_minister.title, content_item.current_prime_minister.base_path, class: "govuk-link" %>.</p>
+    <% end %>
+
+    <p class="govuk-body govuk-!-margin-bottom-8">
+      <%= link_to "Read more about the Prime Minister's Office, 10 Downing Street", "/government/organisations/prime-ministers-office-10-downing-street", class: "govuk-link" %>
+    </p>
+
+    <% if content_item.current_prime_minister.present? && content_item.current_prime_minister.image["url"].present? %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: content_item.current_prime_minister.image["url"],
+        alt: content_item.current_prime_minister.image["alt_text"],
       } %>
-
-      <p class="govuk-body">The <%= link_to("Prime Minister", "/government/ministers/prime-minister", class: "govuk-link") %> is the leader of His Majesty’s Government and is ultimately responsible for all policy and decisions.</p>
-      <p class="govuk-body">The Prime Minister also:</p>
-
-      <%= render "govuk_publishing_components/components/list", {
-        extra_spacing: true,
-        visible_counters: true,
-        items: [
-          "oversees the operation of the Civil Service and government agencies",
-          "appoints members of the government",
-          "is the principal government figure in the House of Commons",
-        ],
+    <% else %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: image_path("how_government_works/10_downing_street.jpg"),
+        alt: "10 Downing Street",
       } %>
+    <% end %>
 
-      <% if content_item.current_prime_minister.present? %>
-        <p class="govuk-body">The Prime Minister is <%= link_to content_item.current_prime_minister.title, content_item.current_prime_minister.base_path, class: "govuk-link" %>.</p>
-      <% end %>
-
-      <p class="govuk-body govuk-!-margin-bottom-8">
-        <%= link_to "Read more about the Prime Minister's Office, 10 Downing Street", "/government/organisations/prime-ministers-office-10-downing-street", class: "govuk-link" %>
-      </p>
-
-      <% if content_item.current_prime_minister.present? && content_item.current_prime_minister.image["url"].present? %>
-        <%= render "govuk_publishing_components/components/figure", {
-          src: content_item.current_prime_minister.image["url"],
-          alt: content_item.current_prime_minister.image["alt_text"],
-        } %>
-      <% else %>
-        <%= render "govuk_publishing_components/components/figure", {
-          src: image_path("how_government_works/10_downing_street.jpg"),
-          alt: "10 Downing Street",
-        } %>
-      <% end %>
-    </section>
-
-    <section class="govuk-!-margin-bottom-9">
+    <div class="govuk-!-margin-bottom-9">
       <%= render "govuk_publishing_components/components/heading", {
         text: "The Cabinet",
         font_size: "m",
@@ -76,10 +74,10 @@
       <%= render "govuk_publishing_components/components/figure", {
         src: image_path("how_government_works/cabinet_01.jpg"),
       } %>
-    </section>
-  </section>
+    </div>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Ministers",
       font_size: "m",
@@ -127,9 +125,9 @@
 
     <p class="govuk-body">Ministers are chosen by the Prime Minister from the members of the House of Commons and House of Lords. They are responsible for the actions, successes and failures of their departments.</p>
     <p class="govuk-body"><%= link_to "See full list of ministers", "/government/ministers", class: "govuk-link" %></p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "How government is run",
       id: "how-government-is-run",
@@ -204,9 +202,9 @@
         </div>
       </div>
     <% end %>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Civil Service",
       id: "civil-service",
@@ -247,9 +245,9 @@
     } %>
 
     <p class="govuk-body"><%= link_to "Search Contracts Finder", "/contracts-finder/", class: "govuk-link" %> for any government contract over £10,000 and get details of all previous tenders.</p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Get involved",
       id: "get-involved",
@@ -258,9 +256,9 @@
     } %>
 
     <p class="govuk-body">Find out how to <%= link_to "get involved", "/government/get-involved/", class: "govuk-link" %> with the work of the government, such as through consultations and petitions.</p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Legislation",
       id: "legislation",
@@ -290,9 +288,9 @@
 
     <p class="govuk-body">These are bills which have been approved by the Commons, the Lords, and the King. The relevant government department is responsible for putting the act into practice.</p>
     <p class="govuk-body"><%= link_to "Visit www.legislation.gov.uk", "https://www.legislation.gov.uk", class: "govuk-link", rel: "external" %></p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Access to information",
       id: "access-to-information",
@@ -350,9 +348,9 @@
     } %>
 
     <p class="govuk-body">Putting data in people’s hands can help them have more of a say in the reform of public services. On <%= link_to "data.gov.uk", "https://data.gov.uk/", class: "govuk-link", rel: "external" %> you can easily find, review and use information about our country and communities - for example, to develop web applications.</p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Devolved government",
       id: "devolved-government",
@@ -374,9 +372,9 @@
         "transport",
       ],
     } %>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Local government",
       id: "local-government",
@@ -387,9 +385,9 @@
     <p class="govuk-body">Councils make and carry out decisions on local services. Many parts of England have 2 tiers of local government: county councils and district, borough or city councils.</p>
     <p class="govuk-body">In some parts of the country, there’s just one tier of local government providing all the functions, known as a ‘unitary authority’. This can be a city, borough or county council – or it may just be called ‘council’. As well as these, many areas also have parish or town councils.</p>
     <p class="govuk-body"><%= link_to "Understand how your council works", "/understand-how-your-council-works/types-of-council/", class: "govuk-link" %></p>
-  </section>
+  </div>
 
-  <section class="govuk-!-margin-bottom-9">
+  <div class="govuk-!-margin-bottom-9">
     <%= render "govuk_publishing_components/components/heading", {
       text: "Parliament",
       id: "parliament",
@@ -414,22 +412,20 @@
     </p>
 
     <p class="govuk-body">Read The Official Report at <%= link_to "Hansard", "http://www.parliament.uk/business/publications/", class: "govuk-link", rel: "external" %></p>
-  </section>
+  </div>
 
-  <section>
-    <%= render "govuk_publishing_components/components/heading", {
-      text: "History of government",
-      id: "history-uk-government",
-      font_size: "l",
-      margin_bottom: 4,
-    } %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "History of government",
+    id: "history-uk-government",
+    font_size: "l",
+    margin_bottom: 4,
+  } %>
 
-    <p class="govuk-body">Britain has one of the oldest governments in the world. Find out more about how it has worked and who has shaped it in the <%= link_to "history", "/government/history", class: "govuk-link" %> section.</p>
-    <p class="govuk-body">Read about past Prime Ministers, Chancellors and Foreign Secretaries in <%= link_to "notable people", "/government/history#notable-people", class: "govuk-link" %>. Learn more about historic <%= link_to "government buildings", "/government/history#government-buildings", class: "govuk-link" %> on Whitehall and around the UK.</p>
-    <p class="govuk-body govuk-!-margin-bottom-8">You can also find links to <%= link_to "historical research", "/government/history#historical-research", class: "govuk-link" %>, documents and records.</p>
+  <p class="govuk-body">Britain has one of the oldest governments in the world. Find out more about how it has worked and who has shaped it in the <%= link_to "history", "/government/history", class: "govuk-link" %> section.</p>
+  <p class="govuk-body">Read about past Prime Ministers, Chancellors and Foreign Secretaries in <%= link_to "notable people", "/government/history#notable-people", class: "govuk-link" %>. Learn more about historic <%= link_to "government buildings", "/government/history#government-buildings", class: "govuk-link" %> on Whitehall and around the UK.</p>
+  <p class="govuk-body govuk-!-margin-bottom-8">You can also find links to <%= link_to "historical research", "/government/history#historical-research", class: "govuk-link" %>, documents and records.</p>
 
-    <%= render "govuk_publishing_components/components/figure", {
-      src: image_path("how_government_works/churchill_01.jpg"),
-    } %>
-  </section>
+  <%= render "govuk_publishing_components/components/figure", {
+    src: image_path("how_government_works/churchill_01.jpg"),
+  } %>
 <% end %>

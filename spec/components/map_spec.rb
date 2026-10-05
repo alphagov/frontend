@@ -3,6 +3,8 @@ RSpec.describe "MapComponent", type: :view do
     "map"
   end
 
+  before { @include_map_script = nil }
+
   markers = [
     {
       lat: 51.5163,

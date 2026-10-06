@@ -34,5 +34,17 @@ RSpec.describe Recent do
 
       expect(described_class.new.feed_items).to eq(expected_results)
     end
+
+    it "calls FeedService with the expected count value" do
+      stub_const("Recent::RESULTS_SIZE", 3)
+      feed_service_args = { search_options: { count: Recent::RESULTS_SIZE } }
+      feed_service = instance_double(FeedService)
+      allow(FeedService).to receive(:new).with(feed_service_args).and_call_original
+      allow(feed_service).to receive(:fetch_related_documents_with_format)
+
+      described_class.new.feed_items
+
+      expect(FeedService).to have_received(:new).with(hash_including(search_options: { count: 3 }))
+    end
   end
 end

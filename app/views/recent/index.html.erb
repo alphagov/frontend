@@ -1,4 +1,8 @@
-<p>Recent</p>
+<%= render "govuk_publishing_components/components/heading", {
+  text: "Recent",
+  font_size: "xl",
+  heading_level: 1,
+} %>
 
 <% @results.each do |result| %>
   <p><%= result %><p>

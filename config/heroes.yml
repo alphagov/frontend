@@ -1,0 +1,255 @@
+- add: "2026-08-05"
+  remove: "2026-07-16"
+  subject: Jason Birchall
+  text: |
+    Today, we say farewell to Jason Birchall, our Lead SRE on GOV.UK Platform Engineering.
+
+    Jason has spent a hard 18 months with GOV.UK, helping us to improve the Platform and our ways of working. He came over from the Ministry of Justice having worked on their Platform and gave us new ideas for how to make the GOV.UK Platform even better.
+
+    Jason's directness and honesty has pushed us to become better engineers and helped us to drive towards a healthier Platform Engineering culture. He has placed users at the centre of our work; showing us how to have an open mind and help us remember that users can mean a lot of different things.
+
+    GDS are going to miss Jason dearly and wish him well in his future endeavours!
+- add: "2026-01-14"
+  remove: "2026-01-19"
+  subject: Richard Towers
+  text: |
+    Today we’re saying goodbye to Richard Towers.
+
+    Richard joined GDS 10 years ago, and immediately made a huge impact in the office, using his booming voice to disrupt standups across the wider Holborn area. He’s only improved his capabilities in this area, scoring an unprecedented 15 out of 3 on the GDaD scale.
+
+    He joined GOV.UK at the start of the COVID-19 pandemic after stints with Verify, Pay and PaaS (as tech lead). He was immediately central to our efforts building services to support and get food to vulnerable people, and his contributions have only grown.
+
+    His exceptional technical ability and leadership were soon rewarded with a spell as GOV.UK’s Head of Software Engineering. He’s since reacquainted himself with a terminal and has been Lead Developer across our teams working on publishing tools. Despite being a hands-on engineer, he's never quite managed to let go of his beloved spreadsheets.
+
+    He’s come a long way since being the man that vowed to never own anything he couldn’t carry. His dog Rory surely now exceeds his lifting capacity, though continues to feature prominently in our prototypes. We’re going to miss him loads.
+- add: "2024-07-18"
+  remove: "2024-07-22"
+  subject: Chris Banks
+  text: |
+    Chris Banks is leaving us today. Since joining GDS' Site Reliability Engineering community in 2019, Chris has seen GOV.UK through some tumultuous times. He's helped to keep GOV.UK reliable and (mostly) free of incidents, while at the same time leading GOV.UK's largest software infrastructure project - rebuilding the foundations that GOV.UK runs on.
+
+    Throughout Chris' time working on GOV.UK he's had a relentless focus on eliminating waste, both in terms of cloud spend and engineering processes. Combined with his incredible attention to detail and desire to build things the right way, he's ensured that GOV.UK's new infrastructure is built to stand the test of time. Chris and his team's work on modernising GOV.UK's infrastructure is a story that GDS is truly proud of.
+
+    Chris also worked on the COVID team, one of the most demanding and challenging programmes GDS has ever undertaken. Chris was famous for running head first into the technical fires as the first responder, triaging and solving many problems that had a huge real world impact on people's lives.
+
+    Chris has taught us all so much about computers, networking, and how to handle the shock and horror of discovering how a bit of technology actually works.
+
+    Good luck Chris - thank you for your immense contributions to GOV.UK. We'll miss you.
+- add: "2024-03-14"
+  remove: "2024-03-18"
+  subject: Tim Leighton-Boyce
+  text: |
+    Today we say a fond farewell to Tim Leighton-Boyce, a pillar of the GOV.UK Performance Analyst community. Tim leaves after a marathon shift as Senior and then Lead PA. Some say that only an analyst of his calibre could measure a time period that long without encountering rounding issues.
+
+    In his early days Tim was an advocate of A/B testing on GOV.UK and taught many of us more about statistical significance than we thought we needed to know. More recently, he's been unpicking the complexity of updating our analytics software, which is no mean feat. Tim's worked on many of our most important products over the years, and has been a crucial part of making GOV.UK better.
+
+    Tim's been an absolute pleasure to work with. His calm, quiet, excellence and friendly smile will be impossible to replace. Good luck skating off into retirement, we'll miss you!
+- add: "2024-02-07"
+  remove: "2024-02-12"
+  subject: Rosa Fox
+  text: |
+    Today GOV.UK bids a fond farewell to Rosa Fox - one of its Senior Developers. Rosa joined in 2016, and has been a huge part of GDS and GOV.UK's culture over the last 8 years. From small things to make the office more fun on Fridays, all the way through to chairing the Women's network and (literally) flying the Suffragette flag for GDS, Rosa has been a huge influence on the organisation.
+
+    She's also an exceptional software engineer, and someone who GOV.UK has relied on in times of crisis. During the Covid-19 lockdowns, she was the technical lead of GOV.UK's coronavirus team - calm under pressure and pragmatic with technical decisions, she made sure the team felt safe as it worked to keep others safe.
+
+    Thank you Rosa for everything you've done at GDS - we'll miss you!
+- add: "2023-04-13"
+  remove: "2023-04-14"
+  subject: Dilwoar Hussain
+  text: |
+    Today we say goodbye to Dilwoar Hussain who is leaving GDS after five and a half years.
+
+    Dilwoar has brought his entrepreneurial spirit to GDS and we’ve benefited greatly. He’s been a keen advocate of utilising technology to make things easier for users and how to embrace technological advances for more efficient software development.
+
+    He’s also been a keen contributor to GDS communities, which many of us have benefitted from. His contributions have ranged from making GDS more inclusive to fellow Muslims, to supporting the career progression of Frontend Developers.
+
+    Thank you Dilwoar and all the best for the future.
+- add: "2023-02-10"
+  remove: "2023-02-13"
+  subject: Kate Ivey-Williams
+  text: |
+    Today is Design Legend Kate Ivey-Williams’ last day at GDS.
+
+    Kate has made an incredible contribution since joining in 2015 as one of the first service designers on GOV.UK. She was the brains behind the step by step navigation format, which guides users through complex tasks. Step by step navigation won a D&AD Pencil Award in 2019 and has been copied by organisations around the world. She has also played a key role in countless other major GOV.UK projects, including helping users prepare for Brexit and creating gov.uk/coronavirus.
+
+    Kate has been a tireless champion of the value of service design for government, as well as being honest, kind and giving amazing support to individuals. She will be missed very much by colleagues at GOV.UK and in the design community in GDS and across government.
+
+    Thank you Kate!
+- add: "2023-01-31"
+  remove: "2023-02-02"
+  subject: Ed Kerry
+  text: |
+    Today we'd like to say a special thanks to Ed Kerry on his last day working for GOV.UK. Ed's been writing software for GOV.UK since 2018, and has helped steer the ship through some major events.
+
+    He helped make sure GOV.UK was scalable enough to handle the biggest waves of traffic, and contributed massively to the way GOV.UK works behind the scenes. He's one of our top experts in the Smart Answers format which powers complex question flows.
+
+    We thank Ed the most for the warm enthusiasm he brought towards helping people. He’s someone you can count on to jump into a challenge and provide friendly assistance that will always add value. We know that anyone joining Ed on a piece of work is going to be welcomed and given ample support to make a difference.
+
+    Thank you for your service Ed and wish you all the best for the future!
+- add: "2022-10-14"
+  remove: "2022-10-21"
+  subject: Ian James
+  text: |
+    Today we say bye to Ian James, Lead Frontend Developer on GOV.UK, after 4 years and 3 months at GDS. He is an integral part of the Frontend Community at GDS and in every team he's worked with he's done a stellar job in trying to convince them that building an accessible service was important for all users!
+
+    Thank you Ian. You will be missed!
+- add: "2022-06-30"
+  remove: "2022-07-01"
+  subject: Ben Thorner
+  text: |
+    Today we say goodbye to Ben Thorner. Ben has worked in GDS as a software engineer since 2018 and has made a substantial impact improving GOV.UK’s tooling and development practices.
+
+    We have many contributions to thank Ben for. He has helped deliver key government priorities. He has created communities to help improve developer experience and tooling. He has tirelessly facilitated opinionated discussions with many stakeholders to lead to fruitful results. He has created and iterated tooling that all GOV.UK software developers benefit from each day.
+
+    However, we’re most grateful for his personal contributions to our community: his ability to share information he has learnt, his willingness to collaborate and his unwavering enthusiasm that things can be better and it’s within our reach to make them so.
+
+    Thank you Ben, you inspire us all to do more.
+- add: "2022-06-10"
+  remove: "2022-06-13"
+  subject: Stephen Ford
+  text: |
+    Today we're saying goodbye to Stephen Ford, one of our Senior Site Reliability Engineers. Stephen has worked at GDS since 2015 and during his time with us has been instrumental in keeping GOV.UK available and secure. He's also a great human being, and has been a positive and supportive influence on so many of us.
+
+    Thank you Stephen for all the work you've done and all the support you've given us. Good luck, we'll miss you!
+- add: "2022-03-11"
+  remove: "2022-03-14"
+  subject: Bill Franklin
+  text: |
+    Bill Franklin leaves today. We’re sad about this because he’s a wonderful human being who also happens to be a really great technologist.
+
+    Every team Bill’s joined has benefitted from his presence. His enthusiasm and outstanding technical ability inspire others to do better. His kindness and warmth demonstrate the behaviour we wish to see, inspiring others in these valuable virtues too.
+
+    He’s made significant contributions to improving GOV.UK’s search and built vital services to help vulnerable people during the pandemic. Bill has recently been helping rebuild the infrastructure that GOV.UK relies upon, being instrumental in driving that project forward to success.  We’re going to miss the hole that he leaves.
+
+    Good luck Bill, and thank you for all that you’ve done, you will be sorely missed.
+- add: "2021-09-30"
+  remove: "2021-10-15"
+  subject: Bevan Loon
+  text: |
+    Today we're saying goodbye to Bevan Loon, one of our Lead Developers. Bevan joined GOV.UK in 2016 and has been chipping away behind the scenes ever since.
+
+    Over the years Bevan's worked on many things - the consolidation of content to a single GOV.UK Content Store, delivering a bespoke email notification system, leading efforts to improve the health of the platform and advocating for good pair programming practices.
+
+    Bevan's been a core pillar of the developer community, teaching us all how to be better developers and better people. Almost single handedly running the GOV.UK Tech Fortnightly meeting.
+
+    Bevan - thank you so much for all the work you've done and all the support you've given us. Good luck, we'll miss you!
+- add: "2021-07-23"
+  remove: "2021-08-10"
+  subject: Jen Allum
+  text: |
+    Jen Allum is in charge of all of this. This thing you’re reading and the repository it sits in, the people who maintain it and the people who decide what it should do. Jen’s the one who makes it possible for all of that to happen. And she’s leaving us. She’ll be our X-boss.
+
+    Jen joined GDS in September 2015 and became head of GOV.UK in 2018. Since that time she has led GOV.UK through Brexit and the coronavirus pandemic, with a laser-like focus on helping users understand what they need to do in these complex situations. And she has given us a powerful vision of what GOV.UK will become in the future.
+
+    Jen was attracted to GOV.UK because of the way we work and write about that work. It might not seem like much, but it’s a really big deal to be able to do that in government, and it’s something that Jen has made sure we’re still able to do.
+
+    She’s open, friendly, and universally liked by those of us who help to look after GOV.UK (and just everyone in general). Thank you, Jen, for all you’ve done for GOV.UK, for government, and for the people who live and work in the UK.
+
+    o__,
+    ,>_/-_
+    (*)`\(*)
+- add: "2020-12-03"
+  remove: "2020-12-04"
+  subject: Mark McLeod
+  text: |
+    Today we're saying goodbye to a senior product manager, Mark McLeod. Mark joined GDS in 2012 as a policy advisor, and later became a product manager in the early stages of GOV.UK.
+
+    Mark has worked on many things, including search, email notifications and retiring Local Directgov. He's been instrumental in giving GOV.UK publishers access to data about their content, so that they can make more informed decisions.
+
+    Anyone who's worked with Mark knows he always throws himself wholeheartedly into the work and really cares about making a difference. He's been a huge user needs champion, helping us stick to our principles, building products based on evidence.
+- add: "2020-11-26"
+  remove: "2020-11-30"
+  subject: Jon Sanger
+  text: |
+    We don't often have cause to edit GOV.UK's humans.txt file, but the departure of our lead content designer, Jon Sanger, is a very good one.
+
+    Few people have done more than Jon to set the high standard of content on GOV.UK we all reach for.
+
+    For the last ~9 years, he's been that mast in the storm. Above all else, he makes sure the public are able to understand how to interact with the government when they need to, simply and clearly.
+
+    He has a habit of picking the hard work, to make things simpler for our users. He's resolved countless difficult situations, shielded countless team members, and has been a great friend to us countless times.
+
+    Most recently, Jon's taken on the considerable responsibility of heading up the Brexit content team, where his focus on the user has been as relentless as ever. Jon's empathetic leadership has made the team a genuine pleasure to work on, despite the tricky circumstances we're all dealing with this year. We really can't thank him enough for that, or for everything else he's given to his colleagues and to the public while at GDS.
+- add: "2020-09-11"
+  remove: "2020-09-14"
+  subject: Issy Long
+  text: |
+    Just for today we’d like to use www.gov.uk/humans.txt to say goodbye to Issy Long - one of GDS’ longest serving engineers.
+
+    Issy joined GDS in 2014, and helped us smoothly deal with the fallout of transitioning hundreds of separate websites onto the single GOV.UK domain.
+
+    Over the last six years they’ve never been afraid to do the hard work that makes working on GOV.UK great. Our applications, our developer tools, our
+    documentation - in thousands of pull requests, Issy has made everything better.
+
+    Issy - thank you for all your hard work. GDS won’t be the same without you, but we’re looking forward to seeing all your future successes. Keep being amazing!
+- add: "2011-05-09"
+  remove: "2012-10-09"
+  subject: The original team
+  text: |
+    /* TEAM */
+    Product Lead: Tom Loosemoore
+    Twitter: tomskitomski
+    Location: London, UK
+
+    Product Lead: Richard Pope
+    Twitter: memespring
+    Location: Brixton, UK
+
+    Editorial Lead: Jimmy Leach
+    Twitter: jimmytleach
+
+    Project Manager: Jamie Arnold
+    Twitter: itsallgonewrong
+    Location: Tring, UK
+
+    Tech Lead: James Stewart
+    Twitter: jystewart
+    Location: London, UK
+
+    Design Lead: Paul Annett
+    Twitter: nicepaul
+    Location: Wokingham, UK
+
+    Content Strategist: Relly Annett-Baker
+    Twitter: RellyAB
+    Location: Wokingham, UK
+
+    Developer (Front End): James Weiner
+    Twitter: jamesweiner
+    Location: London, UK
+
+    Developer: Ben Griffiths
+    Twitter: beng
+    Location: London, UK
+
+    Developer: Matt Patterson
+    Twitter: fidothe
+    Location: London, UK
+
+    Developer: Russ Garner
+    Twitter: rgarner
+    Location: Leeds, UK
+
+    Developer (Front End): Joshua Marshall
+    Twitter: partiallyblind
+    Location: London, UK
+
+    Editor: Lisa Scott
+    Twitter: lisascott869
+    Location: London, UK
+
+    Analyst and consultant: David Mann
+    Twitter: bananafarmer
+    Location: Hackney, London, UK
+
+    Developer: Craig R Webster
+    Twitter: craigwebster
+    Location: London, UK
+
+    /* THANKS */
+
+    Name: Glyn Wintle
+    Name: Matthew Bloch
+    Name: Matthew Somerville
+    Name: Rich Rutter
+    Name: Matt Blease, @mattblease

@@ -1,3 +1,5 @@
 class RecentController < ApplicationController
-  def index; end
+  def index
+    @results = Recent.new.feed_items
+  end
 end

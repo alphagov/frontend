@@ -4,6 +4,6 @@
   heading_level: 1,
 } %>
 
-<% @results.each do |result| %>
-  <p><%= result %><p>
-<% end %>
+<%= render "govuk_publishing_components/components/document_list", {
+  items: @presented_results,
+} %>

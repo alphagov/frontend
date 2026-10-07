@@ -1,0 +1,77 @@
+name: Visual regression tests
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore: # Until anchors are supported by GitHub Actions, we have to write this list twice.
+      - ".github/**"
+      - "docs/**"
+      - ".gitignore"
+      - "startup.sh"
+      - "CHANGELOG.md"
+      - "README.md"
+      - "LICENCE.md"
+      - "SUPPORT.md"
+  pull_request:
+    paths-ignore:
+      - ".github/**"
+      - "docs/**"
+      - ".gitignore"
+      - "startup.sh"
+      - "CHANGELOG.md"
+      - "README.md"
+      - "LICENCE.md"
+      - "SUPPORT.md"
+  schedule:
+    - cron: "0 10,16 * * *" # Every day at 10AM and 4PM
+  workflow_call:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'
+        required: false
+        type: string
+      publishingApiRef:
+        description: 'The branch, tag or SHA to checkout Publishing API'
+        required: false
+        default: 'main'
+        type: string
+
+jobs:
+  visual-regression-test-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: alphagov/frontend
+          ref: ${{ inputs.ref || github.ref }}
+
+      - name: Checkout Publishing API (for Content Schemas)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: alphagov/publishing-api
+          ref: ${{ inputs.publishingApiRef }}
+          path: vendor/publishing-api
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
+        with:
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: alphagov/govuk-infrastructure/.github/actions/setup-node@main
+
+      - name: Precompile assets
+        uses: alphagov/govuk-infrastructure/.github/actions/precompile-rails-assets@main
+
+      - name: Run yarn install
+        run: yarn install --frozen-lockfile
+
+      - name: Run percy
+        run: yarn run percy exec -- bundle exec rspec spec/visual_regression_tests/test_pages_spec.rb --tag visual_regression
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          RAILS_ENV: test
+          GOVUK_CONTENT_SCHEMAS_PATH: vendor/publishing-api/content_schemas
+          DISABLE_SIMPLECOV: true

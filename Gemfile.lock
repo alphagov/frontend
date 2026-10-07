@@ -531,6 +531,8 @@ GEM
       ast (~> 2.4.1)
       racc
     parslet (2.0.0)
+    percy-capybara (5.0.1)
+      capybara (>= 3)
     plek (5.3.2)
     pp (0.6.4)
       prettyprint
@@ -799,6 +801,7 @@ DEPENDENCIES
   listen
   pact (~> 1.67)
   pact_broker-client
+  percy-capybara (~> 5.0)
   plek
   pry-byebug
   rack-utf8_sanitizer

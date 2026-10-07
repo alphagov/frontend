@@ -53,3 +53,5 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
+
+gem "percy-capybara", "~> 5.0", groups: [:development, :test]

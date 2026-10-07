@@ -143,7 +143,7 @@ RSpec.describe "Guide" do
             "title" => "Overview",
           },
           {
-            "body" => youtube_link,
+            "body" => postal_vote_video_content,
             "slug" => "postal-voting",
             "title" => "Voting by post",
           },
@@ -152,6 +152,25 @@ RSpec.describe "Guide" do
     end
     let(:youtube_url) { "https://www.youtube.com/watch?v=abc123" }
     let(:youtube_link) { %(<p><a href="#{youtube_url}">How to complete your postal vote</a></p>) }
+    let(:postal_vote_video_content) do
+      <<~HTML
+        <h2>Voting by post</h2>
+        #{youtube_link}
+        <h2 id="what-is-a-postal-vote">What is a postal vote?</h2>
+        <p>This video explains what postal voting is, who can apply for a postal vote and what happens to your vote on polling day.</p>
+        <p>GOV.UK • 1 minutes 48 seconds</p>
+        <p>Transcript</p>
+        <p>A postal vote allows you to vote without having to visit a polling station.</p>
+        <p>To apply, search ‘apply postal vote’ on GOV.UK.</p>
+        <p>You must apply for a postal vote if you want to vote by post, for example if:</p>
+        <ul>
+          <li>you're away from home</li>
+          <li>you're abroad and want to vote in England, Scotland or Wales</li>
+        </ul>
+        <h2>Apply for a postal vote</h2>
+        <p>This is existing content that must remain.</p>
+      HTML
+    end
 
     before do
       stub_content_store_has_item("/how-to-vote", content_store_response)
@@ -162,6 +181,12 @@ RSpec.describe "Guide" do
         visit "/how-to-vote/postal-voting"
 
         expect(page).not_to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).not_to have_content("What is a postal vote?")
+        expect(page).not_to have_content("Transcript")
+        expect(page).not_to have_content("A postal vote allows you")
+        expect(page).to have_content("You must apply for a postal vote")
+        expect(page).to have_content("you're away from home")
+        expect(page).to have_content("This is existing content that must remain.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
       end
     end
@@ -171,6 +196,12 @@ RSpec.describe "Guide" do
         visit "/how-to-vote/postal-voting"
 
         expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).to have_content("What is a postal vote?")
+        expect(page).to have_content("Transcript")
+        expect(page).to have_content("A postal vote allows you")
+        expect(page).to have_content("You must apply for a postal vote")
+        expect(page).to have_content("you're away from home")
+        expect(page).to have_content("This is existing content that must remain.")
         expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
       end
     end
@@ -180,6 +211,12 @@ RSpec.describe "Guide" do
         visit "/how-to-vote/postal-voting"
 
         expect(page).not_to have_link("How to complete your postal vote", href: youtube_url)
+        expect(page).not_to have_content("What is a postal vote?")
+        expect(page).not_to have_content("Transcript")
+        expect(page).not_to have_content("A postal vote allows you")
+        expect(page).to have_content("You must apply for a postal vote")
+        expect(page).to have_content("you're away from home")
+        expect(page).to have_content("This is existing content that must remain.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
       end
     end
@@ -190,6 +227,12 @@ RSpec.describe "Guide" do
       visit "/how-to-vote/postal-voting?token=some-token"
 
       expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+      expect(page).to have_content("What is a postal vote?")
+      expect(page).to have_content("Transcript")
+      expect(page).to have_content("A postal vote allows you")
+      expect(page).to have_content("You must apply for a postal vote")
+      expect(page).to have_content("you're away from home")
+      expect(page).to have_content("This is existing content that must remain.")
       expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
       expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)

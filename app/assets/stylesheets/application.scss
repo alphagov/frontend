@@ -117,6 +117,12 @@
   max-width: 100%;
 }
 
+.statistics-accredited {
+  max-width: 120px;
+  margin: 0 auto;
+  margin-bottom: govuk-spacing(6);
+}
+
 @include govuk-media-query($from: tablet) {
   $content-width: 66.6667%;
   $sidebar-width: auto;

@@ -47,6 +47,7 @@ group :test do
   gem "capybara"
   gem "govuk_schemas"
   gem "i18n-coverage"
+  gem "percy-capybara", "~> 5.0"
   gem "rails-controller-testing"
   gem "rspec-rails"
   gem "simplecov"

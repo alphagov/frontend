@@ -1,7 +1,10 @@
 require "simplecov"
-SimpleCov.start "rails" do
-  enable_coverage :branch
-  minimum_coverage 95
+
+unless ENV["DISABLE_SIMPLECOV"]
+  SimpleCov.start "rails" do
+    enable_coverage :branch
+    minimum_coverage 95
+  end
 end
 
 ENV["RAILS_ENV"] = "test"
@@ -15,6 +18,7 @@ WebMock.disable_net_connect!(allow_localhost: true)
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 GovukTest.configure
+Selenium::WebDriver::Options.chrome(loggingPrefs: { browser: "ALL" })
 
 GovukAbTesting.configure do |config|
   config.acceptance_test_framework = :capybara
@@ -23,9 +27,11 @@ end
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryBot::Syntax::Methods
-
+  config.include Capybara::DSL, capybara: true, visual_regression: true
+  config.filter_run_excluding visual_regression: true
   config.include ContentStoreHelpers, type: :request
   config.include ContentStoreHelpers, type: :system
+  config.include ContentStoreHelpers, type: :visual_regression
 
   config.include ComponentHelpers, type: :view
 

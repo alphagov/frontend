@@ -812,6 +812,7 @@ DEPENDENCIES
   rinku (~> 2.0)
   rspec-rails
   rubocop-govuk
+  selenium-webdriver (~> 4.43)
   simplecov
   sprockets-rails
   terser

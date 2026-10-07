@@ -55,3 +55,5 @@ group :test do
 end
 
 gem "percy-capybara", "~> 5.0", groups: [:development, :test]
+
+gem "selenium-webdriver", "~> 4.43", groups: [:development, :test]

@@ -50,6 +50,7 @@
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
         disable_youtube_expansions: !content_item.is_child_benefit? && !show_postal_vote_video?,
+        classes: ("app-c-postal-vote-video" if show_postal_vote_video?),
       } do %>
         <%= raw(current_guide_part_body) %>
       <% end %>

@@ -188,6 +188,7 @@ RSpec.describe "Guide" do
         expect(page).to have_content("you're away from home")
         expect(page).to have_content("This is existing content that must remain.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
+        expect(page).not_to have_css(".app-c-postal-vote-video")
       end
     end
 
@@ -203,6 +204,7 @@ RSpec.describe "Guide" do
         expect(page).to have_content("you're away from home")
         expect(page).to have_content("This is existing content that must remain.")
         expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+        expect(page).to have_css(".app-c-postal-vote-video")
       end
     end
 
@@ -218,6 +220,7 @@ RSpec.describe "Guide" do
         expect(page).to have_content("you're away from home")
         expect(page).to have_content("This is existing content that must remain.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
+        expect(page).not_to have_css(".app-c-postal-vote-video")
       end
     end
 
@@ -234,6 +237,7 @@ RSpec.describe "Guide" do
       expect(page).to have_content("you're away from home")
       expect(page).to have_content("This is existing content that must remain.")
       expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+      expect(page).to have_css(".app-c-postal-vote-video")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
       expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
     end
@@ -244,6 +248,7 @@ RSpec.describe "Guide" do
       visit "/how-to-vote"
 
       expect(page).to have_link("How to complete your postal vote", href: youtube_url)
+      expect(page).not_to have_css(".app-c-postal-vote-video")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
       expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
     end

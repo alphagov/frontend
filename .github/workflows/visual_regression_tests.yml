@@ -36,7 +36,13 @@ on:
         required: false
         default: 'main'
         type: string
-
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Commit, tag or branch name to test against'
+        required: true
+        default: 'main'
+        type: string
 jobs:
   visual-regression-test-pages:
     runs-on: ubuntu-latest

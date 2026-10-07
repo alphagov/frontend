@@ -50,6 +50,7 @@ group :test do
   gem "percy-capybara", "~> 5.0"
   gem "rails-controller-testing"
   gem "rspec-rails"
+  gem "selenium-webdriver", "~> 4.43"
   gem "simplecov"
   gem "timecop"
   gem "webmock"

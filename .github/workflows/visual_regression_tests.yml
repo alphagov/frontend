@@ -24,7 +24,7 @@ on:
       - "LICENCE.md"
       - "SUPPORT.md"
   schedule:
-    - cron: "0 10,16 * * *" # Every day at 10AM and 4PM
+    - cron: "30 10 * * 1-5" # At 10:30 Monday through Friday.
   workflow_call:
     inputs:
       ref:

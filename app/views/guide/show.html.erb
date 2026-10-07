@@ -47,12 +47,26 @@
           margin_bottom: 6 %>
       <% end %>
 
+      <% video_transcript = postal_vote_video_transcript %>
+
       <%= render "govuk_publishing_components/components/govspeak", {
         direction: page_text_direction,
         disable_youtube_expansions: !content_item.is_child_benefit? && !show_postal_vote_video?,
         classes: ("app-c-postal-vote-video" if show_postal_vote_video?),
       } do %>
-        <%= raw(current_guide_part_body) %>
+        <% if video_transcript&.present? %>
+          <%= raw(video_transcript.before_html) %>
+
+          <%= render "govuk_publishing_components/components/details", {
+            title: "Transcript",
+          } do %>
+            <%= raw(video_transcript.transcript_html) %>
+          <% end %>
+
+          <%= raw(video_transcript.after_html) %>
+        <% else %>
+          <%= raw(current_guide_part_body) %>
+        <% end %>
       <% end %>
 
       <% if content_item_presenter.show_guide_navigation? %>

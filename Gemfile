@@ -39,8 +39,10 @@ group :development, :test do
   gem "govuk_test"
   gem "pact", "~> 1.67", require: false
   gem "pact_broker-client"
+  gem "percy-capybara", "~> 5.0"
   gem "pry-byebug"
   gem "rubocop-govuk"
+  gem "selenium-webdriver", "~> 4.43"
 end
 
 group :test do
@@ -53,7 +55,3 @@ group :test do
   gem "timecop"
   gem "webmock"
 end
-
-gem "percy-capybara", "~> 5.0", groups: [:development, :test]
-
-gem "selenium-webdriver", "~> 4.43", groups: [:development, :test]

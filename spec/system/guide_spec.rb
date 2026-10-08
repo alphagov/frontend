@@ -196,7 +196,7 @@ RSpec.describe "Guide" do
         expect(page).to have_link("What is a postal vote?", href: youtube_url)
         expect(page).to have_css("h2#what-is-a-postal-vote", text: "What is a postal vote?")
         expect(page).to have_content("This video explains what postal voting is")
-        expect(page).to have_content("GOV.UK • 1 minutes 48 seconds")
+        expect(page).to have_content("GOV.UK • 1 minute 48 seconds")
         expect(page).to have_css(".app-c-postal-vote-video .govuk-details__summary", text: "Transcript")
         expect(page).to have_css(
           ".app-c-postal-vote-video .govuk-details__text",

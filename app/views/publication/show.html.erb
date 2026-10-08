@@ -9,60 +9,65 @@
   <% end %>
 <% end %>
 
-<% content_for :header do %>
-  <%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
-  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<%= render "shared/email_subscribe_unsubscribe_flash", { title: content_item.title } %>
+
+<%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+
+<%= render "shared/publisher_metadata", locals: {
+    from: govuk_styled_links_list(content_item_presenter.contributor_links),
+    first_published: display_date(content_item.initial_publication_date),
+    last_updated: display_date(content_item.updated),
+    see_updates_link: true,
+    logo: content_item_presenter.logo,
+  } %>
+
+<%= render "shared/single_page_notification_button", content_item: %>
+
+<%= render "shared/history_notice", content_item: %>
+
+<% if content_item.withdrawn? %>
+  <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
+
+  <%= render "govuk_publishing_components/components/notice", {
+    title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
+    description_govspeak: content_item.withdrawn_explanation&.html_safe,
+    time: withdrawn_time_tag,
+    lang: "en",
+  } %>
 <% end %>
 
-<% content_for :content do %>
-  <%= render "shared/single_page_notification_button", content_item: %>
-  <%= render "shared/history_notice", content_item: %>
-
-  <% if content_item.withdrawn? %>
-    <% withdrawn_time_tag = tag.time(display_date(content_item.withdrawn_at), datetime: content_item.withdrawn_at) %>
-
-    <%= render "govuk_publishing_components/components/notice", {
-      title: I18n.t("withdrawn_notice.title", schema_name: I18n.t("formats.#{content_item.schema_name}.name", count: 1, locale: :en).downcase, withdrawn_time: withdrawn_time_tag).html_safe,
-      description_govspeak: content_item.withdrawn_explanation&.html_safe,
-      time: withdrawn_time_tag,
-      lang: "en",
-    } %>
-  <% end %>
-
-  <div class="responsive-bottom-margin">
-    <% if content_item.national_applicability.present? %>
-      <%= render "govuk_publishing_components/components/devolved_nations", {
-        national_applicability: content_item.national_applicability,
-        content_type: content_item.schema_name,
-      } %>
-    <% end %>
-
+<div class="govuk-grid-row gem-print-columns-none">
+  <div class="govuk-grid-column-two-thirds">
     <div class="responsive-bottom-margin">
-      <%= render "shared/attachments_list",
-        title: t("formats.publication.documents", count: 5), # This should always be pluralised.
-        attachments_for_components: content_item.featured_attachments %>
-
-      <section id="details">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: t("formats.publication.details"),
-          margin_bottom: 4,
+      <% if content_item.national_applicability.present? %>
+        <%= render "govuk_publishing_components/components/devolved_nations", {
+          national_applicability: content_item.national_applicability,
+          content_type: content_item.schema_name,
         } %>
+      <% end %>
 
-        <%= render "govuk_publishing_components/components/govspeak", {
-          direction: page_text_direction,
-        } do %>
-          <%= content_item.body.html_safe %>
-        <% end %>
-      </section>
+      <div class="responsive-bottom-margin">
+        <%= render "shared/attachments_list",
+          title: t("formats.publication.documents", count: 5), # This should always be pluralised.
+          attachments_for_components: content_item.featured_attachments %>
+
+        <section id="details">
+          <%= render "govuk_publishing_components/components/heading", {
+            text: t("formats.publication.details"),
+            margin_bottom: 4,
+          } %>
+
+          <%= render "govuk_publishing_components/components/govspeak", {
+            direction: page_text_direction,
+          } do %>
+            <%= content_item.body.html_safe %>
+          <% end %>
+        </section>
+      </div>
+      <%= render "shared/published_dates_with_notification_button" %>
     </div>
-    <%= render "shared/published_dates_with_notification_button", hide_history: true %>
   </div>
-<% end %>
+  <%= render "shared/sidebar_navigation" %>
+</div>
 
-<% content_for :sidebar do %>
-  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
-<% end %>
-
-<% content_for :footer do %>
-  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
-<% end %>
+<%= render "shared/footer_navigation" %>

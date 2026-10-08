@@ -31,7 +31,7 @@ RSpec.describe "Publication" do
     it "renders metadata" do
       visit base_path
 
-      within(".gem-c-metadata") do
+      within("[class*='metadata-column']") do
         expect(page).to have_link("Environment Agency", href: "/government/organisations/environment-agency")
         expect(page).to have_link("The Rt Hon Sir Eric Pickles MP", href: "/government/people/eric-pickles")
         expect(page).to have_text("Published: 3 May 2016")
@@ -42,6 +42,12 @@ RSpec.describe "Publication" do
       visit base_path
 
       expect(find_schema_of_type("Article")).not_to be_nil
+    end
+
+    it "shows the published date in the footer" do
+      visit base_path
+
+      expect(page).to have_selector(".gem-c-published-dates", text: "Published 3 May 2016")
     end
 
     context "when there are featured and non-featured attachments" do
@@ -270,7 +276,7 @@ RSpec.describe "Publication" do
       it "renders metadata date in Welsh" do
         visit base_path
 
-        within(".gem-c-metadata") do
+        within("[class*='metadata-column']") do
           expect(page).to have_text("3 Mai 2016")
         end
       end
@@ -278,21 +284,7 @@ RSpec.describe "Publication" do
       it "shows the published date in the footer in Welsh" do
         visit base_path
 
-        within(".gem-c-metadata") do
-          expect(page).to have_text("Cyhoeddwyd: 3 Mai 2016")
-        end
-      end
-    end
-
-    context "when the page has a change history" do
-      let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "best-practice-form-2") }
-
-      it "renders the page history" do
-        visit base_path
-
-        within(".gem-c-metadata") do
-          expect(page).to have_text("Added a link to the 'DVSA data protection statement'.")
-        end
+        expect(page).to have_selector(".gem-c-published-dates", text: "Cyhoeddwyd ar 3 Mai 2016")
       end
     end
   end

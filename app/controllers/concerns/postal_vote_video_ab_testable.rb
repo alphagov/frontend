@@ -27,7 +27,7 @@ module PostalVoteVideoAbTestable
   def current_guide_part_body
     return content_item.current_part_body unless hide_postal_vote_video?
 
-    GovspeakYoutubeVideoRemover.new(content_item.current_part_body).remove
+    PostalVoteVideoContentRemover.new(content_item.current_part_body).remove
   end
 
   def postal_vote_video_page?

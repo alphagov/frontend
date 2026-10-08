@@ -4,7 +4,6 @@ module PostalVoteVideoAbTestable
 
   def self.included(base)
     base.helper_method(
-      :current_guide_part_body,
       :postal_vote_video_ab_test_page?,
       :postal_vote_video_ab_test_variant,
       :postal_vote_video_page?,
@@ -24,12 +23,6 @@ module PostalVoteVideoAbTestable
     @postal_vote_video_ab_test_variant ||= postal_vote_video_ab_test.requested_variant(request.headers)
   end
 
-  def current_guide_part_body
-    return content_item.current_part_body unless hide_postal_vote_video?
-
-    GovspeakYoutubeVideoRemover.new(content_item.current_part_body).remove
-  end
-
   def postal_vote_video_page?
     request.path == POSTAL_VOTE_PATH
   end
@@ -46,10 +39,6 @@ private
 
   def draft_preview?
     draft_token.present?
-  end
-
-  def hide_postal_vote_video?
-    postal_vote_video_page? && !show_postal_vote_video?
   end
 
   def set_postal_vote_video_ab_test_response_header

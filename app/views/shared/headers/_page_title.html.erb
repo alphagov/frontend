@@ -66,12 +66,10 @@
     <% end %>
 
     <% if options[:logo] %>
-      <%= content_tag(:div, class: ("statistics-accredited" if options[:logo][:statistics_logo])) do %>
-        <%= render "govuk_publishing_components/components/figure", {
-          src: options[:logo][:path],
-          alt: options[:logo][:alt_text],
-        } %>
-      <% end %>
+      <%= render "govuk_publishing_components/components/figure", {
+        src: options[:logo][:path],
+        alt: options[:logo][:alt_text],
+      } %>
     <% end %>
   </div>
 </div>

@@ -52,7 +52,7 @@ private
       page = content_item.corporate_information_pages.find { |content_item| content_item.document_type == further_information_type }
       next unless page
 
-      link = govuk_styled_link(page.title, path: page.base_path)
+      link = govuk_styled_link(content_item.title_without_organisation(page.title), path: page.base_path)
 
       I18n.t("formats.corporate_information_page.#{further_information_type}_html", link:)
     end

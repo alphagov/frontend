@@ -1,5 +1,7 @@
 class PublicationPresenter < ContentItemPresenter
   include NationalStatisticsLogo
+  include LinkHelper
+  include DateHelper
 
   PATHS_TO_HIDE = %w[
     /government/publications/govuk-app-testing-privacy-notice-how-we-use-your-data
@@ -10,6 +12,33 @@ class PublicationPresenter < ContentItemPresenter
     /government/publications/hpv-self-testing-easy-read-letter-templates
     /government/publications/hpv-self-testing-easy-guides
   ].freeze
+
+  def use_contextual_components?
+    true
+  end
+
+  def page_title_options
+    data = {
+      metadata: {
+        from: govuk_styled_links_list(contributor_links),
+        first_published: display_date(content_item.initial_publication_date),
+        last_updated: display_date(content_item.updated),
+        page_history: formatted_history(content_item.history),
+        page_history_details_ga4: {
+          type: "content history",
+          section: "Top",
+        },
+      },
+    }
+    if logo
+      data[:logo] = {
+        path: ActionController::Base.helpers.asset_path(logo[:path]),
+        alt_text: logo[:alt_text],
+        statistics_logo: true,
+      }
+    end
+    super.merge(data)
+  end
 
   def hide_from_search_engines?
     PATHS_TO_HIDE.any? do |path_to_hide|

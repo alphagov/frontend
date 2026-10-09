@@ -206,7 +206,10 @@ RSpec.describe "Publication" do
       it "shows a logo" do
         visit base_path
 
-        expect(page).to have_selector('img[alt="Accredited official statistics"]')
+        within ".statistics-accredited" do
+          expect(page).to have_selector('img[alt="Accredited official statistics"]')
+          expect(page).to have_selector('.gem-c-figure__image[src^="/assets/frontend/accredited-official-statistics"]')
+        end
       end
 
       it "has structured data for a Dataset" do

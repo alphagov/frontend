@@ -18,7 +18,7 @@ class PublicationPresenter < ContentItemPresenter
   end
 
   def page_title_options
-    super.merge({
+    data = {
       metadata: {
         from: govuk_styled_links_list(contributor_links),
         first_published: display_date(content_item.initial_publication_date),
@@ -29,8 +29,15 @@ class PublicationPresenter < ContentItemPresenter
           section: "Top",
         },
       },
-      logo: logo,
-    })
+    }
+    if logo
+      data[:logo] = {
+        path: ActionController::Base.helpers.asset_path(logo[:path]),
+        alt_text: logo[:alt_text],
+        statistics_logo: true,
+      }
+    end
+    super.merge(data)
   end
 
   def hide_from_search_engines?

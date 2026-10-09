@@ -19,6 +19,10 @@ class DetailedGuidePresenter < ContentItemPresenter
         first_published: display_date(content_item.first_public_at || content_item.first_published_at),
         last_updated: display_date(content_item.updated),
         page_history: formatted_history(content_item.history),
+        page_history_details_ga4: {
+          type: "content history",
+          section: "Top",
+        },
       },
       logo: logo,
     })

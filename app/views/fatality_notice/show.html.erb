@@ -43,13 +43,8 @@
   } do %>
     <%= raw(content_item.body) %>
   <% end %>
+<% end %>
 
-  <%= render "govuk_publishing_components/components/published_dates", {
-    published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    history: formatted_history(content_item.history),
-    margin_bottom: 8,
-  } %>
-
+<% content_for :footer do %>
   <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>

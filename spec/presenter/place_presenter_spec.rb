@@ -23,6 +23,20 @@ RSpec.describe PlacePresenter do
     end
   end
 
+  describe "#map_bounds" do
+    let(:places) do
+      [
+        { "address1" => "44", "address2" => "Foo Foo Forest", "location" => { "longitude" => 0.3, "latitude" => 52 } },
+        { "address1" => "45", "address2" => "Mushroom Kingdom", "location" => { "longitude" => 0.6, "latitude" => 51 } },
+        { "address1" => "46", "address2" => "Emerald City", "location" => { "longitude" => 0.5, "latitude" => 52.3 } },
+      ]
+    end
+
+    it "returns a bounding box that can contain the places" do
+      expect(place_presenter.map_bounds).to eq([0.3, 51, 0.6, 52.3])
+    end
+  end
+
   describe "#places" do
     it "shows the places" do
       expected = [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo", "text" => "http://www.example.com/foo_foo_foorentinafoo", "address" => "44, Foo Foo Forest" }]

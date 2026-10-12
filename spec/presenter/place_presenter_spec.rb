@@ -9,6 +9,20 @@ RSpec.describe PlacePresenter do
     [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo" }]
   end
 
+  describe "#map_allowed?" do
+    it "returns false" do
+      expect(place_presenter.map_allowed?).to be false
+    end
+
+    context "when the place slug is in allowed_geojson_slugs" do
+      before { Rails.application.config.allowed_geojson_slugs = [content_item.place_type] }
+
+      it "returns true" do
+        expect(place_presenter.map_allowed?).to be true
+      end
+    end
+  end
+
   describe "#places" do
     it "shows the places" do
       expected = [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo", "text" => "http://www.example.com/foo_foo_foorentinafoo", "address" => "44, Foo Foo Forest" }]

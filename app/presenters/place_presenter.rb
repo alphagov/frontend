@@ -12,6 +12,10 @@ class PlacePresenter < ContentItemPresenter
     @places.first["gss"].blank? ? "near" : "for"
   end
 
+  def map_allowed?
+    Rails.application.config.allowed_geojson_slugs.include?(content_item.place_type)
+  end
+
 private
 
   def format_places(places)

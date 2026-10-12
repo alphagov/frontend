@@ -66,6 +66,35 @@ RSpec.describe "Places API" do
       end
     end
 
+    context "when places contain geocode errors" do
+      let(:places) do
+        [
+          {
+            "name" => "A place",
+            "source_address" => "Hello Town, AB12 3CD",
+            "location" => {
+              "longitude" => "51",
+              "latitude" => "-0.01",
+            },
+            "general_notes" => "<div>Hello</div>",
+            "map_marker_symbol" => "pin",
+            "map_marker_colour" => "green",
+          },
+          {
+            "name" => "A missing place",
+            "source_address" => "Hello Town, AB12 3CZ",
+            "geocode_error" => "AB12 3CZ isn't a real postcode",
+          },
+        ]
+      end
+
+      it "returns only places that don't contain geocode errors" do
+        get "/api/places/#{service_slug}.geojson"
+
+        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
+      end
+    end
+
     context "when asking for a non-allowed slug" do
       let(:allowed_service_slugs) { [] }
 

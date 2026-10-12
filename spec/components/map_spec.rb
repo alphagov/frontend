@@ -88,6 +88,16 @@ RSpec.describe "MapComponent", type: :view do
     expect(rendered).not_to have_selector("[data-config*='[1,2,3]']")
   end
 
+  it "allows max_bounds to be passed" do
+    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", max_bounds: [11, 12, 13, 14])
+    expect(rendered).to have_selector("[data-config*='[11,12,13,14]']")
+  end
+
+  it "does not allow invalid max_bounds" do
+    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", max_bounds: [11, 12, 13])
+    expect(rendered).not_to have_selector("[data-config*='[11,12,13]']")
+  end
+
   key = [
     {
       "name" => "Square",

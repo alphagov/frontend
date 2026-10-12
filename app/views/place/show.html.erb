@@ -69,6 +69,7 @@
 
           <% if @places_presenter.map_allowed? %>
             <%= render "components/map", {
+              bounds: @places_presenter.map_bounds,
               heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
               url: "/api/places/#{content_item.place_type}.geojson",
             } %>

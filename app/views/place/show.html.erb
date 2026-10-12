@@ -66,10 +66,19 @@
       } do %>
         <% if @places_presenter.places.any? %>
           <% results_prefix = t("formats.place.results.#{@places_presenter.preposition}") %>
-          <%= render "govuk_publishing_components/components/heading", {
-            text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
-            margin_bottom: 4,
-          } %>
+
+          <% if @places_presenter.map_allowed? %>
+            <%= render "components/map", {
+              heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+              url: "/api/places/#{content_item.place_type}.geojson",
+            } %>
+          <% else %>
+            <%= render "govuk_publishing_components/components/heading", {
+              text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+              margin_bottom: 4,
+            } %>
+          <% end %>
+
           <ol id="options" class="govuk-list place-list">
             <%= render partial: "place", locals: { places: @places_presenter.places } %>
           </ol>

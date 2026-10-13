@@ -12,6 +12,7 @@
   key_heading_text ||= "Map key"
   key ||= nil
   bounds ||= nil
+  max_bounds ||= nil
   disable_ga4 ||= false
 
   heading_obj = { text: heading_text, heading_level: heading_level, margin_bottom: 4, font_size: "m"}
@@ -25,6 +26,7 @@
   map_config[:mapLabel] = "Interactive map: #{heading_text}"
   map_config[:containerHeight] = "#{height}px" if height
   map_config[:bounds] = bounds if bounds.kind_of?(Array) && bounds.length == 4
+  map_config[:maxBounds] = max_bounds if max_bounds.kind_of?(Array) && max_bounds.length == 4
 
   component_helper = GovukPublishingComponents::Presenters::ComponentWrapperHelper.new(local_assigns)
   component_helper.set_id("map-#{SecureRandom.hex(4)}")

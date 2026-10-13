@@ -120,7 +120,8 @@ describe('Map component', function () {
     const config = {
       centre_lat: 1,
       centre_lng: 2,
-      zoom: 9
+      zoom: 9,
+      maxBounds: [-1, 3, 3, 5]
     }
 
     beforeEach(function () {
@@ -132,6 +133,7 @@ describe('Map component', function () {
       expect(module.config.centre_lat).toEqual(1)
       expect(module.config.centre_lng).toEqual(2)
       expect(module.config.zoom).toEqual(9)
+      expect(module.config.maxBounds).toEqual([-1, 3, 3, 5])
     })
   })
 
@@ -169,6 +171,7 @@ describe('Map component', function () {
     it('sets its own bounds', function () {
       module.addAllMarkers() // need to call this manually as normally invoked inside 'on', which we've faked
       expect(module.map.fitToBounds).not.toHaveBeenCalled()
+      expect(module.config.bounds).toEqual([1, 2, 3, 4])
     })
   })
 

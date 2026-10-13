@@ -208,6 +208,19 @@ examples:
           - 51.233
         properties:
           name: Ham, Kent
+  max_bounds:
+    description: Limits the map to a particular area. Numbers represent West, South, East, and North. Note that if the numbers are wrong or contradict it will have adverse effects on the map.
+    data:
+      heading_text: A map of only the area around London
+      zoom: 9
+      centre:
+      - -0.12
+      - 51.5
+      max_bounds:
+      - -1
+      - 51.1
+      - 1
+      - 51.9
   custom_height:
     description: The map defaults to a height of 500px on desktop but this can be overridden if required. The height on tablet and mobile is set to be no taller than the window.
     data:

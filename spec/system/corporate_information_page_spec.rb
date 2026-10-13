@@ -9,8 +9,20 @@ RSpec.describe "CorporateInformationPage" do
 
     it "displays the title" do
       within(".gem-c-heading") do
-        expect(page).to have_title("About us - Department of Health and Social Care - GOV.UK")
+        expect(page).to have_title("#{content_store_response['title']} - GOV.UK")
         expect(page).to have_css("h1", text: content_store_response["title"])
+      end
+    end
+
+    context "when the title already includes the organisation name" do
+      before do
+        content_item = content_store_response.merge("title" => "About us - Department of Health and Social Care", "base_path" => "/government/organisations/department-of-health/about")
+        stub_content_store_has_item("/government/organisations/department-of-health/about", content_item)
+        visit "/government/organisations/department-of-health/about"
+      end
+
+      it "does not append the organisation name to the page title again" do
+        expect(page).to have_title("About us - Department of Health and Social Care - GOV.UK", exact: true)
       end
     end
 

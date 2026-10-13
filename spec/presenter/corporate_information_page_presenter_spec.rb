@@ -46,6 +46,22 @@ RSpec.describe CorporateInformationPagePresenter do
       end
     end
 
+    context "when the linked page titles include the organisation name" do
+      let(:content_store_response) do
+        response = GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page")
+        organisation_title = response.dig("links", "organisations").first["title"]
+        response["links"]["corporate_information_pages"].each do |page|
+          page["title"] = "#{page['title']} - #{organisation_title}"
+        end
+        response
+      end
+
+      it "leaves the organisation name out of the link text" do
+        expect(presenter.further_information).to include(">Publication scheme</a>")
+        expect(presenter.further_information).to include(">Personal information charter</a>")
+      end
+    end
+
     context "when there are no corporate information pages" do
       let(:content_store_response) { GovukSchemas::Example.find("corporate_information_page", example_name: "corporate_information_page_without_description") }
 

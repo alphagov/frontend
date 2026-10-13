@@ -98,10 +98,35 @@ RSpec.describe CorporateInformationPage do
       end
     end
 
+    context "when the linked page titles include the organisation name" do
+      before do
+        content_store_response["links"]["corporate_information_pages"].each do |page|
+          page["title"] = "#{page['title']} - Department of Health and Social Care" unless page["title"].include?("DHSC")
+        end
+      end
+
+      it "leaves the organisation name out of the group link titles" do
+        titles = corporate_information.flat_map { |group| group[:links].map { |link| link[:title] } }
+
+        expect(titles).to include("Complaints procedure")
+        expect(titles).not_to include(a_string_including("- Department of Health and Social Care"))
+      end
+    end
+
     context "with 'Jobs and contracts' section" do
       it "includes group links that are external" do
         expect(corporate_information.last[:links].last).to eq({ title: "Jobs", path: "https://www.civilservicejobs.service.gov.uk/csr" })
       end
+    end
+  end
+
+  describe "#title_without_organisation" do
+    it "removes the organisation name from the end of a title" do
+      expect(corporate_information_page.title_without_organisation("Complaints procedure - Department of Health and Social Care")).to eq("Complaints procedure")
+    end
+
+    it "leaves titles without the organisation name unchanged" do
+      expect(corporate_information_page.title_without_organisation("Statistics at DHSC")).to eq("Statistics at DHSC")
     end
   end
 

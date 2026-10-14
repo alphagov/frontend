@@ -7,5 +7,7 @@
     font_size: "xl",
     margin_bottom: 8,
   } %>
-  <p class="govuk-body introduction"><%= t("attachment.virus_check.message") %></p>
+  <%= render "govuk_publishing_components/components/lead_paragraph", {
+    text: t("attachment.virus_check.message"),
+  } %>
 <% end %>

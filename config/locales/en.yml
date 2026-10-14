@@ -8,7 +8,7 @@ en:
     visit_govuk_html: Visit the <a href="/" class="govuk-link">GOV.UK homepage</a> to find government services and information.
   attachment:
     virus_check:
-      intro: This attachment is being virus checked.
+      intro: This attachment is being virus checked
       message: We are currently holding this attachment in quarantine until it has been virus checked. The attachment will be available at the original location shortly.
   b: B
   bank-holidays: bank-holidays

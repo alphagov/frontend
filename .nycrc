@@ -13,7 +13,8 @@
     "public/assets/frontend/test-dependencies-*",
     "public/assets/frontend/dependencies-*",
     "public/assets/frontend/components/map/defra-*",
-    "public/assets/frontend/components/map/map*"
+    "public/assets/frontend/components/map/map*",
+    "public/assets/frontend/components/map/im-maplibre-worker*"
   ],
   "report-dir": "coverage/javascript",
   "reporter": [

@@ -44,6 +44,18 @@ RSpec.describe MiniSitePresenter do
       expect(mini_site_presenter.formatted_social_media_links.count).to eq(2)
       expect(mini_site_presenter.formatted_social_media_links.first.keys).to eq(%i[href icon text])
     end
+
+    context "when details/social_media_links is nil" do
+      let(:content_store_response) do
+        GovukSchemas::Example.find("mini_site", example_name:).tap do |response|
+          response["details"].delete("social_media_links")
+        end
+      end
+
+      it "returns an empty array" do
+        expect(mini_site_presenter.formatted_social_media_links).to be_empty
+      end
+    end
   end
 
   describe "#impact_header_image" do

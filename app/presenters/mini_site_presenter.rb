@@ -9,7 +9,7 @@ class MiniSitePresenter < ContentItemPresenter
   end
 
   def formatted_social_media_links
-    content_item.details["social_media_links"].map do |social_media_link|
+    (content_item.details["social_media_links"] || []).map do |social_media_link|
       {
         href: social_media_link["href"],
         icon: social_media_link["service_type"],

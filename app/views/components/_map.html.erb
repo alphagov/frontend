@@ -36,7 +36,7 @@
   component_helper.add_data_attribute({ key: key.to_json }) if markers && key
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
   component_helper.add_data_attribute({ heading_level: key_heading_obj.nil? ? heading_level + 1 : heading_level + 2 })
-  component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/maplibre-gl-csp-worker.js") })
+  component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/im-maplibre-worker.js") })
   component_helper.add_data_attribute({ tracking_enabled: true }) unless disable_ga4
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_map_script ||= OpenStruct.new(script_included: false)

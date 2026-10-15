@@ -7,7 +7,9 @@ body: |
 
   Maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
 
-  Note that the order of positional co-ordinates for this map and its contents is longitude followed by latitude. This is particularly important for markers.
+  The order of positional co-ordinates for this map and its contents is longitude followed by latitude. This is particularly important for markers.
+
+  The JavaScript required for the component is relatively large and should not be included in the main `application.js`, instead the component includes its own required JavaScript files.
 shared_accessibility_criteria:
 - link
 

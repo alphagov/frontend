@@ -11,7 +11,6 @@ APP_STYLESHEETS = {
   "views/_manual.scss" => "views/_manual.css",
   "views/_place-list.scss" => "views/_place-list.css",
   "views/_published-dates-button-group.scss" => "views/_published-dates-button-group.css",
-  "views/_publisher_metadata.scss" => "views/_publisher_metadata.css",
   "views/_roadmap.scss" => "views/_roadmap.css",
   "views/_service-manual-guide.scss" => "views/_service-manual-guide.css",
   "views/_service-manual-service-standard.scss" => "views/_service-manual-service-standard.css",

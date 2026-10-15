@@ -1,32 +1,71 @@
 RSpec.describe PlacePresenter do
+  subject(:place_presenter) { described_class.new(content_item, places) }
+
+  let(:content_item) { Place.new(content_store_response) }
   let(:content_store_response) do
     GovukSchemas::Example.find("place", example_name: "find-regional-passport-office")
   end
+  let(:places) do
+    [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo" }]
+  end
 
-  let(:content_item) { Place.new(content_store_response) }
+  describe "#map_allowed?" do
+    it "returns false" do
+      expect(place_presenter.map_allowed?).to be false
+    end
+
+    context "when the place slug is in allowed_geojson_slugs" do
+      before { Rails.application.config.allowed_geojson_slugs = [content_item.place_type] }
+
+      it "returns true" do
+        expect(place_presenter.map_allowed?).to be true
+      end
+    end
+  end
+
+  describe "#map_bounds" do
+    let(:places) do
+      [
+        { "address1" => "44", "address2" => "Foo Foo Forest", "location" => { "longitude" => 0.3, "latitude" => 52 } },
+        { "address1" => "45", "address2" => "Mushroom Kingdom", "location" => { "longitude" => 0.6, "latitude" => 51 } },
+        { "address1" => "46", "address2" => "Emerald City", "location" => { "longitude" => 0.5, "latitude" => 52.3 } },
+      ]
+    end
+
+    it "returns a bounding box that can contain the places" do
+      expect(place_presenter.map_bounds).to eq([0.3, 51, 0.6, 52.3])
+    end
+  end
 
   describe "#places" do
     it "shows the places" do
-      places = [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo" }]
       expected = [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo", "text" => "http://www.example.com/foo_foo_foorentinafoo", "address" => "44, Foo Foo Forest" }]
 
-      expect(described_class.new(content_item, places).places).to eq(expected)
+      expect(place_presenter.places).to eq(expected)
     end
   end
 
   describe "#preposition" do
-    it "returns near if there are no places" do
-      expect(described_class.new(content_item, []).preposition).to eq("near")
+    context "when places are addresses" do
+      it "returns near" do
+        expect(place_presenter.preposition).to eq("near")
+      end
     end
 
-    it "returns near if places are addresses" do
-      places = [{ "address1" => "44", "address2" => "Foo Foo Forest", "url" => "http://www.example.com/foo_foo_foorentinafoo" }]
-      expect(described_class.new(content_item, places).preposition).to eq("near")
+    context "when there are no places" do
+      let(:places) { [] }
+
+      it "returns near" do
+        expect(place_presenter.preposition).to eq("near")
+      end
     end
 
-    it "returns far if places are counties" do
-      places = [{ "gss" => "123" }]
-      expect(described_class.new(content_item, places).preposition).to eq("for")
+    context "when places are counties" do
+      let(:places) { [{ "gss" => "123" }] }
+
+      it "returns far if places are counties" do
+        expect(place_presenter.preposition).to eq("for")
+      end
     end
   end
 end

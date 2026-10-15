@@ -25,11 +25,13 @@ module Api
 
       {
         type: "FeatureCollection",
-        features: places.map { |place| map_to_feature(place) },
+        features: places.map { |place| map_to_feature(place) }.compact,
       }
     end
 
     def map_to_feature(place)
+      return nil if place["geocode_error"]
+
       {
         type: "Feature",
         geometry: {

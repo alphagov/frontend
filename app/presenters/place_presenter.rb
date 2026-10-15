@@ -12,6 +12,21 @@ class PlacePresenter < ContentItemPresenter
     @places.first["gss"].blank? ? "near" : "for"
   end
 
+  def map_allowed?
+    Rails.application.config.allowed_geojson_slugs.include?(content_item.place_type)
+  end
+
+  def map_bounds
+    bounds = [180.0, 90.0, -180.0, -90.0]
+    places.each_with_object(bounds) do |place, bounds|
+      bounds[0] = [place["location"]["longitude"], bounds[0]].min
+      bounds[1] = [place["location"]["latitude"], bounds[1]].min
+      bounds[2] = [place["location"]["longitude"], bounds[2]].max
+      bounds[3] = [place["location"]["latitude"], bounds[3]].max
+    end
+    bounds
+  end
+
 private
 
   def format_places(places)

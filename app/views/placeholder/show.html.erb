@@ -1,11 +1,13 @@
 <% content_for :title, t("attachment.virus_check.intro") %>
 
-<div class="holding-block">
-    <%= render "govuk_publishing_components/components/heading", {
-      text: t("attachment.virus_check.intro"),
-      heading_level: 1,
-      font_size: "xl",
-      margin_bottom: 8,
-    } %>
-  <p class="govuk-body introduction"><%= t("attachment.virus_check.message") %></p>
-</div>
+<% content_for :content do %>
+  <%= render "govuk_publishing_components/components/heading", {
+    text: t("attachment.virus_check.intro"),
+    heading_level: 1,
+    font_size: "xl",
+    margin_bottom: 8,
+  } %>
+  <%= render "govuk_publishing_components/components/lead_paragraph", {
+    text: t("attachment.virus_check.message"),
+  } %>
+<% end %>

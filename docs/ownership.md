@@ -3,7 +3,6 @@
 The owning team for this repo is responsible for the following maintenance tasks:
 
 - Dependency updates
-- Plan for Change map / content updates
 - Ensuring bank holidays / when the clocks change data is updated
 - Rotating ELECTIONS_API_KEY values as appropriate
 - Updating promotional slots on the homepage

@@ -2,15 +2,6 @@
   <%= stylesheet_link_tag "views/_published-dates-button-group", media: "all" %>
 <% end %>
 
-<% unless local_assigns[:hide_history] %>
-  <%= render "govuk_publishing_components/components/published_dates", {
-    published: display_date(content_item.initial_publication_date),
-    last_updated: display_date(content_item.updated),
-    history: formatted_history(content_item.history),
-    margin_bottom: 5,
-  } %>
-<% end %>
-
 <div class="published-dates-button-group">
   <h2 class="govuk-visually-hidden">
     <% if content_item.display_single_page_notification_button? %>

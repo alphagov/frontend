@@ -9,6 +9,7 @@ module PostalVoteVideoAbTestable
       :postal_vote_video_ab_test_variant,
       :postal_vote_video_page?,
       :show_postal_vote_video?,
+      :postal_vote_video_transcript,
     )
     base.after_action :set_postal_vote_video_ab_test_response_header
   end
@@ -27,7 +28,7 @@ module PostalVoteVideoAbTestable
   def current_guide_part_body
     return content_item.current_part_body unless hide_postal_vote_video?
 
-    GovspeakYoutubeVideoRemover.new(content_item.current_part_body).remove
+    PostalVoteVideoContentRemover.new(content_item.current_part_body).remove
   end
 
   def postal_vote_video_page?
@@ -40,6 +41,13 @@ module PostalVoteVideoAbTestable
 
   def show_postal_vote_video?
     postal_vote_video_page? && (draft_preview? || postal_vote_video_ab_test_variant.variant?("B"))
+  end
+
+  def postal_vote_video_transcript
+    return unless postal_vote_video_page? && show_postal_vote_video?
+
+    @postal_vote_video_transcript ||=
+      PostalVoteVideoTranscript.new(current_guide_part_body)
   end
 
 private

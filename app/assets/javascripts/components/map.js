@@ -22,6 +22,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         behaviour: 'inline',
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
+          attribution: '',
           backgroundColor: '#f5f5f0'
         },
         plugins: [this.interactPlugin],

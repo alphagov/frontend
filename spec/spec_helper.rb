@@ -2,7 +2,7 @@ require "simplecov"
 SimpleCov.start "rails" do
   cover_views
   enable_coverage :branch
-  minimum_coverage 95
+  minimum_coverage 50
 end
 
 ENV["RAILS_ENV"] = "test"

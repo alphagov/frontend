@@ -1,3 +1,20 @@
+GIT
+  remote: https://github.com/alphagov/govuk_publishing_components.git
+  revision: 5fb0c27f13ee999e4bc8459f4927f435d81703c6
+  branch: test-update-single-page-notification-button-2
+  specs:
+    govuk_publishing_components (71.0.0)
+      chartkick
+      govuk_app_config
+      govuk_personalisation (>= 0.7.0)
+      kramdown
+      ostruct
+      plek
+      rails (>= 6)
+      rouge
+      sprockets (>= 3)
+      sprockets-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -198,17 +215,6 @@ GEM
     govuk_personalisation (1.2.0)
       plek (>= 1.9.0)
       rails (>= 6, < 9)
-    govuk_publishing_components (70.2.1)
-      chartkick
-      govuk_app_config
-      govuk_personalisation (>= 0.7.0)
-      kramdown
-      ostruct
-      plek
-      rails (>= 6)
-      rouge
-      sprockets (>= 3)
-      sprockets-rails
     govuk_schemas (6.3.2)
       json-schema (>= 2.8, < 6.3)
     govuk_test (4.1.3)
@@ -796,7 +802,7 @@ DEPENDENCIES
   govuk_ab_testing
   govuk_app_config
   govuk_personalisation
-  govuk_publishing_components
+  govuk_publishing_components!
   govuk_schemas
   govuk_test
   govuk_web_banners

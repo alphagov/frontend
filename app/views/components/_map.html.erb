@@ -14,6 +14,7 @@
   bounds ||= nil
   max_bounds ||= nil
   disable_ga4 ||= false
+  greyscale ||= false
 
   heading_obj = { text: heading_text, heading_level: heading_level, margin_bottom: 4, font_size: "m"}
   heading_obj[:font_size] = "s" if heading_level > 2
@@ -38,6 +39,7 @@
   component_helper.add_data_attribute({ heading_level: key_heading_obj.nil? ? heading_level + 1 : heading_level + 2 })
   component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/im-maplibre-worker.js") })
   component_helper.add_data_attribute({ tracking_enabled: true }) unless disable_ga4
+  component_helper.add_data_attribute({ greyscale: true }) if greyscale
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_map_script ||= OpenStruct.new(script_included: false)
 %>

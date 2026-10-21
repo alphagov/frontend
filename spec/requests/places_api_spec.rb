@@ -41,7 +41,7 @@ RSpec.describe "Places API" do
 
       expect(response).to have_http_status(:ok)
       expect(response.headers["content-type"]).to eq("application/geo+json; charset=utf-8")
-      expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
+      expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"id\":0,\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
     end
 
     context "when places don't specify map marker values" do
@@ -62,7 +62,7 @@ RSpec.describe "Places API" do
       it "supplies default values for markers" do
         get "/api/places/#{service_slug}.geojson"
 
-        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"circle\",\"colour\":\"blue\"}}]}")
+        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"id\":0,\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"circle\",\"colour\":\"blue\"}}]}")
       end
     end
 
@@ -91,7 +91,7 @@ RSpec.describe "Places API" do
       it "returns only places that don't contain geocode errors" do
         get "/api/places/#{service_slug}.geojson"
 
-        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
+        expect(response.body).to eq("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"id\":0,\"geometry\":{\"type\":\"Point\",\"coordinates\":[\"51\",\"-0.01\"]},\"properties\":{\"name\":\"A place\",\"description\":\"<div>Hello</div>\"},\"marker\":{\"symbol\":\"pin\",\"colour\":\"green\"}}]}")
       end
     end
 

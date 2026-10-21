@@ -25,15 +25,16 @@ module Api
 
       {
         type: "FeatureCollection",
-        features: places.map { |place| map_to_feature(place) }.compact,
+        features: places.each_with_index.map { |place, id| map_to_feature(place, id) }.compact,
       }
     end
 
-    def map_to_feature(place)
+    def map_to_feature(place, id)
       return nil if place["geocode_error"]
 
       {
         type: "Feature",
+        id:,
         geometry: {
           type: "Point",
           coordinates: [

@@ -9,3 +9,8 @@
 
 //= require @defra/interactive-map/plugins/interact/dist/umd/index.js
 //= require @defra/interactive-map/plugins/interact/dist/umd/im-interact-plugin.js
+
+//= require @defra/interactive-map/plugins/datasets/dist/umd/index.js
+//= require @defra/interactive-map/plugins/datasets/dist/umd/im-datasets-ml-adapter.js
+//= require @defra/interactive-map/plugins/datasets/dist/umd/im-datasets-ol-adapter.js
+//= require @defra/interactive-map/plugins/datasets/dist/umd/im-datasets-plugin.js

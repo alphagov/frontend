@@ -161,15 +161,10 @@ examples:
     data:
       url: "/assets/frontend/components/map/map-test.geojson"
       heading_text: Birmingham and surrounding places
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      zoom: 9
+      centre:
+      - -1.89032729180704
+      - 52.485470314900795
   custom_bounds:
     description: This allows the initial position of the map to be set, overriding the automatic adjustment to show all markers.
     data:

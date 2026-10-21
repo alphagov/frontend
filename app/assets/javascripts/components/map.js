@@ -13,8 +13,41 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
 
+      this.panelId = 'the-panel'
+
+      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
+      if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
+        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
+        this.geoJsonUrl = false
+      }
+
+      let datasetsPlugin = false
+      if (this.geoJsonUrl) {
+        datasetsPlugin = defra.datasetsPlugin({
+          datasets: [{
+            id: 'test-centres',
+            label: 'Test centres',
+            geojson: this.geoJsonUrl,
+            showInMenu: false,
+            minZoom: 1,
+            maxZoom: 24, // these must exceed the values used by the map config
+            style: {
+              symbol: 'circle',
+              backgroundColor: '#1d70b8',
+              foregroundColor: '#FFFFFF',
+              haloWidth: 3,
+              selectedWidth: 8
+            }
+          }]
+        })
+      }
+
       this.interactPlugin = defra.interactPlugin({
-        deselectOnClickOutside: true
+        deselectOnClickOutside: true,
+        interactionModes: ['selectFeature'],
+        layers: [
+          { layerId: 'test-centres', idProperty: 'id', labelProperty: 'name' }
+        ]
       })
 
       const config = {
@@ -22,9 +55,10 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         behaviour: 'inline',
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
-          backgroundColor: '#f5f5f0'
+          backgroundColor: '#f5f5f0',
+          attribution: ''
         },
-        plugins: [this.interactPlugin],
+        plugins: [this.interactPlugin, datasetsPlugin],
         urlPosition: 'none',
         minZoom: 4,
         maxZoom: 16,
@@ -35,11 +69,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.config = Object.assign(config, passedConfig)
 
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
-      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
-      if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
-        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
-        this.geoJsonUrl = false
-      }
       this.key = JSON.parse(this.$module.getAttribute('data-key')) || []
       this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 
@@ -62,7 +91,18 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
-        this.addAllMarkers()
+        this.interactPlugin.enable()
+
+        this.map.addPanel(this.panelId, {
+          focus: false,
+          label: false,
+          showLabel: false,
+          html: '<div id="map-panel-content"></div>',
+          mobile: { slot: 'drawer', dismissible: true },
+          tablet: { slot: 'left-top', dismissible: true, width: '280px' },
+          desktop: { slot: 'left-top', dismissible: true, width: '280px' }
+        })
+        this.map.hidePanel(this.panelId)
       })
 
       /* istanbul ignore next */
@@ -91,19 +131,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
-        if (e.selectedMarkers.length > 0) {
-          let marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
-          marker = this.markers[marker]
-
-          this.currentMarker = marker.name
-          this.map.addPanel('the-panel', {
-            focus: false,
-            label: this.currentMarker,
-            html: this.createPopupContent(marker),
-            mobile: { slot: 'drawer', dismissible: true },
-            tablet: { slot: 'left-top', dismissible: true, width: '280px' },
-            desktop: { slot: 'left-top', dismissible: true, width: '280px' }
-          })
+        if (e.selectedFeatures.length > 0) {
+          document.getElementById('map-panel-content').innerHTML = this.createPopupContent(e.selectedFeatures[0])
+          this.map.showPanel(this.panelId)
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
@@ -111,7 +141,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             text: marker.properties.name
           })
         } else {
-          this.map.hidePanel('the-panel')
+          this.map.hidePanel(this.panelId)
         }
       })
 
@@ -140,83 +170,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         input = input.replace(/<[\s]*script/g, '')
       } while (input.includes('<script'))
       return input
-    }
-
-    async addAllMarkers () {
-      if (this.geoJsonUrl) {
-        try {
-          const response = await fetch(this.geoJsonUrl)
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`)
-          }
-          const result = await response.json()
-          this.markers = Object.keys(this.markers).length > 0 ? this.markers : []
-          this.markers = this.markers.concat(result.features)
-        } catch (error) {
-          console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
-        }
-      }
-
-      if (this.markers.length > 0) {
-        if (this.key.length) {
-          this.markers.forEach(marker => {
-            marker.marker = this.key[parseInt(marker.key)] || {}
-          })
-        }
-        this.markers.sort((a, b) => {
-          const nameA = a.properties.name.toUpperCase()
-          const nameB = b.properties.name.toUpperCase()
-          if (nameA < nameB) {
-            return -1
-          }
-          if (nameA > nameB) {
-            return 1
-          }
-          return 0 // names are equal
-        })
-      }
-
-      this.addMarkers()
-
-      // only fit to bounds if there are more than one markers
-      if (this.markers.length > 0 && !this.config.bounds) {
-        this.map.fitToBounds({
-          type: 'FeatureCollection',
-          features: this.markers
-        })
-      }
-      if (this.markers.length > 0) {
-        this.interactPlugin.enable()
-        this.addPopupsList()
-      }
-    }
-
-    addMarkers () {
-      const allowedColours = {
-        blue: '#1d70b8',
-        green: '#0f7a52',
-        orange: '#f47738',
-        red: '#ca3535'
-      }
-      const allowedSymbols = ['circle', 'pin', 'square']
-      this.markers.forEach((marker, index) => {
-        if (marker.marker) {
-          const colour = marker.marker.colour || allowedColours.blue
-
-          if (allowedColours[colour]) {
-            marker.marker.backgroundColor = allowedColours[colour]
-          } else {
-            delete marker.marker.colour
-          }
-
-          const symbol = marker.marker.symbol || false
-          if (!(symbol && allowedSymbols.includes(symbol))) {
-            delete marker.marker.symbol
-          }
-        }
-        const options = Object.assign(Object.assign({}, this.markerOptions), marker.marker || {})
-        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates, options)
-      })
     }
 
     addPopupsList () {

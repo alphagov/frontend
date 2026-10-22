@@ -1,6 +1,6 @@
 # We don't care much about the coverage of scaffolding files that are just used on the desktop during
 # consolidation and are going to be removed.
-# :nocov:
+# simplecov:disable
 namespace :consolidation do
   desc <<~END_DESC
     Copy a locale key for all locales from collections to frontend
@@ -80,4 +80,4 @@ class LocaleUpdater
   end
 end
 
-# :nocov:
+# simplecov:enable

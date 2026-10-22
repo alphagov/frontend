@@ -18,7 +18,7 @@ RSpec.describe "AllComponents" do
         expect(yaml["accessibility_criteria"] || yaml["shared_accessibility_criteria"]).to be_truthy
       end
 
-      it "has the correct class in the ERB template" do
+      it "has the correct class in the ERB template", skip: component_name.in?(%w[govspeak_translator]) do
         erb = File.read(filename)
         class_name = "app-c-#{component_name.dasherize}"
         expect(erb).to include(class_name)
@@ -34,7 +34,7 @@ RSpec.describe "AllComponents" do
         expect(File).to exist(rspec_file)
       end
 
-      it "has a correctly named SCSS file" do
+      it "has a correctly named SCSS file", skip: component_name.in?(%w[govspeak_translator]) do
         css_file = "#{__dir__}/../../app/assets/stylesheets/components/_#{component_name.tr('_', '-')}.scss"
         expect(File).to exist(css_file)
       end

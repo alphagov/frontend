@@ -16,6 +16,7 @@ module PostalVoteVideoAbTestable
     @postal_vote_video_ab_test ||= GovukAbTesting::AbTest.new(
       "PostalVoteVideo",
       allowed_variants: ALLOWED_VARIANTS,
+      control_variant: "Z",
     )
   end
 

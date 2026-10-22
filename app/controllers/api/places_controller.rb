@@ -25,15 +25,16 @@ module Api
 
       {
         type: "FeatureCollection",
-        features: places.map { |place| map_to_feature(place) }.compact,
+        features: places.each_with_index.map { |place, id| map_to_feature(place, id) }.compact,
       }
     end
 
-    def map_to_feature(place)
+    def map_to_feature(place, id)
       return nil if place["geocode_error"]
 
       {
         type: "Feature",
+        id:,
         geometry: {
           type: "Point",
           coordinates: [
@@ -43,8 +44,15 @@ module Api
         },
         properties: {
           name: place["name"],
-          description: place["general_notes"],
-        },
+          address: %w[address1 address2 town postcode].map { |key| place[key]&.strip }.compact.join(", ").presence,
+          url: place["url"],
+          email: place["email"],
+          phone: place["phone"],
+          fax: place["fax"],
+          text_phone: place["text_phone"],
+          general_notes: place["general_notes"],
+          access_notes: place["access_notes"],
+        }.compact,
         marker: {
           symbol: place["map_marker_symbol"] || "circle",
           colour: place["map_marker_colour"] || "blue",

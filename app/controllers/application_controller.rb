@@ -58,9 +58,9 @@ protected
   end
 
   def set_expiry(duration = 30.minutes)
-    unless Rails.env.development?
-      expires_in(duration, public: true)
-    end
+    return if Rails.application.config.no_http_caching
+
+    expires_in(duration, public: true)
   end
 
   def content_item

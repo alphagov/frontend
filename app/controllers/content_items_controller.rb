@@ -28,16 +28,10 @@ private
   # NOTE: Frontend honours the max-age directive  provided
   # in Content Store's Cache-Control response header.
   def set_expiry(expiry = nil)
-    if expiry
-      expires_in(expiry, public: true)
-      return
-    end
-    unless Rails.env.development?
-      expires_in(
-        @cache_control.max_age,
-        public: !@cache_control.private?,
-      )
-    end
+    return if Rails.application.config.no_http_caching
+    return expires_in(expiry, public: true) if expiry
+
+    expires_in(@cache_control.max_age, public: !@cache_control.private?)
   end
 
   def set_locale

@@ -12,6 +12,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_id = this.$module.getAttribute('id')
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
+      const greyscale = this.$module.getAttribute('data-greyscale')
+      const mapStyle = greyscale ? window.GOVUK.mapStyleBw : window.GOVUK.mapStyle
 
       this.interactPlugin = defra.interactPlugin({
         deselectOnClickOutside: true
@@ -21,7 +23,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
         behaviour: 'inline',
         mapStyle: {
-          url: window.GOVUK.mapComponentStyles,
+          url: mapStyle,
+          attribution: '',
           backgroundColor: '#f5f5f0'
         },
         plugins: [this.interactPlugin],

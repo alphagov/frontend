@@ -1,15 +1,15 @@
 name: Map (experimental)
 description: A simple map component.
 body: |
-  Displays a map, given a location and a zoom level. Maps can also display markers with popups. The map can be scrolled and zoomed.
+  Displays a map, given a location and a zoom level. Maps can also display markers with popups, if the correct geoJSON is supplied. The map can be scrolled and zoomed.
 
   This component uses the [DEFRA map component](https://defra.github.io/interactive-map/).
 
   Maps are inaccessible to many users. If you are using this component to display information, you must also display this information in an accessible way separately from the map.
 
-  The order of positional co-ordinates for this map and its contents is longitude followed by latitude. This is particularly important for markers.
+  The order of positional co-ordinates for this map and its contents is longitude followed by latitude.
 
-  The JavaScript required for the component is relatively large and should not be included in the main `application.js`, instead the component includes its own required JavaScript files.
+  The JavaScript required for the component is relatively large and should not be included in the main `application.js` - instead the component template includes the required JavaScript files.
 shared_accessibility_criteria:
 - link
 
@@ -31,7 +31,7 @@ examples:
       - 55.9533
   custom_heading_description_and_copyright:
     description: |
-      All maps should have a heading, but the heading level will vary depending on the context. Heading size and subsequent headings within the component will be set based on the initial `heading_level` option.
+      All maps should have a heading, but the heading level may need to be different depending on the context.
 
       Descriptions are rendered inside a govspeak block, so can include govspeak formatting. Descriptions are not required but are recommended, to help users with screen readers understand the purpose of the map.
     data:
@@ -44,134 +44,28 @@ examples:
       - -2.325062
       - 52.107919
       zoom: 12
-  with_markers:
+  with_geojson_url:
     description: |
-      Adds markers to the map. Markers have popups when clicked, containing the marker `name` and `description`. `name` is also used for the `alt` attribute of the marker for screen readers.
-
-      Popup content should be minimal, as markers are currently width limited in order to be readable on small screens.
-
-      The position of the map is automatically adjusted to include all markers, so centre values and a zoom are not needed. However if only one marker is on the map, centre values and a zoom are required.
+      Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file.
     data:
-      heading_text: London stations
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1236
-          - 51.5316
-        properties:
-          name: Kings Cross station
-          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1632
-          - 51.5224
-        properties:
-          name: Marylebone Station
-  with_custom_markers:
-    description: |
-      Marker symbol type and colour can be customised. If this option is used to make different markers on the same map a key must be provided to explain to users what the different markers indicate.
-
-      Valid marker symbols are `pin`, `circle` or `square`. Allowed colour values are `blue`, `green`, `orange` or `red`.
-    data:
-      heading_text: London stations
-      description: |
-        <p>As an avid train enthusiast, this map records the London stations that I have visited.</p>
-      key:
-      - name: Stations I have visited
-        symbol: square
-        colour: red
-      - name: Stations I have stood outside
-        symbol: pin
-        colour: orange
-      - name: Stations I want to visit
-        symbol: circle
-        colour: green
-      key_heading: Key for map
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
-        key: 0
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1236
-          - 51.5316
-        properties:
-          name: Kings Cross station
-          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
-        key: 1
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1632
-          - 51.5224
-        properties:
-          name: Marylebone Station
-        key: 2
-  hide_markers_beneath:
-    description: By default any map pins are listed beneath the map for ease of accessibility. In some situations it may be preferable to produce a different alternative to the map, so this option can be used to hide that list.
-    data:
-      hide_markers_beneath: true
-      heading_text: London stations
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1236
-          - 51.5316
-        properties:
-          name: Kings Cross station
-          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1632
-          - 51.5224
-        properties:
-          name: Marylebone Station
-  passed_geojson:
-    description: |
-      Given a URL to a GeoJSON file, the map will draw markers and apply popups as specified in the file. The map will auto zoom and position based on the markers found.
-
-      Note that other markers can also be added to this map using the method already described. They will be included when automatically setting the map position and zoom.
-    data:
-      url: "/assets/frontend/components/map/map-test.geojson"
+      geojson: "/assets/frontend/components/map/map-test.geojson"
       heading_text: Birmingham and surrounding places
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      zoom: 9
+      centre:
+      - -1.89032729180704
+      - 52.485470314900795
+  with_geojson_string:
+    description: |
+      GeoJSON can also be passed as a base64 encoded string, as shown.
+    data:
+      geojson: data:application/geo+json;base64,ewogICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIiwKICAiZmVhdHVyZXMiOiBbCiAgICB7CiAgICAgICJpZCI6IDEsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAiZGVzY3JpcHRpb24iOiAiQSBsYXJnZSBjaXR5LiIsCiAgICAgICAgImFkZHJlc3MiOiAiQjEgMUFBIiwKICAgICAgICAibmFtZSI6ICJCaXJtaW5naGFtIgogICAgICB9LAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgImNvb3JkaW5hdGVzIjogWwogICAgICAgICAgLTEuODkwMzI3MjkxODA3MDQsCiAgICAgICAgICA1Mi40ODU0NzAzMTQ5MDA3OTUKICAgICAgICBdLAogICAgICAgICJ0eXBlIjogIlBvaW50IgogICAgICB9CiAgICB9LAogICAgewogICAgICAiaWQiOiAyLAogICAgICAidHlwZSI6ICJGZWF0dXJlIiwKICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgIm5hbWUiOiAiQ292ZW50cnkiLAogICAgICAgICJkZXNjcmlwdGlvbiI6ICJBbm90aGVyIGxhcmdlIGNpdHkiCiAgICAgIH0sCiAgICAgICJnZW9tZXRyeSI6IHsKICAgICAgICAiY29vcmRpbmF0ZXMiOiBbCiAgICAgICAgICAtMS40OTE1NDQyNjYxNTk0NTExLAogICAgICAgICAgNTIuNDAyOTI2ODgzNzk3MjgKICAgICAgICBdLAogICAgICAgICJ0eXBlIjogIlBvaW50IgogICAgICB9CiAgICB9CiAgXQp9Cg==
+      heading_text: Birmingham and Coventry
+      zoom: 10
+      centre:
+      - -1.69032729180704
+      - 52.445470314900795
   custom_bounds:
-    description: This allows the initial position of the map to be set, overriding the automatic adjustment to show all markers.
+    description: This allows the initial position of the map to be set.
     data:
       heading_text: Places with Ham in their name
       description: |
@@ -181,37 +75,9 @@ examples:
       - 51.643668495828116
       - -0.8983602517140259
       - 50.68105666989489
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -2.87
-          - 50.98
-        properties:
-          name: Hambridge, Somerset
-      - geometry:
-          type: Point
-          coordinates:
-          - -2.52
-          - 51.49
-        properties:
-          name: Hambrook, South Gloucestershire
-      - geometry:
-          type: Point
-          coordinates:
-          - -1.33
-          - 50.85
-        properties:
-          name: Hamble-le-Rice, Hampshire
-      - geometry:
-          type: Point
-          coordinates:
-          - 1.326
-          - 51.233
-        properties:
-          name: Ham, Kent
+      geojson: data:application/geo+json;base64,ewogICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIiwKICAiZmVhdHVyZXMiOiBbCiAgICB7CiAgICAgICJpZCI6IDEsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAibmFtZSI6ICJIYW1icmlkZ2UsIFNvbWVyc2V0IgogICAgICB9LAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgImNvb3JkaW5hdGVzIjogWwogICAgICAgICAgLTIuODcsCiAgICAgICAgICA1MC45OAogICAgICAgIF0sCiAgICAgICAgInR5cGUiOiAiUG9pbnQiCiAgICAgIH0KICAgIH0sCiAgICB7CiAgICAgICJpZCI6IDIsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAibmFtZSI6ICJIYW1icm9vaywgU291dGggR2xvdWNlc3RlcnNoaXJlIgogICAgICB9LAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgImNvb3JkaW5hdGVzIjogWwogICAgICAgICAgLTIuNTIsCiAgICAgICAgICA1MS40OQogICAgICAgIF0sCiAgICAgICAgInR5cGUiOiAiUG9pbnQiCiAgICAgIH0KICAgIH0sICAgIAogICAgewogICAgICAiaWQiOiAzLAogICAgICAidHlwZSI6ICJGZWF0dXJlIiwKICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgIm5hbWUiOiAiSGFtYmxlLWxlLVJpY2UsIEhhbXBzaGlyZSIKICAgICAgfSwKICAgICAgImdlb21ldHJ5IjogewogICAgICAgICJjb29yZGluYXRlcyI6IFsKICAgICAgICAgIC0xLjMzLAogICAgICAgICAgNTAuODUKICAgICAgICBdLAogICAgICAgICJ0eXBlIjogIlBvaW50IgogICAgICB9CiAgICB9LCAgICAgICAgCiAgICB7CiAgICAgICJpZCI6IDQsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAibmFtZSI6ICJIYW0sIEtlbnQiCiAgICAgIH0sCiAgICAgICJnZW9tZXRyeSI6IHsKICAgICAgICAiY29vcmRpbmF0ZXMiOiBbCiAgICAgICAgICAxLjMyNiwKICAgICAgICAgIDUxLjIzMwogICAgICAgIF0sCiAgICAgICAgInR5cGUiOiAiUG9pbnQiCiAgICAgIH0KICAgIH0gICAgCiAgXQp9Cg==
   max_bounds:
-    description: Limits the map to a particular area. Numbers represent West, South, East, and North. Note that if the numbers are wrong or contradict it will have adverse effects on the map.
+    description: Limits the map to a particular area. Numbers represent West, South, East, and North. Note that if the numbers are wrong or contradict this will have adverse effects on the map.
     data:
       heading_text: A map of only the area around London
       zoom: 9
@@ -227,34 +93,18 @@ examples:
     description: The map defaults to a height of 500px on desktop but this can be overridden if required. The height on tablet and mobile is set to be no taller than the window.
     data:
       height: 200
-      heading_text: Paddington station
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
+      heading_text: Kings Cross station
+      geojson: data:application/geo+json;base64,ewogICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIiwKICAiZmVhdHVyZXMiOiBbCiAgICB7CiAgICAgICJpZCI6IDEsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAiZGVzY3JpcHRpb24iOiAiT3BlbmVkIGluIDE4NTIgYW5kIGJ1aWx0IG9uIHRoZSBzaXRlIG9mIGEgc21hbGxwb3ggYW5kIGZldmVyIGhvc3BpdGFsLiIsCiAgICAgICAgIm5hbWUiOiAiS2luZ3MgQ3Jvc3Mgc3RhdGlvbiIKICAgICAgfSwKICAgICAgImdlb21ldHJ5IjogewogICAgICAgICJjb29yZGluYXRlcyI6IFsKICAgICAgICAgIC0wLjEyMzYsCiAgICAgICAgICA1MS41MzE2CiAgICAgICAgXSwKICAgICAgICAidHlwZSI6ICJQb2ludCIKICAgICAgfQogICAgfQogIF0KfQo=
+      zoom: 12
+      centre:
+      - -0.1236
+      - 51.5316
   without_ga4_tracking:
     data:
       disable_ga4: true
       heading_text: London stations
-      markers:
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1766
-          - 51.5163
-        properties:
-          name: Paddington Station
-          description: Designed by Isambard Kingdom Brunel and opened in 1838.
-      - geometry:
-          type: Point
-          coordinates:
-          - -0.1236
-          - 51.5316
-        properties:
-          name: Kings Cross station
-          description: Opened in 1852 and built on the site of a smallpox and fever hospital.
+      geojson: data:application/geo+json;base64,ewogICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIiwKICAiZmVhdHVyZXMiOiBbCiAgICB7CiAgICAgICJpZCI6IDEsCiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAiZGVzY3JpcHRpb24iOiAiRGVzaWduZWQgYnkgSXNhbWJhcmQgS2luZ2RvbSBCcnVuZWwgYW5kIG9wZW5lZCBpbiAxODM4LiIsCiAgICAgICAgIm5hbWUiOiAiUGFkZGluZ3RvbiBTdGF0aW9uIgogICAgICB9LAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgImNvb3JkaW5hdGVzIjogWwogICAgICAgICAgLTAuMTc2NiwKICAgICAgICAgIDUxLjUxNjMKICAgICAgICBdLAogICAgICAgICJ0eXBlIjogIlBvaW50IgogICAgICB9CiAgICB9LAogICAgewogICAgICAiaWQiOiAyLAogICAgICAidHlwZSI6ICJGZWF0dXJlIiwKICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgIm5hbWUiOiAiTWFyeWxlYm9uZSBTdGF0aW9uIgogICAgICB9LAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgImNvb3JkaW5hdGVzIjogWwogICAgICAgICAgLTAuMTYzMiwKICAgICAgICAgIDUxLjUyMjQKICAgICAgICBdLAogICAgICAgICJ0eXBlIjogIlBvaW50IgogICAgICB9CiAgICB9CiAgXQp9Cg==
+      zoom: 13
+      centre:
+      - -0.17
+      - 51.52

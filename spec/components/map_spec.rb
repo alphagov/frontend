@@ -5,21 +5,6 @@ RSpec.describe "MapComponent", type: :view do
 
   before { @include_map_script = nil }
 
-  markers = [
-    {
-      lat: 51.5163,
-      lng: -0.1766,
-      description: "Designed by Isambard Kingdom Brunel and opened in 1838.",
-      name: "Paddington Station",
-    },
-    {
-      lat: 51.5316,
-      lng: -0.1236,
-      description: "Opened in 1852 and built on the site of a smallpox and fever hospital.",
-      name: "Kings Cross station",
-    },
-  ]
-
   it "renders nothing without config" do
     render_component({})
     expect(rendered).not_to have_css(".app-c-map")
@@ -41,7 +26,6 @@ RSpec.describe "MapComponent", type: :view do
   it "can have a custom heading level" do
     render_component(centre: [0, 1], zoom: 8, heading_text: "A map showing areas of interest in Lower Chutney", heading_level: 3)
     expect(rendered).to have_css(".gem-c-heading h3", text: "A map showing areas of interest in Lower Chutney")
-    expect(rendered).to have_css("[data-heading-level='4']")
   end
 
   it "can have a description" do
@@ -61,21 +45,16 @@ RSpec.describe "MapComponent", type: :view do
     expect(rendered).to have_selector(:css, "script", visible: :hidden, count: 3)
   end
 
-  it "can accept an array of markers" do
-    render_component(markers: markers, heading_text: "heading")
-    expect(rendered).to have_css("[data-markers='#{markers.to_json}']")
-  end
-
   it "accepts a geojson url" do
     geojson = "/fake/thing.geojson"
-    render_component(url: geojson, heading_text: "heading")
+    render_component(geojson: geojson, heading_text: "heading")
     expect(rendered).to have_css("[data-geojson='#{geojson}']")
   end
 
-  it "has a list for accessible markers" do
-    render_component(markers: markers, heading_text: "heading")
-    expect(rendered).to have_css(".js-list-markers ol", visible: :hidden)
-    expect(rendered).to have_css(".govuk-list[data-module='ga4-link-tracker']", visible: :hidden)
+  it "accepts base64 encoded geojson" do
+    geojson = "data:application/geo+json;base64,ewogICJ0eXBlIjogIkZlYXR1cmVDb2xsZWN0aW9uIiwKICAiZmVhdHVyZXMiOiBbCiAgICB7CiAgICAgICJ0eXBlIjogIkZlYXR1cmUiLAogICAgICAiZ2VvbWV0cnkiOiB7CiAgICAgICAgInR5cGUiOiAiUG9pbnQiLAogICAgICAgICJjb29yZGluYXRlcyI6IFstMC44MTE5NTUsIDUxLjgxNTI2XQogICAgICB9LAogICAgICAicHJvcGVydGllcyI6IHsKICAgICAgICAibmFtZSI6ICJBeWxlc2J1cnkgUmVnaXN0ZXIgT2ZmaWNlIiwKICAgICAgICAiZGVzY3JpcHRpb24iOiAiQXBwb2ludG1lbnQgb25seSIKICAgICAgfSwKICAgICAgIm1hcmtlciI6IHsKICAgICAgICAic3ltYm9sIjogImNpcmNsZSIsCiAgICAgICAgImNvbG91ciI6ICJibHVlIgogICAgICB9CiAgICB9CiAgXQp9Cg=="
+    render_component(geojson: geojson, heading_text: "heading")
+    expect(rendered).to have_css("[data-geojson='#{geojson}']")
   end
 
   it "allows bounds to be passed" do
@@ -98,53 +77,9 @@ RSpec.describe "MapComponent", type: :view do
     expect(rendered).not_to have_selector("[data-config*='[11,12,13]']")
   end
 
-  key = [
-    {
-      "name" => "Square",
-      "symbol" => "square",
-      "colour" => "red",
-    },
-    {
-      "name" => "Pin",
-      "symbol" => "pin",
-      "colour" => "orange",
-    },
-  ]
-
-  it "displays a key" do
-    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", key: key)
-    expect(rendered).to have_css("h2.gem-c-heading__text", text: "heading")
-    expect(rendered).to have_css("h3.gem-c-heading__text", text: "Map key")
-    expect(rendered).to have_css(".govuk-list li", text: "Square")
-    expect(rendered).to have_css(".govuk-list li:nth-child(1)", text: "Square")
-    expect(rendered).to have_css(".govuk-list li:nth-child(1) .app-c-map__key--square.app-c-map__key--red")
-    expect(rendered).to have_css(".govuk-list li:nth-child(2)", text: "Pin")
-    expect(rendered).to have_css(".govuk-list li:nth-child(2) .app-c-map__key--pin.app-c-map__key--orange")
-  end
-
-  it "displays a custom key heading" do
-    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", key: key, key_heading_text: "Custom key heading")
-    expect(rendered).to have_css(".gem-c-heading.govuk-\\!-margin-bottom-4")
-    expect(rendered).to have_css("h3.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
-  end
-
-  it "displays the right heading level for the key when heading_level is 1" do
-    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", heading_level: 1, key: key, key_heading_text: "Custom key heading")
-    expect(rendered).to have_css("h1.gem-c-heading__text.govuk-heading-m", text: "heading")
-    expect(rendered).to have_css("h2.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
-  end
-
-  it "displays the right heading level for the key when heading_level is 3" do
-    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", heading_level: 3, key: key, key_heading_text: "Custom key heading")
-    expect(rendered).to have_css("h3.gem-c-heading__text.govuk-heading-s", text: "heading")
-    expect(rendered).to have_css("h4.gem-c-heading__text.govuk-heading-s", text: "Custom key heading")
-  end
-
   it "can disable GA4 tracking" do
-    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", markers: markers, disable_ga4: true)
+    render_component(centre: [0, 1], zoom: 8, heading_text: "heading", disable_ga4: true)
     expect(rendered).not_to have_css("[data-tracking-enabled] .app-c-map")
     expect(rendered).not_to have_css("[data-module='map'] [data-module='ga4-link-tracker']")
-    expect(rendered).to have_css(".govuk-list", visible: :hidden)
-    expect(rendered).not_to have_css(".govuk-list[data-module='ga4-link-tracker']", visible: :hidden)
   end
 end

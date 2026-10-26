@@ -13,20 +13,22 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
       const cspWorker = this.$module.getAttribute('data-csp-worker')
-      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
+      this.geoJson = this.$module.getAttribute('data-geojson')
       this.panelId = 'the-panel'
 
-      if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
-        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
-        this.geoJsonUrl = false
+      if (this.geoJson) {
+        if (!this.geoJson.startsWith('/') && !this.geoJson.startsWith('data:')) {
+          console.error('Error: passed geoJSON must be valid and not be an external URL')
+          this.geoJson = false
+        }
       }
 
       let datasetsPlugin = false
-      if (this.geoJsonUrl) {
+      if (this.geoJson) {
         datasetsPlugin = defra.datasetsPlugin({
           datasets: [{
             id: 'features',
-            geojson: this.geoJsonUrl,
+            geojson: this.geoJson,
             showInMenu: false,
             minZoom: 1,
             maxZoom: 24, // these must exceed the values used by the map config

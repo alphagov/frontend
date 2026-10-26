@@ -14,6 +14,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
       const cspWorker = this.$module.getAttribute('data-csp-worker')
       this.geoJson = this.$module.getAttribute('data-geojson')
+      this.trackingActive = false
       this.panelId = 'the-panel'
 
       if (this.geoJson) {
@@ -101,6 +102,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           desktop: { slot: 'left-top', dismissible: true, width: '280px' }
         })
         this.map.hidePanel(this.panelId)
+        if (this.trackingEnabled) {
+          this.trackingActive = true
+        }
       })
 
       /* istanbul ignore next */
@@ -270,7 +274,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
     /* istanbul ignore next */
     sendAnalytics (data) {
-      if (window.dataLayer && this.trackingEnabled) {
+      if (window.dataLayer && this.trackingActive) {
         window.GOVUK.analyticsGa4.core.applySchemaAndSendData(data, 'event_data')
       }
     }

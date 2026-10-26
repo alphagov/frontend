@@ -13,8 +13,37 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
 
+      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
+      if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
+        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
+        this.geoJsonUrl = false
+      }
+
+      let datasetsPlugin = false
+      if (this.geoJsonUrl) {
+        datasetsPlugin = defra.datasetsPlugin({
+          datasets: [{
+            id: 'features',
+            geojson: this.geoJsonUrl,
+            showInMenu: false,
+            minZoom: 1,
+            maxZoom: 24, // these must exceed the values used by the map config
+            style: {
+              symbol: 'circle',
+              symbolBackgroundColor: '#1d70b8',
+              symbolForegroundColor: '#FFFFFF',
+              symbolHaloWidth: 3
+            }
+          }]
+        })
+      }
+
       this.interactPlugin = defra.interactPlugin({
-        deselectOnClickOutside: true
+        deselectOnClickOutside: true,
+        interactionModes: ['selectFeature'],
+        layers: [
+          { layerId: 'features', idProperty: 'id', labelProperty: 'name' }
+        ]
       })
 
       const config = {
@@ -24,7 +53,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           url: window.GOVUK.mapComponentStyles,
           backgroundColor: '#f5f5f0'
         },
-        plugins: [this.interactPlugin],
+        plugins: [this.interactPlugin, datasetsPlugin],
         urlPosition: 'none',
         minZoom: 4,
         maxZoom: 16,
@@ -35,11 +64,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.config = Object.assign(config, passedConfig)
 
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
-      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
-      if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
-        console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
-        this.geoJsonUrl = false
-      }
       this.key = JSON.parse(this.$module.getAttribute('data-key')) || []
       this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 

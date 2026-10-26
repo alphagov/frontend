@@ -11,11 +11,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map_element = this.$module.querySelector('.app-c-map')
       this.map_id = this.$module.getAttribute('id')
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
+      this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
       const cspWorker = this.$module.getAttribute('data-csp-worker')
-
+      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       this.panelId = 'the-panel'
 
-      this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
         console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
         this.geoJsonUrl = false
@@ -68,7 +68,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
       this.key = JSON.parse(this.$module.getAttribute('data-key')) || []
-      this.headingLevel = parseInt(this.$module.getAttribute('data-heading-level')) || 2
 
       this.markerOptions = {
         symbol: 'circle',
@@ -84,14 +83,12 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.$module.setAttribute('id', '')
       this.map_element.setAttribute('id', id)
       this.map_element.classList.add('app-c-map--enabled')
-
       this.map = new defra.InteractiveMap(this.map_id, this.config)
 
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
         this.interactPlugin.enable()
-
         this.map.addPanel(this.panelId, {
           focus: false,
           label: false,

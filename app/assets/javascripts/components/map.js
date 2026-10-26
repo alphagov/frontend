@@ -51,7 +51,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         behaviour: 'inline',
         mapStyle: {
           url: window.GOVUK.mapComponentStyles,
-          backgroundColor: '#f5f5f0'
+          backgroundColor: '#f5f5f0',
+          attribution: ''
         },
         plugins: [this.interactPlugin, datasetsPlugin],
         urlPosition: 'none',

@@ -166,24 +166,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return input
     }
 
-    addPopupsList () {
-      const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
-      const popupsListEl = this.$module.querySelector('.js-list-markers ol')
-
-      if (popupsListWrapper && popupsListEl) {
-        popupsListWrapper.classList.add('app-c-map__markers-list--visible')
-        const popupsList = []
-        this.markers.forEach(marker => {
-          popupsList.push(this.createPopupContent(marker))
-        })
-        popupsList.forEach(popup => {
-          const listItem = document.createElement('li')
-          listItem.innerHTML = popup
-          popupsListEl.appendChild(listItem)
-        })
-      }
-    }
-
     /* istanbul ignore next */
     sendAnalytics (data) {
       if (window.dataLayer && this.trackingActive) {

@@ -166,34 +166,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       return input
     }
 
-    addMarkers () {
-      const allowedColours = {
-        blue: '#1d70b8',
-        green: '#0f7a52',
-        orange: '#f47738',
-        red: '#ca3535'
-      }
-      const allowedSymbols = ['circle', 'pin', 'square']
-      this.markers.forEach((marker, index) => {
-        if (marker.marker) {
-          const colour = marker.marker.colour || allowedColours.blue
-
-          if (allowedColours[colour]) {
-            marker.marker.backgroundColor = allowedColours[colour]
-          } else {
-            delete marker.marker.colour
-          }
-
-          const symbol = marker.marker.symbol || false
-          if (!(symbol && allowedSymbols.includes(symbol))) {
-            delete marker.marker.symbol
-          }
-        }
-        const options = Object.assign(Object.assign({}, this.markerOptions), marker.marker || {})
-        this.map.addMarker(`marker-${index}`, marker.geometry.coordinates, options)
-      })
-    }
-
     addPopupsList () {
       const popupsListWrapper = this.$module.querySelector('.app-c-map__markers-list')
       const popupsListEl = this.$module.querySelector('.js-list-markers ol')

@@ -68,17 +68,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       this.config = Object.assign(config, passedConfig)
-
-      this.markers = JSON.parse(this.$module.getAttribute('data-markers')) || []
-      this.key = JSON.parse(this.$module.getAttribute('data-key')) || []
-
-      this.markerOptions = {
-        symbol: 'circle',
-        backgroundColor: '#1d70b8',
-        foregroundColor: '#FFFFFF',
-        haloWidth: 3,
-        selectedWidth: 8
-      }
     }
 
     init () {
@@ -90,7 +79,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
-        this.addAllMarkers()
         this.interactPlugin.enable()
         this.map.addPanel(this.panelId, {
           focus: false,
@@ -176,54 +164,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         input = input.replace(/<[\s]*script/g, '')
       } while (input.includes('<script'))
       return input
-    }
-
-    async addAllMarkers () {
-      if (this.geoJsonUrl) {
-        try {
-          const response = await fetch(this.geoJsonUrl)
-          if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`)
-          }
-          const result = await response.json()
-          this.markers = Object.keys(this.markers).length > 0 ? this.markers : []
-          this.markers = this.markers.concat(result.features)
-        } catch (error) {
-          console.error(`${error}, with geojson at ${this.geoJsonUrl}`)
-        }
-      }
-
-      if (this.markers.length > 0) {
-        if (this.key.length) {
-          this.markers.forEach(marker => {
-            marker.marker = this.key[parseInt(marker.key)] || {}
-          })
-        }
-        this.markers.sort((a, b) => {
-          const nameA = a.properties.name.toUpperCase()
-          const nameB = b.properties.name.toUpperCase()
-          if (nameA < nameB) {
-            return -1
-          }
-          if (nameA > nameB) {
-            return 1
-          }
-          return 0 // names are equal
-        })
-      }
-
-      this.addMarkers()
-
-      // only fit to bounds if there are more than one markers
-      if (this.markers.length > 0 && !this.config.bounds) {
-        this.map.fitToBounds({
-          type: 'FeatureCollection',
-          features: this.markers
-        })
-      }
-      if (this.markers.length > 0) {
-        this.addPopupsList()
-      }
     }
 
     addMarkers () {

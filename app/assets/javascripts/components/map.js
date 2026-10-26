@@ -102,7 +102,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           event_name: 'select_content',
           type: 'map',
           action: 'opened',
-          text: this.currentMarker
+          text: this.currentMarkerName
         })
       })
 
@@ -113,7 +113,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             event_name: 'select_content',
             type: 'map',
             action: 'closed',
-            text: this.currentMarker
+            text: this.currentMarkerName
           })
           this.panelOpen = false
         }
@@ -126,13 +126,15 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         }
 
         if (e.selectedFeatures.length > 0) {
-          document.getElementById('map-panel-content').innerHTML = this.createPopupContent(e.selectedFeatures[0])
+          const currentMarker = e.selectedFeatures[0]
+          this.currentMarkerName = currentMarker.properties.name
+          this.panelContent.innerHTML = this.createPopupContent(currentMarker)
           this.map.showPanel(this.panelId)
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
             action: 'markerClick',
-            text: marker.properties.name
+            text: this.currentMarkerName
           })
         } else {
           this.map.hidePanel(this.panelId)

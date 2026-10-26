@@ -52,6 +52,14 @@ module ApplicationHelper
     "/register-to-vote",
   ].freeze
   HEADER_SCROLL_TRACKING_URLS = [
+    "/private-renting",
+    "/assured-periodic-tenancies-tenants",
+    "/rental-discrimination-tenants",
+    "/private-renting-evictions",
+    "/renting-out-a-property",
+    "/assured-tenancy-agreements-a-guide-for-landlords",
+    "/rental-discrimination-landlords",
+    "/evicting-tenants",
     "/apply-to-come-to-the-uk",
     "/guidance/starting-a-food-business",
     "/running-food-business",

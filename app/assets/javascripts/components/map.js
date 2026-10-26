@@ -156,13 +156,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
     createPopupContent (feature) {
       const heading = `h${this.headingLevel}`
       let popupContent = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feature.properties.name}</${heading}>`
-      if (feature.properties.description) {
-        popupContent = `${popupContent} <p class="govuk-body govuk-!-margin-bottom-2">${feature.properties.description}</p>`
-      }
-      feature.marker = feature.marker || {}
-      if (feature.marker.name) {
-        popupContent = `${popupContent} <p class="govuk-body-s"><span class="app-c-map__key app-c-map__key--${feature.marker.symbol} app-c-map__key--${feature.marker.colour}"></span> ${feature.marker.name}</p>`
-      }
+
+      const keys = Object.keys(feature.properties)
+      keys.forEach((key) => {
+        if (key !== 'name') {
+          popupContent = `${popupContent} <p class="govuk-body govuk-!-margin-bottom-2">${feature.properties[key]}</p>`
+        }
+      })
       popupContent = this.removeScript(popupContent)
       return popupContent
     }

@@ -4,8 +4,9 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Birmingham",
-        "description": "A large city."
+        "description": "A large city.",
+        "address": "B1 1AA",
+        "name": "Birmingham"
       },
       "geometry": {
         "coordinates": [

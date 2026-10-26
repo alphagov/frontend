@@ -13,6 +13,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.trackingEnabled = this.$module.getAttribute('data-tracking-enabled') === 'true'
       const cspWorker = this.$module.getAttribute('data-csp-worker')
 
+      this.panelId = 'the-panel'
+
       this.geoJsonUrl = this.$module.getAttribute('data-geojson')
       if (this.geoJsonUrl && !this.geoJsonUrl.startsWith('/')) {
         console.error(`Error: external URLs for geoJSON are not allowed: ${this.geoJsonUrl}`)
@@ -89,6 +91,17 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       this.map.on('map:ready', () => {
         this.addAllMarkers()
         this.interactPlugin.enable()
+
+        this.map.addPanel(this.panelId, {
+          focus: false,
+          label: false,
+          showLabel: false,
+          html: '<div class="map-panel-content"></div>',
+          mobile: { slot: 'drawer', dismissible: true },
+          tablet: { slot: 'left-top', dismissible: true, width: '280px' },
+          desktop: { slot: 'left-top', dismissible: true, width: '280px' }
+        })
+        this.map.hidePanel(this.panelId)
       })
 
       /* istanbul ignore next */
@@ -117,19 +130,13 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
 
       /* istanbul ignore next */
       this.map.on('interact:selectionchange', (e) => {
-        if (e.selectedMarkers.length > 0) {
-          let marker = parseInt(e.selectedMarkers[0].replace('marker-', ''))
-          marker = this.markers[marker]
+        if (!this.panelContent) {
+          this.panelContent = this.$module.querySelector('.map-panel-content')
+        }
 
-          this.currentMarker = marker.name
-          this.map.addPanel('the-panel', {
-            focus: false,
-            label: this.currentMarker,
-            html: this.createPopupContent(marker),
-            mobile: { slot: 'drawer', dismissible: true },
-            tablet: { slot: 'left-top', dismissible: true, width: '280px' },
-            desktop: { slot: 'left-top', dismissible: true, width: '280px' }
-          })
+        if (e.selectedFeatures.length > 0) {
+          document.getElementById('map-panel-content').innerHTML = this.createPopupContent(e.selectedFeatures[0])
+          this.map.showPanel(this.panelId)
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
@@ -137,7 +144,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             text: marker.properties.name
           })
         } else {
-          this.map.hidePanel('the-panel')
+          this.map.hidePanel(this.panelId)
         }
       })
 

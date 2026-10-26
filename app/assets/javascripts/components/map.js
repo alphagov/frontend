@@ -88,6 +88,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       /* istanbul ignore next */
       this.map.on('map:ready', () => {
         this.addAllMarkers()
+        this.interactPlugin.enable()
       })
 
       /* istanbul ignore next */
@@ -211,7 +212,6 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         })
       }
       if (this.markers.length > 0) {
-        this.interactPlugin.enable()
         this.addPopupsList()
       }
     }

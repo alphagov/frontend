@@ -18,7 +18,7 @@ snapshot:
   ignoreIframeSelectors: []
   enablePseudoClassSerialization: false
 discovery:
-  allowedHostnames: []
+  allowedHostnames: ["assets.publishing.service.gov.uk"]
   disallowedHostnames: []
   networkIdleTimeout: 100
   scrollToBottom: false

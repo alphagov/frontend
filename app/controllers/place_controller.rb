@@ -8,11 +8,15 @@ class PlaceController < ContentItemsController
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
+  layout "header_content_sidebar"
+
   def show
+    @content_item_presenter = PlacePresenter.new(content_item)
     render :show, locals: { results_anchor: "results" }
   end
 
   def find
+    @content_item_presenter = PlacePresenter.new(content_item)
     @location_error = location_error
 
     if postcode_provided? && places_manager_response.addresses_returned?
@@ -26,7 +30,7 @@ class PlaceController < ContentItemsController
     end
 
     if postcode_provided? && places_manager_response.places_found?
-      @places_presenter = PlacePresenter.new(content_item, places_manager_response.places)
+      @content_item_presenter = PlacePresenter.new(content_item, places_manager_response.places)
     end
 
     render :show, locals: { results_anchor: "results" }

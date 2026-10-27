@@ -19,7 +19,7 @@
           <%= point.title_without_number %>
         </h2>
         <div class="app-service-standard-point__details">
-          <%= "<p class='govuk-body'>#{point.description}</p>" if point.description.present? %>
+          <%= "<p class='govuk-body'>#{point.description}</p>".html_safe if point.description.present? %>
           <p class="govuk-body app-service-standard-point__link"><%= link_to "Read more about point #{ point.number }", point.base_path, class: "govuk-link" %></p>
         </div>
       </li>

@@ -2,10 +2,12 @@
   "type": "FeatureCollection",
   "features": [
     {
+      "id": 1,
       "type": "Feature",
       "properties": {
-        "name": "Birmingham",
-        "description": "A large city."
+        "description": "A large city.",
+        "address": "B1 1AA",
+        "name": "Birmingham"
       },
       "geometry": {
         "coordinates": [
@@ -16,6 +18,7 @@
       }
     },
     {
+      "id": 2,
       "type": "Feature",
       "properties": {
         "name": "Coventry",
@@ -30,6 +33,7 @@
       }
     },
     {
+      "id": 3,
       "type": "Feature",
       "properties": {
         "name": "Wolverhampton"

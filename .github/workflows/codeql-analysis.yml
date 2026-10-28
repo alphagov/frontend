@@ -1,0 +1,51 @@
+name: CodeQL Analysis
+
+on:
+  workflow_call:
+    inputs:
+      languages:
+        # see https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed
+        description: Languages to analyse. Defaults to languages of found file extensions
+        required: false
+        type: string
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 120
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        show-progress: false
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+      with:
+        config: |
+          # initial configurations for CodeQL should be looking for high precision
+          # and high severity issues to ensure developers aren't compromised by false positives.
+
+          query-filters:
+            - exclude:
+              id: actions/cache-poisoning/poisonable-step
+            - include:
+                # alerts should only be raised for security issues to prevent being distracted with none security issues.
+                "tags contain": security
+                # High precision findings give the best likelihood that issues found are true positives.
+                precision:
+                  - high
+                  - very-high
+                # A security severity score of >=7 is classed as high or critical. This is an additional step to
+                # ensure that developers are not distracted by low severity, none issues.
+                # Explanation of security severity scores: https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-security-severity-levels
+                security-severity: /([7-9]|10)\.(\d)+/
+        languages: ${{ inputs.languages }}
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1

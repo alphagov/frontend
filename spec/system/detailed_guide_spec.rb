@@ -21,12 +21,20 @@ RSpec.describe "DetailedGuide" do
       expect(page).to have_text(content_store_response["description"])
     end
 
-    it "renders the relevant metadata" do
-      within(".page-title") do
+    it "displays the metadata at the top of the page" do
+      within all(".gem-c-metadata")[0] do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
         expect(page).to have_text("Published: 12 June 2014")
         expect(page).to have_text("Last updated: 18 February 2016")
+      end
+    end
+
+    it "displays the page history at the bottom of the page" do
+      within all(".gem-c-metadata")[1] do
+        expect(page).to have_content("Last updated: 18 February 2016")
+        expect(page).to have_content("18 February 2016")
+        expect(page).to have_content("The second entry in the table")
       end
     end
 

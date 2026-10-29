@@ -70,9 +70,9 @@
           <% if @places_presenter.map_allowed? %>
             <%= render "components/map", {
               bounds: @places_presenter.map_bounds,
+              geojson: "/api/places/#{content_item.place_type}.geojson",
               heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
               margin_bottom: 4,
-              url: "/api/places/#{content_item.place_type}.geojson",
             } %>
           <% else %>
             <%= render "govuk_publishing_components/components/heading", {

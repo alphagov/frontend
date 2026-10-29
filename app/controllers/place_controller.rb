@@ -8,7 +8,10 @@ class PlaceController < ContentItemsController
   INVALID_POSTCODE = "invalidPostcodeError".freeze
   NO_LOCATION = "validPostcodeNoLocation".freeze
 
+  layout "header_content_sidebar"
+
   def show
+    @content_item_presenter = PlacePresenter.new(content_item)
     render :show, locals: { results_anchor: "results" }
   end
 

@@ -1,3 +1,4 @@
+<% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
 <% content_for :head do %>
   <%= stylesheet_link_tag "views/_place-list", media: "all" %>
 <% end %>
@@ -27,85 +28,108 @@
   <%= render "govuk_publishing_components/components/machine_readable_metadata",
     schema: :article,
     content_item: content_item.to_h %>
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
 <% end %>
 
-<%= render layout: "shared/base_page", locals: {
-  title: content_item.title,
-  publication: content_item,
-  edition: @edition,
-} do %>
-  <section class="intro">
-    <div class="get-started-intro">
-      <div class="find-nearest">
-        <% if content_item.introduction.present? %>
-          <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw content_item.introduction %>
-          <% end %>
-        <% end %>
-        <%= render partial: "location_form",
-          locals: {
-            format: "service",
-            publication_format: "place",
-            postcode: postcode,
-            margin_top: @location_error ? 5 : 0,
-            publication_title: content_item.title,
-          }.merge(results_anchor ? {
-            action: "/#{params[:slug]}\##{results_anchor}",
-            results_anchor: results_anchor,
-          } : {}) %>
-      </div>
-    </div>
-  </section>
-  <% if postcode_provided? && !location_error %>
-    <%= content_tag "section", id: results_anchor, class: "places-results",
-      data: {
-        module: "ga4-auto-tracker ga4-link-tracker",
-        ga4_auto: ga4_form_complete_attributes,
-        ga4_link: ga4_information_click_attributes,
-        ga4_set_indexes: "",
-      } do %>
-        <% if @places_presenter.places.any? %>
-          <% results_prefix = t("formats.place.results.#{@places_presenter.preposition}") %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-          <% if @places_presenter.map_allowed? %>
-            <%= render "components/map", {
-              bounds: @places_presenter.map_bounds,
-              heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
-              margin_bottom: 4,
-              url: "/api/places/#{content_item.place_type}.geojson",
-            } %>
-          <% else %>
-            <%= render "govuk_publishing_components/components/heading", {
-              text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
-              margin_bottom: 4,
-            } %>
-          <% end %>
-
-          <ol id="options" class="govuk-list place-list">
-            <%= render partial: "place", locals: { places: @places_presenter.places } %>
-          </ol>
-        <% end %>
-    <% end %>
-  <% else %>
-    <% if content_item.need_to_know.present? || content_item.more_information.present? %>
-      <section class="more">
-        <div class="further-information">
-          <%= render "govuk_publishing_components/components/heading", {
-            text: t("formats.place.further_information"),
-            margin_bottom: 4,
-          } %>
-          <% if content_item.need_to_know.present? %>
+<% content_for :content do %>
+  <div class="content-bottom-margin">
+    <section class="intro">
+      <div class="get-started-intro">
+        <div class="find-nearest">
+          <% if content_item.introduction.present? %>
             <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw content_item.need_to_know %>
+              <%= raw content_item.introduction %>
             <% end %>
           <% end %>
-          <% if content_item.more_information.present? %>
-            <%= render "govuk_publishing_components/components/govspeak", {} do %>
-              <%= raw content_item.more_information %>
-            <% end %>
-          <% end %>
+          <%= render partial: "location_form",
+            locals: {
+              format: "service",
+              publication_format: "place",
+              postcode: postcode,
+              margin_top: @location_error ? 5 : 0,
+              publication_title: content_item.title,
+            }.merge(results_anchor ? {
+              action: "/#{params[:slug]}\##{results_anchor}",
+              results_anchor: results_anchor,
+            } : {}) %>
         </div>
-      </section>
+      </div>
+    </section>
+
+    <% if postcode_provided? && !location_error %>
+      <%= content_tag "section", id: results_anchor, class: "places-results",
+        data: {
+          module: "ga4-auto-tracker ga4-link-tracker",
+          ga4_auto: ga4_form_complete_attributes,
+          ga4_link: ga4_information_click_attributes,
+          ga4_set_indexes: "",
+        } do %>
+          <% if @places_presenter.places.any? %>
+            <% results_prefix = t("formats.place.results.#{@places_presenter.preposition}") %>
+
+            <% if @places_presenter.map_allowed? %>
+              <%= render "components/map", {
+                bounds: @places_presenter.map_bounds,
+                heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+                margin_bottom: 4,
+                url: "/api/places/#{content_item.place_type}.geojson",
+              } %>
+            <% else %>
+              <%= render "govuk_publishing_components/components/heading", {
+                text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+                margin_bottom: 4,
+              } %>
+            <% end %>
+
+            <ol id="options" class="govuk-list place-list">
+              <%= render partial: "place", locals: { places: @places_presenter.places } %>
+            </ol>
+          <% end %>
+      <% end %>
+    <% else %>
+      <% if content_item.need_to_know.present? || content_item.more_information.present? %>
+        <section class="more">
+          <div class="further-information">
+            <%= render "govuk_publishing_components/components/heading", {
+              text: t("formats.place.further_information"),
+              margin_bottom: 4,
+            } %>
+            <% if content_item.need_to_know.present? %>
+              <%= render "govuk_publishing_components/components/govspeak", {} do %>
+                <%= raw content_item.need_to_know %>
+              <% end %>
+            <% end %>
+            <% if content_item.more_information.present? %>
+              <%= render "govuk_publishing_components/components/govspeak", {} do %>
+                <%= raw content_item.more_information %>
+              <% end %>
+            <% end %>
+          </div>
+        </section>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+  <% if false %>
+    <%= render layout: "shared/base_page", locals: {
+      title: content_item.title,
+      publication: content_item,
+      edition: @edition,
+    } do %>
     <% end %>
   <% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h %>
 <% end %>

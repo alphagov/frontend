@@ -39,7 +39,7 @@ RSpec.describe "Visual regression tests", :visual_regression do
           content_store_has_example_item(base_path, schema:, example: example_name_clean)
 
           begin
-            puts("Visitng #{example_name_clean} at #{base_path}")
+            puts("Visiting #{example_name_clean} at #{base_path}")
             visit(base_path)
 
             page.find(:css, ".govuk-footer", wait: 20)

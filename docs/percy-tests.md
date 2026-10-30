@@ -1,6 +1,8 @@
 # Percy tests
 
-Percy tests take screenshots of specific pages, comparing them with previous screenshots of the same pages. If any visual changes are detected, the code owners (which can be found [here](https://docs.publishing.service.gov.uk/repos/frontend.html)) will be notified either via email or on Slack. The goal of this is to reduce blind spots in our test process, as sometimes pages have complex requirements or unique quirks that break when a component or layout is updated. These can be hard to spot in PRs or in the components gem due to the volume of pages on GOV.UK.
+Percy tests take screenshots of specific pages, comparing them with previous screenshots of the same pages. If any visual changes are detected, the [code owners](https://docs.publishing.service.gov.uk/repos/frontend.html) will be notified either via email or on Slack. The goal of this is to reduce blind spots in our test process, as sometimes pages have complex requirements or unique quirks that break when a component or layout is updated. These can be hard to spot in PRs or in the components gem due to the volume of pages on GOV.UK.
+
+The Percy project for `frontend` can be found at https://dashboard.percy.io/web/projects/frontend-2026-5462b35e?org=9d94781c.
 
 Pages are currently added via it having a content item in https://github.com/alphagov/publishing-api/tree/main/content_schemas. Percy is run in the `spec/visual_regression_tests/test_pages_spec.rb` file.
 
@@ -12,11 +14,12 @@ When a page is added to the test list, it will add around 60 screenshots to our 
 2. [Login to Percy](https://dashboard.percy.io/web/projects/frontend-2026-5462b35e/settings?org=9d94781c) and grab the secret token. Run `export PERCY_TOKEN=[token]` locally, replacing `[token]` with the secret.
 3. Disable simplecov in your terminal by running `export DISABLE_SIMPLECOV=true`
 4. Direct node to use the ZScaler certificate you downloaded by running `export NODE_EXTRA_CA_CERTS=~/certs/zscaler-root-ca.pem` (modify as appropriate if you placed the cert in a different directory)
-5. You can now run Percy. **Note: if there are visual changes it may trigger an alert for the repo owners, so be mindful of running this without giving a heads up first. You should delete any local builds on Percy after testing (see the guidance below on how to do this).** If you're happy to proceed, run `bundle exec rails assets:precompile && yarn run percy exec -- bundle exec rspec spec/visual_regression_tests/test_pages_spec.rb --tag visual_regression`. It should take screenshots and upload them to Percy.
+5. You can now run Percy. **Note: if there are visual changes it may trigger an alert for the repo owners, so be mindful of running this without giving a heads up first. You should delete any local builds on Percy after testing (see the guidance below on how to do this).**
+6. If you're happy to proceed, run `bundle exec rails assets:precompile && yarn run percy exec -- bundle exec rspec spec/visual_regression_tests/test_pages_spec.rb --tag visual_regression`. It should take screenshots and upload them to Percy.
 
 ## Deleting a build
 
-You may want to delete a build off of Percy. If so, do the following:
+You may want to delete a build from Percy. If so, do the following:
 
 1. Grab the build ID. This is usually the last part of the URL when you view the build. For example for `https://dashboard.percy.io/web/projects/frontend-2026-5462b35e/builds/54493568`, the ID would be `54493568`.
 2. Grab your CLI username and access key from Percy. Go to https://browserstack.com/accounts/settings/product and it should be under the `Local Testing` header.

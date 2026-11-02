@@ -30,6 +30,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           datasets: [{
             id: 'features',
             geojson: this.geoJson,
+            generateIds: true,
             showInMenu: false,
             minZoom: 1,
             maxZoom: 24, // these must exceed the values used by the map config

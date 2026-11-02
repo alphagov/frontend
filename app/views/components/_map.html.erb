@@ -29,6 +29,8 @@
   component_helper.add_data_attribute({ geojson: geojson }) if geojson
   component_helper.add_data_attribute({ csp_worker: ActionController::Base.helpers.asset_path("components/map/im-maplibre-worker.js") })
   component_helper.add_data_attribute({ tracking_enabled: true }) unless disable_ga4
+  component_helper.add_data_attribute({ font_light: ActionController::Base.helpers.asset_path("light-94a07e06a1-v2.woff2") })
+  component_helper.add_data_attribute({ font_bold: ActionController::Base.helpers.asset_path("bold-b542beb274-v2.woff2") })
   skip_link_id = "skip-#{SecureRandom.hex(4)}"
   @include_map_script ||= OpenStruct.new(script_included: false)
 %>
@@ -48,7 +50,7 @@
   <% unless @include_map_script[:script_included] %>
     <%= javascript_include_tag "components/map/defra-map.js", integrity: false %>
     <%= javascript_include_tag "components/map.js", integrity: false, type: "module" %>
-    <%= javascript_include_tag "components/map/map-style-liberty.js", integrity: false %>
+    <%= javascript_include_tag "components/map/map-styles.js", integrity: false %>
     <% @include_map_script[:script_included] = true %>
   <% end %>
 

@@ -51,6 +51,21 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         ]
       })
 
+      // add the site font into the map styles
+      window.GOVUK.mapComponentStyles = window.GOVUK.mapComponentStyles || {}
+      window.GOVUK.mapComponentStyles['font-faces'] = {
+        'GDS Transport': [
+          {
+            url: this.$module.getAttribute('data-font-light')
+          }
+        ],
+        'GDS Transport Bold': [
+          {
+            url: this.$module.getAttribute('data-font-bold')
+          }
+        ]
+      }
+
       const config = {
         mapProvider: defra.maplibreProvider({ workerUrl: cspWorker }),
         behaviour: 'inline',

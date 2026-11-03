@@ -35,9 +35,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
             minZoom: 1,
             maxZoom: 24, // these must exceed the values used by the map config
             style: {
-              symbol: 'circle',
-              symbolBackgroundColor: '#1d70b8',
-              symbolForegroundColor: '#FFFFFF',
+              symbol: 'pin',
+              symbolBackgroundColor: '#ca3535',
+              symbolForegroundColor: '#ca3535',
               symbolHaloWidth: 3
             }
           }]

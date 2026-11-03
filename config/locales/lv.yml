@@ -239,6 +239,7 @@ lv:
       respond_online: Atbildēt tiešsaistē
       response_form:
       summary:
+      to:
       visit_soon: Drīzumā apmeklējiet šo lapu atkal, lai lejupielādētu šīs publiskās atsauksmes rezultātu.
       ways_to_respond: Veidi, kā atbildēt
       write_to: 'Rakstīt uz:'

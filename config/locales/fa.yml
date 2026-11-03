@@ -239,6 +239,7 @@ fa:
       respond_online: آنلاین پاسخ دهید
       response_form:
       summary:
+      to:
       visit_soon: برای دانلود نتیجه این بازخورد عمومی، خیلی زود دوباره از این صفحه بازدید کنید.
       ways_to_respond: راه‌های پاسخ
       write_to: 'پیام دهید به:'

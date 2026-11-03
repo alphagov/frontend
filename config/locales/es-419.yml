@@ -239,6 +239,7 @@ es-419:
       respond_online: Responder en línea
       response_form:
       summary:
+      to:
       visit_soon: Vuelva a visitar esta página próximamente para descargar el resultado de esta opinión pública.
       ways_to_respond: Formas de responder
       write_to: 'Escriba a:'

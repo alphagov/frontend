@@ -263,6 +263,7 @@ gd:
       respond_online: Tabhair freagra ar líne
       response_form:
       summary:
+      to:
       visit_soon: Tar ar ais go luath chun cuairt a thabhairt orainn ar an leathanach seo chun tuarascáil an chomhairliúcháin phoiblí seo a íoslódáil.
       ways_to_respond: Bealaí chun freagra a thabhairt
       write_to: 'Scríobh chuig:'

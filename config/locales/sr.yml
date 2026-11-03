@@ -251,6 +251,7 @@ sr:
       respond_online: Odgovori onlajn
       response_form:
       summary:
+      to:
       visit_soon: Vratite se na ovu stranicu uskoro da biste preuzeli ishod ovih javnih povratnih informacija.
       ways_to_respond: Mogućnosti odgovora
       write_to: 'Pišite na:'

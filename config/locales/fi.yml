@@ -239,6 +239,7 @@ fi:
       respond_online: Vastaa verkossa
       response_form:
       summary:
+      to:
       visit_soon: Käy pian uudelleen tällä sivulla ja lataa tämän julkisen palautteen tulokset.
       ways_to_respond: Tapoja vastata
       write_to: 'Kirjoittaa:'

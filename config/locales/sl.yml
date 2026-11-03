@@ -263,6 +263,7 @@ sl:
       respond_online: Odgovori na spletu
       response_form:
       summary:
+      to:
       visit_soon: Kmalu znova obiščite to stran in naložite rezultat v te javne& nbsp;povratne informacije.
       ways_to_respond: Načini odziva
       write_to: 'Pišite na:'

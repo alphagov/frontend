@@ -703,7 +703,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.81)
     ruby-progressbar (1.13.0)
-    rubyzip (3.4.0)
+    rubyzip (3.7.0)
     sanitize (7.0.1)
       crass (~> 1.0.8)
       nokogiri (>= 1.16.8)
@@ -711,10 +711,9 @@ GEM
       google-protobuf (~> 4.29)
       rake (>= 13)
     securerandom (0.4.1)
-    selenium-webdriver (4.43.0)
+    selenium-webdriver (4.52.0)
       base64 (~> 0.2)
       logger (~> 1.4)
-      rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     sentry-rails (6.7.0)
@@ -818,7 +817,7 @@ DEPENDENCIES
   rinku (~> 2.0)
   rspec-rails
   rubocop-govuk
-  selenium-webdriver (~> 4.43)
+  selenium-webdriver (~> 4.52)
   simplecov
   sprockets-rails
   terser

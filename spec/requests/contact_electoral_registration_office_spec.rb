@@ -47,6 +47,7 @@ RSpec.describe "Contact Electoral Registration Office" do
 
             expect(response).to have_http_status(:ok)
             expect(response).to render_template(:address_picker)
+            expect(response).to render_template(layout: "layouts/header_content_sidebar")
           end
         end
       end

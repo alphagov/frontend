@@ -289,6 +289,7 @@ cy:
       respond_online: Ymateb ar-lein
       response_form: ffurflen ymateb
       summary: Crynodeb
+      to: i
       visit_soon: Dewch yn ôl at y wefan hon yn fuan i lwytho'r canlyniad i lawr ar gyfer yr adborth cyhoeddus hwn.
       ways_to_respond: Ffyrdd o ymateb
       write_to: 'Ysgrifennu at:'

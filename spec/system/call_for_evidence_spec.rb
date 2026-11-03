@@ -13,10 +13,16 @@ RSpec.describe "CallForEvidence" do
       expect(page).to have_css("h1.gem-c-heading__text", text: content_store_response["title"])
     end
 
-    it "displays the metadata including the page history" do
-      within(".gem-c-metadata") do
+    it "displays the metadata at the top of the page" do
+      within all(".gem-c-metadata")[0] do
         expect(page).to have_content("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
         expect(page).to have_content("Published: 11 April 2023")
+        expect(page).to have_content("Last updated: 15 May 2023")
+      end
+    end
+
+    it "displays the page history at the bottom of the page" do
+      within all(".gem-c-metadata")[1] do
         expect(page).to have_content("Last updated: 15 May 2023")
         expect(page).to have_content("7 November 2021")
         expect(page).to have_content("Added sub-topic tag.")

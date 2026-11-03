@@ -1,3 +1,13 @@
+GIT
+  remote: https://www.github.com/alphagov/govuk_web_banners
+  revision: e70ff663d685af7fc0f04496131a89d8b2cf5394
+  branch: emergency-banner-via-config-file
+  specs:
+    govuk_web_banners (2.0.0)
+      govuk_app_config (>= 9)
+      govuk_publishing_components
+      rails (>= 7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -217,11 +227,6 @@ GEM
       capybara (>= 3.36)
       puma
       selenium-webdriver (>= 4.0)
-    govuk_web_banners (1.45.0)
-      govuk_app_config (>= 9)
-      govuk_publishing_components
-      rails (>= 7)
-      redis
     hashdiff (1.3.0)
     highline (3.1.2)
       reline
@@ -628,10 +633,6 @@ GEM
       tsort
     readline (0.0.4)
       reline
-    redis (6.1.0)
-      redis-client (= 0.31.0)
-    redis-client (0.31.0)
-      connection_pool
     regexp_parser (2.13.4)
     reline (0.7.0)
       io-console (~> 0.5)
@@ -801,7 +802,7 @@ DEPENDENCIES
   govuk_publishing_components
   govuk_schemas
   govuk_test
-  govuk_web_banners
+  govuk_web_banners!
   htmlentities
   i18n-coverage
   listen

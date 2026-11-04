@@ -189,7 +189,7 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
-        within ".gem-c-metadata" do
+        within all(".gem-c-metadata")[0] do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
           expect(page).to have_text("Published: 3 October 2024")
           expect(page).to have_text("Last updated: 7 February 2025")
@@ -201,7 +201,7 @@ RSpec.describe "Specialist Document" do
 
         page.find(".gem-c-metadata .govuk-details__summary").click
 
-        within(".gem-c-metadata") do
+        within all(".gem-c-metadata")[1] do
           expect(page.find(".gem-c-metadata__change-history-item:first-child").text)
             .to match(content_store_response["details"]["change_history"].last["note"])
 

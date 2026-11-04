@@ -239,6 +239,7 @@ sq:
       respond_online: Përgjigju online
       response_form:
       summary:
+      to:
       visit_soon: Vizitoni përsëri këtë faqe së shpejti për të shkarkuar rezultatin në këtë & nbsp; reagimi.
       ways_to_respond: Mënyrat për tu përgjigjur
       write_to: 'Shkruaj tek:'

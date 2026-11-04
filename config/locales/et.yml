@@ -239,6 +239,7 @@ et:
       respond_online: Vastake võrgus
       response_form:
       summary:
+      to:
       visit_soon: Külastage seda lehte peagi uuesti, et selle avalik tagasiside alla laadida.
       ways_to_respond: Vastamise viisid
       write_to: 'Kirja adressaat:'

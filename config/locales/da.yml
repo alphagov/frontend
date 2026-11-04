@@ -239,6 +239,7 @@ da:
       respond_online: Svar online
       response_form:
       summary:
+      to:
       visit_soon: Besøg denne side igen snart for at downloade resultatet til denne offentlige feedback.
       ways_to_respond: Måder at reagere på
       write_to: 'Skriv til:'

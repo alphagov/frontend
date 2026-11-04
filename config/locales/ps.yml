@@ -239,6 +239,7 @@ ps:
       respond_online: آنلاین ځواب ورکړئ
       response_form:
       summary:
+      to:
       visit_soon: ژر تر ژره دې پاڼه څخه لیدنه وکړئ ترڅو دې عامه & nbsp feedback نظریاتو ته پایله ډاونلوډ کړئ.
       ways_to_respond: د ځواب ویلو لارې
       write_to: 'ته یې ولیکئ:'

@@ -239,6 +239,7 @@ sv:
       respond_online: Svara online
       response_form:
       summary:
+      to:
       visit_soon: Besök den här sidan snart igen för att ladda ner resultatet av denna offentliga återkoppling.
       ways_to_respond: Sätt att svara
       write_to: 'Skriv till:'

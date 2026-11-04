@@ -239,6 +239,7 @@ ur:
       respond_online: آن لائن جواب دیں
       response_form:
       summary:
+      to:
       visit_soon: اس عوامی فیڈ بیک کا نتیجہ ڈاؤن لوڈ کرنے کے لیے اس صفحے کا دوبارہ جلد دورہ کریں۔
       ways_to_respond: جواب دینے کے طریقے
       write_to: 'لکھیں بنام:'

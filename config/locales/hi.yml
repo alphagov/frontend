@@ -239,6 +239,7 @@ hi:
       respond_online: ऑनलाइन जवाब दें
       response_form:
       summary:
+      to:
       visit_soon: जल्द ही इस पेज में वापस आकर इस सार्वजनिक प्रतिक्रिया का परिणाम डाउनलोड करें।
       ways_to_respond: जवाब देने के तरीके
       write_to: 'इसे लिखें:'

@@ -239,6 +239,7 @@ ka:
       respond_online: ონლაინ პასუხი
       response_form:
       summary:
+      to:
       visit_soon: ეწვიეთ გვერდს ისევ მალე, რათა გადმოწეროთ შედეგი ამ public ფიდბექისთვის.
       ways_to_respond: პასუხის გზები
       write_to: 'მიწერეთ:'

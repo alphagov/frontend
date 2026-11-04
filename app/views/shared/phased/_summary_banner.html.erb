@@ -11,7 +11,7 @@
   <br>
   <strong>
     <% if content_item.closed? %>
-      <%= opening_datetime %> to
+      <%= opening_datetime %> <%= t("formats.consultation.to") %>
       <%= closing_datetime %>
     <% elsif content_item.open? %>
       <%= closing_datetime %>

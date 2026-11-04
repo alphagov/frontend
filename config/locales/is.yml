@@ -239,6 +239,7 @@ is:
       respond_online: Svara á netinu
       response_form:
       summary:
+      to:
       visit_soon: Heimsæktu þessa síðu bráðlega aftur til að sækja útkomuna úr þessari opinberu endurgjöf.
       ways_to_respond: Leiðir til að svara
       write_to: 'Skrifa til:'

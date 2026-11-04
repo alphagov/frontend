@@ -251,6 +251,7 @@ lt:
       respond_online: Atsakyti internetu
       response_form:
       summary:
+      to:
       visit_soon: Netrukus vėl apsilankykite šiame puslapyje ir atsisiųskite šio viešo atsiliepimo rezultatą.
       ways_to_respond: Kaip pateikti atsakymą
       write_to: 'Parašyti:'

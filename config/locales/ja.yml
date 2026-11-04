@@ -227,6 +227,7 @@ ja:
       respond_online: オンラインで返信する
       response_form:
       summary:
+      to:
       visit_soon: この一般向けフィードバックの結果をダウンロードするには、すぐにこのページにアクセスしてください。
       ways_to_respond: 対応方法
       write_to: 書き込み先：

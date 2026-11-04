@@ -263,6 +263,7 @@ pl:
       respond_online: Odpowiedz online
       response_form:
       summary:
+      to:
       visit_soon: Odwiedź tę stronę ponownie, aby pobrać informacje zwrotne.
       ways_to_respond: Sposoby wysłania odpowiedzi
       write_to: 'Napisz do:'

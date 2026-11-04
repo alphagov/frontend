@@ -290,11 +290,23 @@ RSpec.describe "Publication" do
     context "when the page has a change history" do
       let(:content_item) { GovukSchemas::Example.find(:publication, example_name: "best-practice-form-2") }
 
-      it "renders the page history" do
+      it "displays the metadata at the top of the page" do
         visit base_path
 
-        within(".gem-c-metadata") do
-          expect(page).to have_text("Added a link to the 'DVSA data protection statement'.")
+        within all(".gem-c-metadata")[0] do
+          expect(page).to have_content("From: Driver and Vehicle Standards Agency")
+          expect(page).to have_content("Published: 23 November 2013")
+          expect(page).to have_content("Last updated: 18 May 2015")
+        end
+      end
+
+      it "displays the page history at the bottom of the page" do
+        visit base_path
+
+        within all(".gem-c-metadata")[1] do
+          expect(page).to have_content("Last updated: 18 May 2015")
+          expect(page).to have_content("15 January 2014")
+          expect(page).to have_content("Updated the application form.")
         end
       end
     end

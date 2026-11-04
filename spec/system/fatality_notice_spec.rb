@@ -36,6 +36,26 @@ RSpec.describe "Fatality Notice" do
     end
   end
 
+  context "when the page has history" do
+    before { visit "/government/fatalities/sir-george-pomeroy-colley" }
+
+    it "displays the metadata at the top of the page" do
+      within all(".gem-c-metadata")[0] do
+        expect(page).to have_content("From: Ministry of Defence")
+        expect(page).to have_content("Published: 27 February 1881")
+        expect(page).to have_content("Last updated: 14 September 2016")
+      end
+    end
+
+    it "displays the page history at the bottom of the page" do
+      within all(".gem-c-metadata")[2] do
+        expect(page).to have_content("Last updated: 14 September 2016")
+        expect(page).to have_content("27 February 1881")
+        expect(page).to have_content("First published.")
+      end
+    end
+  end
+
   context "when the fatality notice is withdrawn" do
     before do
       content_store_has_example_item("/government/fatalities/sir-george-pomeroy-colley", schema: :fatality_notice, example: :withdrawn_fatality_notice)

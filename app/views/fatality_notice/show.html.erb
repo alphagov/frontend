@@ -43,6 +43,7 @@
   } do %>
     <%= raw(content_item.body) %>
   <% end %>
+  <%= render "govuk_publishing_components/components/metadata", content_item_presenter.page_history %>
 <% end %>
 
 <% content_for :footer do %>

@@ -19,11 +19,28 @@ RSpec.describe "Document Collection" do
       expect(page).to have_text("The standards set out what it takes to be a safe and responsible driver and rider and provide training to drivers and riders.")
     end
 
-    it "renders metadata" do
-      visit base_path
+    context "when there is page history" do
+      let(:content_item) { GovukSchemas::Example.find(:document_collection, example_name: "document_collection_with_history") }
 
-      expect(page).to have_text("Driver and Vehicle Standards Agency")
-      expect(page).to have_text("Published: 29 February 2016")
+      it "displays the metadata at the top of the page" do
+        visit base_path
+
+        within all(".gem-c-metadata")[0] do
+          expect(page).to have_text("From: HM Treasury and Office of Financial Sanctions Implementation")
+          expect(page).to have_text("Published: 11 October 2013")
+          expect(page).to have_content("Last updated: 8 February 2016")
+        end
+      end
+
+      it "displays the page history at the bottom of the page" do
+        visit base_path
+
+        within all(".gem-c-metadata")[1] do
+          expect(page).to have_content("Last updated: 8 February 2016")
+          expect(page).to have_content("8 February 2016")
+          expect(page).to have_content("Liberia removed - Council Regulation (EC)")
+        end
+      end
     end
 
     context "when a body is provided" do

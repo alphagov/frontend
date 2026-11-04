@@ -17,15 +17,8 @@ RSpec.describe "Speech" do
       expect(page).to have_text("Prime Minister David Cameron wrote an article on the UK's economic security within the EU for The Telegraph.")
     end
 
-    it "renders metadata and document footer, including speaker" do
+    it "renders document footer including speaker" do
       visit "/government/speeches/speech"
-
-      within(".page-title") do
-        expect(page).to have_text("Department of Energy & Climate Change and The Rt Hon Andrea Leadsom MP")
-        expect(page).to have_link("Department of Energy", href: "/government/organisations/department-of-energy-climate-change")
-        expect(page).to have_link("The Rt Hon Andrea Leadsom MP", href: "/government/people/andrea-leadsom")
-        expect(page).to have_text("Published: 8 March 2016")
-      end
 
       within("[class*='important-metadata']") do
         expect(page).to have_text("Delivered on: 2 February 2016 (Original script, may differ from delivered version)")
@@ -37,6 +30,32 @@ RSpec.describe "Speech" do
       visit "/government/speeches/speech-authored-article"
 
       expect(page).not_to have_css(".gem-c-single-page-notification-button")
+    end
+
+    context "when the page has history" do
+      before do
+        content_store_has_example_item("/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event", schema: :speech, example: "speech-with-updates")
+      end
+
+      it "displays the metadata at the top of the page" do
+        visit "/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event"
+
+        within all(".gem-c-metadata")[0] do
+          expect(page).to have_content("From: Ministry of Justice and The Rt Hon Lord McNally")
+          expect(page).to have_content("Published: 22 May 2012")
+          expect(page).to have_content("Last updated: 13 June 2012")
+        end
+      end
+
+      it "displays the page history at the bottom of the page" do
+        visit "/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event"
+
+        within all(".gem-c-metadata")[2] do
+          expect(page).to have_content("Last updated: 13 June 2012")
+          expect(page).to have_content("22 May 2012")
+          expect(page).to have_content("First published.")
+        end
+      end
     end
   end
 

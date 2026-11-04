@@ -72,6 +72,7 @@
     margin_bottom: 8,
     title: t("components.share_links.share_this_page") %>
 
+  <%= render "govuk_publishing_components/components/metadata", content_item_presenter.page_history %>
   <%= render "shared/published_dates_with_notification_button" %>
 <% end %>
 

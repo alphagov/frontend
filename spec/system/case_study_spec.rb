@@ -3,6 +3,7 @@ RSpec.describe "CaseStudy" do
     content_store_has_example_item("/government/case-studies/get-britain-building-carlisle-park", schema: :case_study)
     content_store_has_example_item("/government/case-studies/doing-business-in-spain", schema: :case_study, example: "doing-business-in-spain")
     content_store_has_example_item("/government/case-studies/doing-business-in-spain-without-image", schema: :case_study, example: "without-image")
+    content_store_has_example_item("/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths", schema: :case_study, example: "has-updates")
   end
 
   it_behaves_like "it has meta tags", "case_study", "doing-business-in-spain"
@@ -20,6 +21,26 @@ RSpec.describe "CaseStudy" do
       expect(page).to have_css(".gem-c-translation-nav")
 
       expect(page).to have_css("img[src*='s300_Christmas'][alt='Christmas']")
+    end
+
+    it "displays the metadata at the top of the page" do
+      visit "/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths"
+
+      within all(".gem-c-metadata")[0] do
+        expect(page).to have_content("From: UK Health Security Agency")
+        expect(page).to have_content("Published: 23 May 2024")
+        expect(page).to have_content("Last updated: 16 July 2024")
+      end
+    end
+
+    it "displays the page history at the bottom of the page" do
+      visit "/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths"
+
+      within all(".gem-c-metadata")[1] do
+        expect(page).to have_content("Last updated: 16 July 2024")
+        expect(page).to have_content("16 July 2024")
+        expect(page).to have_content("Added the VDEC form link.")
+      end
     end
 
     it "displays a lead image on legacy case study" do

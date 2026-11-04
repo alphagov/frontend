@@ -61,6 +61,7 @@
           <%= render "govuk_publishing_components/components/document_list", items: content_item_presenter.group_as_document_list(group) %>
         </div>
       <% end %>
+      <%= render "govuk_publishing_components/components/metadata", content_item_presenter.page_history %>
     </div>
   <% end %>
 <% end %>

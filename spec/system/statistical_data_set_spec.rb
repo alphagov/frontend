@@ -47,6 +47,30 @@ RSpec.describe "Statistical Data Set" do
       ])
     end
 
+    context "when the page has history" do
+      let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set_with_block_attachments") }
+
+      it "displays the metadata at the top of the page" do
+        visit base_path
+
+        within all(".gem-c-metadata")[0] do
+          expect(page).to have_content("From: Department for Business, Innovation & Skills and Skills Funding Agency")
+          expect(page).to have_content("Published: 7 November 2014")
+          expect(page).to have_content("Last updated: 9 November 2016")
+        end
+      end
+
+      it "displays the page history at the bottom of the page" do
+        visit base_path
+
+        within all(".gem-c-metadata")[1] do
+          expect(page).to have_content("Last updated: 9 November 2016")
+          expect(page).to have_content("7 November 2014")
+          expect(page).to have_content("Apprenticeship vacancy tables for November 2014 uploaded")
+        end
+      end
+    end
+
     context "with a withdrawn statistical data set" do
       let(:content_item) { GovukSchemas::Example.find(:statistical_data_set, example_name: "statistical_data_set_withdrawn") }
 

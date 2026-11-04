@@ -29,6 +29,7 @@
         content: content_item.body.html_safe,
         direction:  I18n.t("i18n.direction", locale: I18n.locale, default: "ltr"),
       } %>
+      <%= render "govuk_publishing_components/components/metadata", content_item_presenter.page_history %>
     </div>
   <% end %>
 <% end %>

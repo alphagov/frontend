@@ -41,6 +41,8 @@
     track_as_sharing: true,
     title: t("components.share_links.share_this_page"),
     margin_bottom: 8 %>
+
+  <%= render "govuk_publishing_components/components/metadata", content_item_presenter.page_history %>
 <% end %>
 
 <% content_for :sidebar do %>

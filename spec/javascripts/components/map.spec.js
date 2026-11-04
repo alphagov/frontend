@@ -102,6 +102,12 @@ describe('Map component', function () {
 
   const feature1 = {
     properties: {
+      name: 'Name'
+    }
+  }
+
+  const feature2 = {
+    properties: {
       name: 'Name',
       description: 'Description',
       address: 'Address',
@@ -109,9 +115,11 @@ describe('Map component', function () {
     }
   }
 
-  const feature2 = {
+  const feature3 = {
     properties: {
-      name: 'Name'
+      name: 'Name',
+      url: 'https://www.gov.uk',
+      email: 'test@test.com'
     }
   }
 
@@ -123,19 +131,24 @@ describe('Map component', function () {
     })
 
     it('creates content when there is only a name', function () {
-      const result = module.createPopupContent(feature2)
+      const result = module.createPopupContent(feature1)
       expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2>')
     })
 
     it('creates content when there is a name and other fields', function () {
-      const result = module.createPopupContent(feature1)
+      const result = module.createPopupContent(feature2)
       expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> <p class="govuk-body govuk-!-margin-bottom-2">Description</p> <p class="govuk-body govuk-!-margin-bottom-2">Address</p> <p class="govuk-body govuk-!-margin-bottom-2">spoon</p>')
     })
 
     it('sets heading levels based on the passed value', function () {
       module.headingLevel = 3
-      const result = module.createPopupContent(feature2)
+      const result = module.createPopupContent(feature1)
       expect(result).toEqual('<h3 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h3>')
+    })
+
+    it('transforms the url and email fields appropriately', function () {
+      const result = module.createPopupContent(feature3)
+      expect(result).toEqual('<h2 class="govuk-heading-s govuk-!-margin-bottom-2">Name</h2> <p class="govuk-body govuk-!-margin-bottom-2"><a href="https://www.gov.uk" class="govuk-link">https://www.gov.uk</a></p> <p class="govuk-body govuk-!-margin-bottom-2"><a href="mailto:test@test.com" class="govuk-link">test@test.com</a></p>')
     })
   })
 

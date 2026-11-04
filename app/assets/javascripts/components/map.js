@@ -30,13 +30,14 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           datasets: [{
             id: 'features',
             geojson: this.geoJson,
+            generateIds: true,
             showInMenu: false,
             minZoom: 1,
             maxZoom: 24, // these must exceed the values used by the map config
             style: {
-              symbol: 'circle',
-              symbolBackgroundColor: '#1d70b8',
-              symbolForegroundColor: '#FFFFFF',
+              symbol: 'pin',
+              symbolBackgroundColor: '#ca3535',
+              symbolForegroundColor: '#ca3535',
               symbolHaloWidth: 3
             }
           }]
@@ -162,18 +163,25 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
     }
 
-    createPopupContent (feature) {
+    createPopupContent (feat) {
       const heading = `h${this.headingLevel}`
-      let popupContent = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feature.properties.name}</${heading}>`
+      let markup = `<${heading} class="govuk-heading-s govuk-!-margin-bottom-2">${feat.properties.name}</${heading}>`
+      const para = function (item) {
+        return `<p class="govuk-body govuk-!-margin-bottom-2">${item}</p>`
+      }
 
-      const keys = Object.keys(feature.properties)
+      const keys = Object.keys(feat.properties)
       keys.forEach((key) => {
-        if (key !== 'name') {
-          popupContent = `${popupContent} <p class="govuk-body govuk-!-margin-bottom-2">${feature.properties[key]}</p>`
+        if (key === 'url') {
+          markup = `${markup} ${para(`<a href="${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+        } else if (key === 'email') {
+          markup = `${markup} ${para(`<a href="mailto:${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+        } else if (key !== 'name') {
+          markup = `${markup} ${para(feat.properties[key])}`
         }
       })
-      popupContent = this.removeScript(popupContent)
-      return popupContent
+      markup = this.removeScript(markup)
+      return markup
     }
 
     removeScript (input) {

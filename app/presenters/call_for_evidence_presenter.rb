@@ -1,7 +1,4 @@
 class CallForEvidencePresenter < ContentItemPresenter
-  include DateHelper
-  include LinkHelper
-
   def notice_title
     if content_item.unopened?
       I18n.t("formats.call_for_evidence.not_open_yet")
@@ -30,20 +27,5 @@ class CallForEvidencePresenter < ContentItemPresenter
       },
       display_single_page_notification_button: true,
     })
-  end
-
-  def page_history
-    if formatted_history(content_item.history)
-      {
-        border_top: true,
-        last_updated: display_date(content_item.updated),
-        page_history: formatted_history(content_item.history),
-        page_history_details_ga4: {
-          type: "content history",
-          section: "Foot",
-          index_section: 2,
-        },
-      }
-    end
   end
 end

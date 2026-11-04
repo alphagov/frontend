@@ -1,4 +1,7 @@
 class ContentItemPresenter
+  include ContentsList
+  include DateHelper
+  include LinkHelper
   include LocaleHelper
 
   attr_reader :content_item
@@ -42,5 +45,20 @@ class ContentItemPresenter
       lead_paragraph: content_item.lead_paragraph,
       translations: translations_for_nav(content_item.available_translations),
     }
+  end
+
+  def page_history
+    if formatted_history(content_item.history)
+      {
+        border_top: true,
+        last_updated: display_date(content_item.updated),
+        page_history: formatted_history(content_item.history),
+        page_history_details_ga4: {
+          type: "content history",
+          section: "Foot",
+          index_section: 2,
+        },
+      }
+    end
   end
 end

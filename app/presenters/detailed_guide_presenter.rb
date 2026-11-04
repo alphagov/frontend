@@ -1,8 +1,4 @@
 class DetailedGuidePresenter < ContentItemPresenter
-  include ContentsList
-  include DateHelper
-  include LinkHelper
-
   PATHS_TO_HIDE = %w[
     /guidance/about-govuk-chat
     /guidance/govuk-chat-terms-and-conditions
@@ -22,20 +18,6 @@ class DetailedGuidePresenter < ContentItemPresenter
       },
       logo: logo,
     })
-  end
-
-  def page_history
-    if formatted_history(content_item.history)
-      {
-        last_updated: display_date(content_item.updated),
-        page_history: formatted_history(content_item.history),
-        page_history_details_ga4: {
-          type: "content history",
-          section: "Foot",
-          index_section: 2,
-        },
-      }
-    end
   end
 
   def logo

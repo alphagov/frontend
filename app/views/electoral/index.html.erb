@@ -1,0 +1,59 @@
+<% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
+<% content_for :head do %>
+  <%= render "govuk_publishing_components/components/machine_readable_metadata",
+    schema: :article,
+    content_item: content_item.to_h %>
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
+<% end %>
+
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
+
+<% content_for :content do %>
+  <div class="content-bottom-margin">
+    <% if content_item.introduction.present? %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.introduction %>
+      <% end %>
+    <% end %>
+
+    <%= render partial: "location_form",
+      locals: {
+        action: electoral_services_path,
+        form_method: "get",
+        format: "service",
+        publication_format: "local_transaction",
+        postcode: @postcode.sanitized_postcode,
+        margin_top: @location_error ? 5 : 0,
+        publication_title: content_item.title,
+        go_button_text: content_item.cta_text.presence,
+      } %>
+
+    <% if content_item.need_to_know.present? %>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: t("formats.local_transaction.what_you_need_to_know"),
+        margin_bottom: 4,
+      } %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.need_to_know %>
+      <% end %>
+    <% end %>
+
+    <% if content_item.more_information.present? %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw content_item.more_information %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<%= content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
+<% end %>

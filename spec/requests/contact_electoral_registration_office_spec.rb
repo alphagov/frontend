@@ -10,7 +10,8 @@ RSpec.describe "Contact Electoral Registration Office" do
       get "/contact-electoral-registration-office"
 
       expect(response).to have_http_status(:ok)
-      expect(response).to render_template("local_transaction/index")
+      expect(response).to render_template("electoral/index")
+      expect(response).to render_template(layout: "layouts/header_content_sidebar")
       expect(response).to render_template(partial: "application/_location_form")
       expect(response).to honour_content_store_ttl
     end
@@ -25,6 +26,7 @@ RSpec.describe "Contact Electoral Registration Office" do
 
           expect(response).to have_http_status(:ok)
           expect(response).to render_template(:results)
+          expect(response).to render_template(layout: "layouts/header_content_sidebar")
           expect(elections_api_stub).to have_been_requested
           expect(response).to honour_content_store_ttl
         end
@@ -75,6 +77,7 @@ RSpec.describe "Contact Electoral Registration Office" do
 
         expect(response).to have_http_status(:ok)
         expect(response).to render_template(:results)
+        expect(response).to render_template(layout: "layouts/header_content_sidebar")
         expect(elections_api_stub).to have_been_requested
       end
     end

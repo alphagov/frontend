@@ -3,6 +3,8 @@ class ElectoralController < ContentItemsController
 
   BASE_PATH_OF_EXISTING_CONTACT_LOCAL_ERO_SERVICE = "/contact-electoral-registration-office".freeze
 
+  layout "header_content_sidebar"
+
   def show
     @content_item_presenter = LocalTransactionPresenter.new(content_item)
 
@@ -12,13 +14,13 @@ class ElectoralController < ContentItemsController
       @presenter = presented_result(elections_api.body)
 
       if @presenter.show_picker?
-        render :address_picker, layout: "header_content_sidebar" and return
+        render :address_picker and return
       end
 
       render :results
     else
       @location_error = location_error
-      render "local_transaction/index"
+      render :index
     end
   end
 

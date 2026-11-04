@@ -17,10 +17,16 @@ RSpec.describe "Consultation" do
       expect(page).not_to have_css("gem-c-lead-paragraph")
     end
 
-    it "displays the metadata" do
-      within(".gem-c-metadata") do
+    it "displays the metadata at the top of the page" do
+      within all(".gem-c-metadata")[0] do
         expect(page).to have_content("From: Department for Education")
         expect(page).to have_content("Published: 4 November 2016")
+        expect(page).to have_content("Last updated: 7 November 2016")
+      end
+    end
+
+    it "displays the page history at the bottom of the page" do
+      within all(".gem-c-metadata")[1] do
         expect(page).to have_content("Last updated: 7 November 2016")
         expect(page).to have_content("7 November 2011")
         expect(page).to have_content("Added sub-topic tag.")

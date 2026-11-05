@@ -1,0 +1,8 @@
+<% content = capture do %>
+  <%= yield %>
+<% end %>
+<% if content.strip.length > 0 %>
+  <%= render "govuk_publishing_components/components/govspeak", {} do %>
+    <%= raw parse_govspeak(content) %>
+  <% end %>
+<% end %>

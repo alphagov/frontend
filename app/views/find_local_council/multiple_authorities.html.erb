@@ -1,16 +1,13 @@
 <% content_for :title, "Find your local council: #{t('formats.local_transaction.select_address').downcase} - GOV.UK" %>
-
 <% content_for :head do %>
   <meta name="robots" content="noindex">
 <% end %>
 
-<%= render layout: "base_page" do %>
-  <%= render "govuk_publishing_components/components/heading", {
-    text: t("formats.local_transaction.postcode"),
-    heading_level: 2,
-    margin_bottom: 2,
-  } %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
+<% content_for :content do %>
   <p class="govuk-body">
     <strong><%= @postcode %></strong> <%= link_to t("common.change"), "/find-local-council", class: "govuk-link" %>
   </p>
@@ -34,6 +31,15 @@
 
     <%= render "govuk_publishing_components/components/button", {
       text: t("continue"),
+      margin_bottom: 8,
     } %>
   <% end %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>

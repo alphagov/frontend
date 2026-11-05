@@ -53,7 +53,8 @@ The content items are obtained from ContentStore using the ContentStore#content_
 |News Article           |[news_article](https://docs.publishing.service.gov.uk/content-schemas/news_article.html)|https://www.gov.uk/government/news/the-personal-independence-payment-amendment-regulations-2017-statement-by-paul-gray|
 |Person                 |[person](https://docs.publishing.service.gov.uk/content-schemas/person.html)|https://www.gov.uk/government/people/matthew-hancock|
 |Place                  |[place](https://docs.publishing.service.gov.uk/content-schemas/place.html)|https://www.gov.uk/register-offices|
-|                       ||https://www.gov.uk/register-offices|
+|                       ||https://www.gov.uk/find-approved-tachograph-centre-atc|
+|                       ||https://www.gov.uk/dod-o-hyd-ich-tim-diogelwch-bwyd-lleol|
 |Publication            |[publication](https://docs.publishing.service.gov.uk/content-schemas/publication.html)|https://www.gov.uk/government/publications/budget-2016-documents|
 |Roadmap                |hardcoded|https://www.gov.uk/roadmap|
 |Service Manual guide|[service_manual_guide](https://docs.publishing.service.gov.uk/content-schemas/service_manual_guide.html)|https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works|

@@ -1,8 +1,6 @@
 class StatisticsAnnouncementPresenter < ContentItemPresenter
   include StatisticsAnnouncementHelper
   include NationalStatisticsLogo
-  include DateHelper
-  include LinkHelper
 
   def use_contextual_components?
     true

@@ -1,7 +1,4 @@
 class HtmlPublicationPresenter < ContentItemPresenter
-  include ContentsList
-  include DateHelper
-
   def hide_from_search_engines?
     return false unless content_item.parent
 

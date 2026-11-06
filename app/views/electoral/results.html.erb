@@ -1,81 +1,93 @@
 <% content_for :head do %>
   <meta name="robots" content="noindex">
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
 <% end %>
 
-<%= render layout: "shared/base_page", locals: {
-  title: content_item.title,
-  publication: content_item,
-  edition: @edition,
-} do %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-  <% if @presenter.electoral_services.present? %>
+<% content_for :content do %>
+  <div class="content-bottom-margin">
+    <% if @presenter.electoral_services.present? %>
+      <%
+        ga4_auto = {
+          event_name: "form_complete",
+          type: "local transaction",
+          text: Nokogiri::HTML(t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
+          action: "complete",
+          tool_name: content_item.title,
+        }.to_json
+      %>
+      <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
+        <%= t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
+      </p>
+    <% end %>
     <%
-      ga4_auto = {
-        event_name: "form_complete",
+      ga4_link = {
+        event_name: "information_click",
         type: "local transaction",
-        text: Nokogiri::HTML(t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
-        action: "complete",
         tool_name: content_item.title,
+        action: "information click",
       }.to_json
     %>
-    <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
-      <%= t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
-    </p>
-  <% end %>
-  <%
-    ga4_link = {
-      event_name: "information_click",
-      type: "local transaction",
-      tool_name: content_item.title,
-      action: "information click",
-    }.to_json
-  %>
-  <div class="govuk-!-margin-bottom-8" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-link="<%= ga4_link %>">
-    <% if @presenter.use_registration_contact_details? && @presenter.scotland? %>
-      <%= render partial: "contact_details",
-        locals: {
-          presenter: @presenter,
-          title: t("electoral.registration.title"),
-          description: t("electoral.registration.description"),
-          name: nil,
-          contact_details: @presenter.presented_registration_address,
-          postcode: @presenter.registration["postcode"],
-          website: @presenter.registration["website"],
-          phone: @presenter.registration["phone"],
-          email: @presenter.registration["email"],
-          } %>
-    <% end %>
+    <div class="govuk-!-margin-bottom-8" data-module="ga4-link-tracker" data-ga4-set-indexes data-ga4-link="<%= ga4_link %>">
+      <% if @presenter.use_registration_contact_details? && @presenter.scotland? %>
+        <%= render partial: "contact_details",
+          locals: {
+            presenter: @presenter,
+            title: t("electoral.registration.title"),
+            description: t("electoral.registration.description"),
+            name: nil,
+            contact_details: @presenter.presented_registration_address,
+            postcode: @presenter.registration["postcode"],
+            website: @presenter.registration["website"],
+            phone: @presenter.registration["phone"],
+            email: @presenter.registration["email"],
+        } %>
+      <% end %>
 
-    <% if @presenter.use_electoral_services_contact_details? %>
-      <%= render partial: "contact_details",
-        locals: {
-          presenter: @presenter,
-          title: t("electoral.service.title"),
-          description: t("electoral.service.description"),
-          name: @presenter.electoral_service_name,
-          contact_details: @presenter.presented_electoral_service_address,
-          postcode: @presenter.electoral_services["postcode"],
-          website: @presenter.electoral_services["website"],
-          phone: @presenter.electoral_services["phone"],
-          email: @presenter.electoral_services["email"],
+      <% if @presenter.use_electoral_services_contact_details? %>
+        <%= render partial: "contact_details",
+          locals: {
+            presenter: @presenter,
+            title: t("electoral.service.title"),
+            description: t("electoral.service.description"),
+            name: @presenter.electoral_service_name,
+            contact_details: @presenter.presented_electoral_service_address,
+            postcode: @presenter.electoral_services["postcode"],
+            website: @presenter.electoral_services["website"],
+            phone: @presenter.electoral_services["phone"],
+            email: @presenter.electoral_services["email"],
           } %>
-    <% end %>
+      <% end %>
 
-    <% if @presenter.use_registration_contact_details? && !@presenter.scotland? %>
-      <%= render partial: "contact_details",
-        locals: {
-          presenter: @presenter,
-          title: t("electoral.registration.title"),
-          description: t("electoral.registration.description"),
-          name: nil,
-          contact_details: @presenter.presented_registration_address,
-          postcode: @presenter.registration["postcode"],
-          website: @presenter.registration["website"],
-          phone: @presenter.registration["phone"],
-          email: @presenter.registration["email"],
+      <% if @presenter.use_registration_contact_details? && !@presenter.scotland? %>
+        <%= render partial: "contact_details",
+          locals: {
+            presenter: @presenter,
+            title: t("electoral.registration.title"),
+            description: t("electoral.registration.description"),
+            name: nil,
+            contact_details: @presenter.presented_registration_address,
+            postcode: @presenter.registration["postcode"],
+            website: @presenter.registration["website"],
+            phone: @presenter.registration["phone"],
+            email: @presenter.registration["email"],
           } %>
-    <% end %>
+      <% end %>
+    </div>
+
+    <p class="govuk-body"><%= t("electoral.service.search_postcode_html") %></p>
   </div>
+<% end %>
 
-  <p class="govuk-body"><%= t("electoral.service.search_postcode_html") %></p>
+<%= content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<%= content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>

@@ -16,4 +16,6 @@
   } %>
 <% end %>
 
-<%= render "shared/manuals/manual_updates_layout" %>
+<% content_for :content do %>
+  <%= render "shared/manuals/manual_updates_layout" %>
+<% end %>

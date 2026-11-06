@@ -485,13 +485,9 @@ mfe:
     world_news_link: "%{country} ek UK"
   a: A
   b: B
-  cancel: kennsel
   continue: Kontigne
-  error: Erer
   find: Trouv
   'no': Non
-  save: Anrezistre
-  sign_up: Kree enn kont
   website: Sitweb
   withdrawn_notice:
     title: Sa %{schema_name} finn anleve le %{withdrawn_time}

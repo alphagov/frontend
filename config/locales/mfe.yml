@@ -1,0 +1,500 @@
+mfe:
+  formats:
+    aaib_report:
+      name:
+        one: Bann rapor depi Air Accidents Investigation Branch
+        other: Bann rapor depi Air Accidents Investigation Branch
+    announcement:
+      name:
+        one: Kominike
+        other: Bann kominike
+    asylum_support_decision:
+      name:
+        one: Desizion depi Asylum support tribunal
+        other: Bann desizion depi Asylum support tribunal
+    authored_article:
+      name:
+        one: Lartik signe par
+        other: Bann lartik signe par
+    business_finance_support_scheme:
+      name:
+        one: Program soutien finansie pou biznes
+        other: Bann program soutien finansie pou biznes
+    call_for_evidence:
+      name:
+        one: Apel pou kontribision
+        other: Bann apel pou kontribision
+    call_for_evidence_outcome:
+      name:
+        one: Rezilta apel pou kontribision
+        other: Bann rezilta apel pou kontribision
+    case_study:
+      name:
+        one: Etid-de-ka
+        other: Bann etid-de-ka
+    closed_call_for_evidence:
+      name:
+        one: Apel pou kontribision klotire
+        other: Bann apel pou kontribision klotire
+    closed_consultation:
+      name:
+        one: Konsiltasion klotire
+        other: Bann konsiltasion klotire
+    cma_case:
+      name:
+        one: Dosie Competition and Markets Authority
+        other: Bann dosie Competition and Markets Authority
+    consultation:
+      name:
+        one: Konsiltasion
+        other: Bann konsiltasion
+      analysing_feedback: Nou pe analiz ou feedback
+      another_website_html: Sa konsiltasion %{closed} finn fer le  <a href="%{url}">
+        enn lot sitweb</a>
+      closes: Li ferme apartir
+      closes_at: Sa konsiltasion-la ferme apartir
+      complete_a: Konplet enn
+      concluded: Sa konsiltasion-la finn termine
+      description: Deskripsion konsiltasion
+      detail_of_feedback_received: Detay feedback ki finn resevwar
+      detail_of_outcome: Detay rezilta
+      documents: Bann dokiman
+      download_outcome: Lir rezilta konple
+      either: ouswa
+      email_to: 'Avoy email a:'
+      feedback_received: Feedback ki finn resevwar
+      is_being: pe
+      not_open_yet: Sa konsiltasion-la pankor ouver
+      opens: Sa konsiltasion-la ouver
+      original_consultation: Konsiltasion inisial
+      ran_from: Sa konsiltasion finn komanse depi
+      respond_online: Reponn online
+      response_form: Formiler repons
+      summary: Somer
+      visit_soon: Revinn lor sa paz-la biento pou download rezilta sa konsiltasion
+        piblik la
+      ways_to_respond: Bann fason reponn
+      write_to: 'Ekrir a:'
+    consultation_outcome:
+      name:
+        one: Rezilta konsiltasion
+        other: Bann rezilta konsiltasion
+    corporate_information_page:
+      name:
+        one: Paz informasion
+        other: Bann paz informasion
+      about_our_services_html: Dekouver %{link}.
+      corporate_information: Informasion institisionel / antrepriz
+      personal_information_charter_html: Nou %{link} explik fason ki nou tret ou bann
+        informasion personel
+      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye
+        dan nou %{link}
+      social_media_use_html: Dekouver nou politik lor %{link}
+      welsh_language_scheme_html: Dekouver nou langazman an faver %{link}
+    corporate_report:
+      name:
+        one: Rapor antrepriz/ Rapor institisionel
+        other: Bann rapor antepriz/ bann rapor institisionel
+    correspondence:
+      name:
+        one: Korespondans
+        other: Bann korespondans
+    countryside_stewardship_grant:
+      name:
+        one: Sibvansion depi program Country Stewardship
+        other: Bann sibvasion depi program Country Stewardship
+    decision:
+      name:
+        one: Desizion
+        other: Bann desizion
+    detailed_guide:
+      name:
+        one: Gid / Konsey /Direktiv
+        other: Gid / Konsey /Direktiv
+    dfid_research_output:
+      name:
+        one: Rezilta resers pou devlopman
+        other: Bann rezilta resers pou devlopman
+    document_collection:
+      name:
+        one: Koleksion
+        other: Bann koleksion
+    draft_text:
+      name:
+        one: Version preliminer
+        other: Bann version preliminer
+    drug_safety_update:
+      name:
+        one: Miz-a-zour lor sekirite medikaman
+        other: Bann miz-a-zour lor sekirite medikaman
+    employment_appeal_tribunal_decision:
+      name:
+        one: Desizion Employment appeal tribunal
+        other: Bann desizion Employment Appeal Tribunal
+    employment_tribunal_decision:
+      name:
+        one: Desizion Employment tribunal
+        other: Bann desizion Employment tribunal
+    equality_and_diversity:
+      name:
+        one: Egalite ek diversite
+        other: Egalite ek diversite
+    esi_fund:
+      name:
+        one: European Structural and Investment Fund (ESIF)
+        other: European Structural and Investment Fund (ESIF)
+    fatality_notice:
+      name:
+        one: Avi-dese
+        other: Bann avi-dese
+      alt_text: Blazon Minister Ladefans
+      field_of_operation: Sekter aktivite
+      none_added: Okenn avi-dese napa finn azoute dan sa domenn aktivite-la ziska
+        ler
+      operations_in: Bann aktivite dan %{location}
+    foi_release:
+      name:
+        one: Piblikasion otit Drwa akse avek linformasion
+        other: Bann piblikasion otit Drwa aske avek linformasion
+    form:
+      name:
+        one: Formiler
+        other: Bann formiler
+    government_response:
+      name:
+        one: Repons gouvernman
+        other: Bann repons gouvernman
+    guidance:
+      name:
+        one: Gid / Konsey /Direktiv
+        other: Gid / Konsey /Direktiv
+    html_publication:
+      name:
+        one: Piblikasion HTML
+        other: Bann piblikasion HTML
+      print_meta_data:
+        available_at: Sa piblikasion-la disponib lor %{url}
+        copyright: "© Crown copyright %{year} Crown copyright %{year}"
+        isbn: 'ISBN:'
+        licence_html: 'Sa piblikasion-la finn met-a-dispozision dapre bann term lisans
+          Open Government Licence v3.0, sof indikasion kontrer. Pou konsilte sa lisans-la,
+          al lor:<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a>
+          ouswa ekrir Lekip Politik Linformasion, Arsiv Nasional, Kew, London TW9
+          4DU, ou avoy enn emai lor: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Kot nou finn idantifie bann informasion proteze par bann drwa-doter
+          ki apartenir a enn tiers, ou pou bizin gagn lotorizasion bann titiler bann
+          drwa-doter konserne
+    impact_assessment:
+      name:
+        one: Etid linpak
+        other: Bann etid linpak
+    imported:
+      name:
+        one: Inporte - kategori pou determine
+        other: Inporte - kategori pou determine
+    independent_report:
+      name:
+        one: Rapor indepandan
+        other: Bann rapor indepandan
+    international_development_fund:
+      name:
+        one: Finansman devlopman internasional
+        other: Finansman devlopman internasional
+    international_treaty:
+      name:
+        one: Trete internasional
+        other: Bann trete internasional
+    maib_report:
+      name:
+        one: Rapor depi Marine Accident Investigation Branch
+        other: Bann rapor depi Marine Accident Investigation Branch
+    map:
+      name:
+        one: Map
+        other: Bann map
+    medical_safety_alert:
+      name:
+        one: Bann alert ek rapel konsernan bann medikaman ek dispozitif medikal
+        other: Bann alert ek rapel konsernan bann medikaman ek dispozitif medikal
+    national:
+      name:
+        one: Anons bann statistik ofisiel akredite
+        other: Bann anons bann statistik ofisiel akredite
+    national_statistics:
+      name:
+        one: Statistik ofisiel akredite
+        other: Statistik ofisiel akredite
+    national_statistics_announcement:
+      name:
+        one: Anons bann statistik ofisiel akredite
+        other: Anons bann statistik ofisiel akredite
+    news_article:
+      name:
+        one: Lartik aktialite
+        other: Bann lartik aktialite
+    news_story:
+      name:
+        one: Aktialite
+        other: Bann aktialite
+    notice:
+      name:
+        one: Avi
+        other: Bann avi
+    official:
+      name:
+        one: Anons bann statistik ofisiel
+        other: Anons bann statistik ofisiel
+    official_statistics:
+      name:
+        one: Bann statistik ofisiel
+        other: Bann statistik ofisiel
+    official_statistics_announcement:
+      name:
+        one: Anons bann statistik ofisiel
+        other: Anons bann statistik ofisiel
+    open_call_for_evidence:
+      name:
+        one: Apel pou kontrision ouver
+        other: Bann lapel pou kontribision ouver
+    open_consultation:
+      name:
+        one: Konsiltasion ouver
+        other: Bann konsiltasion ouver
+    oral_statement:
+      name:
+        one: Deklarasion oral dan Parlman
+        other: Bann deklarasion oral dan Parlman
+    policy:
+      name:
+        one: Politik
+        other: Bann politik
+    policy_paper:
+      name:
+        one: Dokiman politk
+        other: Bann dokiman politik
+    press_release:
+      name:
+        one: Kominike lapres
+        other: Bann kominike lapres
+    procurement:
+      name:
+        one: Procurement
+        other: Procurement
+    product-safety-alert-report-recall:
+      name:
+        one: Bann alert sekirite, rapor, ek rapel prodwi
+        other: Bann alert sekirite, rapor, ek rapel prodwi
+    promotional:
+      name:
+        one: Materyel promosionel
+        other: Materyel promosionel
+    publication:
+      documents:
+        one: Dokiman
+        other: Bann dokiman
+      name:
+        one: Piblikasion
+        other: Bann piblikasion
+      details: Detay
+    raib_report:
+      name:
+        one: Rapor depi Rail Accident Investigation Branch
+        other: Bann rapor depi Accident Investigation Branch
+    regulation:
+      name:
+        one: Reglemantasion
+        other: Bann reglemantasion
+    research:
+      name:
+        one: Resers ek analiz
+        other: Resers ek analiz
+    residential_property_tribunal_decision:
+      name:
+        one: Desizion tribinal bann litiz relatif a bann dibien imobilie
+        other: Bann desizion tribinal bann litiz relatif a bann dibien imobilie
+    service_sign_in:
+      name:
+        one: Konexion a enn servis
+        other: Konexion a enn servis
+    service_standard_report:
+      name:
+        one: Rapor evaliasion norm servis
+        other: Bann rapor evaliasion norm servis
+    speaking_notes:
+      name:
+        one: Bann not alokision
+        other: Bann not alokision
+    speech:
+      name:
+        one: Diskour
+        other: Bann diskour
+      delivered_on: Delivre le
+      location: Lokalizasion
+      written_on: Ekrir lor
+    standard:
+      name:
+        one: Norm
+        other: Bann norm
+    statement_to_parliament:
+      name:
+        one: Deklarasion dan Palrman
+        other: Bann deklarasion dan Parlman
+    statistical_data_set:
+      name:
+        one: Lansanb bann done statistik
+        other: Lansanb bann done statistik
+    statistics:
+      name:
+        one: Bann statistik
+        other: Bann statistik
+    statistics_announcement:
+      name:
+        one: Anons piblikasion bann statistik
+        other: Anons piblikasion bann statistik
+      cancellation_date: Dat anilasion
+      cancelled: Piblikasion bann statistik anile
+      changed_date: Dat piblikasion finn sanze
+      forthcoming: Sa bann statistik-la pou pibliye
+      previous_date: Dat presedan
+      proposed_date: Piblikasion previ
+      reason_for_change: Rezon kifer finn sanze
+      release_date: Dat piblikasion
+    statutory_guidance:
+      name:
+        one: Direktiv statiter
+        other: Direktiv statiter
+    tax_tribunal_decision:
+      name:
+        one: Desizion depi tribinal tax ek Chancery
+        other: Bann desizion depi tribinal tax ek Chancery
+    transcript:
+      name:
+        one: Transkript
+        other: Bann transkript
+    transparency:
+      name:
+        one: Informasion relatif avek transparans
+        other: Informasion relatif avek transparans
+    utaac_decision:
+      name:
+        one: Desizion tribinel apel administratif
+        other: Bann dezision tribinal apel administratif
+    world_news_story:
+      name:
+        one: Aktialite internasional
+        other: Bann aktialite internasional
+    written_statement:
+      name:
+        one: Deklarasion ekri pou Parlman
+        other: Bann deklrasion ekri pou Parlman
+    guide:
+      pages_in_guide: Bann paz dan sa gid-la
+      skip_contents: Pas lor konteni
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion
+          "Designated Origin UK protected"
+        pgi_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion
+          "Geographic Origin UK protected"
+        tsg_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion  "Traditional
+          Speciality UK protected"
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth
+          and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite
+          absoli, dan sertin parti %{country}.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign,
+          Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman,
+          sof an ka nesesite absoli, ver %{country}.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development
+          Office">FCDO</abbr> dekonsey tou deplasman dan sertin parti  %{country}.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth
+          and Development Office">FCDO</abbr> dekonsey tou deplasman ver %{country}.
+      context: Konsey pou vwayaz aletranze
+      pages: Paz lor konsey vwayaz
+      still_current_at: Informasion touzour azour le
+      summary: Somer
+      updated: Miz-a-zour
+    working_group:
+      contact_details: Kordone
+      policies: Politik
+  common:
+    metadata:
+      published: Pibliye
+      updated: Met-a-zour
+    print_link: Imprim sa paz-la
+    today: zordi
+    visit: 'Vizit:'
+    was: ti
+    and: ek
+    at: a
+    or: ouswa
+  components:
+    share_links:
+      share_this_page: partaz sa paz-la
+  contact:
+    access_and_opening_times: Akse ek ler ouvertir
+    contact_form: Formiler kontak
+    email: Email
+  email:
+    already_subscribed_title: Ou pe deza resevwar email konsernan sa paz-la
+    description: Konsilte ek zer tou ou abonnman email depi GOV.UK
+    subscribe_title: Ou dezorme abone a bann email konsernan sa paz-la
+    unsubscribe_title: Ou finn dezabone depi email konsernan sa paz-la
+  gone:
+    archived: Ou kapav <a class="govuk-link" href="%{path}">check bann version presedan
+      sa paz-la dan arsiv sitweb gouvernman UK</a>.
+    page_title: Nepli disponib
+    published_in_error: Finn anlev linformasion lor sa paz-la parski ti finn pibliye
+      li par erer
+    title: Paz ki ou pe rode nepli disponib
+  language_names:
+    mfe: Kreol Morisien
+  multi_page:
+    next_page: Prosin
+    previous_page: Presedan
+    print_entire_guide: Konsilte enn version inprimab gid konple
+    printable_version: Version inprimab
+  shared:
+    historically_political: Sa piblikasion-la finn pibliye anba %{government}
+  webchat:
+    available: Bann konseye disponib pou chate
+    busy: Tou konseye webchat okipe pou lemoman
+    closed: Webchat ferme pou lemoman
+    speak_to_adviser: Koz avek enn konseye asterla
+    technical_problem: Servis webchat tanporerman indisponib akoz bann problem teknik
+  worldwide_organisation:
+    corporate_information:
+      about_our_services_html: Dekouver %{link}.
+      personal_information_charter_html: Nou  %{link} explike kouman nou tret ou bann
+        linformasion personel
+      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye
+        dan nou %{link}.
+      social_media_use_html: Lir nou polisi lor %{link}.
+      welsh_language_scheme_html: Dekouver nou langazman an faver %{link}.
+    find_out_more: Get profil konple ek tou bann kordone
+    headings:
+      contact_us: Kontakte nou
+      corporate_information: Informasion institisionel / antrepriz
+      follow_us: Swiv nou
+      our_people: Nou dimounn
+    news: Aktialite
+    part_of: Enn parti depi
+    show_more: Montre %{hiddenLinksCount} plis
+    show_more_visually_hidden: Aktialite par pei ek teritwar
+    world_news_link: "%{country} ek UK"
+  a: A
+  b: B
+  cancel: kennsel
+  continue: Kontigne
+  error: Erer
+  find: Trouv
+  'no': Non
+  save: Anrezistre
+  sign_up: Kree enn kont
+  website: Sitweb
+  withdrawn_notice:
+    title: Sa %{schema_name} finn anleve le %{withdrawn_time}
+  'yes': Wi
+  i18n:
+    direction: ltr

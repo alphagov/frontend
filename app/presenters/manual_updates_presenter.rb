@@ -13,6 +13,10 @@ class ManualUpdatesPresenter < ContentItemPresenter
     strip_tags(title).gsub(I18n.t("formats.manuals.updates_amendments"), "").gsub(/\s+/, " ").strip
   end
 
+  def use_contextual_compoonents?
+    false
+  end
+
 private
 
   def updated_at(published_at)

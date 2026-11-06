@@ -1,6 +1,10 @@
 class HmrcManualSectionPresenter < ContentItemPresenter
   include ManualMetadata
 
+  def use_contextual_breadcrumbs?
+    false
+  end
+
   def breadcrumbs
     base_breadcrumb = {
       title: I18n.t("formats.manuals.breadcrumb_contents"),

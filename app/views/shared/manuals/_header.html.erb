@@ -25,9 +25,9 @@
       } %>
 
       <%= render "govuk_publishing_components/components/metadata", {
-        from: govuk_styled_links_list(@presenter.contributor_links),
+        from: govuk_styled_links_list(@content_item_presenter.contributor_links),
         first_published: content_item.respond_to?(:initial_publication_date) ? display_date(content_item.initial_publication_date) : nil,
-        other: @presenter.other_metadata(is_updates_page:),
+        other: @content_item_presenter.other_metadata(is_updates_page:),
         inverse: true,
         inverse_compress: true,
       } %>

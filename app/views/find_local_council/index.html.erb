@@ -1,6 +1,15 @@
 <% content_for :title do %><%= "Error: " if @location_error %>Find your local council - GOV.UK<% end %>
+<% content_for :head do %>
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
+<% end %>
 
-<%= render layout: "base_page" do %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
+
+<% content_for :content do %>
   <p class="govuk-body"><%= t("formats.local_transaction.find_council_website") %></p>
   <%= render partial: "location_form",
     locals: {
@@ -9,5 +18,13 @@
       postcode: @postcode,
       margin_top: @location_error ? 5 : 0,
       publication_title: t("formats.local_transaction.find_council", locale: :en),
-    } %>
+  } %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: @content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: @content_item.to_h, dir: page_text_direction %>
 <% end %>

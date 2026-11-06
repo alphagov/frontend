@@ -6,11 +6,15 @@ class FindLocalCouncilController < ContentItemsController
   skip_before_action :set_locale
   skip_before_action :verify_authenticity_token, only: [:find]
 
+  layout "header_content_sidebar"
   BASE_PATH = "/find-local-council".freeze
 
-  def index; end
+  def index
+    @content_item_presenter = FindLocalCouncilPresenter.new(content_item)
+  end
 
   def find
+    @content_item_presenter = FindLocalCouncilPresenter.new(content_item)
     # get location info, raising a LocationError if there's a problem
     postcode_lookup = PostcodeLookup.new(postcode)
 
@@ -33,6 +37,7 @@ class FindLocalCouncilController < ContentItemsController
   end
 
   def result
+    @content_item_presenter = FindLocalCouncilPresenter.new(content_item)
     @local_authority = LocalAuthority.from_slug(params[:authority_slug])
 
     if @local_authority.tier == "county"

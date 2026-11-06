@@ -6,11 +6,21 @@ RSpec.describe "FindLocalCouncil" do
   include GdsApi::TestHelpers::LocalLinksManager
   include LocationHelpers
 
-  before { content_store_has_random_item(base_path: "/find-local-council") }
+  let(:content_store_response) { GovukSchemas::Example.find("special_route", example_name: "special_route") }
+  let(:base_path) { "/find-local-council" }
+
+  before do
+    overrides = {
+      "title" => "Find your local council",
+      "description" => "Find your local authority in England, Wales, Scotland and Northern Ireland",
+    }
+    content_store_response.deep_merge!(overrides)
+    stub_content_store_has_item(base_path, content_store_response)
+  end
 
   context "when visiting the start page" do
     before do
-      visit "/find-local-council"
+      visit base_path
     end
 
     it "shows Find Local Council start page" do

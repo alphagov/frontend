@@ -47,14 +47,42 @@ mfe:
     world_cup:
     year:
   common:
+    add_holiday_ics:
     and: ek
     at: a
+    bank_holiday_benefits_html:
+    bank_holiday_on_wkend:
+    bank_holiday_translation_html:
+    change:
+    download_ics:
+    email_and_print_link:
+    extra_bank_holiday:
+    holiday_entitlement_html:
     metadata:
       published: Pibliye
       updated: Met-a-zour
+    nations:
+      england-and-wales:
+      england-and-wales_for:
+      england-and-wales_in:
+      england-and-wales_slug:
+      northern-ireland:
+      northern-ireland_for:
+      northern-ireland_in:
+      northern-ireland_slug:
+      scotland:
+      scotland_for:
+      scotland_in:
+      scotland_slug:
+    next_holiday_in_is:
+    'on':
     or: ouswa
+    past_bank_holidays:
     print_link: Imprim sa paz-la
+    substitute_day:
     today: zordi
+    united-kingdom_slug:
+    upcoming_bank_holidays:
     visit: 'Vizit:'
     was: ti
   components:
@@ -152,9 +180,19 @@ mfe:
         one: Program soutien finansie pou biznes
         other: Bann program soutien finansie pou biznes
     call_for_evidence:
+      another_website_html:
+      closed:
+      closed_another_website_html:
+      closes_at:
+      description:
       name:
         one: Apel pou kontribision
         other: Bann apel pou kontribision
+      not_open_yet:
+      open_another_website_html:
+      opens:
+      original_call_for_evidence:
+      ran_from:
     call_for_evidence_outcome:
       name:
         one: Rezilta apel pou kontribision
@@ -177,7 +215,7 @@ mfe:
         other: Bann dosie Competition and Markets Authority
     consultation:
       analysing_feedback: Nou pe analiz ou feedback
-      another_website_html: Sa konsiltasion %{closed} finn fer le  <a href="%{url}"> enn lot sitweb</a>
+      another_website_html: Sa konsiltasion %{closed} finn fer le <a href="%{url}"> enn lot sitweb</a>
       closes: Li ferme apartir
       closes_at: Sa konsiltasion-la ferme apartir
       complete_a: Konplet enn
@@ -201,6 +239,7 @@ mfe:
       respond_online: Reponn online
       response_form: Formiler repons
       summary: Somer
+      to:
       visit_soon: Revinn lor sa paz-la biento pou download rezilta sa konsiltasion piblik la
       ways_to_respond: Bann fason reponn
       write_to: 'Ekrir a:'
@@ -278,6 +317,13 @@ mfe:
         other: Bann avi-dese
       none_added: Okenn avi-dese napa finn azoute dan sa domenn aktivite-la ziska ler
       operations_in: Bann aktivite dan %{location}
+    field_of_operation:
+      context:
+      title:
+    fields_of_operation:
+      context:
+    find_my_nearest:
+      valid_postcode_no_locations:
     foi_release:
       name:
         one: Piblikasion otit Drwa akse avek linformasion
@@ -286,6 +332,43 @@ mfe:
       name:
         one: Formiler
         other: Bann formiler
+    get_involved:
+      civil_service:
+      civil_service_quarterly:
+      closed:
+      closed_consultations:
+      closes:
+      closing_today:
+      closing_tomorrow:
+      days_left:
+      engage_with_gov:
+      fcdo_bloggers:
+      follow:
+      follow_links:
+      follow_paragraph:
+      gds_blog:
+      gov_past:
+      intro_paragraph:
+        body_html:
+      join_ics:
+      make_donation:
+      more_ways:
+      neighbourhood_watch:
+      open_consultations:
+      page_heading:
+      page_title:
+      petition_paragraph:
+        body_html:
+        create_a_petition:
+      recent_outcomes:
+      recently_opened:
+      respond_to_consultations:
+      school_overseas:
+      search_all:
+      see_all_dept:
+      start_a_petition:
+      updated:
+      your_views:
     government_response:
       name:
         one: Repons gouvernman
@@ -297,13 +380,15 @@ mfe:
     guide:
       pages_in_guide: Bann paz dan sa gid-la
       skip_contents: Pas lor konteni
+    how_government_works:
+      lead_paragraph:
     html_publication:
       name:
         one: Piblikasion HTML
         other: Bann piblikasion HTML
       print_meta_data:
         available_at: Sa piblikasion-la disponib lor %{url}
-        copyright: "© Crown copyright %{year} Crown copyright %{year}"
+        copyright: "© Crown copyright %{year}"
         isbn: 'ISBN:'
         licence_html: 'Sa piblikasion-la finn met-a-dispozision dapre bann term lisans Open Government Licence v3.0, sof indikasion kontrer. Pou konsilte sa lisans-la, al lor:<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ouswa ekrir Lekip Politik Linformasion, Arsiv Nasional, Kew, London TW9 4DU, ou avoy enn emai lor: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
         third_party: Kot nou finn idantifie bann informasion proteze par bann drwa-doter ki apartenir a enn tiers, ou pou bizin gagn lotorizasion bann titiler bann drwa-doter konserne
@@ -327,10 +412,77 @@ mfe:
       name:
         one: Trete internasional
         other: Bann trete internasional
+    local_transaction:
+      choose_address:
+      contact_council:
+      council_tax:
+      county_council_services:
+      county_council_services_list:
+      county_district_council:
+      different_local_authorities:
+      district_council_services:
+      electoral_service_not_available:
+      enter_postcode:
+      error_summary_title:
+      find_adoption_hub:
+      find_council:
+      find_council_website:
+      find_info_for:
+      find_other_services:
+      find_postcode_royal_mail:
+      housing:
+      info_on_country_website:
+        northern_ireland:
+        scotland:
+        wales:
+      info_on_website:
+      invalid_postcode:
+      invalid_postcode_sub:
+      invalid_uprn:
+      invalid_uprn_sub:
+      local_authority_html:
+      local_authority_website:
+      matched_postcode_html:
+      no_local_authority:
+      no_local_authority_url_html:
+      no_website:
+      postcode:
+      postcode_hint:
+      postcode_lookup:
+      rubbish_recycling_collection:
+      search_for_a_different_postcode:
+      search_result:
+      select_address:
+      service_not_available:
+      titled_link:
+      unknown_service:
+      valid_postcode_no_match:
+      valid_postcode_no_match_sub_html:
+      valid_uprn_no_match:
+      valid_uprn_no_match_sub_html:
+      website:
+      what_you_need_to_know:
     maib_report:
       name:
         one: Rapor depi Marine Accident Investigation Branch
         other: Bann rapor depi Marine Accident Investigation Branch
+    manuals:
+      breadcrumb_contents:
+      contents_list_breadcrumb_contents:
+      contents_title:
+      hmrc_manual_type:
+      manual_type:
+      next_page:
+      pages_in_manual_section:
+      previous_page:
+      search_this_manual:
+      see_all_updates:
+      summary_title:
+      updated:
+      updates:
+      updates_amendments:
+      updates_description:
+      updates_title:
     map:
       name:
         one: Map
@@ -387,6 +539,19 @@ mfe:
       name:
         one: Deklarasion oral dan Parlman
         other: Bann deklarasion oral dan Parlman
+    people:
+      biography:
+      previous_roles:
+      previous_roles_in_government:
+      read_more:
+    place:
+      find_results:
+      further_information:
+      postcode:
+      results:
+        for:
+        near:
+      select_address:
     policy:
       name:
         one: Politik
@@ -435,6 +600,20 @@ mfe:
       name:
         one: Desizion tribinal bann litiz relatif a bann dibien imobilie
         other: Bann desizion tribinal bann litiz relatif a bann dibien imobilie
+    roles:
+      find_out_more_html:
+      heading:
+        one:
+        other:
+      headings:
+        current_holder:
+        previous_holders:
+        responsibilities:
+      ministerial:
+      organisations:
+      past:
+      previous_holders:
+      read_more:
     service_sign_in:
       name:
         one: Konexion a enn servis
@@ -443,6 +622,11 @@ mfe:
       name:
         one: Rapor evaliasion norm servis
         other: Bann rapor evaliasion norm servis
+    simple_smart_answer:
+      next_step:
+      please_answer:
+      start_again:
+      your_answers:
     speaking_notes:
       name:
         one: Bann not alokision
@@ -463,6 +647,7 @@ mfe:
       name:
         one: Norm
         other: Bann norm
+    start_now:
     statement_to_parliament:
       name:
         one: Deklarasion dan Palrman
@@ -495,6 +680,13 @@ mfe:
       name:
         one: Desizion depi tribinal tax ek Chancery
         other: Bann desizion depi tribinal tax ek Chancery
+    transaction:
+      before_you_start:
+      more_information:
+      "on":
+      other_ways_to_apply:
+      sign_in:
+      what_you_need_to_know:
     transcript:
       name:
         one: Transkript
@@ -507,7 +699,7 @@ mfe:
       alert_status:
         avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite absoli, dan sertin parti %{country}.
         avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite absoli, ver %{country}.
-        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman dan sertin parti  %{country}.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman dan sertin parti %{country}.
         avoid_all_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman ver %{country}.
       context: Konsey pou vwayaz aletranze
       pages: Paz lor konsey vwayaz
@@ -731,7 +923,7 @@ mfe:
   worldwide_organisation:
     corporate_information:
       about_our_services_html: Dekouver %{link}.
-      personal_information_charter_html: Nou  %{link} explike kouman nou tret ou bann linformasion personel
+      personal_information_charter_html: Nou %{link} explike kouman nou tret ou bann linformasion personel
       publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye dan nou %{link}.
       social_media_use_html: Lir nou polisi lor %{link}.
       welsh_language_scheme_html: Dekouver nou langazman an faver %{link}.

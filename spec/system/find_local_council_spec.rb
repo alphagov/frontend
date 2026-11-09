@@ -289,7 +289,7 @@ RSpec.describe "FindLocalCouncil" do
         end
       end
 
-      context "when multiple authorities (5 or less) are found" do
+      context "when multiple addresses (5 or fewer) are found" do
         before do
           stub_locations_api_has_location(
             "CH25 9BJ",
@@ -337,7 +337,7 @@ RSpec.describe "FindLocalCouncil" do
         end
       end
 
-      context "when multiple authorities (6 or more) are found" do
+      context "when multiple addresses (6 or more) are found" do
         before do
           stub_locations_api_has_location(
             "CH25 9BJ",

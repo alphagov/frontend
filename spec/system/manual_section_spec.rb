@@ -18,10 +18,10 @@ RSpec.describe "Manual Section" do
       expect(page).to have_text(content_item["description"])
     end
 
-    it "renders contextual breadcrumbs from the parent manuals tagging" do
+    it "renders breadcrumbs from the parent manuals tagging" do
       manual_taxonomy_topic = manual_content_item["links"]["taxons"].first
 
-      within ".gem-c-contextual-breadcrumbs" do
+      within all(".gem-c-breadcrumbs")[0] do
         expect(page).to have_link(manual_taxonomy_topic["title"], href: manual_taxonomy_topic["base_path"])
       end
     end

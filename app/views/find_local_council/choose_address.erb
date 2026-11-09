@@ -12,7 +12,7 @@
     <strong><%= @postcode %></strong> <%= link_to t("common.change"), "/find-local-council", class: "govuk-link" %>
   </p>
 
-  <%= form_tag("/find-local-council/multiple_authorities", method: :get) do -%>
+  <%= form_tag("/find-local-council/choose-address", method: :get) do -%>
     <% if @address_list_presenter.component_options.count > 6 %>
       <%= render "govuk_publishing_components/components/select", {
         id: "authority_slug",

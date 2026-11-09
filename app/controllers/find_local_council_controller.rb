@@ -23,16 +23,15 @@ class FindLocalCouncilController < ContentItemsController
       local_authority = LocalAuthority.from_local_custodian_code(postcode_lookup.local_custodian_codes.first)
       redirect_to "#{BASE_PATH}/#{local_authority.slug}"
     else
-      # if location ambiguous, point to multiple authorities
       @address_list_presenter = AddressListPresenter.new(postcode_lookup.addresses)
-      render :multiple_authorities
+      render :choose_address
     end
   rescue LocationError => e
     @location_error = e
     render :index
   end
 
-  def multiple_authorities
+  def choose_address
     redirect_to "#{BASE_PATH}/#{params[:authority_slug]}"
   end
 

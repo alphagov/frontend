@@ -1,5 +1,6 @@
+---
 mfe:
-  a:
+  a: A
   ab_testing:
     explanation:
     two_versions:
@@ -9,7 +10,7 @@ mfe:
     virus_check:
       intro:
       message:
-  b:
+  b: B
   bank-holidays:
   bank_holidays:
     2nd_january:
@@ -45,6 +46,90 @@ mfe:
     summer:
     world_cup:
     year:
+  common:
+    and: ek
+    at: a
+    metadata:
+      published: Pibliye
+      updated: Met-a-zour
+    or: ouswa
+    print_link: Imprim sa paz-la
+    today: zordi
+    visit: 'Vizit:'
+    was: ti
+  components:
+    share_links:
+      share_this_page: partaz sa paz-la
+  contact:
+    access_and_opening_times: Akse ek ler ouvertir
+    contact_form: Formiler kontak
+    email: Email
+  continue: Kontigne
+  cookies:
+    always_on:
+    clicks:
+    confirmation_message:
+    confirmation_previous_referrer_link:
+    confirmation_title:
+    cookie_settings:
+    cookies_on_govuk:
+    essential_explanation:
+    explanation:
+    explanation_html:
+    four_types:
+    google_collection:
+    google_info:
+    google_share:
+    how_we_use:
+    how_you_got:
+    javascript:
+    javascript_extra:
+    javascript_list:
+    lux_explain:
+    lux_info:
+    off-campaigns:
+    off-settings:
+    off-usage:
+    on-campaigns:
+    on-settings:
+    on-usage:
+    pages_visited:
+    preferences:
+    save_changes:
+    services:
+    services_additional:
+    third_parties:
+    types:
+      campaigns:
+        heading:
+        question:
+      essential:
+      settings:
+        heading:
+        question:
+      usage:
+        heading:
+        question:
+    usage_info:
+  csv_preview:
+    access_limited:
+      body:
+      title:
+  electoral:
+    registration:
+      description:
+      title:
+    service:
+      description:
+      matched_postcode_html:
+      search_postcode_html:
+      title:
+  email:
+    already_subscribed_title: Ou pe deza resevwar email konsernan sa paz-la
+    description: Konsilte ek zer tou ou abonnman email depi GOV.UK
+    subscribe_title: Ou dezorme abone a bann email konsernan sa paz-la
+    unsubscribe_title: Ou finn dezabone depi email konsernan sa paz-la
+  find: Trouv
   formats:
     aaib_report:
       name:
@@ -91,12 +176,8 @@ mfe:
         one: Dosie Competition and Markets Authority
         other: Bann dosie Competition and Markets Authority
     consultation:
-      name:
-        one: Konsiltasion
-        other: Bann konsiltasion
       analysing_feedback: Nou pe analiz ou feedback
-      another_website_html: Sa konsiltasion %{closed} finn fer le  <a href="%{url}">
-        enn lot sitweb</a>
+      another_website_html: Sa konsiltasion %{closed} finn fer le  <a href="%{url}"> enn lot sitweb</a>
       closes: Li ferme apartir
       closes_at: Sa konsiltasion-la ferme apartir
       complete_a: Konplet enn
@@ -110,6 +191,9 @@ mfe:
       email_to: 'Avoy email a:'
       feedback_received: Feedback ki finn resevwar
       is_being: pe
+      name:
+        one: Konsiltasion
+        other: Bann konsiltasion
       not_open_yet: Sa konsiltasion-la pankor ouver
       opens: Sa konsiltasion-la ouver
       original_consultation: Konsiltasion inisial
@@ -117,8 +201,7 @@ mfe:
       respond_online: Reponn online
       response_form: Formiler repons
       summary: Somer
-      visit_soon: Revinn lor sa paz-la biento pou download rezilta sa konsiltasion
-        piblik la
+      visit_soon: Revinn lor sa paz-la biento pou download rezilta sa konsiltasion piblik la
       ways_to_respond: Bann fason reponn
       write_to: 'Ekrir a:'
     consultation_outcome:
@@ -126,15 +209,13 @@ mfe:
         one: Rezilta konsiltasion
         other: Bann rezilta konsiltasion
     corporate_information_page:
+      about_our_services_html: Dekouver %{link}.
+      corporate_information: Informasion institisionel / antrepriz
       name:
         one: Paz informasion
         other: Bann paz informasion
-      about_our_services_html: Dekouver %{link}.
-      corporate_information: Informasion institisionel / antrepriz
-      personal_information_charter_html: Nou %{link} explik fason ki nou tret ou bann
-        informasion personel
-      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye
-        dan nou %{link}
+      personal_information_charter_html: Nou %{link} explik fason ki nou tret ou bann informasion personel
+      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye dan nou %{link}
       social_media_use_html: Dekouver nou politik lor %{link}
       welsh_language_scheme_html: Dekouver nou langazman an faver %{link}
     corporate_report:
@@ -190,13 +271,12 @@ mfe:
         one: European Structural and Investment Fund (ESIF)
         other: European Structural and Investment Fund (ESIF)
     fatality_notice:
+      alt_text: Blazon Minister Ladefans
+      field_of_operation: Sekter aktivite
       name:
         one: Avi-dese
         other: Bann avi-dese
-      alt_text: Blazon Minister Ladefans
-      field_of_operation: Sekter aktivite
-      none_added: Okenn avi-dese napa finn azoute dan sa domenn aktivite-la ziska
-        ler
+      none_added: Okenn avi-dese napa finn azoute dan sa domenn aktivite-la ziska ler
       operations_in: Bann aktivite dan %{location}
     foi_release:
       name:
@@ -214,6 +294,9 @@ mfe:
       name:
         one: Gid / Konsey /Direktiv
         other: Gid / Konsey /Direktiv
+    guide:
+      pages_in_guide: Bann paz dan sa gid-la
+      skip_contents: Pas lor konteni
     html_publication:
       name:
         one: Piblikasion HTML
@@ -222,14 +305,8 @@ mfe:
         available_at: Sa piblikasion-la disponib lor %{url}
         copyright: "© Crown copyright %{year} Crown copyright %{year}"
         isbn: 'ISBN:'
-        licence_html: 'Sa piblikasion-la finn met-a-dispozision dapre bann term lisans
-          Open Government Licence v3.0, sof indikasion kontrer. Pou konsilte sa lisans-la,
-          al lor:<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a>
-          ouswa ekrir Lekip Politik Linformasion, Arsiv Nasional, Kew, London TW9
-          4DU, ou avoy enn emai lor: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
-        third_party: Kot nou finn idantifie bann informasion proteze par bann drwa-doter
-          ki apartenir a enn tiers, ou pou bizin gagn lotorizasion bann titiler bann
-          drwa-doter konserne
+        licence_html: 'Sa piblikasion-la finn met-a-dispozision dapre bann term lisans Open Government Licence v3.0, sof indikasion kontrer. Pou konsilte sa lisans-la, al lor:<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3">nationalarchives.gov.uk/doc/open-government-licence/version/3</a> ouswa ekrir Lekip Politik Linformasion, Arsiv Nasional, Kew, London TW9 4DU, ou avoy enn emai lor: <a href="mailto:psi@nationalarchives.gov.uk">psi@nationalarchives.gov.uk</a>.'
+        third_party: Kot nou finn idantifie bann informasion proteze par bann drwa-doter ki apartenir a enn tiers, ou pou bizin gagn lotorizasion bann titiler bann drwa-doter konserne
     impact_assessment:
       name:
         one: Etid linpak
@@ -335,13 +412,13 @@ mfe:
         one: Materyel promosionel
         other: Materyel promosionel
     publication:
+      details: Detay
       documents:
         one: Dokiman
         other: Bann dokiman
       name:
         one: Piblikasion
         other: Bann piblikasion
-      details: Detay
     raib_report:
       name:
         one: Rapor depi Rail Accident Investigation Branch
@@ -370,12 +447,17 @@ mfe:
       name:
         one: Bann not alokision
         other: Bann not alokision
+    specialist_document:
+      protection_image:
+        pdo_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion "Designated Origin UK protected"
+        pgi_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion "Geographic Origin UK protected"
+        tsg_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion  "Traditional Speciality UK protected"
     speech:
+      delivered_on: Delivre le
+      location: Lokalizasion
       name:
         one: Diskour
         other: Bann diskour
-      delivered_on: Delivre le
-      location: Lokalizasion
       written_on: Ekrir lor
     standard:
       name:
@@ -394,13 +476,13 @@ mfe:
         one: Bann statistik
         other: Bann statistik
     statistics_announcement:
-      name:
-        one: Anons piblikasion bann statistik
-        other: Anons piblikasion bann statistik
       cancellation_date: Dat anilasion
       cancelled: Piblikasion bann statistik anile
       changed_date: Dat piblikasion finn sanze
       forthcoming: Sa bann statistik-la pou pibliye
+      name:
+        one: Anons piblikasion bann statistik
+        other: Anons piblikasion bann statistik
       previous_date: Dat presedan
       proposed_date: Piblikasion previ
       reason_for_change: Rezon kifer finn sanze
@@ -421,10 +503,24 @@ mfe:
       name:
         one: Informasion relatif avek transparans
         other: Informasion relatif avek transparans
+    travel_advice:
+      alert_status:
+        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite absoli, dan sertin parti %{country}.
+        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite absoli, ver %{country}.
+        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman dan sertin parti  %{country}.
+        avoid_all_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman ver %{country}.
+      context: Konsey pou vwayaz aletranze
+      pages: Paz lor konsey vwayaz
+      still_current_at: Informasion touzour azour le
+      summary: Somer
+      updated: Miz-a-zour
     utaac_decision:
       name:
         one: Desizion tribinel apel administratif
         other: Bann dezision tribinal apel administratif
+    working_group:
+      contact_details: Kordone
+      policies: Politik
     world_news_story:
       name:
         one: Aktialite internasional
@@ -433,125 +529,10 @@ mfe:
       name:
         one: Deklarasion ekri pou Parlman
         other: Bann deklrasion ekri pou Parlman
-    guide:
-      pages_in_guide: Bann paz dan sa gid-la
-      skip_contents: Pas lor konteni
-    specialist_document:
-      protection_image:
-        pdo_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion
-          "Designated Origin UK protected"
-        pgi_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion
-          "Geographic Origin UK protected"
-        tsg_alt_text: Logo sistem sertifikasion li enn tanpon nwar avek inskripsion  "Traditional
-          Speciality UK protected"
-    travel_advice:
-      alert_status:
-        avoid_all_but_essential_travel_to_parts_html: <abbr title="Foreign, Commonwealth
-          and Development Office">FCDO</abbr> dekonsey tou deplasman, sof an ka nesesite
-          absoli, dan sertin parti %{country}.
-        avoid_all_but_essential_travel_to_whole_country_html: <abbr title="Foreign,
-          Commonwealth and Development Office">FCDO</abbr> dekonsey tou deplasman,
-          sof an ka nesesite absoli, ver %{country}.
-        avoid_all_travel_to_parts_html: <abbr title="Foreign, Commonwealth and Development
-          Office">FCDO</abbr> dekonsey tou deplasman dan sertin parti  %{country}.
-        avoid_all_travel_to_whole_country_html: <abbr title="Foreign, Commonwealth
-          and Development Office">FCDO</abbr> dekonsey tou deplasman ver %{country}.
-      context: Konsey pou vwayaz aletranze
-      pages: Paz lor konsey vwayaz
-      still_current_at: Informasion touzour azour le
-      summary: Somer
-      updated: Miz-a-zour
-    working_group:
-      contact_details: Kordone
-      policies: Politik
-  common:
-    metadata:
-      published: Pibliye
-      updated: Met-a-zour
-    print_link: Imprim sa paz-la
-    today: zordi
-    visit: 'Vizit:'
-    was: ti
-    and: ek
-    at: a
-    or: ouswa
-  components:
-    share_links:
-      share_this_page: partaz sa paz-la
-  contact:
-    access_and_opening_times: Akse ek ler ouvertir
-    contact_form: Formiler kontak
-    email: Email
-  cookies:
-    always_on:
-    clicks:
-    confirmation_message:
-    confirmation_previous_referrer_link:
-    confirmation_title:
-    cookie_settings:
-    cookies_on_govuk:
-    essential_explanation:
-    explanation:
-    explanation_html:
-    four_types:
-    google_collection:
-    google_info:
-    google_share:
-    how_we_use:
-    how_you_got:
-    javascript:
-    javascript_extra:
-    javascript_list:
-    lux_explain:
-    lux_info:
-    off-campaigns:
-    off-settings:
-    off-usage:
-    on-campaigns:
-    on-settings:
-    on-usage:
-    pages_visited:
-    preferences:
-    save_changes:
-    services:
-    services_additional:
-    third_parties:
-    types:
-      campaigns:
-        heading:
-        question:
-      essential:
-      settings:
-        heading:
-        question:
-      usage:
-        heading:
-        question:
-    usage_info:
-  csv_preview:
-    access_limited:
-      body:
-      title:
-  electoral:
-    registration:
-      description:
-      title:
-    service:
-      description:
-      matched_postcode_html:
-      search_postcode_html:
-      title:
-  email:
-    already_subscribed_title: Ou pe deza resevwar email konsernan sa paz-la
-    description: Konsilte ek zer tou ou abonnman email depi GOV.UK
-    subscribe_title: Ou dezorme abone a bann email konsernan sa paz-la
-    unsubscribe_title: Ou finn dezabone depi email konsernan sa paz-la
   gone:
-    archived: Ou kapav <a class="govuk-link" href="%{path}">check bann version presedan
-      sa paz-la dan arsiv sitweb gouvernman UK</a>.
+    archived: Ou kapav <a class="govuk-link" href="%{path}">check bann version presedan sa paz-la dan arsiv sitweb gouvernman UK</a>.
     page_title: Nepli disponib
-    published_in_error: Finn anlev linformasion lor sa paz-la parski ti finn pibliye
-      li par erer
+    published_in_error: Finn anlev linformasion lor sa paz-la parski ti finn pibliye li par erer
     title: Paz ki ou pe rode nepli disponib
   help:
     index:
@@ -622,6 +603,8 @@ mfe:
       uk_bank_holidays:
       universal_credit:
     most_active:
+  i18n:
+    direction: ltr
   language_names:
     ar:
     az:
@@ -700,6 +683,7 @@ mfe:
     printable_version: Version inprimab
   national_statistics:
     logo_alt_text:
+  'no': Non
   roadmap:
     actions_section:
       heading:
@@ -732,6 +716,7 @@ mfe:
     closed: Webchat ferme pou lemoman
     speak_to_adviser: Koz avek enn konseye asterla
     technical_problem: Servis webchat tanporerman indisponib akoz bann problem teknik
+  website: Sitweb
   when_do_the_clocks_change:
     calendar:
       body:
@@ -741,13 +726,13 @@ mfe:
     end_title:
     start_notes:
     start_title:
+  withdrawn_notice:
+    title: Sa %{schema_name} finn anleve le %{withdrawn_time}
   worldwide_organisation:
     corporate_information:
       about_our_services_html: Dekouver %{link}.
-      personal_information_charter_html: Nou  %{link} explike kouman nou tret ou bann
-        linformasion personel
-      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye
-        dan nou %{link}.
+      personal_information_charter_html: Nou  %{link} explike kouman nou tret ou bann linformasion personel
+      publication_scheme_html: Dekouver bann tip informasion ki nou abitie pibliye dan nou %{link}.
       social_media_use_html: Lir nou polisi lor %{link}.
       welsh_language_scheme_html: Dekouver nou langazman an faver %{link}.
     find_out_more: Get profil konple ek tou bann kordone
@@ -761,14 +746,4 @@ mfe:
     show_more: Montre %{hiddenLinksCount} plis
     show_more_visually_hidden: Aktialite par pei ek teritwar
     world_news_link: "%{country} ek UK"
-  a: A
-  b: B
-  continue: Kontigne
-  find: Trouv
-  'no': Non
-  website: Sitweb
-  withdrawn_notice:
-    title: Sa %{schema_name} finn anleve le %{withdrawn_time}
   'yes': Wi
-  i18n:
-    direction: ltr

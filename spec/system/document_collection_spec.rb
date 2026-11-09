@@ -194,7 +194,7 @@ RSpec.describe "Document Collection" do
         visit base_path
 
         within ".govuk-notification-banner__content" do
-          expect(page).to have_text("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+          expect(page).to have_text("This was first published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
         end
       end
     end

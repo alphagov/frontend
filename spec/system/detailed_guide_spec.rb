@@ -69,7 +69,7 @@ RSpec.describe "DetailedGuide" do
 
     it "displays historically political detailed guide page" do
       within(".govuk-notification-banner__content") do
-        expect(page).to have_content("This was published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        expect(page).to have_content("This was first published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
       end
     end
   end

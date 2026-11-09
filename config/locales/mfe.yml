@@ -1,4 +1,50 @@
 mfe:
+  a:
+  ab_testing:
+    explanation:
+    two_versions:
+    version:
+    visit_govuk_html:
+  attachment:
+    virus_check:
+      intro:
+      message:
+  b:
+  bank-holidays:
+  bank_holidays:
+    2nd_january:
+    add_clock_changes_to_calendar:
+    bank_holiday:
+    battle_boyne:
+    boxing_day:
+    bst_explanation:
+    calendar:
+      description:
+      title:
+    christmas:
+    clock_change_explanation:
+    clocks_backward:
+    clocks_forward:
+    date:
+    day_of_week:
+    download_clock_changes:
+    early_may:
+    early_may_ve:
+    easter_monday:
+    gmt_explanation:
+    good_friday:
+    kings_coronation:
+    late_august:
+    new_year:
+    queen_diamond:
+    queen_platinum:
+    queens_bank_holiday:
+    spring:
+    st_andrew:
+    st_patrick:
+    summer:
+    world_cup:
+    year:
   formats:
     aaib_report:
       name:
@@ -436,6 +482,65 @@ mfe:
     access_and_opening_times: Akse ek ler ouvertir
     contact_form: Formiler kontak
     email: Email
+  cookies:
+    always_on:
+    clicks:
+    confirmation_message:
+    confirmation_previous_referrer_link:
+    confirmation_title:
+    cookie_settings:
+    cookies_on_govuk:
+    essential_explanation:
+    explanation:
+    explanation_html:
+    four_types:
+    google_collection:
+    google_info:
+    google_share:
+    how_we_use:
+    how_you_got:
+    javascript:
+    javascript_extra:
+    javascript_list:
+    lux_explain:
+    lux_info:
+    off-campaigns:
+    off-settings:
+    off-usage:
+    on-campaigns:
+    on-settings:
+    on-usage:
+    pages_visited:
+    preferences:
+    save_changes:
+    services:
+    services_additional:
+    third_parties:
+    types:
+      campaigns:
+        heading:
+        question:
+      essential:
+      settings:
+        heading:
+        question:
+      usage:
+        heading:
+        question:
+    usage_info:
+  csv_preview:
+    access_limited:
+      body:
+      title:
+  electoral:
+    registration:
+      description:
+      title:
+    service:
+      description:
+      matched_postcode_html:
+      search_postcode_html:
+      title:
   email:
     already_subscribed_title: Ou pe deza resevwar email konsernan sa paz-la
     description: Konsilte ek zer tou ou abonnman email depi GOV.UK
@@ -448,6 +553,75 @@ mfe:
     published_in_error: Finn anlev linformasion lor sa paz-la parski ti finn pibliye
       li par erer
     title: Paz ki ou pe rode nepli disponib
+  help:
+    index:
+      about:
+      about_description:
+      accessibility:
+      accessibility_description:
+      beta:
+      beta_description:
+      browsers:
+      browsers_description:
+      cookies:
+      cookies_description:
+      email:
+      email_description:
+      find_out:
+      privacy_notice:
+      privacy_notice_description:
+      reuse_content:
+      reuse_content_description:
+      terms:
+      terms_description:
+      vulnerability:
+      vulnerability_description:
+    sign_in:
+      choose_service:
+      explanation:
+      most_viewed:
+      search_for_a_service:
+      search_for_a_service_button:
+      service_list_items:
+      service_not_listed_heading:
+      service_not_listed_text:
+  homepage:
+    categories:
+    government_activity:
+    index:
+      brexit:
+      covid:
+      featured:
+      government_activity:
+      government_activity_description:
+      intro_html:
+      intro_simpler:
+      intro_title:
+        html:
+        text:
+      job_search:
+      jobseekers_allowance:
+      merged_websites_html:
+      meta_description:
+      meta_description_new:
+      ministerial_departments:
+      ministerial_departments_count:
+      more:
+      more_links:
+      other_agencies:
+      other_agencies_count:
+      popular:
+      popular_links_heading:
+      promotion_slots:
+      promotion_slots_secondary:
+      running_limited_company:
+      search_button:
+      search_label:
+      services_and_information:
+      tax_account:
+      uk_bank_holidays:
+      universal_credit:
+    most_active:
   language_names:
     mfe: Kreol Morisien
   multi_page:
@@ -455,14 +629,49 @@ mfe:
     previous_page: Presedan
     print_entire_guide: Konsilte enn version inprimab gid konple
     printable_version: Version inprimab
+  national_statistics:
+    logo_alt_text:
+  roadmap:
+    actions_section:
+      heading:
+      items:
+    hero:
+      description:
+      heading:
+    numbers_section:
+      footnote:
+      heading_large:
+      heading_small:
+      last_updated:
+      numbers_columns:
+        column_one_count:
+        column_one_text:
+        column_two_count:
+        column_two_text:
+    page_title:
+    updates_section:
+      heading:
+      items:
   shared:
     historically_political: Sa piblikasion-la finn pibliye anba %{government}
+  time:
+    formats:
+      short_ordinal: "%e %B %Y"
   webchat:
     available: Bann konseye disponib pou chate
     busy: Tou konseye webchat okipe pou lemoman
     closed: Webchat ferme pou lemoman
     speak_to_adviser: Koz avek enn konseye asterla
     technical_problem: Servis webchat tanporerman indisponib akoz bann problem teknik
+  when_do_the_clocks_change:
+    calendar:
+      body:
+      description:
+      title:
+    end_notes:
+    end_title:
+    start_notes:
+    start_title:
   worldwide_organisation:
     corporate_information:
       about_our_services_html: Dekouver %{link}.

@@ -1,5 +1,21 @@
 class HmrcManualSectionPresenter < ContentItemPresenter
+  include ManualBreadcrumbs
   include ManualMetadata
+
+  def initialize(content_item, request = nil)
+    super(content_item)
+    @request = request
+  end
+
+  def main_breadcrumbs
+    crumbs = breadcrumb_selector
+    return unless crumbs
+
+    crumbs << {
+      title: content_item.manual_content_item.title,
+      url: content_item.manual_content_item.base_path,
+    }
+  end
 
   def breadcrumbs
     base_breadcrumb = {

@@ -15,14 +15,14 @@ class ApplicationController < ActionController::Base
   # Because this code contains an if statement evaluated on Rails load and is just
   # for a standard well-tested Rails method, we can exclude it from needing to be
   # covered in tests. Do not change it without very good reason!
-  # :nocov:
+  # simplecov:disable
   if ENV["BASIC_AUTH_USERNAME"]
     http_basic_authenticate_with(
       name: ENV.fetch("BASIC_AUTH_USERNAME"),
       password: ENV.fetch("BASIC_AUTH_PASSWORD"),
     )
   end
-  # :nocov:
+  # simplecov:enable
 
 protected
 

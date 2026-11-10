@@ -11,10 +11,12 @@
     <%= render "govuk_publishing_components/components/heading", {
       text: year,
       font_size: "l",
+      margin_bottom: 2,
     } %>
 
     <%= render "govuk_publishing_components/components/accordion", {
       heading_level: 3,
+      margin_bottom: 9,
       items: updates_by_year.each.with_index(1).map do |updated_documents, index|
         accordion_content = capture do %>
           <% change_notes = updated_documents.last %>

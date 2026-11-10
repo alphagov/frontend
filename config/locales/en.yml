@@ -1147,7 +1147,7 @@ en:
         image_src: roadmap/updates-blog.jpg
         heading_text: Inside GOV.UK blog
   shared:
-    historically_political: This was published under the %{government}
+    historically_political: This was first published under the %{government}
   time:
     formats:
       short_ordinal: "%e %B %Y"

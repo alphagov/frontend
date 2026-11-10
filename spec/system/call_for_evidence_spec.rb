@@ -102,7 +102,7 @@ RSpec.describe "CallForEvidence" do
       visit base_path
 
       within(".gem-c-notice__title") do
-        expect(page).to have_content("This was published under the #{content_store_response.dig('details', 'government', 'title')}")
+        expect(page).to have_content("This was first published under the #{content_store_response.dig('details', 'government', 'title')}")
       end
     end
 

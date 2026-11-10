@@ -5,7 +5,7 @@ module Parts
     attr_reader :part_slug
 
     def parts
-      raw_parts.each_with_index.map do |part, i|
+      @parts ||= raw_parts.each_with_index.map do |part, i|
         # Link to base_path for first part
         part["full_path"] = i.zero? ? base_path : "#{base_path}/#{part['slug']}"
         part
@@ -42,17 +42,17 @@ module Parts
   end
 
   def current_part
-    if part_slug
-      parts.find { |part| part["slug"] == part_slug }
-    else
-      parts.first
-    end
+    @current_part ||= if part_slug
+                        parts.find { |part| part["slug"] == part_slug }
+                      else
+                        parts.first
+                      end
   end
 
 private
 
   def current_part_index
-    parts.index(current_part)
+    @current_part_index ||= parts.index(current_part)
   end
 
   def raw_parts

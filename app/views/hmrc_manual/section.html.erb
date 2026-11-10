@@ -16,46 +16,40 @@
   } %>
 
   <%= render "govuk_publishing_components/components/breadcrumbs", {
-        border: "bottom",
-        margin_bottom: 6,
-        breadcrumbs: @presenter.breadcrumbs,
-        aria: {
-          label: "Contents",
-        },
-        collapse_on_mobile: false } %>
+      border: "bottom",
+      margin_bottom: 6,
+      breadcrumbs: @content_item_presenter.breadcrumbs,
+      aria: {
+        label: "Contents",
+      },
+      collapse_on_mobile: false } %>
 <% end %>
 
-<div id="manuals-frontend">
-  <div class="govuk-grid-row">
+<% content_for :content do %>
+  <div id="manuals-frontend">
     <article aria-labelledby="section-title">
-      <div class="govuk-grid-column-full">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: @presenter.document_heading,
-          font_size: "l",
-          id: "section-title",
-          heading_level: 1,
-          margin_bottom: 4,
-        } %>
-      </div>
+      <%= render "govuk_publishing_components/components/heading", {
+        text: @content_item_presenter.document_heading,
+        font_size: "l",
+        id: "section-title",
+        heading_level: 1,
+        margin_bottom: 4,
+      } %>
 
       <% if content_item.description.present? %>
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/lead_paragraph", {
-            text: content_item.description,
-          } %>
-        </div>
+        <%= render "govuk_publishing_components/components/lead_paragraph", {
+          text: content_item.description,
+        } %>
       <% end %>
 
       <% if content_item.body.present? %>
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw(content_item.body) %>
-          <% end %>
-        </div>
+        <%= render "govuk_publishing_components/components/govspeak", {} do %>
+          <%= raw(content_item.body) %>
+        <% end %>
       <% end %>
 
       <% content_item.section_groups.each do | group | %>
-        <div class="subsection-collection govuk-grid-column-full">
+        <div class="subsection-collection">
           <% if group["title"] %>
             <%= render "govuk_publishing_components/components/heading", {
               text: group["title"],
@@ -81,12 +75,9 @@
           </ol>
         </div>
       <% end %>
-
-      <div class="govuk-grid-column-full">
-        <%= render "govuk_publishing_components/components/pagination", @presenter.previous_and_next_links %>
-      </div>
+      <%= render "govuk_publishing_components/components/pagination", @content_item_presenter.previous_and_next_links %>
     </article>
-  </div>
 
-  <%= render "govuk_publishing_components/components/print_link" %>
-</div>
+    <%= render "govuk_publishing_components/components/print_link" %>
+  </div>
+<% end %>

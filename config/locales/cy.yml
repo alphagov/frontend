@@ -206,7 +206,7 @@ cy:
       closed: Mae'r alwad hon am dystiolaeth wedi cau
       closed_another_website_html:
       closes_at: Mae'r alwad hon am dystiolaeth yn cau am
-      description: Disgrifiad yr alwad o dystiolaeth
+      description: Disgrifiad o'r alwad am dystiolaeth
       name:
         few:
         many:

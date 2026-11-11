@@ -14,15 +14,6 @@
     green_background: true,
     type: I18n.t("formats.manuals.hmrc_manual_type"),
   } %>
-
-  <%= render "govuk_publishing_components/components/breadcrumbs", {
-        border: "bottom",
-        margin_bottom: 6,
-        breadcrumbs: @presenter.breadcrumbs,
-        aria: {
-          label: "Contents",
-        },
-        collapse_on_mobile: false } %>
 <% end %>
 
 <div id="manuals-frontend">

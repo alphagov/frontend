@@ -15,6 +15,16 @@ class HmrcManualSectionPresenter < ContentItemPresenter
       title: content_item.manual_content_item.title,
       url: content_item.manual_content_item.base_path,
     }
+    crumbs + additional_breadcrumbs
+  end
+
+  def additional_breadcrumbs
+    content_item.details["breadcrumbs"].map do |breadcrumb|
+      {
+        title: breadcrumb["section_id"],
+        url: breadcrumb["base_path"],
+      }
+    end
   end
 
   def breadcrumbs

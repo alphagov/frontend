@@ -79,7 +79,7 @@ private
   end
 
   def licence_without_authority_code
-    @licence_without_authority_code ||= LicenceDetailsPresenter.new(
+    @licence_without_authority_code ||= LicenceTransactionPresenter.new(
       licence_details_from_api, params[:authority_slug], params[:interaction]
     )
   end
@@ -92,7 +92,7 @@ private
     if licence_without_authority_code.licence_authority_specific?
       licence_without_authority_code
     else
-      LicenceDetailsPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
+      LicenceTransactionPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
     end
   end
 
@@ -158,7 +158,7 @@ private
       authority_with_actionable_licence = authority_results["local_authorities"].find do |authority|
         local_authority_code = authority["snac"].presence || authority["gss"]
 
-        licence_details = LicenceDetailsPresenter.new(licence_details_from_api(local_authority_code))
+        licence_details = LicenceTransactionPresenter.new(licence_details_from_api(local_authority_code))
 
         licence_details.licence.present? && licence_details.has_any_actions?
       end

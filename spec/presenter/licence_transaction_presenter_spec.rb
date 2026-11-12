@@ -1,4 +1,4 @@
-RSpec.describe LicenceDetailsPresenter do
+RSpec.describe LicenceTransactionPresenter do
   let(:local_authority_licence) do
     {
       "isLocationSpecific" => true,

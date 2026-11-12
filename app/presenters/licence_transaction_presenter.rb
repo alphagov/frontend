@@ -1,4 +1,4 @@
-class LicenceDetailsPresenter
+class LicenceTransactionPresenter
   include Rails.application.routes.url_helpers
 
   attr_reader :licence, :authority_slug, :interaction
@@ -7,6 +7,10 @@ class LicenceDetailsPresenter
     @licence = licence
     @authority_slug = authority_slug
     @interaction = interaction
+  end
+
+  def use_contextual_components?
+    true
   end
 
   delegate :present?, to: :licence

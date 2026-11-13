@@ -87,7 +87,6 @@ $gap: 30px;
 
 .app-c-impact-header--logo {
   .app-c-impact-header__image-wrapper {
-    aspect-ratio: auto;
     padding: 0 15px;
 
     .app-c-impact-header__image {
@@ -101,10 +100,6 @@ $gap: 30px;
   }
 
   @include govuk-media-query($from: desktop) {
-    .app-c-impact-header__container {
-      min-height: 0;
-    }
-
     .app-c-impact-header__image-wrapper {
       padding: 30px;
       padding-left: 0;

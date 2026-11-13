@@ -3,14 +3,14 @@ description: Provides a title and image for a page
 body: |
   The impact header is designed to fill the full width of the page. Here in the component guide it is shown within a full width page element, but using it in an application is different. It will either need to be used outside of the normal `govuk-width-container` element, or wrapped in a full width class such as `.full-width__element`.
 
-  The component makes no assumptions about the size of images passed to it, although they should be as follows.
+  The component makes no assumptions about the size of images passed to it, although they should be as follows. All images should have an aspect ratio of 3:2.
 
-  - mobile: 640 x 360
-  - mobile (x2): 1280 x 720
-  - tablet: 768 x 432
-  - tablet (x2): 1536 x 864
-  - desktop: 512 x 330
-  - desktop (x2): 1024 x 660
+  - mobile:       640 x 427
+  - mobile (x2):  1280 x 854
+  - tablet:       768 x 512
+  - tablet (x2):  1536 x 1024
+  - desktop:      465 x 310
+  - desktop (x2): 930 x 620
 accessibility_criteria: |
   - Images in the impact header should have an empty alt text, as appropriate for purely decorative images
   - The 'image details' disclosure element should be operable with a keyboard and understood by screen reader users

@@ -66,6 +66,7 @@ $gap: 30px;
 .app-c-impact-header__image {
   display: block;
   max-width: 100%;
+  min-height: 100px;
 
   @include govuk-media-query($from: desktop) {
     max-width: none;

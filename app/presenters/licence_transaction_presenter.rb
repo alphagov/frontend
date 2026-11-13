@@ -1,9 +1,11 @@
-class LicenceTransactionPresenter
+class LicenceTransactionPresenter < ContentItemPresenter
   include Rails.application.routes.url_helpers
 
   attr_reader :licence, :authority_slug, :interaction
 
-  def initialize(licence, authority_slug = nil, interaction = nil)
+  def initialize(content_item, licence = nil, authority_slug = nil, interaction = nil)
+    super(content_item)
+    @content_item = content_item
     @licence = licence
     @authority_slug = authority_slug
     @interaction = interaction
@@ -11,6 +13,12 @@ class LicenceTransactionPresenter
 
   def use_contextual_components?
     true
+  end
+
+  def page_title_options
+    super.merge({
+      context: "Licence",
+    })
   end
 
   delegate :present?, to: :licence

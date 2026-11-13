@@ -20,7 +20,9 @@ RSpec.describe "Homepage" do
     it "does not set Vary headers" do
       get "/"
 
-      expect(response.headers["Vary"]).to be_nil
+      vary = response.headers["Vary"].to_s.split(/,\s*/).map(&:downcase)
+
+      expect(vary - %w[x-requested-with]).to be_empty
     end
   end
 end

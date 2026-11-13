@@ -160,13 +160,13 @@ RSpec.describe LicenceTransactionPresenter do
   describe "#single_licence_authority_present?" do
     context "when authority present" do
       it "returns true for licence authority specific licence" do
-        subject = described_class.new(licence_authority_licence)
+        subject = described_class.new(nil, licence_authority_licence)
 
         expect(subject.single_licence_authority_present?).to be true
       end
 
       it "returns false for local authority specific licence" do
-        subject = described_class.new(local_authority_licence)
+        subject = described_class.new(nil, local_authority_licence)
 
         expect(subject.single_licence_authority_present?).to be false
       end
@@ -174,7 +174,7 @@ RSpec.describe LicenceTransactionPresenter do
 
     context "when authority non-present" do
       it "returns false" do
-        subject = described_class.new(licence_authority_licence.merge("issuingAuthorities" => []))
+        subject = described_class.new(nil, licence_authority_licence.merge("issuingAuthorities" => []))
 
         expect(subject.single_licence_authority_present?).to be false
       end
@@ -225,7 +225,7 @@ RSpec.describe LicenceTransactionPresenter do
     describe "#authority" do
       context "when one authority is present" do
         it "returns the authority" do
-          subject = described_class.new(licence_authority_licence)
+          subject = described_class.new(nil, licence_authority_licence)
 
           expect(subject.authority).to eq(presented_the_one_licence_authority)
         end
@@ -233,20 +233,20 @@ RSpec.describe LicenceTransactionPresenter do
 
       context "when more than one authority are present" do
         it "returns the matched authority if authority slug provided" do
-          subject = described_class.new(multiple_authorities_and_location_specific_licence, "the-other-licence-authority")
+          subject = described_class.new(nil, multiple_authorities_and_location_specific_licence, "the-other-licence-authority")
 
           expect(subject.authority).to eq(presented_the_other_licence_authority)
         end
 
         it "returns nil if no matched authority found" do
-          subject = described_class.new(multiple_authorities_and_location_specific_licence, "a-funky-licence-authority")
+          subject = described_class.new(nil, multiple_authorities_and_location_specific_licence, "a-funky-licence-authority")
 
           expect(subject.authority).to be_nil
         end
 
         context "and no authority_slug is provided" do
           it "returns the first authority" do
-            subject = described_class.new(multiple_authorities_and_location_specific_licence)
+            subject = described_class.new(nil, multiple_authorities_and_location_specific_licence)
 
             expect(subject.authority).to eq(presented_the_other_licence_authority)
           end
@@ -255,7 +255,7 @@ RSpec.describe LicenceTransactionPresenter do
 
       context "when no authority is present" do
         it "returns nil" do
-          subject = described_class.new(licence_authority_licence.merge("issuingAuthorities" => []))
+          subject = described_class.new(nil, licence_authority_licence.merge("issuingAuthorities" => []))
 
           expect(subject.authority).to be_nil
         end
@@ -265,59 +265,59 @@ RSpec.describe LicenceTransactionPresenter do
 
   describe "#uses_licensify" do
     it "is true if the action has a field to confirm that it uses licensify" do
-      subject = described_class.new(licence_authority_licence, "the-one-licence-authority")
+      subject = described_class.new(nil, licence_authority_licence, "the-one-licence-authority")
 
       expect(subject.uses_licensify("apply")).to be true
     end
 
     it "is true if the default action has uses_licensify set to true" do
-      subject = described_class.new(licence_authority_licence, "the-one-licence-authority", "apply")
+      subject = described_class.new(nil, licence_authority_licence, "the-one-licence-authority", "apply")
       expect(subject.uses_licensify("apply")).to be true
     end
 
     it "is false if the action has the uses_licensify field set to false" do
-      subject = described_class.new(licence_authority_not_using_licensify)
+      subject = described_class.new(nil, licence_authority_not_using_licensify)
       expect(subject.uses_licensify("apply")).to be false
     end
 
     it "is false if the action does not have a usesLicensify field" do
-      subject = described_class.new(licence_authority_without_uses_licensify_param)
+      subject = described_class.new(nil, licence_authority_without_uses_licensify_param)
       expect(subject.uses_licensify("apply")).to be false
     end
 
     it "is false if authority is nil" do
-      subject = described_class.new(the_one_licence_authority)
+      subject = described_class.new(nil, the_one_licence_authority)
       expect(subject.uses_licensify("apply")).to be false
     end
   end
 
   describe "#uses_authority_url" do
     it "is true if the action has a field to confirm that it uses authority url" do
-      subject = described_class.new(licence_authority_licence, "the-one-licence-authority")
+      subject = described_class.new(nil, licence_authority_licence, "the-one-licence-authority")
 
       expect(subject.uses_authority_url("apply")).to be true
     end
 
     it "is true if the default action has uses_authority_url set to true" do
-      subject = described_class.new(licence_authority_licence, "the-one-licence-authority", "apply")
+      subject = described_class.new(nil, licence_authority_licence, "the-one-licence-authority", "apply")
 
       expect(subject.uses_authority_url("apply")).to be true
     end
 
     it "is false if the action has the uses_authority_url field set to false" do
-      subject = described_class.new(licence_authority_not_using_authority_url)
+      subject = described_class.new(nil, licence_authority_not_using_authority_url)
 
       expect(subject.uses_authority_url("apply")).to be false
     end
 
     it "is false if the action does not have a usesAuthorityUrl field" do
-      subject = described_class.new(licence_authority_without_uses_authority_url_param)
+      subject = described_class.new(nil, licence_authority_without_uses_authority_url_param)
 
       expect(subject.uses_authority_url("apply")).to be false
     end
 
     it "is false if authority is nil" do
-      subject = described_class.new(the_one_licence_authority)
+      subject = described_class.new(nil, the_one_licence_authority)
 
       expect(subject.uses_authority_url("apply")).to be false
     end
@@ -325,13 +325,13 @@ RSpec.describe LicenceTransactionPresenter do
 
   describe "#action" do
     it "returns action name if available" do
-      subject = described_class.new(local_authority_licence, nil, "apply")
+      subject = described_class.new(nil, local_authority_licence, nil, "apply")
 
       expect(subject.action).to eq("apply")
     end
 
     it "raises RecordNotFound if not available" do
-      subject = described_class.new(local_authority_licence, nil, "complain")
+      subject = described_class.new(nil, local_authority_licence, nil, "complain")
 
       expect { subject.action }.to raise_error(RecordNotFound)
     end

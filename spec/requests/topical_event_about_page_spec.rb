@@ -19,5 +19,17 @@ RSpec.describe "Topical event about page" do
     it "renders the show template" do
       expect(response).to render_template("topical_event/about")
     end
+
+    context "when the about page has a slug other than 'about'" do
+      let(:base_path) { "/government/topical-events/ebola-virus-government-response/how-the-uk-is-responding" }
+
+      it "succeeds" do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "renders the about template" do
+        expect(response).to render_template("topical_event/about")
+      end
+    end
   end
 end

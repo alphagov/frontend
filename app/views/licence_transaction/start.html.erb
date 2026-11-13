@@ -1,12 +1,15 @@
-<%= render layout: "shared/base_page", locals: {
-  context: "Licence",
-  title: content_item.title,
-  publication: content_item,
-  edition: @edition,
-} do %>
+<% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
+<% content_for :head do %>
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
+<% end %>
 
-  <%= render "govuk_publishing_components/components/lead_paragraph", text: content_item.description %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
+<% content_for :content do %>
   <article role="article" class="group content-block">
     <div class="inner">
       <div class="intro">
@@ -31,4 +34,12 @@
       </div>
     </div>
   </article>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
+<% end %>
+
+<% content_for :footer do %>
+  <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h %>
 <% end %>

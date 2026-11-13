@@ -26,67 +26,57 @@
 <% end %>
 
 <div id="manuals-frontend">
-  <div class="govuk-grid-row">
-    <article aria-labelledby="section-title">
-      <div class="govuk-grid-column-full">
-        <%= render "govuk_publishing_components/components/heading", {
-          text: @presenter.document_heading,
-          font_size: "l",
-          id: "section-title",
-          heading_level: 1,
-          margin_bottom: 4,
-        } %>
-      </div>
+  <article aria-labelledby="section-title">
+    <%= render "govuk_publishing_components/components/heading", {
+      text: @presenter.document_heading,
+      font_size: "l",
+      id: "section-title",
+      heading_level: 1,
+      margin_bottom: 4,
+    } %>
 
-      <% if content_item.description.present? %>
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/lead_paragraph", {
-            text: content_item.description,
+    <% if content_item.description.present? %>
+      <%= render "govuk_publishing_components/components/lead_paragraph", {
+        text: content_item.description,
+      } %>
+    <% end %>
+
+    <% if content_item.body.present? %>
+      <%= render "govuk_publishing_components/components/govspeak", {} do %>
+        <%= raw(content_item.body) %>
+      <% end %>
+    <% end %>
+
+    <% content_item.section_groups.each do | group | %>
+      <div class="subsection-collection">
+        <% if group["title"] %>
+          <%= render "govuk_publishing_components/components/heading", {
+            text: group["title"],
+            font_size: "m",
+            heading_level: 2,
+            margin_bottom: 4,
           } %>
-        </div>
-      <% end %>
+        <% end %>
 
-      <% if content_item.body.present? %>
-        <div class="govuk-grid-column-two-thirds">
-          <%= render "govuk_publishing_components/components/govspeak", {} do %>
-            <%= raw(content_item.body) %>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% content_item.section_groups.each do | group | %>
-        <div class="subsection-collection govuk-grid-column-full">
-          <% if group["title"] %>
-            <%= render "govuk_publishing_components/components/heading", {
-              text: group["title"],
-              font_size: "m",
-              heading_level: 2,
-              margin_bottom: 4,
-            } %>
-          <% end %>
-
-          <ol class="section-list">
-            <% group["child_sections"].each do |section| %>
-              <li class="section-list-item">
-                <%= link_to section["base_path"], class: "govuk-link section-link" do %>
-                <div class="title-wrap">
-                  <% if section["section_id"] %>
-                    <div class="subsection-id"><%= section["section_id"] %></div>
-                  <% end %>
-                  <div class="subsection-title-text"><%= section["title"] %></div>
-                  </div>
+        <ol class="section-list">
+          <% group["child_sections"].each do |section| %>
+            <li class="section-list-item">
+              <%= link_to section["base_path"], class: "govuk-link section-link" do %>
+              <div class="title-wrap">
+                <% if section["section_id"] %>
+                  <div class="subsection-id"><%= section["section_id"] %></div>
                 <% end %>
-              </li>
-            <% end %>
-          </ol>
-        </div>
-      <% end %>
-
-      <div class="govuk-grid-column-full">
-        <%= render "govuk_publishing_components/components/pagination", @presenter.previous_and_next_links %>
+                <div class="subsection-title-text"><%= section["title"] %></div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
       </div>
-    </article>
-  </div>
+    <% end %>
+
+    <%= render "govuk_publishing_components/components/pagination", @presenter.previous_and_next_links %>
+  </article>
 
   <%= render "govuk_publishing_components/components/print_link" %>
 </div>

@@ -15,7 +15,11 @@
 
     <main id="content" class="govuk-main-wrapper <%= rtl_attribute %> <%= yield :main_classes %>" <%= lang_attribute %>>
       <span id="Top"></span>
-      <%= yield %>
+      <div class="govuk-grid-row gem-print-columns-none">
+        <div class="govuk-grid-column-two-thirds">
+          <%= yield %>
+        </div>
+      </div>
     </main>
     <%= render "shared/asset_manager_session" %>
   </div>

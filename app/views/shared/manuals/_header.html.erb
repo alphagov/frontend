@@ -7,7 +7,7 @@
   html_publication_header: true,
   hmrc_header: green_background,
   padding_top: 6,
-  margin_bottom: 4,
+  margin_bottom: 0,
   aria: {
     labelledby: "manual-title",
   },
@@ -21,7 +21,7 @@
         inverse: true,
         id: "manual-title",
         heading_level: heading_level,
-        margin_bottom: 8,
+        margin_bottom: 6,
       } %>
 
       <%= render "govuk_publishing_components/components/metadata", {
@@ -52,6 +52,7 @@
           <%= render "govuk_publishing_components/components/search", {
             on_govuk_blue: true,
             label_text: t("formats.manuals.search_this_manual"),
+            margin_bottom: 0,
           } %>
         <% end %>
       </div>

@@ -3,14 +3,14 @@ description: Provides a title and image for a page
 body: |
   The impact header is designed to fill the full width of the page. Here in the component guide it is shown within a full width page element, but using it in an application is different. It will either need to be used outside of the normal `govuk-width-container` element, or wrapped in a full width class such as `.full-width__element`.
 
-  The component makes no assumptions about the size of images passed to it, although they should be as follows.
+  The component makes no assumptions about the size of images passed to it, although they should be as follows. All images should have an aspect ratio of 3:2.
 
-  - mobile: 640 x 360
-  - mobile (x2): 1280 x 720
-  - tablet: 768 x 432
-  - tablet (x2): 1536 x 864
-  - desktop: 512 x 330
-  - desktop (x2): 1024 x 660
+  - mobile:       640 x 427
+  - mobile (x2):  1280 x 854
+  - tablet:       768 x 512
+  - tablet (x2):  1536 x 1024
+  - desktop:      465 x 310
+  - desktop (x2): 930 x 620
 accessibility_criteria: |
   - Images in the impact header should have an empty alt text, as appropriate for purely decorative images
   - The 'image details' disclosure element should be operable with a keyboard and understood by screen reader users
@@ -38,6 +38,40 @@ examples:
       description: This is the description of the impact header, containing words that form a paragraph of text.
       image:
         caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        sources:
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  govuk_variant:
+    description: Currently unused.
+    data:
+      heading: GOVUK variant
+      variant: govuk
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        sources:
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  notable_death_variant:
+    description:
+    data:
+      heading: Notable death variant
+      variant: notable-death
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         sources:
           desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
           desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
@@ -89,39 +123,5 @@ examples:
           mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
           tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
           tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
-    context:
-      full_width: true
-  govuk_variant:
-    description: Currently unused.
-    data:
-      heading: GOVUK variant
-      variant: govuk
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      image:
-        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        sources:
-          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
-    context:
-      full_width: true
-  notable_death_variant:
-    description:
-    data:
-      heading: Notable death variant
-      variant: notable-death
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      image:
-        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        sources:
-          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true

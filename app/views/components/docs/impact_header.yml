@@ -47,6 +47,40 @@ examples:
           tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true
+  govuk_variant:
+    description: Currently unused.
+    data:
+      heading: GOVUK variant
+      variant: govuk
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        sources:
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
+    context:
+      full_width: true
+  notable_death_variant:
+    description:
+    data:
+      heading: Notable death variant
+      variant: notable-death
+      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      image:
+        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        sources:
+          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
+          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
+          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
+          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
+          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
+          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
+    context:
+      full_width: true
   without_image:
     description: Where an impact header is provided no image, the component automatically uses a standard GOV.UK two thirds layout, to minimise the large empty space to the right.
     data:
@@ -89,39 +123,5 @@ examples:
           mobile_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
           tablet: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
           tablet_2x: "https://assets.publishing.service.gov.uk/media/5a71e44be5274a7f99028591/s630_ESVIC-Global-_-London_960x6.jpg"
-    context:
-      full_width: true
-  govuk_variant:
-    description: Currently unused.
-    data:
-      heading: GOVUK variant
-      variant: govuk
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      image:
-        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        sources:
-          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
-    context:
-      full_width: true
-  notable_death_variant:
-    description:
-    data:
-      heading: Notable death variant
-      variant: notable-death
-      description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      image:
-        caption: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        sources:
-          desktop: "/assets/frontend/components/impact-header/example_desktop_1x.jpg"
-          desktop_2x: "/assets/frontend/components/impact-header/example_desktop_2x.jpg"
-          mobile: "/assets/frontend/components/impact-header/example_mobile_1x.jpg"
-          mobile_2x: "/assets/frontend/components/impact-header/example_mobile_2x.jpg"
-          tablet: "/assets/frontend/components/impact-header/example_tablet_1x.jpg"
-          tablet_2x: "/assets/frontend/components/impact-header/example_tablet_2x.jpg"
     context:
       full_width: true

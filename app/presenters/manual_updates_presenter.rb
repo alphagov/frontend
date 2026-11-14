@@ -1,7 +1,22 @@
 class ManualUpdatesPresenter < ContentItemPresenter
   include ActionView::Helpers
   include ActionView::Context
+  include ManualBreadcrumbs
   include ManualMetadata
+
+  def initialize(content_item, request = nil)
+    super(content_item)
+    @request = request
+  end
+
+  def main_breadcrumbs
+    return unless breadcrumb_selector
+
+    breadcrumb_selector << {
+      title: content_item.title,
+      url: content_item.base_path,
+    }
+  end
 
   def presented_change_notes
     group_updates_by_year(content_item.change_notes)

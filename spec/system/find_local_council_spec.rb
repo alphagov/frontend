@@ -248,7 +248,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows an error message" do
-          expect(page).to have_content("This isn't a valid postcode")
+          expect(page).to have_content("Enter a valid postcode.")
         end
 
         it "re-populates the invalid input" do
@@ -261,7 +261,7 @@ RSpec.describe "FindLocalCouncil" do
           expected_data_module = "ga4-auto-tracker"
           ga4_error_attribute = page_error["data-ga4-auto"]
           error_type = JSON.parse(ga4_error_attribute)
-          ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"#{error_type['type']}\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
+          ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"#{error_type['type']}\",\"text\":\"Enter a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find your local council\"}"
           expect(data_module).to include(expected_data_module)
           expect(ga4_error_attribute).to eq(ga4_expected_object)
         end
@@ -285,7 +285,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows an error message" do
-          expect(page).to have_content("This isn't a valid postcode")
+          expect(page).to have_content("Enter a valid postcode.")
         end
       end
 

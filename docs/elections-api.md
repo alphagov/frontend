@@ -88,7 +88,7 @@ Enter invalid postcode (eg Bernard)
 
 Click "Find"
 
-See "This isn't a valid postcode" error on https://www.gov.uk/contact-electoral-registration-office?postcode=Bernard
+See "Enter a valid postcode." error on https://www.gov.uk/contact-electoral-registration-office?postcode=Bernard
 
 ### Invalid UPRN
 

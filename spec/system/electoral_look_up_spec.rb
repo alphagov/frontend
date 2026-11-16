@@ -79,7 +79,7 @@ RSpec.describe "ElectoralLookUp" do
           search_for(postcode: "INVALID POSTCODE")
 
           expect(page).to have_selector("h1", text: "Contact your local Electoral Registration Office")
-          expect(page).to have_text("This isn't a valid postcode")
+          expect(page).to have_text("Enter a valid postcode.")
         end
       end
     end

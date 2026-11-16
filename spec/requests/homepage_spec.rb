@@ -17,10 +17,12 @@ RSpec.describe "Homepage" do
       expect(response).to honour_content_store_ttl
     end
 
-    it "does not set Vary headers" do
+    it "does not vary on anything except X-Requested-With" do
       get "/"
 
-      expect(response.headers["Vary"]).to be_nil
+      vary = response.headers["Vary"].to_s.split(/,\s*/).map(&:downcase)
+
+      expect(vary - %w[x-requested-with]).to be_empty
     end
   end
 end

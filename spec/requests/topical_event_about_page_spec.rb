@@ -29,6 +29,7 @@ RSpec.describe "Topical event about page" do
 
       it "renders the about template" do
         expect(response).to render_template("topical_event/about")
+        expect(response).to render_template(layout: "layouts/header_sidebar_content")
       end
     end
   end

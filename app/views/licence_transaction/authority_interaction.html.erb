@@ -51,10 +51,4 @@
   <% end %>
 <% end %>
 
-<% content_for :sidebar do %>
-  <%= render "govuk_publishing_components/components/contextual_sidebar", content_item: content_item.to_h %>
-<% end %>
-
-<% content_for :footer do %>
-  <%= render "govuk_publishing_components/components/contextual_footer", content_item: content_item.to_h %>
-<% end %>
+<%= render partial: "shared/header_content_sidebar_common" %>

@@ -96,7 +96,7 @@ RSpec.describe MiniSite do
     context "when there are no navigation items in links/shared_navigations" do
       let(:content_store_response) do
         GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
-          item["links"]["shared_navigations"][0]["navigation_items"] = []
+          item["links"]["shared_navigations"][0]["links"]["navigation_items"] = []
         end
       end
 
@@ -127,7 +127,7 @@ RSpec.describe MiniSite do
     context "when there are no navigation items in links/shared_navigations" do
       let(:content_store_response) do
         GovukSchemas::Example.find(schema_name, example_name:).tap do |item|
-          item["links"]["shared_navigations"][0]["navigation_items"] = []
+          item["links"]["shared_navigations"][0]["links"]["navigation_items"] = []
         end
       end
 

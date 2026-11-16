@@ -41,7 +41,7 @@ private
     shared_navigations = linked("shared_navigations") || []
     return [] unless shared_navigations.any?
 
-    navigation_items_array = shared_navigations.first.content_store_response["navigation_items"]
+    navigation_items_array = shared_navigations.first.content_store_response["links"]["navigation_items"]
     return [] unless navigation_items_array.any?
 
     navigation_items_array.map { |navigation_items_hash| ContentItemFactory.build(navigation_items_hash) }

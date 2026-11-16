@@ -80,7 +80,8 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         minZoom: 4,
         maxZoom: 16,
         center: [-0.09, 51.505],
-        containerHeight: '500px'
+        containerHeight: '500px',
+        canvasContextAttributes: { preserveDrawingBuffer: true }
       }
       const passedConfig = JSON.parse(this.$module.getAttribute('data-config')) || {}
       this.config = Object.assign(config, passedConfig)
@@ -109,6 +110,11 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
         if (this.trackingEnabled) {
           this.trackingActive = true
         }
+      })
+
+      this.map.on('map:loaded', () => {
+        // This is used for Percy tests, so that Percy knows when to take a snapshot.
+        this.$module.setAttribute("data-map-loaded", "true")
       })
 
       /* istanbul ignore next */

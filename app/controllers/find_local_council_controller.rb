@@ -26,7 +26,7 @@ class FindLocalCouncilController < ContentItemsController
       @address_list_presenter = AddressListPresenter.new(postcode_lookup.addresses)
       render :choose_address
     end
-  rescue LocationError => e
+  rescue PostcodeLookup::PostcodeError => e
     @location_error = e
     render :index
   end

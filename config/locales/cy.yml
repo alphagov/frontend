@@ -594,9 +594,7 @@ cy:
         wales:
       info_on_website: Mae gwybodaeth i'w chael ar eu gwefan.
       invalid_postcode: Nid yw hwn yn god post dilys.
-      invalid_postcode_sub: Gwiriwch a'i ysgrifennu eto.
       invalid_uprn: Nid yw hwn yn gyfeiriad dilys.
-      invalid_uprn_sub: Ysgrifennwch y cod post eto.
       local_authority_html:
       local_authority_website: Ewch i wefan %{local_authority_name}
       matched_postcode_html: Rydyn ni wedi paru'r cod post i <span class="local-authority">%{local_authority}</span>.
@@ -614,9 +612,7 @@ cy:
       titled_link:
       unknown_service: Dydyn ni ddim yn gwybod a ydyn nhw'n cynnig y gwasanaeth hwn. Edrychwch ar eu gwefan i weld a ydyn nhw'n gwneud, neu i weld pa wasanaethau eraill maen nhw'n eu cynnig.
       valid_postcode_no_match: Doedden ni ddim yn gallu dod o hyd i'r cod post hwn.
-      valid_postcode_no_match_sub_html: Gwiriwch a'i ysgrifennu eto.
       valid_uprn_no_match: Doedden ni ddim yn gallu dod o hyd i'r cyfeiriad hwn.
-      valid_uprn_no_match_sub_html: Gwiriwch ac ysgrifennu'r cod post eto.
       website:
       what_you_need_to_know: Yr hyn y mae angen i chi ei wybod
     maib_report:

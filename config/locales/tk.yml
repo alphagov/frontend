@@ -437,9 +437,7 @@ tk:
         wales:
       info_on_website:
       invalid_postcode:
-      invalid_postcode_sub:
       invalid_uprn:
-      invalid_uprn_sub:
       local_authority_html:
       local_authority_website:
       matched_postcode_html:
@@ -457,9 +455,7 @@ tk:
       titled_link:
       unknown_service:
       valid_postcode_no_match:
-      valid_postcode_no_match_sub_html:
       valid_uprn_no_match:
-      valid_uprn_no_match_sub_html:
       website:
       what_you_need_to_know:
     maib_report:

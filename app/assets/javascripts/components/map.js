@@ -149,7 +149,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
-            action: 'markerClick',
+            action: 'marker click',
             text: this.currentMarkerName
           })
         } else {

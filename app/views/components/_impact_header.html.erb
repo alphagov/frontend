@@ -10,7 +10,6 @@
   component_helper.add_class("app-c-impact-header--logo") if image_type == "logo"
   component_helper.add_class("app-c-impact-header--govuk") if variant == "govuk"
   component_helper.add_class("app-c-impact-header--with-background") if variant
-  component_helper.add_class("app-c-impact-header--plain") unless variant || image_type == "logo"
 
   if variant == "notable-death"
     component_helper.add_class("app-c-impact-header--notable-death") if variant == "notable-death"
@@ -71,7 +70,7 @@
         </div>
       </div>
     <% else %>
-      <div class="app-c-impact-header__grid">
+      <div class="app-c-impact-header__grid govuk-width-container">
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
             <%= text %>

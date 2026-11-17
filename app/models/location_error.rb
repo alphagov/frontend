@@ -10,14 +10,6 @@ class LocationError < StandardError
     "electoralServiceNotAvailable" => "formats.local_transaction.electoral_service_not_available",
   }.freeze
 
-  SUB_MESSAGES = {
-    "fullPostcodeNoLocationsApiMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
-    "invalidPostcodeFormat" => "formats.local_transaction.invalid_postcode_sub",
-    "invalidUprnFormat" => "formats.local_transaction.invalid_uprn_sub",
-    "validPostcodeNoElectionsMatch" => "formats.local_transaction.valid_postcode_no_match_sub_html",
-    "validUprnNoElectionsMatch" => "formats.local_transaction.valid_uprn_no_match_sub_html",
-  }.freeze
-
   DATA_RELATED = %w[
     noLaMatch
     fullPostcodeNoLocationsApiMatch
@@ -28,19 +20,13 @@ class LocationError < StandardError
     validUprnNoElectionsMatch
   ].freeze
 
-  attr_reader :postcode_error, :message, :sub_message, :message_args
+  attr_reader :postcode_error, :message, :message_args
 
   def initialize(postcode_error = nil, message_args = {})
     @postcode_error = postcode_error
     @message_args = message_args
 
-    if MESSAGES[postcode_error]
-      @message = MESSAGES[postcode_error]
-      @sub_message = SUB_MESSAGES.fetch(postcode_error, "")
-    else
-      @message = "formats.local_transaction.invalid_postcode"
-      @sub_message = "formats.local_transaction.invalid_postcode_sub"
-    end
+    @message = MESSAGES[postcode_error] || "formats.local_transaction.invalid_postcode"
 
     super(@message)
   end

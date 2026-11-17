@@ -35,6 +35,11 @@
   }
 }
 
+.app-c-map__link {
+  @include govuk-link-common;
+  @include govuk-link-style-default;
+}
+
 // defra map override styles
 .im-c-open-map-button {
   margin-bottom: govuk-spacing(2);

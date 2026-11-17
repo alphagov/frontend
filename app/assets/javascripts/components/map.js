@@ -173,9 +173,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const keys = Object.keys(feat.properties)
       keys.forEach((key) => {
         if (key === 'url') {
-          markup = `${markup} ${para(`<a href="${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+          markup = `${markup} ${para(`<a href="${feat.properties[key]}" class="app-c-map__link">${feat.properties[key]}</a>`)}`
         } else if (key === 'email') {
-          markup = `${markup} ${para(`<a href="mailto:${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+          markup = `${markup} ${para(`<a href="mailto:${feat.properties[key]}" class="app-c-map__link">${feat.properties[key]}</a>`)}`
         } else if (key !== 'name') {
           markup = `${markup} ${para(feat.properties[key])}`
         }

@@ -8,7 +8,7 @@ class PersonPresenter < ContentItemPresenter
   end
 
   def current_roles_title
-    content_item.current_roles.map(&:title).to_sentence(locale: content_item.locale)
+    content_item.current_roles.map(&:title).uniq.to_sentence(locale: content_item.locale)
   end
 
   def contents

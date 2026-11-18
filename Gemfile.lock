@@ -132,7 +132,7 @@ GEM
     debug_inspector (1.2.0)
     diff-lcs (1.6.2)
     dig_rb (1.0.1)
-    domain_name (0.6.20260907)
+    domain_name (0.7.20261117)
     dotenv (3.2.0)
     dotenv-rails (3.2.0)
       dotenv (= 3.2.0)
@@ -157,7 +157,7 @@ GEM
       railties (>= 6.1.0)
     ffi (1.17.4)
     find_a_port (1.0.1)
-    gds-api-adapters (103.5.0)
+    gds-api-adapters (104.0.0)
       addressable
       link_header
       null_logger
@@ -287,7 +287,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0701)
+    mime-types-data (3.2026.1103)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
     minitest (6.1.0)

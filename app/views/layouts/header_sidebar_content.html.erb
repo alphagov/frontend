@@ -25,13 +25,23 @@
       <%= yield :header %>
 
       <div class="govuk-grid-row gem-print-columns-none">
-        <div class="govuk-grid-column-one-third sticky-column">
+        <% @sidebar = capture do %>
           <%= yield :sidebar %>
-        </div>
+        <% end %>
+        <% if @sidebar.present? %>
+          <div class="govuk-grid-column-one-third sticky-column">
+            <%= @sidebar %>
+          </div>
+        <% end %>
 
-        <div class="govuk-grid-column-two-thirds">
+        <% @content = capture do %>
           <%= yield :content %>
-        </div>
+        <% end %>
+        <% if @content.present? %>
+          <div class="govuk-grid-column-two-thirds">
+            <%= @content %>
+          </div>
+        <% end %>
       </div>
     </main>
     <%= render "shared/asset_manager_session" %>

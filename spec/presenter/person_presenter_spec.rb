@@ -56,6 +56,19 @@ RSpec.describe PersonPresenter do
     it "returns the current role titles as a sentence" do
       expect(presenter.current_roles_title).to eq("Minister for Magic")
     end
+
+    context "when the person has two identically named roles" do
+      let(:person) { Person.new(double_role_content_store_response) }
+      let(:double_role_content_store_response) do
+        content_store_response.tap do |item|
+          item["links"]["role_appointments"] << item["links"]["role_appointments"][0]
+        end
+      end
+
+      it "only shows that role name once in the sentence" do
+        expect(presenter.current_roles_title).to eq("Minister for Magic")
+      end
+    end
   end
 
   describe "#page_title_options" do

@@ -1,4 +1,4 @@
-@import "govuk_publishing_components/base";
+@use "govuk_publishing_components/base" as *;
 
 %responsive-bunting-height {
   height: 48px;

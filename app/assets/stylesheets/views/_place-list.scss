@@ -1,5 +1,5 @@
-@import "govuk_publishing_components/base";
-@import "helpers/truncated-url";
+@use "govuk_publishing_components/base" as *;
+@use "helpers/truncated-url";
 
 .place-list__item {
   margin-top: govuk-spacing(5);

@@ -1,3 +1,3 @@
-@import "govuk_publishing_components/base";
-@import "_service_manual/page_header";
-@import "_service_manual/service_standard_point";
+@use "govuk_publishing_components/base" as *;
+@use "_service_manual/page_header";
+@use "_service_manual/service_standard_point";

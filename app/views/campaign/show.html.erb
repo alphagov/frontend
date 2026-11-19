@@ -1,0 +1,225 @@
+<% content_for :before_content do %>
+  <%= render "govuk_publishing_components/components/service_navigation", {
+    service_name: "Youth Justice Charter",
+    service_name_url: "/campaign/show",
+    hide_service_name_on_mobile: true,
+    navigation_items: [
+      {
+        text: "Youth Justice Charter",
+        href: "/campaign/show",
+      },
+      {
+        text: "Stopped by the police",
+        href: "#",
+      },
+      {
+        text: "Going to court",
+        href: "#",
+      },
+      {
+        text: "Community Youth Justice Services",
+        href: "#",
+      },
+      {
+        text: "Going into youth custody",
+        href: "#",
+      },
+      {
+        text: "Leaving youth custody",
+        href: "#",
+      },
+    ],
+} %>
+<% end %>
+
+<div class="full-width__container">
+  <div class="full-width__element">
+    <%= render "components/impact_header", {
+      heading: "Youth Justice Charter",
+      description: "Know your rights in the youth justice system",
+      image: {
+        sources: {
+          desktop: "/assets/frontend/flexible-pages/youth_desktop_1x.jpg",
+          desktop_2x: "/assets/frontend/flexible-pages/youth_desktop_2x.jpg",
+          mobile: "/assets/frontend/flexible-pages/youth_mobile_1x.jpg",
+          mobile_2x: "/assets/frontend/flexible-pages/youth_mobile_2x.jpg",
+          tablet: "/assets/frontend/flexible-pages/youth_tablet_1x.jpg",
+          tablet_2x: "/assets/frontend/flexible-pages/youth_tablet_2x.jpg",
+        },
+      },
+    } %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+      <h2>No matter who you are or what crime you've been accused of, all children have special rights.</h2>
+      <p>This Youth Justice Charter explains <a href="#">what your rights are.</a>
+      <p>It sets them out as standards, so you know what to expect at each stage of the <a href="https://example.com">youth justice system</a>.</p>
+    <% end %>
+  </div>
+</div>
+
+<div class="flexible-section" data-flexible-section="featured">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Navigation",
+    font_size: "l",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3,
+  } %>
+
+  <% items = [{
+  href: "/not-a-page",
+  image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+  image_alt: "some meaningful alt text please",
+  heading_text: "The youth justice system",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+},
+{
+  href: "/not-a-page",
+  image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Know your rights",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+},
+{
+  href: "/not-a-page",
+  image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Get support",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+},
+{
+  href: "/not-a-page",
+  image_src: "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/feature/image/62756/s300_courts-of-justice.JPG",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Downloads",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+}] %>
+
+<div class="govuk-grid-row">
+    <% items.each.with_index(1) do |item, index| %>
+      <%= tag.div class: "govuk-grid-column-one-third" do %>
+        <%= render "govuk_publishing_components/components/image_card", {
+          href: item[:href],
+          image_src: item[:image_src],
+          image_alt: item[:image_alt],
+          heading_text: item[:heading_text],
+          description: item[:description],
+        } %>
+      <% end %>
+      <% if index % 3 == 0 && index < items.length %>
+        </div>
+        <div class="govuk-grid-row">
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="flexible-section" data-flexible-section="featured">
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Let's take a look around",
+    font_size: "l",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3,
+  } %>
+
+  <% items = [{
+  href: "/not-a-page",
+  image_src: "/assets/frontend/flexible-pages/card-1.png",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Stopped by the police",
+},
+{
+  href: "/not-a-page",
+  image_src: "/assets/frontend/flexible-pages/card-2.png",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Going to court",
+},
+{
+  href: "/not-a-page",
+  image_src: "/assets/frontend/flexible-pages/card-3.png",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Community Youth Justice Services",
+},
+{
+  href: "/not-a-page",
+  image_src: "/assets/frontend/flexible-pages/card-4.png",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Going into youth custody",
+},
+{
+  href: "/not-a-page",
+  image_src: "/assets/frontend/flexible-pages/card-5.png",
+  image_alt: "some meaningful alt text please",
+  heading_text: "Leaving youth custody",
+}] %>
+
+<div class="govuk-grid-row">
+    <% items.each.with_index(1) do |item, index| %>
+      <%= tag.div class: "govuk-grid-column-one-third" do %>
+        <%= render "govuk_publishing_components/components/image_card", {
+          href: item[:href],
+          image_src: item[:image_src],
+          image_alt: item[:image_alt],
+          heading_text: item[:heading_text],
+          description: item[:description],
+        } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <%= render "govuk_publishing_components/components/govspeak", { margin_bottom: 8 } do %>
+      <p><a href="https://www.youtube.com/watch?v=SHnJfCmmCH4">YouTube Video</a></p>
+      <p><a href="#">Video Transcript</a></p>
+
+      <div class="call-to-action">
+        <h2>I'm using the charter as a child</h2>
+        <p>If you need help understanding this charter, ask someone you trust to go through it with you.</p>
+        <p>This might be your parent, guardian, carer, social worker, Youth Justice Service case manager, a lawyer or an appropriate adult.</p>
+        <p>You don’t need to read it all at once. Some words in this charter might be difficult to understand. We’ve explained what they mean in ‘<a href="#">difficult words</a>’.</p>
+        <p>You can also find <a href="##">easy-read versions</a>, which are simpler.</p>
+
+        <h2>I'm using the charter as a practitioner</h2>
+        <p>If you work in the youth justice system, you should use this charter as part of your engagement with the child to help them understand and participate in the justice process.</p>
+        <p>This charter does not replace existing guidance, standards or documents, but brings together the most important information that children should know as a charter standard.</p>
+        <p>Some standards are expressed as something that ‘must’ or ‘will’ happen (based on the law), while others use words such as ‘should’ (based on guidance and best practice).</p>
+        <p>Familiarise yourself with the charter to ensure you’re meeting the expected standards.</p>
+        <p>The following organisations are signatories to the Charter: Youth  Justice Board; Youth Custody Service; Crown Prosecution Service; National Police Chiefs’ Council; Solicitor’s Regulation Authority; and The Law Society.</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <%= render "govuk_publishing_components/components/heading", {
+    text: "Who's involved",
+    font_size: "l",
+    padding: true,
+    border_top: 5,
+    margin_bottom: 3,
+  } %>
+
+<%= render "govuk_publishing_components/components/organisation_logo", {
+  organisation: {
+    name: sanitize("Ministry <br>of Justice"),
+    url: "/government/organisations/ministry-of-justice",
+    brand: "ministry-of-justice",
+    crest: "single-identity",
+  },
+  margin_bottom: 3,
+} %>
+
+<%= render "govuk_publishing_components/components/organisation_logo", {
+  organisation: {
+    name: sanitize("Department for <br>Culture, <br>Media & Sport"),
+    url: "/government/organisations/department-for-culture-media-and-sport",
+    brand: "department-for-culture-media-sport",
+    crest: "single-identity",
+  },
+} %>

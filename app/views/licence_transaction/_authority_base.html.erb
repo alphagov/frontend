@@ -1,5 +1,9 @@
+<% content_for :title, "Error: #{page_title(content_item)}" if @location_error %>
 <% content_for :head do %>
   <meta name="robots" content="noindex">
+  <% if content_item.description.present? %>
+    <meta name="description" content="<%= content_item.description %>">
+  <% end %>
 <% end %>
 
 <%
@@ -36,67 +40,59 @@
   end
 %>
 
-<%= render layout: "shared/base_page", locals: {
-  context: "Licence",
-  title: content_item.title,
-  publication: content_item,
-  edition: @edition,
-} do %>
+<p class="govuk-body">From <strong><%= licence_details.authority["name"] %></strong></p>
 
-  <p class="govuk-body">From <strong><%= licence_details.authority["name"] %></strong></p>
+<%= render "govuk_publishing_components/components/contents_list",
+  underline_links: true,
+  format_numbers: true,
+  contents: licence_details.actions_for_contents_list_component(content_item) %>
 
-  <%= render "govuk_publishing_components/components/contents_list",
-    underline_links: true,
-    format_numbers: true,
-    contents: licence_details.actions_for_contents_list_component(content_item) %>
+<article
+  role="article"
+  class="content-block group"
+  data-module="<%= ga4_data_modules %>"
+  <% if trigger_ga4_form_complete %>
+    data-ga4-auto="<%= ga4_form_complete_attributes %>"
+  <% end %>
+  data-ga4-link="<%= ga4_information_click_attributes %>"
+  data-ga4-set-indexes>
+  <div id="overview" class="inner">
+    <%= yield %>
 
-  <article
-    role="article"
-    class="content-block group"
-    data-module="<%= ga4_data_modules %>"
-    <% if trigger_ga4_form_complete %>
-      data-ga4-auto="<%= ga4_form_complete_attributes %>"
-    <% end %>
-    data-ga4-link="<%= ga4_information_click_attributes %>"
-    data-ga4-set-indexes>
-    <div id="overview" class="inner">
-      <%= yield :main_content %>
+    <% if licence_details.local_authority_specific? %>
+      <div class="contact">
+        <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
+          <%= link_to "(change location)",
+            licence_transaction_path(content_item.slug),
+            class: "govuk-link",
+            data: {
+              ga4_link: ga4_change_response_attributes,
+              # As per the GA4 implementation guide, we don't add an index to change_response links. Therefore, the data-ga4-do-not-index
+              # attribute is used to override behaviour of data-ga4-set-indexes on the parent element, therefore preventing this link from
+              # having an index added.
+              ga4_do_not_index: "",
+            } %>
+        </p>
 
-      <% if licence_details.local_authority_specific? %>
-        <div class="contact">
-          <p class="govuk-body">The issuing authority for this licence is <strong><%= licence_details.authority["name"] %></strong>
-            <%= link_to "(change location)",
-              licence_transaction_path(content_item.slug),
-              class: "govuk-link",
-              data: {
-                ga4_link: ga4_change_response_attributes,
-                # As per the GA4 implementation guide, we don't add an index to change_response links. Therefore, the data-ga4-do-not-index
-                # attribute is used to override behaviour of data-ga4-set-indexes on the parent element, therefore preventing this link from
-                # having an index added.
-                ga4_do_not_index: "",
-              } %>
-          </p>
+        <% if licence_details.authority['contact'] and ! licence_details.authority['contact']['address'].blank? %>
+          <p class="govuk-body">You can contact them using the details below.</p>
+          <%= render "govuk_publishing_components/components/govspeak", {
+          } do %>
 
-          <% if licence_details.authority['contact'] and ! licence_details.authority['contact']['address'].blank? %>
-            <p class="govuk-body">You can contact them using the details below.</p>
-            <%= render "govuk_publishing_components/components/govspeak", {
-            } do %>
-
-              <% if licence_details.authority["contact"]["email"].present? %>
-                <p class="govuk-body">
-                  <a class="govuk-link " data-ga4-do-not-redact href="mailto:<%= licence_details.authority["contact"]["email"] %>"><%= licence_details.authority["contact"]["email"] %></a>
-                </p>
-              <% end %>
-
-              <% if licence_details.authority["contact"]["phone"].present? %>
-                <p class="govuk-body">Telephone: <%= licence_details.authority["contact"]["phone"] %></p>
-              <% end %>
-
-              <%= simple_format licence_details.authority["contact"]["address"].gsub(/\n(\n+)/, "\n") %>
+            <% if licence_details.authority["contact"]["email"].present? %>
+              <p class="govuk-body">
+                <a class="govuk-link " data-ga4-do-not-redact href="mailto:<%= licence_details.authority["contact"]["email"] %>"><%= licence_details.authority["contact"]["email"] %></a>
+              </p>
             <% end %>
+
+            <% if licence_details.authority["contact"]["phone"].present? %>
+              <p class="govuk-body">Telephone: <%= licence_details.authority["contact"]["phone"] %></p>
+            <% end %>
+
+            <%= simple_format licence_details.authority["contact"]["address"].gsub(/\n(\n+)/, "\n") %>
           <% end %>
-        </div>
-      <% end %>
-    </div>
-  </article>
-<% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</article>

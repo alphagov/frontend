@@ -1,48 +1,54 @@
 <% content_for :title, "#{content_item.title}: How to #{licence_details.action} - GOV.UK" %>
 
-<% content_for :main_content do %>
-  <% if licence_details.action.present? %>
-    <% if licence_details.uses_licensify %>
-      <%= render "govuk_publishing_components/components/heading", text: "How to #{licence_details.action}", margin_bottom: 4 %>
+<% content_for :header do %>
+  <%= render "shared/headers/page_title", options: content_item_presenter.page_title_options %>
+<% end %>
 
-      <% if licence_details.authority["actions"][licence_details.action].size > 1 %>
-        <p class="govuk-body">There is more than one online form available for this licence:</p>
+<% content_for :content do %>
+  <%= render "authority_base" do %>
+    <% if licence_details.action.present? %>
+      <% if licence_details.uses_licensify %>
+        <%= render "govuk_publishing_components/components/heading", text: "How to #{licence_details.action}", margin_bottom: 4 %>
 
-        <ol class="govuk-list govuk-list--number">
-          <% licence_details.authority["actions"][licence_details.action].each_with_index do |link, i| %>
-            <li><%= link_to link["description"], "#form-#{i+1}", class: "govuk-link" %></li>
-          <% end %>
-        </ol>
+        <% if licence_details.authority["actions"][licence_details.action].size > 1 %>
+          <p class="govuk-body">There is more than one online form available for this licence:</p>
+
+          <ol class="govuk-list govuk-list--number">
+            <% licence_details.authority["actions"][licence_details.action].each_with_index do |link, i| %>
+              <li><%= link_to link["description"], "#form-#{i+1}", class: "govuk-link" %></li>
+            <% end %>
+          </ol>
+        <% end %>
+
+        <% licence_details.authority["actions"][licence_details.action].each_with_index do |link, i| %>
+          <section>
+            <h2 class="govuk-heading-l" id="form-<%= i+1 %>"><%= i+1 %>. <%= link["description"] %></h2>
+
+            <%= render "govuk_publishing_components/components/govspeak", {
+            } do %>
+              <%= simple_format link["introduction"] %>
+            <% end %>
+
+            <% if link['uses_licensify'] %>
+              <%= render "govuk_publishing_components/components/button",
+                        text: "Apply online",
+                        start: true,
+                        href: link["url"],
+                        margin_bottom: true %>
+            <% elsif link['uses_authority_url'] %>
+              <%= render partial: "authority_url", locals: { action: licence_details.action, index: i } %>
+            <% else %>
+              <%= render partial: "licensify_unavailable" %>
+            <% end %>
+          </section>
+        <% end %>
+      <% elsif licence_details.uses_authority_url %>
+        <%= render "authority_url", locals: { action: licence_details.action, index: 0 } %>
+      <% else %>
+        <%= render "licensify_unavailable" %>
       <% end %>
-
-      <% licence_details.authority["actions"][licence_details.action].each_with_index do |link, i| %>
-        <section>
-          <h2 class="govuk-heading-l" id="form-<%= i+1 %>"><%= i+1 %>. <%= link["description"] %></h2>
-
-          <%= render "govuk_publishing_components/components/govspeak", {
-          } do %>
-            <%= simple_format link["introduction"] %>
-          <% end %>
-
-          <% if link['uses_licensify'] %>
-            <%= render "govuk_publishing_components/components/button",
-                       text: "Apply online",
-                       start: true,
-                       href: link["url"],
-                       margin_bottom: true %>
-          <% elsif link['uses_authority_url'] %>
-            <%= render partial: "authority_url", locals: { action: licence_details.action, index: i } %>
-          <% else %>
-            <%= render partial: "licensify_unavailable" %>
-          <% end %>
-        </section>
-      <% end %>
-    <% elsif licence_details.uses_authority_url %>
-      <%= render "authority_url", locals: { action: licence_details.action, index: 0 } %>
-    <% else %>
-      <%= render "licensify_unavailable" %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= render "authority_base" %>
+<%= render partial: "shared/header_content_sidebar_common" %>

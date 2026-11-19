@@ -12,7 +12,10 @@ class LicenceTransactionController < ContentItemsController
   NO_MATCHING_AUTHORITY = "noLaMatch".freeze
   NO_LOCATIONS_API_MATCH = "fullPostcodeNoLocationsApiMatch".freeze
 
+  layout "header_content_sidebar"
+
   def start
+    @content_item_presenter = LicenceTransactionPresenter.new(content_item)
     return render :continues_on if content_item.licence_transaction_continuation_link.present?
     return render :licence_not_found if licence_without_authority_code.licence.blank?
 
@@ -27,6 +30,7 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def find
+    @content_item_presenter = LicenceTransactionPresenter.new(content_item)
     @location_error = location_error
     if @location_error
       @postcode = postcode
@@ -52,6 +56,7 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def multiple_authorities
+    @content_item_presenter = LicenceTransactionPresenter.new(content_item)
     redirect_to licence_transaction_authority_path(
       slug: params[:slug],
       authority_slug: params[:authority_slug],
@@ -59,10 +64,12 @@ class LicenceTransactionController < ContentItemsController
   end
 
   def authority
+    @content_item_presenter = LicenceTransactionPresenter.new(content_item)
     render :licence_not_found unless licence_details.licence.present? && licence_details.has_any_actions?
   end
 
   def authority_interaction
+    @content_item_presenter = LicenceTransactionPresenter.new(content_item)
     render :licence_not_found unless licence_details.licence.present? && licence_details.has_any_actions?
   end
 
@@ -80,7 +87,7 @@ private
 
   def licence_without_authority_code
     @licence_without_authority_code ||= LicenceTransactionPresenter.new(
-      licence_details_from_api, params[:authority_slug], params[:interaction]
+      content_item, licence_details_from_api, params[:authority_slug], params[:interaction]
     )
   end
 
@@ -92,7 +99,7 @@ private
     if licence_without_authority_code.licence_authority_specific?
       licence_without_authority_code
     else
-      LicenceTransactionPresenter.new(licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
+      LicenceTransactionPresenter.new(content_item, licence_details_from_api_for_local_authority, params[:authority_slug], params[:interaction])
     end
   end
 
@@ -158,7 +165,7 @@ private
       authority_with_actionable_licence = authority_results["local_authorities"].find do |authority|
         local_authority_code = authority["snac"].presence || authority["gss"]
 
-        licence_details = LicenceTransactionPresenter.new(licence_details_from_api(local_authority_code))
+        licence_details = LicenceTransactionPresenter.new(content_item, licence_details_from_api(local_authority_code))
 
         licence_details.licence.present? && licence_details.has_any_actions?
       end

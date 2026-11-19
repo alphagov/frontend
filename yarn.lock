@@ -3217,7 +3217,7 @@ __metadata:
     "@percy/cli": "npm:^1.32.12"
     jasmine-browser-runner: "npm:^5.0.0"
     jasmine-core: "npm:^7.0.2"
-    maplibre-gl: "npm:5.24.0"
+    maplibre-gl: "npm:5.24.1"
     nyc: "npm:^18.0.0"
     standard: "npm:^17.1.2"
     stylelint: "npm:^17.16.0"
@@ -4702,9 +4702,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"maplibre-gl@npm:5.24.0":
-  version: 5.24.0
-  resolution: "maplibre-gl@npm:5.24.0"
+"maplibre-gl@npm:5.24.1":
+  version: 5.24.1
+  resolution: "maplibre-gl@npm:5.24.1"
   dependencies:
     "@mapbox/jsonlint-lines-primitives": "npm:^2.0.2"
     "@mapbox/point-geometry": "npm:^1.1.0"
@@ -4725,7 +4725,7 @@ __metadata:
     potpack: "npm:^2.1.0"
     quickselect: "npm:^3.0.0"
     tinyqueue: "npm:^3.0.0"
-  checksum: 10/0bf5bd004e1ae545456407bd42f201913e9e67fb302b7d18804c81dffd0feefad55dfb249514c7ad62e8cea57621777f1061f8187e254a108230e4f7eb4dd8e9
+  checksum: 10/9285b5f68deb96395ed3d011cfdd256b16c24e6a3ded37e441fb7fad57844b71355779a535333c77c7f5ed35e1de9ee09b4c390695864805012ef4b856da8ed5
   languageName: node
   linkType: hard
 

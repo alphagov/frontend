@@ -112,26 +112,30 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       })
 
       /* istanbul ignore next */
-      this.map.on('app:panelopened', () => {
-        this.panelOpen = true
-        this.sendAnalytics({
-          event_name: 'select_content',
-          type: 'map',
-          action: 'opened',
-          text: this.currentMarkerName
-        })
-      })
-
-      /* istanbul ignore next */
-      this.map.on('app:panelclosed', () => {
-        if (this.panelOpen) {
+      this.map.on('app:panelopened', ({ panelId }) => {
+        if (panelId !== 'keyboardHelp') {
+          this.panelOpen = true
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
-            action: 'closed',
+            action: 'opened',
             text: this.currentMarkerName
           })
-          this.panelOpen = false
+        }
+      })
+
+      /* istanbul ignore next */
+      this.map.on('app:panelclosed', ({ panelId }) => {
+        if (panelId !== 'keyboardHelp') {
+          if (this.panelOpen) {
+            this.sendAnalytics({
+              event_name: 'select_content',
+              type: 'map',
+              action: 'closed',
+              text: this.currentMarkerName
+            })
+            this.panelOpen = false
+          }
         }
       })
 
@@ -149,7 +153,7 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
           this.sendAnalytics({
             event_name: 'select_content',
             type: 'map',
-            action: 'markerClick',
+            action: 'marker click',
             text: this.currentMarkerName
           })
         } else {
@@ -173,9 +177,9 @@ window.GOVUK.Modules = window.GOVUK.Modules || {};
       const keys = Object.keys(feat.properties)
       keys.forEach((key) => {
         if (key === 'url') {
-          markup = `${markup} ${para(`<a href="${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+          markup = `${markup} ${para(`<a href="${feat.properties[key]}" class="app-c-map__link">${feat.properties[key]}</a>`)}`
         } else if (key === 'email') {
-          markup = `${markup} ${para(`<a href="mailto:${feat.properties[key]}" class="govuk-link">${feat.properties[key]}</a>`)}`
+          markup = `${markup} ${para(`<a href="mailto:${feat.properties[key]}" class="app-c-map__link">${feat.properties[key]}</a>`)}`
         } else if (key !== 'name') {
           markup = `${markup} ${para(feat.properties[key])}`
         }

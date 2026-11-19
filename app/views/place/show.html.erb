@@ -63,34 +63,34 @@
     </section>
 
     <% if postcode_provided? && !location_error %>
-      <%= content_tag "section", id: results_anchor, class: "places-results",
-        data: {
-          module: "ga4-auto-tracker ga4-link-tracker",
-          ga4_auto: ga4_form_complete_attributes,
-          ga4_link: ga4_information_click_attributes,
-          ga4_set_indexes: "",
-        } do %>
-          <% if content_item_presenter.places.any? %>
-            <% results_prefix = t("formats.place.results.#{content_item_presenter.preposition}") %>
+      <%= content_tag "section", id: results_anchor, class: "places-results" do %>
+        <% if content_item_presenter.places.any? %>
+          <% results_prefix = t("formats.place.results.#{content_item_presenter.preposition}") %>
 
-            <% if content_item_presenter.map_allowed? %>
-              <%= render "components/map", {
-                bounds: content_item_presenter.map_bounds,
-                heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
-                margin_bottom: 4,
-                geojson: "/api/places/#{content_item.place_type}.geojson",
-              } %>
-            <% else %>
-              <%= render "govuk_publishing_components/components/heading", {
-                text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
-                margin_bottom: 4,
-              } %>
-            <% end %>
-
-            <ol id="options" class="govuk-list place-list">
-              <%= render partial: "place", locals: { places: content_item_presenter.places } %>
-            </ol>
+          <% if content_item_presenter.map_allowed? %>
+            <%= render "components/map", {
+              bounds: content_item_presenter.map_bounds,
+              heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+              margin_bottom: 4,
+              geojson: "/api/places/#{content_item.place_type}.geojson",
+            } %>
+          <% else %>
+            <%= render "govuk_publishing_components/components/heading", {
+              text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
+              margin_bottom: 4,
+            } %>
           <% end %>
+
+          <%= content_tag "ol", id: "options", class: "govuk-list place-list",
+            data: {
+              module: "ga4-auto-tracker ga4-link-tracker",
+              ga4_auto: ga4_form_complete_attributes,
+              ga4_link: ga4_information_click_attributes,
+              ga4_set_indexes: "",
+            } do %>
+            <%= render partial: "place", locals: { places: content_item_presenter.places } %>
+          <% end %>
+        <% end %>
       <% end %>
     <% else %>
       <% if content_item.need_to_know.present? || content_item.more_information.present? %>

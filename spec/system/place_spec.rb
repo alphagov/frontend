@@ -204,9 +204,10 @@ RSpec.describe "Places" do
     end
 
     it "adds GA4 form_complete attributes" do
-      data_module = page.find(".places-results")["data-module"]
+      data_module = page.find(".place-list")["data-module"]
+      puts data_module
       expected_data_module = "ga4-auto-tracker ga4-link-tracker"
-      ga4_auto_attribute = page.find(".places-results")["data-ga4-auto"]
+      ga4_auto_attribute = page.find(".place-list")["data-ga4-auto"]
       ga4_expected_object = "{\"event_name\":\"form_complete\",\"action\":\"complete\",\"type\":\"place\",\"text\":\"Results near [postcode]\",\"tool_name\":\"Find a passport interview office\"}"
 
       expect(data_module).to eq(expected_data_module)
@@ -214,12 +215,12 @@ RSpec.describe "Places" do
     end
 
     it "adds GA4 information click attributes" do
-      data_module = page.find(".places-results")["data-module"]
+      data_module = page.find(".place-list")["data-module"]
       expected_data_module = "ga4-auto-tracker ga4-link-tracker"
 
       expect(page).to have_selector("[data-ga4-set-indexes]")
 
-      ga4_auto_attribute = page.find(".places-results")["data-ga4-link"]
+      ga4_auto_attribute = page.find(".place-list")["data-ga4-link"]
       ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"place\",\"tool_name\":\"Find a passport interview office\"}"
 
       expect(data_module).to eq(expected_data_module)

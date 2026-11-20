@@ -1,4 +1,4 @@
-@import "govuk_publishing_components/base";
+@use "govuk_publishing_components/base" as *;
 
 @mixin homepage-mobile-padding {
   // Add 9px of padding to the left and right on mobile screen sizes

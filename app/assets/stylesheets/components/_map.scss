@@ -1,3 +1,8 @@
+@use "govuk_publishing_components/base" as *;
+
+// Keeping the interactive-map as an import for now
+// although it can be loaded as a sass module, there doesn't appear to be an immediate benefit
+// https://www.npmjs.com/package/@defra/interactive-map
 @import "@defra/interactive-map/dist/css/index";
 
 .app-c-map--enabled {

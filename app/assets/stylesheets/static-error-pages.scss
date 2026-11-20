@@ -1,12 +1,14 @@
-@import "govuk_publishing_components/base";
+@use "govuk_publishing_components/base" as *;
+@use "govuk_publishing_components/core";
+@use "govuk_publishing_components/lib";
 
-@import "govuk_publishing_components/components/button";
-@import "govuk_publishing_components/components/cookie-banner";
-@import "govuk_publishing_components/components/cross-service-header";
-@import "govuk_publishing_components/components/feedback";
-@import "govuk_publishing_components/components/label";
-@import "govuk_publishing_components/components/layout-footer";
-@import "govuk_publishing_components/components/layout-for-public";
-@import "govuk_publishing_components/components/layout-super-navigation-header";
-@import "govuk_publishing_components/components/search";
-@import "govuk_publishing_components/components/skip-link";
+@use "govuk_publishing_components/components/button";
+@use "govuk_publishing_components/components/cookie-banner";
+@use "govuk_publishing_components/components/cross-service-header";
+@use "govuk_publishing_components/components/feedback";
+@use "govuk_publishing_components/components/label";
+@use "govuk_publishing_components/components/layout-footer";
+@use "govuk_publishing_components/components/layout-for-public";
+@use "govuk_publishing_components/components/layout-super-navigation-header";
+@use "govuk_publishing_components/components/search";
+@use "govuk_publishing_components/components/skip-link";

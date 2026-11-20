@@ -1,3 +1,5 @@
+@use "govuk_publishing_components/base" as *;
+
 .inverse-background {
-    background: govuk-functional-colour(brand);
-  }
+  background: govuk-functional-colour(brand);
+}

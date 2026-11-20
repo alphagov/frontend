@@ -73,6 +73,7 @@
               heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
               margin_bottom: 4,
               geojson: "/api/places/#{content_item.place_type}.geojson",
+              copyright: sanitize('<a href="https://openfreemap.org" target="_blank" class="govuk-link" rel="noopener noreferrer external">OpenFreeMap</a> <a href="https://www.openmaptiles.org/" target="_blank" class="govuk-link" rel="noopener noreferrer external">&copy; OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank" class="govuk-link" rel="noopener noreferrer external">OpenStreetMap</a>'),
             } %>
           <% else %>
             <%= render "govuk_publishing_components/components/heading", {

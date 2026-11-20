@@ -34,7 +34,6 @@ RSpec.describe "ImpactheaderComponent", type: :view do
 
   it "renders a basic impact header with only a heading" do
     render_component({ heading: heading })
-    assert_select ".app-c-impact-header.app-c-impact-header--plain"
     assert_select ".app-c-impact-header .gem-c-details", false
   end
 

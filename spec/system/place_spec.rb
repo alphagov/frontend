@@ -252,14 +252,14 @@ RSpec.describe "Places" do
     end
 
     it "displays error message" do
-      expect(page).to have_content("This isn't a valid postcode")
+      expect(page).to have_content("Enter a valid postcode.")
     end
 
     it "includes GA4 form error attributes" do
       data_module = page.find("#results")["data-module"]
       expected_data_module = "ga4-auto-tracker govuk-error-summary"
       ga4_error_attribute = page.find("#results")["data-ga4-auto"]
-      ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"place\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"
+      ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"place\",\"text\":\"Enter a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"
 
       expect(data_module).to eq(expected_data_module)
       expect(ga4_error_attribute).to eq(ga4_expected_object)
@@ -285,7 +285,7 @@ RSpec.describe "Places" do
     end
 
     it "displays error message" do
-      expect(page).to have_content("This isn't a valid postcode")
+      expect(page).to have_content("Enter a valid postcode.")
     end
 
     it "does not show the 'no results' message" do

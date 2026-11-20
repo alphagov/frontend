@@ -9,14 +9,16 @@ class ElectoralService
   end
 
   def make_request
-    @body = begin
-      Rails.cache.fetch(request_url, expires_in: 1.minute) do
-        JSON.parse(RestClient.get(request_url, {}))
-      end
-    rescue RestClient::Exception => e
-      @error = assemble_error(e)
-      {}
-    end
+    # @body = begin
+    #   Rails.cache.fetch(request_url, expires_in: 1.minute) do
+    #     JSON.parse(RestClient.get(request_url, {}))
+    #   end
+    # rescue RestClient::Exception => e
+    #   @error = assemble_error(e)
+    #   {}
+    # end
+    @error = "electoralServiceNotAvailable"
+    {}
   end
 
   def ok?

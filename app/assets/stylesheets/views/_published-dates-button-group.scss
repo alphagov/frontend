@@ -1,4 +1,4 @@
-@import "govuk_publishing_components/base";
+@use "govuk_publishing_components/base" as *;
 
 .published-dates-button-group {
   @include govuk-media-query($from: tablet) {

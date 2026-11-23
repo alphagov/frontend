@@ -68,7 +68,7 @@
           <% results_prefix = t("formats.place.results.#{content_item_presenter.preposition}") %>
 
           <% if content_item_presenter.map_allowed? %>
-            <%= render "components/map", {
+            <%= render "govuk_publishing_components/components/map", {
               bounds: content_item_presenter.map_bounds,
               heading_text: "#{results_prefix} <strong>#{postcode}</strong>".html_safe,
               margin_bottom: 4,

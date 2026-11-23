@@ -11,10 +11,7 @@
     "public/assets/frontend/application-*",
     "public/assets/frontend/static-error-pages-*",
     "public/assets/frontend/test-dependencies-*",
-    "public/assets/frontend/dependencies-*",
-    "public/assets/frontend/components/map/defra-*",
-    "public/assets/frontend/components/map/map*",
-    "public/assets/frontend/components/map/im-maplibre-worker*"
+    "public/assets/frontend/dependencies-*"
   ],
   "report-dir": "coverage/javascript",
   "reporter": [

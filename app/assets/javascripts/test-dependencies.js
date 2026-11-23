@@ -2,5 +2,3 @@
 // environment.
 //= require govuk_publishing_components/dependencies
 //= require govuk_publishing_components/lib/cookie-functions
-
-//= require components/map/defra-map.js

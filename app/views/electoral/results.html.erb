@@ -16,13 +16,13 @@
         ga4_auto = {
           event_name: "form_complete",
           type: "local transaction",
-          text: Nokogiri::HTML(t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
+          text: Nokogiri::HTML(t("electoral.service.matched_postcode_html", postcode: @postcode.to_s, electoral_service_name: @presenter.electoral_service_name, locale: :en)).text,
           action: "complete",
           tool_name: content_item.title,
         }.to_json
       %>
       <p class="govuk-body" data-module="ga4-auto-tracker" data-ga4-auto="<%= ga4_auto %>">
-        <%= t("electoral.service.matched_postcode_html", postcode: @postcode.sanitized_postcode, electoral_service_name: @presenter.electoral_service_name) %>
+        <%= t("electoral.service.matched_postcode_html", postcode: @postcode.to_s, electoral_service_name: @presenter.electoral_service_name) %>
       </p>
     <% end %>
     <%

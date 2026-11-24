@@ -102,7 +102,7 @@ RSpec.describe "Local Transactions" do
       context "and for an English local authority" do
         before do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
-          post "/send-a-bear-to-your-local-council", params: { postcode: "ST10-4DB] " }
+          post "/send-a-bear-to-your-local-council", params: { postcode: "ST10 4DB " }
         end
 
         it "redirects to the local authority slug" do
@@ -113,7 +113,7 @@ RSpec.describe "Local Transactions" do
       context "and for a Northern Ireland local authority" do
         before do
           configure_locations_api_and_local_authority("BT1 4QG", %w[belfast], 8132)
-          post "/send-a-bear-to-your-local-council", params: { postcode: "BT1-4QG] " }
+          post "/send-a-bear-to-your-local-council", params: { postcode: "BT1 4QG" }
         end
 
         it "redirects to the local authority slug" do
@@ -124,7 +124,7 @@ RSpec.describe "Local Transactions" do
       context "and for electoral registration for an English local authority" do
         before do
           configure_locations_api_and_local_authority("ST10 4DB", %w[staffordshire staffordshire-moorlands], 3435)
-          post "/get-on-electoral-register", params: { postcode: "ST10-4DB] " }
+          post "/get-on-electoral-register", params: { postcode: "ST10 4DB" }
         end
 
         it "redirects to the local authority slug" do
@@ -136,7 +136,7 @@ RSpec.describe "Local Transactions" do
         before do
           stub_locations_api_has_location("BT1 3QG", [{ "local_custodian_code" => 8132 }])
           stub_local_links_manager_has_a_local_authority("belfast", country_name: "Northern Ireland", local_custodian_code: 8132)
-          post "/get-on-electoral-register", params: { postcode: "BT1-3QG] " }
+          post "/get-on-electoral-register", params: { postcode: "BT1 3QG" }
         end
 
         it "redirects to the local authority slug" do
@@ -171,9 +171,9 @@ RSpec.describe "Local Transactions" do
 
     context "when loading the local transaction when posting a location that has no matching local authority" do
       before do
-        stub_locations_api_has_location("AB1 2CD", [{ "local_custodian_code" => 123 }])
+        stub_locations_api_has_location("AB1 2DE", [{ "local_custodian_code" => 123 }])
         stub_local_links_manager_does_not_have_a_custodian_code(123)
-        post "/send-a-bear-to-your-local-council", params: { postcode: "AB1 2CD" }
+        post "/send-a-bear-to-your-local-council", params: { postcode: "AB1 2DE" }
       end
 
       it "responds successfully with an error message" do

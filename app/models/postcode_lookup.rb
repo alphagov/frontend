@@ -6,17 +6,16 @@ class PostcodeLookup
   attr_reader :postcode
 
   def initialize(postcode)
-    @postcode = postcode
-    raise LocationError, "invalidPostcodeFormat" if postcode.blank?
+    @postcode = Postcode.new(postcode)
 
-    response = Frontend.locations_api.results_for_postcode(postcode)
+    response = Frontend.locations_api.results_for_postcode(@postcode.to_s)
     @results = response["results"] || []
     @results.delete_if { it["local_custodian_code"] == ORDNANCE_SURVEY_CUSTODIAN_CODE }
 
     raise LocationError, "noLaMatch" if @results.empty?
   rescue GdsApi::HTTPNotFound
     raise LocationError, "noLaMatch"
-  rescue GdsApi::HTTPClientError
+  rescue GdsApi::HTTPClientError, Postcode::InvalidPostcodeError
     raise LocationError, "invalidPostcodeFormat"
   end
 

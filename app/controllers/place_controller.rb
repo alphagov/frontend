@@ -38,8 +38,6 @@ class PlaceController < ContentItemsController
 
 private
 
-  helper_method :location_error
-
   def postcode_provided?
     params[:postcode].present? && request.post?
   end

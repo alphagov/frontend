@@ -2,7 +2,7 @@
 module Api
   class LocalAuthorityController < ActionController::Base
     def index
-      postcode_lookup = PostcodeLookup.new(postcode)
+      postcode_lookup = PostcodeLookup.new(params[:postcode])
 
       if postcode_lookup.local_custodian_codes.count == 1
         local_authority = LocalAuthority.from_local_custodian_code(postcode_lookup.local_custodian_codes.first)
@@ -22,12 +22,6 @@ module Api
       render json: { local_authority: @local_authority.to_h }
     rescue GdsApi::HTTPNotFound
       render json: { errors: { local_authority_slug: ["Not found"] } }, status: :not_found
-    end
-
-  private
-
-    def postcode
-      @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
     end
   end
 end

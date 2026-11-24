@@ -1,25 +1,14 @@
 class Uprn
-  UPRN_PATTERN = %r{^\d{1,12}$}
+  class InvalidUprnError < StandardError; end
 
-  delegate :present?, to: :sanitized_uprn
+  UPRN_PATTERN = %r{\A\d{1,12}\z}
 
   def initialize(uprn)
-    @uprn = uprn || ""
+    @uprn = (uprn || "").strip
+    raise InvalidUprnError unless @uprn.match?(UPRN_PATTERN)
   end
 
-  def valid?
-    sanitized_uprn.match?(UPRN_PATTERN)
+  def to_s
+    @uprn
   end
-
-  def sanitized_uprn
-    uprn.strip
-  end
-
-  def error
-    "invalidUprnFormat" unless valid?
-  end
-
-private
-
-  attr_reader :uprn
 end

@@ -6,30 +6,6 @@
   "last_updated": "24/11/2025",
   "divisions": {
     "common.united-kingdom_slug": {
-      "2025": [
-        {
-          "title": "when_do_the_clocks_change.start_title",
-          "date": "30/03/2025",
-          "notes": "when_do_the_clocks_change.start_notes"
-        },
-        {
-          "title": "when_do_the_clocks_change.end_title",
-          "date": "26/10/2025",
-          "notes": "when_do_the_clocks_change.end_notes"
-        }
-      ],
-      "2026": [
-        {
-          "title": "when_do_the_clocks_change.start_title",
-          "date": "29/03/2026",
-          "notes": "when_do_the_clocks_change.start_notes"
-        },
-        {
-          "title": "when_do_the_clocks_change.end_title",
-          "date": "25/10/2026",
-          "notes": "when_do_the_clocks_change.end_notes"
-        }
-      ],
       "2027": [
         {
           "title": "when_do_the_clocks_change.start_title",
@@ -51,6 +27,18 @@
         {
           "title": "when_do_the_clocks_change.end_title",
           "date": "29/10/2028",
+          "notes": "when_do_the_clocks_change.end_notes"
+        }
+      ],
+      "2029": [
+        {
+          "title": "when_do_the_clocks_change.start_title",
+          "date": "25/03/2029",
+          "notes": "when_do_the_clocks_change.start_notes"
+        },
+        {
+          "title": "when_do_the_clocks_change.end_title",
+          "date": "28/10/2029",
           "notes": "when_do_the_clocks_change.end_notes"
         }
       ]

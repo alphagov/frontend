@@ -20,18 +20,18 @@ RSpec.describe "How Government Works" do
     it "displays the count of ministers" do
       visit base_path
 
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'prime_minister')}.+Prime Minister/m)
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'cabinet_ministers')}.+Cabinet ministers/m)
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'other_ministers')}.+Other ministers/m)
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'total_ministers')}.+Total ministers/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'prime_minister')}.+Prime Minister/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'cabinet_ministers')}.+Cabinet ministers/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'other_ministers')}.+Other ministers/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'ministerial_role_counts', 'total_ministers')}.+Total ministers/m)
     end
 
     it "displays the count of departments" do
       visit base_path
 
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'ministerial_departments')}.+Ministerial departments/m)
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'non_ministerial_departments')}.+Non-ministerial departments/m)
-      expect(page).to have_selector(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'agencies_and_other_public_bodies')}.+Agencies and other public bodies/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'ministerial_departments')}.+Ministerial departments/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'non_ministerial_departments')}.+Non-ministerial departments/m)
+      expect(page).to have_css(".gem-c-big-number", text: /#{content_item.dig('details', 'department_counts', 'agencies_and_other_public_bodies')}.+Agencies and other public bodies/m)
     end
 
     context "when reshuffle mode is on" do
@@ -40,10 +40,10 @@ RSpec.describe "How Government Works" do
       it "does not display the count of minister" do
         visit base_path
 
-        expect(page).not_to have_selector(".gem-c-big-number", text: /Prime Minister/m)
-        expect(page).not_to have_selector(".gem-c-big-number", text: /Cabinet ministers/m)
-        expect(page).not_to have_selector(".gem-c-big-number", text: /Other ministers/m)
-        expect(page).not_to have_selector(".gem-c-big-number", text: /Total ministers/m)
+        expect(page).to have_no_css(".gem-c-big-number", text: /Prime Minister/m)
+        expect(page).to have_no_css(".gem-c-big-number", text: /Cabinet ministers/m)
+        expect(page).to have_no_css(".gem-c-big-number", text: /Other ministers/m)
+        expect(page).to have_no_css(".gem-c-big-number", text: /Total ministers/m)
       end
     end
   end

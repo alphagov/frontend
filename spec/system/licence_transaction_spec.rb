@@ -53,9 +53,9 @@ RSpec.describe "LicenceTransaction" do
             expect(page).to have_field("Enter a postcode")
             expect(page).to have_css("button", text: "Find")
           end
-          expect(page).not_to have_content("Please enter a valid full UK postcode.")
+          expect(page).to have_no_text("Please enter a valid full UK postcode.")
           within("#overview") do
-            expect(page).to have_content("You only live twice, Mr Bond.")
+            expect(page).to have_text("You only live twice, Mr Bond.")
           end
         end
       end
@@ -142,7 +142,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "displays the authority name" do
-          within("#overview") { expect(page).to have_content("Westminster") }
+          within("#overview") { expect(page).to have_text("Westminster") }
         end
 
         it "shows available licence actions" do
@@ -154,7 +154,7 @@ RSpec.describe "LicenceTransaction" do
 
         it "shows overview section" do
           within("#overview") do
-            expect(page).to have_content("You only live twice, Mr Bond.")
+            expect(page).to have_text("You only live twice, Mr Bond.")
           end
         end
 
@@ -170,8 +170,8 @@ RSpec.describe "LicenceTransaction" do
           end
 
           it "displays the page content" do
-            expect(page).to have_content("Licence to kill")
-            expect(page).to have_selector("h2", text: "How to apply")
+            expect(page).to have_text("Licence to kill")
+            expect(page).to have_css("h2", text: "How to apply")
           end
 
           it "displays a button to apply for the licence" do
@@ -180,14 +180,14 @@ RSpec.describe "LicenceTransaction" do
           end
 
           it "displays the phone number" do
-            expect(page).to have_content("Telephone: 020 7641 6000")
+            expect(page).to have_text("Telephone: 020 7641 6000")
           end
 
           context "when a phone number isn't present" do
             let(:authority_phone) { nil }
 
             it "doesn't display the Telephone item" do
-              expect(page).not_to have_content("020 7641 6000")
+              expect(page).to have_no_text("020 7641 6000")
             end
           end
 
@@ -203,7 +203,7 @@ RSpec.describe "LicenceTransaction" do
             let(:authority_email) { nil }
 
             it "doesn't display a mailto link" do
-              expect(page).not_to have_link("", href: "mailto:")
+              expect(page).to have_no_link("", href: "mailto:")
             end
           end
         end
@@ -464,8 +464,8 @@ RSpec.describe "LicenceTransaction" do
 
         it "shows details for the first licensing authority only" do
           within("#overview") do
-            expect(page).to have_content("Westminster")
-            expect(page).not_to have_content("Kingsmen Tailors")
+            expect(page).to have_text("Westminster")
+            expect(page).to have_no_text("Kingsmen Tailors")
           end
         end
 
@@ -492,7 +492,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content("This isn't a valid postcode.")
+        expect(page).to have_text("This isn't a valid postcode.")
       end
 
       it "re-populates the invalid input" do
@@ -500,9 +500,9 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "adds the GA4 form error attributes" do
-        data_module = page.find("#error")["data-module"]
+        data_module = page.find_by_id("error")["data-module"]
         expected_data_module = "ga4-auto-tracker govuk-error-summary"
-        ga4_error_attribute = page.find("#error")["data-ga4-auto"]
+        ga4_error_attribute = page.find_by_id("error")["data-ga4-auto"]
         ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence transaction\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
 
         expect(data_module).to eq(expected_data_module)
@@ -527,7 +527,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content("We couldn't find this postcode.")
+        expect(page).to have_text("We couldn't find this postcode.")
       end
 
       it "re-populates the invalid input" do
@@ -553,7 +553,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content("We couldn't find a council for this postcode.")
+        expect(page).to have_text("We couldn't find a council for this postcode.")
       end
 
       it "re-populates the invalid input" do
@@ -633,7 +633,7 @@ RSpec.describe "LicenceTransaction" do
 
       it "returns licence not found template" do
         expect(page).to have_current_path("/find-licences/licence-to-kill", ignore_query: true)
-        expect(page).to have_content("You cannot apply for this licence online.")
+        expect(page).to have_text("You cannot apply for this licence online.")
       end
     end
 
@@ -661,7 +661,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays radio buttons" do
@@ -669,9 +669,9 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
         end
 
         it "adds a noindex meta tag" do
@@ -710,7 +710,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays a dropdown select" do
@@ -718,13 +718,13 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
-          expect(page).to have_content("House 4")
-          expect(page).to have_content("House 5")
-          expect(page).to have_content("House 6")
-          expect(page).to have_content("House 7")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
+          expect(page).to have_text("House 4")
+          expect(page).to have_text("House 5")
+          expect(page).to have_text("House 6")
+          expect(page).to have_text("House 7")
         end
 
         it "adds a noindex meta tag" do
@@ -788,7 +788,7 @@ RSpec.describe "LicenceTransaction" do
         end
 
         it "displays the title" do
-          expect(page).to have_content("Licence to kill")
+          expect(page).to have_text("Licence to kill")
         end
 
         it "shows licence actions for the single authority" do
@@ -804,7 +804,7 @@ RSpec.describe "LicenceTransaction" do
 
         it "shows overview section" do
           within("#overview") do
-            expect(page).to have_content("You only live twice, Mr Bond.")
+            expect(page).to have_text("You only live twice, Mr Bond.")
           end
         end
       end
@@ -834,7 +834,7 @@ RSpec.describe "LicenceTransaction" do
       before { visit "/find-licences/artistic-license" }
 
       it "does not show a location form" do
-        expect(page).not_to have_field("postcode")
+        expect(page).to have_no_field("postcode")
       end
 
       it "uses the default text for the title element" do
@@ -842,7 +842,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "shows a 'Start now' button" do
-        expect(page).to have_content("Start now")
+        expect(page).to have_text("Start now")
       end
     end
 
@@ -902,8 +902,8 @@ RSpec.describe "LicenceTransaction" do
     it "shows message to contact local council through their website" do
       visit "/find-licences/licence-to-kill/a-council/apply"
 
-      expect(page).to have_content("To obtain this licence, you need to contact the authority directly")
-      expect(page).to have_content("To continue, go to")
+      expect(page).to have_text("To obtain this licence, you need to contact the authority directly")
+      expect(page).to have_text("To continue, go to")
       expect(page).to have_link("A Council", href: "http://some-council-website")
     end
 
@@ -923,8 +923,8 @@ RSpec.describe "LicenceTransaction" do
     it "shows message to contact local council" do
       visit "/find-licences/licence-to-kill"
 
-      expect(page).to have_content("You cannot apply for this licence online")
-      expect(page).to have_content("Contact your local council")
+      expect(page).to have_text("You cannot apply for this licence online")
+      expect(page).to have_text("Contact your local council")
     end
 
     it "includes contact your council text in the title element" do
@@ -993,17 +993,17 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the title" do
-        expect(page).to have_content("Licence to kill")
+        expect(page).to have_text("Licence to kill")
       end
 
       it "does not display authority" do
-        expect(page).not_to have_content("Ministry of Love")
-        expect(page).not_to have_button("Get started")
+        expect(page).to have_no_text("Ministry of Love")
+        expect(page).to have_no_button("Get started")
       end
 
       it "displays the licence unavailable message" do
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
     end
 
@@ -1049,7 +1049,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the authority" do
-        expect(page).to have_content("Ministry of Love")
+        expect(page).to have_text("Ministry of Love")
       end
 
       it "shows licence actions that have usesLicensify set to true" do
@@ -1069,8 +1069,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
-        expect(page).not_to have_content("You cannot apply for this licence online")
-        expect(page).not_to have_content("Contact your local council")
+        expect(page).to have_no_text("You cannot apply for this licence online")
+        expect(page).to have_no_text("Contact your local council")
       end
 
       it "does not display the interactions for the licence if usesLicensify is set to false" do
@@ -1078,8 +1078,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
     end
 
@@ -1121,22 +1121,22 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the title" do
-        expect(page).to have_content("Licence to kill")
+        expect(page).to have_text("Licence to kill")
       end
 
       it "displays authority" do
-        expect(page).to have_content("Ministry of Love")
+        expect(page).to have_text("Ministry of Love")
       end
 
       it "displays the actions" do
-        expect(page).to have_content("Overview")
+        expect(page).to have_text("Overview")
         expect(page).to have_link("How to apply", href: "/find-licences/licence-to-kill/miniluv/apply")
         expect(page).to have_link("How to renew", href: "/find-licences/licence-to-kill/miniluv/renew")
       end
 
       it "does not display the licence unavailable message on the main licence page" do
-        expect(page).not_to have_content("You cannot apply for this licence online")
-        expect(page).not_to have_content("Contact your local council")
+        expect(page).to have_no_text("You cannot apply for this licence online")
+        expect(page).to have_no_text("Contact your local council")
       end
 
       it "displays the licence unavailable message after you click on the first action" do
@@ -1144,8 +1144,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
 
       it "displays the licence unavailable message after you click on the second action" do
@@ -1153,8 +1153,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
     end
 
@@ -1195,8 +1195,8 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the title and authority" do
-        expect(page).to have_content("Licence to kill")
-        expect(page).to have_content("Ministry of Love")
+        expect(page).to have_text("Licence to kill")
+        expect(page).to have_text("Ministry of Love")
       end
 
       it "shows licence actions that don't have the usesLicensify param" do
@@ -1216,8 +1216,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
 
       it "displays interactions for licence with usesLicensify set to true" do
@@ -1225,8 +1225,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
-        expect(page).not_to have_content("You cannot apply for this licence online")
-        expect(page).not_to have_content("Contact your local council")
+        expect(page).to have_no_text("You cannot apply for this licence online")
+        expect(page).to have_no_text("Contact your local council")
       end
     end
 
@@ -1266,22 +1266,22 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the title" do
-        expect(page).to have_content("Licence to kill")
+        expect(page).to have_text("Licence to kill")
       end
 
       it "displays the authority" do
-        expect(page).to have_content("Ministry of Love")
+        expect(page).to have_text("Ministry of Love")
       end
 
       it "displays the actions" do
-        expect(page).to have_content("Overview")
+        expect(page).to have_text("Overview")
         expect(page).to have_link("How to apply", href: "/find-licences/licence-to-kill/miniluv/apply")
         expect(page).to have_link("How to renew", href: "/find-licences/licence-to-kill/miniluv/renew")
       end
 
       it "does not display the licence unavailable message on the main licence page" do
-        expect(page).not_to have_content("You cannot apply for this licence online")
-        expect(page).not_to have_content("Contact your local council")
+        expect(page).to have_no_text("You cannot apply for this licence online")
+        expect(page).to have_no_text("Contact your local council")
       end
 
       it "displays the licence unavailable message after you click on an action" do
@@ -1289,8 +1289,8 @@ RSpec.describe "LicenceTransaction" do
 
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/apply", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
     end
 
@@ -1352,11 +1352,11 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "displays the title" do
-        expect(page).to have_content("Licence to kill")
+        expect(page).to have_text("Licence to kill")
       end
 
       it "displays the authority" do
-        expect(page).to have_content("Ministry of Love")
+        expect(page).to have_text("Ministry of Love")
       end
 
       it "shows licence actions that have usesLicensify set to true" do
@@ -1378,8 +1378,8 @@ RSpec.describe "LicenceTransaction" do
         expect(page).to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-1", start: true)
         expect(page).to have_button_as_link("Apply online", start: true, href: "/new-licence/ministry-of-love/apply-3")
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/apply-2", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
 
       it "does not display the interactions for the licence if usesLicensify is set to false or is missing for a link" do
@@ -1388,8 +1388,8 @@ RSpec.describe "LicenceTransaction" do
         expect(page).to have_current_path("/find-licences/licence-to-kill/miniluv/renew", ignore_query: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-1", start: true)
         expect(page).not_to have_button_as_link("Apply online", href: "/new-licence/ministry-of-love/renew-2", start: true)
-        expect(page).to have_content("You cannot apply for this licence online")
-        expect(page).to have_content("Contact your local council")
+        expect(page).to have_text("You cannot apply for this licence online")
+        expect(page).to have_text("Contact your local council")
       end
     end
   end

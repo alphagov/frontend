@@ -74,7 +74,7 @@ RSpec.describe "Places" do
       expect(page.status_code).to eq(200)
 
       within("head", visible: :all) do
-        expect(page).to have_selector("title", text: "Find a passport interview office - GOV.UK", visible: :all)
+        expect(page).to have_css("title", text: "Find a passport interview office - GOV.UK", visible: :all)
       end
 
       within("#content") do
@@ -82,15 +82,15 @@ RSpec.describe "Places" do
           expect(page).to have_title("Find a passport interview office")
         end
 
-        expect(page).to have_content("Enter your postcode to find a passport interview office near you.")
+        expect(page).to have_text("Enter your postcode to find a passport interview office near you.")
         expect(page).to have_field("Enter a postcode")
         expect(page).to have_css("button", text: "Find results near you")
-        expect(page).not_to have_content("Please enter a valid full UK postcode.")
+        expect(page).to have_no_text("Please enter a valid full UK postcode.")
 
         within(".further-information") do
-          expect(page).to have_content("Further information")
+          expect(page).to have_text("Further information")
           within("ul") do
-            expect(page).to have_selector("li", text: "Proof of identification required")
+            expect(page).to have_css("li", text: "Proof of identification required")
           end
         end
       end
@@ -143,7 +143,7 @@ RSpec.describe "Places" do
 
       it "displays page title in English as button text" do
         expect(page).to have_css("button", text: "Find a register office")
-        expect(page).not_to have_css("button", text: "Find results near you")
+        expect(page).to have_no_css("button", text: "Find results near you")
       end
     end
 
@@ -152,7 +152,7 @@ RSpec.describe "Places" do
 
       it "displays page title in another language as button text" do
         expect(page).to have_css("button", text: "Darganfod swyddfa gofrestru")
-        expect(page).not_to have_css("button", text: "Darganfod canlyniadau yn agos i chi")
+        expect(page).to have_no_css("button", text: "Darganfod canlyniadau yn agos i chi")
       end
     end
   end
@@ -170,11 +170,11 @@ RSpec.describe "Places" do
     end
 
     it "does not display an error message" do
-      expect(page).not_to have_content("Please enter a valid full UK postcode.")
+      expect(page).to have_no_text("Please enter a valid full UK postcode.")
     end
 
     it "does not show the 'no results' message" do
-      expect(page).not_to have_content("We couldn't find any results for this postcode.")
+      expect(page).to have_no_text("We couldn't find any results for this postcode.")
     end
 
     it "displays places near to the requested location" do
@@ -183,23 +183,23 @@ RSpec.describe "Places" do
       expect(names).to eq(["London IPS Office", "Crawley IPS Office"])
 
       within("#options > li:first-child") do
-        expect(page).to have_content("89 Eccleston Square")
-        expect(page).to have_content("London")
-        expect(page).to have_content("SW1V 1PN")
+        expect(page).to have_text("89 Eccleston Square")
+        expect(page).to have_text("London")
+        expect(page).to have_text("SW1V 1PN")
         expect(page).to have_link("http://www.example.com/london_ips_office", href: "http://www.example.com/london_ips_office")
-        expect(page).to have_content("Telephone: 0800 123 4567")
-        expect(page).to have_content("Monday to Saturday 8.00am - 6.00pm.")
-        expect(page).to have_content("The London Passport Office is fully accessible to wheelchair users.")
+        expect(page).to have_text("Telephone: 0800 123 4567")
+        expect(page).to have_text("Monday to Saturday 8.00am - 6.00pm.")
+        expect(page).to have_text("The London Passport Office is fully accessible to wheelchair users.")
       end
     end
 
     it "formats general notes and access notes" do
       within("#options > li:nth-child(2)") do
-        expect(page).to have_content("Station Way")
-        expect(page).to have_selector("p", text: "Monday to Saturday 8.00am - 6.00pm.")
-        expect(page).to have_selector("p", text: "Sunday 1pm - 2pm.")
-        expect(page).to have_selector("p", text: "The doors are always locked.")
-        expect(page).to have_selector("p", text: "And they are at the top of large staircases.")
+        expect(page).to have_text("Station Way")
+        expect(page).to have_css("p", text: "Monday to Saturday 8.00am - 6.00pm.")
+        expect(page).to have_css("p", text: "Sunday 1pm - 2pm.")
+        expect(page).to have_css("p", text: "The doors are always locked.")
+        expect(page).to have_css("p", text: "And they are at the top of large staircases.")
       end
     end
 
@@ -217,7 +217,7 @@ RSpec.describe "Places" do
       data_module = page.find(".place-list")["data-module"]
       expected_data_module = "ga4-auto-tracker ga4-link-tracker"
 
-      expect(page).to have_selector("[data-ga4-set-indexes]")
+      expect(page).to have_css("[data-ga4-set-indexes]")
 
       ga4_auto_attribute = page.find(".place-list")["data-ga4-link"]
       ga4_expected_object = "{\"event_name\":\"information_click\",\"action\":\"information click\",\"type\":\"place\",\"tool_name\":\"Find a passport interview office\"}"
@@ -237,11 +237,11 @@ RSpec.describe "Places" do
     end
 
     it "does not error on a bad postcode" do
-      expect(page).not_to have_content("Please enter a valid full UK postcode.")
+      expect(page).to have_no_text("Please enter a valid full UK postcode.")
     end
 
     it "informs the user on the lack of results" do
-      expect(page).to have_content("We couldn't find any results for this postcode.")
+      expect(page).to have_text("We couldn't find any results for this postcode.")
     end
   end
 
@@ -252,13 +252,13 @@ RSpec.describe "Places" do
     end
 
     it "displays error message" do
-      expect(page).to have_content("This isn't a valid postcode")
+      expect(page).to have_text("This isn't a valid postcode")
     end
 
     it "includes GA4 form error attributes" do
-      data_module = page.find("#results")["data-module"]
+      data_module = page.find_by_id("results")["data-module"]
       expected_data_module = "ga4-auto-tracker govuk-error-summary"
-      ga4_error_attribute = page.find("#results")["data-ga4-auto"]
+      ga4_error_attribute = page.find_by_id("results")["data-ga4-auto"]
       ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"place\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Find a passport interview office\"}"
 
       expect(data_module).to eq(expected_data_module)
@@ -285,11 +285,11 @@ RSpec.describe "Places" do
     end
 
     it "displays error message" do
-      expect(page).to have_content("This isn't a valid postcode")
+      expect(page).to have_text("This isn't a valid postcode")
     end
 
     it "does not show the 'no results' message" do
-      expect(page).not_to have_content("We couldn't find any results for this postcode.")
+      expect(page).to have_no_text("We couldn't find any results for this postcode.")
     end
 
     it "displays the postcode form" do
@@ -312,7 +312,7 @@ RSpec.describe "Places" do
     end
 
     it "displays the 'no locations found' message" do
-      expect(page).to have_content("We couldn't find any results for this postcode.")
+      expect(page).to have_text("We couldn't find any results for this postcode.")
     end
   end
 
@@ -338,7 +338,7 @@ RSpec.describe "Places" do
     end
 
     it "displays the address chooser" do
-      expect(page).to have_content("House 1")
+      expect(page).to have_text("House 1")
     end
   end
 

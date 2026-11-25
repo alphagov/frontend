@@ -64,7 +64,7 @@ RSpec.describe "Publication" do
       it "does not render non-featured attachments" do
         visit base_path
 
-        expect(page).not_to have_text("Permit: Veolia ES (UK) Limited")
+        expect(page).to have_no_text("Permit: Veolia ES (UK) Limited")
       end
 
       it "renders featured document attachments using components" do
@@ -72,7 +72,7 @@ RSpec.describe "Publication" do
 
         within "#documents" do
           expect(page).to have_text("Number of ex-regular service personnel now part of FR20")
-          expect(page).to have_selector(".gem-c-attachment")
+          expect(page).to have_css(".gem-c-attachment")
         end
       end
     end
@@ -87,7 +87,7 @@ RSpec.describe "Publication" do
       it "doesn't render the documents section" do
         visit base_path
 
-        expect(page).not_to have_text("Documents")
+        expect(page).to have_no_text("Documents")
       end
     end
 
@@ -133,7 +133,7 @@ RSpec.describe "Publication" do
         visit base_path
 
         within "#documents" do
-          expect(page).not_to have_text("Request an accessible format")
+          expect(page).to have_no_text("Request an accessible format")
         end
       end
     end
@@ -145,7 +145,7 @@ RSpec.describe "Publication" do
         visit base_path
 
         within "#documents" do
-          expect(page).not_to have_text("Request an accessible format")
+          expect(page).to have_no_text("Request an accessible format")
         end
       end
     end
@@ -163,7 +163,7 @@ RSpec.describe "Publication" do
 
         within "#documents" do
           expect(page).to have_link("Number of ex-regular service personnel now part of FR20", href: "https://example.com")
-          expect(page).not_to have_text("PDF")
+          expect(page).to have_no_text("PDF")
         end
       end
     end
@@ -174,7 +174,7 @@ RSpec.describe "Publication" do
       it "displays the withdrawn title" do
         visit base_path
 
-        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+        expect(page).to have_css("title", text: "[Withdrawn]", visible: :hidden)
       end
 
       it "displays the withdrawn notice" do
@@ -183,7 +183,7 @@ RSpec.describe "Publication" do
         within ".gem-c-notice" do
           expect(page).to have_text("This publication was withdrawn")
           expect(page).to have_text("This information is now out of date.")
-          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+          expect(page).to have_css("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
         end
       end
     end
@@ -207,8 +207,8 @@ RSpec.describe "Publication" do
         visit base_path
 
         within ".statistics-accredited" do
-          expect(page).to have_selector('img[alt="Accredited official statistics"]')
-          expect(page).to have_selector('.gem-c-figure__image[src^="/assets/frontend/accredited-official-statistics"]')
+          expect(page).to have_css('img[alt="Accredited official statistics"]')
+          expect(page).to have_css('.gem-c-figure__image[src^="/assets/frontend/accredited-official-statistics"]')
         end
       end
 
@@ -267,7 +267,7 @@ RSpec.describe "Publication" do
       it "does not render the single page notification button" do
         visit base_path
 
-        expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 
       it "renders metadata date in Welsh" do
@@ -294,9 +294,9 @@ RSpec.describe "Publication" do
         visit base_path
 
         within all(".gem-c-metadata")[0] do
-          expect(page).to have_content("From: Driver and Vehicle Standards Agency")
-          expect(page).to have_content("Published: 23 November 2013")
-          expect(page).to have_content("Last updated: 18 May 2015")
+          expect(page).to have_text("From: Driver and Vehicle Standards Agency")
+          expect(page).to have_text("Published: 23 November 2013")
+          expect(page).to have_text("Last updated: 18 May 2015")
         end
       end
 
@@ -304,9 +304,9 @@ RSpec.describe "Publication" do
         visit base_path
 
         within all(".gem-c-metadata")[1] do
-          expect(page).to have_content("Last updated: 18 May 2015")
-          expect(page).to have_content("15 January 2014")
-          expect(page).to have_content("Updated the application form.")
+          expect(page).to have_text("Last updated: 18 May 2015")
+          expect(page).to have_text("15 January 2014")
+          expect(page).to have_text("Updated the application form.")
         end
       end
     end

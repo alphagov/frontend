@@ -68,7 +68,7 @@ RSpec.describe "Help" do
         content_store_has_random_item(base_path: "/help/ab-testing", schema: "help_page")
         get "/help/ab-testing", headers: request_headers
 
-        expect(response.body).to have_selector(".ab-example-group", text: "A")
+        expect(response.body).to have_css(".ab-example-group", text: "A")
       end
     end
 
@@ -78,7 +78,7 @@ RSpec.describe "Help" do
         content_store_has_random_item(base_path: "/help/ab-testing", schema: "help_page")
         get "/help/ab-testing", headers: request_headers
 
-        expect(response.body).to have_selector(".ab-example-group", text: "B")
+        expect(response.body).to have_css(".ab-example-group", text: "B")
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe "Help" do
       content_store_has_random_item(base_path: "/help/ab-testing", schema: "help_page")
       get "/help/ab-testing"
 
-      expect(response.body).to have_selector(".ab-example-group", text: "A")
+      expect(response.body).to have_css(".ab-example-group", text: "A")
     end
 
     it "shows the user the default version if the user is in an unknown bucket" do
@@ -95,7 +95,7 @@ RSpec.describe "Help" do
       setup_ab_variant("Example", "not_a_valid_AB_test_value")
       get "/help/ab-testing", headers: request_headers
 
-      expect(response.body).to have_selector(".ab-example-group", text: "A")
+      expect(response.body).to have_css(".ab-example-group", text: "A")
     end
   end
 

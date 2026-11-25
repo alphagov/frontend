@@ -60,7 +60,7 @@ RSpec.describe "HTML publication" do
 
       it "shows no contents when headings are an empty list" do
         within ".gem-c-inverse-header" do
-          expect(page).not_to have_text("Contents")
+          expect(page).to have_no_text("Contents")
         end
       end
     end
@@ -111,7 +111,7 @@ RSpec.describe "HTML publication" do
       let(:content_item) { GovukSchemas::Example.find(:html_publication, example_name: "published") }
 
       it "does not have the single page notification button" do
-        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end
 
@@ -147,7 +147,7 @@ RSpec.describe "HTML publication" do
 
       it "still renders a print link" do
         expect(page).to have_css("#contents")
-        expect(page).not_to have_css(".gem-c-contents-list")
+        expect(page).to have_no_css(".gem-c-contents-list")
         expect(page).to have_css(".gem-c-print-link")
       end
     end

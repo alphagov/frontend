@@ -37,19 +37,19 @@ RSpec.describe "Transaction" do
 
       expect(page.status_code).to eq(200)
       within("head", visible: :all) do
-        expect(page).to have_selector("title", text: "Carrots - GOV.UK", visible: :hidden)
-        expect(page).not_to have_selector("meta[name='robots']", visible: :hidden)
+        expect(page).to have_css("title", text: "Carrots - GOV.UK", visible: :hidden)
+        expect(page).to have_no_css("meta[name='robots']", visible: :hidden)
       end
 
       within("#content") do
         within(".gem-c-heading h1") { expect(page).to have_title("Carrots") }
-        expect(page).to have_selector(".gem-c-govspeak", text: "This is the introduction to carrots")
+        expect(page).to have_css(".gem-c-govspeak", text: "This is the introduction to carrots")
         expect(page).to have_button_as_link("Eat Carrots Now", href: "http://carrots.example.com", start: true, rel: "external")
-        expect(page).to have_content("Carrotworld")
+        expect(page).to have_text("Carrotworld")
       end
 
       within(".gem-c-warning-text") do
-        expect(page).to have_content("CarrotServe will be offline next week.")
+        expect(page).to have_text("CarrotServe will be offline next week.")
       end
     end
 
@@ -154,7 +154,7 @@ RSpec.describe "Transaction" do
       end
 
       within("head", visible: :all) do
-        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
+        expect(page).to have_css("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
       end
     end
   end
@@ -167,7 +167,7 @@ RSpec.describe "Transaction" do
       expect(page.status_code).to eq(200)
 
       within("head", visible: :all) do
-        expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
+        expect(page).to have_css("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
       end
     end
   end

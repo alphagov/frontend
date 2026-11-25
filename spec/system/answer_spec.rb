@@ -40,7 +40,7 @@ RSpec.describe "Answer" do
     it "does not display a single page notification button" do
       visit "/gwasanaethau-ar-lein-cymraeg-cthem"
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     it "renders english answer page correctly" do

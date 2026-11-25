@@ -30,9 +30,9 @@ RSpec.describe "Field of operation page" do
       end
 
       it "has the correct subheadings and description" do
-        expect(page).to have_selector("h2", text: "Field of operation")
+        expect(page).to have_css("h2", text: "Field of operation")
 
-        expect(page).to have_selector("h2", text: "Fatalities")
+        expect(page).to have_css("h2", text: "Fatalities")
         expect(page).to have_text("It is with very deep regret that the following fatalities are announced.")
       end
 
@@ -41,7 +41,7 @@ RSpec.describe "Field of operation page" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
-        expect(page).not_to have_selector("h2", text: "Field of operation")
+        expect(page).to have_no_css("h2", text: "Field of operation")
       end
 
       it "doesn't render the description if it's an empty HTML element" do
@@ -49,7 +49,7 @@ RSpec.describe "Field of operation page" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
-        expect(page).not_to have_selector("h2", text: "Field of operation")
+        expect(page).to have_no_css("h2", text: "Field of operation")
       end
 
       it "has the correct page text" do
@@ -68,9 +68,9 @@ RSpec.describe "Field of operation page" do
         content_store_response["links"]["fatality_notices"] = []
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
-        expect(page).not_to have_css("#fatalities")
-        expect(page).not_to have_css("#fatalities ~ ul.govuk-list")
-        expect(page).not_to have_css("li.fatality-notice")
+        expect(page).to have_no_css("#fatalities")
+        expect(page).to have_no_css("#fatalities ~ ul.govuk-list")
+        expect(page).to have_no_css("li.fatality-notice")
       end
     end
   end

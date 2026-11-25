@@ -27,9 +27,9 @@ RSpec.describe "CaseStudy" do
       visit "/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths"
 
       within all(".gem-c-metadata")[0] do
-        expect(page).to have_content("From: UK Health Security Agency")
-        expect(page).to have_content("Published: 23 May 2024")
-        expect(page).to have_content("Last updated: 16 July 2024")
+        expect(page).to have_text("From: UK Health Security Agency")
+        expect(page).to have_text("Published: 23 May 2024")
+        expect(page).to have_text("Last updated: 16 July 2024")
       end
     end
 
@@ -37,9 +37,9 @@ RSpec.describe "CaseStudy" do
       visit "/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths"
 
       within all(".gem-c-metadata")[1] do
-        expect(page).to have_content("Last updated: 16 July 2024")
-        expect(page).to have_content("16 July 2024")
-        expect(page).to have_content("Added the VDEC form link.")
+        expect(page).to have_text("Last updated: 16 July 2024")
+        expect(page).to have_text("16 July 2024")
+        expect(page).to have_text("Added the VDEC form link.")
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe "CaseStudy" do
 
     it "does not display a lead image if no lead image set on case study" do
       visit "/government/case-studies/doing-business-in-spain-without-image"
-      expect(page).not_to have_css("img")
+      expect(page).to have_no_css("img")
     end
 
     context "when visiting a Withdrawn Case Study page" do
@@ -75,7 +75,7 @@ RSpec.describe "CaseStudy" do
     it "does not display a single page notification button" do
       visit "/government/case-studies/get-britain-building-carlisle-park"
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end
 end

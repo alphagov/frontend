@@ -14,21 +14,21 @@ RSpec.describe "GwyliauBanc" do
     visit "/gwyliau-banc"
 
     within("head", visible: :hidden) do
-      expect(page).to have_selector("title", text: "Gwyliau banc y DU - GOV.UK", visible: :hidden)
+      expect(page).to have_css("title", text: "Gwyliau banc y DU - GOV.UK", visible: :hidden)
       desc = page.find("meta[name=description]", visible: :hidden)
       expect(desc["content"]).to eq("Dysgwch pryd mae gwyliau'r banc yng Nghymru, Lloegr, yr Alban a Gogledd Iwerddon - gan gynnwys gwyliau banc yn y gorffennol a'r dyfodol")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/cymru-a-lloegr.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/cymru-a-lloegr.ics']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/yr-alban.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/yr-alban.ics']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/gwyliau-banc/gogledd-iwerddon.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/gogledd-iwerddon.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/gwyliau-banc.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/gwyliau-banc/cymru-a-lloegr.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/cymru-a-lloegr.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/gwyliau-banc/yr-alban.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/yr-alban.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/gwyliau-banc/gogledd-iwerddon.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/gwyliau-banc/gogledd-iwerddon.ics']", visible: :hidden)
     end
 
     within("#content") do
       within(".gem-c-heading") do
-        expect(page).to have_content("Gwyliau banc y DU")
+        expect(page).to have_text("Gwyliau banc y DU")
       end
       within("article") do
         within(".govuk-tabs") do
@@ -151,21 +151,21 @@ RSpec.describe "GwyliauBanc" do
 
       within(".govuk-tabs") do
         within("#cymru-a-lloegr .govuk-panel") do
-          expect(page).to have_content("Yr \u0175yl banc nesaf yng Nghymru a Lloegr yw")
-          expect(page).to have_content("6 Ebrill")
-          expect(page).to have_content("Gwener y Groglith")
+          expect(page).to have_text("Yr \u0175yl banc nesaf yng Nghymru a Lloegr yw")
+          expect(page).to have_text("6 Ebrill")
+          expect(page).to have_text("Gwener y Groglith")
         end
 
         within("#yr-alban .govuk-panel") do
-          expect(page).to have_content("Yr \u0175yl banc nesaf yn yr Alban yw")
-          expect(page).to have_content("heddiw")
-          expect(page).to have_content("Dydd Calan")
+          expect(page).to have_text("Yr \u0175yl banc nesaf yn yr Alban yw")
+          expect(page).to have_text("heddiw")
+          expect(page).to have_text("Dydd Calan")
         end
 
         within("#gogledd-iwerddon .govuk-panel") do
-          expect(page).to have_content("Yr \u0175yl banc nesaf yng Ngogledd Iwerddon yw")
-          expect(page).to have_content("19 Mawrth")
-          expect(page).to have_content("G\u0175yl Sant Padrig")
+          expect(page).to have_text("Yr \u0175yl banc nesaf yng Ngogledd Iwerddon yw")
+          expect(page).to have_text("19 Mawrth")
+          expect(page).to have_text("G\u0175yl Sant Padrig")
         end
       end
     end
@@ -184,7 +184,7 @@ RSpec.describe "GwyliauBanc" do
       Timecop.travel(Date.parse("12th July 2013")) do
         visit "/gwyliau-banc"
 
-        expect(page).not_to have_css(".app-bunting")
+        expect(page).to have_no_css(".app-bunting")
       end
     end
 
@@ -192,7 +192,7 @@ RSpec.describe "GwyliauBanc" do
       Timecop.travel(Date.parse("3rd Feb 2012")) do
         visit "/gwyliau-banc"
 
-        expect(page).not_to have_css(".app-bunting")
+        expect(page).to have_no_css(".app-bunting")
       end
     end
   end
@@ -202,7 +202,7 @@ RSpec.describe "GwyliauBanc" do
       visit "/gwyliau-banc"
 
       within(".gem-c-metadata") do
-        expect(page).to have_content("Diweddarwyd ddiwethaf: 12 Rhagfyr 2023")
+        expect(page).to have_text("Diweddarwyd ddiwethaf: 12 Rhagfyr 2023")
       end
     end
   end

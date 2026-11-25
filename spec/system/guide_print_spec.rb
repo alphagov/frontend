@@ -9,21 +9,21 @@ RSpec.describe "Guide Print" do
     end
 
     it "renders the print view" do
-      expect(page).to have_selector("#guide-print")
+      expect(page).to have_css("#guide-print")
     end
 
     it "is not indexable by search engines" do
-      expect(page).to have_selector("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
+      expect(page).to have_css("meta[name='robots'][content='noindex, nofollow']", visible: :hidden)
     end
 
     it "renders all parts in the print view" do
       parts = content_store_response["details"]["parts"]
 
       parts.each_with_index do |part, i|
-        expect(page).to have_selector("h1", text: "#{i + 1}. #{part['title']}")
+        expect(page).to have_css("h1", text: "#{i + 1}. #{part['title']}")
       end
 
-      expect(page).to have_content("The ‘basic’ school curriculum includes the")
+      expect(page).to have_text("The ‘basic’ school curriculum includes the")
     end
   end
 end

@@ -24,8 +24,8 @@ RSpec.describe "FindLocalCouncil" do
     end
 
     it "shows Find Local Council start page" do
-      expect(page).to have_content("Find your local council")
-      expect(page).to have_content("Find the website for your local council.")
+      expect(page).to have_text("Find your local council")
+      expect(page).to have_text("Find the website for your local council.")
       expect(page).to have_field("postcode")
     end
 
@@ -67,9 +67,9 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows the local authority result" do
-          expect(page).to have_content("Your local authority is")
+          expect(page).to have_text("Your local authority is")
           within(".unitary-result") do
-            expect(page).to have_content("Westminster")
+            expect(page).to have_text("Westminster")
             expect(page).to have_link("Go to Westminster website", href: "http://westminster.example.com", exact: true)
           end
         end
@@ -129,18 +129,18 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows the local authority results for both district and county" do
-          expect(page).to have_content("Services in your area are provided by two local authorities")
-          expect(page).to have_selector(".county-result")
-          expect(page).to have_selector(".district-result")
+          expect(page).to have_text("Services in your area are provided by two local authorities")
+          expect(page).to have_css(".county-result")
+          expect(page).to have_css(".district-result")
           within(".county-result") do
-            expect(page).to have_content("Buckinghamshire")
-            expect(page).to have_content("County councils are responsible for services like:")
+            expect(page).to have_text("Buckinghamshire")
+            expect(page).to have_text("County councils are responsible for services like:")
             expect(page).to have_link("Go to Buckinghamshire website", href: "http://buckinghamshire.example.com")
           end
 
           within(".district-result") do
-            expect(page).to have_content("Aylesbury")
-            expect(page).to have_content("District councils are responsible for services like:")
+            expect(page).to have_text("Aylesbury")
+            expect(page).to have_text("District councils are responsible for services like:")
             expect(page).to have_link("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
         end
@@ -197,17 +197,17 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows the local authority results for both district and unitary" do
-          expect(page).to have_content("Services in your area are provided by two local authorities")
-          expect(page).to have_selector(".county-result")
-          expect(page).to have_selector(".district-result")
+          expect(page).to have_text("Services in your area are provided by two local authorities")
+          expect(page).to have_css(".county-result")
+          expect(page).to have_css(".district-result")
           within(".county-result") do
-            expect(page).to have_content("Buckinghamshire")
-            expect(page).to have_content("County councils are responsible for services like:")
+            expect(page).to have_text("Buckinghamshire")
+            expect(page).to have_text("County councils are responsible for services like:")
             expect(page).to have_link("Go to Buckinghamshire website", href: "http://buckinghamshire.example.com")
           end
           within(".district-result") do
-            expect(page).to have_content("Aylesbury")
-            expect(page).to have_content("District councils are responsible for services like:")
+            expect(page).to have_text("Aylesbury")
+            expect(page).to have_text("District councils are responsible for services like:")
             expect(page).to have_link("Go to Aylesbury website", href: "http://aylesbury.example.com", exact: true)
           end
         end
@@ -223,7 +223,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "shows advisory message that we have no URL" do
-          expect(page).to have_content("We don't have a link for their website.")
+          expect(page).to have_text("We don't have a link for their website.")
         end
       end
     end
@@ -239,16 +239,16 @@ RSpec.describe "FindLocalCouncil" do
 
         it "remains on the find your local council page" do
           expect(page).to have_current_path("/find-local-council", ignore_query: true)
-          expect(page).to have_content("Find your local council")
-          expect(page).to have_content("Find the website for your local council.")
+          expect(page).to have_text("Find your local council")
+          expect(page).to have_text("Find the website for your local council.")
         end
 
         it "adds \"Error:\" to the beginning of the page title" do
-          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
+          expect(page).to have_css("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
         end
 
         it "shows an error message" do
-          expect(page).to have_content("This isn't a valid postcode")
+          expect(page).to have_text("This isn't a valid postcode")
         end
 
         it "re-populates the invalid input" do
@@ -256,7 +256,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "includes GA4 attributes" do
-          page_error = page.find("#error")
+          page_error = page.find_by_id("error")
           data_module = page_error["data-module"]
           expected_data_module = "ga4-auto-tracker"
           ga4_error_attribute = page_error["data-ga4-auto"]
@@ -276,16 +276,16 @@ RSpec.describe "FindLocalCouncil" do
 
         it "remains on the find your local council page" do
           expect(page).to have_current_path("/find-local-council", ignore_query: true)
-          expect(page).to have_content("Find your local council")
-          expect(page).to have_content("Find the website for your local council.")
+          expect(page).to have_text("Find your local council")
+          expect(page).to have_text("Find the website for your local council.")
         end
 
         it "adds \"Error:\" to the beginning of the page title" do
-          expect(page).to have_selector("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
+          expect(page).to have_css("title", text: "Error: Find your local council - GOV.UK", visible: :hidden)
         end
 
         it "shows an error message" do
-          expect(page).to have_content("This isn't a valid postcode")
+          expect(page).to have_text("This isn't a valid postcode")
         end
       end
 
@@ -312,7 +312,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays a radio buttons" do
@@ -320,16 +320,16 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
         end
 
         it "redirects to the correct authority when an address is chosen" do
           choose("House 2")
           click_on("Continue")
 
-          expect(page).to have_content("Your local authority is Beechester.")
+          expect(page).to have_text("Your local authority is Beechester.")
         end
 
         it "adds a noindex meta tag" do
@@ -368,7 +368,7 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays a dropdown select" do
@@ -376,13 +376,13 @@ RSpec.describe "FindLocalCouncil" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
-          expect(page).to have_content("House 4")
-          expect(page).to have_content("House 5")
-          expect(page).to have_content("House 6")
-          expect(page).to have_content("House 7")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
+          expect(page).to have_text("House 4")
+          expect(page).to have_text("House 5")
+          expect(page).to have_text("House 6")
+          expect(page).to have_text("House 7")
         end
 
         it "adds a noindex meta tag" do
@@ -400,11 +400,11 @@ RSpec.describe "FindLocalCouncil" do
 
         it "remains on the find your local council page" do
           expect(page).to have_current_path("/find-local-council", ignore_query: true)
-          expect(page).to have_content("Find your local council")
+          expect(page).to have_text("Find your local council")
         end
 
         it "shows an error message" do
-          expect(page).to have_content("We couldn't find a council for this postcode.")
+          expect(page).to have_text("We couldn't find a council for this postcode.")
         end
       end
     end
@@ -422,9 +422,9 @@ RSpec.describe "FindLocalCouncil" do
       end
 
       it "shows the local authority result" do
-        expect(page).to have_content("Your local authority is")
+        expect(page).to have_text("Your local authority is")
         within(".unitary-result") do
-          expect(page).to have_content("Islington")
+          expect(page).to have_text("Islington")
           expect(page).to have_link("Go to Islington website", href: "http://islington.example.com", exact: true)
         end
       end

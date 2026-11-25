@@ -13,7 +13,7 @@ RSpec.describe "Worldwide corporate information page" do
     end
 
     it "omits breadcrumbs" do
-      expect(page).not_to have_css(".govuk-breadcrumbs")
+      expect(page).to have_no_css(".govuk-breadcrumbs")
     end
 
     it "renders rtl text direction when the locale is a rtl language" do
@@ -49,12 +49,12 @@ RSpec.describe "Worldwide corporate information page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
-      expect(page).not_to have_text("Location:")
-      expect(page).not_to have_text("Part of:")
+      expect(page).to have_no_text("Location:")
+      expect(page).to have_no_text("Part of:")
     end
 
     it "does not render the translations when there are no translations" do
-      expect(page).not_to have_text("English")
+      expect(page).to have_no_text("English")
     end
 
     it "renders the translations when there are translations" do

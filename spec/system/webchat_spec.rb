@@ -32,14 +32,14 @@ RSpec.describe "Webchat" do
     end
 
     it "renders webchat page with title and content" do
-      expect(page).to have_selector("h1", text: "Test Webchat")
-      expect(page).to have_content("Advisers may be busy at peak times")
+      expect(page).to have_css("h1", text: "Test Webchat")
+      expect(page).to have_text("Advisers may be busy at peak times")
     end
 
     it "renders webchat widget with correct data attributes" do
-      expect(page).to have_selector("[data-module='webchat'][data-availability-url='https://d1y02qp19gjy8q.cloudfront.net/availability/18555309']")
-      expect(page).to have_selector("[data-module='webchat'][data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
-      expect(page).to have_selector("[data-module='webchat'][data-redirect='false']")
+      expect(page).to have_css("[data-module='webchat'][data-availability-url='https://d1y02qp19gjy8q.cloudfront.net/availability/18555309']")
+      expect(page).to have_css("[data-module='webchat'][data-open-url='https://d1y02qp19gjy8q.cloudfront.net/open/index.html']")
+      expect(page).to have_css("[data-module='webchat'][data-redirect='false']")
     end
 
     it "sets the correct content security policy for webchat hosts" do
@@ -51,8 +51,8 @@ RSpec.describe "Webchat" do
     it "has GA4 tracking on the webchat available link" do
       expected_ga4_data = '{"event_name":"navigation","type":"webchat","text":"Speak to an adviser now"}'
 
-      expect(page).to have_selector(".js-webchat-advisers-available a[data-module=ga4-link-tracker]")
-      expect(page).to have_selector(".js-webchat-advisers-available a[data-ga4-link='#{expected_ga4_data}']")
+      expect(page).to have_css(".js-webchat-advisers-available a[data-module=ga4-link-tracker]")
+      expect(page).to have_css(".js-webchat-advisers-available a[data-ga4-link='#{expected_ga4_data}']")
     end
   end
 

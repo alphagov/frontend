@@ -51,7 +51,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
-      expect(page).not_to have_css(".gem-c-accordion")
+      expect(page).to have_no_css(".gem-c-accordion")
     end
 
     it "doesn't display content in an accordion if only one group and visually collapsed is true" do
@@ -67,7 +67,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
-      expect(page).not_to have_css(".gem-c-accordion")
+      expect(page).to have_no_css(".gem-c-accordion")
     end
 
     it "displays content using an accordion if more than two groups and visually collapsed is true" do
@@ -121,7 +121,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
-      expect(page).not_to have_css(".gem-c-accordion")
+      expect(page).to have_no_css(".gem-c-accordion")
     end
 
     it "includes a link to subscribe for email alerts" do

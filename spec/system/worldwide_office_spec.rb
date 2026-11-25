@@ -25,7 +25,7 @@ RSpec.describe "Worldwide office page" do
     end
 
     it "omits breadcrumbs" do
-      expect(page).not_to have_css(".govuk-breadcrumbs")
+      expect(page).to have_no_css(".govuk-breadcrumbs")
     end
 
     it "includes access details and contents" do
@@ -54,8 +54,8 @@ RSpec.describe "Worldwide office page" do
       content_store_response["details"]["headers"] = nil
       setup_and_visit_page
 
-      expect(page).to have_selector("h2", text: "Consular section")
-      expect(page).not_to have_text("Contents")
+      expect(page).to have_css("h2", text: "Consular section")
+      expect(page).to have_no_text("Contents")
     end
 
     it "includes the address" do

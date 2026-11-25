@@ -17,7 +17,7 @@ RSpec.describe "Working Group" do
     end
 
     it "includes contact details" do
-      expect(page).to have_selector("h2#contact-details")
+      expect(page).to have_css("h2#contact-details")
       expect(page).to have_text("Contact details")
       expect(page).to have_text(content_item["details"]["email"])
     end
@@ -40,7 +40,7 @@ RSpec.describe "Working Group" do
 
       it "displays a policies header" do
         expect(page).to have_text("Policies")
-        expect(page).to have_selector("h2#policies")
+        expect(page).to have_css("h2#policies")
       end
 
       it "displays the policies" do

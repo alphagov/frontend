@@ -26,7 +26,7 @@ RSpec.describe "Person pages" do
   end
 
   it "sets the page meta description" do
-    expect(page).to have_selector(
+    expect(page).to have_css(
       "meta[name='description'][content='Minister for Magic and former Head of the Auror Office.']",
       visible: :hidden,
     )

@@ -28,7 +28,7 @@ RSpec.describe "Document Collection" do
         within all(".gem-c-metadata")[0] do
           expect(page).to have_text("From: HM Treasury and Office of Financial Sanctions Implementation")
           expect(page).to have_text("Published: 11 October 2013")
-          expect(page).to have_content("Last updated: 8 February 2016")
+          expect(page).to have_text("Last updated: 8 February 2016")
         end
       end
 
@@ -36,9 +36,9 @@ RSpec.describe "Document Collection" do
         visit base_path
 
         within all(".gem-c-metadata")[1] do
-          expect(page).to have_content("Last updated: 8 February 2016")
-          expect(page).to have_content("8 February 2016")
-          expect(page).to have_content("Liberia removed - Council Regulation (EC)")
+          expect(page).to have_text("Last updated: 8 February 2016")
+          expect(page).to have_text("8 February 2016")
+          expect(page).to have_text("Liberia removed - Council Regulation (EC)")
         end
       end
     end
@@ -56,12 +56,12 @@ RSpec.describe "Document Collection" do
     it "renders a contents list, with one list item per document collection group" do
       visit base_path
 
-      expect(page).to have_selector(".gem-c-contents-list", text: "Contents")
+      expect(page).to have_css(".gem-c-contents-list", text: "Contents")
 
-      expect(page).to have_selector(".gem-c-contents-list__list-item", count: 6)
+      expect(page).to have_css(".gem-c-contents-list__list-item", count: 6)
 
       content_item["details"]["collection_groups"].each do |group|
-        expect(page).to have_selector("nav a", text: group["title"])
+        expect(page).to have_css("nav a", text: group["title"])
       end
     end
 
@@ -75,9 +75,9 @@ RSpec.describe "Document Collection" do
       it "does not present the empty group in the contents list" do
         visit base_path
 
-        expect(page).to have_selector(".gem-c-contents-list__list-item", count: 6)
+        expect(page).to have_css(".gem-c-contents-list__list-item", count: 6)
 
-        expect(page).not_to have_selector("nav a", text: "Empty Group")
+        expect(page).to have_no_css("nav a", text: "Empty Group")
       end
     end
 
@@ -100,7 +100,7 @@ RSpec.describe "Document Collection" do
         it "does not render a contents list" do
           visit base_path
 
-          expect(page).not_to have_selector(".gem-c-contents-list")
+          expect(page).to have_no_css(".gem-c-contents-list")
         end
       end
 
@@ -126,7 +126,7 @@ RSpec.describe "Document Collection" do
         it "renders a contents list" do
           visit base_path
 
-          expect(page).to have_selector(".gem-c-contents-list")
+          expect(page).to have_css(".gem-c-contents-list")
         end
       end
     end
@@ -135,12 +135,12 @@ RSpec.describe "Document Collection" do
       visit base_path
 
       content_item["details"]["collection_groups"].each do |group|
-        expect(page).to have_selector(".govuk-heading-m.govuk-\\!-font-size-27", text: group["title"])
+        expect(page).to have_css(".govuk-heading-m.govuk-\\!-font-size-27", text: group["title"])
       end
 
       within ".gem-c-contents-list-with-body" do
-        expect(page).to have_selector(".gem-c-govspeak", count: 6)
-        expect(page).to have_selector(".gem-c-document-list", count: 6)
+        expect(page).to have_css(".gem-c-govspeak", count: 6)
+        expect(page).to have_css(".gem-c-document-list", count: 6)
       end
     end
 
@@ -150,10 +150,10 @@ RSpec.describe "Document Collection" do
       documents = content_item["links"]["documents"]
 
       documents.each do |doc|
-        expect(page).to have_selector(".gem-c-document-list__item-title", text: doc["title"])
+        expect(page).to have_css(".gem-c-document-list__item-title", text: doc["title"])
       end
 
-      expect(page).to have_selector(".gem-c-document-list .gem-c-document-list__item", count: documents.count)
+      expect(page).to have_css(".gem-c-document-list .gem-c-document-list__item", count: documents.count)
 
       document_lists = page.all(".gem-c-document-list")
 
@@ -161,7 +161,7 @@ RSpec.describe "Document Collection" do
         list_items = page.all(".gem-c-document-list__item")
         within list_items[0] do
           expect(page).to have_text("16 March 2007")
-          expect(page).to have_selector('[datetime="2007-03-16T15:00:02+00:00"]')
+          expect(page).to have_css('[datetime="2007-03-16T15:00:02+00:00"]')
           expect(page).to have_text("Guidance")
         end
       end
@@ -173,7 +173,7 @@ RSpec.describe "Document Collection" do
       it "displays the withdrawn title" do
         visit base_path
 
-        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+        expect(page).to have_css("title", text: "[Withdrawn]", visible: :hidden)
       end
 
       it "displays the withdrawn notice" do
@@ -182,7 +182,7 @@ RSpec.describe "Document Collection" do
         within ".gem-c-notice" do
           expect(page).to have_text("This collection was withdrawn"), "is withdrawn"
           expect(page).to have_text("This information is now out of date.")
-          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+          expect(page).to have_css("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
         end
       end
     end

@@ -24,7 +24,7 @@ RSpec.describe "Topical Event About Page" do
   describe "contents list" do
     context "when headers are present" do
       it "has a contents list" do
-        expect(page).to have_selector(".gem-c-contents-list", text: "Contents")
+        expect(page).to have_css(".gem-c-contents-list", text: "Contents")
 
         expected_headers = [
           { text: "Response in the UK", id: "response-in-the-uk" },
@@ -47,7 +47,7 @@ RSpec.describe "Topical Event About Page" do
       let(:content_store_response) { GovukSchemas::Example.find("topical_event_about_page", example_name: "slim") }
 
       it "doesn't have a contents list" do
-        expect(page).not_to have_selector(".contents-list.contents-list-dashed")
+        expect(page).to have_no_css(".contents-list.contents-list-dashed")
       end
     end
   end

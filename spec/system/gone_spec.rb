@@ -42,13 +42,13 @@ RSpec.describe "Gone page" do
       it "doesn't render an explanation if the explanation is nil" do
         content_store_response["details"]["explanation"] = nil
         setup_and_visit_page
-        expect(page).not_to have_css(".gem-c-govspeak")
+        expect(page).to have_no_css(".gem-c-govspeak")
       end
 
       it "doesn't render an explanation if the explanation is blank" do
         content_store_response["details"]["explanation"] = " "
         setup_and_visit_page
-        expect(page).not_to have_css(".gem-c-govspeak")
+        expect(page).to have_no_css(".gem-c-govspeak")
       end
 
       it "has the correct locale on the explanation" do
@@ -92,8 +92,8 @@ RSpec.describe "Gone page" do
         content_store_response["details"]["alternative_path"] = nil
         setup_and_visit_page
         within("main") do
-          expect(page).not_to have_text("Visit: /this-is-the-alternative-path")
-          expect(page).not_to have_link("/this-is-the-alternative-path", href: "/this-is-the-alternative-path")
+          expect(page).to have_no_text("Visit: /this-is-the-alternative-path")
+          expect(page).to have_no_link("/this-is-the-alternative-path", href: "/this-is-the-alternative-path")
         end
       end
 
@@ -111,8 +111,8 @@ RSpec.describe "Gone page" do
         content_store_response["details"]["alternative_path"] = " "
         setup_and_visit_page
         within("main") do
-          expect(page).not_to have_text("Visit: /this-is-the-alternative-path")
-          expect(page).not_to have_link("/this-is-the-alternative-path", href: "/this-is-the-alternative-path")
+          expect(page).to have_no_text("Visit: /this-is-the-alternative-path")
+          expect(page).to have_no_link("/this-is-the-alternative-path", href: "/this-is-the-alternative-path")
         end
       end
     end

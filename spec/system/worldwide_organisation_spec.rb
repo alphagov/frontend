@@ -19,7 +19,7 @@ RSpec.describe "Worldwide organisation page" do
     end
 
     it "omits breadcrumbs" do
-      expect(page).not_to have_css(".govuk-breadcrumbs")
+      expect(page).to have_no_css(".govuk-breadcrumbs")
     end
 
     it "renders rtl text direction when the locale is a rtl language" do
@@ -48,7 +48,7 @@ RSpec.describe "Worldwide organisation page" do
       content_store_response["links"]["secondary_role_person"] = nil
       content_store_response["links"]["office_staff"] = nil
       setup_and_visit_page
-      expect(page).not_to have_text("Our people")
+      expect(page).to have_no_text("Our people")
     end
 
     it "renders the navigational corporate information pages" do
@@ -65,11 +65,11 @@ RSpec.describe "Worldwide organisation page" do
       content_store_response["details"]["secondary_corporate_information_pages"] = ""
       setup_and_visit_page
 
-      expect(page).not_to have_text("Corporate information")
+      expect(page).to have_no_text("Corporate information")
     end
 
     it "does not render the translations when there are no translations" do
-      expect(page).not_to have_text("English")
+      expect(page).to have_no_text("English")
     end
 
     it "renders the translations when there are translations" do
@@ -92,7 +92,7 @@ RSpec.describe "Worldwide organisation page" do
     it "renders the main office contact with a link to the office page" do
       within("#contact-us") do
         expect(page).to have_text("Contact us")
-        expect(page).to have_content("British Embassy Madrid")
+        expect(page).to have_text("British Embassy Madrid")
         expect(page).to have_link(I18n.t("contact.access_and_opening_times"), href: "/world/organisations/british-embassy-madrid/office/british-embassy")
       end
     end
@@ -111,14 +111,14 @@ RSpec.describe "Worldwide organisation page" do
 
       within("#contact-us") do
         expect(page).to have_text("Contact us")
-        expect(page).to have_content("Torre Emperador Castellana")
-        expect(page).not_to have_link(I18n.t("contact.access_and_opening_times"), href: "/world/uk-embassy-in-country/office/british-embassy")
+        expect(page).to have_text("Torre Emperador Castellana")
+        expect(page).to have_no_link(I18n.t("contact.access_and_opening_times"), href: "/world/uk-embassy-in-country/office/british-embassy")
       end
     end
 
     it "renders the home page offices with a link to the office page" do
       within("#contact-us") do
-        expect(page).to have_content("Department for Business and Trade Dusseldorf")
+        expect(page).to have_text("Department for Business and Trade Dusseldorf")
         expect(page).to have_link(I18n.t("contact.access_and_opening_times"), href: "/world/organisations/department-for-business-and-trade-germany/office/uk-trade-investment-duesseldorf")
       end
     end
@@ -135,24 +135,24 @@ RSpec.describe "Worldwide organisation page" do
       ]
 
       within("#contact-us") do
-        expect(page).to have_content("Department for Business and Trade Dusseldorf")
-        expect(page).not_to have_link(I18n.t("contact.access_and_opening_times"), href: "/world/uk-embassy-in-country/office/uk-trade-investment-duesseldorf")
+        expect(page).to have_text("Department for Business and Trade Dusseldorf")
+        expect(page).to have_no_link(I18n.t("contact.access_and_opening_times"), href: "/world/uk-embassy-in-country/office/uk-trade-investment-duesseldorf")
       end
     end
 
     it "does not render the contacts section if there is no main office" do
       content_store_response["links"]["main_office"] = nil
       setup_and_visit_page
-      expect(page).not_to have_text("Contact us")
+      expect(page).to have_no_text("Contact us")
     end
 
     it "includes the world locations and sponsoring organisations" do
-      within find(".gem-c-metadata", match: :first) do
-        expect(page).to have_content("News:")
+      within ".gem-c-metadata", match: :first do
+        expect(page).to have_text("News:")
         expect(page).to have_link("India with translation and the UK", href: "/world/india/news")
         expect(page).to have_link("Another location with translation and the UK", href: "/world/another-location/news")
 
-        expect(page).to have_content("Part of:")
+        expect(page).to have_text("Part of:")
         expect(page).to have_link("Foreign, Commonwealth & Development Office", href: "/government/organisations/foreign-commonwealth-development-office")
       end
     end
@@ -163,8 +163,8 @@ RSpec.describe "Worldwide organisation page" do
 
       setup_and_visit_page
 
-      expect(page).not_to have_content("Location:")
-      expect(page).not_to have_content("Part of:")
+      expect(page).to have_no_text("Location:")
+      expect(page).to have_no_text("Part of:")
     end
   end
 end

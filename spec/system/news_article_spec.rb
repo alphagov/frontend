@@ -41,7 +41,7 @@ RSpec.describe "News Article" do
     let!(:content_item) { content_store_has_example_item(base_path, schema: :news_article, example: "best-practice-event") }
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: Centre for Defence Enterprise and Defence Science and Technology Laboratory")
         expect(page).to have_text("Published: 25 March 2015")
         expect(page).to have_text("Last updated: 13 July 2015")

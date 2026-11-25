@@ -73,7 +73,7 @@ RSpec.describe "Manual Section" do
         it "renders without accordions" do
           within "#manuals-frontend" do
             expect(page.all("h2").count).to eq 7
-            expect(page.all("h2").first.text).to eq("Designing content, not creating copy")
+            expect(page.first("h2").text).to eq("Designing content, not creating copy")
           end
         end
       end

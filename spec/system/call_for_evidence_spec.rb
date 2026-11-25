@@ -14,7 +14,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
         expect(page).to have_text("Published: 11 April 2023")
         expect(page).to have_text("Last updated: 15 May 2023")

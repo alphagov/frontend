@@ -18,7 +18,7 @@ RSpec.describe "Consultation" do
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: Department for Education")
         expect(page).to have_text("Published: 4 November 2016")
         expect(page).to have_text("Last updated: 7 November 2016")

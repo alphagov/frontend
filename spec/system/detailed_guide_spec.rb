@@ -22,7 +22,7 @@ RSpec.describe "DetailedGuide" do
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
         expect(page).to have_text("Published: 12 June 2014")

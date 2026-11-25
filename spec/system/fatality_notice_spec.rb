@@ -40,7 +40,7 @@ RSpec.describe "Fatality Notice" do
     before { visit "/government/fatalities/sir-george-pomeroy-colley" }
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: Ministry of Defence")
         expect(page).to have_text("Published: 27 February 1881")
         expect(page).to have_text("Last updated: 14 September 2016")

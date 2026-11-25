@@ -25,7 +25,7 @@ RSpec.describe "Document Collection" do
       it "displays the metadata at the top of the page" do
         visit base_path
 
-        within all(".gem-c-metadata")[0] do
+        within first(".gem-c-metadata") do
           expect(page).to have_text("From: HM Treasury and Office of Financial Sanctions Implementation")
           expect(page).to have_text("Published: 11 October 2013")
           expect(page).to have_text("Last updated: 8 February 2016")

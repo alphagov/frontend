@@ -293,7 +293,7 @@ RSpec.describe "Publication" do
       it "displays the metadata at the top of the page" do
         visit base_path
 
-        within all(".gem-c-metadata")[0] do
+        within first(".gem-c-metadata") do
           expect(page).to have_text("From: Driver and Vehicle Standards Agency")
           expect(page).to have_text("Published: 23 November 2013")
           expect(page).to have_text("Last updated: 18 May 2015")

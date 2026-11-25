@@ -26,7 +26,7 @@ RSpec.describe "CaseStudy" do
     it "displays the metadata at the top of the page" do
       visit "/government/case-studies/vdec-is-supporting-a-gbs-vaccine-to-prevent-newborn-deaths"
 
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: UK Health Security Agency")
         expect(page).to have_text("Published: 23 May 2024")
         expect(page).to have_text("Last updated: 16 July 2024")

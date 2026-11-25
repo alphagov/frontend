@@ -40,7 +40,7 @@ RSpec.describe "Speech" do
       it "displays the metadata at the top of the page" do
         visit "/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event"
 
-        within all(".gem-c-metadata")[0] do
+        within first(".gem-c-metadata") do
           expect(page).to have_text("From: Ministry of Justice and The Rt Hon Lord McNally")
           expect(page).to have_text("Published: 22 May 2012")
           expect(page).to have_text("Last updated: 13 June 2012")

@@ -53,7 +53,7 @@ RSpec.describe "Statistical Data Set" do
       it "displays the metadata at the top of the page" do
         visit base_path
 
-        within all(".gem-c-metadata")[0] do
+        within first(".gem-c-metadata") do
           expect(page).to have_text("From: Department for Business, Innovation & Skills and Skills Funding Agency")
           expect(page).to have_text("Published: 7 November 2014")
           expect(page).to have_text("Last updated: 9 November 2016")

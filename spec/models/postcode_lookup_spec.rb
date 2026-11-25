@@ -1,18 +1,68 @@
 RSpec.describe PostcodeLookup do
-  include GdsApi::TestHelpers::LocationsApi
+  subject(:postcode_lookup) { described_class.new("EX4 MPL3") }
 
-  subject(:postcode_lookup) { described_class.new(postcode) }
-
-  let(:postcode) { "SL3 6NB" }
-
-  before do
-    stub_locations_api_has_location(
-      postcode,
-      [
+  let(:api_response) do
+    {
+      "results" => [
         { "latitude" => 51.0, "longitude" => -0.1, "address" => "1 local street", "local_custodian_code" => 440 },
         { "latitude" => 51.0, "longitude" => -0.1, "address" => "lamp-post", "local_custodian_code" => 7655 },
       ],
-    )
+    }
+  end
+  let(:locations_api) { instance_double(GdsApi::LocationsApi, results_for_postcode: api_response) }
+
+  before { allow(Frontend).to receive(:locations_api).and_return(locations_api) }
+
+  describe "<initialization>" do
+    context "when the postcode is blank" do
+      subject(:postcode_lookup) { described_class.new("") }
+
+      it "raises a PostcodeInvalid error" do
+        expect { postcode_lookup }.to raise_error(PostcodeLookup::PostcodeInvalid)
+      end
+    end
+
+    context "when the api returns a crown dependency flag" do
+      let(:api_response) do
+        {
+          "errors" => { "postcode" => ["No results found for given postcode"] },
+          "postcode_category" => "CROWN_DEPENDENCY",
+        }
+      end
+
+      it "raises a PostcodeCrownDependency error" do
+        expect { postcode_lookup }.to raise_error(PostcodeLookup::PostcodeCrownDependency)
+      end
+    end
+
+    context "when the api returns empty results" do
+      let(:api_response) do
+        {
+          "results" => [],
+          "postcode_category" => "RECOGNISED",
+        }
+      end
+
+      it "raises a PostcodeNoResults error" do
+        expect { postcode_lookup }.to raise_error(PostcodeLookup::PostcodeNoResults)
+      end
+    end
+
+    context "when the api returns a 404" do
+      before { allow(locations_api).to receive(:results_for_postcode).with(any_args).and_raise(GdsApi::HTTPNotFound.new("")) }
+
+      it "raises a PostcodeNotFound error" do
+        expect { postcode_lookup }.to raise_error(PostcodeLookup::PostcodeNotFound)
+      end
+    end
+
+    context "when the api returns a 400" do
+      before { allow(locations_api).to receive(:results_for_postcode).with(any_args).and_raise(GdsApi::HTTPClientError.new("")) }
+
+      it "raises a PostcodeInvalid error" do
+        expect { postcode_lookup }.to raise_error(PostcodeLookup::PostcodeInvalid)
+      end
+    end
   end
 
   describe "#addresses" do

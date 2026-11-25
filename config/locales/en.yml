@@ -441,7 +441,7 @@ en:
         scotland: Get information on this service, or a similar service, on the Scottish Government website.
         wales: Get information on this service, or a similar service, on the Welsh Government website.
       info_on_website: You can get information on their website.
-      invalid_postcode: This isn't a valid postcode.
+      invalid_postcode: Enter a valid postcode.
       invalid_uprn: This isn't a valid address.
       local_authority_html: Your local authority is <strong>%{local_authority_name}</strong>.
       local_authority_website: Go to %{local_authority_name} website

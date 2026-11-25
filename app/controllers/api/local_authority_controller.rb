@@ -11,9 +11,10 @@ module Api
         @address_list_presenter = AddressListPresenter.new(postcode_lookup.addresses)
         render json: { addresses: @address_list_presenter.addresses_with_authority_data }
       end
-    rescue LocationError => e
-      status = e.postcode_error == "invalidPostcodeFormat" ? :bad_request : :not_found
-      render json: { errors: { postcode: [I18n.t(e.message)] } }, status:
+    rescue PostcodeLookup::PostcodeInvalid
+      render json: { errors: { postcode: ["Enter a valid postcode."] } }, status: :bad_request
+    rescue PostcodeLookup::PostcodeError
+      render json: { errors: { postcode: ["We couldn't find a council for this postcode."] } }, status: :not_found
     end
 
     def show

@@ -3,21 +3,30 @@ require "ostruct"
 class PostcodeLookup
   ORDNANCE_SURVEY_CUSTODIAN_CODE = 7655
 
+  class PostcodeError < StandardError; end
+
+  class PostcodeCrownDependency < PostcodeError; end
+  class PostcodeInvalid < PostcodeError; end
+  class PostcodeNoResults < PostcodeError; end
+  class PostcodeNotFound < PostcodeError; end
+
   attr_reader :postcode
 
   def initialize(postcode)
     @postcode = postcode
-    raise LocationError, "invalidPostcodeFormat" if postcode.blank?
+    raise PostcodeInvalid if postcode.blank?
 
     response = Frontend.locations_api.results_for_postcode(postcode)
+    raise PostcodeCrownDependency if response["postcode_category"] == "CROWN_DEPENDENCY"
+
     @results = response["results"] || []
     @results.delete_if { it["local_custodian_code"] == ORDNANCE_SURVEY_CUSTODIAN_CODE }
 
-    raise LocationError, "noLaMatch" if @results.empty?
+    raise PostcodeNoResults if @results.empty?
   rescue GdsApi::HTTPNotFound
-    raise LocationError, "noLaMatch"
+    raise PostcodeNotFound
   rescue GdsApi::HTTPClientError
-    raise LocationError, "invalidPostcodeFormat"
+    raise PostcodeInvalid
   end
 
   def local_custodian_codes

@@ -492,7 +492,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content("This isn't a valid postcode.")
+        expect(page).to have_content("Enter a valid postcode.")
       end
 
       it "re-populates the invalid input" do
@@ -503,7 +503,7 @@ RSpec.describe "LicenceTransaction" do
         data_module = page.find("#error")["data-module"]
         expected_data_module = "ga4-auto-tracker govuk-error-summary"
         ga4_error_attribute = page.find("#error")["data-ga4-auto"]
-        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence transaction\",\"text\":\"This isn't a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
+        ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"licence transaction\",\"text\":\"Enter a valid postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Licence to kill\"}"
 
         expect(data_module).to eq(expected_data_module)
         expect(ga4_error_attribute).to eq(ga4_expected_object)

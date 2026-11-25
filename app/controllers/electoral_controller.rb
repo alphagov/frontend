@@ -31,13 +31,14 @@ private
   end
 
   def location_error
-    error_key = if invalid_postcode?
-                  postcode.error
-                elsif invalid_uprn?
-                  uprn.error
-                elsif elections_api.error?
-                  elections_api.error
-                end
+    error_key = "electoralServiceNotAvailable"
+    # error_key = if invalid_postcode?
+    #               postcode.error
+    #             elsif invalid_uprn?
+    #               uprn.error
+    #             elsif elections_api.error?
+    #               elections_api.error
+    #             end
 
     LocationError.new(error_key) if error_key.present?
   end

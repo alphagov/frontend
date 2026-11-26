@@ -40,17 +40,22 @@ class HtmlPublicationPresenter < ContentItemPresenter
     request.base_url + request.path
   end
 
-  FIGURE_1_MATCH_STRING = '<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a2d997a4b2950ccefa7/JD24_JD25_Figure1_Overall_change.svg" alt=""></div></figure>'
-  FIGURE_3_MATCH_STRING = '<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a878cb3c0580e501244/JD24_JD25_Figure3_Subsector_proportion.svg" alt=""></div></figure>'
-  FIGURE_4_MATCH_STRING = '<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a91a9c3d267bcccef75/JD24_JD25_Figure4_absolute_change_subsectors.svg" alt=""></div></figure>'
+  FIGURE_1_HEADING = Regexp.escape("<p><strong>Figure 1: Percentage change in employment (filled jobs) within the Digital Sector and the UK overall, 2024 to 2025.</strong></p>")
+  FIGURE_1_CHART = Regexp.escape('<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a2d997a4b2950ccefa7/JD24_JD25_Figure1_Overall_change.svg" alt=""></div></figure>')
+
+  FIGURE_3_HEADING = Regexp.escape("<p><strong>Figure 3: Proportion of Digital Sector employment (filled jobs) in the Digital Subsectors, UK, 2025.</strong></p>")
+  FIGURE_3_CHART = Regexp.escape('<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a878cb3c0580e501244/JD24_JD25_Figure3_Subsector_proportion.svg" alt=""></div></figure>')
+
+  FIGURE_4_HEADING = Regexp.escape("<p><strong>Figure 4: Absolute change in employment in the Digital Subsectors, thousands of filled jobs, UK, 2024 to 2025.</strong></p>")
+  FIGURE_4_CHART = Regexp.escape('<figure class="image embedded"><div class="img"><img src="https://assets.publishing.service.gov.uk/media/6aba3a91a9c3d267bcccef75/JD24_JD25_Figure4_absolute_change_subsectors.svg" alt=""></div></figure>')
 
   def body
     return content_item.body unless is_chart_candidate?
 
     updated_body = content_item.body
-    updated_body = updated_body.gsub(FIGURE_1_MATCH_STRING, figure_1_html)
-    updated_body = updated_body.gsub(FIGURE_3_MATCH_STRING, figure_3_html)
-    updated_body.gsub(FIGURE_4_MATCH_STRING, figure_4_html)
+    updated_body = updated_body.gsub(/#{FIGURE_1_HEADING}\s+#{FIGURE_1_CHART}/, figure_1_html)
+    updated_body = updated_body.gsub(/#{FIGURE_3_HEADING}\s+#{FIGURE_3_CHART}/, figure_3_html)
+    updated_body.gsub(/#{FIGURE_4_HEADING}\s+#{FIGURE_4_CHART}/, figure_4_html)
   end
 
   def figure_1_html
@@ -58,6 +63,7 @@ class HtmlPublicationPresenter < ContentItemPresenter
       "govuk_publishing_components/components/chart",
       chart_id: "chart-1",
       chart_type: "column",
+      heading_level: 4,
       heading: "Figure 1: Percentage change in employment (filled jobs) within the Digital Sector and the UK overall, 2024 to 2025.",
       h_axis_title: "Sector",
       v_axis_title: "Percentage Change (%)",
@@ -86,6 +92,9 @@ class HtmlPublicationPresenter < ContentItemPresenter
       chart_id: "chart-2",
       chart_type: "bar",
       heading: "Figure 3: Proportion of Digital Sector employment (filled jobs) in the Digital Subsectors, UK, 2025.",
+      heading_level: 4,
+      chart_area_left: 300,
+      height: 575,
       h_axis_title: "Proportion (%)",
       v_axis_title: "Digital subsector",
       description: "",
@@ -126,11 +135,13 @@ class HtmlPublicationPresenter < ContentItemPresenter
       chart_id: "chart-3",
       chart_type: "bar",
       heading: "Figure 4: Absolute change in employment in the Digital Subsectors, thousands of filled jobs, UK, 2024 to 2025.",
+      heading_level: 4,
       h_axis_title: "Change in Employment (1000s of filled jobs)",
       v_axis_title: "Digital subsector",
       description: "",
       hide_legend: true,
-      height: 500,
+      height: 550,
+      chart_area_left: 300,
       h_axis_view_window_min: -20,
       h_axis_view_window_max: 30,
       keys: [

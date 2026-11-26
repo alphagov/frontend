@@ -84,7 +84,7 @@ RSpec.describe "Places" do
 
         expect(page).to have_text("Enter your postcode to find a passport interview office near you.")
         expect(page).to have_field("Enter a postcode")
-        expect(page).to have_css("button", text: "Find results near you")
+        expect(page).to have_button("Find results near you")
         expect(page).to have_no_text("Please enter a valid full UK postcode.")
 
         within(".further-information") do
@@ -117,7 +117,7 @@ RSpec.describe "Places" do
       let(:content_item) { content_item_example }
 
       it "displays English default button text" do
-        expect(page).to have_css("button", text: "Find results near you")
+        expect(page).to have_button("Find results near you")
       end
     end
 
@@ -125,7 +125,7 @@ RSpec.describe "Places" do
       let(:content_item) { content_item_example.merge({ "locale" => "cy" }) }
 
       it "displays translated default button text" do
-        expect(page).to have_css("button", text: "Darganfod canlyniadau yn agos i chi")
+        expect(page).to have_button("Darganfod canlyniadau yn agos i chi")
       end
     end
   end
@@ -142,8 +142,8 @@ RSpec.describe "Places" do
       let(:content_item) { content_item_example.merge({ "title" => "Find a register office" }) }
 
       it "displays page title in English as button text" do
-        expect(page).to have_css("button", text: "Find a register office")
-        expect(page).to have_no_css("button", text: "Find results near you")
+        expect(page).to have_button("Find a register office")
+        expect(page).to have_no_button("Find results near you")
       end
     end
 
@@ -151,8 +151,8 @@ RSpec.describe "Places" do
       let(:content_item) { content_item_example.merge({ "title" => "Darganfod swyddfa gofrestru", "locale" => "cy" }) }
 
       it "displays page title in another language as button text" do
-        expect(page).to have_css("button", text: "Darganfod swyddfa gofrestru")
-        expect(page).to have_no_css("button", text: "Darganfod canlyniadau yn agos i chi")
+        expect(page).to have_button("Darganfod swyddfa gofrestru")
+        expect(page).to have_no_button("Darganfod canlyniadau yn agos i chi")
       end
     end
   end
@@ -269,7 +269,7 @@ RSpec.describe "Places" do
       within(".location-form") do
         expect(page).to have_field("Enter a postcode")
         expect(page).to have_field("postcode")
-        expect(page).to have_css("button", text: "Find")
+        expect(page).to have_button("Find")
       end
     end
   end
@@ -296,7 +296,7 @@ RSpec.describe "Places" do
       within(".location-form") do
         expect(page).to have_field("Enter a postcode")
         expect(page).to have_field("postcode", with: "BAD POSTCODE")
-        expect(page).to have_css("button", text: "Find results near you")
+        expect(page).to have_button("Find results near you")
       end
     end
   end

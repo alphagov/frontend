@@ -51,7 +51,7 @@ RSpec.describe "LicenceTransaction" do
           within(".gem-c-heading h1") { expect(page).to have_title("Licence to kill") }
           within(".postcode-search-form") do
             expect(page).to have_field("Enter a postcode")
-            expect(page).to have_css("button", text: "Find")
+            expect(page).to have_button("Find")
           end
           expect(page).to have_no_text("Please enter a valid full UK postcode.")
           within("#overview") do

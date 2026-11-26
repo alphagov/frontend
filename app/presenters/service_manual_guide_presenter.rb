@@ -32,7 +32,7 @@ class ServiceManualGuidePresenter < ContentItemPresenter
   end
 
   def page_title_options
-    {
+    super.merge({
       context: (category.content_store_response["title"] if category.present?),
       heading_text: content_item.title,
       lead_paragraph: (content_item.lead_paragraph if show_description?),
@@ -41,7 +41,7 @@ class ServiceManualGuidePresenter < ContentItemPresenter
         text: "Give feedback about this page",
         href: "/contact/govuk",
       },
-    }
+    })
   end
 
   def metadata

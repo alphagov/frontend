@@ -41,6 +41,7 @@ RSpec.describe "Field of operation page" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
+        expect(page).to have_css("h1", text: "Operations in Iraq")
         expect(page).to have_no_css("h2", text: "Field of operation")
       end
 
@@ -49,6 +50,7 @@ RSpec.describe "Field of operation page" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
+        expect(page).to have_css("h1", text: "Operations in Iraq")
         expect(page).to have_no_css("h2", text: "Field of operation")
       end
 
@@ -68,6 +70,8 @@ RSpec.describe "Field of operation page" do
         content_store_response["links"]["fatality_notices"] = []
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
+
+        expect(page).to have_css("h1", text: "Operations in Iraq")
         expect(page).to have_no_css("#fatalities")
         expect(page).to have_no_css("#fatalities ~ ul.govuk-list")
         expect(page).to have_no_css("li.fatality-notice")

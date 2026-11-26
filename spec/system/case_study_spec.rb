@@ -50,6 +50,8 @@ RSpec.describe "CaseStudy" do
 
     it "does not display a lead image if no lead image set on case study" do
       visit "/government/case-studies/doing-business-in-spain-without-image"
+
+      expect(page).to have_css("h1", text: "Doing business in Spain")
       expect(page).to have_no_css("img")
     end
 
@@ -58,7 +60,6 @@ RSpec.describe "CaseStudy" do
         visit "/government/case-studies/doing-business-in-spain"
 
         expect(page).to have_title("[Withdrawn] Doing business in Spain - Case study - GOV.UK")
-
         expect(page).to have_css("h1", text: "Doing business in Spain")
         expect(page).to have_text("This case study was withdrawn on")
       end
@@ -75,6 +76,7 @@ RSpec.describe "CaseStudy" do
     it "does not display a single page notification button" do
       visit "/government/case-studies/get-britain-building-carlisle-park"
 
+      expect(page).to have_css("h1", text: "Get Britain Building: Carlisle Park")
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end

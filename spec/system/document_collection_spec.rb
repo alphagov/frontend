@@ -100,6 +100,7 @@ RSpec.describe "Document Collection" do
         it "does not render a contents list" do
           visit base_path
 
+          expect(page).to have_css("h1", text: "National standards for driving and riding")
           expect(page).to have_no_css(".gem-c-contents-list")
         end
       end

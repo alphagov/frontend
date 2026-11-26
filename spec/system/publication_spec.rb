@@ -64,6 +64,7 @@ RSpec.describe "Publication" do
       it "does not render non-featured attachments" do
         visit base_path
 
+        expect(page).to have_css("h1", text: "Number of ex-regular service personnel in FR20")
         expect(page).to have_no_text("Permit: Veolia ES (UK) Limited")
       end
 
@@ -87,6 +88,7 @@ RSpec.describe "Publication" do
       it "doesn't render the documents section" do
         visit base_path
 
+        expect(page).to have_css("h1", text: "Number of ex-regular service personnel in FR20")
         expect(page).to have_no_text("Documents")
       end
     end
@@ -267,6 +269,7 @@ RSpec.describe "Publication" do
       it "does not render the single page notification button" do
         visit base_path
 
+        expect(page).to have_css("h1", text: "D17 9LY, Veolia ES (UK) Limited: environmental permit issued")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 

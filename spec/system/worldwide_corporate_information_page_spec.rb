@@ -49,6 +49,7 @@ RSpec.describe "Worldwide corporate information page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
+      expect(page).to have_title(content_store_response["title"])
       expect(page).to have_no_text("Location:")
       expect(page).to have_no_text("Part of:")
     end

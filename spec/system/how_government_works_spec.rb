@@ -40,6 +40,7 @@ RSpec.describe "How Government Works" do
       it "does not display the count of minister" do
         visit base_path
 
+        expect(page).to have_title("How government works")
         expect(page).to have_no_css(".gem-c-big-number", text: /Prime Minister/m)
         expect(page).to have_no_css(".gem-c-big-number", text: /Cabinet ministers/m)
         expect(page).to have_no_css(".gem-c-big-number", text: /Other ministers/m)

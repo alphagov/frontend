@@ -213,6 +213,7 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("12th July 2013")) do
         visit "/bank-holidays"
 
+        expect(page).to have_css("h1", text: "UK bank holidays")
         expect(page).to have_no_css(".app-bunting")
         expect(page).to have_no_css(".app-bunting--spacer")
       end
@@ -222,6 +223,7 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("3rd Feb 2012")) do
         visit "/bank-holidays"
 
+        expect(page).to have_css("h1", text: "UK bank holidays")
         expect(page).to have_no_css(".app-bunting")
         expect(page).to have_no_css(".app-bunting--spacer")
       end
@@ -231,6 +233,7 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("9th April 2012")) do
         visit "/bank-holidays"
 
+        expect(page).to have_css("h1", text: "UK bank holidays")
         expect(page).to have_no_css(".app-bunting__tinsel")
       end
     end
@@ -239,6 +242,7 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("2nd December 2013")) do
         visit "/bank-holidays"
 
+        expect(page).to have_css("h1", text: "UK bank holidays")
         expect(page).to have_no_css(".app-bunting__tinsel")
       end
     end

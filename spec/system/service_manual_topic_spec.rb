@@ -51,6 +51,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
+      expect(page).to have_css("h1", text: content_store_response["title"])
       expect(page).to have_no_css(".gem-c-accordion")
     end
 
@@ -67,6 +68,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
+      expect(page).to have_css("h1", text: content_store_response["title"])
       expect(page).to have_no_css(".gem-c-accordion")
     end
 
@@ -121,6 +123,7 @@ RSpec.describe "Service manual topic page" do
       stub_content_store_has_item(base_path, content_store_response)
       visit base_path
 
+      expect(page).to have_css("h1", text: content_store_response["title"])
       expect(page).to have_no_css(".gem-c-accordion")
     end
 

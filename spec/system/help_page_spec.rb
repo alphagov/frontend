@@ -26,6 +26,7 @@ RSpec.describe "HelpPage" do
     it "does not render with the single page notification button" do
       visit "/help/cookie-details"
 
+      expect(page).to have_title("Details about cookies on GOV.UK - GOV.UK")
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end

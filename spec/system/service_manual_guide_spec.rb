@@ -87,6 +87,7 @@ RSpec.describe "Service Manual guide" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
+        expect(page).to have_css("h1", text: content_store_response["title"])
         expect(page).to have_no_text("Published by")
       end
 

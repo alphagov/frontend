@@ -663,8 +663,8 @@ RSpec.describe "LocalTransactions" do
       load Rails.root.join("config/initializers/maintenance.rb")
       visit "/pay-bear-tax"
 
-      expect(page).to have_no_field("postcode")
       expect(page).to have_text("System is undergoing maintenance and will be back shortly")
+      expect(page).to have_no_field("postcode")
     end
   end
 

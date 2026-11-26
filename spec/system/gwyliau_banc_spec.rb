@@ -184,6 +184,7 @@ RSpec.describe "GwyliauBanc" do
       Timecop.travel(Date.parse("12th July 2013")) do
         visit "/gwyliau-banc"
 
+        expect(page).to have_css("h1", text: "Gwyliau banc y DU")
         expect(page).to have_no_css(".app-bunting")
       end
     end
@@ -192,6 +193,7 @@ RSpec.describe "GwyliauBanc" do
       Timecop.travel(Date.parse("3rd Feb 2012")) do
         visit "/gwyliau-banc"
 
+        expect(page).to have_css("h1", text: "Gwyliau banc y DU")
         expect(page).to have_no_css(".app-bunting")
       end
     end

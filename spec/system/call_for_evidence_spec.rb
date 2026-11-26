@@ -44,6 +44,7 @@ RSpec.describe "CallForEvidence" do
         stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
+        expect(page).to have_css("h1", text: "Youth Vaping")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 
@@ -52,6 +53,7 @@ RSpec.describe "CallForEvidence" do
         stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
+        expect(page).to have_css("h1", text: "Youth Vaping")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end

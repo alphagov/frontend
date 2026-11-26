@@ -62,6 +62,7 @@ RSpec.describe "Specialist Document" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
+        expect(page).to have_css("h1", text: content_store_response["title"])
         expect(page).to have_no_css(".important-metadata")
       end
 
@@ -155,6 +156,7 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
+        expect(page).to have_css("h1", text: content_store_response["title"])
         expect(page).to have_no_css(".gem-c-contents-list")
       end
 
@@ -232,6 +234,7 @@ RSpec.describe "Specialist Document" do
       it "does not display change history" do
         visit base_path
 
+        expect(page).to have_css("h1", text: content_store_response["title"])
         expect(page).to have_no_css(".gem-c-published-dates__change-history")
       end
     end
@@ -267,6 +270,7 @@ RSpec.describe "Specialist Document" do
     it "does not render with the single page notification button" do
       visit base_path
 
+      expect(page).to have_css("h1", text: content_store_response["title"])
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end

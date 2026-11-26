@@ -196,6 +196,7 @@ RSpec.describe "TravelAdvice" do
       it "does not display a map" do
         visit "#{base_path}/#{part['slug']}"
 
+        expect(page).to have_css("h1", text: part["title"])
         expect(page).to have_no_css(".map")
         expect(page).to have_no_css(".gem-c-metadata")
       end
@@ -208,15 +209,10 @@ RSpec.describe "TravelAdvice" do
       end
     end
 
-    it "includes a discoverable atom feed link" do
+    it "includes a discoverable atom feed link and no single page notification button" do
       visit base_path
 
       expect(page).to have_css("link[type*='atom'][href='#{base_path}.atom']", visible: :hidden)
-    end
-
-    it "does not render with the single page notification button" do
-      visit base_path
-
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 

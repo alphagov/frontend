@@ -136,6 +136,7 @@ RSpec.describe "DetailedGuide" do
 
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
+      expect(page).to have_css("h1", text: "Salary sacrifice")
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
@@ -144,6 +145,7 @@ RSpec.describe "DetailedGuide" do
       stub_content_store_has_item("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
+      expect(page).to have_css("h1", text: "Salary sacrifice")
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end

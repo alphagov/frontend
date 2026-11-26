@@ -32,6 +32,7 @@ RSpec.describe "Document Collection Email Notifications" do
       it "does not render the signup link" do
         visit base_path
 
+        expect(page).to have_css("h1", text: "National standards for driving and riding")
         expect(page).to have_no_css(".gem-c-signup-link")
       end
     end
@@ -104,6 +105,7 @@ RSpec.describe "Document Collection Email Notifications" do
       it "does not render the single page notification button" do
         visit base_path
 
+        expect(page).to have_css("h1", text: "National standards for driving and riding")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end

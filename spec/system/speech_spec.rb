@@ -29,6 +29,7 @@ RSpec.describe "Speech" do
     it "does not display a single page notification button" do
       visit "/government/speeches/speech-authored-article"
 
+      expect(page).to have_title("Britain's choice: economic security with the EU, or a leap into the dark (Archived)")
       expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 

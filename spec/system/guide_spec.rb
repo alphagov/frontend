@@ -178,6 +178,7 @@ RSpec.describe "Guide" do
       with_variant(PostalVoteVideo: "A") do
         visit "/how-to-vote/postal-voting"
 
+        expect(page).to have_css("h1", text: "How to vote")
         expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
         expect(page).to have_no_css("h2", text: "How does postal voting work?")
         expect(page).to have_no_text("This video explains what postal voting is")
@@ -219,13 +220,13 @@ RSpec.describe "Guide" do
       with_variant(PostalVoteVideo: "Z") do
         visit "/how-to-vote/postal-voting"
 
+        expect(page).to have_text("You must apply for a postal vote")
+        expect(page).to have_text("This content comes from Publisher and must remain unchanged.")
+        expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
         expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
         expect(page).to have_no_css("h2", text: "How does postal voting work?")
         expect(page).to have_no_text("This video explains what postal voting is")
         expect(page).to have_no_css(".govuk-details__summary", text: "Transcript")
-        expect(page).to have_text("You must apply for a postal vote")
-        expect(page).to have_text("This content comes from Publisher and must remain unchanged.")
-        expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
         expect(page).to have_no_css(".app-c-postal-vote-video")
       end
     end
@@ -270,10 +271,10 @@ RSpec.describe "Guide" do
 
       visit "/how-to-vote/print"
 
+      expect(page).to have_text("You must apply for a postal vote")
       expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
       expect(page).to have_no_css("h2", text: "How does postal voting work?")
       expect(page).to have_no_css(".app-c-postal-vote-video")
-      expect(page).to have_text("You must apply for a postal vote")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
     end
   end

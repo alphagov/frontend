@@ -199,7 +199,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays the email address" do
-        expect(page).to have_css("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
+        expect(page).to have_link("po.consultation@ukgi.gov.uk", href: "mailto:po.consultation@ukgi.gov.uk")
       end
 
       it "displays the postal address formatted with line breaks" do
@@ -207,7 +207,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays the response form" do
-        expect(page).to have_css("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
+        expect(page).to have_link("response form", href: "https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx")
       end
     end
 
@@ -237,6 +237,7 @@ RSpec.describe "Consultation" do
         stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
+        expect(page).to have_css("h1", text: "Postgraduate doctoral loans")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 
@@ -245,6 +246,7 @@ RSpec.describe "Consultation" do
         stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
+        expect(page).to have_css("h1", text: "Postgraduate doctoral loans")
         expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end

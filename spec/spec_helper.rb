@@ -19,7 +19,14 @@ WebMock.disable_net_connect!(allow_localhost: true)
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 GovukTest.configure
-Selenium::WebDriver::Options.chrome(loggingPrefs: { browser: "ALL" })
+Capybara.register_driver :headless_chrome do |app|
+  options = Selenium::WebDriver::Options.chrome(
+    browser_version: "157",
+    "goog:loggingPrefs": { browser: "ALL" },
+  )
+  options.add_argument("--headless=new")
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
 
 GovukAbTesting.configure do |config|
   config.acceptance_test_framework = :capybara

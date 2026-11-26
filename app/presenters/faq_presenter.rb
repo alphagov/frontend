@@ -14,6 +14,7 @@ class FaqPresenter < ContentItemPresenter
   def page_title_options
     {
       heading_text: @calendar.title,
+      heading_level: 1,
     }
   end
 

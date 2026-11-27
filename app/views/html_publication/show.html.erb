@@ -81,7 +81,7 @@
       <%= render "govuk_publishing_components/components/govspeak_html_publication", {
         direction: page_text_direction,
       } do %>
-        <%= raw(content_item.body.html_safe) %>
+        <%= raw(@presenter.body.html_safe) %>
       <% end %>
     </div>
   </div>

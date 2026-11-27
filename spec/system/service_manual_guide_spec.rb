@@ -27,7 +27,7 @@ RSpec.describe "Service Manual guide" do
       end
 
       it "does not display the description for a normal guide" do
-        expect(page).not_to have_css(".gem-c-lead-paragraph")
+        expect(page).to have_no_css(".gem-c-lead-paragraph")
       end
 
       it "displays a link to give feedback" do
@@ -59,14 +59,14 @@ RSpec.describe "Service Manual guide" do
 
         it "displays the most recent change history for a guide" do
           within(".govuk-grid-column-two-thirds .gem-c-metadata") do
-            expect(page).to have_content("This is our latest change")
+            expect(page).to have_text("This is our latest change")
           end
         end
 
         it "displays the change history for a guide" do
           within(".govuk-grid-column-two-thirds .gem-c-metadata") do
-            expect(page).to have_content("This is another change")
-            expect(page).to have_content("Guidance first published")
+            expect(page).to have_text("This is another change")
+            expect(page).to have_text("Guidance first published")
           end
         end
 
@@ -76,8 +76,8 @@ RSpec.describe "Service Manual guide" do
           visit base_path
 
           within(".govuk-grid-column-two-thirds .gem-c-metadata") do
-            expect(page).not_to have_content("Show all updates")
-            expect(page).not_to have_css(".gem-c-details")
+            expect(page).to have_no_text("Show all updates")
+            expect(page).to have_no_css(".gem-c-details")
           end
         end
       end
@@ -87,7 +87,8 @@ RSpec.describe "Service Manual guide" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
-        expect(page).not_to have_content("Published by")
+        expect(page).to have_css("h1", text: content_store_response["title"])
+        expect(page).to have_no_text("Published by")
       end
 
       it "displays the description for a point" do
@@ -96,7 +97,7 @@ RSpec.describe "Service Manual guide" do
         visit base_path
 
         within(".gem-c-lead-paragraph") do
-          expect(page).to have_content("Research to develop a deep knowledge of who the service users are")
+          expect(page).to have_text("Research to develop a deep knowledge of who the service users are")
         end
       end
     end

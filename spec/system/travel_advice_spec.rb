@@ -12,17 +12,17 @@ RSpec.describe "TravelAdvice" do
       expect(page.status_code).to eq(200)
 
       within("head", visible: :all) do
-        expect(page).to have_selector("title", text: "Foreign travel advice", visible: :all)
-        expect(page).to have_selector("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", visible: :all)
-        expect(page).to have_selector("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: :hidden)
+        expect(page).to have_css("title", text: "Foreign travel advice", visible: :all)
+        expect(page).to have_css("link[rel=alternate][type='application/atom+xml'][href='/foreign-travel-advice.atom']", visible: :all)
+        expect(page).to have_css("meta[name=description][content='Latest travel advice by country including safety and security, entry requirements, travel warnings and health']", visible: :hidden)
       end
 
       within("#content") do
         within(".gem-c-heading") do
-          expect(page).to have_content("Foreign travel advice")
+          expect(page).to have_text("Foreign travel advice")
         end
 
-        expect(page).to have_selector("#country-filter")
+        expect(page).to have_css("#country-filter")
         names = page.all("ul.js-countries-list li a").map(&:text)
         expect(names).to eq(["Afghanistan", "Austria", "Finland", "India", "Malaysia", "S\u00E3o Tom\u00E9 and Principe", "Spain"])
 
@@ -62,24 +62,24 @@ RSpec.describe "TravelAdvice" do
       it "loads the page and performs filtering correctly" do
         visit "/foreign-travel-advice"
 
-        expect(page).to have_content("Foreign travel advice")
+        expect(page).to have_text("Foreign travel advice")
 
         page.execute_script("document.body.className = ((document.body.className) ? document.body.className + ' govuk-frontend-supported' : 'govuk-frontend-supported');")
 
-        expect(page).to have_selector("#country-filter")
+        expect(page).to have_css("#country-filter")
 
         within("#country-filter") { fill_in("country", with: "In") }
 
         within(".countries-wrapper") do
-          expect(page).to have_selector("#I li")
-          expect(page).to have_selector("#F li")
-          expect(page).to have_selector("#S li")
-          expect(page).not_to have_selector("#A li")
-          expect(page).not_to have_selector("#M li")
+          expect(page).to have_css("#I li")
+          expect(page).to have_css("#F li")
+          expect(page).to have_css("#S li")
+          expect(page).to have_no_css("#A li")
+          expect(page).to have_no_css("#M li")
         end
 
         within(".js-country-count") do
-          expect(page).to have_selector(".js-filter-count", text: "4")
+          expect(page).to have_css(".js-filter-count", text: "4")
         end
       end
     end
@@ -100,7 +100,7 @@ RSpec.describe "TravelAdvice" do
       expect(page).to have_title("#{content_store_response['details']['country']['name']} travel advice")
 
       within(".page-title .gem-c-heading") do
-        expect(page).to have_content(content_store_response["details"]["country"]["name"])
+        expect(page).to have_text(content_store_response["details"]["country"]["name"])
       end
     end
 
@@ -117,7 +117,7 @@ RSpec.describe "TravelAdvice" do
 
       expect(page).to have_css(".gem-c-contents-list li", count: parts_size)
       expect(page).to have_css(".gem-c-contents-list li", text: content_store_response["details"]["parts"].first["title"])
-      expect(page).not_to have_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_no_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
 
       content_store_response["details"]["parts"][1..parts_size].each do |part|
         expect(page).to have_css(".gem-c-contents-list li a[href*=\"#{part['slug']}\"]", text: part["title"])
@@ -140,14 +140,14 @@ RSpec.describe "TravelAdvice" do
         expect(page).to have_css("h1", text: content_store_response["details"]["parts"].first["title"])
         expect(page).to have_text("The main opposition party has called for mass protests against the government in Tirana on 18 February 2017.")
 
-        expect(page).to have_content(I18n.t("formats.travel_advice.still_current_at"))
-        expect(page).to have_content(Time.zone.today.strftime("%-d %B %Y"))
+        expect(page).to have_text(I18n.t("formats.travel_advice.still_current_at"))
+        expect(page).to have_text(Time.zone.today.strftime("%-d %B %Y"))
 
-        expect(page).to have_content(I18n.t("formats.travel_advice.updated"))
-        expect(page).to have_content(Date.parse(content_store_response["details"]["reviewed_at"]).strftime("%-d %B %Y"))
+        expect(page).to have_text(I18n.t("formats.travel_advice.updated"))
+        expect(page).to have_text(Date.parse(content_store_response["details"]["reviewed_at"]).strftime("%-d %B %Y"))
 
         within ".gem-c-metadata" do
-          expect(page).to have_content(content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
+          expect(page).to have_text(content_store_response["details"]["change_description"].gsub("Latest update: ", "").strip)
         end
       end
 
@@ -161,7 +161,7 @@ RSpec.describe "TravelAdvice" do
         it "displays the updated_at date" do
           visit base_path
 
-          expect(page).to have_content(Date.parse(content_store_response["details"]["updated_at"]).strftime("%-d %B %Y"))
+          expect(page).to have_text(Date.parse(content_store_response["details"]["updated_at"]).strftime("%-d %B %Y"))
         end
       end
 
@@ -196,28 +196,24 @@ RSpec.describe "TravelAdvice" do
       it "does not display a map" do
         visit "#{base_path}/#{part['slug']}"
 
-        expect(page).not_to have_css(".map")
-        expect(page).not_to have_css(".gem-c-metadata")
+        expect(page).to have_css("h1", text: part["title"])
+        expect(page).to have_no_css(".map")
+        expect(page).to have_no_css(".gem-c-metadata")
       end
 
       it "does not display navigation links for the part" do
         visit "#{base_path}/#{part['slug']}"
 
         expect(page).to have_css(".gem-c-contents-list li", text: part["title"])
-        expect(page).not_to have_css(".gem-c-contents-list li a", text: part["title"])
+        expect(page).to have_no_css(".gem-c-contents-list li a", text: part["title"])
       end
     end
 
-    it "includes a discoverable atom feed link" do
+    it "includes a discoverable atom feed link and no single page notification button" do
       visit base_path
 
       expect(page).to have_css("link[type*='atom'][href='#{base_path}.atom']", visible: :hidden)
-    end
-
-    it "does not render with the single page notification button" do
-      visit base_path
-
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     it "has GA4 tracking on the print link" do
@@ -249,7 +245,7 @@ RSpec.describe "TravelAdvice" do
       expect(page).to have_title("#{content_store_response['details']['country']['name']} travel advice")
 
       within(".page-title .gem-c-heading") do
-        expect(page).to have_content(content_store_response["details"]["country"]["name"])
+        expect(page).to have_text(content_store_response["details"]["country"]["name"])
       end
     end
 
@@ -261,10 +257,10 @@ RSpec.describe "TravelAdvice" do
       expect(page).to have_css("h1", text: content_store_response["details"]["parts"][1]["title"])
       expect(page).to have_css("h1", text: content_store_response["details"]["parts"][2]["title"])
 
-      expect(page).not_to have_css(".gem-c-related-navigation")
-      expect(page).not_to have_css(".govuk-pagination")
-      expect(page).not_to have_css(".gem-c-contents-list")
-      expect(page).not_to have_css('.govuk-link[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
+      expect(page).to have_no_css(".gem-c-related-navigation")
+      expect(page).to have_no_css(".govuk-pagination")
+      expect(page).to have_no_css(".gem-c-contents-list")
+      expect(page).to have_no_css('.govuk-link[href$="/print"]', text: I18n.t("multi_page.print_entire_guide"))
     end
   end
 end

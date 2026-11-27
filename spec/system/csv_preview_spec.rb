@@ -48,28 +48,28 @@ RSpec.describe "CsvPreview" do
     end
 
     it "includes the CSV headings" do
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(1)", text: "field_1")
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(2)", text: "field_2")
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(3)", text: "field_3")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(1)", text: "field_1")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(2)", text: "field_2")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(3)", text: "field_3")
     end
 
     it "includes the CSV content" do
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3")
     end
 
     it "truncates at 50 columns" do
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(50)", text: "field_50")
-      expect(page).not_to have_selector(".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(50)", text: "field_50")
+      expect(page).to have_no_css(".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51")
     end
 
     it "truncates at 1000 rows" do
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1")
-      expect(page).not_to have_selector(".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1")
+      expect(page).to have_no_css(".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1")
     end
 
     it "includes truncation notice, if necessary" do
@@ -234,28 +234,28 @@ RSpec.describe "CsvPreview" do
     end
 
     it "includes the CSV headings" do
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(1)", text: "field_1")
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(2)", text: "field_2")
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(3)", text: "field_3")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(1)", text: "field_1")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(2)", text: "field_2")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(3)", text: "field_3")
     end
 
     it "includes the CSV content" do
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2")
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(2)", text: "Value2")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1) td:nth-child(3)", text: "Value3")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(2)", text: "Value2")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(2) td:nth-child(3)", text: "Value3")
     end
 
     it "truncates at 50 columns" do
-      expect(page).to have_selector(".csv-preview__inner th:nth-child(50)", text: "field_50")
-      expect(page).not_to have_selector(".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51")
+      expect(page).to have_css(".csv-preview__inner th:nth-child(50)", text: "field_50")
+      expect(page).to have_no_css(".csv-preview__inner th:nth-child(51) td:nth-child(3)", text: "field_51")
     end
 
     it "truncates at 1000 rows" do
-      expect(page).to have_selector(".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1")
-      expect(page).not_to have_selector(".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1")
+      expect(page).to have_css(".csv-preview__inner tr:nth-child(1000) td:nth-child(1)", text: "Value1")
+      expect(page).to have_no_css(".csv-preview__inner tr:nth-child(1001) td:nth-child(1)", text: "Value1")
     end
   end
 

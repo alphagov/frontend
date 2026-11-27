@@ -14,18 +14,18 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
-        expect(page).to have_content("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
-        expect(page).to have_content("Published: 11 April 2023")
-        expect(page).to have_content("Last updated: 15 May 2023")
+      within first(".gem-c-metadata") do
+        expect(page).to have_text("From: Office for Health Improvement and Disparities and The Rt Hon Baroness Smith of Malvern")
+        expect(page).to have_text("Published: 11 April 2023")
+        expect(page).to have_text("Last updated: 15 May 2023")
       end
     end
 
     it "displays the page history at the bottom of the page" do
       within all(".gem-c-metadata")[1] do
-        expect(page).to have_content("Last updated: 15 May 2023")
-        expect(page).to have_content("7 November 2021")
-        expect(page).to have_content("Added sub-topic tag.")
+        expect(page).to have_text("Last updated: 15 May 2023")
+        expect(page).to have_text("7 November 2021")
+        expect(page).to have_text("Added sub-topic tag.")
       end
     end
 
@@ -44,7 +44,8 @@ RSpec.describe "CallForEvidence" do
         stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
-        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+        expect(page).to have_css("h1", text: "Youth Vaping")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 
       it "does not render the button on exempt pages" do
@@ -52,7 +53,8 @@ RSpec.describe "CallForEvidence" do
         stub_content_store_has_item("/government/calls-for-evidence/youth-vaping-call-for-evidence", content_store_response)
         visit "/government/calls-for-evidence/youth-vaping-call-for-evidence"
 
-        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+        expect(page).to have_css("h1", text: "Youth Vaping")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end
 
@@ -71,14 +73,14 @@ RSpec.describe "CallForEvidence" do
       end
 
       it "displays the withdrawn title" do
-        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+        expect(page).to have_css("title", text: "[Withdrawn]", visible: :hidden)
       end
 
       it "displays the withdrawn notice" do
         within ".gem-c-notice" do
           expect(page).to have_text("This call for evidence was withdrawn")
           expect(page).to have_text("It has been superseded by")
-          expect(page).to have_selector("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
+          expect(page).to have_css("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
         end
       end
     end
@@ -102,12 +104,12 @@ RSpec.describe "CallForEvidence" do
       visit base_path
 
       within(".gem-c-notice__title") do
-        expect(page).to have_content("This was first published under the #{content_store_response.dig('details', 'government', 'title')}")
+        expect(page).to have_text("This was first published under the #{content_store_response.dig('details', 'government', 'title')}")
       end
     end
 
     it "does not display the history notice if government information is not available" do
-      expect(page).not_to have_css(".gem-c-notice__title")
+      expect(page).to have_no_css(".gem-c-notice__title")
     end
 
     it "displays the national applicability banner if national information is available" do
@@ -132,7 +134,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display the national applicability banner if national information is unavailable" do
-      expect(page).not_to have_css(".gem-c-devolved-nations")
+      expect(page).to have_no_css(".gem-c-devolved-nations")
     end
 
     context "when it displays the blue summary box" do
@@ -151,7 +153,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays the document description" do
       expect(page).to have_css("h2", text: "Call for evidence description")
-      expect(page).to have_content("The government is holding this call for evidence to identify opportunities to reduce the number of children (people aged under 18) accessing and using vape products, while ensuring they are still easily available as a quit aid for adult smokers.")
+      expect(page).to have_text("The government is holding this call for evidence to identify opportunities to reduce the number of children (people aged under 18) accessing and using vape products, while ensuring they are still easily available as a quit aid for adult smokers.")
     end
 
     context "when attachments are available" do
@@ -179,7 +181,7 @@ RSpec.describe "CallForEvidence" do
         within("#documents") do
           attachments = page.find_all(".gem-c-attachment")
 
-          expect(attachments[0]).to have_content("Request an accessible format")
+          expect(attachments[0]).to have_text("Request an accessible format")
         end
       end
 
@@ -190,7 +192,7 @@ RSpec.describe "CallForEvidence" do
 
         within("#documents") do
           attachments = page.find_all(".gem-c-attachment")
-          expect(attachments[0]).not_to have_content("Request an accessible format")
+          expect(attachments[0]).to have_no_text("Request an accessible format")
         end
       end
 
@@ -201,7 +203,7 @@ RSpec.describe "CallForEvidence" do
 
         within("#documents") do
           attachments = page.find_all(".gem-c-attachment")
-          expect(attachments[0]).not_to have_content("Request an accessible format")
+          expect(attachments[0]).to have_no_text("Request an accessible format")
         end
       end
 
@@ -275,7 +277,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays the call for evidence status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Open call for evidence")
+        expect(page).to have_text("Open call for evidence")
       end
     end
 
@@ -296,7 +298,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display the status notice banner" do
-      expect(page).not_to have_css(".gem-c-notice__title")
+      expect(page).to have_no_css(".gem-c-notice__title")
     end
   end
 
@@ -311,7 +313,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays the call for evidence status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Call for evidence")
+        expect(page).to have_text("Call for evidence")
       end
     end
 
@@ -368,7 +370,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -383,7 +385,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays the call for evidence status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Closed call for evidence")
+        expect(page).to have_text("Closed call for evidence")
       end
     end
 
@@ -409,11 +411,11 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display the status notice banner" do
-      expect(page).not_to have_css(".gem-c-notice__title")
+      expect(page).to have_no_css(".gem-c-notice__title")
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -428,7 +430,7 @@ RSpec.describe "CallForEvidence" do
 
     it "displays the call for evidence status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Call for evidence outcome")
+        expect(page).to have_text("Call for evidence outcome")
       end
     end
 
@@ -455,7 +457,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "displays the outcome detail" do
-      expect(page).to have_content("The first award of all new GCSEs will be based primarily on statistical predictions with examiner judgement playing a secondary role.")
+      expect(page).to have_text("The first award of all new GCSEs will be based primarily on statistical predictions with examiner judgement playing a secondary role.")
     end
 
     it "displays the 'Original call for evidence' heading" do
@@ -489,7 +491,7 @@ RSpec.describe "CallForEvidence" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 end

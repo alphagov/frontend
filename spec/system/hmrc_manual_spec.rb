@@ -112,7 +112,7 @@ RSpec.describe "Hmrc manual" do
       end
 
       it "does not render section groups with no sections inside" do
-        expect(page).not_to have_text("Some section group title 1")
+        expect(page).to have_no_text("Some section group title 1")
         expect(page).to have_text("Some section group title 2")
       end
     end
@@ -144,7 +144,7 @@ RSpec.describe "Hmrc manual" do
       end
 
       it "does not render an empty section heading" do
-        expect(page).not_to have_css("h3", text: /^\s*$/)
+        expect(page).to have_no_css("h3", text: /^\s*$/)
       end
     end
   end
@@ -162,7 +162,7 @@ RSpec.describe "Hmrc manual" do
     end
 
     it "renders one content container" do
-      expect(page).to have_selector("#content", count: 1)
+      expect(page).to have_css("#content", count: 1)
     end
 
     it "renders the metadata" do

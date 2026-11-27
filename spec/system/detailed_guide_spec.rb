@@ -22,7 +22,7 @@ RSpec.describe "DetailedGuide" do
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
+      within first(".gem-c-metadata") do
         expect(page).to have_text("From: HM Revenue & Customs")
         expect(page).to have_link("HM Revenue & Customs", href: "/government/organisations/hm-revenue-customs")
         expect(page).to have_text("Published: 12 June 2014")
@@ -32,9 +32,9 @@ RSpec.describe "DetailedGuide" do
 
     it "displays the page history at the bottom of the page" do
       within all(".gem-c-metadata")[1] do
-        expect(page).to have_content("Last updated: 18 February 2016")
-        expect(page).to have_content("18 February 2016")
-        expect(page).to have_content("The second entry in the table")
+        expect(page).to have_text("Last updated: 18 February 2016")
+        expect(page).to have_text("18 February 2016")
+        expect(page).to have_text("The second entry in the table")
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe "DetailedGuide" do
     it "displays withdrawn detailed guide page" do
       expect(page).to have_title("[Withdrawn] EU rules on the use of chemicals - GOV.UK")
       expect(page).to have_css(".govspeak", text: "This information has been archived as it is now out of date. For current information please go to")
-      expect(page).to have_content("withdrawn on 28 January 2015")
+      expect(page).to have_text("withdrawn on 28 January 2015")
     end
   end
 
@@ -69,7 +69,7 @@ RSpec.describe "DetailedGuide" do
 
     it "displays historically political detailed guide page" do
       within(".govuk-notification-banner__content") do
-        expect(page).to have_content("This was first published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
+        expect(page).to have_text("This was first published under the 2010 to 2015 Conservative and Liberal Democrat coalition government")
       end
     end
   end
@@ -136,7 +136,8 @@ RSpec.describe "DetailedGuide" do
 
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_css("h1", text: "Salary sacrifice")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     it "does not render the single page notification button on foreign language pages" do
@@ -144,7 +145,8 @@ RSpec.describe "DetailedGuide" do
       stub_content_store_has_item("/guidance/salary-sacrifice-and-the-effects-on-paye", content_store_response)
       visit "/guidance/salary-sacrifice-and-the-effects-on-paye"
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_css("h1", text: "Salary sacrifice")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end
 end

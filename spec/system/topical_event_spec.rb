@@ -22,6 +22,6 @@ RSpec.describe "Topical Event pages" do
   end
 
   it "sets the page meta description" do
-    expect(page).to have_selector("meta[name='description'][content='#{content_store_response['description']}']", visible: :hidden)
+    expect(page).to have_css("meta[name='description'][content='#{content_store_response['description']}']", visible: :hidden)
   end
 end

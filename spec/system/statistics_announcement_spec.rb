@@ -19,7 +19,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "displays the important metadata" do
       within(".important-metadata .gem-c-metadata") do
-        expect(page).to have_content("20 January 2016 9:30am (confirmed)")
+        expect(page).to have_text("20 January 2016 9:30am (confirmed)")
       end
     end
 
@@ -30,7 +30,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "does not render with the single page notification button" do
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end
 
@@ -49,7 +49,7 @@ RSpec.describe "StatisticsAnnouncement" do
     end
 
     it "shows a logo" do
-      expect(page).to have_selector('img[alt="Accredited official statistics"]')
+      expect(page).to have_css('img[alt="Accredited official statistics"]')
     end
 
     it "displays the description" do
@@ -58,7 +58,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "displays the important metadata" do
       within(".important-metadata .gem-c-metadata") do
-        expect(page).to have_content("Release date: January 2016 (provisional)")
+        expect(page).to have_text("Release date: January 2016 (provisional)")
       end
     end
   end
@@ -83,8 +83,8 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "displays the important metadata" do
       within(".important-metadata .gem-c-metadata") do
-        expect(page).to have_content("Proposed release: 20 January 2016 9:30am")
-        expect(page).to have_content("Cancellation date: 17 January 2016 2:19pm")
+        expect(page).to have_text("Proposed release: 20 January 2016 9:30am")
+        expect(page).to have_text("Cancellation date: 17 January 2016 2:19pm")
       end
     end
 
@@ -97,7 +97,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "doesn't display forthcoming notice" do
       within(".gem-c-notice") do
-        expect(page).not_to have_text("These statistics will be released on")
+        expect(page).to have_no_text("These statistics will be released on")
       end
     end
   end
@@ -122,7 +122,7 @@ RSpec.describe "StatisticsAnnouncement" do
 
     it "displays the important metadata" do
       within(".important-metadata .gem-c-metadata") do
-        expect(page).to have_content("Release date: 20 January 2016 9:30am (confirmed")
+        expect(page).to have_text("Release date: 20 January 2016 9:30am (confirmed")
       end
     end
 

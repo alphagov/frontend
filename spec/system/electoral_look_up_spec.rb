@@ -19,9 +19,9 @@ RSpec.describe "ElectoralLookUp" do
       visit electoral_services_path
 
       expect(page).to have_title("Contact your local Electoral Registration Office - GOV.UK")
-      expect(page).to have_selector("h1", text: "Contact your local Electoral Registration Office")
+      expect(page).to have_css("h1", text: "Contact your local Electoral Registration Office")
       expect(page).to have_field("postcode")
-      expect(page).not_to have_text("This isn't a valid")
+      expect(page).to have_no_text("This isn't a valid")
     end
   end
 
@@ -35,13 +35,13 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode: "LS11UR")
 
-          expect(page).to have_selector("h2", text: "Your local council")
+          expect(page).to have_css("h2", text: "Your local council")
           expect(page).to have_text("For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.")
-          expect(page).to have_selector("address", text: "foo")
-          expect(page).to have_selector("h2", text: "Get help with electoral registration")
+          expect(page).to have_css("address", text: "foo")
+          expect(page).to have_css("h2", text: "Get help with electoral registration")
           expect(page).to have_text("Need help? Get in touch with your local electoral registration team.")
-          expect(page).to have_selector("address", text: "bar")
-          expect(page).to have_selector("meta[name=robots][content=noindex]", visible: :all)
+          expect(page).to have_css("address", text: "bar")
+          expect(page).to have_css("meta[name=robots][content=noindex]", visible: :all)
         end
       end
 
@@ -53,11 +53,11 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode: "LS11UR")
 
-          expect(page).to have_selector("p[data-module=ga4-auto-tracker]")
-          expect(page).to have_selector("p[data-ga4-auto]")
-          expect(page).to have_selector("div[data-module=ga4-link-tracker]")
-          expect(page).to have_selector("div[data-ga4-set-indexes]")
-          expect(page).to have_selector("div[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Contact your local Electoral Registration Office\",\"action\":\"information click\"}']")
+          expect(page).to have_css("p[data-module=ga4-auto-tracker]")
+          expect(page).to have_css("p[data-ga4-auto]")
+          expect(page).to have_css("div[data-module=ga4-link-tracker]")
+          expect(page).to have_css("div[data-ga4-set-indexes]")
+          expect(page).to have_css("div[data-ga4-link='{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Contact your local Electoral Registration Office\",\"action\":\"information click\"}']")
         end
       end
 
@@ -69,8 +69,8 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode: "LS11UR")
 
-          expect(page).not_to have_selector("h2", text: "Your local council")
-          expect(page).not_to have_text("For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.")
+          expect(page).to have_no_css("h2", text: "Your local council")
+          expect(page).to have_no_text("For questions about your poll card, polling place, or about returning your postal voting ballot, contact your council.")
         end
       end
 
@@ -78,7 +78,7 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode: "INVALID POSTCODE")
 
-          expect(page).to have_selector("h1", text: "Contact your local Electoral Registration Office")
+          expect(page).to have_css("h1", text: "Contact your local Electoral Registration Office")
           expect(page).to have_text("This isn't a valid postcode")
         end
       end
@@ -99,15 +99,15 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           search_for(postcode:)
 
-          expect(page).to have_selector("h1", text: "Choose your address")
-          expect(page).to have_selector("p", text: "The IP22 4DN postcode could be in several council areas. Please choose your address from the list below.")
+          expect(page).to have_css("h1", text: "Choose your address")
+          expect(page).to have_css("p", text: "The IP22 4DN postcode could be in several council areas. Please choose your address from the list below.")
           expect(page).to have_select("uprn", options: ["1 BUCKINGHAM PALACE", "2 BUCKINGHAM PALACE"])
-          expect(page).to have_selector("meta[name=robots][content=noindex]", visible: :all)
+          expect(page).to have_css("meta[name=robots][content=noindex]", visible: :all)
 
           stub_api_address_lookup("1234", response: api_response)
           click_button("Continue")
 
-          expect(page).to have_selector("p", text: "We’ve matched the postcode to Cardiff Council")
+          expect(page).to have_css("p", text: "We’ve matched the postcode to Cardiff Council")
         end
       end
 
@@ -115,7 +115,7 @@ RSpec.describe "ElectoralLookUp" do
         with_electoral_api_url do
           visit electoral_services_path(uprn: "INVALID UPRN")
 
-          expect(page).to have_selector("h1", text: "Contact your local Electoral Registration Office")
+          expect(page).to have_css("h1", text: "Contact your local Electoral Registration Office")
           expect(page).to have_text("This isn't a valid address")
         end
       end

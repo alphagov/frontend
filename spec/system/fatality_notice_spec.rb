@@ -40,18 +40,18 @@ RSpec.describe "Fatality Notice" do
     before { visit "/government/fatalities/sir-george-pomeroy-colley" }
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
-        expect(page).to have_content("From: Ministry of Defence")
-        expect(page).to have_content("Published: 27 February 1881")
-        expect(page).to have_content("Last updated: 14 September 2016")
+      within first(".gem-c-metadata") do
+        expect(page).to have_text("From: Ministry of Defence")
+        expect(page).to have_text("Published: 27 February 1881")
+        expect(page).to have_text("Last updated: 14 September 2016")
       end
     end
 
     it "displays the page history at the bottom of the page" do
       within all(".gem-c-metadata")[2] do
-        expect(page).to have_content("Last updated: 14 September 2016")
-        expect(page).to have_content("27 February 1881")
-        expect(page).to have_content("First published.")
+        expect(page).to have_text("Last updated: 14 September 2016")
+        expect(page).to have_text("27 February 1881")
+        expect(page).to have_text("First published.")
       end
     end
   end

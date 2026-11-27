@@ -18,7 +18,7 @@ RSpec.describe "BankHolidays" do
         visit "/bank-holidays"
 
         within("#content") do
-          expect(page).to have_selector(".gem-c-panel.govuk-\\!-margin-bottom-6")
+          expect(page).to have_css(".gem-c-panel.govuk-\\!-margin-bottom-6")
         end
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe "BankHolidays" do
         visit "/bank-holidays"
 
         within("#content") do
-          expect(page).not_to have_selector("gem-c-panel.govuk-\\!-margin-bottom-6")
+          expect(page).to have_no_css("gem-c-panel.govuk-\\!-margin-bottom-6")
         end
       end
     end
@@ -40,21 +40,21 @@ RSpec.describe "BankHolidays" do
     visit "/bank-holidays"
 
     within("head", visible: :hidden) do
-      expect(page).to have_selector("title", text: "UK bank holidays - GOV.UK", visible: :hidden)
+      expect(page).to have_css("title", text: "UK bank holidays - GOV.UK", visible: :hidden)
       desc = page.find("meta[name=description]", visible: :hidden)
       expect(desc["content"]).to eq("Find out when bank holidays are in England, Wales, Scotland and Northern Ireland - including past and future bank holidays")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/england-and-wales.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/england-and-wales.ics']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/scotland.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/scotland.ics']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/bank-holidays/northern-ireland.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/bank-holidays/northern-ireland.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/bank-holidays.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/bank-holidays/england-and-wales.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/bank-holidays/england-and-wales.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/bank-holidays/scotland.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/bank-holidays/scotland.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/bank-holidays/northern-ireland.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/bank-holidays/northern-ireland.ics']", visible: :hidden)
     end
 
     within("#content") do
       within(".gem-c-heading") do
-        expect(page).to have_content("UK bank holidays")
+        expect(page).to have_text("UK bank holidays")
       end
 
       within("article") do
@@ -179,21 +179,21 @@ RSpec.describe "BankHolidays" do
 
       within(".govuk-tabs") do
         within("#england-and-wales .govuk-panel") do
-          expect(page).to have_content("The next bank holiday in England and Wales is")
-          expect(page).to have_content("6 April")
-          expect(page).to have_content("Good Friday")
+          expect(page).to have_text("The next bank holiday in England and Wales is")
+          expect(page).to have_text("6 April")
+          expect(page).to have_text("Good Friday")
         end
 
         within("#scotland .govuk-panel") do
-          expect(page).to have_content("The next bank holiday in Scotland is")
-          expect(page).to have_content("today")
-          expect(page).to have_content("New Year\u2019s Day")
+          expect(page).to have_text("The next bank holiday in Scotland is")
+          expect(page).to have_text("today")
+          expect(page).to have_text("New Year\u2019s Day")
         end
 
         within("#northern-ireland .govuk-panel") do
-          expect(page).to have_content("The next bank holiday in Northern Ireland is")
-          expect(page).to have_content("19 March")
-          expect(page).to have_content("St Patrick\u2019s Day")
+          expect(page).to have_text("The next bank holiday in Northern Ireland is")
+          expect(page).to have_text("19 March")
+          expect(page).to have_text("St Patrick\u2019s Day")
         end
       end
     end
@@ -213,8 +213,9 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("12th July 2013")) do
         visit "/bank-holidays"
 
-        expect(page).not_to have_css(".app-bunting")
-        expect(page).not_to have_css(".app-bunting--spacer")
+        expect(page).to have_css("h1", text: "UK bank holidays")
+        expect(page).to have_no_css(".app-bunting")
+        expect(page).to have_no_css(".app-bunting--spacer")
       end
     end
 
@@ -222,8 +223,9 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("3rd Feb 2012")) do
         visit "/bank-holidays"
 
-        expect(page).not_to have_css(".app-bunting")
-        expect(page).not_to have_css(".app-bunting--spacer")
+        expect(page).to have_css("h1", text: "UK bank holidays")
+        expect(page).to have_no_css(".app-bunting")
+        expect(page).to have_no_css(".app-bunting--spacer")
       end
     end
 
@@ -231,7 +233,8 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("9th April 2012")) do
         visit "/bank-holidays"
 
-        expect(page).not_to have_css(".app-bunting__tinsel")
+        expect(page).to have_css("h1", text: "UK bank holidays")
+        expect(page).to have_no_css(".app-bunting__tinsel")
       end
     end
 
@@ -239,7 +242,8 @@ RSpec.describe "BankHolidays" do
       Timecop.travel(Date.parse("2nd December 2013")) do
         visit "/bank-holidays"
 
-        expect(page).not_to have_css(".app-bunting__tinsel")
+        expect(page).to have_css("h1", text: "UK bank holidays")
+        expect(page).to have_no_css(".app-bunting__tinsel")
       end
     end
 
@@ -262,7 +266,7 @@ RSpec.describe "BankHolidays" do
     visit "/bank-holidays"
 
     within(".gem-c-metadata") do
-      expect(page).to have_content("Last updated: 12 December 2023")
+      expect(page).to have_text("Last updated: 12 December 2023")
     end
   end
 

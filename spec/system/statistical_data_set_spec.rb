@@ -53,10 +53,10 @@ RSpec.describe "Statistical Data Set" do
       it "displays the metadata at the top of the page" do
         visit base_path
 
-        within all(".gem-c-metadata")[0] do
-          expect(page).to have_content("From: Department for Business, Innovation & Skills and Skills Funding Agency")
-          expect(page).to have_content("Published: 7 November 2014")
-          expect(page).to have_content("Last updated: 9 November 2016")
+        within first(".gem-c-metadata") do
+          expect(page).to have_text("From: Department for Business, Innovation & Skills and Skills Funding Agency")
+          expect(page).to have_text("Published: 7 November 2014")
+          expect(page).to have_text("Last updated: 9 November 2016")
         end
       end
 
@@ -64,9 +64,9 @@ RSpec.describe "Statistical Data Set" do
         visit base_path
 
         within all(".gem-c-metadata")[1] do
-          expect(page).to have_content("Last updated: 9 November 2016")
-          expect(page).to have_content("7 November 2014")
-          expect(page).to have_content("Apprenticeship vacancy tables for November 2014 uploaded")
+          expect(page).to have_text("Last updated: 9 November 2016")
+          expect(page).to have_text("7 November 2014")
+          expect(page).to have_text("Apprenticeship vacancy tables for November 2014 uploaded")
         end
       end
     end
@@ -77,7 +77,7 @@ RSpec.describe "Statistical Data Set" do
       it "displays the withdrawn title" do
         visit base_path
 
-        expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+        expect(page).to have_css("title", text: "[Withdrawn]", visible: :hidden)
       end
 
       it "displays the withdrawn notice" do
@@ -86,7 +86,7 @@ RSpec.describe "Statistical Data Set" do
         within ".gem-c-notice" do
           expect(page).to have_text("This statistical data set was withdrawn"), "is withdrawn"
           expect(page).to have_text("Local area walking and cycling in England: 2014 to 2015")
-          expect(page).to have_selector("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
+          expect(page).to have_css("time[datetime='#{content_item['withdrawn_notice']['withdrawn_at']}']")
         end
       end
     end

@@ -29,7 +29,8 @@ RSpec.describe "Speech" do
     it "does not display a single page notification button" do
       visit "/government/speeches/speech-authored-article"
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_title("Britain's choice: economic security with the EU, or a leap into the dark (Archived)")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     context "when the page has history" do
@@ -40,10 +41,10 @@ RSpec.describe "Speech" do
       it "displays the metadata at the top of the page" do
         visit "/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event"
 
-        within all(".gem-c-metadata")[0] do
-          expect(page).to have_content("From: Ministry of Justice and The Rt Hon Lord McNally")
-          expect(page).to have_content("Published: 22 May 2012")
-          expect(page).to have_content("Last updated: 13 June 2012")
+        within first(".gem-c-metadata") do
+          expect(page).to have_text("From: Ministry of Justice and The Rt Hon Lord McNally")
+          expect(page).to have_text("Published: 22 May 2012")
+          expect(page).to have_text("Last updated: 13 June 2012")
         end
       end
 
@@ -51,9 +52,9 @@ RSpec.describe "Speech" do
         visit "/government/speeches/lord-mcnally-s-speaking-note-for-westminster-legal-policy-forum-event"
 
         within all(".gem-c-metadata")[2] do
-          expect(page).to have_content("Last updated: 13 June 2012")
-          expect(page).to have_content("22 May 2012")
-          expect(page).to have_content("First published.")
+          expect(page).to have_text("Last updated: 13 June 2012")
+          expect(page).to have_text("22 May 2012")
+          expect(page).to have_text("First published.")
         end
       end
     end
@@ -82,7 +83,7 @@ RSpec.describe "Speech" do
       visit "/government/speeches/withdrawn-speech"
 
       expect(page).to have_css(".govspeak", text: "This page has been withdrawn because it is out of date.")
-      expect(page).to have_content("withdrawn on 15 May 2018")
+      expect(page).to have_text("withdrawn on 15 May 2018")
     end
   end
 

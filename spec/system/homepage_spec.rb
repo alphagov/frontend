@@ -27,13 +27,13 @@ RSpec.describe "Homepage" do
     expect(page.status_code).to eq(200)
     expect(page.title).to eq("Welcome to GOV.UK")
     expect(page).to have_css(".homepage-header__title")
-    expect(page).not_to have_css(".homepage-inverse-header__title")
+    expect(page).to have_no_css(".homepage-inverse-header__title")
   end
 
   it "shows popular links" do
     visit "/"
 
-    expect(page).to have_content("Some popular links title")
+    expect(page).to have_text("Some popular links title")
   end
 
   context "when visiting a Welsh content item first" do
@@ -60,7 +60,7 @@ RSpec.describe "Homepage" do
       visit @payload[:base_path]
       visit "/"
 
-      expect(page).to have_content(I18n.t("homepage.index.government_activity_description", locale: :en))
+      expect(page).to have_text(I18n.t("homepage.index.government_activity_description", locale: :en))
     end
   end
 end

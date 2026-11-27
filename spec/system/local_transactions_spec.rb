@@ -65,7 +65,7 @@ RSpec.describe "LocalTransactions" do
 
       it "displays the page content" do
         expect(page).to have_title("Pay your bear tax")
-        expect(page).to have_content("owning or looking after a bear")
+        expect(page).to have_text("owning or looking after a bear")
         expect(page).to have_title("Pay your bear tax - GOV.UK", exact: true)
       end
 
@@ -74,11 +74,11 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "does not show a postcode error" do
-        expect(page).not_to have_selector(".location_error")
+        expect(page).to have_no_css(".location_error")
       end
 
       it "shows link to postcode_finder" do
-        expect(page).to have_selector("a#postcode-finder-link")
+        expect(page).to have_css("a#postcode-finder-link")
       end
 
       it "has the correct postcode finder button text" do
@@ -227,9 +227,9 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "adds the GA4 link tracker around the result link (information_click)" do
-        data_module = page.find("#get-started")["data-module"]
+        data_module = page.find_by_id("get-started")["data-module"]
         expected_data_module = "ga4-link-tracker"
-        ga4_link_attribute = page.find("#get-started")["data-ga4-link"]
+        ga4_link_attribute = page.find_by_id("get-started")["data-ga4-link"]
         ga4_expected_object = "{\"event_name\":\"information_click\",\"type\":\"local transaction\",\"tool_name\":\"Pay your bear tax\",\"action\":\"information click\"}"
         expect(data_module).to eq(expected_data_module)
         expect(ga4_link_attribute).to eq(ga4_expected_object)
@@ -244,15 +244,15 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "does not show the transaction information" do
-        expect(page).not_to have_content("owning or looking after a bear")
+        expect(page).to have_no_text("owning or looking after a bear")
       end
 
       it "does not show a postcode error" do
-        expect(page).not_to have_selector(".location_error")
+        expect(page).to have_no_css(".location_error")
       end
 
       it "does not show link to change location" do
-        expect(page).not_to have_link("(change location)")
+        expect(page).to have_no_link("(change location)")
       end
 
       it "adds a noindex meta tag" do
@@ -273,13 +273,13 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content(I18n.t("formats.local_transaction.valid_postcode_no_match"))
+        expect(page).to have_text(I18n.t("formats.local_transaction.valid_postcode_no_match"))
       end
 
       it "adds the GA4 auto tracker to the error (form_error event)" do
-        data_module = page.find("#error")["data-module"]
+        data_module = page.find_by_id("error")["data-module"]
         expected_data_module = "ga4-auto-tracker govuk-error-summary"
-        ga4_error_attribute = page.find("#error")["data-ga4-auto"]
+        ga4_error_attribute = page.find_by_id("error")["data-ga4-auto"]
         ga4_expected_object = "{\"event_name\":\"form_error\",\"action\":\"error\",\"type\":\"local transaction\",\"text\":\"We couldn't find this postcode.\",\"section\":\"Enter a postcode\",\"tool_name\":\"Pay your bear tax\"}"
 
         expect(data_module).to eq(expected_data_module)
@@ -300,11 +300,11 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content(I18n.t("formats.local_transaction.invalid_postcode"))
+        expect(page).to have_text(I18n.t("formats.local_transaction.invalid_postcode"))
       end
 
       it "shows the transaction information" do
-        expect(page).to have_content("owning or looking after a bear")
+        expect(page).to have_text("owning or looking after a bear")
       end
 
       it "re-populates the invalid input" do
@@ -324,7 +324,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content(I18n.t("formats.local_transaction.invalid_postcode"))
+        expect(page).to have_text(I18n.t("formats.local_transaction.invalid_postcode"))
       end
 
       it "prefixes 'Error: ' to the page title tag" do
@@ -342,7 +342,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "shows an error message" do
-        expect(page).to have_content(I18n.t("formats.local_transaction.no_local_authority"))
+        expect(page).to have_text(I18n.t("formats.local_transaction.no_local_authority"))
       end
 
       it "re-populates the invalid input" do
@@ -383,7 +383,7 @@ RSpec.describe "LocalTransactions" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays radio buttons" do
@@ -391,16 +391,16 @@ RSpec.describe "LocalTransactions" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
         end
 
         it "redirects to the correct authority when an address is chosen" do
           choose("House 2")
           click_on("Continue")
 
-          expect(page).to have_content("We’ve matched the postcode to Beechester")
+          expect(page).to have_text("We’ve matched the postcode to Beechester")
         end
 
         it "adds a noindex meta tag" do
@@ -439,7 +439,7 @@ RSpec.describe "LocalTransactions" do
         end
 
         it "prompts you to choose your address" do
-          expect(page).to have_content("Select an address")
+          expect(page).to have_text("Select an address")
         end
 
         it "displays a dropdown select" do
@@ -447,13 +447,13 @@ RSpec.describe "LocalTransactions" do
         end
 
         it "contains a list of addresses mapped to authority slugs" do
-          expect(page).to have_content("House 1")
-          expect(page).to have_content("House 2")
-          expect(page).to have_content("House 3")
-          expect(page).to have_content("House 4")
-          expect(page).to have_content("House 5")
-          expect(page).to have_content("House 6")
-          expect(page).to have_content("House 7")
+          expect(page).to have_text("House 1")
+          expect(page).to have_text("House 2")
+          expect(page).to have_text("House 3")
+          expect(page).to have_text("House 4")
+          expect(page).to have_text("House 5")
+          expect(page).to have_text("House 6")
+          expect(page).to have_text("House 7")
         end
 
         it "adds a noindex meta tag" do
@@ -476,8 +476,8 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "displays the page content" do
-        expect(page).to have_content("Pay your bear tax")
-        expect(page).to have_content("owning or looking after a bear")
+        expect(page).to have_text("Pay your bear tax")
+        expect(page).to have_text("owning or looking after a bear")
       end
 
       it "asks for a postcode" do
@@ -501,7 +501,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "shows advisory message that no interaction is available" do
-        expect(page).to have_content(I18n.t("formats.local_transaction.unknown_service"))
+        expect(page).to have_text(I18n.t("formats.local_transaction.unknown_service"))
       end
 
       it "links to the council website" do
@@ -513,7 +513,7 @@ RSpec.describe "LocalTransactions" do
       end
 
       it "does not show the transaction information" do
-        expect(page).not_to have_content("owning or looking after a bear")
+        expect(page).to have_no_text("owning or looking after a bear")
       end
     end
   end
@@ -531,7 +531,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "does not link to the authority" do
-      expect(page).not_to have_link(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"))
+      expect(page).to have_no_link(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Westminster"))
     end
 
     it "includes the search result text in the page title" do
@@ -539,16 +539,16 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "shows advisory message that we have no url" do
-      expect(page).to have_content(I18n.t("formats.local_transaction.no_website"))
+      expect(page).to have_text(I18n.t("formats.local_transaction.no_website"))
       expect(page).to have_link("local council search", href: "/find-local-council")
     end
 
     it "does not show the transaction information" do
-      expect(page).not_to have_content("owning or looking after a bear")
+      expect(page).to have_no_text("owning or looking after a bear")
     end
 
     it "does not present the form again" do
-      expect(page).not_to have_field("postcode")
+      expect(page).to have_no_field("postcode")
     end
   end
 
@@ -573,7 +573,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "renders results page for an unavailable service" do
-      expect(page).to have_content(I18n.t("formats.local_transaction.service_not_available", country_name: "Wales"))
+      expect(page).to have_text(I18n.t("formats.local_transaction.service_not_available", country_name: "Wales"))
     end
 
     it "renders matching the postcode to local authority" do
@@ -603,7 +603,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "renders results page for an unavailable service" do
-      expect(page).to have_content(I18n.t("formats.local_transaction.service_not_available", country_name: "Wales"))
+      expect(page).to have_text(I18n.t("formats.local_transaction.service_not_available", country_name: "Wales"))
     end
 
     it "renders matching the postcode to local authority" do
@@ -611,7 +611,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "does not link to the authority" do
-      expect(page).not_to have_link(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Cardiff"))
+      expect(page).to have_no_link(I18n.t("formats.local_transaction.local_authority_website", local_authority_name: "Cardiff"))
     end
 
     it "shows advisory message that we have no url" do
@@ -640,7 +640,7 @@ RSpec.describe "LocalTransactions" do
     end
 
     it "renders results page for a devolved administration service" do
-      expect(page).to have_content(I18n.t("formats.local_transaction.info_on_country_website.scotland"))
+      expect(page).to have_text(I18n.t("formats.local_transaction.info_on_country_website.scotland"))
     end
 
     it "shows a button that links to an alternate service provider" do
@@ -663,8 +663,8 @@ RSpec.describe "LocalTransactions" do
       load Rails.root.join("config/initializers/maintenance.rb")
       visit "/pay-bear-tax"
 
-      expect(page).not_to have_field("postcode")
       expect(page).to have_text("System is undergoing maintenance and will be back shortly")
+      expect(page).to have_no_field("postcode")
     end
   end
 

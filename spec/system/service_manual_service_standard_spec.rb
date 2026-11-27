@@ -18,19 +18,19 @@ RSpec.describe "Service manual service standard page" do
 
       within(points[0]) do
         expect(page).to have_text("1. Understand user needs")
-        expect(page).to have_content(/Research to develop a deep knowledge/), "Description not found"
+        expect(page).to have_text(/Research to develop a deep knowledge/), "Description not found"
         expect(page).to have_link("Read more about point 1", href: "/service-manual/service-standard/understand-user-needs"), "Link not found"
       end
 
       within(points[1]) do
         expect(page).to have_text("2. Do ongoing user research")
-        expect(page).to have_content(/Put a plan in place/), "Description not found"
+        expect(page).to have_text(/Put a plan in place/), "Description not found"
         expect(page).to have_link("Read more about point 2", href: "/service-manual/service-standard/do-ongoing-user-research"), "Link not found"
       end
 
       within(points[2]) do
         expect(page).to have_text("3. Have a multidisciplinary team")
-        expect(page).to have_content(/Put in place a sustainable multidisciplinary/), "Description not found"
+        expect(page).to have_text(/Put in place a sustainable multidisciplinary/), "Description not found"
         expect(page).to have_link("Read more about point 3", href: "/service-manual/service-standard/have-a-multidisciplinary-team"), "Link not found"
       end
     end

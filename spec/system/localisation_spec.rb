@@ -9,14 +9,14 @@ RSpec.describe "Localisation" do
 
   describe "direction-rtl class" do
     it "does not have .direction-rtl on the .govuk-main-wrapper element" do
-      expect(page).not_to have_selector(".govuk-main-wrapper.direction-rtl")
+      expect(page).to have_no_css(".govuk-main-wrapper.direction-rtl")
     end
 
     context "when viewing a page in an RTL language" do
       let(:content_item) { GovukSchemas::Example.find(:news_article, example_name: "news_article_news_story_translated_arabic") }
 
       it "has .direction-rtl on the .govuk-main-wrapper element" do
-        expect(page).to have_selector(".govuk-main-wrapper.direction-rtl")
+        expect(page).to have_css(".govuk-main-wrapper.direction-rtl")
       end
     end
   end

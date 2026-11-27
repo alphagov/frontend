@@ -51,7 +51,7 @@ RSpec.describe "CorporateInformationPage" do
 
       it "does not displays H3s in the list" do
         within(".gem-c-contents-list-with-body") do
-          expect(page).not_to have_link("Audit and risk committee meetings", href: "#audit-and-risk-committee-meetings")
+          expect(page).to have_no_link("Audit and risk committee meetings", href: "#audit-and-risk-committee-meetings")
         end
       end
     end
@@ -107,13 +107,13 @@ RSpec.describe "CorporateInformationPage" do
 
     it "does not displays H2 link in contents list" do
       within(".gem-c-contents-list-with-body") do
-        expect(page).not_to have_link("Corporate information", href: "#corporate-information")
+        expect(page).to have_no_link("Corporate information", href: "#corporate-information")
       end
     end
 
     it "does not displays H2 in content" do
       within(".gem-c-govspeak") do
-        expect(page).not_to have_css("h2", text: "Corporate information", id: "corporate-information")
+        expect(page).to have_no_css("h2", text: "Corporate information", id: "corporate-information")
       end
     end
   end
@@ -149,7 +149,7 @@ RSpec.describe "CorporateInformationPage" do
     context "when there are no headings in the body" do
       it "does not display a contents list" do
         within(".gem-c-contents-list-with-body") do
-          expect(page).not_to have_css("h2", text: "Contents")
+          expect(page).to have_no_css("h2", text: "Contents")
         end
       end
     end

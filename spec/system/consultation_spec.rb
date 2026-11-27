@@ -14,22 +14,22 @@ RSpec.describe "Consultation" do
     end
 
     it "does not render the lead paragraph" do
-      expect(page).not_to have_css("gem-c-lead-paragraph")
+      expect(page).to have_no_css("gem-c-lead-paragraph")
     end
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
-        expect(page).to have_content("From: Department for Education")
-        expect(page).to have_content("Published: 4 November 2016")
-        expect(page).to have_content("Last updated: 7 November 2016")
+      within first(".gem-c-metadata") do
+        expect(page).to have_text("From: Department for Education")
+        expect(page).to have_text("Published: 4 November 2016")
+        expect(page).to have_text("Last updated: 7 November 2016")
       end
     end
 
     it "displays the page history at the bottom of the page" do
       within all(".gem-c-metadata")[1] do
-        expect(page).to have_content("Last updated: 7 November 2016")
-        expect(page).to have_content("7 November 2011")
-        expect(page).to have_content("Added sub-topic tag.")
+        expect(page).to have_text("Last updated: 7 November 2016")
+        expect(page).to have_text("7 November 2011")
+        expect(page).to have_text("Added sub-topic tag.")
       end
     end
 
@@ -52,12 +52,12 @@ RSpec.describe "Consultation" do
       visit base_path
 
       within(".gem-c-notice__title") do
-        expect(page).to have_content("This was first published under the #{content_store_response.dig('details', 'government', 'title')}")
+        expect(page).to have_text("This was first published under the #{content_store_response.dig('details', 'government', 'title')}")
       end
     end
 
     it "does not display the history notice if government information is not available" do
-      expect(page).not_to have_css(".gem-c-notice__title")
+      expect(page).to have_no_css(".gem-c-notice__title")
     end
 
     context "when it displays the blue summary box" do
@@ -82,7 +82,7 @@ RSpec.describe "Consultation" do
 
     it "displays the document description" do
       expect(page).to have_css("h2", text: "Consultation description")
-      expect(page).to have_content("We are seeking external views on a postgraduate doctoral loan.")
+      expect(page).to have_text("We are seeking external views on a postgraduate doctoral loan.")
     end
 
     it "displays the national applicability banner if national information is available" do
@@ -107,7 +107,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display the national applicability banner if national information is unavailable" do
-      expect(page).not_to have_css(".gem-c-devolved-nations")
+      expect(page).to have_no_css(".gem-c-devolved-nations")
     end
 
     context "when document attachments are available" do
@@ -135,7 +135,7 @@ RSpec.describe "Consultation" do
         within("#documents") do
           attachments = page.find_all(".gem-c-attachment")
 
-          expect(attachments[0]).to have_content("Request an accessible format")
+          expect(attachments[0]).to have_text("Request an accessible format")
         end
       end
 
@@ -148,7 +148,7 @@ RSpec.describe "Consultation" do
         within "#documents" do
           attachments = page.find_all(".gem-c-attachment")
 
-          expect(attachments[0]).not_to have_content("Request an accessible format")
+          expect(attachments[0]).to have_no_text("Request an accessible format")
         end
       end
 
@@ -161,7 +161,7 @@ RSpec.describe "Consultation" do
         within "#documents" do
           attachments = page.find_all(".gem-c-attachment")
 
-          expect(attachments[0]).not_to have_content("Request an accessible format")
+          expect(attachments[0]).to have_no_text("Request an accessible format")
         end
       end
 
@@ -199,7 +199,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays the email address" do
-        expect(page).to have_css("a[href='mailto:po.consultation@ukgi.gov.uk']", text: "po.consultation@ukgi.gov.uk")
+        expect(page).to have_link("po.consultation@ukgi.gov.uk", href: "mailto:po.consultation@ukgi.gov.uk")
       end
 
       it "displays the postal address formatted with line breaks" do
@@ -207,7 +207,7 @@ RSpec.describe "Consultation" do
       end
 
       it "displays the response form" do
-        expect(page).to have_css("a[href='https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx']", text: "response form")
+        expect(page).to have_link("response form", href: "https://www.gov.uk/government/uploads/system/uploads/consultation_response_form_data/file/533/beis-16-36rf-post-office-network-consultation-response-form.docx")
       end
     end
 
@@ -237,7 +237,8 @@ RSpec.describe "Consultation" do
         stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
-        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+        expect(page).to have_css("h1", text: "Postgraduate doctoral loans")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
 
       it "does not render the button on exempt pages" do
@@ -245,7 +246,8 @@ RSpec.describe "Consultation" do
         stub_content_store_has_item("/government/consultations/postgraduate-doctoral-loans", content_store_response)
         visit "/government/consultations/postgraduate-doctoral-loans"
 
-        expect(page).not_to have_css(".gem-c-single-page-notification-button")
+        expect(page).to have_css("h1", text: "Postgraduate doctoral loans")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end
   end
@@ -261,7 +263,7 @@ RSpec.describe "Consultation" do
 
     it "displays the consultation status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Open consultation")
+        expect(page).to have_text("Open consultation")
       end
     end
 
@@ -289,7 +291,7 @@ RSpec.describe "Consultation" do
 
     it "displays the consultation status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Consultation")
+        expect(page).to have_text("Consultation")
       end
     end
 
@@ -338,7 +340,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -353,7 +355,7 @@ RSpec.describe "Consultation" do
 
     it "displays the consultation status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Closed consultation")
+        expect(page).to have_text("Closed consultation")
       end
     end
 
@@ -393,7 +395,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -408,7 +410,7 @@ RSpec.describe "Consultation" do
 
     it "displays the consultation status" do
       within(".gem-c-heading__context") do
-        expect(page).to have_content("Consultation outcome")
+        expect(page).to have_text("Consultation outcome")
       end
     end
 
@@ -420,7 +422,7 @@ RSpec.describe "Consultation" do
 
     it "does not display a description in the notice banner" do
       within(".gem-c-notice") do
-        expect(page).not_to have_css(".gem-c-notice__description")
+        expect(page).to have_no_css(".gem-c-notice__description")
       end
     end
 
@@ -429,7 +431,7 @@ RSpec.describe "Consultation" do
     end
 
     it "displays the outcome detail" do
-      expect(page).to have_content(content_store_response["details"]["final_outcome_detail"])
+      expect(page).to have_text(content_store_response["details"]["final_outcome_detail"])
     end
 
     context "when it displays the blue summary box" do
@@ -502,7 +504,7 @@ RSpec.describe "Consultation" do
     end
 
     it "does not display ways to respond" do
-      expect(page).not_to have_css("h2.gem-c-heading__text", text: "Ways to respond")
+      expect(page).to have_no_css("h2.gem-c-heading__text", text: "Ways to respond")
     end
   end
 
@@ -516,14 +518,14 @@ RSpec.describe "Consultation" do
     end
 
     it "displays the withdrawn title" do
-      expect(page).to have_selector("title", text: "[Withdrawn]", visible: :hidden)
+      expect(page).to have_css("title", text: "[Withdrawn]", visible: :hidden)
     end
 
     it "displays the withdrawn notice" do
       within ".gem-c-notice" do
         expect(page).to have_text("This consultation was withdrawn")
         expect(page).to have_text("It has been superseded by")
-        expect(page).to have_selector("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
+        expect(page).to have_css("time[datetime='#{content_store_response['withdrawn_notice']['withdrawn_at']}']")
       end
     end
   end

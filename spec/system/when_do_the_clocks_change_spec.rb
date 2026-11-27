@@ -11,17 +11,17 @@ RSpec.describe "When Do The Clocks Change" do
     visit "/when-do-the-clocks-change"
 
     within("head", visible: :hidden) do
-      expect(page).to have_selector("title", text: "When do the clocks change? - GOV.UK", visible: :hidden)
+      expect(page).to have_css("title", text: "When do the clocks change? - GOV.UK", visible: :hidden)
       desc = page.find("meta[name=description]", visible: :hidden)
 
       expect(desc["content"]).to eq("Dates when the clocks go back or forward - includes British Summer Time, Greenwich Mean Time")
-      expect(page).to have_selector("link[rel=alternate][type='application/json'][href='/when-do-the-clocks-change/united-kingdom.json']", visible: :hidden)
-      expect(page).to have_selector("link[rel=alternate][type='text/calendar'][href='/when-do-the-clocks-change/united-kingdom.ics']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='application/json'][href='/when-do-the-clocks-change/united-kingdom.json']", visible: :hidden)
+      expect(page).to have_css("link[rel=alternate][type='text/calendar'][href='/when-do-the-clocks-change/united-kingdom.ics']", visible: :hidden)
     end
 
     within("#content") do
       within(".gem-c-heading") do
-        expect(page).to have_content("When do the clocks change?")
+        expect(page).to have_text("When do the clocks change?")
       end
 
       within("article") do
@@ -46,8 +46,8 @@ RSpec.describe "When Do The Clocks Change" do
       visit "/when-do-the-clocks-change"
 
       within(".govuk-panel") do
-        expect(page).to have_content("The clocks go forward")
-        expect(page).to have_content("31 March")
+        expect(page).to have_text("The clocks go forward")
+        expect(page).to have_text("31 March")
       end
     end
 
@@ -55,8 +55,8 @@ RSpec.describe "When Do The Clocks Change" do
       visit "/when-do-the-clocks-change"
 
       within(".govuk-panel") do
-        expect(page).to have_content("The clocks go back")
-        expect(page).to have_content("27 October")
+        expect(page).to have_text("The clocks go back")
+        expect(page).to have_text("27 October")
       end
     end
   end
@@ -65,7 +65,7 @@ RSpec.describe "When Do The Clocks Change" do
     visit "/when-do-the-clocks-change"
 
     within(".gem-c-metadata") do
-      expect(page).to have_content("Last updated: 1 January 2024")
+      expect(page).to have_text("Last updated: 1 January 2024")
     end
   end
 end

@@ -62,7 +62,8 @@ RSpec.describe "Specialist Document" do
         stub_content_store_has_item(base_path, content_store_response)
         visit base_path
 
-        expect(page).not_to have_css(".important-metadata")
+        expect(page).to have_css("h1", text: content_store_response["title"])
+        expect(page).to have_no_css(".important-metadata")
       end
 
       it "displays text facets" do
@@ -127,7 +128,7 @@ RSpec.describe "Specialist Document" do
 
           within(".gem-c-metadata__definition") do
             expect(page).to have_text("Medical device alert")
-            expect(page).not_to have_link("Medical device alert", href: "/drug-device-alerts%5B%5D=devices")
+            expect(page).to have_no_link("Medical device alert", href: "/drug-device-alerts%5B%5D=devices")
           end
         end
       end
@@ -155,7 +156,8 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
-        expect(page).not_to have_css(".gem-c-contents-list")
+        expect(page).to have_css("h1", text: content_store_response["title"])
+        expect(page).to have_no_css(".gem-c-contents-list")
       end
 
       it "renders the contents list when show_table_of_contents is true" do
@@ -189,7 +191,7 @@ RSpec.describe "Specialist Document" do
 
         visit base_path
 
-        within all(".gem-c-metadata")[0] do
+        within first(".gem-c-metadata") do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
           expect(page).to have_text("Published: 3 October 2024")
           expect(page).to have_text("Last updated: 7 February 2025")
@@ -225,14 +227,15 @@ RSpec.describe "Specialist Document" do
         within ".gem-c-metadata" do
           expect(page).to have_link(organisation["title"], href: organisation["base_path"])
           expect(page).to have_text("Published: 15 October 2020")
-          expect(page).not_to have_text("Last updated: 15 October 2020")
+          expect(page).to have_no_text("Last updated: 15 October 2020")
         end
       end
 
       it "does not display change history" do
         visit base_path
 
-        expect(page).not_to have_css(".gem-c-published-dates__change-history")
+        expect(page).to have_css("h1", text: content_store_response["title"])
+        expect(page).to have_no_css(".gem-c-published-dates__change-history")
       end
     end
 
@@ -267,7 +270,8 @@ RSpec.describe "Specialist Document" do
     it "does not render with the single page notification button" do
       visit base_path
 
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_css("h1", text: content_store_response["title"])
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
   end
 end

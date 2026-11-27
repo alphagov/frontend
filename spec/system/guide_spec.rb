@@ -25,7 +25,7 @@ RSpec.describe "Guide" do
 
       expect(page).to have_css(".gem-c-contents-list li", count: parts_size)
       expect(page).to have_css(".gem-c-contents-list li", text: content_store_response["details"]["parts"].first["title"])
-      expect(page).not_to have_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
+      expect(page).to have_no_css(".gem-c-contents-list li a", text: content_store_response["details"]["parts"].first["title"])
 
       content_store_response["details"]["parts"][1..parts_size].each do |part|
         expect(page).to have_css(".gem-c-contents-list li a[href*=\"#{part['slug']}\"]", text: part["title"])
@@ -53,8 +53,8 @@ RSpec.describe "Guide" do
       let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "single-page-guide") }
 
       it "doesn't show part navigation, print link, or part title" do
-        expect(page).not_to have_css("h1", text: content_store_response["details"]["parts"].first["title"])
-        expect(page).not_to have_css(".gem-c-print-link")
+        expect(page).to have_no_css("h1", text: content_store_response["details"]["parts"].first["title"])
+        expect(page).to have_no_css(".gem-c-print-link")
       end
     end
 
@@ -75,20 +75,20 @@ RSpec.describe "Guide" do
         let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "guide-with-step-navs-and-hide-navigation") }
 
         it "replaces the guide title with the part title" do
-          expect(page).not_to have_css("h1", text: content_store_response["title"])
+          expect(page).to have_no_css("h1", text: content_store_response["title"])
           expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
         end
 
         it "does not show guide navigation or print link" do
-          expect(page).not_to have_css(".govuk-pagination")
-          expect(page).not_to have_css(".govuk-link.govuk-link--no-visited-state[href$='/print']")
+          expect(page).to have_no_css(".govuk-pagination")
+          expect(page).to have_no_css(".govuk-link.govuk-link--no-visited-state[href$='/print']")
         end
 
         context "when in a single-page guide" do
           let(:content_store_response) { GovukSchemas::Example.find("guide", example_name: "single-page-guide-with-step-navs-and-hide-navigation") }
 
           it "replaces the guide title with the part title" do
-            expect(page).not_to have_css("h1", text: content_store_response["title"])
+            expect(page).to have_no_css("h1", text: content_store_response["title"])
             expect(page).to have_css("h1", text: content_store_response["details"]["parts"][0]["title"])
           end
         end
@@ -126,7 +126,7 @@ RSpec.describe "Guide" do
       end
 
       it "appends draft access tokens to part links within navigation" do
-        expect(page).to have_selector('.gem-c-contents-list a[href$="?token=some_token"]')
+        expect(page).to have_css('.gem-c-contents-list a[href$="?token=some_token"]')
       end
     end
   end
@@ -178,14 +178,15 @@ RSpec.describe "Guide" do
       with_variant(PostalVoteVideo: "A") do
         visit "/how-to-vote/postal-voting"
 
-        expect(page).not_to have_link("How does postal voting work?", href: youtube_url)
-        expect(page).not_to have_css("h2", text: "How does postal voting work?")
-        expect(page).not_to have_content("This video explains what postal voting is")
-        expect(page).not_to have_css(".govuk-details__summary", text: "Transcript")
-        expect(page).to have_content("You must apply for a postal vote")
-        expect(page).to have_content("This content comes from Publisher and must remain unchanged.")
+        expect(page).to have_css("h1", text: "How to vote")
+        expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
+        expect(page).to have_no_css("h2", text: "How does postal voting work?")
+        expect(page).to have_no_text("This video explains what postal voting is")
+        expect(page).to have_no_css(".govuk-details__summary", text: "Transcript")
+        expect(page).to have_text("You must apply for a postal vote")
+        expect(page).to have_text("This content comes from Publisher and must remain unchanged.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
-        expect(page).not_to have_css(".app-c-postal-vote-video")
+        expect(page).to have_no_css(".app-c-postal-vote-video")
       end
     end
 
@@ -195,8 +196,8 @@ RSpec.describe "Guide" do
 
         expect(page).to have_link("How does postal voting work?", href: youtube_url)
         expect(page).to have_css("h2#what-is-a-postal-vote", text: "How does postal voting work?")
-        expect(page).to have_content("This video explains what postal voting is")
-        expect(page).to have_content("GOV.UK • 1 minute 48 seconds")
+        expect(page).to have_text("This video explains what postal voting is")
+        expect(page).to have_text("GOV.UK • 1 minute 48 seconds")
         expect(page).to have_css(".app-c-postal-vote-video .govuk-details__summary", text: "Transcript")
         expect(page).to have_css(
           ".app-c-postal-vote-video .govuk-details__text",
@@ -208,9 +209,9 @@ RSpec.describe "Guide" do
           text: "To apply, search ‘apply postal vote’ on GOV.UK.",
           visible: :all,
         )
-        expect(page).to have_content("You must apply for a postal vote")
-        expect(page).to have_content("This content comes from Publisher and must remain unchanged.")
-        expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+        expect(page).to have_text("You must apply for a postal vote")
+        expect(page).to have_text("This content comes from Publisher and must remain unchanged.")
+        expect(page).to have_no_css(".gem-c-govspeak.js-disable-youtube")
         expect(page).to have_css(".app-c-postal-vote-video")
       end
     end
@@ -219,14 +220,14 @@ RSpec.describe "Guide" do
       with_variant(PostalVoteVideo: "Z") do
         visit "/how-to-vote/postal-voting"
 
-        expect(page).not_to have_link("How does postal voting work?", href: youtube_url)
-        expect(page).not_to have_css("h2", text: "How does postal voting work?")
-        expect(page).not_to have_content("This video explains what postal voting is")
-        expect(page).not_to have_css(".govuk-details__summary", text: "Transcript")
-        expect(page).to have_content("You must apply for a postal vote")
-        expect(page).to have_content("This content comes from Publisher and must remain unchanged.")
+        expect(page).to have_text("You must apply for a postal vote")
+        expect(page).to have_text("This content comes from Publisher and must remain unchanged.")
         expect(page).to have_css(".gem-c-govspeak.js-disable-youtube")
-        expect(page).not_to have_css(".app-c-postal-vote-video")
+        expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
+        expect(page).to have_no_css("h2", text: "How does postal voting work?")
+        expect(page).to have_no_text("This video explains what postal voting is")
+        expect(page).to have_no_css(".govuk-details__summary", text: "Transcript")
+        expect(page).to have_no_css(".app-c-postal-vote-video")
       end
     end
 
@@ -243,11 +244,11 @@ RSpec.describe "Guide" do
         text: "A postal vote allows you to vote without having to visit a polling station.",
         visible: :all,
       )
-      expect(page).to have_content("You must apply for a postal vote")
-      expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
+      expect(page).to have_text("You must apply for a postal vote")
+      expect(page).to have_no_css(".gem-c-govspeak.js-disable-youtube")
       expect(page).to have_css(".app-c-postal-vote-video")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
-      expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
+      expect(page).to have_no_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
     end
 
     it "does not add hardcoded content or apply the A/B test on other guide pages" do
@@ -256,13 +257,13 @@ RSpec.describe "Guide" do
       visit "/how-to-vote"
 
       expect(page).to have_link("Video on another guide page", href: other_youtube_url)
-      expect(page).to have_content("This content belongs to another guide page.")
-      expect(page).not_to have_link("How does postal voting work?", href: youtube_url)
-      expect(page).not_to have_css("h2", text: "How does postal voting work?")
-      expect(page).not_to have_css(".app-c-postal-vote-video")
-      expect(page).not_to have_css(".govuk-details__summary", text: "Transcript")
+      expect(page).to have_text("This content belongs to another guide page.")
+      expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
+      expect(page).to have_no_css("h2", text: "How does postal voting work?")
+      expect(page).to have_no_css(".app-c-postal-vote-video")
+      expect(page).to have_no_css(".govuk-details__summary", text: "Transcript")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
-      expect(page).not_to have_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
+      expect(page).to have_no_css('meta[name="govuk:ab-test"][content^="PostalVoteVideo:"]', visible: :all)
     end
 
     it "does not add the hardcoded content to the printable guide" do
@@ -270,10 +271,10 @@ RSpec.describe "Guide" do
 
       visit "/how-to-vote/print"
 
-      expect(page).not_to have_link("How does postal voting work?", href: youtube_url)
-      expect(page).not_to have_css("h2", text: "How does postal voting work?")
-      expect(page).not_to have_css(".app-c-postal-vote-video")
-      expect(page).to have_content("You must apply for a postal vote")
+      expect(page).to have_text("You must apply for a postal vote")
+      expect(page).to have_no_link("How does postal voting work?", href: youtube_url)
+      expect(page).to have_no_css("h2", text: "How does postal voting work?")
+      expect(page).to have_no_css(".app-c-postal-vote-video")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
     end
   end
@@ -304,10 +305,10 @@ RSpec.describe "Guide" do
 
     it "preserves its existing video behaviour without adding postal vote content" do
       expect(page).to have_link("Child Benefit video", href: youtube_url)
-      expect(page).not_to have_link("How does postal voting work?", href: "https://www.youtube.com/watch?v=Abl8WliyXSc")
-      expect(page).not_to have_css(".gem-c-govspeak.js-disable-youtube")
-      expect(page).not_to have_css(".app-c-postal-vote-video")
-      expect(page).not_to have_css(".govuk-details__summary", text: "Transcript")
+      expect(page).to have_no_link("How does postal voting work?", href: "https://www.youtube.com/watch?v=Abl8WliyXSc")
+      expect(page).to have_no_css(".gem-c-govspeak.js-disable-youtube")
+      expect(page).to have_no_css(".app-c-postal-vote-video")
+      expect(page).to have_no_css(".govuk-details__summary", text: "Transcript")
       assert_response_not_modified_for_ab_test("PostalVoteVideo")
     end
   end

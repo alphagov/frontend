@@ -16,9 +16,9 @@ RSpec.describe "Document Collection Email Notifications" do
     it "renders a signup link" do
       visit base_path
 
-      expect(page).to have_selector(".gem-c-signup-link")
+      expect(page).to have_css(".gem-c-signup-link")
       expect(page).to have_link(href: "/email-signup/confirm?topic=#{taxonomy_topic_base_path}")
-      expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     context "and when the page is not in english" do
@@ -32,7 +32,8 @@ RSpec.describe "Document Collection Email Notifications" do
       it "does not render the signup link" do
         visit base_path
 
-        expect(page).not_to have_selector(".gem-c-signup-link")
+        expect(page).to have_css("h1", text: "National standards for driving and riding")
+        expect(page).to have_no_css(".gem-c-signup-link")
       end
     end
   end
@@ -104,7 +105,8 @@ RSpec.describe "Document Collection Email Notifications" do
       it "does not render the single page notification button" do
         visit base_path
 
-        expect(page).not_to have_selector(".gem-c-single-page-notification-button")
+        expect(page).to have_css("h1", text: "National standards for driving and riding")
+        expect(page).to have_no_css(".gem-c-single-page-notification-button")
       end
     end
   end

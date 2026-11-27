@@ -33,7 +33,7 @@ RSpec.describe "News Article" do
   end
 
   it "does not render with the single page notification button" do
-    expect(page).not_to have_css(".gem-c-single-page-notification-button")
+    expect(page).to have_no_css(".gem-c-single-page-notification-button")
   end
 
   context "when the page has history" do
@@ -41,18 +41,18 @@ RSpec.describe "News Article" do
     let!(:content_item) { content_store_has_example_item(base_path, schema: :news_article, example: "best-practice-event") }
 
     it "displays the metadata at the top of the page" do
-      within all(".gem-c-metadata")[0] do
-        expect(page).to have_content("From: Centre for Defence Enterprise and Defence Science and Technology Laboratory")
-        expect(page).to have_content("Published: 25 March 2015")
-        expect(page).to have_content("Last updated: 13 July 2015")
+      within first(".gem-c-metadata") do
+        expect(page).to have_text("From: Centre for Defence Enterprise and Defence Science and Technology Laboratory")
+        expect(page).to have_text("Published: 25 March 2015")
+        expect(page).to have_text("Last updated: 13 July 2015")
       end
     end
 
     it "displays the page history at the bottom of the page" do
       within all(".gem-c-metadata")[1] do
-        expect(page).to have_content("Last updated: 13 July 2015")
-        expect(page).to have_content("30 April 2015")
-        expect(page).to have_content("Change of venue")
+        expect(page).to have_text("Last updated: 13 July 2015")
+        expect(page).to have_text("30 April 2015")
+        expect(page).to have_text("Change of venue")
       end
     end
   end

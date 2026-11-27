@@ -21,11 +21,11 @@ RSpec.describe "Get Involved" do
     end
 
     it "includes the correct number of open consultations" do
-      expect(page).to have_selector(".gem-c-big-number", text: /83.+Open consultations/m)
+      expect(page).to have_css(".gem-c-big-number", text: /83.+Open consultations/m)
     end
 
     it "includes the correct number of closed consultations" do
-      expect(page).to have_selector(".gem-c-big-number", text: /110.+Closed consultations/m)
+      expect(page).to have_css(".gem-c-big-number", text: /110.+Closed consultations/m)
     end
 
     it "includes the next closing consultation" do
@@ -33,7 +33,7 @@ RSpec.describe "Get Involved" do
     end
 
     it "does not display a single page notification button" do
-      expect(page).not_to have_css(".gem-c-single-page-notification-button")
+      expect(page).to have_no_css(".gem-c-single-page-notification-button")
     end
 
     it "shows date of last update" do

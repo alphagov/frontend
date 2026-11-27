@@ -19,14 +19,23 @@ WebMock.disable_net_connect!(allow_localhost: true)
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 GovukTest.configure
-Capybara.register_driver :headless_chrome do |app|
-  options = Selenium::WebDriver::Options.chrome(
-    browser_version: "157",
-    "goog:loggingPrefs": { browser: "ALL" },
-  )
-  options.add_argument("--headless=new")
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+
+module ClearStorageWithoutWildcardOrigin
+private
+
+  def execute_cdp(cmd, params = {})
+    return super unless cmd == "Storage.clearDataForOrigin" && params[:origin] == "*"
+
+    types = params[:storageTypes].to_s.split(",")
+    super("Network.clearBrowserCookies") if types.delete("cookies")
+
+    origin = Capybara.current_session.server&.base_url
+    return unless origin && types.any?
+
+    super(cmd, params.merge(origin: origin, storageTypes: types.join(",")))
+  end
 end
+Capybara::Selenium::Driver::ChromeDriver.prepend(ClearStorageWithoutWildcardOrigin)
 
 GovukAbTesting.configure do |config|
   config.acceptance_test_framework = :capybara

@@ -537,10 +537,10 @@ RSpec.describe "LicenceTransaction" do
 
     context "when visiting the licence with a postcode that has no local authority" do
       before do
-        stub_locations_api_has_location("XM4 5HQ", [{ "local_custodian_code" => 123 }])
+        stub_locations_api_has_location("AB1 2DE", [{ "local_custodian_code" => 123 }])
         stub_local_links_manager_does_not_have_a_custodian_code(123)
         visit "/find-licences/licence-to-kill"
-        fill_in("postcode", with: "XM4 5HQ")
+        fill_in("postcode", with: "AB1 2DE")
         click_on("Find your local council")
       end
 
@@ -557,7 +557,7 @@ RSpec.describe "LicenceTransaction" do
       end
 
       it "re-populates the invalid input" do
-        expect(page).to have_field("postcode", with: "XM4 5HQ")
+        expect(page).to have_field("postcode", with: "AB1 2DE")
       end
     end
 

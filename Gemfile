@@ -22,7 +22,6 @@ gem "rails_translation_manager"
 gem "rinku", "~> 2.0", require: "rails_rinku"
 gem "sprockets-rails"
 gem "terser"
-gem "uk_postcode"
 
 group :development do
   gem "better_errors"

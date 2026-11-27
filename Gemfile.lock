@@ -766,7 +766,6 @@ GEM
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uk_postcode (2.1.8)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
@@ -832,7 +831,6 @@ DEPENDENCIES
   sprockets-rails
   terser
   timecop
-  uk_postcode
   webmock
 
 RUBY VERSION

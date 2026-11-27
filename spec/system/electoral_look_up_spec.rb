@@ -124,11 +124,11 @@ RSpec.describe "ElectoralLookUp" do
 
   describe "API errors" do
     context "when the API returns 404" do
-      before { stub_api_postcode_lookup("XM45HQ", status: 404) }
+      before { stub_api_postcode_lookup("AB12DE", status: 404) }
 
       it "displays unfindable postcode message" do
         with_electoral_api_url do
-          search_for(postcode: "XM4 5HQ")
+          search_for(postcode: "AB1 2DE")
 
           expect(page).to have_text(
             "We couldn't find this postcode",

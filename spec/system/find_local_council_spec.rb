@@ -392,9 +392,9 @@ RSpec.describe "FindLocalCouncil" do
 
       context "when no local council is found" do
         before do
-          stub_locations_api_has_no_location("XM4 5HQ")
+          stub_locations_api_has_no_location("AB1 2DE")
           visit "/find-local-council"
-          fill_in("postcode", with: "XM4 5HQ")
+          fill_in("postcode", with: "AB1 2DE")
           click_on("Find")
         end
 

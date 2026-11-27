@@ -1,5 +1,3 @@
-require "postcode_sanitizer"
-
 class FindLocalCouncilController < ContentItemsController
   include Cacheable
 
@@ -16,7 +14,7 @@ class FindLocalCouncilController < ContentItemsController
   def find
     @content_item_presenter = FindLocalCouncilPresenter.new(content_item)
     # get location info, raising a LocationError if there's a problem
-    postcode_lookup = PostcodeLookup.new(postcode)
+    postcode_lookup = PostcodeLookup.new(params[:postcode])
 
     if postcode_lookup.local_custodian_codes.count == 1
       # if location simple, look up authority details and redirect there.
@@ -29,6 +27,7 @@ class FindLocalCouncilController < ContentItemsController
     end
   rescue LocationError => e
     @location_error = e
+    @postcode = params[:postcode]
     render :index
   end
 
@@ -56,9 +55,5 @@ private
 
   def content_item_path
     BASE_PATH
-  end
-
-  def postcode
-    @postcode ||= PostcodeSanitizer.sanitize(params[:postcode])
   end
 end

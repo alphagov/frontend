@@ -1,61 +1,37 @@
 RSpec.describe Uprn do
-  describe "#valid?" do
-    it "fails uprns with non-numerical characters" do
-      subject = described_class.new("1234-34")
+  subject(:uprn) { described_class.new(uprn_string) }
 
-      expect(subject.valid?).to be false
+  let(:uprn_string) { " 012345678910 " }
+
+  describe "<initialisation>" do
+    context "when the uprn is empty" do
+      let(:uprn_string) { nil }
+
+      it "raises an InvalidUprnError" do
+        expect { uprn }.to raise_error(Uprn::InvalidUprnError)
+      end
     end
 
-    it "fails uprns that are too long" do
-      subject = described_class.new("12345678910110")
+    context "when the uprn is too long" do
+      let(:uprn_string) { "12345678910110" }
 
-      expect(subject.valid?).to be false
+      it "raises an InvalidUprnError" do
+        expect { uprn }.to raise_error(Uprn::InvalidUprnError)
+      end
     end
 
-    it "passes valid uprns - some digits" do
-      subject = described_class.new("12345")
+    context "when the uprn is invalid" do
+      let(:uprn_string) { "1234-5678" }
 
-      expect(subject.valid?).to be true
-    end
-
-    it "passes valid uprns - 12 digits" do
-      subject = described_class.new("012345678910")
-
-      expect(subject.valid?).to be true
-    end
-
-    it "passes valid uprns - ignoring whitespace" do
-      subject = described_class.new(" 012345678910 ")
-
-      expect(subject.valid?).to be true
+      it "raises an InvalidUprnError" do
+        expect { uprn }.to raise_error(Uprn::InvalidUprnError)
+      end
     end
   end
 
-  describe "#sanitized_uprn" do
-    it "trims surrounding whitespace" do
-      subject = described_class.new(" 123456789 ")
-
-      expect(subject.sanitized_uprn).to eq("123456789")
-    end
-  end
-
-  describe "#error" do
-    it "returns nil for a valid Uprn" do
-      subject = described_class.new("012345678910")
-
-      expect(subject.error).to be_nil
-    end
-
-    it "detects empty uprn as invalid" do
-      subject = described_class.new("    ")
-
-      expect(subject.error).to eq("invalidUprnFormat")
-    end
-
-    it "detects invalid uprn" do
-      subject = described_class.new("Also invalid")
-
-      expect(subject.error).to eq("invalidUprnFormat")
+  describe "#to_s" do
+    it "returns the uprn trimmed" do
+      expect(uprn.to_s).to eq("012345678910")
     end
   end
 end

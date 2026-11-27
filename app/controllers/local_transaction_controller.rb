@@ -25,6 +25,10 @@ class LocalTransactionController < ContentItemsController
     @change_path = local_transaction_search_path(slug: params[:slug])
     @onward_path = local_transaction_multiple_authorities_path(slug: params[:slug])
     render :multiple_authorities
+  rescue Postcode::InvalidPostcodeError
+    @location_error = LocationError.new(INVALID_POSTCODE)
+    @postcode = params[:postcode]
+    render :index
   end
 
   def multiple_authorities
@@ -97,7 +101,7 @@ private
   end
 
   def postcode
-    PostcodeSanitizer.sanitize(params[:postcode])
+    Postcode.new(params[:postcode]).to_s
   end
 
   def lgsl

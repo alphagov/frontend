@@ -26,7 +26,7 @@
         form_method: "get",
         format: "service",
         publication_format: "local_transaction",
-        postcode: @postcode.sanitized_postcode,
+        postcode: @postcode.to_s,
         margin_top: @location_error ? 5 : 0,
         publication_title: content_item.title,
         go_button_text: content_item.cta_text.presence,

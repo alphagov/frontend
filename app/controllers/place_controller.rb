@@ -34,18 +34,20 @@ class PlaceController < ContentItemsController
     end
 
     render :show, locals: { results_anchor: "results" }
+  rescue Postcode::InvalidPostcodeError
+    @location_error = LocationError.new(INVALID_POSTCODE)
+    @postcode = params[:postcode]
+    render :show, locals: { results_anchor: "results" }
   end
 
 private
-
-  helper_method :location_error
 
   def postcode_provided?
     params[:postcode].present? && request.post?
   end
 
   def postcode
-    PostcodeSanitizer.sanitize(params[:postcode])
+    Postcode.new(params[:postcode]).to_s
   end
 
   def local_authority_slug

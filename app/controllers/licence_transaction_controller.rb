@@ -26,7 +26,7 @@ class LicenceTransactionController < ContentItemsController
       )
     end
 
-    @postcode = postcode
+    @postcode = params[:postcode]
   end
 
   def find
@@ -53,6 +53,10 @@ class LicenceTransactionController < ContentItemsController
     @change_path = licence_transaction_path(slug: params[:slug])
     @onward_path = licence_transaction_multiple_authorities_path(slug: params[:slug])
     render :multiple_authorities
+  rescue Postcode::InvalidPostcodeError
+    @location_error = LocationError.new(INVALID_POSTCODE)
+    @postcode = params[:postcode]
+    render :start
   end
 
   def multiple_authorities
@@ -175,6 +179,6 @@ private
   end
 
   def postcode
-    PostcodeSanitizer.sanitize(params[:postcode])
+    Postcode.new(params[:postcode]).to_s
   end
 end
